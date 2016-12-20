@@ -22,7 +22,7 @@
 #'  \item{\code{getDataStoreNames(workspace)}}{
 #'    Get the list of available dataStore names. Returns an vector of class \code{character}
 #'  }
-#'  \item{\code{getDataStore(workspace, datastore)}}{
+#'  \item{\code{getDataStore(workspace, dataStore)}}{
 #'    Get an object of class \code{\link{GSDataStore}} given a workspace and datastore
 #'    names.
 #'  }
@@ -71,8 +71,8 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(dsList)
     },
     
-    getDataStore = function(workspace, datastore){
-      req <- self$GET(sprintf("/workspaces/%s/datastores/%s.xml", workspace, datastore))
+    getDataStore = function(workspace, dataStore){
+      req <- self$GET(sprintf("/workspaces/%s/datastores/%s.xml", workspace, dataStore))
       dsXML <- content(req)
       return(GSDataStore$new(dsXML))
     },

@@ -27,7 +27,7 @@ Geoserver REST API DataStore Manager
  \item{\code{getDataStoreNames(workspace)}}{
    Get the list of available dataStore names. Returns an vector of class \code{character}
  }
- \item{\code{getDataStore(workspace, datastore)}}{
+ \item{\code{getDataStore(workspace, dataStore)}}{
    Get an object of class \code{\link{GSDataStore}} given a workspace and datastore
    names.
  }
