@@ -9,4 +9,4 @@ Description: Geoserver REST API R Interface
 Depends: R (>= 3.0.0)
 Imports: R6, openssl, httr
 Suggests: testthat, roxygen2
-License: GPL (>=2)
+License: MIT + file LICENSE
