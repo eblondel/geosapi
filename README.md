@@ -1,2 +1,5 @@
-# geosapi
-R interface to GeoServer REST API
+**geosapi**
+===========
+
+``geosapi``: R Interface to GeoServer REST API
+
