@@ -3,6 +3,8 @@
 #' @docType class
 #' @importFrom R6 R6Class
 #' @importFrom openssl base64_encode
+#' @import httr
+#' @import xml2
 #' @export
 #' @keywords geoserver rest api
 #' @return Object of \code{\link{R6Class}} with methods for communication with
@@ -12,8 +14,7 @@
 #' @examples
 #' GSManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
 #'
-#' @field baseUrl the base URL of the GeoServer REST API
-#' @field token the authentication token used to connect to Geoserver
+#' @field verbose if logs have to be printed
 #'
 #' @section Methods:
 #' \describe{

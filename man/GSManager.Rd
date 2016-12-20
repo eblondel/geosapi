@@ -18,9 +18,7 @@ Geoserver REST API Manager
 \section{Fields}{
 
 \describe{
-\item{\code{baseUrl}}{the base URL of the GeoServer REST API}
-
-\item{\code{token}}{the authentication token used to connect to Geoserver}
+\item{\code{verbose}}{if logs have to be printed}
 }}
 \section{Methods}{
 

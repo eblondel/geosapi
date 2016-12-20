@@ -17,15 +17,14 @@
 #'    This method is used to instantiate a GSWorkspaceManager
 #'  }
 #'  \item{\code{getWorkspaces()}}{
-#'    Get the list of available workspaces.
+#'    Get the list of available workspace. Returns an object of class \code{xml_nodeset}
 #'  }
 #'  \item{\code{getWorkspaceNames()}}{
-#'    Get the list of available workspace names. Returns an object of class
-#'    \code{xml_nodeset}
+#'    Get the list of available workspace names. Returns an vector of class 
+#'    \code{character}
 #'  }
 #'  \item{\code{getWorkspace(name)}}{
-#'    Get a \code{\link{GSWorkspace}} object given a workspace name. Returns an
-#'    vector of class \code{character}
+#'    Get a \code{\link{GSWorkspace}} object given a workspace name.
 #'  }
 #' }
 #' 

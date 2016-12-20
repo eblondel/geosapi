@@ -1,60 +1,88 @@
-#' Geoserver REST API Datastore Manager
+#' Geoserver REST API DataStore Manager
 #'
 #' @docType class
 #' @importFrom R6 R6Class
 #' @export
-#' @keywords geoserver rest api datastore
+#' @keywords geoserver rest api DataStore
 #' @return Object of \code{\link{R6Class}} with methods for managing GeoServer
-#' datastores (i.e. stores of vector data)
+#' DataStores (i.e. stores of vector data)
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @examples
-#' GSDatastoreManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
+#' GSDataStoreManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
 #'
 #' @section Methods:
 #' \describe{
 #'  \item{\code{new(}}{
-#'    This method is used to instantiate a GSDatastoreManager
+#'    This method is used to instantiate a GSDataStoreManager
 #'  }
-#'  \item{\code{uploadData(workspace, datastore, endpoint, extension,
+#'  \item{\code{getDataStores(workspace)}}{
+#'    Get the list of available dataStores. Returns an object of class \code{xml_nodeset}
+#'  }
+#'  \item{\code{getDataStoreNames(workspace)}}{
+#'    Get the list of available dataStore names. Returns an vector of class \code{character}
+#'  }
+#'  \item{\code{getDataStore(workspace, datastore)}}{
+#'    Get an object of class \code{\link{GSDataStore}} given a workspace and datastore
+#'    names.
+#'  }
+#'  \item{\code{uploadData(workspace, dataStore, endpoint, extension,
 #'                         configure, update, filename, charset, contentType)}}{
-#'    Uploads data to a target datastore
+#'    Uploads data to a target dataStore
 #'  }
-#'  \item{\code{uploadShapefile(workspace, datastore, endpoint,
+#'  \item{\code{uploadShapefile(workspace, dataStore, endpoint,
 #'                              configure, update, filename, charset)}}{
-#'    Uploads a zipped ESRIshapefile to a target datastore
+#'    Uploads a zipped ESRIshapefile to a target dataStore
 #'  }
-#'  \item{\code{uploadProperties(workspace, datastore, endpoint,
+#'  \item{\code{uploadProperties(workspace, dataStore, endpoint,
 #'                              configure, update, filename, charset)}}{
-#'    Uploads a properties file to a target datastore
+#'    Uploads a properties file to a target dataStore
 #'  }
-#'  \item{\code{uploadH2(workspace, datastore, endpoint,
+#'  \item{\code{uploadH2(workspace, dataStore, endpoint,
 #'                              configure, update, filename, charset)}}{
-#'    Uploads a H2 database to a target datastore
+#'    Uploads a H2 database to a target dataStore
 #'  }
-#'  \item{\code{uploadSpatialite(workspace, datastore, endpoint,
+#'  \item{\code{uploadSpatialite(workspace, dataStore, endpoint,
 #'                              configure, update, filename, charset)}}{
-#'    Uploads a Spatialite database to a target datastore
+#'    Uploads a Spatialite database to a target dataStore
 #'  }
-##'  \item{\code{uploadAppschema(workspace, datastore, endpoint,
+##'  \item{\code{uploadAppschema(workspace, dataStore, endpoint,
 #'                              configure, update, filename, charset)}}{
-#'    Uploads a appschema file to a target datastore
+#'    Uploads a appschema file to a target dataStore
 #'  }
 #' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
-GSDatastoreManager <- R6Class("GSDatastoreManager",
+GSDataStoreManager <- R6Class("GSDataStoreManager",
   inherit = GSManager,
   
-  public = list(
+  public = list(   
+      
+    getDataStores = function(workspace){
+      req <- self$GET(sprintf("/workspaces/%s/datastores.xml", workspace))
+      dsXML <- content(req)
+      dsList <- xml_find_all(dsXML, "//dataStore")
+      return(dsList)
+    },
     
+    getDataStoreNames = function(workspace){
+      dsList <- sapply(self$getDataStores(workspace), function(x){trimws(xml_text(x))})
+      return(dsList)
+    },
+    
+    getDataStore = function(workspace, datastore){
+      req <- self$GET(sprintf("/workspaces/%s/datastores/%s.xml", workspace, datastore))
+      dsXML <- content(req)
+      return(GSDataStore$new(dsXML))
+    },
+
     #Upload methods
     #===========================================================================
     
     #uploadData
     #---------------------------------------------------------------------------
-    uploadData = function(workspace, datastore, endpoint = "file", extension,
+    uploadData = function(workspace, dataStore, endpoint = "file", extension,
                           configure = "first", update = "append", filename,
                           charset, contentType){
       uploaded <- FALSE
@@ -85,7 +113,7 @@ GSDatastoreManager <- R6Class("GSDatastoreManager",
       
       req <- self$PUT(
         path = sprintf("/workspaces/%s/datastores/%s/%s.%s?configure=%s&update=%s",
-                       workspace, datastore, endpoint, extension, configure, update),
+                       workspace, dataStore, endpoint, extension, configure, update),
         filename = filename,
         contentType = contentType
       )
@@ -97,11 +125,11 @@ GSDatastoreManager <- R6Class("GSDatastoreManager",
     
     #uploadShapefile
     #---------------------------------------------------------------------------
-    uploadShapefile = function(workspace, datastore, endpoint = "file",
+    uploadShapefile = function(workspace, dataStore, endpoint = "file",
                                 configure = "first", update = "append",
                                filename, charset = "UTF-8"){
       return(
-        self$uploadData(workspace, datastore, endpoint, extension = "shp",
+        self$uploadData(workspace, dataStore, endpoint, extension = "shp",
                         configure, update, filename, charset,
                         contentType = "application/zip")
       )
@@ -109,11 +137,11 @@ GSDatastoreManager <- R6Class("GSDatastoreManager",
     
     #uploadProperties (to test)
     #---------------------------------------------------------------------------
-    uploadProperties = function(workspace, datastore, endpoint = "file",
+    uploadProperties = function(workspace, dataStore, endpoint = "file",
                                configure = "first", update = "append",
                                filename, charset = "UTF-8"){
       return(
-        self$uploadData(workspace, datastore, endpoint, extension = "properties",
+        self$uploadData(workspace, dataStore, endpoint, extension = "properties",
                         configure, update, filename, charset,
                         contentType = "")
       )
@@ -121,11 +149,11 @@ GSDatastoreManager <- R6Class("GSDatastoreManager",
     
     #uploadH2 (to test)
     #---------------------------------------------------------------------------
-    uploadH2 = function(workspace, datastore, endpoint = "file",
+    uploadH2 = function(workspace, dataStore, endpoint = "file",
                         configure = "first", update = "append",
                         filename, charset = "UTF-8"){
       return(
-        self$uploadData(workspace, datastore, endpoint, extension = "h2",
+        self$uploadData(workspace, dataStore, endpoint, extension = "h2",
                         configure, update, filename, charset,
                         contentType = "")
       )
@@ -133,11 +161,11 @@ GSDatastoreManager <- R6Class("GSDatastoreManager",
     
     #uploadSpatialite (to test)
     #---------------------------------------------------------------------------
-    uploadSpatialite = function(workspace, datastore, endpoint = "file",
+    uploadSpatialite = function(workspace, dataStore, endpoint = "file",
                         configure = "first", update = "append",
                         filename, charset = "UTF-8"){
       return(
-        self$uploadData(workspace, datastore, endpoint, extension = "spatialite",
+        self$uploadData(workspace, dataStore, endpoint, extension = "spatialite",
                         configure, update, filename, charset,
                         contentType = "application/x-sqlite3")
       )
@@ -145,11 +173,11 @@ GSDatastoreManager <- R6Class("GSDatastoreManager",
     
     #uploadAppschema (to test)
     #---------------------------------------------------------------------------
-    uploadAppschema = function(workspace, datastore, endpoint = "file",
+    uploadAppschema = function(workspace, dataStore, endpoint = "file",
                                 configure = "first", update = "append",
                                 filename, charset = "UTF-8"){
       return(
-        self$uploadData(workspace, datastore, endpoint, extension = "appschema",
+        self$uploadData(workspace, dataStore, endpoint, extension = "appschema",
                         configure, update, filename, charset,
                         contentType = "application/appschema")
       )
