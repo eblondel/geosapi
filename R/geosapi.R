@@ -13,7 +13,7 @@
 #'    Type: \tab Package\cr
 #'    Version
 #'    : \tab 0.1\cr
-#'    Date: \tab 2016-12-19\cr
+#'    Date: \tab 2016-12-28\cr
 #'    License: \tab GPL(>=2.0)\cr
 #'    LazyLoad: \tab yes\cr
 #'  }

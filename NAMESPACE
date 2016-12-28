@@ -3,6 +3,7 @@
 export(GSDataStore)
 export(GSDataStoreManager)
 export(GSManager)
+export(GSWorkspace)
 export(GSWorkspaceManager)
 import(httr)
 import(xml2)

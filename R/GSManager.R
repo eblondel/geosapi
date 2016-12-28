@@ -35,6 +35,14 @@
 #'    This method performs a PUT request for a given \code{path} to GeoServer REST API,
 #'    to upload a file of name \code{filename} with given \code{contentType}
 #'  }
+#'  \item{\code{POST(path, content, contentType)}}{
+#'    This method performs a POST request for a given \code{path} to GeoServer REST API,
+#'    to post content of given \code{contentType}
+#'  }
+#'  \item{\code{DELETE(path)}}{
+#'    This method performs a DELETE request for a given GeoServer resource identified
+#'    by a \code{path} in GeoServer REST API
+#'  }
 #'  \item{\code{connect()}}{
 #'    This methods attempts a connection to GeoServer REST API. User internally
 #'    during initialization of \code{GSManager}.
@@ -116,6 +124,36 @@ GSManager <- R6Class("GSManager",
           "Content-type" = contentType
         ),    
         body = upload_file(filename),
+        verbose()
+      )
+      return(req)
+    },
+    
+    POST = function(path, content, contentType){
+      if(!grepl("^/", path)) path = paste0("/", path)
+      url <- paste0(self$getBaseUrl(), path)
+      req <- httr::POST(
+        url = url,
+        add_headers(
+          "User-Agent" = private$userAgent,
+          "Authorization" = paste("Basic", self$getToken()),
+          "Content-type" = contentType
+        ),    
+        body = content,
+        verbose()
+      )
+      return(req)
+    },
+    
+    DELETE = function(path){
+      if(!grepl("^/", path)) path = paste0("/", path)
+      url <- paste0(self$getBaseUrl(), path)
+      req <- httr::DELETE(
+        url = url,
+        add_headers(
+          "User-Agent" = private$userAgent,
+          "Authorization" = paste("Basic", self$getToken())
+        ),
         verbose()
       )
       return(req)

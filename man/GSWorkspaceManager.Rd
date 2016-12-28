@@ -22,7 +22,8 @@ Geoserver REST API Manager
    This method is used to instantiate a GSWorkspaceManager
  }
  \item{\code{getWorkspaces()}}{
-   Get the list of available workspace. Returns an object of class \code{xml_nodeset}
+   Get the list of available workspace. Returns an object of class \code{list}
+   containing items of class \code{\link{GSWorkspace}}
  }
  \item{\code{getWorkspaceNames()}}{
    Get the list of available workspace names. Returns an vector of class
@@ -30,6 +31,15 @@ Geoserver REST API Manager
  }
  \item{\code{getWorkspace(name)}}{
    Get a \code{\link{GSWorkspace}} object given a workspace name.
+ }
+ \item{\code{createWorkspace(name, uri)}}{
+   Creates a GeoServer workspace given a name, and an optional URI. Returns
+   \code{TRUE} if the workspace has been successfully created, \code{FALSE}
+   otherwise
+ }
+ \item{\code{deleteWorkspace(name)}}{
+   Deletes a GeoServer workspace given a name. Returns \code{TRUE} if the
+   workspace has been successfully deleted, \code{FALSE} otherwise
  }
 }
 }

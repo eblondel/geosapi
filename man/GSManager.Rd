@@ -40,6 +40,14 @@ Geoserver REST API Manager
    This method performs a PUT request for a given \code{path} to GeoServer REST API,
    to upload a file of name \code{filename} with given \code{contentType}
  }
+ \item{\code{POST(path, content, contentType)}}{
+   This method performs a POST request for a given \code{path} to GeoServer REST API,
+   to post content of given \code{contentType}
+ }
+ \item{\code{DELETE(path)}}{
+   This method performs a DELETE request for a given GeoServer resource identified
+   by a \code{path} in GeoServer REST API
+ }
  \item{\code{connect()}}{
    This methods attempts a connection to GeoServer REST API. User internally
    during initialization of \code{GSManager}.
