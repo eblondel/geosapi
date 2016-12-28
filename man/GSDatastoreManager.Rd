@@ -22,7 +22,8 @@ Geoserver REST API DataStore Manager
    This method is used to instantiate a GSDataStoreManager
  }
  \item{\code{getDataStores(workspace)}}{
-   Get the list of available dataStores. Returns an object of class \code{xml_nodeset}
+   Get the list of available dataStores. Returns an object of class \code{list}
+   giving items of class \code{\link{GSDataStore}}
  }
  \item{\code{getDataStoreNames(workspace)}}{
    Get the list of available dataStore names. Returns an vector of class \code{character}

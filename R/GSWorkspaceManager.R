@@ -46,7 +46,8 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
   public = list(
     
     getWorkspaces = function(){
-      req <- self$GET("/workspaces.xml")
+      req <- GSUtils$GET(self$getUrl(), private$user, private$pwd,
+                         "/workspaces.xml", self$verbose)
       wsXml <- content(req)
       wsXmlList <- xml_find_all(wsXml, "//workspace")
       wsList <- lapply(as_list(wsXmlList), function(x){
@@ -62,7 +63,8 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
     },
     
     getWorkspace = function(name){
-      req <- self$GET(sprintf("/workspaces/%s.xml", name))
+      req <- GSUtils$GET(self$getUrl(), private$user, private$pwd,
+                      sprintf("/workspaces/%s.xml", name), self$verbose)
       ws <- NULL
       if(status_code(req) == 200){
         wsXML <- content(req)
@@ -75,10 +77,14 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
       created <- FALSE
       if(missing(uri)){
         xml <- sprintf("<workspace><name>%s</name></workspace>", name)
-        req <- self$POST(
+        req <- GSUtils$POST(
+          url = self$getUrl(),
+          user = private$user,
+          pwd = private$pwd,
           path = "/workspaces",
           content = xml,
-          contentType = "text/xml"
+          contentType = "text/xml",
+          verbose = self$verbose
         )
         if(status_code(req) == 201){
           created = TRUE
@@ -95,7 +101,8 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
       if(recurse) path <- paste0(path, "?recurse=true")
       #TODO hack for style removing (not managed by REST API)
       
-      req <- self$DELETE(path = path)
+      req <- GSUtils$DELETE(self$getUrl(), private$user, private$pwd,
+                         path = path, self$verbose)
       if(status_code(req) == 200){
         deleted = TRUE
       }

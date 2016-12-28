@@ -17,7 +17,8 @@
 #'    This method is used to instantiate a GSDataStoreManager
 #'  }
 #'  \item{\code{getDataStores(workspace)}}{
-#'    Get the list of available dataStores. Returns an object of class \code{xml_nodeset}
+#'    Get the list of available dataStores. Returns an object of class \code{list}
+#'    giving items of class \code{\link{GSDataStore}}
 #'  }
 #'  \item{\code{getDataStoreNames(workspace)}}{
 #'    Get the list of available dataStore names. Returns an vector of class \code{character}
@@ -60,21 +61,39 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
   public = list(   
       
     getDataStores = function(workspace){
-      req <- self$GET(sprintf("/workspaces/%s/datastores.xml", workspace))
-      dsXML <- content(req)
-      dsList <- xml_find_all(dsXML, "//dataStore")
+      req <- GSUtils$GET(
+        self$getUrl(), private$user, private$pwd,
+        sprintf("/workspaces/%s/datastores.xml", workspace),
+        self$verbose)
+      dsXml <- content(req)
+      dsXmlList <- xml_find_all(dsXml, "//dataStore")
+      dsList <- lapply(as_list(dsXmlList), function(x){
+        xml <- xml_add_child(xml_new_document(), x)
+        return(GSDataStore$new(xml))
+      })
       return(dsList)
     },
     
     getDataStoreNames = function(workspace){
-      dsList <- sapply(self$getDataStores(workspace), function(x){trimws(xml_text(x))})
+      dsList <- sapply(self$getDataStores(workspace), function(x){x$name})
       return(dsList)
     },
     
     getDataStore = function(workspace, dataStore){
-      req <- self$GET(sprintf("/workspaces/%s/datastores/%s.xml", workspace, dataStore))
+      req <- GSUtils$GET(
+        self$getUrl(), private$user, private$pwd,
+        sprintf("/workspaces/%s/datastores/%s.xml", workspace, dataStore),
+        self$verbose)
       dsXML <- content(req)
       return(GSDataStore$new(dsXML))
+    },
+    
+    createDataStore = function(){
+      stop("Unsupported method. Coming soon")
+    },
+    
+    deleteDataStore = function(){
+      stop("Unsupported method. Coming soon")
     },
 
     #Upload methods
@@ -112,10 +131,12 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       }
       
       req <- self$PUT(
+        url = self$getUrl(), user = private$user, pwd = private$pwd,
         path = sprintf("/workspaces/%s/datastores/%s/%s.%s?configure=%s&update=%s",
                        workspace, dataStore, endpoint, extension, configure, update),
         filename = filename,
-        contentType = contentType
+        contentType = contentType,
+        self$verbose
       )
       if(status_code(req) == 201){
         uploaded = TRUE

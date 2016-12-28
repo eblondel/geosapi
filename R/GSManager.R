@@ -1,10 +1,6 @@
 #' Geoserver REST API Manager
 #'
 #' @docType class
-#' @importFrom R6 R6Class
-#' @importFrom openssl base64_encode
-#' @import httr
-#' @import xml2
 #' @export
 #' @keywords geoserver rest api
 #' @return Object of \code{\link{R6Class}} with methods for communication with
@@ -14,6 +10,7 @@
 #' @examples
 #' GSManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
 #'
+#' @field baseUrl the Base url of GeoServer
 #' @field verbose if logs have to be printed
 #'
 #' @section Methods:
@@ -22,26 +19,8 @@
 #'    This method is used to instantiate a GSManager with the \code{url} of the
 #'    GeoServer and credentials to authenticate (\code{user}/\code{pwd})
 #'  }
-#'  \item{\code{getBaseUrl()}}{
-#'    This method gives the base URL of the GeoServer REST API.
-#'  }
-#'  \item{\code{getToken()}}{
-#'    This method gives the authentication token to connect to Geoserver
-#'  }
-#'  \item{\code{GET(path)}}{
-#'    This method performs a GET request for a given \code{path} to GeoServer REST API
-#'  }
-#'  \item{\code{PUT(path, filename, contentType)}}{
-#'    This method performs a PUT request for a given \code{path} to GeoServer REST API,
-#'    to upload a file of name \code{filename} with given \code{contentType}
-#'  }
-#'  \item{\code{POST(path, content, contentType)}}{
-#'    This method performs a POST request for a given \code{path} to GeoServer REST API,
-#'    to post content of given \code{contentType}
-#'  }
-#'  \item{\code{DELETE(path)}}{
-#'    This method performs a DELETE request for a given GeoServer resource identified
-#'    by a \code{path} in GeoServer REST API
+#'  \item{\code{getUrl()}}{
+#'    Get the authentication URL
 #'  }
 #'  \item{\code{connect()}}{
 #'    This methods attempts a connection to GeoServer REST API. User internally
@@ -55,14 +34,14 @@
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
 GSManager <- R6Class("GSManager",
- 
+  
   private = list(
-    userAgent = paste("geosapi", packageVersion("geosapi"), sep="-"),
-    baseUrl = NA,
-    token = NA
+    user = NA,
+    pwd = NA
   ),
-
+                     
   public = list(
+    url = NA,
     verbose = TRUE,
     initialize = function(url, user, pwd, verbose = TRUE){
      
@@ -76,10 +55,9 @@ GSManager <- R6Class("GSManager",
       }else{
         baseUrl = paste(baseUrl, "rest", sep = "/")
       }  
-      private$baseUrl = baseUrl
-      
-      #credentials
-      private$token = openssl::base64_encode(charToRaw(paste(user, pwd, sep=":")))
+      self$url = baseUrl
+      private$user = user
+      private$pwd = pwd
       
       #try to connect
       if(self$getClassName() == "GSManager"){
@@ -91,76 +69,12 @@ GSManager <- R6Class("GSManager",
       
     },
     
-    getBaseUrl = function(){
-      return(private$baseUrl)
-    },
-    
-    getToken = function(){
-      return(private$token)
-    },
-    
-    GET = function(path){
-      if(!grepl("^/", path)) path = paste0("/", path)
-      url <- paste0(self$getBaseUrl(), path) 
-      req <- httr::GET(
-        url = url,
-        add_headers(
-          "User-Agent" = private$userAgent,
-          "Authorization" = paste("Basic", self$getToken())
-        ),    
-        verbose(data_out = self$verbose)
-      )
-      return(req)
-    },
-    
-    PUT = function(path, filename, contentType){
-      if(!grepl("^/", path)) path = paste0("/", path)
-      url <- paste0(self$getBaseUrl(), path)
-      req <- httr::PUT(
-        url = url,
-        add_headers(
-          "User-Agent" = private$userAgent,
-          "Authorization" = paste("Basic", self$getToken()),
-          "Content-type" = contentType
-        ),    
-        body = upload_file(filename),
-        verbose()
-      )
-      return(req)
-    },
-    
-    POST = function(path, content, contentType){
-      if(!grepl("^/", path)) path = paste0("/", path)
-      url <- paste0(self$getBaseUrl(), path)
-      req <- httr::POST(
-        url = url,
-        add_headers(
-          "User-Agent" = private$userAgent,
-          "Authorization" = paste("Basic", self$getToken()),
-          "Content-type" = contentType
-        ),    
-        body = content,
-        verbose()
-      )
-      return(req)
-    },
-    
-    DELETE = function(path){
-      if(!grepl("^/", path)) path = paste0("/", path)
-      url <- paste0(self$getBaseUrl(), path)
-      req <- httr::DELETE(
-        url = url,
-        add_headers(
-          "User-Agent" = private$userAgent,
-          "Authorization" = paste("Basic", self$getToken())
-        ),
-        verbose()
-      )
-      return(req)
+    getUrl = function(){
+      return(self$url)
     },
     
     connect = function(){
-      req <- self$GET("/")
+      req <- GSUtils$GET(self$getUrl(), private$user, private$pwd, "/", self$verbose)
       if(status_code(req) == 401){
         stop("Impossible to connect to GeoServer: Wrong credentials")
       }

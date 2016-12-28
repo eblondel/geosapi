@@ -18,6 +18,8 @@ Geoserver REST API Manager
 \section{Fields}{
 
 \describe{
+\item{\code{baseUrl}}{the Base url of GeoServer}
+
 \item{\code{verbose}}{if logs have to be printed}
 }}
 \section{Methods}{
@@ -27,26 +29,8 @@ Geoserver REST API Manager
    This method is used to instantiate a GSManager with the \code{url} of the
    GeoServer and credentials to authenticate (\code{user}/\code{pwd})
  }
- \item{\code{getBaseUrl()}}{
-   This method gives the base URL of the GeoServer REST API.
- }
- \item{\code{getToken()}}{
-   This method gives the authentication token to connect to Geoserver
- }
- \item{\code{GET(path)}}{
-   This method performs a GET request for a given \code{path} to GeoServer REST API
- }
- \item{\code{PUT(path, filename, contentType)}}{
-   This method performs a PUT request for a given \code{path} to GeoServer REST API,
-   to upload a file of name \code{filename} with given \code{contentType}
- }
- \item{\code{POST(path, content, contentType)}}{
-   This method performs a POST request for a given \code{path} to GeoServer REST API,
-   to post content of given \code{contentType}
- }
- \item{\code{DELETE(path)}}{
-   This method performs a DELETE request for a given GeoServer resource identified
-   by a \code{path} in GeoServer REST API
+ \item{\code{getUrl()}}{
+   Get the authentication URL
  }
  \item{\code{connect()}}{
    This methods attempts a connection to GeoServer REST API. User internally

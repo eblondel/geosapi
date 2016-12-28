@@ -2,6 +2,10 @@
 #' @aliases geosapi-package
 #' @aliases geosapi
 #' @docType package
+#' @importFrom R6 R6Class
+#' @importFrom openssl base64_encode
+#' @import httr
+#' @import xml2
 #' 
 #' @title Geoserver REST API R Interface
 #' @description
