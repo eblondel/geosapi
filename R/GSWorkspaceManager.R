@@ -1,4 +1,4 @@
-#' Geoserver REST API Manager
+#' Geoserver REST API Workspace Manager
 #'
 #' @docType class
 #' @importFrom R6 R6Class
@@ -28,9 +28,11 @@
 #'    Get a \code{\link{GSWorkspace}} object given a workspace name.
 #'  }
 #'  \item{\code{createWorkspace(name, uri)}}{
-#'    Creates a GeoServer workspace given a name, and an optional URI. Returns
-#'    \code{TRUE} if the workspace has been successfully created, \code{FALSE}
-#'    otherwise
+#'    Creates a GeoServer workspace given a name, and an optional URI. If the URI
+#'    is not specified, GeoServer will automatically create an associated Namespace 
+#'    with the URI being "http://{workspaceName}. If the URI is specified, the method
+#'    invokes the method \code{createNamespace(name, uri)} of the \code{\link{GSNamespaceManager}}.
+#'    Returns \code{TRUE} if the workspace has been successfully created, \code{FALSE} otherwise
 #'  }
 #'  \item{\code{deleteWorkspace(name)}}{
 #'    Deletes a GeoServer workspace given a name. Returns \code{TRUE} if the 
@@ -90,7 +92,8 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
           created = TRUE
         }
       }else{
-        #TODO alias to createNamespace
+        nsman <- GSNamespaceManager$new(self$getUrl(), private$user, private$pwd)
+        created <- nsman$createNamespace(name, uri)
       }
       return(created)
     },

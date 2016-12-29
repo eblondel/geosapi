@@ -32,6 +32,11 @@ test_that("CREATE workspace",{
   expect_true(created)
   ws <- gsman$getWorkspace("geosapi")
   expect_equal(ws$name, "geosapi")
+  nsman <- GSNamespaceManager$new(gsUrl, gsUsr, gsPwd)
+  ns <- nsman$getNamespace("geosapi")
+  expect_equal(ns$name, "geosapi")
+  expect_equal(ns$prefix, "geosapi")
+  expect_equal(ns$uri, "http://geosapi")
 })
 
 test_that("DELETE workspace",{

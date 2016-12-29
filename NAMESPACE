@@ -3,6 +3,8 @@
 export(GSDataStore)
 export(GSDataStoreManager)
 export(GSManager)
+export(GSNamespace)
+export(GSNamespaceManager)
 export(GSUtils)
 export(GSWorkspace)
 export(GSWorkspaceManager)
