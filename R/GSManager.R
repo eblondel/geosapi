@@ -29,6 +29,15 @@
 #'  \item{\code{getClassName()}}{
 #'    Retrieves the name of the class instance
 #'  }
+#'  \item{\code{getWorkspaceManager()}}{
+#'    Retrieves an instance of workspace manager
+#'  }
+#'  \item{\code{getNamespaceManager()}}{
+#'    Retrieves an instance of namespace manager
+#'  }
+#'  \item{\code{getDataStoreManager()}}{
+#'    Retrieves an instance of datastore manager
+#'  }
 #' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
@@ -89,6 +98,18 @@ GSManager <- R6Class("GSManager",
     
     getClassName = function(){
       return(class(self)[1])
+    },
+    
+    getWorkspaceManager = function(){
+      return(GSWorkspaceManager$new(self$getUrl(), private$user, private$pwd))
+    },
+    
+    getNamespaceManager = function(){
+      return(GSNamespaceManager$new(self$getUrl(), private$user, private$pwd))
+    },
+    
+    getDataStoreManager = function(){
+      return(GSDataStoreManager$new(self$getUrl(), private$user, private$pwd))
     }
     
   )

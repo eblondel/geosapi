@@ -39,6 +39,15 @@ Geoserver REST API Manager
  \item{\code{getClassName()}}{
    Retrieves the name of the class instance
  }
+ \item{\code{getWorkspaceManager()}}{
+   Retrieves an instance of workspace manager
+ }
+ \item{\code{getNamespaceManager()}}{
+   Retrieves an instance of namespace manager
+ }
+ \item{\code{getDataStoreManager()}}{
+   Retrieves an instance of datastore manager
+ }
 }
 }
 \examples{
