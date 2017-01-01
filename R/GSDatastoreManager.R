@@ -130,7 +130,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
                      update, paste0(supportedUpdates, collapse=",")))
       }
       
-      req <- self$PUT(
+      req <- GSUtils$PUT(
         url = self$getUrl(), user = private$user, pwd = private$pwd,
         path = sprintf("/workspaces/%s/datastores/%s/%s.%s?configure=%s&update=%s",
                        workspace, dataStore, endpoint, extension, configure, update),

@@ -1,6 +1,10 @@
 #' Geoserver REST API Manager
 #'
 #' @docType class
+#' @importFrom R6 R6Class
+#' @importFrom openssl base64_encode
+#' @import httr
+#' @import xml2
 #' @export
 #' @keywords geoserver rest api
 #' @return Object of \code{\link{R6Class}} with methods for communication with
