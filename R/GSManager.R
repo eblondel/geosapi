@@ -4,7 +4,7 @@
 #' @importFrom R6 R6Class
 #' @importFrom openssl base64_encode
 #' @import httr
-#' @import xml2
+#' @import XML
 #' @export
 #' @keywords geoserver rest api
 #' @return Object of \code{\link{R6Class}} with methods for communication with
@@ -79,6 +79,8 @@ GSManager <- R6Class("GSManager",
           cat("Successfully connected to GeoServer!\n")
         }
       }
+      
+      invisible(self)
       
     },
     

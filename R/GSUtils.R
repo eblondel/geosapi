@@ -32,6 +32,12 @@
 #'    This method performs a DELETE request for a given GeoServer resource identified
 #'    by a \code{path} in GeoServer REST API
 #'  }
+#'  \item{\code{parseResponseXML(req)}}{
+#'    Convenience method to parse XML response from GeoServer REST API. Although package \pkg{httr}
+#'    suggests the use of \pkg{xml2} package for handling XML, \pkg{geosapi} still relies
+#'    on the package \pkg{XML}. Response from \pkg{httr} is retrieved as text, and then parsed as
+#'    XML using \code{\link{XML::xmlParse}} function.
+#'  }
 #' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
@@ -109,4 +115,8 @@ GSUtils$DELETE <- function(url, user, pwd, path, verbose = TRUE){
     verbose()
   )
   return(req)
+}
+
+GSUtils$parseResponseXML <- function(req){
+  return(xmlParse(content(req, as = "text")))
 }

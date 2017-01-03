@@ -65,12 +65,15 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         self$getUrl(), private$user, private$pwd,
         sprintf("/workspaces/%s/datastores.xml", workspace),
         self$verbose)
-      dsXml <- content(req)
-      dsXmlList <- xml_find_all(dsXml, "//dataStore")
-      dsList <- lapply(as_list(dsXmlList), function(x){
-        xml <- xml_add_child(xml_new_document(), x)
-        return(GSDataStore$new(xml))
-      })
+      dsList <- NULL
+      if(status_code(req) == 200){
+        dsXML <- GSUtils$parseResponseXML(req)
+        dsXMLList <- getNodeSet(dsXML, "//dataStore")
+        dsList <- lapply(dsXMLList, function(x){
+          xml <- xmlDoc(x)
+          return(GSDataStore$new(xml))
+        })
+      }
       return(dsList)
     },
     
@@ -84,16 +87,42 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         self$getUrl(), private$user, private$pwd,
         sprintf("/workspaces/%s/datastores/%s.xml", workspace, dataStore),
         self$verbose)
-      dsXML <- content(req)
-      return(GSDataStore$new(dsXML))
+      ds <- NULL
+      if(status_code(req) == 200){
+        dsXML <- GSUtils$parseResponseXML(req)
+        ds <- GSDataStore$new(dsXML)
+      }
+      return(ds)
     },
     
-    createDataStore = function(){
-      stop("Unsupported method. Coming soon")
+    createDataStore = function(workspace, dataStore, description, type,
+                               enabled = TRUE, connectionParameters = NULL){
+      created <- FALSE
+      xml <- "" #TODO
+      req <- GSUtils$POST(
+        url = self$getUrl(),
+        user = private$user,
+        pwd = private$pwd,
+        path = sprintf("/workspaces/%s/datastores.xml", workspace),
+        content = xml,
+        contentType = "text/xml",
+        verbose = self$verbose
+      )
+      if(status_code(req) == 201){
+        created = TRUE
+      }
     },
     
-    deleteDataStore = function(){
-      stop("Unsupported method. Coming soon")
+    deleteDataStore = function(workspace, dataStore, recurse = FALSE){
+      deleted <- FALSE
+      path <- sprintf("/workspaces/%s/datastores/%s.xml", workspace, dataStore)
+      if(recurse) path <- paste0(path, "?recurse=true")
+      req <- GSUtils$DELETE(self$getUrl(), private$user, private$pwd,
+                            path = path, self$verbose)
+      if(status_code(req) == 200){
+        deleted = TRUE
+      }
+      return(deleted)  
     },
 
     #Upload methods

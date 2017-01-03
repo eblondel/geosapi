@@ -48,41 +48,45 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
     getNamespaces = function(){
       req <- GSUtils$GET(self$getUrl(), private$user, private$pwd,
                          "/namespaces.xml", self$verbose)
-      wsXml <- content(req)
-      wsXmlList <- xml_find_all(wsXml, "//namespace")
-      wsList <- lapply(as_list(wsXmlList), function(x){
-        xml <- xml_add_child(xml_new_document(), x)
-        return(GSNamespace$new(xml))
-      })
-      return(wsList)
+      nsList <- NULL
+      if(status_code(req) == 200){
+        nsXML <- GSUtils$parseResponseXML(req)
+        nsXMLList <- getNodeSet(nsXML, "//namespace")
+        nsList <- lapply(nsXMLList, function(x){
+          xml <- xmlDoc(x)
+          return(GSNamespace$new(xml))
+        })
+      }
+      return(nsList)
     },
     
     getNamespaceNames = function(){
-      wsList <- sapply(self$getNamespaces(), function(x){x$name})
-      return(wsList)
+      nsList <- sapply(self$getNamespaces(), function(x){x$name})
+      return(nsList)
     },
     
     getNamespace = function(prefix){
       req <- GSUtils$GET(self$getUrl(), private$user, private$pwd,
                          sprintf("/namespaces/%s.xml", prefix), self$verbose)
-      ws <- NULL
+      ns <- NULL
       if(status_code(req) == 200){
-        wsXML <- content(req)
-        ws <- GSNamespace$new(wsXML)
+        nsXML <- GSUtils$parseResponseXML(req)
+        ns <- GSNamespace$new(nsXML)
       }
-      return(ws)
+      return(ns)
     },
     
     createNamespace = function(prefix, uri){
       created <- FALSE
-      xml <- sprintf("<namespace><prefix>%s</prefix><uri>%s</uri></namespace>",
-                     prefix, uri)
+      
+      ns <- GSNamespace$encode(prefix, uri)
+
       req <- GSUtils$POST(
         url = self$getUrl(),
         user = private$user,
         pwd = private$pwd,
         path = "/namespaces",
-        content = xml,
+        content = as(ns$xml, "character"),
         contentType = "text/xml",
         verbose = self$verbose
       )

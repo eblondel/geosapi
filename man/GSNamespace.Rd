@@ -29,6 +29,12 @@ Geoserver REST API Namespace
  \item{\code{new(xml)}}{
    This method is used to instantiate a GSNamespace
  }
+ \item{\code{decode(xml)}}{
+   This method is used to decode a GSNamespace from XML
+ }
+ \item{\code{encode(prefix, uri)}}{
+   This method is used to encode a GSNamespace with a prefix and uri
+ }
 }
 }
 \examples{

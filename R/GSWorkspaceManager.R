@@ -47,44 +47,53 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
 
   public = list(
     
+    #getWorkspaces
     getWorkspaces = function(){
       req <- GSUtils$GET(self$getUrl(), private$user, private$pwd,
                          "/workspaces.xml", self$verbose)
-      wsXml <- content(req)
-      wsXmlList <- xml_find_all(wsXml, "//workspace")
-      wsList <- lapply(as_list(wsXmlList), function(x){
-        xml <- xml_add_child(xml_new_document(), x)
-        return(GSWorkspace$new(xml))
-      })
+      wsList <- NULL
+      if(status_code(req) == 200){
+        wsXML <- GSUtils$parseResponseXML(req)
+        wsXMLList <- getNodeSet(wsXML, "//workspace")
+        wsList <- lapply(wsXMLList, function(x){
+          xml <- xmlDoc(x)
+          return(GSWorkspace$new(xml))
+        })
+      }
       return(wsList)
     },
     
+    #getWorkspaceNames
     getWorkspaceNames = function(){
       wsList <- sapply(self$getWorkspaces(), function(x){x$name})
       return(wsList)
     },
     
+    #getWorkspace
     getWorkspace = function(name){
       req <- GSUtils$GET(self$getUrl(), private$user, private$pwd,
                       sprintf("/workspaces/%s.xml", name), self$verbose)
       ws <- NULL
       if(status_code(req) == 200){
-        wsXML <- content(req)
+        wsXML <- GSUtils$parseResponseXML(req)
         ws <- GSWorkspace$new(wsXML)
       }
       return(ws)
     },
     
+    #createWorkspace
     createWorkspace = function(name, uri){
       created <- FALSE
       if(missing(uri)){
-        xml <- sprintf("<workspace><name>%s</name></workspace>", name)
+        
+        ws <- GSWorkspace$encode(name)
+        
         req <- GSUtils$POST(
           url = self$getUrl(),
           user = private$user,
           pwd = private$pwd,
           path = "/workspaces",
-          content = xml,
+          content = as(ws$xml, "character"),
           contentType = "text/xml",
           verbose = self$verbose
         )
@@ -98,6 +107,7 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
       return(created)
     },
     
+    #deleteWorkspace
     deleteWorkspace = function(name, recurse = FALSE){
       deleted <- FALSE
       path <- sprintf("/workspaces/%s", name)

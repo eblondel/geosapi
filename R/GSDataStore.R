@@ -28,7 +28,7 @@ GSDataStore <- R6Class("GSDataStore",
     xml = NA,
     full = FALSE,
     name = NA,
-    enabled = FALSE,
+    enabled = NA,
     description = NA,
     type = NA,
     workspace = NA,
@@ -37,26 +37,27 @@ GSDataStore <- R6Class("GSDataStore",
     
     initialize = function(xml){
       self$xml <- xml
-      names <- xml_find_all(xml, "//dataStore/name")
-      self$name <- xml_text(names[1], trim = TRUE)
-      self$full <- length(names) == 1
+      names <- getNodeSet(xml, "//dataStore/name")
+      self$name <- xmlValue(names[[1]])
+      enabled <- getNodeSet(xml,"//enabled")
+      self$full <- length(length(enabled)) > 0
       if(self$full){
-        self$enabled <- as.logical(xml_text(xml_find_all(xml,"//enabled")[1], trim = TRUE))
-        self$workspace <- xml_text(xml_find_all(xml, "//workspace/name")[1], trim = TRUE)
-        self$description <- xml_text(xml_find_all(xml,"//description")[1], trim = TRUE)
+        self$enabled <- as.logical(xmlValue(enabled[[1]]))
+        self$workspace <- xmlValue(getNodeSet(xml, "//workspace/name")[[1]])
+        self$description <- xmlValue(getNodeSet(xml,"//description")[[1]])
         
-        typeXml <- xml_find_all(xml,"//type")
-        if(length(typeXml) > 0) self$type <- xml_text(typeXml[1], trim = TRUE)
+        typeXML <- getNodeSet(xml,"//type")
+        if(length(typeXML) > 0) self$type <- xmlValue(typeXML[[1]])
         
-        paramsXML <- xml_find_all(xml,"//connectionParameters/entry")
+        paramsXML <- getNodeSet(xml,"//connectionParameters/entry")
         self$connectionParameters = lapply(paramsXML, function(x){
-          param <- xml_text(x, trim = TRUE)
+          param <- xmlValue(x)
           if(param %in% c("true","false")){
             param <- as.logical(param)
           }
           return(param)
         })
-        names(self$connectionParameters) = lapply(paramsXML, xml_attr, "key")
+        names(self$connectionParameters) = lapply(paramsXML, xmlGetAttr, "key")
       }
     }
   )                     

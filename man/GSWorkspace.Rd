@@ -27,6 +27,12 @@ Geoserver REST API Workspace
  \item{\code{new(xml)}}{
    This method is used to instantiate a GSWorkspace
  }
+ \item{\code{decode(xml)}}{
+   This method is used to decode a GSWorkspace from XML
+ }
+ \item{\code{encode(name)}}{
+   This method is used to encode a GSWorkspace from name
+ }
 }
 }
 \examples{

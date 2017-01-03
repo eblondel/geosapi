@@ -28,9 +28,15 @@ test_that("GET dataStores",{
 })
 
 test_that("CREATE dataStore",{
-
+  #created <- gsman$createDataStore("cite", "test_datastore")
+  #expect_true(created)
+  #ds <- gsman$getDataStore("cite", "test_datastore")
+  #expect_is(ds, "GSDataStore")
 })
 
 test_that("DELETE dataStore",{
-  
+  deleted <- gsman$deleteDataStore("cite", "test_datastore")
+  expect_true(deleted)
+  ds <- gsman$getDataStore("cite", "test_datastore")
+  expect_is(ds, "NULL")
 })

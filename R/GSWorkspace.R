@@ -18,6 +18,12 @@
 #'  \item{\code{new(xml)}}{
 #'    This method is used to instantiate a GSWorkspace
 #'  }
+#'  \item{\code{decode(xml)}}{
+#'    This method is used to decode a GSWorkspace from XML
+#'  }
+#'  \item{\code{encode(name)}}{
+#'    This method is used to encode a GSWorkspace from name
+#'  }
 #' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
@@ -29,9 +35,20 @@ GSWorkspace <- R6Class("GSWorkspace",
     name = NA,
     
     initialize = function(xml){
-     self$xml <- xml
-     names <- xml_find_all(xml, "//name")
-     self$name <- xml_text(names[1], trim = TRUE)
+      self$decode(xml)
+    },
+    
+    decode = function(xml){
+      self$xml <- xml
+      names <- getNodeSet(xml, "//name")
+      self$name <- xmlValue(names[[1]])
     }
-   )                     
+    
+  )                     
 )
+
+GSWorkspace$encode <- function(name){
+  wsXML <- newXMLNode("workspace")
+  wsName <- newXMLNode("name", name, parent = wsXML)
+  return(GSWorkspace$new(wsXML))
+}

@@ -19,6 +19,12 @@
 #'  \item{\code{new(xml)}}{
 #'    This method is used to instantiate a GSNamespace
 #'  }
+#'  \item{\code{decode(xml)}}{
+#'    This method is used to decode a GSNamespace from XML
+#'  }
+#'  \item{\code{encode(prefix, uri)}}{
+#'    This method is used to encode a GSNamespace with a prefix and uri
+#'  }
 #' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
@@ -33,17 +39,28 @@ GSNamespace <- R6Class("GSNamespace",
     full = FALSE,
    
     initialize = function(xml){
+      self$decode(xml)
+    },
+    
+    decode = function(xml){
       self$xml <- xml
-      names <- xml_find_all(xml, "//name")
+      names <- getNodeSet(xml, "//name")
       if(length(names)>0){
         self$full <- FALSE
-        self$name <- xml_text(names[1], trim = TRUE)
+        self$name <- xmlValue(names[[1]])
       }else{
         self$full <- TRUE
-        self$prefix <- xml_text(xml_find_all(xml, "//prefix")[1], trim = TRUE)
+        self$prefix <- xmlValue(getNodeSet(xml, "//prefix")[[1]])
         self$name <- self$prefix
-        self$uri <- xml_text(xml_find_all(xml, "//uri")[1], trim = TRUE)
+        self$uri <- xmlValue(getNodeSet(xml, "//uri")[[1]])
       }
     }
   )                     
 )
+
+GSNamespace$encode <- function(prefix, uri){
+  nsXML <- newXMLNode("namespace")
+  nsPrefix <- newXMLNode("prefix", prefix, parent = nsXML)
+  nsUri <- newXMLNode("uri", uri, parent = nsXML)
+  return(GSNamespace$new(nsXML))
+}

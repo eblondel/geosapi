@@ -7,6 +7,6 @@ Author: Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 Maintainer: Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 Description: Geoserver REST API R Interface
 Depends: R (>= 3.1.0)
-Imports: R6, openssl, httr, xml2 (>= 1.0)
+Imports: R6, openssl, httr, XML
 Suggests: testthat, roxygen2
 License: MIT + file LICENSE
