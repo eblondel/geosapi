@@ -35,11 +35,11 @@ GSWorkspace <- R6Class("GSWorkspace",
     name = NA,
     
     initialize = function(xml){
+      self$xml <- xml
       self$decode(xml)
     },
     
     decode = function(xml){
-      self$xml <- xml
       names <- getNodeSet(xml, "//name")
       self$name <- xmlValue(names[[1]])
     }

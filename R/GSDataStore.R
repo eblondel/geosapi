@@ -16,7 +16,13 @@
 #' @section Methods:
 #' \describe{
 #'  \item{\code{new(xml)}}{
-#'    This method is used to instantiate a GSDataStoreManager
+#'    This method is used to instantiate a GSDataStore
+#'  }
+#'  \item{\code{decode(xml)}}{
+#'    This method is used to decode a GSDataStore from XML
+#'  }
+#'  \item{\code{encode()}}{
+#'    This method is used to encode a GSDataStore
 #'  }
 #' }
 #' 
@@ -37,6 +43,10 @@ GSDataStore <- R6Class("GSDataStore",
     
     initialize = function(xml){
       self$xml <- xml
+      self$decode(xml)
+    },
+    
+    decode = function(xml){
       names <- getNodeSet(xml, "//dataStore/name")
       self$name <- xmlValue(names[[1]])
       enabled <- getNodeSet(xml,"//enabled")
@@ -62,3 +72,24 @@ GSDataStore <- R6Class("GSDataStore",
     }
   )                     
 )
+
+GSDataStore$encode <- function(workspace, dataStore, description, type,
+                               enabled = TRUE, connectionParameters){
+  dsXML <- newXMLNode("dataStore")
+  dsName <- newXMLNode("name", dataStore, parent = dsXML)
+  dsDesc <- newXMLNode("description", description, parent = dsXML)
+  dsType <- newXMLNode("type", type, parent = dsXML)
+  dsEnabled <- newXMLNode("enabled", tolower(as.character(enabled)), parent = dsXML)
+  dsWs <- newXMLNode("workspace", parent = dsXML)
+  dsWsName <- newXMLNode("name", workspace, parent = dsWs)
+  
+  if(!missing(connectionParameters)){
+    dsParams <- newXMLNode("connectionParameters", parent = dsXML)
+    for(i in 1:length(connectionParameters)){
+      paramName <- names(connectionParameters)[i]
+      paramValue <- connectionParameters[[paramName]]
+      param <- newXMLNode("entry", attrs = c(key = paramName), paramValue, parent = dsParams)
+    }
+  }
+  
+}

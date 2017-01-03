@@ -98,13 +98,14 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     createDataStore = function(workspace, dataStore, description, type,
                                enabled = TRUE, connectionParameters = NULL){
       created <- FALSE
-      xml <- "" #TODO
+      ds <- GSDataStore$encode(workspace, dataStore, description, type,
+                                enabled, connectionParameters)
       req <- GSUtils$POST(
         url = self$getUrl(),
         user = private$user,
         pwd = private$pwd,
         path = sprintf("/workspaces/%s/datastores.xml", workspace),
-        content = xml,
+        content = as(ds$xml, "character"),
         contentType = "text/xml",
         verbose = self$verbose
       )

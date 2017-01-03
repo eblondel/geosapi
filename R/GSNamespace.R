@@ -39,11 +39,11 @@ GSNamespace <- R6Class("GSNamespace",
     full = FALSE,
    
     initialize = function(xml){
+      self$xml <- xml
       self$decode(xml)
     },
     
     decode = function(xml){
-      self$xml <- xml
       names <- getNodeSet(xml, "//name")
       if(length(names)>0){
         self$full <- FALSE
