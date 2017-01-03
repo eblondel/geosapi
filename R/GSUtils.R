@@ -38,6 +38,9 @@
 #'    on the package \pkg{XML}. Response from \pkg{httr} is retrieved as text, and then parsed as
 #'    XML using \code{\link{XML::xmlParse}} function.
 #'  }
+#'  \item{\code{getPayloadXML(obj)}}{
+#'    Convenience method to create payload XML to send to GeoServer.
+#'  }
 #' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
@@ -119,4 +122,14 @@ GSUtils$DELETE <- function(url, user, pwd, path, verbose = TRUE){
 
 GSUtils$parseResponseXML <- function(req){
   return(xmlParse(content(req, as = "text")))
+}
+
+GSUtils$getPayloadXML <- function(obj){
+  if(!("encode" %in% names(obj))){
+    stop("R6 class with no XML encoder method!")
+  }
+  xml <- obj$encode()
+  xmltext <- as(xml, "character")
+  payload <- gsub("[\r\n ] ", "", xmltext)
+  return(payload)
 }

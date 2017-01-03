@@ -13,8 +13,9 @@
 #'
 #' @section Methods:
 #' \describe{
-#'  \item{\code{new(}}{
-#'    This method is used to instantiate a GSWorkspaceManager
+#'  \item{\code{new(url, user, pwd)}}{
+#'    This method is used to instantiate a GSWorkspaceManager with the \code{url} of the
+#'    GeoServer and credentials to authenticate (\code{user}/\code{pwd})
 #'  }
 #'  \item{\code{getWorkspaces()}}{
 #'    Get the list of available workspace. Returns an object of class \code{list}
@@ -57,7 +58,7 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
         wsXMLList <- getNodeSet(wsXML, "//workspace")
         wsList <- lapply(wsXMLList, function(x){
           xml <- xmlDoc(x)
-          return(GSWorkspace$new(xml))
+          return(GSWorkspace$new(xml = xml))
         })
       }
       return(wsList)
@@ -76,7 +77,7 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
       ws <- NULL
       if(status_code(req) == 200){
         wsXML <- GSUtils$parseResponseXML(req)
-        ws <- GSWorkspace$new(wsXML)
+        ws <- GSWorkspace$new(xml = wsXML)
       }
       return(ws)
     },
@@ -86,14 +87,14 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
       created <- FALSE
       if(missing(uri)){
         
-        ws <- GSWorkspace$encode(name)
+        ws <- GSWorkspace$new(name = name)
         
         req <- GSUtils$POST(
           url = self$getUrl(),
           user = private$user,
           pwd = private$pwd,
           path = "/workspaces",
-          content = as(ws$xml, "character"),
+          content = GSUtils$getPayloadXML(ws),
           contentType = "text/xml",
           verbose = self$verbose
         )

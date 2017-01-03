@@ -17,28 +17,30 @@ Geoserver REST API Namespace
 \section{Fields}{
 
 \describe{
-\item{\code{xml}}{}
-
 \item{\code{name}}{}
+
+\item{\code{prefix}}{}
+
+\item{\code{uri}}{}
 
 \item{\code{full}}{}
 }}
 \section{Methods}{
 
 \describe{
- \item{\code{new(xml)}}{
+ \item{\code{new(xml, prefix, uri)}}{
    This method is used to instantiate a GSNamespace
  }
  \item{\code{decode(xml)}}{
    This method is used to decode a GSNamespace from XML
  }
- \item{\code{encode(prefix, uri)}}{
-   This method is used to encode a GSNamespace with a prefix and uri
+ \item{\code{encode()}}{
+   This method is used to encode a GSNamespace to XML
  }
 }
 }
 \examples{
-GSNamespace$new(xml)
+GSNamespace$new(prefix = "prefix", uri = "http://prefix")
 }
 \author{
 Emmanuel Blondel <emmanuel.blondel1@gmail.com>

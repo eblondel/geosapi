@@ -15,45 +15,54 @@
 #'
 #' @section Methods:
 #' \describe{
-#'  \item{\code{new(xml)}}{
+#'  \item{\code{new(xml, dataStore, description, type, enabled, connectionParameters)}}{
 #'    This method is used to instantiate a GSDataStore
 #'  }
 #'  \item{\code{decode(xml)}}{
 #'    This method is used to decode a GSDataStore from XML
 #'  }
 #'  \item{\code{encode()}}{
-#'    This method is used to encode a GSDataStore
+#'    This method is used to encode a GSDataStore as XML
 #'  }
 #' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
 GSDataStore <- R6Class("GSDataStore",
-
+  inherit = GSRESTResource,
   public = list(
-    xml = NA,
     full = FALSE,
     name = NA,
     enabled = NA,
     description = NA,
     type = NA,
-    workspace = NA,
     connectionParameters = list(),
-    featureTypes = list(),
     
-    initialize = function(xml){
-      self$xml <- xml
-      self$decode(xml)
+    initialize = function(xml = NULL,
+                          dataStore, description, type,
+                          enabled = TRUE, connectionParameters){
+      if(!missing(xml) & !is.null(xml)){
+        if(!any(class(xml) %in% c("XMLInternalNode","XMLInternalDocument"))){
+          stop("The argument 'xml' is not a valid XML object")
+        }
+        self$decode(xml)
+      }else{
+        self$name = dataStore
+        self$description = description
+        self$type = type
+        self$enabled = enabled
+        self$connectionParameters = connectionParameters
+        self$full <- TRUE
+      }
     },
     
     decode = function(xml){
       names <- getNodeSet(xml, "//dataStore/name")
       self$name <- xmlValue(names[[1]])
       enabled <- getNodeSet(xml,"//enabled")
-      self$full <- length(length(enabled)) > 0
+      self$full <- length(enabled) > 0
       if(self$full){
         self$enabled <- as.logical(xmlValue(enabled[[1]]))
-        self$workspace <- xmlValue(getNodeSet(xml, "//workspace/name")[[1]])
         self$description <- xmlValue(getNodeSet(xml,"//description")[[1]])
         
         typeXML <- getNodeSet(xml,"//type")
@@ -69,27 +78,26 @@ GSDataStore <- R6Class("GSDataStore",
         })
         names(self$connectionParameters) = lapply(paramsXML, xmlGetAttr, "key")
       }
+    },
+    
+    encode = function(){
+      dsXML <- newXMLNode("dataStore")
+      dsName <- newXMLNode("name", self$dataStore, parent = dsXML)
+      dsDesc <- newXMLNode("description", self$description, parent = dsXML)
+      if(!is.na(self$type)) dsType <- newXMLNode("type", self$type, parent = dsXML)
+      dsEnabled <- newXMLNode("enabled", tolower(as.character(self$enabled)), parent = dsXML)
+      
+      dsParams <- newXMLNode("connectionParameters", parent = dsXML)
+      for(i in 1:length(self$connectionParameters)){
+        paramName <- names(self$connectionParameters)[i]
+        paramValue <- self$connectionParameters[[paramName]]
+        if(is.logical(paramValue)){
+          paramValue <- tolower(as.character(paramValue))
+        }
+        param <- newXMLNode("entry", attrs = c(key = paramName), paramValue, parent = dsParams)
+      }
+      
+      return(dsXML)
     }
   )                     
 )
-
-GSDataStore$encode <- function(workspace, dataStore, description, type,
-                               enabled = TRUE, connectionParameters){
-  dsXML <- newXMLNode("dataStore")
-  dsName <- newXMLNode("name", dataStore, parent = dsXML)
-  dsDesc <- newXMLNode("description", description, parent = dsXML)
-  dsType <- newXMLNode("type", type, parent = dsXML)
-  dsEnabled <- newXMLNode("enabled", tolower(as.character(enabled)), parent = dsXML)
-  dsWs <- newXMLNode("workspace", parent = dsXML)
-  dsWsName <- newXMLNode("name", workspace, parent = dsWs)
-  
-  if(!missing(connectionParameters)){
-    dsParams <- newXMLNode("connectionParameters", parent = dsXML)
-    for(i in 1:length(connectionParameters)){
-      paramName <- names(connectionParameters)[i]
-      paramValue <- connectionParameters[[paramName]]
-      param <- newXMLNode("entry", attrs = c(key = paramName), paramValue, parent = dsParams)
-    }
-  }
-  
-}

@@ -18,8 +18,9 @@ Geoserver REST API Namespace Manager
 \section{Methods}{
 
 \describe{
- \item{\code{new(}}{
-   This method is used to instantiate a GSNamespaceManager
+ \item{\code{new(url, user, pwd)}}{
+   This method is used to instantiate a GSNamespaceManager with the \code{url} of the
+   GeoServer and credentials to authenticate (\code{user}/\code{pwd})
  }
  \item{\code{getNamespaces()}}{
    Get the list of available namespace. Returns an object of class \code{list}

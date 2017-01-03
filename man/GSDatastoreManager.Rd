@@ -32,6 +32,14 @@ Geoserver REST API DataStore Manager
    Get an object of class \code{\link{GSDataStore}} given a workspace and datastore
    names.
  }
+ \item{\code{createDataStore(workspace, ds)}}{
+   Creates a new datastore given a workspace and an object of class \code{\link{GSDataStore}}
+ }
+ \item{\code{deleteDataStore(workspace, dataStore, recurse)}}{
+   Creates a new datastore given a workspace and an object of class \code{\link{GSDataStore}}.
+   By defaut, the option \code{recurse} is set to FALSE, ie datastore layers are not removed.
+   To remove all datastore layers, set this option to TRUE.
+ }
  \item{\code{uploadData(workspace, dataStore, endpoint, extension,
                         configure, update, filename, charset, contentType)}}{
    Uploads data to a target dataStore

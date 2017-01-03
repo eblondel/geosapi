@@ -24,8 +24,14 @@ Geoserver REST API DataStore
 \section{Methods}{
 
 \describe{
- \item{\code{new(xml)}}{
-   This method is used to instantiate a GSDataStoreManager
+ \item{\code{new(xml, dataStore, description, type, enabled, connectionParameters)}}{
+   This method is used to instantiate a GSDataStore
+ }
+ \item{\code{decode(xml)}}{
+   This method is used to decode a GSDataStore from XML
+ }
+ \item{\code{encode()}}{
+   This method is used to encode a GSDataStore as XML
  }
 }
 }

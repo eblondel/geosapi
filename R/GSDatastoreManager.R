@@ -27,6 +27,14 @@
 #'    Get an object of class \code{\link{GSDataStore}} given a workspace and datastore
 #'    names.
 #'  }
+#'  \item{\code{createDataStore(workspace, ds)}}{
+#'    Creates a new datastore given a workspace and an object of class \code{\link{GSDataStore}}
+#'  }
+#'  \item{\code{deleteDataStore(workspace, dataStore, recurse)}}{
+#'    Creates a new datastore given a workspace and an object of class \code{\link{GSDataStore}}.
+#'    By defaut, the option \code{recurse} is set to FALSE, ie datastore layers are not removed.
+#'    To remove all datastore layers, set this option to TRUE.
+#'  }
 #'  \item{\code{uploadData(workspace, dataStore, endpoint, extension,
 #'                         configure, update, filename, charset, contentType)}}{
 #'    Uploads data to a target dataStore
@@ -71,7 +79,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         dsXMLList <- getNodeSet(dsXML, "//dataStore")
         dsList <- lapply(dsXMLList, function(x){
           xml <- xmlDoc(x)
-          return(GSDataStore$new(xml))
+          return(GSDataStore$new(xml = xml))
         })
       }
       return(dsList)
@@ -90,22 +98,20 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       ds <- NULL
       if(status_code(req) == 200){
         dsXML <- GSUtils$parseResponseXML(req)
-        ds <- GSDataStore$new(dsXML)
+        ds <- GSDataStore$new(xml = dsXML)
       }
       return(ds)
     },
     
-    createDataStore = function(workspace, dataStore, description, type,
-                               enabled = TRUE, connectionParameters = NULL){
+    createDataStore = function(workspace, ds){
       created <- FALSE
-      ds <- GSDataStore$encode(workspace, dataStore, description, type,
-                                enabled, connectionParameters)
+
       req <- GSUtils$POST(
         url = self$getUrl(),
         user = private$user,
         pwd = private$pwd,
         path = sprintf("/workspaces/%s/datastores.xml", workspace),
-        content = as(ds$xml, "character"),
+        content = GSUtils$getPayloadXML(ds),
         contentType = "text/xml",
         verbose = self$verbose
       )

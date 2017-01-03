@@ -13,8 +13,9 @@
 #'
 #' @section Methods:
 #' \describe{
-#'  \item{\code{new(}}{
-#'    This method is used to instantiate a GSNamespaceManager
+#'  \item{\code{new(url, user, pwd)}}{
+#'    This method is used to instantiate a GSNamespaceManager with the \code{url} of the
+#'    GeoServer and credentials to authenticate (\code{user}/\code{pwd})
 #'  }
 #'  \item{\code{getNamespaces()}}{
 #'    Get the list of available namespace. Returns an object of class \code{list}
@@ -54,7 +55,7 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
         nsXMLList <- getNodeSet(nsXML, "//namespace")
         nsList <- lapply(nsXMLList, function(x){
           xml <- xmlDoc(x)
-          return(GSNamespace$new(xml))
+          return(GSNamespace$new(xml = xml))
         })
       }
       return(nsList)
@@ -71,7 +72,7 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
       ns <- NULL
       if(status_code(req) == 200){
         nsXML <- GSUtils$parseResponseXML(req)
-        ns <- GSNamespace$new(nsXML)
+        ns <- GSNamespace$new(xml = nsXML)
       }
       return(ns)
     },
@@ -79,14 +80,14 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
     createNamespace = function(prefix, uri){
       created <- FALSE
       
-      ns <- GSNamespace$encode(prefix, uri)
+      ns <- GSNamespace$new(prefix = prefix, uri = uri)
 
       req <- GSUtils$POST(
         url = self$getUrl(),
         user = private$user,
         pwd = private$pwd,
         path = "/namespaces",
-        content = as(ns$xml, "character"),
+        content = GSUtils$getPayloadXML(ns),
         contentType = "text/xml",
         verbose = self$verbose
       )

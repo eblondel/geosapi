@@ -47,6 +47,9 @@ Geoserver REST API Manager Utils
    on the package \pkg{XML}. Response from \pkg{httr} is retrieved as text, and then parsed as
    XML using \code{\link{XML::xmlParse}} function.
  }
+ \item{\code{getPayloadXML(obj)}}{
+   Convenience method to create payload XML to send to GeoServer.
+ }
 }
 }
 \author{

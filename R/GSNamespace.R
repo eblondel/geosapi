@@ -8,39 +8,45 @@
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @examples
-#' GSNamespace$new(xml)
+#' GSNamespace$new(prefix = "prefix", uri = "http://prefix")
 #'
-#' @field xml
 #' @field name
+#' @field prefix
+#' @field uri
 #' @field full
 #'
 #' @section Methods:
 #' \describe{
-#'  \item{\code{new(xml)}}{
+#'  \item{\code{new(xml, prefix, uri)}}{
 #'    This method is used to instantiate a GSNamespace
 #'  }
 #'  \item{\code{decode(xml)}}{
 #'    This method is used to decode a GSNamespace from XML
 #'  }
-#'  \item{\code{encode(prefix, uri)}}{
-#'    This method is used to encode a GSNamespace with a prefix and uri
+#'  \item{\code{encode()}}{
+#'    This method is used to encode a GSNamespace to XML
 #'  }
 #' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
 GSNamespace <- R6Class("GSNamespace",
-                       
+  inherit = GSRESTResource,                     
   public = list(
-    xml = NA,
     name = NA,
     prefix = NA,
     uri = NA,
     full = FALSE,
    
-    initialize = function(xml){
-      self$xml <- xml
-      self$decode(xml)
+    initialize = function(xml = NULL, prefix, uri){
+      if(!missing(xml) & !is.null(xml)){
+        self$decode(xml)
+      }else{
+        self$prefix <- prefix
+        self$name <- prefix
+        self$uri <- uri
+        self$full <- TRUE
+      }
     },
     
     decode = function(xml){
@@ -54,13 +60,13 @@ GSNamespace <- R6Class("GSNamespace",
         self$name <- self$prefix
         self$uri <- xmlValue(getNodeSet(xml, "//uri")[[1]])
       }
+    },
+    
+    encode = function(){
+      nsXML <- newXMLNode("namespace")
+      nsPrefix <- newXMLNode("prefix", self$prefix, parent = nsXML)
+      nsUri <- newXMLNode("uri", self$uri, parent = nsXML)
+      return(nsXML)
     }
   )                     
 )
-
-GSNamespace$encode <- function(prefix, uri){
-  nsXML <- newXMLNode("namespace")
-  nsPrefix <- newXMLNode("prefix", prefix, parent = nsXML)
-  nsUri <- newXMLNode("uri", uri, parent = nsXML)
-  return(GSNamespace$new(nsXML))
-}

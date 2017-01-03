@@ -16,7 +16,7 @@ gsman <- GSDataStoreManager$new(gsUrl, gsUsr, gsPwd)
 test_that("GET dataStore",{
   ds <- gsman$getDataStore("topp", "taz_shapes")
   expect_is(ds, "GSDataStore")
-  expect_true(all(c("xml", "name", "full") %in% names(ds)))
+  expect_true(all(c("name", "enabled", "type", "description", "connectionParameters", "full") %in% names(ds)))
   expect_equal(ds$name, "taz_shapes")
 })
 

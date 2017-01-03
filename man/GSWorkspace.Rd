@@ -17,26 +17,24 @@ Geoserver REST API Workspace
 \section{Fields}{
 
 \describe{
-\item{\code{xml}}{}
-
 \item{\code{name}}{}
 }}
 \section{Methods}{
 
 \describe{
- \item{\code{new(xml)}}{
+ \item{\code{new(xml, name)}}{
    This method is used to instantiate a GSWorkspace
  }
  \item{\code{decode(xml)}}{
    This method is used to decode a GSWorkspace from XML
  }
- \item{\code{encode(name)}}{
-   This method is used to encode a GSWorkspace from name
+ \item{\code{encode()}}{
+   This method is used to encode a GSWorkspace to XML
  }
 }
 }
 \examples{
-GSWorkspace$new(xml)
+GSWorkspace$new(name = "work")
 }
 \author{
 Emmanuel Blondel <emmanuel.blondel1@gmail.com>

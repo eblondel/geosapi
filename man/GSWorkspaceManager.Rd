@@ -18,8 +18,9 @@ Geoserver REST API Workspace Manager
 \section{Methods}{
 
 \describe{
- \item{\code{new(}}{
-   This method is used to instantiate a GSWorkspaceManager
+ \item{\code{new(url, user, pwd)}}{
+   This method is used to instantiate a GSWorkspaceManager with the \code{url} of the
+   GeoServer and credentials to authenticate (\code{user}/\code{pwd})
  }
  \item{\code{getWorkspaces()}}{
    Get the list of available workspace. Returns an object of class \code{list}

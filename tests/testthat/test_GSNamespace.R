@@ -16,7 +16,7 @@ gsman <- GSNamespaceManager$new(gsUrl, gsUsr, gsPwd)
 test_that("GET namespace",{
   ns <- gsman$getNamespace("topp")
   expect_is(ns, "GSNamespace")
-  expect_true(all(c("xml", "name", "prefix", "uri") %in% names(ns)))
+  expect_true(all(c("name", "prefix", "uri") %in% names(ns)))
   expect_equal(ns$name, "topp")
   expect_equal(ns$prefix, "topp")
   expect_equal(ns$uri, "http://www.openplans.org/topp")

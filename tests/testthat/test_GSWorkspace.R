@@ -13,10 +13,16 @@ gsUsr <- "admin"
 gsPwd <- "geoserver"
 gsman <- GSWorkspaceManager$new(gsUrl, gsUsr, gsPwd)
 
+test_that("new workspace",{
+  ws <- GSWorkspace$new(name = "test")
+  expect_is(ws, "GSWorkspace")
+  expect_equal(ws$name, "test")
+})
+
 test_that("GET workspace",{
   ws <- gsman$getWorkspace("topp")
   expect_is(ws, "GSWorkspace")
-  expect_true(all(c("xml", "name") %in% names(ws)))
+  expect_true("name" %in% names(ws))
   expect_equal(ws$name, "topp")
 })
 
