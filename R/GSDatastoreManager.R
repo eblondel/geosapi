@@ -67,7 +67,12 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
   inherit = GSManager,
   
   public = list(   
-      
+     
+    #DataStore generic CRUD methods
+    #===========================================================================
+    
+    #getDataStores
+    #---------------------------------------------------------------------------
     getDataStores = function(workspace){
       req <- GSUtils$GET(
         self$getUrl(), private$user, private$pwd,
@@ -85,11 +90,15 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(dsList)
     },
     
+    #getDataStoreNames
+    #---------------------------------------------------------------------------
     getDataStoreNames = function(workspace){
       dsList <- sapply(self$getDataStores(workspace), function(x){x$name})
       return(dsList)
     },
     
+    #getDataStore
+    #---------------------------------------------------------------------------
     getDataStore = function(workspace, dataStore){
       req <- GSUtils$GET(
         self$getUrl(), private$user, private$pwd,
@@ -103,6 +112,8 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(ds)
     },
     
+    #createDataStore
+    #---------------------------------------------------------------------------
     createDataStore = function(workspace, ds){
       created <- FALSE
 
@@ -120,6 +131,8 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       }
     },
     
+    #deleteDataStore
+    #---------------------------------------------------------------------------
     deleteDataStore = function(workspace, dataStore, recurse = FALSE){
       deleted <- FALSE
       path <- sprintf("/workspaces/%s/datastores/%s.xml", workspace, dataStore)
@@ -131,7 +144,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       }
       return(deleted)  
     },
-
+    
     #Upload methods
     #===========================================================================
     

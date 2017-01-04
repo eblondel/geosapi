@@ -32,14 +32,14 @@ GSDataStore <- R6Class("GSDataStore",
   inherit = GSRESTResource,
   public = list(
     full = FALSE,
-    name = NA,
-    enabled = NA,
-    description = NA,
-    type = NA,
+    name = NULL,
+    enabled = NULL,
+    description = "",
+    type = NULL,
     connectionParameters = list(),
     
     initialize = function(xml = NULL,
-                          dataStore, description, type,
+                          dataStore = NULL, description = "", type = NULL,
                           enabled = TRUE, connectionParameters){
       if(!missing(xml) & !is.null(xml)){
         if(!any(class(xml) %in% c("XMLInternalNode","XMLInternalDocument"))){
@@ -47,11 +47,16 @@ GSDataStore <- R6Class("GSDataStore",
         }
         self$decode(xml)
       }else{
+        
+        if(is.null(dataStore)) stop("dataStore cannot be null")
+        
         self$name = dataStore
         self$description = description
         self$type = type
         self$enabled = enabled
-        self$connectionParameters = connectionParameters
+        if(!missing(connectionParameters)){
+          self$connectionParameters = connectionParameters
+        }
         self$full <- TRUE
       }
     },
@@ -82,9 +87,9 @@ GSDataStore <- R6Class("GSDataStore",
     
     encode = function(){
       dsXML <- newXMLNode("dataStore")
-      dsName <- newXMLNode("name", self$dataStore, parent = dsXML)
+      dsName <- newXMLNode("name", self$name, parent = dsXML)
       dsDesc <- newXMLNode("description", self$description, parent = dsXML)
-      if(!is.na(self$type)) dsType <- newXMLNode("type", self$type, parent = dsXML)
+      if(!is.null(self$type)) dsType <- newXMLNode("type", self$type, parent = dsXML)
       dsEnabled <- newXMLNode("enabled", tolower(as.character(self$enabled)), parent = dsXML)
       
       dsParams <- newXMLNode("connectionParameters", parent = dsXML)

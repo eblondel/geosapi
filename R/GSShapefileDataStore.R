@@ -8,12 +8,12 @@
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @examples
-#' GSShapefileDataStore$new(dataStore="ds", description = "des", type="",
+#' GSShapefileDataStore$new(dataStore="ds", description = "des",
 #'                          enabled = TRUE, url = "file://data/shape.shp")
 #'
 #' @section Methods:
 #' \describe{
-#'    \item{\code{new(xml, dataStore, description, type, enabled, url)}}{
+#'    \item{\code{new(xml, dataStore, description, enabled, url)}}{
 #'      Instantiates a GSShapefileDataStore object
 #'    }
 #'    \item{\code{setUrl(url)}}{
@@ -42,11 +42,12 @@ GSShapefileDataStore <- R6Class("GSShapefileDataStore",
  inherit = GSDataStore,              
  public = list(
    
-   initialize = function(xml, dataStore, description, type, enabled = TRUE, url){
+   initialize = function(xml, dataStore, description, enabled = TRUE, url){
      if(missing(xml)) xml <- NULL
-     super$initialize(xml, dataStore, description, type, enabled, list())
-     self$setDefautConnectionParameters()
+     super$initialize(xml = xml, dataStore = dataStore, description = description,
+                      enabled = enabled, connectionParameters = list())
      self$setUrl(url)
+     self$setDefautConnectionParameters()
    },
    
    setUrl = function(url){
