@@ -6,9 +6,6 @@
 #' @keywords geoserver rest api DataStore
 #' @return Object of \code{\link{R6Class}} for modelling a GeoServer dataStore
 #' @format \code{\link{R6Class}} object.
-#' 
-#' @examples
-#' GSDataStore$new(xml)
 #'
 #' @field name
 #' @field workspace
@@ -22,7 +19,8 @@
 #'    This method is used to decode a GSDataStore from XML
 #'  }
 #'  \item{\code{encode()}}{
-#'    This method is used to encode a GSDataStore as XML
+#'    This method is used to encode a GSNamespace to XML. Inherited from the
+#'    generic \code{GSRESTResource} encoder
 #'  }
 #' }
 #' 
@@ -36,11 +34,12 @@ GSDataStore <- R6Class("GSDataStore",
     enabled = NULL,
     description = "",
     type = NULL,
-    connectionParameters = list(),
+    connectionParameters = NULL,
     
     initialize = function(xml = NULL,
                           dataStore = NULL, description = "", type = NULL,
                           enabled = TRUE, connectionParameters){
+      super$initialize(rootName = "dataStore")
       if(!missing(xml) & !is.null(xml)){
         if(!any(class(xml) %in% c("XMLInternalNode","XMLInternalDocument"))){
           stop("The argument 'xml' is not a valid XML object")
@@ -54,13 +53,16 @@ GSDataStore <- R6Class("GSDataStore",
         self$description = description
         self$type = type
         self$enabled = enabled
+        self$connectionParameters = GSRESTEntrySet$new(rootName = "connectionParameters")
         if(!missing(connectionParameters)){
-          self$connectionParameters = connectionParameters
+          if(!is.list(connectionParameters)) stop("Connection parameters should be provided as named list")
+          self$connectionParameters$setEntryset(connectionParameters)
         }
         self$full <- TRUE
       }
     },
     
+    #decode
     decode = function(xml){
       names <- getNodeSet(xml, "//dataStore/name")
       self$name <- xmlValue(names[[1]])
@@ -72,37 +74,10 @@ GSDataStore <- R6Class("GSDataStore",
         
         typeXML <- getNodeSet(xml,"//type")
         if(length(typeXML) > 0) self$type <- xmlValue(typeXML[[1]])
-        
-        paramsXML <- getNodeSet(xml,"//connectionParameters/entry")
-        self$connectionParameters = lapply(paramsXML, function(x){
-          param <- xmlValue(x)
-          if(param %in% c("true","false")){
-            param <- as.logical(param)
-          }
-          return(param)
-        })
-        names(self$connectionParameters) = lapply(paramsXML, xmlGetAttr, "key")
-      }
-    },
-    
-    encode = function(){
-      dsXML <- newXMLNode("dataStore")
-      dsName <- newXMLNode("name", self$name, parent = dsXML)
-      dsDesc <- newXMLNode("description", self$description, parent = dsXML)
-      if(!is.null(self$type)) dsType <- newXMLNode("type", self$type, parent = dsXML)
-      dsEnabled <- newXMLNode("enabled", tolower(as.character(self$enabled)), parent = dsXML)
       
-      dsParams <- newXMLNode("connectionParameters", parent = dsXML)
-      for(i in 1:length(self$connectionParameters)){
-        paramName <- names(self$connectionParameters)[i]
-        paramValue <- self$connectionParameters[[paramName]]
-        if(is.logical(paramValue)){
-          paramValue <- tolower(as.character(paramValue))
-        }
-        param <- newXMLNode("entry", attrs = c(key = paramName), paramValue, parent = dsParams)
+        self$connectionParameters = GSRESTEntrySet$new(rootName = "connectionParameters", xml)
       }
-      
-      return(dsXML)
     }
+    
   )                     
 )

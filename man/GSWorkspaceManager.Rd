@@ -47,7 +47,9 @@ Geoserver REST API Workspace Manager
 }
 }
 \examples{
-GSWorkspaceManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
+\donttest{
+   GSWorkspaceManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
+}
 }
 \author{
 Emmanuel Blondel <emmanuel.blondel1@gmail.com>

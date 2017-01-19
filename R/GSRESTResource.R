@@ -6,7 +6,6 @@
 #' @keywords geoserver rest api
 #' @return Object of \code{\link{R6Class}} for modelling a GeoServer REST resource interface
 #' @format \code{\link{R6Class}} object.
-#' 
 #'
 #' @section Abstract Methods:
 #' \describe{
@@ -14,10 +13,10 @@
 #'    This method is used to instantiate a GSRESTResource
 #'  }
 #'  \item{\code{decode(xml)}}{
-#'    This method is used to decode a GSDataStore from XML
+#'    Decodes a GS* R6 object from XML representation
 #'  }
 #'  \item{\code{encode()}}{
-#'    This method is used to encode a GSDataStore as XML
+#'    Encodes a GS* R6 object to XML representation
 #'  }
 #' }
 #' 
@@ -26,11 +25,77 @@
 GSRESTResource <- R6Class("GSRESTResource",
                        
   public = list(
+    rootName = NA,
+    initialize = function(xml, rootName){
+      if(missing(rootName) | is.null(rootName)){
+        stop("No root name specified for GSRESTResource")
+      }
+      self$rootName = rootName
+    },
+    
     decode = function(xml){
       stop("Unimplemented XML 'decode' method") 
     },
+    
     encode = function(){
-      stop("Unimplemented XML 'encode' method") 
+      #Generic XML encoder
+      rootXML <- newXMLNode(self$rootName)
+      
+      #list of fields to encode as XML
+      fields <- rev(names(self))
+      fields <- fields[!sapply(fields, function(x){
+        (class(self[[x]]) %in% c("environment", "function")) ||
+        (x %in% c("rootName", "full"))
+      })]
+      
+      if(any(class(self) == "GSRESTEntrySet")){
+        items <- self$entryset
+        itemNb <- length(items)
+        if(itemNb > 0){
+          for(i in 1:itemNb){
+            itemName <- names(items)[i]
+            itemValue <- items[[itemName]]
+            if(is.logical(itemValue)){
+              itemValue <- tolower(as.character(itemValue))
+            }
+            item <- newXMLNode("entry", attrs = c(key = itemName), itemValue, parent = rootXML)
+          }
+        }
+      }else{
+        for(field in fields){
+          fieldObj <- self[[field]]
+          if(is.logical(fieldObj)){
+            fieldObj <- tolower(as.character(fieldObj))
+          }
+          
+          if(any(class(fieldObj) == "list")){
+            itemsXML <- newXMLNode(field, parent = rootXML)
+            items <- fieldObj
+            itemNames <- names(items)
+            for(item in items){
+              if(any(class(item) == "R6")){
+                itemXML <- item$encode()
+                addChildren(itemsXML, list(itemXML))
+              }else{
+                if(is.null(itemNames)){
+                  itemXML <- newXMLNode("string", item, parent = itemsXML)
+                }else{
+                  itemName <- itemNames[suppressWarnings(which(items == item))]
+                  itemXML <- newXMLNode(itemName, item, parent = itemsXML)
+                }
+              }
+            }
+          }else{
+            if(any(class(fieldObj) == "R6")){
+              addChildren(rootXML, fieldObj$encode())
+            }else{
+              itemXML <- newXMLNode(field, fieldObj, parent = rootXML)
+            }
+          }
+        }
+      }
+      
+      return(rootXML)
     }
   )                     
 )

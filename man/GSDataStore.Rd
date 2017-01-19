@@ -31,12 +31,10 @@ Geoserver REST API DataStore
    This method is used to decode a GSDataStore from XML
  }
  \item{\code{encode()}}{
-   This method is used to encode a GSDataStore as XML
+   This method is used to encode a GSNamespace to XML. Inherited from the
+   generic \code{GSRESTResource} encoder
  }
 }
-}
-\examples{
-GSDataStore$new(xml)
 }
 \author{
 Emmanuel Blondel <emmanuel.blondel1@gmail.com>

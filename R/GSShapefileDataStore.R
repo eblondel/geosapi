@@ -42,32 +42,33 @@ GSShapefileDataStore <- R6Class("GSShapefileDataStore",
  inherit = GSDataStore,              
  public = list(
    
-   initialize = function(xml, dataStore, description, enabled = TRUE, url){
+   initialize = function(xml = NULL, dataStore, description, enabled = TRUE, url){
      if(missing(xml)) xml <- NULL
-     super$initialize(xml = xml, dataStore = dataStore, description = description,
-                      enabled = enabled, connectionParameters = list())
+     super$initialize(xml = xml, dataStore = dataStore,
+                      description = description,
+                      enabled = enabled)
      self$setUrl(url)
      self$setDefautConnectionParameters()
    },
    
    setUrl = function(url){
-     self$connectionParameters[["url"]] <- url
+     self$connectionParameters$addEntry("url", url)
    },
    
    setCharset = function(charset = "ISO-8859-1"){
-     self$connectionParameters[["charset"]] <- charset
+     self$connectionParameters$addEntry("charset", charset)
    },
    
    setCreateSpatialIndex = function(create = TRUE){
-     self$connectionParameters[["create spatial index"]] <- create
+     self$connectionParameters$addEntry("create spatial index", create)
    },
    
    setMemoryMappedBuffer = function(buffer = FALSE){
-     self$connectionParameters[["memory mapped buffer"]] <- buffer
+     self$connectionParameters$addEntry("memory mapped buffer", buffer)
    },
    
    setCacheReuseMemoryMaps = function(maps = TRUE){
-     self$connectionParameters[["cache and reuse memory maps"]] <- maps
+     self$connectionParameters$addEntry("cache and reuse memory maps", maps)
    },
    
    setDefautConnectionParameters = function(){

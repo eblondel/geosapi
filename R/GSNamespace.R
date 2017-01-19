@@ -24,7 +24,8 @@
 #'    This method is used to decode a GSNamespace from XML
 #'  }
 #'  \item{\code{encode()}}{
-#'    This method is used to encode a GSNamespace to XML
+#'    This method is used to encode a GSNamespace to XML. Inherited from the
+#'    generic \code{GSRESTResource} encoder
 #'  }
 #' }
 #' 
@@ -39,6 +40,7 @@ GSNamespace <- R6Class("GSNamespace",
     full = FALSE,
    
     initialize = function(xml = NULL, prefix, uri){
+      super$initialize(rootName = "namespace")
       if(!missing(xml) & !is.null(xml)){
         self$decode(xml)
       }else{
@@ -60,13 +62,6 @@ GSNamespace <- R6Class("GSNamespace",
         self$name <- self$prefix
         self$uri <- xmlValue(getNodeSet(xml, "//uri")[[1]])
       }
-    },
-    
-    encode = function(){
-      nsXML <- newXMLNode("namespace")
-      nsPrefix <- newXMLNode("prefix", self$prefix, parent = nsXML)
-      nsUri <- newXMLNode("uri", self$uri, parent = nsXML)
-      return(nsXML)
     }
   )                     
 )

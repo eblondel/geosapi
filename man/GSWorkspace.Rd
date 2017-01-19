@@ -29,7 +29,8 @@ Geoserver REST API Workspace
    This method is used to decode a GSWorkspace from XML
  }
  \item{\code{encode()}}{
-   This method is used to encode a GSWorkspace to XML
+   This method is used to encode a GSWorkspace to XML. Inherited from the
+   generic \code{GSRESTResource} encoder
  }
 }
 }

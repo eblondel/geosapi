@@ -11,7 +11,7 @@
 #'    Package: \tab geosapi\cr
 #'    Type: \tab Package\cr
 #'    Version: \tab 0.1\cr
-#'    Date: \tab 2017-01-04\cr
+#'    Date: \tab 2017-01-17\cr
 #'    License: \tab MIT\cr
 #'    LazyLoad: \tab yes\cr
 #'  }

@@ -21,7 +21,8 @@
 #'    This method is used to decode a GSWorkspace from XML
 #'  }
 #'  \item{\code{encode()}}{
-#'    This method is used to encode a GSWorkspace to XML
+#'    This method is used to encode a GSWorkspace to XML. Inherited from the
+#'    generic \code{GSRESTResource} encoder
 #'  }
 #' }
 #' 
@@ -33,7 +34,7 @@ GSWorkspace <- R6Class("GSWorkspace",
     name = NA,
     
     initialize = function(xml = NULL, name){
-      
+      super$initialize(rootName = "workspace")
       if(!missing(xml) & !is.null(xml)){
         self$decode(xml)
       }else{
@@ -44,13 +45,7 @@ GSWorkspace <- R6Class("GSWorkspace",
     decode = function(xml){
       names <- getNodeSet(xml, "//name")
       self$name <- xmlValue(names[[1]])
-    },
-    
-    encode = function(){
-      wsXML <- newXMLNode("workspace")
-      wsName <- newXMLNode("name", self$name, parent = wsXML)
-      return(wsXML)
-    }   
+    }
     
   )                     
 )

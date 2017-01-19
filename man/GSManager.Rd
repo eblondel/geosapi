@@ -51,7 +51,9 @@ Geoserver REST API Manager
 }
 }
 \examples{
-GSManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
+\donttest{
+   GSManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
+}
 }
 \author{
 Emmanuel Blondel <emmanuel.blondel1@gmail.com>

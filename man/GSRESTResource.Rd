@@ -21,10 +21,10 @@ Geoserver REST API REST Resource interface
    This method is used to instantiate a GSRESTResource
  }
  \item{\code{decode(xml)}}{
-   This method is used to decode a GSDataStore from XML
+   Decodes a GS* R6 object from XML representation
  }
  \item{\code{encode()}}{
-   This method is used to encode a GSDataStore as XML
+   Encodes a GS* R6 object to XML representation
  }
 }
 }

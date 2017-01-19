@@ -12,7 +12,9 @@
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @examples
-#' GSManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
+#' \donttest{
+#'    GSManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
+#' }
 #'
 #' @field baseUrl the Base url of GeoServer
 #' @field verbose if logs have to be printed
@@ -45,7 +47,6 @@
 #' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
-#'
 GSManager <- R6Class("GSManager",
   
   private = list(

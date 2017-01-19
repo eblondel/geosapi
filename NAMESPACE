@@ -2,10 +2,13 @@
 
 export(GSDataStore)
 export(GSDataStoreManager)
+export(GSFeatureType)
 export(GSManager)
 export(GSNamespace)
 export(GSNamespaceManager)
+export(GSRESTEntrySet)
 export(GSRESTResource)
+export(GSResource)
 export(GSShapefileDataStore)
 export(GSUtils)
 export(GSWorkspace)

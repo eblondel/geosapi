@@ -9,7 +9,9 @@
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @examples
-#' GSDataStoreManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
+#' \donttest{
+#'    GSDataStoreManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
+#'  }
 #'
 #' @section Methods:
 #' \describe{

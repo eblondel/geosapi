@@ -35,7 +35,8 @@ Geoserver REST API Namespace
    This method is used to decode a GSNamespace from XML
  }
  \item{\code{encode()}}{
-   This method is used to encode a GSNamespace to XML
+   This method is used to encode a GSNamespace to XML. Inherited from the
+   generic \code{GSRESTResource} encoder
  }
 }
 }
