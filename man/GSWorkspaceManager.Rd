@@ -30,17 +30,24 @@ Geoserver REST API Workspace Manager
    Get the list of available workspace names. Returns an vector of class
    \code{character}
  }
- \item{\code{getWorkspace(name)}}{
+ \item{\code{getWorkspace(ws)}}{
    Get a \code{\link{GSWorkspace}} object given a workspace name.
  }
  \item{\code{createWorkspace(name, uri)}}{
    Creates a GeoServer workspace given a name, and an optional URI. If the URI
    is not specified, GeoServer will automatically create an associated Namespace
    with the URI being "http://{workspaceName}. If the URI is specified, the method
-   invokes the method \code{createNamespace(name, uri)} of the \code{\link{GSNamespaceManager}}.
+   invokes the method \code{createNamespace(ns, uri)} of the \code{\link{GSNamespaceManager}}.
    Returns \code{TRUE} if the workspace has been successfully created, \code{FALSE} otherwise
  }
- \item{\code{deleteWorkspace(name)}}{
+ \item{\code{updateWorkspace(name, uri)}}{
+   Updates a GeoServer workspace given a name, and an optional URI. If the URI
+   is not specified, GeoServer will automatically update the associated Namespace
+   with the URI being "http://{workspaceName}. If the URI is specified, the method
+   invokes the method \code{updateNamespace(ns, uri)} of the \code{\link{GSNamespaceManager}}.
+   Returns \code{TRUE} if the workspace has been successfully updated, \code{FALSE} otherwise
+ }
+ \item{\code{deleteWorkspace(ws)}}{
    Deletes a GeoServer workspace given a name. Returns \code{TRUE} if the
    workspace has been successfully deleted, \code{FALSE} otherwise
  }

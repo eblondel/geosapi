@@ -52,23 +52,23 @@ GSShapefileDataStore <- R6Class("GSShapefileDataStore",
    },
    
    setUrl = function(url){
-     self$connectionParameters$addEntry("url", url)
+     self$setConnectionParameter("url", url)
    },
    
    setCharset = function(charset = "ISO-8859-1"){
-     self$connectionParameters$addEntry("charset", charset)
+     self$setConnectionParameter("charset", charset)
    },
    
    setCreateSpatialIndex = function(create = TRUE){
-     self$connectionParameters$addEntry("create spatial index", create)
+     self$setConnectionParameter("create spatial index", create)
    },
    
    setMemoryMappedBuffer = function(buffer = FALSE){
-     self$connectionParameters$addEntry("memory mapped buffer", buffer)
+     self$setConnectionParameter("memory mapped buffer", buffer)
    },
    
    setCacheReuseMemoryMaps = function(maps = TRUE){
-     self$connectionParameters$addEntry("cache and reuse memory maps", maps)
+     self$setConnectionParameter("cache and reuse memory maps", maps)
    },
    
    setDefautConnectionParameters = function(){

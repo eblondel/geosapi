@@ -32,8 +32,8 @@
 #'  \item{\code{setEntry(key, value)}}{
 #'    Sets an entry (key/value pair).
 #'  }
-#'  \item{\code{removeEntry(key)}}{
-#'    Removes an entry by key. Returns TRUE if removed, FALSE otherwise
+#'  \item{\code{delEntry(key)}}{
+#'    Deletes an entry by key. Returns TRUE if removed, FALSE otherwise
 #'  }
 #' }
 #' 
@@ -59,6 +59,7 @@ GSRESTEntrySet <- R6Class("GSRESTEntrySet",
    },
    
    #decode
+   #----------------------------------------------------------------------------
    decode = function(xml){
     entriesXML <- getNodeSet(xml, sprintf("//%s/entry", self$rootName))
      self$entryset = lapply(entriesXML, function(x){
@@ -72,11 +73,13 @@ GSRESTEntrySet <- R6Class("GSRESTEntrySet",
    },
    
    #setEntrySet
+   #----------------------------------------------------------------------------
    setEntryset = function(entryset){
      self$entryset = entryset
    },
    
    #addEntry
+   #----------------------------------------------------------------------------
    addEntry = function(key, value){
      startNb <- length(self$entryset)
      if(length(which(names(self$entryset) == key)) == 0){
@@ -87,12 +90,14 @@ GSRESTEntrySet <- R6Class("GSRESTEntrySet",
    },
    
    #setEntry
+   #----------------------------------------------------------------------------
    setEntry = function(key, value){
      self$entryset[[key]] <- value
    },
    
-   #removeEntry
-   removeEntry = function(key){
+   #delEntry
+   #----------------------------------------------------------------------------
+   delEntry = function(key){
      startNb <- length(self$entryset)
      self$entryset = self$entryset[which(names(self$entryset) != key)]
      endNb <- length(self$entryset)

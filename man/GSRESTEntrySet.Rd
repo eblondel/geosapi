@@ -40,8 +40,8 @@ Geoserver REST API XML entry set
  \item{\code{setEntry(key, value)}}{
    Sets an entry (key/value pair).
  }
- \item{\code{removeEntry(key)}}{
-   Removes an entry by key. Returns TRUE if removed, FALSE otherwise
+ \item{\code{delEntry(key)}}{
+   Deletes an entry by key. Returns TRUE if removed, FALSE otherwise
  }
 }
 }

@@ -34,6 +34,31 @@ Geoserver REST API DataStore
    This method is used to encode a GSNamespace to XML. Inherited from the
    generic \code{GSRESTResource} encoder
  }
+ \item{\code{setEnabled(enabled)}}{
+   Sets the datastore as enabled if TRUE, disabled if FALSE
+ }
+ \item{\code{setDescription(description)}}{
+   Sets the datastore description
+ }
+ \item{\code{setType(type)}}{
+   Sets the datastore type
+ }
+ \item{\code{setConnectionParameters(parameters)}}{
+   Sets the datastore connection parameters. The argument should be an object
+   of class \code{GSRESTEntrySet} giving a list of key/value parameter entries.
+ }
+ \item{\code{addConnectionParameter(key, value)}}{
+   Adds a datastore connection parameter. Convenience wrapper of \code{GSRESTEntrySet}
+   \code{addEntry} method.
+ }
+ \item{\code{setConnectionParameter(key, value)}}{
+   Sets a datastore connection parameter. Convenience wrapper of \code{GSRESTEntrySet}
+   \code{setEntry} method.
+ }
+ \item{\code{delConnectionParameter(key)}}{
+   Deletes a datastore connection parameter. Convenience wrapper of \code{GSRESTEntrySet}
+   \code{delEntry} method.
+ }
 }
 }
 \author{

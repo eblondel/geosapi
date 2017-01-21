@@ -30,15 +30,20 @@ Geoserver REST API Namespace Manager
    Get the list of available namespace names. Returns an vector of class
    \code{character}
  }
- \item{\code{getNamespace(name)}}{
+ \item{\code{getNamespace(ns)}}{
    Get a \code{\link{GSNamespace}} object given a namespace name.
  }
- \item{\code{createNamespace(name, uri)}}{
-   Creates a GeoServer namespace given a name, and an optional URI. Returns
+ \item{\code{createNamespace(prefix, uri)}}{
+   Creates a GeoServer namespace given a prefix, and an optional URI. Returns
    \code{TRUE} if the namespace has been successfully created, \code{FALSE}
    otherwise
  }
- \item{\code{deleteNamespace(name)}}{
+ \item{\code{updateNamespace(ns, uri)}}{
+   Updates a GeoServer namespace given a name, and an optional URI. Returns
+   \code{TRUE} if the namespace has been successfully updated, \code{FALSE}
+   otherwise
+ }
+ \item{\code{deleteNamespace(ns)}}{
    Deletes a GeoServer namespace given a name. Returns \code{TRUE} if the
    namespace has been successfully deleted, \code{FALSE} otherwise
  }

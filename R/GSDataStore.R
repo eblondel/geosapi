@@ -22,6 +22,31 @@
 #'    This method is used to encode a GSNamespace to XML. Inherited from the
 #'    generic \code{GSRESTResource} encoder
 #'  }
+#'  \item{\code{setEnabled(enabled)}}{
+#'    Sets the datastore as enabled if TRUE, disabled if FALSE
+#'  }
+#'  \item{\code{setDescription(description)}}{
+#'    Sets the datastore description
+#'  }
+#'  \item{\code{setType(type)}}{
+#'    Sets the datastore type
+#'  }
+#'  \item{\code{setConnectionParameters(parameters)}}{
+#'    Sets the datastore connection parameters. The argument should be an object
+#'    of class \code{GSRESTEntrySet} giving a list of key/value parameter entries.
+#'  }
+#'  \item{\code{addConnectionParameter(key, value)}}{
+#'    Adds a datastore connection parameter. Convenience wrapper of \code{GSRESTEntrySet} 
+#'    \code{addEntry} method.
+#'  }
+#'  \item{\code{setConnectionParameter(key, value)}}{
+#'    Sets a datastore connection parameter. Convenience wrapper of \code{GSRESTEntrySet} 
+#'    \code{setEntry} method.
+#'  }
+#'  \item{\code{delConnectionParameter(key)}}{
+#'    Deletes a datastore connection parameter. Convenience wrapper of \code{GSRESTEntrySet} 
+#'    \code{delEntry} method.
+#'  }
 #' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
@@ -63,6 +88,7 @@ GSDataStore <- R6Class("GSDataStore",
     },
     
     #decode
+    #---------------------------------------------------------------------------
     decode = function(xml){
       names <- getNodeSet(xml, "//dataStore/name")
       self$name <- xmlValue(names[[1]])
@@ -77,7 +103,50 @@ GSDataStore <- R6Class("GSDataStore",
       
         self$connectionParameters = GSRESTEntrySet$new(rootName = "connectionParameters", xml)
       }
-    }
+    },
     
+    #setEnabled
+    #---------------------------------------------------------------------------
+    setEnabled = function(enabled){
+      self$enabled <- enabled
+    },
+    
+    #setDescription
+    #---------------------------------------------------------------------------
+    setDescription = function(description){
+      self$description = description
+    },
+    
+    #setType
+    #---------------------------------------------------------------------------
+    setType = function(type){
+      self$type = type
+    },
+    
+    #setConnectionParameters
+    #---------------------------------------------------------------------------
+    setConnectionParameters = function(parameters){
+      self$connectionParameters = parameters
+    },
+    
+    #addConnectionParameter
+    #---------------------------------------------------------------------------
+    addConnectionParameter = function(key, value){
+      added <- self$connectionParameters$addEntry(key, value)
+      return(added)
+    },
+    
+    #setConnectionParameter
+    #---------------------------------------------------------------------------
+    setConnectionParameter = function(key, value){
+      self$connectionParameters$setEntry(key, value)
+    },
+    
+    #delConnectionParameter
+    #---------------------------------------------------------------------------
+    delConnectionParameter = function(key){
+      deleted <- self$connectionParameters$delEntry(key)
+      return(deleted)
+    }
   )                     
 )

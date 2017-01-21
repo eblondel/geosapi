@@ -42,8 +42,8 @@ test_that("CREATE dataStore - Shapefile",{
 
 test_that("UPDATE datastore",{
   dataStore <- gsman$getDataStore("topp", "topp_datastore")
-  dataStore$description <- "topp_datastore updated description"
-  dataStore$enabled <- FALSE
+  dataStore$setDescription("topp_datastore updated description")
+  dataStore$setEnabled(FALSE)
   
   updated <- gsman$updateDataStore("topp", dataStore)
   expect_true(updated)
