@@ -18,47 +18,75 @@
 #'  \item{\code{new(}}{
 #'    This method is used to instantiate a GSDataStoreManager
 #'  }
-#'  \item{\code{getDataStores(workspace)}}{
+#'  \item{\code{getDataStores(ws)}}{
 #'    Get the list of available dataStores. Returns an object of class \code{list}
 #'    giving items of class \code{\link{GSDataStore}}
 #'  }
-#'  \item{\code{getDataStoreNames(workspace)}}{
+#'  \item{\code{getDataStoreNames(ws)}}{
 #'    Get the list of available dataStore names. Returns an vector of class \code{character}
 #'  }
-#'  \item{\code{getDataStore(workspace, dataStore)}}{
+#'  \item{\code{getDataStore(ws, ds)}}{
 #'    Get an object of class \code{\link{GSDataStore}} given a workspace and datastore
 #'    names.
 #'  }
-#'  \item{\code{createDataStore(workspace, ds)}}{
+#'  \item{\code{createDataStore(ws, dataStore)}}{
 #'    Creates a new datastore given a workspace and an object of class \code{\link{GSDataStore}}
 #'  }
-#'  \item{\code{deleteDataStore(workspace, dataStore, recurse)}}{
-#'    Creates a new datastore given a workspace and an object of class \code{\link{GSDataStore}}.
+#'  \item{\code{updateDataStore(ws, dataStore)}}{
+#'    Updates an existing dataStore given a workspace and an object of class \code{\link{GSDataStore}}
+#'  }
+#'  \item{\code{deleteDataStore(ws, ds, recurse)}}{
+#'    Deletes a datastore given a workspace and an object of class \code{\link{GSDataStore}}.
 #'    By defaut, the option \code{recurse} is set to FALSE, ie datastore layers are not removed.
 #'    To remove all datastore layers, set this option to TRUE.
 #'  }
-#'  \item{\code{uploadData(workspace, dataStore, endpoint, extension,
+#'  \item{\code{getFeatureTypes(ws, ds)}}{
+#'    Get the list of available feature types for given workspace and datastore.
+#'    Returns an object of class \code{list} giving items of class \code{\link{GSFeatureType}}
+#'  }
+#'  \item{\code{getFeatureTypeNames(ws, ds)}}{
+#'    Get the list of available feature type names for given workspace and datastore.
+#'    Returns an vector of class\code{character}
+#'  }
+#'  \item{\code{getFeatureType(ws, ds, ft)}}{
+#'    Get an object of class \code{\link{GSFeatureType}} given a workspace, datastore
+#'    and feature type names.
+#'  }
+#'  \item{\code{createFeatureType(ws, ds, featureType)}}{
+#'    Creates a new featureType given a workspace, datastore names and an object of
+#'    class \code{\link{GSFeatureType}}
+#'  }
+#'  \item{\code{updateFeatureType(ws, ds, FeatureType)}}{
+#'    Updates a new featureType given a workspace, datastore names and an object of
+#'    class \code{\link{GSFeatureType}}
+#'  }
+#'  \item{\code{deleteFeatureType(ws, ds, featureType, recurse)}}{
+#'    Deletes a featureType given a workspace, datastore names, and an object of 
+#'    class \code{\link{GSFeatureType}}. By defaut, the option \code{recurse} is 
+#'    set to FALSE, ie datastore layers are not removed.
+#'  }
+#'  \item{\code{uploadData(ws, ds, endpoint, extension,
 #'                         configure, update, filename, charset, contentType)}}{
 #'    Uploads data to a target dataStore
 #'  }
-#'  \item{\code{uploadShapefile(workspace, dataStore, endpoint,
+#'  \item{\code{uploadShapefile(ws, ds, endpoint,
 #'                              configure, update, filename, charset)}}{
 #'    Uploads a zipped ESRIshapefile to a target dataStore
 #'  }
-#'  \item{\code{uploadProperties(workspace, dataStore, endpoint,
-#'                              configure, update, filename, charset)}}{
+#'  \item{\code{uploadProperties(ws, ds, endpoint,
+#'                               configure, update, filename, charset)}}{
 #'    Uploads a properties file to a target dataStore
 #'  }
-#'  \item{\code{uploadH2(workspace, dataStore, endpoint,
-#'                              configure, update, filename, charset)}}{
+#'  \item{\code{uploadH2(ws, ds, endpoint,
+#'                       configure, update, filename, charset)}}{
 #'    Uploads a H2 database to a target dataStore
 #'  }
-#'  \item{\code{uploadSpatialite(workspace, dataStore, endpoint,
-#'                              configure, update, filename, charset)}}{
+#'  \item{\code{uploadSpatialite(ws, ds, endpoint,
+#'                               configure, update, filename, charset)}}{
 #'    Uploads a Spatialite database to a target dataStore
 #'  }
-##'  \item{\code{uploadAppschema(workspace, dataStore, endpoint,
-#'                              configure, update, filename, charset)}}{
+##'  \item{\code{uploadAppschema(ws, ds, endpoint,
+#'                               configure, update, filename, charset)}}{
 #'    Uploads a appschema file to a target dataStore
 #'  }
 #' }
@@ -75,10 +103,10 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     
     #getDataStores
     #---------------------------------------------------------------------------
-    getDataStores = function(workspace){
+    getDataStores = function(ws){
       req <- GSUtils$GET(
         self$getUrl(), private$user, private$pwd,
-        sprintf("/workspaces/%s/datastores.xml", workspace),
+        sprintf("/workspaces/%s/datastores.xml", ws),
         self$verbose)
       dsList <- NULL
       if(status_code(req) == 200){
@@ -94,37 +122,37 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     
     #getDataStoreNames
     #---------------------------------------------------------------------------
-    getDataStoreNames = function(workspace){
-      dsList <- sapply(self$getDataStores(workspace), function(x){x$name})
+    getDataStoreNames = function(ws){
+      dsList <- sapply(self$getDataStores(ws), function(x){x$name})
       return(dsList)
     },
     
     #getDataStore
     #---------------------------------------------------------------------------
-    getDataStore = function(workspace, dataStore){
+    getDataStore = function(ws, ds){
       req <- GSUtils$GET(
         self$getUrl(), private$user, private$pwd,
-        sprintf("/workspaces/%s/datastores/%s.xml", workspace, dataStore),
+        sprintf("/workspaces/%s/datastores/%s.xml", ws, ds),
         self$verbose)
-      ds <- NULL
+      dataStore <- NULL
       if(status_code(req) == 200){
         dsXML <- GSUtils$parseResponseXML(req)
-        ds <- GSDataStore$new(xml = dsXML)
+        dataStore <- GSDataStore$new(xml = dsXML)
       }
-      return(ds)
+      return(dataStore)
     },
     
     #createDataStore
     #---------------------------------------------------------------------------
-    createDataStore = function(workspace, ds){
+    createDataStore = function(ws, dataStore){
       created <- FALSE
 
       req <- GSUtils$POST(
         url = self$getUrl(),
         user = private$user,
         pwd = private$pwd,
-        path = sprintf("/workspaces/%s/datastores.xml", workspace),
-        content = GSUtils$getPayloadXML(ds),
+        path = sprintf("/workspaces/%s/datastores.xml", ws),
+        content = GSUtils$getPayloadXML(dataStore),
         contentType = "text/xml",
         verbose = self$verbose
       )
@@ -133,11 +161,122 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       }
     },
     
+    #updateDataStore
+    #---------------------------------------------------------------------------
+    updateDataStore = function(ws, dataStore){
+      stop("Not yet implemented")
+    },
+    
     #deleteDataStore
     #---------------------------------------------------------------------------
-    deleteDataStore = function(workspace, dataStore, recurse = FALSE){
+    deleteDataStore = function(ws, ds, recurse = FALSE){
       deleted <- FALSE
-      path <- sprintf("/workspaces/%s/datastores/%s.xml", workspace, dataStore)
+      path <- sprintf("/workspaces/%s/datastores/%s.xml", ws, ds)
+      if(recurse) path <- paste0(path, "?recurse=true")
+      req <- GSUtils$DELETE(self$getUrl(), private$user, private$pwd,
+                            path = path, self$verbose)
+      if(status_code(req) == 200){
+        deleted = TRUE
+      }
+      return(deleted)  
+    },
+    
+    #DataStore featureType CRUD methods
+    #===========================================================================
+    
+    #getFeatureTypes
+    #---------------------------------------------------------------------------
+    getFeatureTypes = function(ws, ds, list = "configured"){
+      
+      supportedListValues <- c("configured", "available", "available_with_geom", "all")
+      if(!(list %in% supportedListValues)){
+        stop(sprintf("Unsupported 'list' parameter value '%s'. Possible values: [%s]",
+                     list, paste0(supportedListValues, collapse=",")))
+      }
+      
+      req <- GSUtils$GET(
+        self$getUrl(), private$user, private$pwd,
+        sprintf("/workspaces/%s/datastores/%s/featuretypes.xml?list=%s", ws, ds, list),
+        self$verbose)
+      ftList <- NULL
+      if(status_code(req) == 200){
+        ftXML <- GSUtils$parseResponseXML(req)
+        ftXMLList <- getNodeSet(ftXML, "//featureTypes/featureType")
+        ftList <- lapply(ftXMLList, function(x){
+          xml <- xmlDoc(x)
+          return(GSFeatureType$new(xml = xml))
+        })
+      }
+      return(ftList)
+    },
+    
+    #getFeatureTypeNames
+    #---------------------------------------------------------------------------
+    getFeatureTypeNames = function(ws, ds){
+      ftList <- sapply(self$getFeatureTypes(ws, ds), function(x){x$name})
+      return(ftList)
+    },
+    
+    #getFeatureType
+    #---------------------------------------------------------------------------
+    getFeatureType = function(ws, ds, ft){
+      req <- GSUtils$GET(
+        self$getUrl(), private$user, private$pwd,
+        sprintf("/workspaces/%s/datastores/%s/featuretypes/%s.xml", ws, ds, ft),
+        self$verbose)
+      featureType <- NULL
+      if(status_code(req) == 200){
+        ftXML <- GSUtils$parseResponseXML(req)
+        featureType <- GSFeatureType$new(xml = ftXML)
+      }
+      return(featureType)
+    },
+    
+    #createFeatureType
+    #---------------------------------------------------------------------------
+    createFeatureType = function(ws, ds, featureType){
+      created <- FALSE
+      req <- GSUtils$POST(
+        url = self$getUrl(),
+        user = private$user,
+        pwd = private$pwd,
+        path = sprintf("/workspaces/%s/datastores/%s/featuretypes.xml", ws, ds),
+        content = GSUtils$getPayloadXML(featureType),
+        contentType = "text/xml",
+        verbose = self$verbose
+      )
+      if(status_code(req) == 201){
+        created = TRUE
+      }
+    },
+    
+    #createFeatureType
+    #---------------------------------------------------------------------------
+    updateFeatureType = function(ws, ds, featureType){
+      stop("Not yet implemented")
+    },
+    
+    #deleteLayer
+    #---------------------------------------------------------------------------
+    deleteLayer = function(ws, lyr){
+      deleted <- FALSE
+      path <- sprintf("/layers/%s.xml", lyr)
+      req <- GSUtils$DELETE(self$getUrl(), private$user, private$pwd,
+                            path = path, self$verbose)
+      if(status_code(req) == 200){
+        deleted = TRUE
+      }
+      return(deleted)
+    },
+    
+    #deleteFeatureType
+    #---------------------------------------------------------------------------
+    deleteFeatureType = function(ws, ds, ft, recurse = FALSE){
+      
+      self$deleteLayer(ws, ft)
+      
+      deleted <- FALSE
+      path <- sprintf("/workspaces/%s/datastores/%s/featuretypes/%s.xml", ws, ds, ft)
       if(recurse) path <- paste0(path, "?recurse=true")
       req <- GSUtils$DELETE(self$getUrl(), private$user, private$pwd,
                             path = path, self$verbose)
@@ -152,7 +291,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     
     #uploadData
     #---------------------------------------------------------------------------
-    uploadData = function(workspace, dataStore, endpoint = "file", extension,
+    uploadData = function(ws, ds, endpoint = "file", extension,
                           configure = "first", update = "append", filename,
                           charset, contentType){
       uploaded <- FALSE
@@ -184,7 +323,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       req <- GSUtils$PUT(
         url = self$getUrl(), user = private$user, pwd = private$pwd,
         path = sprintf("/workspaces/%s/datastores/%s/%s.%s?configure=%s&update=%s",
-                       workspace, dataStore, endpoint, extension, configure, update),
+                       ws, ds, endpoint, extension, configure, update),
         filename = filename,
         contentType = contentType,
         self$verbose
@@ -197,11 +336,11 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     
     #uploadShapefile
     #---------------------------------------------------------------------------
-    uploadShapefile = function(workspace, dataStore, endpoint = "file",
+    uploadShapefile = function(ws, ds, endpoint = "file",
                                 configure = "first", update = "append",
                                filename, charset = "UTF-8"){
       return(
-        self$uploadData(workspace, dataStore, endpoint, extension = "shp",
+        self$uploadData(ws, ds, endpoint, extension = "shp",
                         configure, update, filename, charset,
                         contentType = "application/zip")
       )
@@ -209,11 +348,11 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     
     #uploadProperties (to test)
     #---------------------------------------------------------------------------
-    uploadProperties = function(workspace, dataStore, endpoint = "file",
+    uploadProperties = function(ws, ds, endpoint = "file",
                                configure = "first", update = "append",
                                filename, charset = "UTF-8"){
       return(
-        self$uploadData(workspace, dataStore, endpoint, extension = "properties",
+        self$uploadData(ws, ds, endpoint, extension = "properties",
                         configure, update, filename, charset,
                         contentType = "")
       )
@@ -221,11 +360,11 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     
     #uploadH2 (to test)
     #---------------------------------------------------------------------------
-    uploadH2 = function(workspace, dataStore, endpoint = "file",
+    uploadH2 = function(ws, ds, endpoint = "file",
                         configure = "first", update = "append",
                         filename, charset = "UTF-8"){
       return(
-        self$uploadData(workspace, dataStore, endpoint, extension = "h2",
+        self$uploadData(ws, ds, endpoint, extension = "h2",
                         configure, update, filename, charset,
                         contentType = "")
       )
@@ -233,11 +372,11 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     
     #uploadSpatialite (to test)
     #---------------------------------------------------------------------------
-    uploadSpatialite = function(workspace, dataStore, endpoint = "file",
+    uploadSpatialite = function(ws, ds, endpoint = "file",
                         configure = "first", update = "append",
                         filename, charset = "UTF-8"){
       return(
-        self$uploadData(workspace, dataStore, endpoint, extension = "spatialite",
+        self$uploadData(ws, ds, endpoint, extension = "spatialite",
                         configure, update, filename, charset,
                         contentType = "application/x-sqlite3")
       )
@@ -245,11 +384,11 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     
     #uploadAppschema (to test)
     #---------------------------------------------------------------------------
-    uploadAppschema = function(workspace, dataStore, endpoint = "file",
+    uploadAppschema = function(ws, ds, endpoint = "file",
                                 configure = "first", update = "append",
                                 filename, charset = "UTF-8"){
       return(
-        self$uploadData(workspace, dataStore, endpoint, extension = "appschema",
+        self$uploadData(ws, ds, endpoint, extension = "appschema",
                         configure, update, filename, charset,
                         contentType = "application/appschema")
       )

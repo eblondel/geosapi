@@ -21,47 +21,75 @@ Geoserver REST API DataStore Manager
  \item{\code{new(}}{
    This method is used to instantiate a GSDataStoreManager
  }
- \item{\code{getDataStores(workspace)}}{
+ \item{\code{getDataStores(ws)}}{
    Get the list of available dataStores. Returns an object of class \code{list}
    giving items of class \code{\link{GSDataStore}}
  }
- \item{\code{getDataStoreNames(workspace)}}{
+ \item{\code{getDataStoreNames(ws)}}{
    Get the list of available dataStore names. Returns an vector of class \code{character}
  }
- \item{\code{getDataStore(workspace, dataStore)}}{
+ \item{\code{getDataStore(ws, ds)}}{
    Get an object of class \code{\link{GSDataStore}} given a workspace and datastore
    names.
  }
- \item{\code{createDataStore(workspace, ds)}}{
+ \item{\code{createDataStore(ws, dataStore)}}{
    Creates a new datastore given a workspace and an object of class \code{\link{GSDataStore}}
  }
- \item{\code{deleteDataStore(workspace, dataStore, recurse)}}{
-   Creates a new datastore given a workspace and an object of class \code{\link{GSDataStore}}.
+ \item{\code{updateDataStore(ws, dataStore)}}{
+   Updates an existing dataStore given a workspace and an object of class \code{\link{GSDataStore}}
+ }
+ \item{\code{deleteDataStore(ws, ds, recurse)}}{
+   Deletes a datastore given a workspace and an object of class \code{\link{GSDataStore}}.
    By defaut, the option \code{recurse} is set to FALSE, ie datastore layers are not removed.
    To remove all datastore layers, set this option to TRUE.
  }
- \item{\code{uploadData(workspace, dataStore, endpoint, extension,
+ \item{\code{getFeatureTypes(ws, ds)}}{
+   Get the list of available feature types for given workspace and datastore.
+   Returns an object of class \code{list} giving items of class \code{\link{GSFeatureType}}
+ }
+ \item{\code{getFeatureTypeNames(ws, ds)}}{
+   Get the list of available feature type names for given workspace and datastore.
+   Returns an vector of class\code{character}
+ }
+ \item{\code{getFeatureType(ws, ds, ft)}}{
+   Get an object of class \code{\link{GSFeatureType}} given a workspace, datastore
+   and feature type names.
+ }
+ \item{\code{createFeatureType(ws, ds, featureType)}}{
+   Creates a new featureType given a workspace, datastore names and an object of
+   class \code{\link{GSFeatureType}}
+ }
+ \item{\code{updateFeatureType(ws, ds, FeatureType)}}{
+   Updates a new featureType given a workspace, datastore names and an object of
+   class \code{\link{GSFeatureType}}
+ }
+ \item{\code{deleteFeatureType(ws, ds, featureType, recurse)}}{
+   Deletes a featureType given a workspace, datastore names, and an object of
+   class \code{\link{GSFeatureType}}. By defaut, the option \code{recurse} is
+   set to FALSE, ie datastore layers are not removed.
+ }
+ \item{\code{uploadData(ws, ds, endpoint, extension,
                         configure, update, filename, charset, contentType)}}{
    Uploads data to a target dataStore
  }
- \item{\code{uploadShapefile(workspace, dataStore, endpoint,
+ \item{\code{uploadShapefile(ws, ds, endpoint,
                              configure, update, filename, charset)}}{
    Uploads a zipped ESRIshapefile to a target dataStore
  }
- \item{\code{uploadProperties(workspace, dataStore, endpoint,
-                             configure, update, filename, charset)}}{
+ \item{\code{uploadProperties(ws, ds, endpoint,
+                              configure, update, filename, charset)}}{
    Uploads a properties file to a target dataStore
  }
- \item{\code{uploadH2(workspace, dataStore, endpoint,
-                             configure, update, filename, charset)}}{
+ \item{\code{uploadH2(ws, ds, endpoint,
+                      configure, update, filename, charset)}}{
    Uploads a H2 database to a target dataStore
  }
- \item{\code{uploadSpatialite(workspace, dataStore, endpoint,
-                             configure, update, filename, charset)}}{
+ \item{\code{uploadSpatialite(ws, ds, endpoint,
+                              configure, update, filename, charset)}}{
    Uploads a Spatialite database to a target dataStore
  }
- \item{\code{uploadAppschema(workspace, dataStore, endpoint,
-                             configure, update, filename, charset)}}{
+ \item{\code{uploadAppschema(ws, ds, endpoint,
+                              configure, update, filename, charset)}}{
    Uploads a appschema file to a target dataStore
  }
 }

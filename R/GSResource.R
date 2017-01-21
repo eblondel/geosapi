@@ -117,7 +117,7 @@ GSResource <- R6Class("GSResource",
    ),
    
    public = list(
-     enabled = TRUE,
+     full = TRUE,
      name = NULL,
      nativeName = NULL,
      title = NULL,
@@ -130,6 +130,7 @@ GSResource <- R6Class("GSResource",
      nativeBoundingBox = list(minx = NA, miny = NA, maxx = NA, maxy = NA, crs = NA),
      latLonBoundingBox = list(minx = NA, miny = NA, maxx = NA, maxy = NA, crs = NA),
      projectionPolicy = NULL,
+     enabled = TRUE,
      metadata = list(),
      
      initialize = function(rootName = NULL, xml = NULL){
@@ -142,33 +143,39 @@ GSResource <- R6Class("GSResource",
      decode = function(xml){
        names <- getNodeSet(xml, "//name")
        self$name <- xmlValue(names[[1]])
-       nativeNames <- getNodeSet(xml, "//nativeName")
-       self$nativeName <- xmlValue(nativeNames[[1]])
-       titles <- getNodeSet(xml, "//title")
-       self$title <- xmlValue(titles[[1]])
-       descriptions <- getNodeSet(xml, "//description")
-       if(length(descriptions)>0) self$description <- xmlValue(descriptions[[1]])
-       abstracts <- getNodeSet(xml, "//abstract")
-       if(length(abstracts)>0) self$abstract <- xmlValue(abstracts[[1]])
-       self$keywords <- lapply(getNodeSet(xml, "//keywords/string"), xmlValue)
+       enabled <- getNodeSet(xml, "//enabled")
+       if(length(enabled)==0) self$full <- FALSE
        
-       
-       nativeCRS <- getNodeSet(xml, "//nativeCRS")
-       self$nativeCRS <- xmlValue(nativeCRS[[1]])
-       
-       srs <- getNodeSet(xml, "//srs")
-       self$srs <- xmlValue(srs[[1]])
-       
-       latLonBboxXML <- getNodeSet(xml, "//latLonBoundingBox/*")
-       self$latLonBoundingBox <- lapply(latLonBboxXML, xmlValue)
-       names(self$latLonBoundingBox) <-  lapply(latLonBboxXML, xmlName)
-       
-       nativeBboxXML <- getNodeSet(xml, "//nativeBoundingBox/*")
-       self$nativeBoundingBox <- lapply(nativeBboxXML, xmlValue)
-       names(self$nativeBoundingBox) <-  lapply(nativeBboxXML, xmlName)
-       
-       projPolicies <- getNodeSet(xml, "//projectionPolicy")
-       self$projectionPolicy <- xmlValue(projPolicies[[1]])
+       if(self$full){
+         self$enabled <- xmlValue(enabled[[1]])
+         nativeNames <- getNodeSet(xml, "//nativeName")
+         if(length(nativeNames)>0) self$nativeName <- xmlValue(nativeNames[[1]])
+         titles <- getNodeSet(xml, "//title")
+         if(length(titles)>0) self$title <- xmlValue(titles[[1]])
+         descriptions <- getNodeSet(xml, "//description")
+         if(length(descriptions)>0) self$description <- xmlValue(descriptions[[1]])
+         abstracts <- getNodeSet(xml, "//abstract")
+         if(length(abstracts)>0) self$abstract <- xmlValue(abstracts[[1]])
+         self$keywords <- lapply(getNodeSet(xml, "//keywords/string"), xmlValue)
+         
+         
+         nativeCRS <- getNodeSet(xml, "//nativeCRS")
+         self$nativeCRS <- xmlValue(nativeCRS[[1]])
+         
+         srs <- getNodeSet(xml, "//srs")
+         self$srs <- xmlValue(srs[[1]])
+         
+         latLonBboxXML <- getNodeSet(xml, "//latLonBoundingBox/*")
+         self$latLonBoundingBox <- lapply(latLonBboxXML, xmlValue)
+         names(self$latLonBoundingBox) <-  lapply(latLonBboxXML, xmlName)
+         
+         nativeBboxXML <- getNodeSet(xml, "//nativeBoundingBox/*")
+         self$nativeBoundingBox <- lapply(nativeBboxXML, xmlValue)
+         names(self$nativeBoundingBox) <-  lapply(nativeBboxXML, xmlName)
+         
+         projPolicies <- getNodeSet(xml, "//projectionPolicy")
+         self$projectionPolicy <- xmlValue(projPolicies[[1]])
+       }
      },
      
      setEnabled = function(enabled){

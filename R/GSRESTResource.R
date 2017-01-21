@@ -72,16 +72,19 @@ GSRESTResource <- R6Class("GSRESTResource",
             itemsXML <- newXMLNode(field, parent = rootXML)
             items <- fieldObj
             itemNames <- names(items)
-            for(item in items){
-              if(any(class(item) == "R6")){
-                itemXML <- item$encode()
-                addChildren(itemsXML, list(itemXML))
-              }else{
-                if(is.null(itemNames)){
-                  itemXML <- newXMLNode("string", item, parent = itemsXML)
+            if(length(items) > 0){
+              for(i in 1:length(items)){
+                item <- items[i]
+                itemName <- itemNames[i]
+                if(any(class(item) == "R6")){
+                  itemXML <- item$encode()
+                  addChildren(itemsXML, list(itemXML))
                 }else{
-                  itemName <- itemNames[suppressWarnings(which(items == item))]
-                  itemXML <- newXMLNode(itemName, item, parent = itemsXML)
+                  if(is.null(itemNames)){
+                    itemXML <- suppressWarnings(newXMLNode("string", item, parent = itemsXML))
+                  }else{
+                    itemXML <- suppressWarnings(newXMLNode(itemName, item, parent = itemsXML))
+                  }
                 }
               }
             }
