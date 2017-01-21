@@ -71,8 +71,20 @@ GSUtils$GET <- function(url, user, pwd, path, verbose = TRUE){
   return(req)
 }
 
-GSUtils$PUT <- function(url, user, pwd, path, filename, contentType, verbose = TRUE){
+GSUtils$PUT <- function(url, user, pwd, path,
+                        content = NULL, filename = NULL,
+                        contentType, verbose = TRUE){
   #TODO activate verbose argument
+  body <- NULL
+  if(is.null(content)){
+    if(is.null(filename)){
+      stop("The filename must be provided")
+    }
+    body <- upload_file(filename)
+  }else{
+    body <- content
+  }
+  
   if(!grepl("^/", path)) path = paste0("/", path)
   url <- paste0(url, path)
   req <- httr::PUT(
@@ -82,7 +94,7 @@ GSUtils$PUT <- function(url, user, pwd, path, filename, contentType, verbose = T
       "Authorization" = paste("Basic", GSUtils$getUserToken(user, pwd)),
       "Content-type" = contentType
     ),    
-    body = upload_file(filename),
+    body = body,
     verbose()
   )
   return(req)

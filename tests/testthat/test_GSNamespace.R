@@ -13,7 +13,7 @@ gsUsr <- "admin"
 gsPwd <- "geoserver"
 gsman <- GSNamespaceManager$new(gsUrl, gsUsr, gsPwd)
 
-test_that("GET namespace",{
+test_that("READ namespace",{
   ns <- gsman$getNamespace("topp")
   expect_is(ns, "GSNamespace")
   expect_true(all(c("name", "prefix", "uri") %in% names(ns)))
@@ -22,7 +22,7 @@ test_that("GET namespace",{
   expect_equal(ns$uri, "http://www.openplans.org/topp")
 })
 
-test_that("GET namespaces",{
+test_that("READ namespaces",{
   nslist <- gsman$getNamespaces()
   expect_true(all(sapply(nslist, function(x){class(x)[1] == "GSNamespace"})))
   nsnames <- gsman$getNamespaceNames()
@@ -36,6 +36,15 @@ test_that("CREATE namespace",{
   expect_equal(ns$name, "geosapi")
   expect_equal(ns$prefix, "geosapi")
   expect_equal(ns$uri, "http://www.my.org/geosapi")
+})
+
+test_that("UPDATE namespace",{
+  updated <- gsman$updateNamespace("geosapi", "http://www.my.org/geosapi2")
+  expect_true(updated)
+  ns <- gsman$getNamespace("geosapi")
+  expect_equal(ns$name, "geosapi")
+  expect_equal(ns$prefix, "geosapi")
+  expect_equal(ns$uri, "http://www.my.org/geosapi2")
 })
 
 test_that("DELETE namespace",{

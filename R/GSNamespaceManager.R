@@ -27,15 +27,20 @@
 #'    Get the list of available namespace names. Returns an vector of class 
 #'    \code{character}
 #'  }
-#'  \item{\code{getNamespace(name)}}{
+#'  \item{\code{getNamespace(ns)}}{
 #'    Get a \code{\link{GSNamespace}} object given a namespace name.
 #'  }
-#'  \item{\code{createNamespace(name, uri)}}{
-#'    Creates a GeoServer namespace given a name, and an optional URI. Returns
+#'  \item{\code{createNamespace(prefix, uri)}}{
+#'    Creates a GeoServer namespace given a prefix, and an optional URI. Returns
 #'    \code{TRUE} if the namespace has been successfully created, \code{FALSE}
 #'    otherwise
 #'  }
-#'  \item{\code{deleteNamespace(name)}}{
+#'  \item{\code{updateNamespace(ns, uri)}}{
+#'    Updates a GeoServer namespace given a name, and an optional URI. Returns
+#'    \code{TRUE} if the namespace has been successfully updated, \code{FALSE}
+#'    otherwise
+#'  }
+#'  \item{\code{deleteNamespace(ns)}}{
 #'    Deletes a GeoServer namespace given a name. Returns \code{TRUE} if the 
 #'    namespace has been successfully deleted, \code{FALSE} otherwise
 #'  }
@@ -48,6 +53,8 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
   
   public = list(
     
+    #getNamespaces
+    #---------------------------------------------------------------------------
     getNamespaces = function(){
       req <- GSUtils$GET(self$getUrl(), private$user, private$pwd,
                          "/namespaces.xml", self$verbose)
@@ -63,33 +70,39 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
       return(nsList)
     },
     
+    #getNamespaceNames
+    #---------------------------------------------------------------------------
     getNamespaceNames = function(){
       nsList <- sapply(self$getNamespaces(), function(x){x$name})
       return(nsList)
     },
     
-    getNamespace = function(prefix){
+    #getNamespace
+    #---------------------------------------------------------------------------
+    getNamespace = function(ns){
       req <- GSUtils$GET(self$getUrl(), private$user, private$pwd,
-                         sprintf("/namespaces/%s.xml", prefix), self$verbose)
-      ns <- NULL
+                         sprintf("/namespaces/%s.xml", ns), self$verbose)
+      namespace <- NULL
       if(status_code(req) == 200){
         nsXML <- GSUtils$parseResponseXML(req)
-        ns <- GSNamespace$new(xml = nsXML)
+        namespace <- GSNamespace$new(xml = nsXML)
       }
-      return(ns)
+      return(namespace)
     },
     
+    #createNamespace
+    #---------------------------------------------------------------------------
     createNamespace = function(prefix, uri){
       created <- FALSE
       
-      ns <- GSNamespace$new(prefix = prefix, uri = uri)
+      namespace <- GSNamespace$new(prefix = prefix, uri = uri)
 
       req <- GSUtils$POST(
         url = self$getUrl(),
         user = private$user,
         pwd = private$pwd,
         path = "/namespaces",
-        content = GSUtils$getPayloadXML(ns),
+        content = GSUtils$getPayloadXML(namespace),
         contentType = "text/xml",
         verbose = self$verbose
       )
@@ -99,6 +112,28 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
       return(created)
     },
     
+    #updateNamespace
+    #---------------------------------------------------------------------------
+    updateNamespace = function(prefix, uri){
+      updated <- FALSE
+      
+      namespace <- GSNamespace$new(prefix = prefix, uri = uri)
+      
+      req <- GSUtils$PUT(
+        url = self$getUrl(), user = private$user, pwd = private$pwd,
+        path = sprintf("/namespaces/%s.xml", prefix),
+        content = GSUtils$getPayloadXML(namespace),
+        contentType = "application/xml",
+        self$verbose
+      )
+      if(status_code(req) == 200){
+        updated = TRUE
+      }
+      return(updated)
+    },
+    
+    #deleteNamespace
+    #---------------------------------------------------------------------------
     deleteNamespace = function(name, recurse = FALSE){
       deleted <- FALSE
       path <- sprintf("/namespaces/%s", name)

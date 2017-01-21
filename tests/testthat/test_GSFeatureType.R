@@ -67,13 +67,13 @@ test_that("featureType encoding/decoding",{
   
 })
 
-test_that("GET featuretypes",{ 
+test_that("READ featuretypes",{ 
   ft <- gsman$getFeatureType("topp","taz_shapes", "tasmania_cities")
   expect_true(any(class(ft) == "GSFeatureType"))
   expect_true(ft$full)
 })
 
-test_that("GET featuretypes",{
+test_that("READ featuretypes",{
   fts <- gsman$getFeatureTypes("topp","taz_shapes")
   expect_equal(length(fts), 4L)
   expect_equal(unique(sapply(fts, function(x){class(x)[1]})), "GSFeatureType")
@@ -95,6 +95,24 @@ test_that("CREATE featureType",{
   ft$setNativeBoundingBox(-180,-90,180,90, crs ="EPSG:4326") 
   created <- gsman$createFeatureType("topp", "taz_shapes", ft)
   expect_true(created)
+  
+  featureType <- gsman$getFeatureType("topp", "taz_shapes", "tasmania_cities2")
+  expect_is(featureType, "GSFeatureType")
+  expect_true(featureType$enabled)
+  expect_equal(featureType$abstract, "abstract")
+})
+
+test_that("UPDATE featuretype",{
+  featureType <- gsman$getFeatureType("topp", "taz_shapes", "tasmania_cities2")
+  featureType$setAbstract("abstract updated")
+  featureType$setEnabled(FALSE)
+  
+  updated <- gsman$updateFeatureType("topp", "taz_shapes", featureType)
+  expect_true(updated)
+  ft <- gsman$getFeatureType("topp", "taz_shapes", "tasmania_cities2")
+  expect_is(ft, "GSFeatureType")
+  expect_equal(ft$abstract, "abstract updated")
+  expect_false(ft$enabled)
 })
 
 test_that("DELETE featureType",{

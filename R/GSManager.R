@@ -64,11 +64,13 @@ GSManager <- R6Class("GSManager",
       #baseUrl
       if(missing(url)) stop("Please provide the GeoServer base URL")
       baseUrl = url
-      if(grepl("/$", baseUrl)){
-        baseUrl = paste0(baseUrl, "rest")
-      }else{
-        baseUrl = paste(baseUrl, "rest", sep = "/")
-      }  
+      if(!grepl("/rest", baseUrl)){
+        if(grepl("/$", baseUrl)){
+          baseUrl = paste0(baseUrl, "rest")
+        }else{
+          baseUrl = paste(baseUrl, "rest", sep = "/")
+        }
+      }
       self$url = baseUrl
       private$user = user
       private$pwd = pwd

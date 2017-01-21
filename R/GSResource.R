@@ -147,7 +147,7 @@ GSResource <- R6Class("GSResource",
        if(length(enabled)==0) self$full <- FALSE
        
        if(self$full){
-         self$enabled <- xmlValue(enabled[[1]])
+         self$enabled <- as.logical(xmlValue(enabled[[1]]))
          nativeNames <- getNodeSet(xml, "//nativeName")
          if(length(nativeNames)>0) self$nativeName <- xmlValue(nativeNames[[1]])
          titles <- getNodeSet(xml, "//title")

@@ -161,10 +161,21 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       }
     },
     
-    #updateDataStore
+    #updatDataStore
     #---------------------------------------------------------------------------
     updateDataStore = function(ws, dataStore){
-      stop("Not yet implemented")
+      updated <- FALSE
+      req <- GSUtils$PUT(
+        url = self$getUrl(), user = private$user, pwd = private$pwd,
+        path = sprintf("/workspaces/%s/datastores/%s.xml", ws, dataStore$name),
+        content = GSUtils$getPayloadXML(dataStore),
+        contentType = "application/xml",
+        self$verbose
+      )
+      if(status_code(req) == 200){
+        updated = TRUE
+      }
+      return(updated)
     },
     
     #deleteDataStore
@@ -250,10 +261,22 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       }
     },
     
-    #createFeatureType
+    #updateFeatureType
     #---------------------------------------------------------------------------
     updateFeatureType = function(ws, ds, featureType){
-      stop("Not yet implemented")
+      updated <- FALSE
+      req <- GSUtils$PUT(
+        url = self$getUrl(), user = private$user, pwd = private$pwd,
+        path = sprintf("/workspaces/%s/datastores/%s/featuretypes/%s.xml",
+                       ws, ds, featureType$name),
+        content = GSUtils$getPayloadXML(featureType),
+        contentType = "application/xml",
+        self$verbose
+      )
+      if(status_code(req) == 200){
+        updated = TRUE
+      }
+      return(updated)
     },
     
     #deleteLayer
