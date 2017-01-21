@@ -191,7 +191,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       }
       return(deleted)  
     },
-    
+  
     #DataStore featureType CRUD methods
     #===========================================================================
     
@@ -259,6 +259,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       if(status_code(req) == 201){
         created = TRUE
       }
+      return(created)
     },
     
     #updateFeatureType
@@ -279,25 +280,9 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(updated)
     },
     
-    #deleteLayer
-    #---------------------------------------------------------------------------
-    deleteLayer = function(ws, lyr){
-      deleted <- FALSE
-      path <- sprintf("/layers/%s.xml", lyr)
-      req <- GSUtils$DELETE(self$getUrl(), private$user, private$pwd,
-                            path = path, self$verbose)
-      if(status_code(req) == 200){
-        deleted = TRUE
-      }
-      return(deleted)
-    },
-    
     #deleteFeatureType
     #---------------------------------------------------------------------------
     deleteFeatureType = function(ws, ds, ft, recurse = FALSE){
-      
-      self$deleteLayer(ws, ft)
-      
       deleted <- FALSE
       path <- sprintf("/workspaces/%s/datastores/%s/featuretypes/%s.xml", ws, ds, ft)
       if(recurse) path <- paste0(path, "?recurse=true")
@@ -309,9 +294,140 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(deleted)  
     },
     
-    #Upload methods
+    #Layer CRUD methods
     #===========================================================================
     
+    #getLayers
+    #---------------------------------------------------------------------------
+    getLayers = function(){
+      req <- GSUtils$GET(
+        self$getUrl(), private$user, private$pwd,
+        "/layers.xml",
+        self$verbose)
+      lyrList <- NULL
+      if(status_code(req) == 200){
+        lyrXML <- GSUtils$parseResponseXML(req)
+        lyrXMLList <- getNodeSet(lyrXML, "//layers/layer")
+        lyrList <- lapply(lyrXMLList, function(x){
+          xml <- xmlDoc(x)
+          return(GSLayer$new(xml = xml))
+        })
+      }
+      return(lyrList)
+    },
+    
+    #getLayerNames
+    #---------------------------------------------------------------------------
+    getLayerNames = function(){
+      lyrList <- sapply(self$getLayers(), function(x){x$name})
+      return(lyrList)
+    },
+    
+    #getLayer
+    #---------------------------------------------------------------------------
+    getLayer = function(lyr){
+      req <- GSUtils$GET(
+        self$getUrl(), private$user, private$pwd,
+        sprintf("/layers/%s.xml", lyr),
+        self$verbose)
+      layer <- NULL
+      if(status_code(req) == 200){
+        lyrXML <- GSUtils$parseResponseXML(req)
+        layer <- GSLayer$new(xml = lyrXML)
+      }
+      return(layer)
+    },
+    
+    #createLayer
+    #---------------------------------------------------------------------------
+    createLayer = function(layer){
+      created <- FALSE
+      req <- GSUtils$PUT(
+        url = self$getUrl(), user = private$user, pwd = private$pwd,
+        path = sprintf("/layers/%s.xml", layer$name),
+        content = GSUtils$getPayloadXML(layer),
+        contentType = "application/xml",
+        self$verbose
+      )
+      if(status_code(req) == 200){
+        created = TRUE
+      }
+      return(created)
+    },
+
+    #updateLayer
+    #---------------------------------------------------------------------------
+    updateLayer = function(layer){
+      updated <- FALSE
+      req <- GSUtils$PUT(
+        url = self$getUrl(), user = private$user, pwd = private$pwd,
+        path = sprintf("/layers/%s.xml", layer$name),
+        content = GSUtils$getPayloadXML(layer),
+        contentType = "application/xml",
+        self$verbose
+      )
+      if(status_code(req) == 200){
+        updated = TRUE
+      }
+      return(updated)
+    },
+    
+    #deleteLayer
+    #---------------------------------------------------------------------------
+    deleteLayer = function(lyr){
+      deleted <- FALSE
+      path <- sprintf("/layers/%s.xml", lyr)
+      req <- GSUtils$DELETE(self$getUrl(), private$user, private$pwd,
+                            path = path, self$verbose)
+      if(status_code(req) == 200){
+        deleted = TRUE
+      }
+      return(deleted)
+    },
+
+    #Layer publication methods
+    #===========================================================================    
+    #publishLayer
+    #---------------------------------------------------------------------------
+    publishLayer = function(ws, ds, featureType, layer){
+      published <- FALSE
+      if(featureType$name != layer$name){
+        stop("FeatureType and Layer names differ!")
+      }
+      ftCreated <- self$createFeatureType(ws, ds, featureType)
+      if(ftCreated){
+        lyrCreated <- self$createLayer(layer)
+        if(lyrCreated){
+          published <- TRUE
+        }else{
+          cat(sprintf("Error while creating layer '%s'", layer$name))
+        }
+      }else{
+        cat(sprintf("Error while creating featureType '%s'", featureType$name))
+      }
+      return(published)
+    },
+    
+    #unpublishLayer
+    #---------------------------------------------------------------------------
+    unpublishLayer = function(ws, ds, lyr){
+      unpublished <- FALSE
+      lyrDeleted <- self$deleteLayer(lyr)
+      if(lyrDeleted){
+        ftDeleted <- self$deleteFeatureType(ws, ds, lyr)
+        if(ftDeleted){
+          unpublished <- TRUE
+        }else{
+          cat(sprintf("Error while deleting featureType '%s'", lyr))
+        }
+      }else{
+        cat(sprintf("Error while deleting layer '%s'", lyr))
+      }
+      return(unpublished)
+    },
+    
+    #Upload methods
+    #===========================================================================
     #uploadData
     #---------------------------------------------------------------------------
     uploadData = function(ws, ds, endpoint = "file", extension,

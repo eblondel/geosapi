@@ -67,7 +67,7 @@ test_that("featureType encoding/decoding",{
   
 })
 
-test_that("READ featuretypes",{ 
+test_that("READ featuretype",{ 
   ft <- gsman$getFeatureType("topp","taz_shapes", "tasmania_cities")
   expect_true(any(class(ft) == "GSFeatureType"))
   expect_true(ft$full)

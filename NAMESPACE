@@ -3,6 +3,7 @@
 export(GSDataStore)
 export(GSDataStoreManager)
 export(GSFeatureType)
+export(GSLayer)
 export(GSManager)
 export(GSNamespace)
 export(GSNamespaceManager)

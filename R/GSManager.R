@@ -81,6 +81,21 @@ GSManager <- R6Class("GSManager",
         if(self$verbose){
           cat("Successfully connected to GeoServer!\n")
         }
+      
+        #inherit managers methods (experimenting)
+        #list_of_classes <- rev(ls("package:geosapi"))
+        #supportedManagers <- list_of_classes[regexpr("GS.+Manager", list_of_classes)>0]
+        #for(manager in supportedManagers){
+        #  class <- eval(parse(text=manager))
+        #  man <- class$new(baseUrl, user, pwd, verbose)          
+        #  list_of_methods <- rev(names(man))
+        #  for(method in list_of_methods){
+        #    methodObj <- man[[method]]
+        #    if(!(method %in% names(self)) && class(methodObj) == "function"){
+        #      self[[method]] <- methodObj
+        #    } 
+        #  }
+        #}
       }
       
       invisible(self)
