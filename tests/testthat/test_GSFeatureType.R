@@ -8,10 +8,10 @@ require(testthat)
 
 context("GSFeatureType")
 
-gsUrl <- "http://localhost:8080/geoserver"
-gsUsr <- "admin"
-gsPwd <- "geoserver"
-gsman <- GSDataStoreManager$new(gsUrl, gsUsr, gsPwd)
+gsUrl <- NULL
+gsUsr <- NULL
+gsPwd <- NULL
+gsman <- NULL
 
 test_that("featureType encoding/decoding",{
   
@@ -68,12 +68,23 @@ test_that("featureType encoding/decoding",{
 })
 
 test_that("READ featuretype",{ 
+  testthat::skip_on_travis()
+  testthat::skip_on_cran()
+  
+  gsUrl <- "http://localhost:8080/geoserver"
+  gsUsr <- "admin"
+  gsPwd <- "geoserver"
+  gsman <- GSDataStoreManager$new(gsUrl, gsUsr, gsPwd)
+  
   ft <- gsman$getFeatureType("topp","taz_shapes", "tasmania_cities")
   expect_true(any(class(ft) == "GSFeatureType"))
   expect_true(ft$full)
 })
 
 test_that("READ featuretypes",{
+  testthat::skip_on_travis()
+  testthat::skip_on_cran()
+  
   fts <- gsman$getFeatureTypes("topp","taz_shapes")
   expect_equal(length(fts), 4L)
   expect_equal(unique(sapply(fts, function(x){class(x)[1]})), "GSFeatureType")
@@ -82,6 +93,9 @@ test_that("READ featuretypes",{
 })
 
 test_that("CREATE featureType",{
+  testthat::skip_on_travis()
+  testthat::skip_on_cran()
+  
   ft <- GSFeatureType$new()
   ft$setName("tasmania_cities2")
   ft$setNativeName("tasmania_cities")
@@ -103,6 +117,9 @@ test_that("CREATE featureType",{
 })
 
 test_that("UPDATE featuretype",{
+  testthat::skip_on_travis()
+  testthat::skip_on_cran()
+  
   featureType <- gsman$getFeatureType("topp", "taz_shapes", "tasmania_cities2")
   featureType$setAbstract("abstract updated")
   featureType$setEnabled(FALSE)
@@ -116,6 +133,9 @@ test_that("UPDATE featuretype",{
 })
 
 test_that("DELETE featureType",{
+  testthat::skip_on_travis()
+  testthat::skip_on_cran()
+  
   deleted <- gsman$deleteFeatureType("topp", "taz_shapes", "tasmania_cities2")
   expect_true(deleted)
   ft <- gsman$getFeatureType("topp", "taz_shapes", "tasmania_cities2")

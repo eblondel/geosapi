@@ -51,7 +51,7 @@ Geoserver REST API Manager
 }
 }
 \examples{
-\donttest{
+\dontrun{
    GSManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
 }
 }

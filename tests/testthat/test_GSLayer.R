@@ -8,10 +8,10 @@ require(testthat)
 
 context("GSLayer")
 
-gsUrl <- "http://localhost:8080/geoserver"
-gsUsr <- "admin"
-gsPwd <- "geoserver"
-gsman <- GSDataStoreManager$new(gsUrl, gsUsr, gsPwd)
+gsUrl <- NULL
+gsUsr <- NULL
+gsPwd <- NULL
+gsman <- NULL
 
 test_that("layer encoding/decoding",{
   
@@ -40,6 +40,14 @@ test_that("layer encoding/decoding",{
 })
 
 test_that("READ layer",{
+  testthat::skip_on_travis()
+  testthat::skip_on_cran()
+  
+  gsUrl <- "http://localhost:8080/geoserver"
+  gsUsr <- "admin"
+  gsPwd <- "geoserver"
+  gsman <- GSDataStoreManager$new(gsUrl, gsUsr, gsPwd)
+  
   lyr <- gsman$getLayer("tasmania_cities")
   expect_is(lyr,"GSLayer")
   expect_true(lyr$enabled)
@@ -51,6 +59,9 @@ test_that("READ layer",{
 })
 
 test_that("READ layers",{ 
+  testthat::skip_on_travis()
+  testthat::skip_on_cran()
+  
   lyrs <- gsman$getLayers()
   expect_equal(length(lyrs), 19L)
   expect_equal(unique(sapply(lyrs, function(x){class(x)[1]})), "GSLayer")
@@ -58,6 +69,8 @@ test_that("READ layers",{
 })
 
 test_that("CREATE layer",{
+  testthat::skip_on_travis()
+  testthat::skip_on_cran()
   
   #create featuretype before
   ft <- GSFeatureType$new()
@@ -82,6 +95,9 @@ test_that("CREATE layer",{
 })
 
 test_that("UPDATE layer",{
+  testthat::skip_on_travis()
+  testthat::skip_on_cran()
+  
   lyr <- gsman$getLayer("tasmania_cities")
   expect_equal(lyr$defaultStyle$name, "capitals")
   lyr$setDefaultStyle("generic")
@@ -91,6 +107,9 @@ test_that("UPDATE layer",{
 })
 
 test_that("DELETE layer",{
+  testthat::skip_on_travis()
+  testthat::skip_on_cran()
+  
   deleted <- gsman$deleteLayer("tasmania_cities2")
   expect_true(deleted)
   if(deleted){
@@ -100,6 +119,8 @@ test_that("DELETE layer",{
 })
 
 test_that("PUBLISH layer",{
+  testthat::skip_on_travis()
+  testthat::skip_on_cran()  
   
   #create featuretype
   featureType <- GSFeatureType$new()
@@ -126,6 +147,8 @@ test_that("PUBLISH layer",{
 })
 
 test_that("UNPUBLISH layer",{
+  testthat::skip_on_travis()
+  testthat::skip_on_cran()
   
   #try to unpublish the complete layer (featuretype + layer)
   unpublished <- gsman$unpublishLayer("topp", "taz_shapes", "tasmania_cities2")

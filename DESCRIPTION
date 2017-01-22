@@ -8,7 +8,7 @@ Maintainer: Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 Description: Provides an R interface to the Geoserver REST API.
 Depends: R (>= 3.1.0)
 Imports: R6, openssl, httr, XML
-Suggests: testthat, roxygen2
+Suggests: testthat, roxygen2, knitr
 License: MIT + file LICENSE
 VignetteBuilder: knitr
 URL: https://github.com/eblondel/geosapi, http://geoserver.org/

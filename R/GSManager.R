@@ -12,7 +12,7 @@
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @examples
-#' \donttest{
+#' \dontrun{
 #'    GSManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
 #' }
 #'
@@ -48,7 +48,7 @@
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 GSManager <- R6Class("GSManager",
-  
+  lock_objects = FALSE,
   private = list(
     user = NA,
     pwd = NA
@@ -83,19 +83,20 @@ GSManager <- R6Class("GSManager",
         }
       
         #inherit managers methods (experimenting)
-        #list_of_classes <- rev(ls("package:geosapi"))
-        #supportedManagers <- list_of_classes[regexpr("GS.+Manager", list_of_classes)>0]
-        #for(manager in supportedManagers){
-        #  class <- eval(parse(text=manager))
-        #  man <- class$new(baseUrl, user, pwd, verbose)          
-        #  list_of_methods <- rev(names(man))
-        #  for(method in list_of_methods){
-        #    methodObj <- man[[method]]
-        #    if(!(method %in% names(self)) && class(methodObj) == "function"){
-        #      self[[method]] <- methodObj
-        #    } 
-        #  }
-        #}
+        list_of_classes <- rev(ls("package:geosapi"))
+        supportedManagers <- list_of_classes[regexpr("GS.+Manager", list_of_classes)>0]
+        for(manager in supportedManagers){
+          class <- eval(parse(text=manager))
+          man <- class$new(baseUrl, user, pwd, verbose)          
+          list_of_methods <- rev(names(man))
+          for(method in list_of_methods){
+            methodObj <- man[[method]]
+            if(!(method %in% names(self)) && class(methodObj) == "function"){
+              self[[method]] <- methodObj
+              environment(self[[method]]) <- environment(self$connect)
+            } 
+          }
+        }
       }
       
       invisible(self)
