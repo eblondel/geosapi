@@ -76,11 +76,11 @@ GSUtils$PUT <- function(url, user, pwd, path,
                         contentType, verbose = TRUE){
   #TODO activate verbose argument
   body <- NULL
-  if(is.null(content)){
-    if(is.null(filename)){
+  if(missing(content) | is.null(content)){
+    if(missing(filename) | is.null(filename)){
       stop("The filename must be provided")
     }
-    body <- upload_file(filename)
+    body <- httr::upload_file(filename)
   }else{
     body <- content
   }

@@ -463,6 +463,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         url = self$getUrl(), user = private$user, pwd = private$pwd,
         path = sprintf("/workspaces/%s/datastores/%s/%s.%s?configure=%s&update=%s",
                        ws, ds, endpoint, extension, configure, update),
+        content = NULL,
         filename = filename,
         contentType = contentType,
         self$verbose
