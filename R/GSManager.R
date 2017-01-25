@@ -16,9 +16,11 @@
 #'    GSManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
 #' }
 #'
-#' @field baseUrl the Base url of GeoServer
+#' @field loggerType the type of logger
 #' @field verbose.info if geosapi logs have to be printed
 #' @field verbose.debug if curl logs have to be printed
+#' @field url the Base url of GeoServer
+#' @field version the version of Geoserver. Handled as \code{GSVersion} object
 #'
 #' @section Methods:
 #' \describe{
@@ -76,6 +78,7 @@ GSManager <- R6Class("GSManager",
     
     #manager
     url = NA,
+    version = NULL,
     initialize = function(url, user, pwd, logger = NULL){
       
       #logger
@@ -113,6 +116,9 @@ GSManager <- R6Class("GSManager",
         
         #test connection
         self$connect()
+        
+        #inherit GeoServer version
+        self$version <- GSVersion$new(url, private$user, private$pwd)
       
         #inherit managers methods (experimenting)
         list_of_classes <- rev(ls("package:geosapi"))

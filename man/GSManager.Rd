@@ -18,11 +18,15 @@ Geoserver REST API Manager
 \section{Fields}{
 
 \describe{
-\item{\code{baseUrl}}{the Base url of GeoServer}
+\item{\code{loggerType}}{the type of logger}
 
 \item{\code{verbose.info}}{if geosapi logs have to be printed}
 
 \item{\code{verbose.debug}}{if curl logs have to be printed}
+
+\item{\code{url}}{the Base url of GeoServer}
+
+\item{\code{version}}{the version of Geoserver. Handled as \code{GSVersion} object}
 }}
 \section{Methods}{
 
