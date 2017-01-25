@@ -74,7 +74,7 @@ test_that("READ featuretype",{
   gsUrl <- "http://localhost:8080/geoserver"
   gsUsr <- "admin"
   gsPwd <- "geoserver"
-  gsman <- GSDataStoreManager$new(gsUrl, gsUsr, gsPwd)
+  gsman <- GSDataStoreManager$new(gsUrl, gsUsr, gsPwd, "DEBUG")
   
   ft <- gsman$getFeatureType("topp","taz_shapes", "tasmania_cities")
   expect_true(any(class(ft) == "GSFeatureType"))

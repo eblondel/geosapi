@@ -18,9 +18,12 @@ Geoserver REST API Namespace Manager
 \section{Methods}{
 
 \describe{
- \item{\code{new(url, user, pwd)}}{
-   This method is used to instantiate a GSNamespaceManager with the \code{url} of the
-   GeoServer and credentials to authenticate (\code{user}/\code{pwd})
+ \item{\code{new(url, user, pwd, logger)}}{
+   This method is used to instantiate a GSManager with the \code{url} of the
+   GeoServer and credentials to authenticate (\code{user}/\code{pwd}). By default,
+   the \code{logger} argument will be set to \code{NULL} (no logger). This argument
+   accepts two possible values: \code{INFO}: to print only geosapi logs,
+   \code{DEBUG}: to print geosapi and CURL logs
  }
  \item{\code{getNamespaces()}}{
    Get the list of available namespace. Returns an object of class \code{list}

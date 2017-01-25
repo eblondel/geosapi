@@ -46,7 +46,7 @@ test_that("READ layer",{
   gsUrl <- "http://localhost:8080/geoserver"
   gsUsr <- "admin"
   gsPwd <- "geoserver"
-  gsman <- GSDataStoreManager$new(gsUrl, gsUsr, gsPwd)
+  gsman <- GSDataStoreManager$new(gsUrl, gsUsr, gsPwd, "DEBUG")
   
   lyr <- gsman$getLayer("tasmania_cities")
   expect_is(lyr,"GSLayer")
@@ -104,6 +104,9 @@ test_that("UPDATE layer",{
   updated <- gsman$updateLayer(lyr)
   lyr <- gsman$getLayer("tasmania_cities")
   expect_equal(lyr$defaultStyle$name, "generic")
+  lyr$setDefaultStyle("capitals")
+  updated <- gsman$updateLayer(lyr)
+  expect_equal(lyr$defaultStyle$name, "capitals")
 })
 
 test_that("DELETE layer",{

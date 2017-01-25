@@ -56,84 +56,92 @@ GSUtils$getUserToken <- function(user, pwd){
   return(token)
 }
 
-GSUtils$GET <- function(url, user, pwd, path, verbose = TRUE){
-  #TODO activate verbose argument
-  if(!grepl("^/", path)) path = paste0("/", path)
-  url <- paste0(url, path) 
-  req <- httr::GET(
-    url = url,
-    add_headers(
-      "User-Agent" = GSUtils$getUserAgent(),
-      "Authorization" = paste("Basic", GSUtils$getUserToken(user, pwd))
-    ),    
-    verbose()
-  )
+GSUtils$GET <- function(url, user, pwd, path, verbose = FALSE){
+  if(verbose){
+    req <- with_verbose(GSUtils$GET(url, user, pwd, path))
+  }else{
+    if(!grepl("^/", path)) path = paste0("/", path)
+    url <- paste0(url, path) 
+    req <- httr::GET(
+      url = url,
+      add_headers(
+        "User-Agent" = GSUtils$getUserAgent(),
+        "Authorization" = paste("Basic", GSUtils$getUserToken(user, pwd))
+      )
+    )
+  }
   return(req)
 }
 
 GSUtils$PUT <- function(url, user, pwd, path,
                         content = NULL, filename = NULL,
-                        contentType, verbose = TRUE){
-  #TODO activate verbose argument
-  body <- NULL
-  if(missing(content) | is.null(content)){
-    if(missing(filename) | is.null(filename)){
-      stop("The filename must be provided")
-    }
-    body <- httr::upload_file(filename)
+                        contentType, verbose = FALSE){
+  if(verbose){
+    req <- with_verbose(GSUtils$PUT(url, user, pwd, path, content, filename, contentType))
   }else{
-    body <- content
+    body <- NULL
+    if(missing(content) | is.null(content)){
+      if(missing(filename) | is.null(filename)){
+        stop("The filename must be provided")
+      }
+      body <- httr::upload_file(filename)
+    }else{
+      body <- content
+    }
+    
+    if(!grepl("^/", path)) path = paste0("/", path)
+    url <- paste0(url, path)
+    req <- httr::PUT(
+      url = url,
+      add_headers(
+        "User-Agent" = GSUtils$getUserAgent(),
+        "Authorization" = paste("Basic", GSUtils$getUserToken(user, pwd)),
+        "Content-type" = contentType
+      ),    
+      body = body
+    )
   }
-  
-  if(!grepl("^/", path)) path = paste0("/", path)
-  url <- paste0(url, path)
-  req <- httr::PUT(
-    url = url,
-    add_headers(
-      "User-Agent" = GSUtils$getUserAgent(),
-      "Authorization" = paste("Basic", GSUtils$getUserToken(user, pwd)),
-      "Content-type" = contentType
-    ),    
-    body = body,
-    verbose()
-  )
   return(req)
 }
 
-GSUtils$POST <- function(url, user, pwd, path, content, contentType, verbose = TRUE){
-  #TODO activate verbose argument
-  if(!grepl("^/", path)) path = paste0("/", path)
-  url <- paste0(url, path)
-  req <- httr::POST(
-    url = url,
-    add_headers(
-      "User-Agent" = GSUtils$getUserAgent(),
-      "Authorization" = paste("Basic", GSUtils$getUserToken(user, pwd)),
-      "Content-type" = contentType
-    ),    
-    body = content,
-    verbose()
-  )
+GSUtils$POST <- function(url, user, pwd, path, content, contentType, verbose = FALSE){
+  if(verbose){
+     req <- with_verbose(GSUtils$POST(url, user, pwd, path, content, contentType))
+  }else{
+    if(!grepl("^/", path)) path = paste0("/", path)
+    url <- paste0(url, path)
+    req <- httr::POST(
+      url = url,
+      add_headers(
+        "User-Agent" = GSUtils$getUserAgent(),
+        "Authorization" = paste("Basic", GSUtils$getUserToken(user, pwd)),
+        "Content-type" = contentType
+      ),    
+      body = content
+    )
+  }
   return(req)
 }
 
-GSUtils$DELETE <- function(url, user, pwd, path, verbose = TRUE){
-  #TODO activate verbose argument
-  if(!grepl("^/", path)) path = paste0("/", path)
-  url <- paste0(url, path)
-  req <- httr::DELETE(
-    url = url,
-    add_headers(
-      "User-Agent" = GSUtils$getUserAgent(),
-      "Authorization" = paste("Basic", GSUtils$getUserToken(user, pwd))
-    ),
-    verbose()
-  )
+GSUtils$DELETE <- function(url, user, pwd, path, verbose = FALSE){
+  if(verbose){
+    req <- with_verbose(GSUtils$DELETE(url, user, pwd, path))
+  }else{
+    if(!grepl("^/", path)) path = paste0("/", path)
+    url <- paste0(url, path)
+    req <- httr::DELETE(
+      url = url,
+      add_headers(
+        "User-Agent" = GSUtils$getUserAgent(),
+        "Authorization" = paste("Basic", GSUtils$getUserToken(user, pwd))
+      )
+    )
+  }
   return(req)
 }
 
 GSUtils$parseResponseXML <- function(req){
-  return(xmlParse(content(req, as = "text")))
+  return(xmlParse(content(req, as = "text", encoding = "UTF-8")))
 }
 
 GSUtils$getPayloadXML <- function(obj){

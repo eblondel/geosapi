@@ -15,9 +15,12 @@
 #'
 #' @section Methods:
 #' \describe{
-#'  \item{\code{new(url, user, pwd)}}{
-#'    This method is used to instantiate a GSNamespaceManager with the \code{url} of the
-#'    GeoServer and credentials to authenticate (\code{user}/\code{pwd})
+#'  \item{\code{new(url, user, pwd, logger)}}{
+#'    This method is used to instantiate a GSManager with the \code{url} of the
+#'    GeoServer and credentials to authenticate (\code{user}/\code{pwd}). By default,
+#'    the \code{logger} argument will be set to \code{NULL} (no logger). This argument
+#'    accepts two possible values: \code{INFO}: to print only geosapi logs,
+#'    \code{DEBUG}: to print geosapi and CURL logs
 #'  }
 #'  \item{\code{getNamespaces()}}{
 #'    Get the list of available namespace. Returns an object of class \code{list}
@@ -56,8 +59,9 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
     #getNamespaces
     #---------------------------------------------------------------------------
     getNamespaces = function(){
+      self$INFO("Fetching list of namespaces")
       req <- GSUtils$GET(self$getUrl(), private$user, private$pwd,
-                         "/namespaces.xml", self$verbose)
+                         "/namespaces.xml", self$verbose.debug)
       nsList <- NULL
       if(status_code(req) == 200){
         nsXML <- GSUtils$parseResponseXML(req)
@@ -66,6 +70,9 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
           xml <- xmlDoc(x)
           return(GSNamespace$new(xml = xml))
         })
+        self$INFO(sprintf("Successfully fetched %s namespaces", length(nsList)))
+      }else{
+        self$ERROR("Error while fetching list of namespaces")
       }
       return(nsList)
     },
@@ -80,12 +87,16 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
     #getNamespace
     #---------------------------------------------------------------------------
     getNamespace = function(ns){
+      self$INFO(sprintf("Fetching workspace '%s'", ns))
       req <- GSUtils$GET(self$getUrl(), private$user, private$pwd,
-                         sprintf("/namespaces/%s.xml", ns), self$verbose)
+                         sprintf("/namespaces/%s.xml", ns), self$verbose.debug)
       namespace <- NULL
       if(status_code(req) == 200){
         nsXML <- GSUtils$parseResponseXML(req)
         namespace <- GSNamespace$new(xml = nsXML)
+        self$INFO("Successfully fetched namespace!")
+      }else{
+        self$ERROR("Error while fetching namespace")
       }
       return(namespace)
     },
@@ -93,8 +104,9 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
     #createNamespace
     #---------------------------------------------------------------------------
     createNamespace = function(prefix, uri){
-      created <- FALSE
       
+      self$INFO(sprintf("Creating namespace '%s'", prefix))
+      created <- FALSE
       namespace <- GSNamespace$new(prefix = prefix, uri = uri)
 
       req <- GSUtils$POST(
@@ -104,10 +116,13 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
         path = "/namespaces",
         content = GSUtils$getPayloadXML(namespace),
         contentType = "text/xml",
-        verbose = self$verbose
+        verbose = self$verbose.debug
       )
       if(status_code(req) == 201){
+        self$INFO("Successfully created namespace!")
         created = TRUE
+      }else{
+        self$ERROR("Error while creating namespace")
       }
       return(created)
     },
@@ -115,8 +130,9 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
     #updateNamespace
     #---------------------------------------------------------------------------
     updateNamespace = function(prefix, uri){
-      updated <- FALSE
       
+      self$INFO(sprintf("Updating namespace '%s'", prefix))
+      updated <- FALSE
       namespace <- GSNamespace$new(prefix = prefix, uri = uri)
       
       req <- GSUtils$PUT(
@@ -124,10 +140,13 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
         path = sprintf("/namespaces/%s.xml", prefix),
         content = GSUtils$getPayloadXML(namespace),
         contentType = "application/xml",
-        self$verbose
+        self$verbose.debug
       )
       if(status_code(req) == 200){
+        self$INFO("Successfully updated namespace!")
         updated = TRUE
+      }else{
+        self$ERROR("Error while updating namespace")
       }
       return(updated)
     },
@@ -135,15 +154,19 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
     #deleteNamespace
     #---------------------------------------------------------------------------
     deleteNamespace = function(name, recurse = FALSE){
+      self$INFO(sprintf("Deleting namespace '%s'", name))
       deleted <- FALSE
       path <- sprintf("/namespaces/%s", name)
       if(recurse) path <- paste0(path, "?recurse=true")
       #TODO hack for style removing (not managed by REST API)
       
       req <- GSUtils$DELETE(self$getUrl(), private$user, private$pwd,
-                            path = path, self$verbose)
+                            path = path, self$verbose.debug)
       if(status_code(req) == 200){
+        self$INFO("Successfully deleted namespace!")
         deleted = TRUE
+      }else{
+        self$ERROR("Error while deleting namespace")
       }
       return(deleted)
     }   

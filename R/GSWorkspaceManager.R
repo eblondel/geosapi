@@ -15,9 +15,12 @@
 #'
 #' @section Methods:
 #' \describe{
-#'  \item{\code{new(url, user, pwd)}}{
-#'    This method is used to instantiate a GSWorkspaceManager with the \code{url} of the
-#'    GeoServer and credentials to authenticate (\code{user}/\code{pwd})
+#'  \item{\code{new(url, user, pwd, logger)}}{
+#'    This method is used to instantiate a GSManager with the \code{url} of the
+#'    GeoServer and credentials to authenticate (\code{user}/\code{pwd}). By default,
+#'    the \code{logger} argument will be set to \code{NULL} (no logger). This argument
+#'    accepts two possible values: \code{INFO}: to print only geosapi logs,
+#'    \code{DEBUG}: to print geosapi and CURL logs
 #'  }
 #'  \item{\code{getWorkspaces()}}{
 #'    Get the list of available workspace. Returns an object of class \code{list}
@@ -60,8 +63,9 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
     #getWorkspaces
     #---------------------------------------------------------------------------
     getWorkspaces = function(){
+      self$INFO("Fetching list of workspaces")
       req <- GSUtils$GET(self$getUrl(), private$user, private$pwd,
-                         "/workspaces.xml", self$verbose)
+                         "/workspaces.xml", self$verbose.debug)
       wsList <- NULL
       if(status_code(req) == 200){
         wsXML <- GSUtils$parseResponseXML(req)
@@ -70,6 +74,9 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
           xml <- xmlDoc(x)
           return(GSWorkspace$new(xml = xml))
         })
+        self$INFO(sprintf("Successfully fetched %s workspaces", length(wsList)))
+      }else{
+        self$ERROR("Error while fetching list of workspaces")
       }
       return(wsList)
     },
@@ -84,12 +91,16 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
     #getWorkspace
     #---------------------------------------------------------------------------
     getWorkspace = function(ws){
+      self$INFO(sprintf("Fetching workspace '%s'", ws))
       req <- GSUtils$GET(self$getUrl(), private$user, private$pwd,
-                      sprintf("/workspaces/%s.xml", ws), self$verbose)
+                      sprintf("/workspaces/%s.xml", ws), self$verbose.debug)
       workspace <- NULL
       if(status_code(req) == 200){
         wsXML <- GSUtils$parseResponseXML(req)
         workspace <- GSWorkspace$new(xml = wsXML)
+        self$INFO("Successfully fetched workspace!")
+      }else{
+        self$ERROR("Error while fetching workspace")
       }
       return(workspace)
     },
@@ -97,6 +108,7 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
     #createWorkspace
     #---------------------------------------------------------------------------
     createWorkspace = function(name, uri){
+      self$INFO(sprintf("Creating workspace '%s'", name))
       created <- FALSE
       if(missing(uri)){
         
@@ -109,13 +121,17 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
           path = "/workspaces",
           content = GSUtils$getPayloadXML(ws),
           contentType = "text/xml",
-          verbose = self$verbose
+          verbose = self$verbose.debug
         )
         if(status_code(req) == 201){
+          self$INFO("Successfully created workspace!")
           created = TRUE
+        }else{
+          self$ERROR("Error while creating workspace")
         }
       }else{
-        nsman <- GSNamespaceManager$new(self$getUrl(), private$user, private$pwd)
+        self$INFO("Delegating workspace creation to namespace manager")
+        nsman <- GSNamespaceManager$new(self$getUrl(), private$user, private$pwd, self$loggerType)
         created <- nsman$createNamespace(name, uri)
       }
       return(created)
@@ -124,7 +140,7 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
     #updateWorkspace
     #---------------------------------------------------------------------------
     updateWorkspace = function(name, uri){
-      
+      self$INFO(sprintf("Updating workspace '%s'", name))
       updated <- FALSE
       if(missing(uri)){
         workspace <- GSWorkspace$new(name = name)
@@ -133,13 +149,17 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
           path = sprintf("/workspaces/%s.xml", name),
           content = GSUtils$getPayloadXML(workspace),
           contentType = "application/xml",
-          self$verbose
+          verbose = self$verbose.debug
         )
         if(status_code(req) == 200){
-          udpated = TRUE
+          self$INFO("Successfully updated workspace!")
+          updated = TRUE
+        }else{
+          self$ERROR("Error while updating workspace")
         }
       }else{
-        nsman <- GSNamespaceManager$new(self$getUrl(), private$user, private$pwd)
+        self$INFO("Delegating workspace update to namespace manager")
+        nsman <- GSNamespaceManager$new(self$getUrl(), private$user, private$pwd, self$loggerType)
         updated <- nsman$updateNamespace(name, uri)
       }
       return(updated)
@@ -148,15 +168,19 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
     #deleteWorkspace
     #---------------------------------------------------------------------------
     deleteWorkspace = function(name, recurse = FALSE){
+      self$INFO(sprintf("Deleting workspace '%s'", name))
       deleted <- FALSE
       path <- sprintf("/workspaces/%s", name)
       if(recurse) path <- paste0(path, "?recurse=true")
       #TODO hack for style removing (not managed by REST API)
       
       req <- GSUtils$DELETE(self$getUrl(), private$user, private$pwd,
-                         path = path, self$verbose)
+                         path = path, self$verbose.debug)
       if(status_code(req) == 200){
+        self$INFO("Successfully deleted workspace!")
         deleted = TRUE
+      }else{
+        self$ERROR("Error while deleting workspace")
       }
       return(deleted)
     }   

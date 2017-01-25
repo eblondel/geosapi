@@ -15,8 +15,12 @@
 #'
 #' @section Methods:
 #' \describe{
-#'  \item{\code{new(}}{
-#'    This method is used to instantiate a GSDataStoreManager
+#'  \item{\code{new(url, user, pwd, logger)}}{
+#'    This method is used to instantiate a GSManager with the \code{url} of the
+#'    GeoServer and credentials to authenticate (\code{user}/\code{pwd}). By default,
+#'    the \code{logger} argument will be set to \code{NULL} (no logger). This argument
+#'    accepts two possible values: \code{INFO}: to print only geosapi logs,
+#'    \code{DEBUG}: to print geosapi and CURL logs
 #'  }
 #'  \item{\code{getDataStores(ws)}}{
 #'    Get the list of available dataStores. Returns an object of class \code{list}
@@ -104,10 +108,11 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #getDataStores
     #---------------------------------------------------------------------------
     getDataStores = function(ws){
+      self$INFO(sprintf("Fetching list of datastores in workspace '%s'", ws))
       req <- GSUtils$GET(
         self$getUrl(), private$user, private$pwd,
         sprintf("/workspaces/%s/datastores.xml", ws),
-        self$verbose)
+        self$verbose.debug)
       dsList <- NULL
       if(status_code(req) == 200){
         dsXML <- GSUtils$parseResponseXML(req)
@@ -116,6 +121,9 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
           xml <- xmlDoc(x)
           return(GSDataStore$new(xml = xml))
         })
+        self$INFO(sprintf("Successfully fetched %s datastores!", length(dsList)))
+      }else{
+        self$ERROR("Error while fetching list of datastores")
       }
       return(dsList)
     },
@@ -130,14 +138,18 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #getDataStore
     #---------------------------------------------------------------------------
     getDataStore = function(ws, ds){
+      self$INFO(sprintf("Fetching datastore '%s' in workspace '%s'", ds, ws))
       req <- GSUtils$GET(
         self$getUrl(), private$user, private$pwd,
         sprintf("/workspaces/%s/datastores/%s.xml", ws, ds),
-        self$verbose)
+        self$verbose.debug)
       dataStore <- NULL
       if(status_code(req) == 200){
         dsXML <- GSUtils$parseResponseXML(req)
         dataStore <- GSDataStore$new(xml = dsXML)
+        self$INFO("Successfully fetched datastore!")
+      }else{
+        self$ERROR("Error while fetching datastore")
       }
       return(dataStore)
     },
@@ -145,8 +157,8 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #createDataStore
     #---------------------------------------------------------------------------
     createDataStore = function(ws, dataStore){
+      self$INFO(sprintf("Creating datastore '%s' in workspace '%s'", dataStore$name, ws))
       created <- FALSE
-
       req <- GSUtils$POST(
         url = self$getUrl(),
         user = private$user,
@@ -154,10 +166,13 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         path = sprintf("/workspaces/%s/datastores.xml", ws),
         content = GSUtils$getPayloadXML(dataStore),
         contentType = "text/xml",
-        verbose = self$verbose
+        verbose = self$verbose.debug
       )
       if(status_code(req) == 201){
+        self$INFO("Successfully created datastore!")
         created = TRUE
+      }else{
+        self$ERROR("Error while creating datastore")
       }
     },
     
@@ -165,15 +180,19 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #---------------------------------------------------------------------------
     updateDataStore = function(ws, dataStore){
       updated <- FALSE
+      self$INFO(sprintf("Updating datastore '%s' in workspace '%s'", dataStore$name, ws))
       req <- GSUtils$PUT(
         url = self$getUrl(), user = private$user, pwd = private$pwd,
         path = sprintf("/workspaces/%s/datastores/%s.xml", ws, dataStore$name),
         content = GSUtils$getPayloadXML(dataStore),
         contentType = "application/xml",
-        self$verbose
+        self$verbose.debug
       )
       if(status_code(req) == 200){
+        self$INFO("Successfully updated datastore!")
         updated = TRUE
+      }else{
+        self$ERROR("Error while updating datastore")
       }
       return(updated)
     },
@@ -181,13 +200,17 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #deleteDataStore
     #---------------------------------------------------------------------------
     deleteDataStore = function(ws, ds, recurse = FALSE){
+      self$INFO(sprintf("Deleting datastore '%s' in workspace '%s'", ds, ws))
       deleted <- FALSE
       path <- sprintf("/workspaces/%s/datastores/%s.xml", ws, ds)
       if(recurse) path <- paste0(path, "?recurse=true")
       req <- GSUtils$DELETE(self$getUrl(), private$user, private$pwd,
-                            path = path, self$verbose)
+                            path = path, self$verbose.debug)
       if(status_code(req) == 200){
+        self$INFO("Successfully deleted datastore!")
         deleted = TRUE
+      }else{
+        self$ERROR("Error while deleting datastore")
       }
       return(deleted)  
     },
@@ -198,7 +221,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #getFeatureTypes
     #---------------------------------------------------------------------------
     getFeatureTypes = function(ws, ds, list = "configured"){
-      
+      self$INFO(sprintf("Fetching featureTypes for datastore '%s' in workspace '%s'", ds, ws))
       supportedListValues <- c("configured", "available", "available_with_geom", "all")
       if(!(list %in% supportedListValues)){
         stop(sprintf("Unsupported 'list' parameter value '%s'. Possible values: [%s]",
@@ -208,7 +231,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       req <- GSUtils$GET(
         self$getUrl(), private$user, private$pwd,
         sprintf("/workspaces/%s/datastores/%s/featuretypes.xml?list=%s", ws, ds, list),
-        self$verbose)
+        self$verbose.debug)
       ftList <- NULL
       if(status_code(req) == 200){
         ftXML <- GSUtils$parseResponseXML(req)
@@ -217,6 +240,9 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
           xml <- xmlDoc(x)
           return(GSFeatureType$new(xml = xml))
         })
+        self$INFO(sprintf("Successfully fetched %s featureTypes!", length(ftList)))
+      }else{
+        self$ERROR("Error while fetching list of featureTypes")
       }
       return(ftList)
     },
@@ -231,14 +257,18 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #getFeatureType
     #---------------------------------------------------------------------------
     getFeatureType = function(ws, ds, ft){
+      self$INFO(sprintf("Updating featureType '%s' in datastore '%s' (workspace '%s')", ft, ds, ws))
       req <- GSUtils$GET(
         self$getUrl(), private$user, private$pwd,
         sprintf("/workspaces/%s/datastores/%s/featuretypes/%s.xml", ws, ds, ft),
-        self$verbose)
+        self$verbose.debug)
       featureType <- NULL
       if(status_code(req) == 200){
         ftXML <- GSUtils$parseResponseXML(req)
         featureType <- GSFeatureType$new(xml = ftXML)
+        self$INFO("Successfully fetched featureType!")
+      }else{
+        self$ERROR("Error while fetching featureType")
       }
       return(featureType)
     },
@@ -246,6 +276,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #createFeatureType
     #---------------------------------------------------------------------------
     createFeatureType = function(ws, ds, featureType){
+      self$INFO(sprintf("Creating featureType '%s' in datastore '%s' (workspace '%s')", featureType$name, ds, ws))
       created <- FALSE
       req <- GSUtils$POST(
         url = self$getUrl(),
@@ -254,10 +285,13 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         path = sprintf("/workspaces/%s/datastores/%s/featuretypes.xml", ws, ds),
         content = GSUtils$getPayloadXML(featureType),
         contentType = "text/xml",
-        verbose = self$verbose
+        verbose = self$verbose.debug
       )
       if(status_code(req) == 201){
+        self$INFO("Successfully created featureType!")
         created = TRUE
+      }else{
+        self$ERROR("Error while creating featureType")
       }
       return(created)
     },
@@ -265,6 +299,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #updateFeatureType
     #---------------------------------------------------------------------------
     updateFeatureType = function(ws, ds, featureType){
+      self$INFO(sprintf("Updating featureType '%s' in datastore '%s' (workspace '%s')", featureType$name, ds, ws))
       updated <- FALSE
       req <- GSUtils$PUT(
         url = self$getUrl(), user = private$user, pwd = private$pwd,
@@ -272,10 +307,13 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
                        ws, ds, featureType$name),
         content = GSUtils$getPayloadXML(featureType),
         contentType = "application/xml",
-        self$verbose
+        self$verbose.debug
       )
       if(status_code(req) == 200){
+        self$INFO("Successfully updated featureType!")
         updated = TRUE
+      }else{
+        self$ERROR("Error while updating featureType")
       }
       return(updated)
     },
@@ -283,13 +321,17 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #deleteFeatureType
     #---------------------------------------------------------------------------
     deleteFeatureType = function(ws, ds, ft, recurse = FALSE){
+      self$INFO(sprintf("Deleting featureType '%s' in datastore '%s' (workspace '%s')", ft, ds, ws))
       deleted <- FALSE
       path <- sprintf("/workspaces/%s/datastores/%s/featuretypes/%s.xml", ws, ds, ft)
       if(recurse) path <- paste0(path, "?recurse=true")
       req <- GSUtils$DELETE(self$getUrl(), private$user, private$pwd,
-                            path = path, self$verbose)
+                            path = path, self$verbose.debug)
       if(status_code(req) == 200){
+        self$INFO("Successfuly deleted featureType!")
         deleted = TRUE
+      }else{
+        self$ERROR("Error while deleting featureType")
       }
       return(deleted)  
     },
@@ -300,10 +342,11 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #getLayers
     #---------------------------------------------------------------------------
     getLayers = function(){
+      self$INFO("Fetching layers")
       req <- GSUtils$GET(
         self$getUrl(), private$user, private$pwd,
         "/layers.xml",
-        self$verbose)
+        self$verbose.debug)
       lyrList <- NULL
       if(status_code(req) == 200){
         lyrXML <- GSUtils$parseResponseXML(req)
@@ -312,6 +355,9 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
           xml <- xmlDoc(x)
           return(GSLayer$new(xml = xml))
         })
+        self$INFO(sprintf("Successfuly fetched %s layers!", length(lyrList)))
+      }else{
+        self$ERROR("Error while fetching layers")
       }
       return(lyrList)
     },
@@ -326,14 +372,18 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #getLayer
     #---------------------------------------------------------------------------
     getLayer = function(lyr){
+      self$INFO(sprintf("Fetching layer '%s'", lyr))
       req <- GSUtils$GET(
         self$getUrl(), private$user, private$pwd,
         sprintf("/layers/%s.xml", lyr),
-        self$verbose)
+        self$verbose.debug)
       layer <- NULL
       if(status_code(req) == 200){
         lyrXML <- GSUtils$parseResponseXML(req)
         layer <- GSLayer$new(xml = lyrXML)
+        self$INFO("Successfuly fetched layer!")
+      }else{
+        self$ERROR("Error while fetching layer")
       }
       return(layer)
     },
@@ -341,16 +391,20 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #createLayer
     #---------------------------------------------------------------------------
     createLayer = function(layer){
+      self$INFO(sprintf("Creating layer '%s'", layer$name))
       created <- FALSE
       req <- GSUtils$PUT(
         url = self$getUrl(), user = private$user, pwd = private$pwd,
         path = sprintf("/layers/%s.xml", layer$name),
         content = GSUtils$getPayloadXML(layer),
         contentType = "application/xml",
-        self$verbose
+        self$verbose.debug
       )
       if(status_code(req) == 200){
+        self$INFO("Successfuly created layer!")
         created = TRUE
+      }else{
+        self$ERROR("Error while creating layer")
       }
       return(created)
     },
@@ -358,16 +412,20 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #updateLayer
     #---------------------------------------------------------------------------
     updateLayer = function(layer){
+      self$INFO(sprintf("Updating layer '%s'", layer$name))
       updated <- FALSE
       req <- GSUtils$PUT(
         url = self$getUrl(), user = private$user, pwd = private$pwd,
         path = sprintf("/layers/%s.xml", layer$name),
         content = GSUtils$getPayloadXML(layer),
         contentType = "application/xml",
-        self$verbose
+        self$verbose.debug
       )
       if(status_code(req) == 200){
+        self$INFO("Successfuly updated layer!")
         updated = TRUE
+      }else{
+        self$ERROR("Error while updating layer")
       }
       return(updated)
     },
@@ -375,12 +433,16 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #deleteLayer
     #---------------------------------------------------------------------------
     deleteLayer = function(lyr){
+      self$INFO(sprintf("Deleting layer '%s'", lyr))
       deleted <- FALSE
       path <- sprintf("/layers/%s.xml", lyr)
       req <- GSUtils$DELETE(self$getUrl(), private$user, private$pwd,
-                            path = path, self$verbose)
+                            path = path, self$verbose.debug)
       if(status_code(req) == 200){
+        self$INFO("Successfuly deleted layer!")
         deleted = TRUE
+      }else{
+        self$ERROR("Error while deleting layer")
       }
       return(deleted)
     },
@@ -390,6 +452,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #publishLayer
     #---------------------------------------------------------------------------
     publishLayer = function(ws, ds, featureType, layer){
+      self$INFO(sprintf("Publishing layer '%s'", layer$name))
       published <- FALSE
       if(featureType$name != layer$name){
         stop("FeatureType and Layer names differ!")
@@ -399,30 +462,27 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         lyrCreated <- self$createLayer(layer)
         if(lyrCreated){
           published <- TRUE
-        }else{
-          cat(sprintf("Error while creating layer '%s'", layer$name))
+          self$INFO("Successfully published layer!")
         }
-      }else{
-        cat(sprintf("Error while creating featureType '%s'", featureType$name))
       }
+      if(!published) self$ERROR("Error while publishing layer")
       return(published)
     },
     
     #unpublishLayer
     #---------------------------------------------------------------------------
     unpublishLayer = function(ws, ds, lyr){
+      self$INFO(sprintf("Unpublishing layer '%s'", layer$name))
       unpublished <- FALSE
       lyrDeleted <- self$deleteLayer(lyr)
       if(lyrDeleted){
         ftDeleted <- self$deleteFeatureType(ws, ds, lyr)
         if(ftDeleted){
-          unpublished <- TRUE
-        }else{
-          cat(sprintf("Error while deleting featureType '%s'", lyr))
+            unpublished <- TRUE
+            self$INFO("Successfully unpublished layer!")
         }
-      }else{
-        cat(sprintf("Error while deleting layer '%s'", lyr))
       }
+      if(!unpublished) self$ERROR("Error while unpublishing layer")
       return(unpublished)
     },
     
@@ -433,6 +493,9 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     uploadData = function(ws, ds, endpoint = "file", extension,
                           configure = "first", update = "append", filename,
                           charset, contentType){
+      self$INFO(sprintf("Uploading %s data in datastore '%s' (workspace '%s'",
+                        toupper(extension), ds, ws))
+      
       uploaded <- FALSE
       
       supportedEndpoints <- c("file","url","external")
@@ -466,11 +529,13 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         content = NULL,
         filename = filename,
         contentType = contentType,
-        self$verbose
+        self$verbose.debug
       )
       if(status_code(req) == 201){
+        self$INFO("Successfull data upload!")
         uploaded = TRUE
       }
+      if(!uploaded) self$ERROR("Error while uploading data")
       return(uploaded)
     },
     

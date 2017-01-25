@@ -17,13 +17,17 @@
 #' }
 #'
 #' @field baseUrl the Base url of GeoServer
-#' @field verbose if logs have to be printed
+#' @field verbose.info if geosapi logs have to be printed
+#' @field verbose.debug if curl logs have to be printed
 #'
 #' @section Methods:
 #' \describe{
-#'  \item{\code{new(url, user, pwd)}}{
+#'  \item{\code{new(url, user, pwd, logger)}}{
 #'    This method is used to instantiate a GSManager with the \code{url} of the
-#'    GeoServer and credentials to authenticate (\code{user}/\code{pwd})
+#'    GeoServer and credentials to authenticate (\code{user}/\code{pwd}). By default,
+#'    the \code{logger} argument will be set to \code{NULL} (no logger). This argument
+#'    accepts two possible values: \code{INFO}: to print only geosapi logs,
+#'    \code{DEBUG}: to print geosapi and CURL logs
 #'  }
 #'  \item{\code{getUrl()}}{
 #'    Get the authentication URL
@@ -49,17 +53,46 @@
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 GSManager <- R6Class("GSManager",
   lock_objects = FALSE,
+  
+  #TODO provider specific formatter to prevent these fields to be printable
   private = list(
     user = NA,
     pwd = NA
   ),
                      
   public = list(
+    #logger
+    verbose.info = FALSE,
+    verbose.debug = FALSE,
+    loggerType = NULL,
+    logger = function(type, text){
+      if(self$verbose.info){
+        cat(sprintf("[geosapi][%s] %s \n", type, text))
+      }
+    },
+    INFO = function(text){self$logger("INFO", text)},
+    WARN = function(text){self$logger("WARN", text)},
+    ERROR = function(text){self$logger("ERROR", text)},
+    
+    #manager
     url = NA,
-    verbose = TRUE,
-    initialize = function(url, user, pwd, verbose = TRUE){
-     
-      self$verbose = verbose
+    initialize = function(url, user, pwd, logger = NULL){
+      
+      #logger
+      if(!missing(logger)){
+        if(!is.null(logger)){
+          self$loggerType <- toupper(logger)
+          if(!(self$loggerType %in% c("INFO","DEBUG"))){
+            stop(sprintf("Unknown logger type '%s", logger))
+          }
+          if(self$loggerType == "INFO"){
+            self$verbose.info = TRUE
+          }else if(self$loggerType == "DEBUG"){
+            self$verbose.info = TRUE
+            self$verbose.debug = TRUE
+          }
+        }
+      }
       
       #baseUrl
       if(missing(url)) stop("Please provide the GeoServer base URL")
@@ -77,17 +110,16 @@ GSManager <- R6Class("GSManager",
       
       #try to connect
       if(self$getClassName() == "GSManager"){
-        pong = self$connect()
-        if(self$verbose){
-          cat("Successfully connected to GeoServer!\n")
-        }
+        
+        #test connection
+        self$connect()
       
         #inherit managers methods (experimenting)
         list_of_classes <- rev(ls("package:geosapi"))
         supportedManagers <- list_of_classes[regexpr("GS.+Manager", list_of_classes)>0]
         for(manager in supportedManagers){
           class <- eval(parse(text=manager))
-          man <- class$new(baseUrl, user, pwd, verbose)          
+          man <- class$new(baseUrl, user, pwd, logger)          
           list_of_methods <- rev(names(man))
           for(method in list_of_methods){
             methodObj <- man[[method]]
@@ -108,15 +140,23 @@ GSManager <- R6Class("GSManager",
     },
     
     connect = function(){
-      req <- GSUtils$GET(self$getUrl(), private$user, private$pwd, "/", self$verbose)
+      req <- GSUtils$GET(self$getUrl(), private$user, private$pwd, "/", self$verbose.debug)
       if(status_code(req) == 401){
-        stop("Impossible to connect to GeoServer: Wrong credentials")
+        err <- "Impossible to connect to GeoServer: Wrong credentials"
+        self$ERROR(err)
+        stop(err)
       }
       if(status_code(req) == 404){
-        stop("Impossible to connect to GeoServer: Incorrect URL or GeoServer temporarily unavailable")
+        err <- "Impossible to connect to GeoServer: Incorrect URL or GeoServer temporarily unavailable"
+        self$ERROR(err)
+        stop(err)
       }
       if(status_code(req) != 200){
-        stop("Impossible to connectto Geoserver: Unexpected error")
+        err <- "Impossible to connectto Geoserver: Unexpected error"
+        self$ERROR(err)
+        stop(err)
+      }else{
+        self$INFO("Successfully connected to GeoServer!\n")
       }
       return(TRUE)
     },
@@ -126,15 +166,15 @@ GSManager <- R6Class("GSManager",
     },
     
     getWorkspaceManager = function(){
-      return(GSWorkspaceManager$new(self$getUrl(), private$user, private$pwd))
+      return(GSWorkspaceManager$new(self$getUrl(), private$user, private$pwd, self$loggerType))
     },
     
     getNamespaceManager = function(){
-      return(GSNamespaceManager$new(self$getUrl(), private$user, private$pwd))
+      return(GSNamespaceManager$new(self$getUrl(), private$user, private$pwd, self$loggerType))
     },
     
     getDataStoreManager = function(){
-      return(GSDataStoreManager$new(self$getUrl(), private$user, private$pwd))
+      return(GSDataStoreManager$new(self$getUrl(), private$user, private$pwd, self$loggerType))
     }
     
   )

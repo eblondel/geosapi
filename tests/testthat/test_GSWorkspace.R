@@ -26,7 +26,7 @@ test_that("READ workspace",{
   gsUrl <- "http://localhost:8080/geoserver"
   gsUsr <- "admin"
   gsPwd <- "geoserver"
-  gsman <- GSWorkspaceManager$new(gsUrl, gsUsr, gsPwd)
+  gsman <- GSWorkspaceManager$new(gsUrl, gsUsr, gsPwd, "DEBUG")
   
   ws <- gsman$getWorkspace("topp")
   expect_is(ws, "GSWorkspace")

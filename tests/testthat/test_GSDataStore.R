@@ -20,7 +20,7 @@ test_that("READ dataStore",{
   gsUrl <- "http://localhost:8080/geoserver"
   gsUsr <- "admin"
   gsPwd <- "geoserver"
-  gsman <- GSDataStoreManager$new(gsUrl, gsUsr, gsPwd)
+  gsman <- GSDataStoreManager$new(gsUrl, gsUsr, gsPwd, "DEBUG")
   
   ds <- gsman$getDataStore("topp", "taz_shapes")
   expect_is(ds, "GSDataStore")

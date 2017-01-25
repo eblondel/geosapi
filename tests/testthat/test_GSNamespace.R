@@ -20,7 +20,7 @@ test_that("READ namespace",{
   gsUrl <- "http://localhost:8080/geoserver"
   gsUsr <- "admin"
   gsPwd <- "geoserver"
-  gsman <- GSNamespaceManager$new(gsUrl, gsUsr, gsPwd)
+  gsman <- GSNamespaceManager$new(gsUrl, gsUsr, gsPwd, "DEBUG")
   
   ns <- gsman$getNamespace("topp")
   expect_is(ns, "GSNamespace")

@@ -20,14 +20,19 @@ Geoserver REST API Manager
 \describe{
 \item{\code{baseUrl}}{the Base url of GeoServer}
 
-\item{\code{verbose}}{if logs have to be printed}
+\item{\code{verbose.info}}{if geosapi logs have to be printed}
+
+\item{\code{verbose.debug}}{if curl logs have to be printed}
 }}
 \section{Methods}{
 
 \describe{
- \item{\code{new(url, user, pwd)}}{
+ \item{\code{new(url, user, pwd, logger)}}{
    This method is used to instantiate a GSManager with the \code{url} of the
-   GeoServer and credentials to authenticate (\code{user}/\code{pwd})
+   GeoServer and credentials to authenticate (\code{user}/\code{pwd}). By default,
+   the \code{logger} argument will be set to \code{NULL} (no logger). This argument
+   accepts two possible values: \code{INFO}: to print only geosapi logs,
+   \code{DEBUG}: to print geosapi and CURL logs
  }
  \item{\code{getUrl()}}{
    Get the authentication URL
