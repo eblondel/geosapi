@@ -26,6 +26,15 @@ Geoserver REST API - Geoserver Version
  \item{\code{new(url, user, pwd)}}{
    This method is used to instantiate a GSVersion object.
  }
+ \item{\code{lowerThan(version)}}{
+   Compares to a version and returns TRUE if it is lower, FALSE otherwise
+ }
+ \item{\code{greaterThan(version)}}{
+   Compares to a version and returns TRUE if it is greater, FALSE otherwise
+ }
+ \item{\code{equalTo(version)}}{
+   Compares to a version and returns TRUE if it is equal, FALSE otherwise
+ }
 }
 }
 \examples{

@@ -25,6 +25,15 @@
 #'  \item{\code{new(url, user, pwd)}}{
 #'    This method is used to instantiate a GSVersion object.
 #'  }
+#'  \item{\code{lowerThan(version)}}{
+#'    Compares to a version and returns TRUE if it is lower, FALSE otherwise
+#'  }
+#'  \item{\code{greaterThan(version)}}{
+#'    Compares to a version and returns TRUE if it is greater, FALSE otherwise
+#'  }
+#'  \item{\code{equalTo(version)}}{
+#'    Compares to a version and returns TRUE if it is equal, FALSE otherwise
+#'  }
 #' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
@@ -34,8 +43,15 @@ GSVersion <- R6Class("GSVersion",
   private = list(
     getVersionValue = function(version){
       version <- gsub("x", "0", version)
-      version <- gsub("\\.", "", version)
-      value <- suppressWarnings(as.integer(version))
+      version <- gsub("-SNAPSHOT", "", version)
+      versions <- unlist(strsplit(version, "\\."))
+      value <- list()
+      value[["major"]] <- as.integer(versions[1])
+      value[["minor"]] <- as.integer(versions[2])
+      value[["revision"]] <- 0
+      if(length(versions)==3){
+        value[["revision"]] <- as.integer(versions[3])
+      }
       return(value)
     }
   ),
@@ -53,7 +69,7 @@ GSVersion <- R6Class("GSVersion",
         if(length(trgSet) > 0){
           version <- xmlValue(trgSet[[1]])
           value <- private$getVersionValue(version)
-          if(!is.na(value) & is.integer(value)){
+          if(is.list(value)){
             self$version <- version
             self$value <- value
           }
@@ -69,7 +85,7 @@ GSVersion <- R6Class("GSVersion",
           if(length(trgSet) > 0){
             version <- xmlValue(trgSet[[1]])
             value <- private$getVersionValue(version)
-            if(!is.na(value) & is.integer(value)){
+            if(is.list(value)){
               self$version <- version
               self$value <- value
             }
@@ -78,26 +94,55 @@ GSVersion <- R6Class("GSVersion",
       }
     },
     
+    #lowerThan
+    #---------------------------------------------------------------------------
     lowerThan = function(version){
       lower <- FALSE
       if(is.character(version)){
         value <- private$getVersionValue(version)
-        lower <- (self$value < value)
-      }else if(is.numeric(version)){
-        lower <- (self$value < version)
+      }else if(is.list(version)){
+        value <- version
+      }
+      lower <- (self$value$major < value$major)
+      if(!lower & identical(self$value$major, value$major)){
+        lower <- (self$value$minor < value$minor)
+      }
+      if(!lower & identical(self$value$major, value$major)){
+        lower <- (self$value$revision < value$revision)
       }
       return(lower)
     },
-    
+
+    #greaterThan
+    #---------------------------------------------------------------------------
     greaterThan = function(version){
       greater <- FALSE
       if(is.character(version)){
         value <- private$getVersionValue(version)
-        greater <- (self$value > value)
-      }else if(is.numeric(version)){
-        greater <- (self$value > version)
+      }else if(is.list(version)){
+        value <- version
+      }
+      greater <- (self$value$major > value$major)
+      if(!greater & identical(self$value$major, value$major)){
+        greater <- (self$value$minor > value$minor)
+      } 
+      if(!greater & identical(self$value$minor, value$minor)){
+        greater <- (self$value$revision > value$revision)
       }
       return(greater)
+    },
+    
+    #equalTo
+    #---------------------------------------------------------------------------
+    equalTo = function(version){
+      equal <- FALSE
+      if(is.character(version)){
+        value <- private$getVersionValue(version)
+      }else if(is.list(version)){
+        value <- version
+      }
+      equal <- !self$lowerThan(version) & !self$greaterThan(version)
+      return(equal)
     }
   
   )                  
