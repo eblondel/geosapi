@@ -31,12 +31,27 @@
 #'    accepts two possible values: \code{INFO}: to print only geosapi logs,
 #'    \code{DEBUG}: to print geosapi and CURL logs
 #'  }
+#'  \item{\code{logger(type, text)}}{
+#'    Basic logger to report geosapi logs. Used internally
+#'  }
+#'  \item{\code{INFO(text)}}{
+#'    Logger to report information. Used internally
+#'  }
+#'  \item{\code{WARN(text)}}{
+#'    Logger to report warnings. Used internally
+#'  }
+#'  \item{\code{ERROR(text)}}{
+#'    Logger to report errors. Used internally
+#'  }
 #'  \item{\code{getUrl()}}{
 #'    Get the authentication URL
 #'  }
 #'  \item{\code{connect()}}{
 #'    This methods attempts a connection to GeoServer REST API. User internally
 #'    during initialization of \code{GSManager}.
+#'  }
+#'  \item{\code{reload()}}{
+#'    Reloads the GeoServer catalog.
 #'  }
 #'  \item{\code{getClassName()}}{
 #'    Retrieves the name of the class instance
@@ -141,10 +156,14 @@ GSManager <- R6Class("GSManager",
       
     },
     
+    #getUrl
+    #---------------------------------------------------------------------------
     getUrl = function(){
       return(self$url)
     },
     
+    #connect
+    #---------------------------------------------------------------------------
     connect = function(){
       req <- GSUtils$GET(self$getUrl(), private$user, private$pwd, "/", self$verbose.debug)
       if(status_code(req) == 401){
@@ -166,11 +185,32 @@ GSManager <- R6Class("GSManager",
       }
       return(TRUE)
     },
-    
+   
+    #reload
+    #---------------------------------------------------------------------------
+    reload = function(){
+      self$INFO("Reloading GeoServer catalog")
+      reloaded <- FALSE
+      req <- GSUtils$POST(self$getUrl(), private$user, private$pwd, "/reload",
+                          content = NULL, contentType = "text/plain",
+                          self$verbose.debug)
+      if(status_code(req) == 200){
+        self$INFO("Successfully reloaded GeoServer catalog!")
+        reloaded <- TRUE
+      }else{
+        self$ERROR("Error while reloading the GeoServer catalog")
+      }
+      return(reloaded)
+    },
+
+    #getClassName
+    #---------------------------------------------------------------------------
     getClassName = function(){
       return(class(self)[1])
     },
     
+    #Resources GS managers
+    #---------------------------------------------------------------------------
     getWorkspaceManager = function(){
       return(GSWorkspaceManager$new(self$getUrl(), private$user, private$pwd, self$loggerType))
     },

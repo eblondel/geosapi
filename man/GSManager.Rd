@@ -38,12 +38,27 @@ Geoserver REST API Manager
    accepts two possible values: \code{INFO}: to print only geosapi logs,
    \code{DEBUG}: to print geosapi and CURL logs
  }
+ \item{\code{logger(type, text)}}{
+   Basic logger to report geosapi logs. Used internally
+ }
+ \item{\code{INFO(text)}}{
+   Logger to report information. Used internally
+ }
+ \item{\code{WARN(text)}}{
+   Logger to report warnings. Used internally
+ }
+ \item{\code{ERROR(text)}}{
+   Logger to report errors. Used internally
+ }
  \item{\code{getUrl()}}{
    Get the authentication URL
  }
  \item{\code{connect()}}{
    This methods attempts a connection to GeoServer REST API. User internally
    during initialization of \code{GSManager}.
+ }
+ \item{\code{reload()}}{
+   Reloads the GeoServer catalog.
  }
  \item{\code{getClassName()}}{
    Retrieves the name of the class instance
