@@ -22,6 +22,7 @@
 #' @field description
 #' @field abstract
 #' @field keywords
+#' @field metadataLinks
 #' @field projectionPolicy
 #' @field srs
 #' @field nativeCRS
@@ -66,6 +67,15 @@
 #'  }
 #'  \item{\code{delKeyword(keyword)}}{
 #'    Deletes a keyword. Returns TRUE if deleted, FALSE otherwise
+#'  }
+#'  \item{\code{setMetadataLinks(metadataLinks)}}{
+#'    Sets a list of \code{GSMetadataLinks}
+#'  }
+#'  \item{\code{addMetadataLink(metadataLink)}}{
+#'    Adds a metadataLink
+#'  }
+#'  \item{\code{delMetadataLink(metadataLink)}}{
+#'    Deletes a metadataLink
 #'  }
 #'  \item{\code{setNativeCRS(nativeCRS)}}{
 #'    Sets the resource nativeCRS
@@ -158,6 +168,13 @@ GSResource <- R6Class("GSResource",
          if(length(abstracts)>0) self$abstract <- xmlValue(abstracts[[1]])
          self$keywords <- lapply(getNodeSet(xml, "//keywords/string"), xmlValue)
          
+         metadataLinksXML <- getNodeSet(xml, "//metadataLinks/metadataLink")
+         if(length(metadataLinksXML)>0){
+           for(metadataLinkXML in metadataLinksXML){
+             md <- GSMetadataLink$new(xml = metadataLinkXML)
+             self$addMetadataLink(md)
+           }
+         }
          
          nativeCRS <- getNodeSet(xml, "//nativeCRS")
          self$nativeCRS <- xmlValue(nativeCRS[[1]])
@@ -224,6 +241,28 @@ GSResource <- R6Class("GSResource",
        return(endNb == startNb-1)
      },
      
+     setMetadataLinks = function(metadataLinks){
+       self$metadataLinks <- metadataLinks
+     },
+     
+     addMetadataLink = function(metadataLink){
+       startNb = length(self$metadataLinks)
+       links <- lapply(self$metadataLinks, function(x){x$content})
+       if(length(which(links == metadataLink$content)) == 0){
+         self$metadataLinks = c(self$metadataLinks, metadataLink)
+       }
+       endNb = length(self$metadataLinks)
+       return(endNb == startNb+1)
+     },
+     
+     deleteMetadataLink = function(metadataLink){
+       startNb = length(self$metadataLinks)
+       links <- lapply(self$metadataLinks, function(x){x$content})
+       self$metadataLinks = self$metadataLinks[which(links != metadataLink$content)]
+       endNb = length(self$metadataLinks)
+       return(endNb == startNb-1)
+     },
+     
      setProjectionPolicy = function(projectionPolicy){
        if(!(projectionPolicy %in% private$allowedProjectionPolicies)){
         stop(sprintf("'%s' is not a valid projection policy", projectionPolicy))
@@ -249,10 +288,6 @@ GSResource <- R6Class("GSResource",
      
      addMetadataDimension = function(metadataDimensionInfo){
        stop("Not implemented yet")
-     },
-     
-     addMetadataLink = function(metadataLinkInfo){
-       stop("Not implemented yet!")
      }
    )                     
 )

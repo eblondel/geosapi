@@ -138,6 +138,23 @@ test_that("PUBLISH layer",{
   featureType$setLatLonBoundingBox(-180,-90,180,90, crs = "EPSG:4326")
   featureType$setNativeBoundingBox(-180,-90,180,90, crs ="EPSG:4326") 
   
+  md1 <- GSMetadataLink$new(
+    type = "text/xml",
+    metadataType = "ISO19115:2003",
+    content = "http://somelink.org/xml"
+  )
+  expect_true(featureType$addMetadataLink(md1))
+  expect_false(featureType$addMetadataLink(md1))
+  expect_equal(length(featureType$metadataLinks), 1L)
+  md2 <- GSMetadataLink$new(
+    type = "text/html",
+    metadataType = "ISO19115:2003",
+    content = "http://somelink.org/html"
+  )
+  expect_true(featureType$addMetadataLink(md2))
+  expect_false(featureType$addMetadataLink(md2))
+  expect_equal(length(featureType$metadataLinks), 2L)
+  
   #create layer
   layer <- GSLayer$new()
   layer$setName("tasmania_cities2")

@@ -34,6 +34,8 @@ Geoserver REST API Resource
 
 \item{\code{keywords}}{}
 
+\item{\code{metadataLinks}}{}
+
 \item{\code{projectionPolicy}}{}
 
 \item{\code{srs}}{}
@@ -83,6 +85,15 @@ Geoserver REST API Resource
  }
  \item{\code{delKeyword(keyword)}}{
    Deletes a keyword. Returns TRUE if deleted, FALSE otherwise
+ }
+ \item{\code{setMetadataLinks(metadataLinks)}}{
+   Sets a list of \code{GSMetadataLinks}
+ }
+ \item{\code{addMetadataLink(metadataLink)}}{
+   Adds a metadataLink
+ }
+ \item{\code{delMetadataLink(metadataLink)}}{
+   Deletes a metadataLink
  }
  \item{\code{setNativeCRS(nativeCRS)}}{
    Sets the resource nativeCRS

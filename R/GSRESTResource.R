@@ -74,11 +74,11 @@ GSRESTResource <- R6Class("GSRESTResource",
             itemNames <- names(items)
             if(length(items) > 0){
               for(i in 1:length(items)){
-                item <- items[i]
+                item <- items[[i]]
                 itemName <- itemNames[i]
                 if(any(class(item) == "R6")){
                   itemXML <- item$encode()
-                  addChildren(itemsXML, list(itemXML))
+                  addChildren(itemsXML, itemXML)
                 }else{
                   if(is.null(itemNames)){
                     itemXML <- suppressWarnings(newXMLNode("string", item, parent = itemsXML))

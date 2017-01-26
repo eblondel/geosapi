@@ -43,6 +43,23 @@ test_that("featureType encoding/decoding",{
   expect_equal(length(ft$keywords), 2L)
   expect_true(all(unlist(ft$keywords) == c("keyword1","keyword2")))
   
+  md1 <- GSMetadataLink$new(
+    type = "text/xml",
+    metadataType = "ISO19115:2003",
+    content = "http://somelink.org/xml"
+  )
+  expect_true(ft$addMetadataLink(md1))
+  expect_false(ft$addMetadataLink(md1))
+  expect_equal(length(ft$metadataLinks), 1L)
+  md2 <- GSMetadataLink$new(
+    type = "text/html",
+    metadataType = "ISO19115:2003",
+    content = "http://somelink.org/html"
+  )
+  expect_true(ft$addMetadataLink(md2))
+  expect_false(ft$addMetadataLink(md2))
+  expect_equal(length(ft$metadataLinks), 2L)
+  
   ft$setProjectionPolicy("NONE")
   expect_equal(ft$projectionPolicy, "NONE")
   
@@ -106,7 +123,25 @@ test_that("CREATE featureType",{
   ft$setEnabled(TRUE)
   ft$setProjectionPolicy("REPROJECT_TO_DECLARED")
   ft$setLatLonBoundingBox(-180,-90,180,90, crs = "EPSG:4326")
-  ft$setNativeBoundingBox(-180,-90,180,90, crs ="EPSG:4326") 
+  ft$setNativeBoundingBox(-180,-90,180,90, crs ="EPSG:4326")
+  
+  md1 <- GSMetadataLink$new(
+    type = "text/xml",
+    metadataType = "ISO19115:2003",
+    content = "http://somelink.org/xml"
+  )
+  expect_true(ft$addMetadataLink(md1))
+  expect_false(ft$addMetadataLink(md1))
+  expect_equal(length(ft$metadataLinks), 1L)
+  md2 <- GSMetadataLink$new(
+    type = "text/html",
+    metadataType = "ISO19115:2003",
+    content = "http://somelink.org/html"
+  )
+  expect_true(ft$addMetadataLink(md2))
+  expect_false(ft$addMetadataLink(md2))
+  expect_equal(length(ft$metadataLinks), 2L)
+  
   created <- gsman$createFeatureType("topp", "taz_shapes", ft)
   expect_true(created)
   

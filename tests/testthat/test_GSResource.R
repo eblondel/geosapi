@@ -38,6 +38,23 @@ test_that("resource encoding/decoding",{
   expect_equal(length(res$keywords), 2L)
   expect_true(all(unlist(res$keywords) == c("keyword1","keyword2")))
   
+  md1 <- GSMetadataLink$new(
+    type = "text/xml",
+    metadataType = "ISO19115:2003",
+    content = "http://somelink.org/xml"
+  )
+  expect_true(res$addMetadataLink(md1))
+  expect_false(res$addMetadataLink(md1))
+  expect_equal(length(res$metadataLinks), 1L)
+  md2 <- GSMetadataLink$new(
+    type = "text/html",
+    metadataType = "ISO19115:2003",
+    content = "http://somelink.org/html"
+  )
+  expect_true(res$addMetadataLink(md2))
+  expect_false(res$addMetadataLink(md2))
+  expect_equal(length(res$metadataLinks), 2L)
+  
   res$setProjectionPolicy("NONE")
   expect_equal("NONE", res$projectionPolicy)
   

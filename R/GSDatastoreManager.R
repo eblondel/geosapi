@@ -257,7 +257,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #getFeatureType
     #---------------------------------------------------------------------------
     getFeatureType = function(ws, ds, ft){
-      self$INFO(sprintf("Updating featureType '%s' in datastore '%s' (workspace '%s')", ft, ds, ws))
+      self$INFO(sprintf("Fetching featureType '%s' in datastore '%s' (workspace '%s')", ft, ds, ws))
       req <- GSUtils$GET(
         self$getUrl(), private$user, private$pwd,
         sprintf("/workspaces/%s/datastores/%s/featuretypes/%s.xml", ws, ds, ft),
