@@ -2,6 +2,8 @@
 
 export(GSDataStore)
 export(GSDataStoreManager)
+export(GSDimension)
+export(GSFeatureDimension)
 export(GSFeatureType)
 export(GSLayer)
 export(GSManager)

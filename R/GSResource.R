@@ -141,7 +141,7 @@ GSResource <- R6Class("GSResource",
      latLonBoundingBox = list(minx = NA, miny = NA, maxx = NA, maxy = NA, crs = NA),
      projectionPolicy = NULL,
      enabled = TRUE,
-     metadata = list(),
+     metadata = NULL,
      
      initialize = function(rootName = NULL, xml = NULL){
         super$initialize(rootName = rootName)
@@ -192,6 +192,22 @@ GSResource <- R6Class("GSResource",
          
          projPolicies <- getNodeSet(xml, "//projectionPolicy")
          self$projectionPolicy <- xmlValue(projPolicies[[1]])
+         
+         metadata <- getNodeSet(xml, "//metadata/entry")
+         if(length(metadata)>0){
+           for(md in metadata){
+              key <- xmlGetAttr(md, "key")
+              child <- xmlChildren(md)
+              if(names(child) == "dimensionInfo"){
+                if(any(class(self) == "GSFeatureType")){
+                  dim <- GSFeatureDimension$new(xml = child$dimensionInfo)
+                }else{
+                  dim <- GSDimension$new(xml = child$dimensionInfo)
+                }
+                self$setMetadata(key, dim)   
+              }
+           }
+         }
        }
      },
      
@@ -286,8 +302,27 @@ GSResource <- R6Class("GSResource",
        self$nativeBoundingBox <- private$setBbox(minx, miny, maxx, maxy, bbox, crs)
      },
      
-     addMetadataDimension = function(metadataDimensionInfo){
-       stop("Not implemented yet")
+     setMetadata = function(key, metadata){
+       if(is.null(self$metadata)){
+         self$metadata = GSRESTEntrySet$new(rootName = "metadata")
+       }
+       added <- self$metadata$addEntry(key, metadata)
+       return(added)
+     },
+     
+     delMetadata = function(key){
+       deleted <- FALSE
+       if(!is.null(self$metadata)){
+        deleted <- self$metadata$delEntry(key)
+        if(length(self$metadataentryset)==0) self$metadata = NULL
+       }
+       return(deleted)
+     },
+     
+     setMetadataDimension = function(key, dimension, custom = FALSE){
+      if(custom) key <- paste0("custom_dimension_", toupper(key))
+      added <- self$setMetadata(key, dimension)
+      return(added)
      }
    )                     
 )
