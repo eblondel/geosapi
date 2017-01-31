@@ -26,6 +26,18 @@ test_that("layer encoding/decoding",{
   expect_equal(length(lyr$defaultStyle), 1L)
   expect_equal(lyr$defaultStyle[[1]], "mystyle")
   
+  expect_true(lyr$addStyle("mystyle2"))
+  expect_false(lyr$addStyle("mystyle2"))
+  expect_true(lyr$addStyle("mystyle3"))
+  expect_false(lyr$addStyle("mystyle3"))
+  expect_true(lyr$addStyle("mystyle4"))
+  expect_false(lyr$addStyle("mystyle4"))
+  expect_equal(length(lyr$styles), 3L)
+  expect_true(lyr$delStyle("mystyle4"))
+  expect_false(lyr$delStyle("mystyle4"))
+  expect_equal(length(lyr$styles), 2L)
+  expect_equal(sapply(lyr$styles, function(x){x$name}), c("mystyle2","mystyle3"))
+  
   #encoding to XML
   lyrXML <- lyr$encode()
   expect_is(lyrXML, c("XMLInternalElementNode","XMLInternalNode","XMLAbstractNode"))
@@ -90,6 +102,7 @@ test_that("CREATE layer",{
   layer <- GSLayer$new()
   layer$setName("tasmania_cities2")
   layer$setDefaultStyle("capitals")
+  layer$addStyle("generic")
   created <- gsman$createLayer(layer)
   expect_true(created)
 })
@@ -100,13 +113,22 @@ test_that("UPDATE layer",{
   
   lyr <- gsman$getLayer("tasmania_cities")
   expect_equal(lyr$defaultStyle$name, "capitals")
+  
   lyr$setDefaultStyle("generic")
+  lyr$delStyle("generic")
+  lyr$addStyle("capitals")
   updated <- gsman$updateLayer(lyr)
   lyr <- gsman$getLayer("tasmania_cities")
   expect_equal(lyr$defaultStyle$name, "generic")
+  expect_equal(length(lyr$styles), 1L)
+  expect_is(lyr$styles[[1]], "GSStyle")
+  expect_equal(lyr$styles[[1]]$name, "capitals")
+  
   lyr$setDefaultStyle("capitals")
+  lyr$delStyle("capitals")
   updated <- gsman$updateLayer(lyr)
   expect_equal(lyr$defaultStyle$name, "capitals")
+  expect_equal(length(lyr$styles), 0)
 })
 
 test_that("DELETE layer",{
@@ -159,6 +181,7 @@ test_that("PUBLISH layer",{
   layer <- GSLayer$new()
   layer$setName("tasmania_cities2")
   layer$setDefaultStyle("capitals")
+  layer$addStyle("generic")
   
   #try to publish the complete layer (featuretype + layer)
   published <- gsman$publishLayer("topp", "taz_shapes", featureType, layer)

@@ -27,7 +27,34 @@
 #'    This method is used to encode a GSLayer to XML. Inherited from the
 #'    generic \code{GSRESTResource} encoder
 #'  }
-#' }
+#'  \item{\code{setName(name)}}{
+#'    Sets the layer name.
+#'  }
+#'  \item{\code{setPath(path)}}{
+#'    Sets the layer path.
+#'  }
+#'  \item{\code{setDefaultStyle(style)}}{
+#'    Sets the default style.
+#'  }
+#'  \item{\code{setStyles(styles)}}{
+#'    Sets a list of optional styles
+#'  }
+#'  \item{\code{addStyle(style)}}{
+#'    Sets an available style. Returns TRUE if set, FALSE otherwise
+#'  }
+#'  \item{\code{delStyle(name)}}{
+#'    Deletes an available. Returns TRUE if deleted, FALSE otherwise
+#'  }
+#'  \item{\code{setEnabled(enabled)}}{
+#'    Sets if the layer is enabled (TRUE) or not (FALSE)
+#'  }
+#'  \item{\code{setQueryable(queryable)}}{
+#'    Sets if the layer is queryable (TRUE) or not (FALSE)
+#'  }
+#'  \item{\code{setAdvertised(advertised)}}{
+#'    Sets if the layer is advertised (TRUE) or not (FALSE)
+#'  }
+#'}
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -59,6 +86,21 @@ GSLayer <- R6Class("GSLayer",
       
       if(self$full){
         self$setDefaultStyle(xmlValue(defaultStyle[[1]]))
+        
+        styles <- getNodeSet(xml, "//styles/style")
+        if(length(styles)>0){
+          styles <- lapply(styles, function(x){
+              child <- xmlChildren(x)
+              style <- GSStyle$new()
+              style$setName(xmlValue(child$name))
+              if("filename" %in% names(child)){
+                style$setFilename(xmlValue(child$filename))
+              }
+              return(style)
+          })
+          self$setStyles(styles)
+        }
+        
         paths <- getNodeSet(xml, "//path")
         if(length(paths)>0) self$path = xmlValue(paths[[1]])
         enabled <- getNodeSet(xml, "//enabled")
@@ -91,7 +133,34 @@ GSLayer <- R6Class("GSLayer",
     },
     
     setDefaultStyle = function(style){
+      if(any(class(style)=="GSStyle")) style <- style$name
       self$defaultStyle[["name"]] <- style
+    },
+    
+    setStyles = function(styles){
+      if(!is.list(styles)) styles = list(styles)
+      self$styles = styles
+      return(TRUE)
+    },
+    
+    addStyle = function(style){
+      if(class(style) == "character") style <- GSStyle$new(xml=NULL, name = style)
+      startNb = length(self$styles)
+      availableStyles <- sapply(self$styles, function(x){x$name})
+      if(length(which(availableStyles == style$name)) == 0){
+        self$styles = c(self$styles, style)
+      }
+      endNb = length(self$styles)
+      return(endNb == startNb+1)
+    },
+    
+    delStyle = function(style){
+      if(class(style) == "character") style <- GSStyle$new(xml=NULL, name = style)
+      startNb = length(self$styles)
+      availableStyles <- sapply(self$styles, function(x){x$name})
+      self$styles = self$styles[which(availableStyles != style$name)]
+      endNb = length(self$styles)
+      return(endNb == startNb-1)
     }
    
   )                       

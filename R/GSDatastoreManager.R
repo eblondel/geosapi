@@ -112,7 +112,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       req <- GSUtils$GET(
         self$getUrl(), private$user, private$pwd,
         sprintf("/workspaces/%s/datastores.xml", ws),
-        self$verbose.debug)
+        verbose = self$verbose.debug)
       dsList <- NULL
       if(status_code(req) == 200){
         dsXML <- GSUtils$parseResponseXML(req)
@@ -142,7 +142,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       req <- GSUtils$GET(
         self$getUrl(), private$user, private$pwd,
         sprintf("/workspaces/%s/datastores/%s.xml", ws, ds),
-        self$verbose.debug)
+        verbose = self$verbose.debug)
       dataStore <- NULL
       if(status_code(req) == 200){
         dsXML <- GSUtils$parseResponseXML(req)
@@ -186,7 +186,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         path = sprintf("/workspaces/%s/datastores/%s.xml", ws, dataStore$name),
         content = GSUtils$getPayloadXML(dataStore),
         contentType = "application/xml",
-        self$verbose.debug
+        verbose = self$verbose.debug
       )
       if(status_code(req) == 200){
         self$INFO("Successfully updated datastore!")
@@ -205,7 +205,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       path <- sprintf("/workspaces/%s/datastores/%s.xml", ws, ds)
       if(recurse) path <- paste0(path, "?recurse=true")
       req <- GSUtils$DELETE(self$getUrl(), private$user, private$pwd,
-                            path = path, self$verbose.debug)
+                            path = path, verbose = self$verbose.debug)
       if(status_code(req) == 200){
         self$INFO("Successfully deleted datastore!")
         deleted = TRUE
@@ -231,7 +231,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       req <- GSUtils$GET(
         self$getUrl(), private$user, private$pwd,
         sprintf("/workspaces/%s/datastores/%s/featuretypes.xml?list=%s", ws, ds, list),
-        self$verbose.debug)
+        verbose = self$verbose.debug)
       ftList <- NULL
       if(status_code(req) == 200){
         ftXML <- GSUtils$parseResponseXML(req)
@@ -261,7 +261,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       req <- GSUtils$GET(
         self$getUrl(), private$user, private$pwd,
         sprintf("/workspaces/%s/datastores/%s/featuretypes/%s.xml", ws, ds, ft),
-        self$verbose.debug)
+        verbose = self$verbose.debug)
       featureType <- NULL
       if(status_code(req) == 200){
         ftXML <- GSUtils$parseResponseXML(req)
@@ -307,7 +307,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
                        ws, ds, featureType$name),
         content = GSUtils$getPayloadXML(featureType),
         contentType = "application/xml",
-        self$verbose.debug
+        verbose = self$verbose.debug
       )
       if(status_code(req) == 200){
         self$INFO("Successfully updated featureType!")
@@ -326,7 +326,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       path <- sprintf("/workspaces/%s/datastores/%s/featuretypes/%s.xml", ws, ds, ft)
       if(recurse) path <- paste0(path, "?recurse=true")
       req <- GSUtils$DELETE(self$getUrl(), private$user, private$pwd,
-                            path = path, self$verbose.debug)
+                            path = path, verbose = self$verbose.debug)
       if(status_code(req) == 200){
         self$INFO("Successfuly deleted featureType!")
         deleted = TRUE
@@ -345,8 +345,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       self$INFO("Fetching layers")
       req <- GSUtils$GET(
         self$getUrl(), private$user, private$pwd,
-        "/layers.xml",
-        self$verbose.debug)
+        "/layers.xml", verbose = self$verbose.debug)
       lyrList <- NULL
       if(status_code(req) == 200){
         lyrXML <- GSUtils$parseResponseXML(req)
@@ -376,7 +375,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       req <- GSUtils$GET(
         self$getUrl(), private$user, private$pwd,
         sprintf("/layers/%s.xml", lyr),
-        self$verbose.debug)
+        verbose = self$verbose.debug)
       layer <- NULL
       if(status_code(req) == 200){
         lyrXML <- GSUtils$parseResponseXML(req)
@@ -398,7 +397,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         path = sprintf("/layers/%s.xml", layer$name),
         content = GSUtils$getPayloadXML(layer),
         contentType = "application/xml",
-        self$verbose.debug
+        verbose = self$verbose.debug
       )
       if(status_code(req) == 200){
         self$INFO("Successfuly created layer!")
@@ -419,7 +418,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         path = sprintf("/layers/%s.xml", layer$name),
         content = GSUtils$getPayloadXML(layer),
         contentType = "application/xml",
-        self$verbose.debug
+        verbose = self$verbose.debug
       )
       if(status_code(req) == 200){
         self$INFO("Successfuly updated layer!")
@@ -437,7 +436,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       deleted <- FALSE
       path <- sprintf("/layers/%s.xml", lyr)
       req <- GSUtils$DELETE(self$getUrl(), private$user, private$pwd,
-                            path = path, self$verbose.debug)
+                            path = path, verbose = self$verbose.debug)
       if(status_code(req) == 200){
         self$INFO("Successfuly deleted layer!")
         deleted = TRUE
@@ -529,7 +528,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         content = NULL,
         filename = filename,
         contentType = contentType,
-        self$verbose.debug
+        verbose = self$verbose.debug
       )
       if(status_code(req) == 201){
         self$INFO("Successfull data upload!")
