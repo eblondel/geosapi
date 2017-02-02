@@ -241,6 +241,13 @@ GSStyleManager <- R6Class("GSStyleManager",
     #getSLDBody
     #---------------------------------------------------------------------------
     getSLDBody = function(style, ws = NULL){
+      
+      if(gsman$version$lowerThan("2.2")){
+        err <- sprintf("Unsupported method for GeoServer %s", gsman$version$version)
+        self$ERROR(err)
+        stop(err)
+      }
+      
       self$INFO(sprintf("Fetching SLD body for style '%s'", style))
       reqUrl <- ""
       if(!missing(ws) & !is.null(ws)){
