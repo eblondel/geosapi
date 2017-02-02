@@ -107,7 +107,7 @@ GSVersion <- R6Class("GSVersion",
       if(!lower & identical(self$value$major, value$major)){
         lower <- (self$value$minor < value$minor)
       }
-      if(!lower & identical(self$value$major, value$major)){
+      if(!lower & identical(self$value$minor, value$minor)){
         lower <- (self$value$revision < value$revision)
       }
       return(lower)
