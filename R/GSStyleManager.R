@@ -45,6 +45,13 @@
 #'    Deletes a GeoServer style given a name. Returns \code{TRUE} if the style 
 #'    has been successfully deleted, \code{FALSE} otherwise
 #'  }
+#'  \item{\code{getSLDVersion(sldBody)}}{
+#'    Get the SLD version from the XML object (of class \code{XMLInternalDocument})
+#'  }
+#'  \item{\code{getSLDBody(style, ws = NULL)}}{
+#'    Get the SLD Body given a style name. This method is only supported for
+#'    Geoserver >= 2.2.
+#'  }
 #' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
