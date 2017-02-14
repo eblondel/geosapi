@@ -13,9 +13,6 @@
 #' @keywords geoserver rest api resource metadataLink
 #' @return Object of \code{\link{R6Class}} for modelling a GeoServer resource metadataLink
 #' @format \code{\link{R6Class}} object.
-#' 
-#' @examples
-#' md <- GSMetadataLink$new(type, metadataType, content)
 #'
 #' @section Methods:
 #' \describe{

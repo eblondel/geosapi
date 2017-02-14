@@ -38,10 +38,12 @@ Geoserver REST API - Geoserver Version
 }
 }
 \examples{
+\dontrun{
 version <- GSVersion$new(
              url = "http://localhost:8080/geoserver",
              user = "admin", pwd = "geoserver"
            )
+}
 }
 \author{
 Emmanuel Blondel <emmanuel.blondel1@gmail.com>

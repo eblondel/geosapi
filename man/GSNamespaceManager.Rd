@@ -53,7 +53,7 @@ Geoserver REST API Namespace Manager
 }
 }
 \examples{
-\donttest{
+\dontrun{
    GSNamespaceManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
 }
 }

@@ -58,7 +58,7 @@ Geoserver REST API Style Manager
 }
 }
 \examples{
-\donttest{
+\dontrun{
    GSStyleManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
 }
 }

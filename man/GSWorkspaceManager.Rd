@@ -57,7 +57,7 @@ Geoserver REST API Workspace Manager
 }
 }
 \examples{
-\donttest{
+\dontrun{
    GSWorkspaceManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
 }
 }

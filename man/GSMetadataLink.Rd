@@ -35,9 +35,6 @@ Geoserver REST API Metadatalink
  }
 }
 }
-\examples{
-md <- GSMetadataLink$new(type, metadataType, content)
-}
 \author{
 Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 }

@@ -9,7 +9,7 @@
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @examples
-#' \donttest{
+#' \dontrun{
 #'    GSDataStoreManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
 #'  }
 #'

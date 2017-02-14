@@ -99,7 +99,7 @@ Geoserver REST API DataStore Manager
 }
 }
 \examples{
-\donttest{
+\dontrun{
    GSDataStoreManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
  }
 }

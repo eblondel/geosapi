@@ -15,11 +15,13 @@
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @examples
+#' \dontrun{
 #' version <- GSVersion$new(
 #'              url = "http://localhost:8080/geoserver",
 #'              user = "admin", pwd = "geoserver"
 #'            )
-#'
+#' }
+#' 
 #' @section Methods:
 #' \describe{
 #'  \item{\code{new(url, user, pwd)}}{
