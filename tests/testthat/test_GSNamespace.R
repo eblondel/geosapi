@@ -7,7 +7,6 @@ require(geosapi, quietly = TRUE)
 require(testthat)
 
 context("GSNamespace")
-testthat::skip_on_cran()
 
 test_that("READ namespace",{
   ns <- gsman$getNamespace("topp")

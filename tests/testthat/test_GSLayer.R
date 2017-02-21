@@ -7,7 +7,6 @@ require(geosapi, quietly = TRUE)
 require(testthat)
 
 context("GSLayer")
-testthat::skip_on_cran()
 
 test_that("layer encoding/decoding",{
   
