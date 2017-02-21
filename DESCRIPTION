@@ -11,6 +11,6 @@ Imports: R6, openssl, httr, XML
 Suggests: testthat, roxygen2, knitr
 License: MIT + file LICENSE
 VignetteBuilder: knitr
-URL: https://github.com/eblondel/geosapi, http://geoserver.org/
+URL: https://github.com/eblondel/geosapi/wiki, http://geoserver.org/
 BugReports: https://github.com/eblondel/geosapi/issues
 LazyLoad: yes
