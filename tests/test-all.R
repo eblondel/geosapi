@@ -8,9 +8,10 @@ gsPwd <- "geoserver"
 gsLogger <- "DEBUG"
 gsman <- try(GSManager$new(gsUrl, gsUsr, gsPwd, gsLogger))
 
-if(class(gsman) == "try-error"){
-  cat("GeoServer test instance is not started. Skipping integration tests...\n")
-}else if(is(gsman, "GSManager")){
+
+if(is(gsman, "GSManager")){
   cat(sprintf("GeoServer test instance started at %s. Running integration tests...\n", gsUrl))
   test_check("geosapi")
+}else{
+  cat("GeoServer test instance is not started. Skipping integration tests...\n")
 }
