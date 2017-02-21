@@ -58,7 +58,7 @@ GSRESTResource <- R6Class("GSRESTResource",
             if(is.logical(itemValue)){
               itemValue <- tolower(as.character(itemValue))
             }
-            if(any(class(self) == "GSRESTResource")){
+            if(any(class(itemValue) == "GSRESTResource")){
               itemValue <- itemValue$encode()
             }
             item <- newXMLNode("entry", attrs = c(key = itemName),

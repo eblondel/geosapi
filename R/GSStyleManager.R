@@ -249,8 +249,8 @@ GSStyleManager <- R6Class("GSStyleManager",
     #---------------------------------------------------------------------------
     getSLDBody = function(style, ws = NULL){
       
-      if(gsman$version$lowerThan("2.2")){
-        err <- sprintf("Unsupported method for GeoServer %s", gsman$version$version)
+      if(self$version$lowerThan("2.2")){
+        err <- sprintf("Unsupported method for GeoServer %s", self$version$version)
         self$ERROR(err)
         stop(err)
       }

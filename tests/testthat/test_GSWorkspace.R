@@ -7,11 +7,12 @@ require(geosapi, quietly = TRUE)
 require(testthat)
 
 context("GSWorkspace")
-
-gsUrl <- NULL
-gsUsr <- NULL
-gsPwd <- NULL
-gsman <- NULL
+testthat::skip_on_travis()
+testthat::skip_on_cran()
+gsUrl <- "http://localhost:8080/geoserver"
+gsUsr <- "admin"
+gsPwd <- "geoserver"
+gsman <- GSWorkspaceManager$new(gsUrl, gsUsr, gsPwd, "DEBUG")
 
 test_that("new workspace",{
   ws <- GSWorkspace$new(name = "test")
@@ -20,14 +21,6 @@ test_that("new workspace",{
 })
 
 test_that("READ workspace",{
-  testthat::skip_on_travis()
-  testthat::skip_on_cran()
-  
-  gsUrl <- "http://localhost:8080/geoserver"
-  gsUsr <- "admin"
-  gsPwd <- "geoserver"
-  gsman <- GSWorkspaceManager$new(gsUrl, gsUsr, gsPwd, "DEBUG")
-  
   ws <- gsman$getWorkspace("topp")
   expect_is(ws, "GSWorkspace")
   expect_true("name" %in% names(ws))
@@ -35,9 +28,6 @@ test_that("READ workspace",{
 })
 
 test_that("READ workspaces",{
-  testthat::skip_on_travis()
-  testthat::skip_on_cran()
-  
   wslist <- gsman$getWorkspaces()
   expect_true(all(sapply(wslist, function(x){class(x)[1] == "GSWorkspace"})))
   wsnames <- gsman$getWorkspaceNames()
@@ -45,9 +35,6 @@ test_that("READ workspaces",{
 })
 
 test_that("CREATE workspace",{
-  testthat::skip_on_travis()
-  testthat::skip_on_cran()
-  
   created <- gsman$createWorkspace("geosapi")
   expect_true(created)
   ws <- gsman$getWorkspace("geosapi")
@@ -60,9 +47,6 @@ test_that("CREATE workspace",{
 })
 
 test_that("UPDATE namespace",{
-  testthat::skip_on_travis()
-  testthat::skip_on_cran()
-  
   updated <- gsman$updateWorkspace("geosapi", "http://www.my.org/geosapi2")
   expect_true(updated)
   nsman <- GSNamespaceManager$new(gsUrl, gsUsr, gsPwd)
@@ -73,9 +57,6 @@ test_that("UPDATE namespace",{
 })
 
 test_that("DELETE workspace",{
-  testthat::skip_on_travis()
-  testthat::skip_on_cran()
-  
   deleted <- gsman$deleteWorkspace("geosapi")
   expect_true(deleted)
   ws <- gsman$getWorkspace("geosapi")

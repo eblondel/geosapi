@@ -7,21 +7,14 @@ require(geosapi, quietly = TRUE)
 require(testthat)
 
 context("GSDataStore")
-
-gsUrl <- NULL
-gsUsr <- NULL
-gsPwd <- NULL
-gsman <- NULL
+testthat::skip_on_travis()
+testthat::skip_on_cran()
+gsUrl <- "http://localhost:8080/geoserver"
+gsUsr <- "admin"
+gsPwd <- "geoserver"
+gsman <- GSDataStoreManager$new(gsUrl, gsUsr, gsPwd, "DEBUG")
 
 test_that("READ dataStore",{
-  testthat::skip_on_travis()
-  testthat::skip_on_cran()
-  
-  gsUrl <- "http://localhost:8080/geoserver"
-  gsUsr <- "admin"
-  gsPwd <- "geoserver"
-  gsman <- GSDataStoreManager$new(gsUrl, gsUsr, gsPwd, "DEBUG")
-  
   ds <- gsman$getDataStore("topp", "taz_shapes")
   expect_is(ds, "GSDataStore")
   expect_true(all(c("name", "enabled", "type", "description", "connectionParameters", "full") %in% names(ds)))
@@ -29,9 +22,6 @@ test_that("READ dataStore",{
 })
 
 test_that("READ dataStores",{
-  testthat::skip_on_travis()
-  testthat::skip_on_cran()
-  
   dslist <- gsman$getDataStores("topp")
   expect_true(all(sapply(dslist, function(x){class(x)[1] == "GSDataStore"})))
   dsnames <- gsman$getDataStoreNames("topp")
@@ -39,9 +29,6 @@ test_that("READ dataStores",{
 })
 
 test_that("CREATE dataStore - Shapefile",{
-  testthat::skip_on_travis()
-  testthat::skip_on_cran()
-  
   ds = GSShapefileDataStore$new(dataStore="topp_datastore",
                                 description = "topp_datastore description",
                                 enabled = TRUE,
@@ -55,9 +42,6 @@ test_that("CREATE dataStore - Shapefile",{
 })
 
 test_that("UPDATE datastore",{
-  testthat::skip_on_travis()
-  testthat::skip_on_cran()
-  
   dataStore <- gsman$getDataStore("topp", "topp_datastore")
   dataStore$setDescription("topp_datastore updated description")
   dataStore$setEnabled(FALSE)
@@ -71,9 +55,6 @@ test_that("UPDATE datastore",{
 })
 
 test_that("DELETE dataStore",{
-  testthat::skip_on_travis()
-  testthat::skip_on_cran()
-  
   deleted <- gsman$deleteDataStore("topp", "topp_datastore")
   expect_true(deleted)
   ds <- gsman$getDataStore("topp", "topp_datastore")

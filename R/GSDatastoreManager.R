@@ -471,7 +471,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #unpublishLayer
     #---------------------------------------------------------------------------
     unpublishLayer = function(ws, ds, lyr){
-      self$INFO(sprintf("Unpublishing layer '%s'", layer$name))
+      self$INFO(sprintf("Unpublishing layer '%s'", lyr))
       unpublished <- FALSE
       lyrDeleted <- self$deleteLayer(lyr)
       if(lyrDeleted){

@@ -59,7 +59,6 @@ GSStyle <- R6Class("GSStyle",
      if(length(filenames)==0) self$full <- FALSE
      if(self$full){
        self$setFilename(xmlValue(filenames[[1]]))
-       sldVersions
      }
     },
     

@@ -131,9 +131,6 @@ GSManager <- R6Class("GSManager",
         
         #test connection
         self$connect()
-        
-        #inherit GeoServer version
-        self$version <- GSVersion$new(url, private$user, private$pwd)
       
         #inherit managers methods (experimenting)
         list_of_classes <- rev(ls("package:geosapi"))
@@ -151,6 +148,9 @@ GSManager <- R6Class("GSManager",
           }
         }
       }
+      
+      #inherit GeoServer version
+      self$version <- GSVersion$new(url, private$user, private$pwd)
       
       invisible(self)
       
