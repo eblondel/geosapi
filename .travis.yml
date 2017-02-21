@@ -3,6 +3,13 @@ language: R
 sudo: required
 cache: packages
 
+services:
+  - docker
+
+before_install:
+  - docker pull kartoza/geoserver
+  - docker run --name "geoserver" -p 8080:8080 -d -t kartoza/geoserver
+
 r:
   - oldrel
   - release
