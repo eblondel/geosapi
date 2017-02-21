@@ -5,11 +5,11 @@ library(geosapi)
 gsUrl <- "http://localhost:8080/geoserver"
 gsUsr <- "admin"
 gsPwd <- "geoserver"
-gsman <- NULL
+gsLogger <- "DEBUG"
+gsman <- try(GSManager$new(gsUrl, gsUsr, gsPwd, gsLogger))
 
-tryCatch({
-  gsman <- GSManager$new(gsUrl, gsUsr, gsPwd, "DEBUG")
-  test_check("geosapi")
-},error = function(e){
+if(class(gsman) = "try-error"){
   cat("GeoServer test instance is not started. Skipping integration tests...\n")
-})
+}else if(is(gsman, "GSManager")){
+  test_check("geosapi")
+}
