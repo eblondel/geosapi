@@ -9,10 +9,6 @@ require(testthat)
 context("GSNamespace")
 testthat::skip_on_travis()
 testthat::skip_on_cran()
-gsUrl <- "http://localhost:8080/geoserver"
-gsUsr <- "admin"
-gsPwd <- "geoserver"
-gsman <- GSNamespaceManager$new(gsUrl, gsUsr, gsPwd, "DEBUG")
 
 test_that("READ namespace",{
   ns <- gsman$getNamespace("topp")

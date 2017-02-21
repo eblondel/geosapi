@@ -9,10 +9,6 @@ require(testthat)
 context("GSVersion")
 testthat::skip_on_travis()
 testthat::skip_on_cran()
-gsUrl <- "http://localhost:8080/geoserver"
-gsUsr <- "admin"
-gsPwd <- "geoserver"
-gsVersion <- GSVersion$new(gsUrl, gsUsr, gsPwd)
 
 test_that("layer encoding/decoding",{
   expect_is(gsVersion, "GSVersion")

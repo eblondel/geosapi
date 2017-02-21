@@ -9,10 +9,6 @@ require(testthat)
 context("GSStyle")
 testthat::skip_on_travis()
 testthat::skip_on_cran()
-gsUrl <- "http://localhost:8080/geoserver"
-gsUsr <- "admin"
-gsPwd <- "geoserver"
-gsman <- GSStyleManager$new(gsUrl, gsUsr, gsPwd, "DEBUG")
 
 test_that("style encoding/decoding",{
   style <- GSStyle$new()
