@@ -7,7 +7,6 @@ require(geosapi, quietly = TRUE)
 require(testthat)
 
 context("GSFeatureType")
-testthat::skip_on_travis()
 testthat::skip_on_cran()
 
 test_that("featureType encoding/decoding",{

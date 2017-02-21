@@ -7,7 +7,6 @@ require(geosapi, quietly = TRUE)
 require(testthat)
 
 context("GSStyle")
-testthat::skip_on_travis()
 testthat::skip_on_cran()
 
 test_that("style encoding/decoding",{
