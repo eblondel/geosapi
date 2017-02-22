@@ -7,8 +7,9 @@ services:
   - docker
 
 before_install:
-  - docker pull oscarfonts/geoserver
-  - docker run -d -p 8080:8080 -v /path/to/local/data_dir:/var/local/geoserver --name=geoserver oscarfonts/geoserver
+  - docker pull thinkwhere/geoserver
+  - mkdir -p ~/geoserver_data
+  - docker run --name=geoserver -p 8080:8080 -d -v $HOME/geoserver_data:/opt/geoserver/data_dir -t thinkwhere/geoserver
 
 r:
   - oldrel
