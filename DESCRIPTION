@@ -5,7 +5,12 @@ Version: 0.1-0
 Date: 2017-02-21
 Author: Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 Maintainer: Emmanuel Blondel <emmanuel.blondel1@gmail.com>
-Description: Provides an R interface to the Geoserver REST API.
+Description: Provides an R interface to the Geoserver REST API, allowing to upload 
+ and publish data in a GeoServer web-application and expose data to OGC Web-Services. 
+ The package currently supports all CRUD (Create,Read,Update,Delete) operations
+ on GeoServer workspaces, namespaces, datastores (stores of vector data), featuretypes,
+ layers, styles, as well as vector data upload operations. For more information about 
+ the GeoServer REST API, see http://docs.geoserver.org/stable/en/user/rest/ .
 Depends: R (>= 3.1.0)
 Imports: R6, openssl, httr, XML
 Suggests: testthat, roxygen2
