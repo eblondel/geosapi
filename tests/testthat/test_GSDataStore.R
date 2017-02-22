@@ -9,6 +9,7 @@ require(testthat)
 context("GSDataStore")
 
 test_that("READ dataStore",{
+  expect_is(gsman,"GSManager")
   ds <- gsman$getDataStore("topp", "taz_shapes")
   expect_is(ds, "GSDataStore")
   expect_true(all(c("name", "enabled", "type", "description", "connectionParameters", "full") %in% names(ds)))
