@@ -40,7 +40,7 @@ Geoserver REST API GSVirtualTableParameter
 }
 \examples{
 GSVirtualTableParameter$new(name = "fieldname", defaultValue = "default_value",
-                            regexpValidator = "^[\\/w\\/d\\/s]+$")
+                            regexpValidator = "someregexp")
 }
 \author{
 Emmanuel Blondel <emmanuel.blondel1@gmail.com>

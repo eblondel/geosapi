@@ -9,7 +9,7 @@
 #' 
 #' @examples
 #' GSVirtualTableParameter$new(name = "fieldname", defaultValue = "default_value",
-#'                             regexpValidator = "^[\/w\/d\/s]+$")
+#'                             regexpValidator = "someregexp")
 #'
 #' @field name
 #' @field defaultValue
