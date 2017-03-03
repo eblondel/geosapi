@@ -8,7 +8,8 @@ require(testthat)
 
 context("GSVersion")
 
-test_that("layer encoding/decoding",{
+test_that("geoserver versions",{
+  gsVersion <- gsman$version
   expect_is(gsVersion, "GSVersion")
   expect_equal(gsVersion$version, "2.10.1")
   expect_is(gsVersion$value, "list")

@@ -90,7 +90,7 @@ test_that("READ featuretypes",{
   expect_equal(length(fts), 4L)
   expect_equal(unique(sapply(fts, function(x){class(x)[1]})), "GSFeatureType")
   expect_false(unique(sapply(fts, function(x){x$full})))
-  expect_equal(sapply(fts,function(x){x$name}),paste0("tasmania_", c("cities", "roads", "state_boundaries", "water_bodies")))
+  expect_true(all(sapply(fts,function(x){x$name}) %in% paste0("tasmania_", c("cities", "roads", "state_boundaries", "water_bodies"))))
 })
 
 test_that("CREATE featureType",{

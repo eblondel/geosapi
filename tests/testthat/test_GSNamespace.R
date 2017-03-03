@@ -21,7 +21,7 @@ test_that("READ namespaces",{
   nslist <- gsman$getNamespaces()
   expect_true(all(sapply(nslist, function(x){class(x)[1] == "GSNamespace"})))
   nsnames <- gsman$getNamespaceNames()
-  expect_equal(nsnames,c("sf", "sde", "cite", "nurc", "tiger", "it.geosolutions", "topp"))
+  expect_true(all(nsnames %in% c("sf", "sde", "cite", "nurc", "tiger", "it.geosolutions", "topp")))
 })
 
 test_that("CREATE namespace",{

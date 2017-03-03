@@ -25,7 +25,7 @@ test_that("READ workspaces",{
   wslist <- gsman$getWorkspaces()
   expect_true(all(sapply(wslist, function(x){class(x)[1] == "GSWorkspace"})))
   wsnames <- gsman$getWorkspaceNames()
-  expect_equal(wsnames,c("sf", "sde", "cite", "nurc", "tiger", "it.geosolutions", "topp"))
+  expect_true(all(wsnames %in% c("sf", "sde", "cite", "nurc", "tiger", "it.geosolutions", "topp")))
 })
 
 test_that("CREATE workspace",{

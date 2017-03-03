@@ -20,7 +20,7 @@ test_that("READ dataStores",{
   dslist <- gsman$getDataStores("topp")
   expect_true(all(sapply(dslist, function(x){class(x)[1] == "GSDataStore"})))
   dsnames <- gsman$getDataStoreNames("topp")
-  expect_equal(dsnames, c("states_shapefile","taz_shapes"))
+  expect_true(all(dsnames %in% c("states_shapefile","taz_shapes")))
 })
 
 test_that("CREATE dataStore - Shapefile",{
