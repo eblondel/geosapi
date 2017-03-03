@@ -27,6 +27,12 @@
 #'    This method is used to encode a GSFeatureType to XML. Inherited from the
 #'    generic \code{GSRESTResource} encoder
 #'  }
+#'  \item{\code{setVirtualTable(vt)}}{
+#'    Sets a virtual table for the feature type.
+#'  }
+#'  \item{\code{delVirtualTable()}}{
+#'    Deletes the virtual table for the feature type
+#'  }
 #' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
@@ -44,6 +50,16 @@ GSFeatureType <- R6Class("GSFeatureType",
     
     decode = function(xml){
       super$decode(xml)
+    },
+    
+    setVirtualTable = function(vt){
+      added <- super$setMetadata("JDBC_VIRTUAL_TABLE", vt)
+      return(added)
+    },
+    
+    delVirtualTable = function(){
+      deleted <- super$delMetadata("JDBC_VIRTUAL_TABLE")
+      return(deleted)
     }
   
   )
