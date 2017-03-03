@@ -62,7 +62,7 @@ GSVirtualTable <- R6Class("GSVirtualTable",
      
      setKeyColumn = function(keyColumn){
        self$keyColumn = keyColumn
-     }
+     },
      
      setGeometry = function(vtg){
        #TODO
@@ -70,7 +70,7 @@ GSVirtualTable <- R6Class("GSVirtualTable",
      
      addParameter = function(parameter){
        #TODO
-     },
+     }
      
    )                     
 )
