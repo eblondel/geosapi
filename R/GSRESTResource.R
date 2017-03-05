@@ -73,7 +73,11 @@ GSRESTResource <- R6Class("GSRESTResource",
           }
           
           if(any(class(fieldObj) == "list")){
-            itemsXML <- newXMLNode(field, parent = rootXML)
+            if(is(self, "GSVirtualTable")){
+              itemsXML <- rootXML
+            }else{
+              itemsXML <- newXMLNode(field, parent = rootXML)
+            }
             items <- fieldObj
             itemNames <- names(items)
             if(length(items) > 0){

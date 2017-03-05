@@ -22,6 +22,8 @@ Geoserver REST API GSVirtualTable
 \item{\code{sql}}{}
 
 \item{\code{escapeSql}}{}
+
+\item{\code{keyColumn}}{}
 }}
 \section{Methods}{
 
@@ -34,6 +36,27 @@ Geoserver REST API GSVirtualTable
  }
  \item{\code{encode()}}{
    This method is used to encode a GSVirtualTable to XML
+ }
+ \item{\code{setName(name)}}{
+   Sets the name of the virtual table
+ }
+ \item{\code{setSql(sql)}}{
+   Sets the sql of the virtual table
+ }
+ \item{\code{setEscapeSql(escapeSql)}}{
+   Sets the escapeSql. Default is FALSE
+ }
+ \item{\code{setKeyColumn(keyColumn)}}{
+   Sets the keyColumn. Name of the column to be the primary key
+ }
+ \item{\code{setGeometry(vtg)}}{
+   Sets the virtual table geometry
+ }
+ \item{\code{addParameter(vtp)}}{
+   Adds a virtual table parameter
+ }
+ \item{\code{delParameter(param)}}{
+   Removes a virtual table parameter.
  }
 }
 }
