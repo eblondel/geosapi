@@ -503,7 +503,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
                      endpoint, paste0(supportedEndpoints, collapse=",")))
       }
       
-      supportedExtensions <- c("shp")
+      supportedExtensions <- c("shp", "spatialite", "h2")
       if(!(extension %in% supportedExtensions)){
         stop(sprintf("Unsupported extension '%s'. Possible values: [%s]",
                      extension, paste0(supportedExtensions, collapse=",")))
