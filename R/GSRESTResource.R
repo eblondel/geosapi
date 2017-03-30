@@ -68,39 +68,41 @@ GSRESTResource <- R6Class("GSRESTResource",
       }else{
         for(field in fields){
           fieldObj <- self[[field]]
-          if(is.logical(fieldObj)){
-            fieldObj <- tolower(as.character(fieldObj))
-          }
-          
-          if(any(class(fieldObj) == "list")){
-            if(is(self, "GSVirtualTable")){
-              itemsXML <- rootXML
-            }else{
-              itemsXML <- newXMLNode(field, parent = rootXML)
+          if(!is.null(fieldObj)){
+            if(is.logical(fieldObj)){
+              fieldObj <- tolower(as.character(fieldObj))
             }
-            items <- fieldObj
-            itemNames <- names(items)
-            if(length(items) > 0){
-              for(i in 1:length(items)){
-                item <- items[[i]]
-                itemName <- itemNames[i]
-                if(any(class(item) == "R6")){
-                  itemXML <- item$encode()
-                  addChildren(itemsXML, itemXML)
-                }else{
-                  if(is.null(itemNames)){
-                    itemXML <- suppressWarnings(newXMLNode("string", item, parent = itemsXML))
+            
+            if(any(class(fieldObj) == "list")){
+              if(is(self, "GSVirtualTable")){
+                itemsXML <- rootXML
+              }else{
+                itemsXML <- newXMLNode(field, parent = rootXML)
+              }
+              items <- fieldObj
+              itemNames <- names(items)
+              if(length(items) > 0){
+                for(i in 1:length(items)){
+                  item <- items[[i]]
+                  itemName <- itemNames[i]
+                  if(any(class(item) == "R6")){
+                    itemXML <- item$encode()
+                    addChildren(itemsXML, itemXML)
                   }else{
-                    itemXML <- suppressWarnings(newXMLNode(itemName, item, parent = itemsXML))
+                    if(is.null(itemNames)){
+                      itemXML <- suppressWarnings(newXMLNode("string", item, parent = itemsXML))
+                    }else{
+                      itemXML <- suppressWarnings(newXMLNode(itemName, item, parent = itemsXML))
+                    }
                   }
                 }
               }
-            }
-          }else{
-            if(any(class(fieldObj) == "R6")){
-              addChildren(rootXML, fieldObj$encode())
             }else{
-              itemXML <- newXMLNode(field, fieldObj, parent = rootXML)
+              if(any(class(fieldObj) == "R6")){
+                addChildren(rootXML, fieldObj$encode())
+              }else{
+                itemXML <- newXMLNode(field, fieldObj, parent = rootXML)
+              }
             }
           }
         }
