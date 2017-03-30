@@ -492,7 +492,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     uploadData = function(ws, ds, endpoint = "file", extension,
                           configure = "first", update = "append", filename,
                           charset, contentType){
-      self$INFO(sprintf("Uploading %s data in datastore '%s' (workspace '%s'",
+      self$INFO(sprintf("Uploading %s data in datastore '%s' (workspace '%s')",
                         toupper(extension), ds, ws))
       
       uploaded <- FALSE
