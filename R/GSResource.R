@@ -177,11 +177,16 @@ GSResource <- R6Class("GSResource",
          }
          
          nativeCRS <- getNodeSet(xml, "//nativeCRS")
-         self$nativeCRS <- xmlValue(nativeCRS[[1]])
+         if(length(nativeCRS)>0){
+           self$nativeCRS <- xmlValue(nativeCRS[[1]])
+         }
+         
          
          srs <- getNodeSet(xml, "//srs")
-         self$srs <- xmlValue(srs[[1]])
-         
+         if(length(srs)>0){
+           self$srs <- xmlValue(srs[[1]])
+         }
+
          latLonBboxXML <- getNodeSet(xml, "//latLonBoundingBox/*")
          self$latLonBoundingBox <- lapply(latLonBboxXML, xmlValue)
          names(self$latLonBoundingBox) <-  lapply(latLonBboxXML, xmlName)
@@ -191,7 +196,9 @@ GSResource <- R6Class("GSResource",
          names(self$nativeBoundingBox) <-  lapply(nativeBboxXML, xmlName)
          
          projPolicies <- getNodeSet(xml, "//projectionPolicy")
-         self$projectionPolicy <- xmlValue(projPolicies[[1]])
+         if(length(projPolicies)>0){
+           self$projectionPolicy <- xmlValue(projPolicies[[1]])
+         }
          
          metadata <- getNodeSet(xml, "//metadata/entry")
          if(length(metadata)>0){
