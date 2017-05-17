@@ -2,7 +2,7 @@ Package: geosapi
 Type: Package
 Title: GeoServer REST API R Interface
 Version: 0.2-0
-Date: 2017-03-30
+Date: 2017-05-17
 Author: Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 Maintainer: Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 Description: Provides an R interface to the GeoServer REST API, allowing to upload 
