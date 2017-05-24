@@ -21,7 +21,7 @@ r_packages:
   - httr
   - XML
   - testthat
-  -covr
+  - covr
 
 r_check_args: --as-cran
 
