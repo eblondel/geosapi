@@ -112,7 +112,7 @@ GSResource <- R6Class("GSResource",
          minx = bbox[1L,1L]
          miny = bbox[2L,1L]
          maxx = bbox[1L,2L]
-         maxy = bboc[2L,2L]
+         maxy = bbox[2L,2L]
        }
        
        out <- list()
