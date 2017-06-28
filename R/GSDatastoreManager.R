@@ -119,7 +119,13 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         dsXMLList <- getNodeSet(dsXML, "//dataStore")
         dsList <- lapply(dsXMLList, function(x){
           xml <- xmlDoc(x)
-          return(GSDataStore$new(xml = xml))
+          dsType <-  xmlValue(xmlChildren(xmlRoot(xml))$type)
+          dataStore <- switch(dsType,
+              "Shapefile" = GSShapefileDataStore$new(xml = xml),
+              "Directory of spatial files (shapefiles)" = GSShapefileDirectoryDataStore$new(xml = xml),
+              GSDataStore$new(xml = dsXML)
+          )
+          return(dataStore)
         })
         self$INFO(sprintf("Successfully fetched %s datastores!", length(dsList)))
       }else{
@@ -148,8 +154,10 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         dsXML <- GSUtils$parseResponseXML(req)
         dsType <-  xmlValue(xmlChildren(xmlRoot(dsXML))$type)
         dataStore <- switch(dsType,
-                            "Shapefile" = GSShapefileDataStore$new(xml = dsXML),
-                            GSDataStore$new(xml = dsXML))
+          "Shapefile" = GSShapefileDataStore$new(xml = dsXML),
+          "Directory of spatial files (shapefiles)" = GSShapefileDirectoryDataStore$new(xml = dsXML),
+          GSDataStore$new(xml = dsXML)
+        )
         self$INFO("Successfully fetched datastore!")
       }else{
         self$ERROR("Error while fetching datastore")

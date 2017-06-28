@@ -39,7 +39,10 @@
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
 GSShapefileDataStore <- R6Class("GSShapefileDataStore",
- inherit = GSDataStore,              
+ inherit = GSDataStore,
+ private = list(
+   TYPE = "Shapefile"
+ ),
  public = list(
    
    initialize = function(xml = NULL, dataStore = NULL, description = "",
@@ -52,6 +55,7 @@ GSShapefileDataStore <- R6Class("GSShapefileDataStore",
       self$setUrl(url)
       self$setDefautConnectionParameters()
      }
+     self$setType(private$TYPE)
    },
    
    setUrl = function(url){
