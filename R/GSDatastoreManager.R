@@ -146,7 +146,10 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       dataStore <- NULL
       if(status_code(req) == 200){
         dsXML <- GSUtils$parseResponseXML(req)
-        dataStore <- GSDataStore$new(xml = dsXML)
+        dsType <-  xmlValue(xmlChildren(xmlRoot(dsXML))$type)
+        dataStore <- switch(dsType,
+                            "Shapefile" = GSShapefileDataStore$new(xml = dsXML),
+                            GSDataStore$new(xml = dsXML))
         self$INFO("Successfully fetched datastore!")
       }else{
         self$ERROR("Error while fetching datastore")
