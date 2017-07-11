@@ -121,7 +121,7 @@ GSLayerGroup <- R6Class("GSLayerGroup",
          }
          
          #publishables
-         publishables <-getNodeSet(xml, "//publishables/publishable")
+         publishables <-getNodeSet(xml, "//publishables/published")
          if(length(publishables)>0){
            self$publishables <- lapply(publishables, function(x){
              child <- xmlChildren(x)
