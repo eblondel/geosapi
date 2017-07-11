@@ -41,6 +41,10 @@
 #'  \item{\code{getPayloadXML(obj)}}{
 #'    Convenience method to create payload XML to send to GeoServer.
 #'  }
+#'  \item{\code{setBbox(minx, miny, maxx, maxy, bbox, crs)}}{
+#'    Creates an list object representing a bbox. Either from coordinates or from
+#'    a \code{bbox} object (matrix).
+#'  }
 #' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
@@ -152,4 +156,24 @@ GSUtils$getPayloadXML <- function(obj){
   xmltext <- as(xml, "character")
   payload <- gsub("[\r\n ] ", "", xmltext)
   return(payload)
+}
+
+GSUtils$setBbox = function(minx, miny, maxx, maxy, bbox = NULL, crs){
+  
+  if(!missing(bbox) & !is.null(bbox)){
+    if(class(bbox) != "matrix") stop("Bbox is not a valid bounding box matrix")
+    if(all(dim(bbox) != c(2,2))) stop("Bbox is not a valid bounding box matrix")
+    minx = bbox[1L,1L]
+    miny = bbox[2L,1L]
+    maxx = bbox[1L,2L]
+    maxy = bbox[2L,2L]
+  }
+  
+  out <- list()
+  out[["minx"]] = minx
+  out[["miny"]] = miny
+  out[["maxx"]] = maxx
+  out[["maxy"]] = maxy
+  out[["crs"]] = crs
+  return(out)
 }

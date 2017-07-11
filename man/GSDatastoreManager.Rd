@@ -15,7 +15,7 @@ DataStores (i.e. stores of vector data)
 \description{
 Geoserver REST API DataStore Manager
 }
-\section{Methods}{
+\section{Constructor}{
 
 \describe{
  \item{\code{new(url, user, pwd, logger)}}{
@@ -25,6 +25,12 @@ Geoserver REST API DataStore Manager
    accepts two possible values: \code{INFO}: to print only geosapi logs,
    \code{DEBUG}: to print geosapi and CURL logs
  }
+}
+}
+
+\section{\code{DataStore} methods}{
+
+\describe{
  \item{\code{getDataStores(ws)}}{
    Get the list of available dataStores. Returns an object of class \code{list}
    giving items of class \code{\link{GSDataStore}}
@@ -47,6 +53,12 @@ Geoserver REST API DataStore Manager
    By defaut, the option \code{recurse} is set to FALSE, ie datastore layers are not removed.
    To remove all datastore layers, set this option to TRUE.
  }
+}
+}
+
+\section{\code{FeatureType} methods}{
+
+\describe{
  \item{\code{getFeatureTypes(ws, ds)}}{
    Get the list of available feature types for given workspace and datastore.
    Returns an object of class \code{list} giving items of class \code{\link{GSFeatureType}}
@@ -64,7 +76,7 @@ Geoserver REST API DataStore Manager
    class \code{\link{GSFeatureType}}
  }
  \item{\code{updateFeatureType(ws, ds, FeatureType)}}{
-   Updates a new featureType given a workspace, datastore names and an object of
+   Updates a featureType given a workspace, datastore names and an object of
    class \code{\link{GSFeatureType}}
  }
  \item{\code{deleteFeatureType(ws, ds, featureType, recurse)}}{
@@ -72,6 +84,81 @@ Geoserver REST API DataStore Manager
    class \code{\link{GSFeatureType}}. By defaut, the option \code{recurse} is
    set to FALSE, ie datastore layers are not removed.
  }
+}
+}
+
+\section{\code{Layer} methods}{
+
+\describe{
+ \item{\code{getLayers()}}{
+   Get the list of layers. Returns an object of class \code{list} giving items
+   of class \code{\link{GSLayer}}
+ }
+ \item{\code{getLayerNames()}}{
+   Get the list of layer names.
+ }
+ \item{\code{getLayer(lyr)}}{
+   Get an object of class \code{\link{GSLayer}} if existing
+ }
+ \item{\code{createLayer(layer)}}{
+   Creates a new layer given an object of class \code{\link{GSLayer}}
+ }
+ \item{\code{updateLayer(layer)}}{
+   Creates a layer given an object of class \code{\link{GSLayer}}
+ }
+ \item{\code{deleteLayer(layer)}}{
+   Deletes a layer given an object of class \code{\link{GSLayer}}
+ }
+}
+}
+
+\section{\code{LayerGroup} methods}{
+
+\describe{
+ \item{\code{getLayerGroups()}}{
+   Get the list of layers. Returns an object of class \code{list} giving items
+   of class \code{\link{GSLayer}}
+ }
+ \item{\code{getLayerGroupNames()}}{
+   Get the list of layer names.
+ }
+ \item{\code{getLayerGroup(lyr, ws)}}{
+   Get an object of class \code{\link{GSLayerGroup}} if existing. Can be restrained
+   to a workspace.
+ }
+ \item{\code{createLayerGroup(layerGroup, ws)}}{
+   Creates a new layer given an object of class \code{\link{GSLayerGroup}}. Can be
+   restrained to a particular workspace.
+ }
+ \item{\code{updateLayerGroup(layerGroup, ws)}}{
+   Creates a layer given an object of class \code{\link{GSLayerGroup}}. Can be
+   restrained to a particular workspace.
+ }
+ \item{\code{deleteLayerGroup(layerGroup, ws)}}{
+   Deletes a layer given an object of class \code{\link{GSLayerGroup}}. Can be
+   restrained to a particular workspace.
+ }
+}
+}
+
+\section{Main \code{Layer} user publication methods}{
+
+\describe{
+ \item{\code{publishLayer(ws, ds, featureType, layer)}}{
+   Publish a web-layer (including the featureType and 'layer' resources), given
+   a workspace, a datastore, providing an object of class \code{GSFeatureType},
+   and \code{GSLayer}
+ }
+ \item{\code{unpublishLayer(ws, ds, featureType, layer)}}{
+   Unpublish a web-layer (including the featureType and 'layer' resources), given
+   a workspace, a datastore, and a layer name
+ }
+}
+}
+
+\section{Data upload methods}{
+
+\describe{
  \item{\code{uploadData(ws, ds, endpoint, extension,
                         configure, update, filename, charset, contentType)}}{
    Uploads data to a target dataStore

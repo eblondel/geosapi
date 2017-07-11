@@ -40,15 +40,18 @@ GSRESTResource <- R6Class("GSRESTResource",
     encode = function(){
       #Generic XML encoder
       rootXML <- newXMLNode(self$rootName)
+      if(is(self, "GSPublishable")){
+        xmlAttrs(rootXML) <- c(type = self$type)
+      }
       
       #list of fields to encode as XML
       fields <- rev(names(self))
       fields <- fields[!sapply(fields, function(x){
         (class(self[[x]]) %in% c("environment", "function")) ||
-        (x %in% c("rootName", "full"))
+        (x %in% c("rootName", "full", "type"))
       })]
       
-      if(any(class(self) == "GSRESTEntrySet")){
+      if(is(self, "GSRESTEntrySet")){
         items <- self$entryset
         itemNb <- length(items)
         if(itemNb > 0){

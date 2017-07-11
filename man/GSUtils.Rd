@@ -50,6 +50,10 @@ Geoserver REST API Manager Utils
  \item{\code{getPayloadXML(obj)}}{
    Convenience method to create payload XML to send to GeoServer.
  }
+ \item{\code{setBbox(minx, miny, maxx, maxy, bbox, crs)}}{
+   Creates an list object representing a bbox. Either from coordinates or from
+   a \code{bbox} object (matrix).
+ }
 }
 }
 \author{

@@ -102,28 +102,7 @@ GSResource <- R6Class("GSResource",
    inherit = GSRESTResource,
    
    private = list(
-     allowedProjectionPolicies = c("NONE", "FORCE_DECLARED", "REPROJECT_TO_DECLARED"),
-     
-     setBbox = function(minx, miny, maxx, maxy, bbox = NULL, crs){
-       
-       if(!missing(bbox) & !is.null(bbox)){
-         if(class(bbox) != "matrix") stop("Bbox is not a valid bounding box matrix")
-         if(all(dim(bbox) != c(2,2))) stop("Bbox is not a valid bounding box matrix")
-         minx = bbox[1L,1L]
-         miny = bbox[2L,1L]
-         maxx = bbox[1L,2L]
-         maxy = bbox[2L,2L]
-       }
-       
-       out <- list()
-       out[["minx"]] = minx
-       out[["miny"]] = miny
-       out[["maxx"]] = maxx
-       out[["maxy"]] = maxy
-       out[["crs"]] = crs
-       return(out)
-     }
-     
+     allowedProjectionPolicies = c("NONE", "FORCE_DECLARED", "REPROJECT_TO_DECLARED")
    ),
    
    public = list(
@@ -302,11 +281,11 @@ GSResource <- R6Class("GSResource",
      },
 
      setLatLonBoundingBox = function(minx, miny, maxx, maxy, bbox = NULL, crs){
-       self$latLonBoundingBox <- private$setBbox(minx, miny, maxx, maxy, bbox, crs)
+       self$latLonBoundingBox <- GSUtils$setBbox(minx, miny, maxx, maxy, bbox, crs)
      },
      
      setNativeBoundingBox = function(minx, miny, maxx, maxy, bbox = NULL, crs){
-       self$nativeBoundingBox <- private$setBbox(minx, miny, maxx, maxy, bbox, crs)
+       self$nativeBoundingBox <- GSUtils$setBbox(minx, miny, maxx, maxy, bbox, crs)
      },
      
      setMetadata = function(key, metadata){

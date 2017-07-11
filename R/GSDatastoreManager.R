@@ -13,7 +13,7 @@
 #'    GSDataStoreManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
 #'  }
 #'
-#' @section Methods:
+#' @section Constructor:
 #' \describe{
 #'  \item{\code{new(url, user, pwd, logger)}}{
 #'    This method is used to instantiate a GSManager with the \code{url} of the
@@ -22,6 +22,10 @@
 #'    accepts two possible values: \code{INFO}: to print only geosapi logs,
 #'    \code{DEBUG}: to print geosapi and CURL logs
 #'  }
+#' }
+#' 
+#' @section \code{DataStore} methods:
+#' \describe{ 
 #'  \item{\code{getDataStores(ws)}}{
 #'    Get the list of available dataStores. Returns an object of class \code{list}
 #'    giving items of class \code{\link{GSDataStore}}
@@ -44,6 +48,10 @@
 #'    By defaut, the option \code{recurse} is set to FALSE, ie datastore layers are not removed.
 #'    To remove all datastore layers, set this option to TRUE.
 #'  }
+#' }
+#' 
+#' @section \code{FeatureType} methods:
+#' \describe{ 
 #'  \item{\code{getFeatureTypes(ws, ds)}}{
 #'    Get the list of available feature types for given workspace and datastore.
 #'    Returns an object of class \code{list} giving items of class \code{\link{GSFeatureType}}
@@ -61,7 +69,7 @@
 #'    class \code{\link{GSFeatureType}}
 #'  }
 #'  \item{\code{updateFeatureType(ws, ds, FeatureType)}}{
-#'    Updates a new featureType given a workspace, datastore names and an object of
+#'    Updates a featureType given a workspace, datastore names and an object of
 #'    class \code{\link{GSFeatureType}}
 #'  }
 #'  \item{\code{deleteFeatureType(ws, ds, featureType, recurse)}}{
@@ -69,6 +77,73 @@
 #'    class \code{\link{GSFeatureType}}. By defaut, the option \code{recurse} is 
 #'    set to FALSE, ie datastore layers are not removed.
 #'  }
+#' }
+#' 
+#' @section \code{Layer} methods:
+#' \describe{ 
+#'  \item{\code{getLayers()}}{
+#'    Get the list of layers. Returns an object of class \code{list} giving items 
+#'    of class \code{\link{GSLayer}}
+#'  }
+#'  \item{\code{getLayerNames()}}{
+#'    Get the list of layer names.
+#'  }
+#'  \item{\code{getLayer(lyr)}}{
+#'    Get an object of class \code{\link{GSLayer}} if existing
+#'  }
+#'  \item{\code{createLayer(layer)}}{
+#'    Creates a new layer given an object of class \code{\link{GSLayer}}
+#'  }
+#'  \item{\code{updateLayer(layer)}}{
+#'    Creates a layer given an object of class \code{\link{GSLayer}}
+#'  }
+#'  \item{\code{deleteLayer(layer)}}{
+#'    Deletes a layer given an object of class \code{\link{GSLayer}}
+#'  }
+#' }
+#' 
+#' @section \code{LayerGroup} methods:
+#' \describe{ 
+#'  \item{\code{getLayerGroups()}}{
+#'    Get the list of layers. Returns an object of class \code{list} giving items 
+#'    of class \code{\link{GSLayer}}
+#'  }
+#'  \item{\code{getLayerGroupNames()}}{
+#'    Get the list of layer names.
+#'  }
+#'  \item{\code{getLayerGroup(lyr, ws)}}{
+#'    Get an object of class \code{\link{GSLayerGroup}} if existing. Can be restrained
+#'    to a workspace.
+#'  }
+#'  \item{\code{createLayerGroup(layerGroup, ws)}}{
+#'    Creates a new layer given an object of class \code{\link{GSLayerGroup}}. Can be
+#'    restrained to a particular workspace.
+#'  }
+#'  \item{\code{updateLayerGroup(layerGroup, ws)}}{
+#'    Creates a layer given an object of class \code{\link{GSLayerGroup}}. Can be
+#'    restrained to a particular workspace.
+#'  }
+#'  \item{\code{deleteLayerGroup(layerGroup, ws)}}{
+#'    Deletes a layer given an object of class \code{\link{GSLayerGroup}}. Can be
+#'    restrained to a particular workspace.
+#'  }
+#' }
+#' 
+#' @section Main \code{Layer} user publication methods:
+#' \describe{ 
+#'  \item{\code{publishLayer(ws, ds, featureType, layer)}}{
+#'    Publish a web-layer (including the featureType and 'layer' resources), given
+#'    a workspace, a datastore, providing an object of class \code{GSFeatureType},
+#'    and \code{GSLayer}
+#'  }
+#'  \item{\code{unpublishLayer(ws, ds, featureType, layer)}}{
+#'    Unpublish a web-layer (including the featureType and 'layer' resources), given
+#'    a workspace, a datastore, and a layer name
+#'  }
+#' }
+#' 
+#' @section Data upload methods:
+#' \describe{ 
 #'  \item{\code{uploadData(ws, ds, endpoint, extension,
 #'                         configure, update, filename, charset, contentType)}}{
 #'    Uploads data to a target dataStore
@@ -349,7 +424,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     
     #Layer CRUD methods
     #===========================================================================
-    
+
     #getLayers
     #---------------------------------------------------------------------------
     getLayers = function(){
@@ -418,7 +493,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       }
       return(created)
     },
-
+    
     #updateLayer
     #---------------------------------------------------------------------------
     updateLayer = function(layer){
@@ -456,7 +531,145 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       }
       return(deleted)
     },
-
+    
+    #LayerGroup CRUD methods
+    #===========================================================================
+    
+    #getLayerGroups
+    #---------------------------------------------------------------------------
+    getLayerGroups = function(ws = NULL){
+      if(missing(ws)){
+        self$INFO("Fetching layer groups")
+      }else{
+        self$INFO(sprintf("Fetching layer groups for workspace '%s'", ws))
+      }
+      req <- GSUtils$GET(
+        self$getUrl(), private$user, private$pwd,
+        ifelse(missing(ws),"/layergroups.xml", sprintf("/workspaces/%s/layergroups.xml", ws)), 
+        verbose = self$verbose.debug)
+      lyrList <- NULL
+      if(status_code(req) == 200){
+        lyrXML <- GSUtils$parseResponseXML(req)
+        lyrXMLList <- getNodeSet(lyrXML, "//layerGroups/layerGroup")
+        lyrList <- lapply(lyrXMLList, function(x){
+          xml <- xmlDoc(x)
+          return(GSLayerGroup$new(xml = xml))
+        })
+        self$INFO(sprintf("Successfuly fetched %s layer groups!", length(lyrList)))
+      }else{
+        self$ERROR("Error while fetching layer groups")
+      }
+      return(lyrList)
+    },
+    
+    #getLayerGroupNames
+    #---------------------------------------------------------------------------
+    getLayerGroupNames = function(ws = NULL){
+      lyrList <- sapply(self$getLayerGroups(ws), function(x){x$name})
+      return(lyrList)
+    },
+    
+    #getLayerGroup
+    #---------------------------------------------------------------------------
+    getLayerGroup = function(lyr, ws = NULL){
+      if(is.null(ws)){
+        self$INFO(sprintf("Fetching layer group '%s'", lyr))
+      }else{
+        self$INFO(sprintf("Fetching layer group '%s' in workspace '%s'", lyr, ws))
+      }
+      req <- GSUtils$GET(
+        self$getUrl(), private$user, private$pwd,
+        ifelse(is.null(ws),
+               sprintf("/layergroups/%s.xml", lyr),
+               sprintf("/workspaces/%s/layergroups/%s.xml", ws, lyr)),
+        verbose = self$verbose.debug)
+      layer <- NULL
+      if(status_code(req) == 200){
+        lyrXML <- GSUtils$parseResponseXML(req)
+        layer <- GSLayerGroup$new(xml = lyrXML)
+        self$INFO("Successfuly fetched layer group!")
+      }else{
+        self$ERROR("Error while fetching layer group")
+      }
+      return(layer)
+    },
+    
+    #createLayerGroup
+    #---------------------------------------------------------------------------
+    createLayerGroup = function(layerGroup, ws = NULL){
+      if(is.null(ws)){
+        self$INFO(sprintf("Creating layer group '%s'", layerGroup$name))
+      }else{
+        self$INFO(sprintf("Creating layer group '%s' in workspace '%s'", layerGroup$name, ws))
+      }
+      created <- FALSE
+      req <- GSUtils$POST(
+        url = self$getUrl(), user = private$user, pwd = private$pwd,
+        path = ifelse(is.null(ws),"/layergroups.xml",
+                      sprintf("/workspaces/%s/layergroups.xml", ws)),
+        content = GSUtils$getPayloadXML(layerGroup),
+        contentType = "application/xml",
+        verbose = self$verbose.debug
+      )
+      if(status_code(req) == 201){
+        self$INFO("Successfuly created layer group!")
+        created = TRUE
+      }else{
+        self$ERROR("Error while creating layer group")
+      }
+      return(created)
+    },
+    
+    #updateLayerGroup
+    #---------------------------------------------------------------------------
+    updateLayerGroup = function(layerGroup, ws = NULL){
+      if(is.null(ws)){
+        self$INFO(sprintf("Updating layer '%s'", layerGroup$name))
+      }else{
+        self$INFO(sprintf("Updating layer '%s' in workspace '%s'", layerGroup$name, ws))
+      }
+      updated <- FALSE
+      req <- GSUtils$PUT(
+        url = self$getUrl(), user = private$user, pwd = private$pwd,
+        path = ifelse(is.null(ws),
+                      sprintf("/layergroups/%s.xml", layerGroup$name),
+                      sprintf("/workspaces/%s/layergroups/%s.xml", ws, layerGroup$name)),
+        content = GSUtils$getPayloadXML(layerGroup),
+        contentType = "application/xml",
+        verbose = self$verbose.debug
+      )
+      if(status_code(req) == 200){
+        self$INFO("Successfuly updated layer group!")
+        updated = TRUE
+      }else{
+        self$ERROR("Error while updating layer group")
+      }
+      return(updated)
+    },
+    
+    #deleteLayerGroup
+    #---------------------------------------------------------------------------
+    deleteLayerGroup = function(lyr, ws = NULL){
+      if(is.null(ws)){
+        self$INFO(sprintf("Deleting layer group '%s'", lyr))
+      }else{
+        self$INFO(sprintf("Deleting layer group '%s' in workspace '%s'", lyr, ws))
+      }
+      deleted <- FALSE
+      path <- ifelse(is.null(ws),
+                     sprintf("/layergroups/%s.xml", lyr),
+                     sprintf("/workspaces/%s/layergroups/%s.xml", ws, lyr))
+      req <- GSUtils$DELETE(self$getUrl(), private$user, private$pwd,
+                            path = path, verbose = self$verbose.debug)
+      if(status_code(req) == 200){
+        self$INFO("Successfuly deleted layer group!")
+        deleted = TRUE
+      }else{
+        self$ERROR("Error while deleting layer group")
+      }
+      return(deleted)
+    },
+    
     #Layer publication methods
     #===========================================================================    
     #publishLayer
