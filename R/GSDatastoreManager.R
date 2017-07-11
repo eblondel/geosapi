@@ -761,7 +761,10 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         self$INFO("Successfull data upload!")
         uploaded = TRUE
       }
-      if(!uploaded) self$ERROR("Error while uploading data")
+      if(!uploaded){
+        self$ERROR("Error while uploading data")
+        self$ERROR(http_status(req)$message)
+      }
       return(uploaded)
     },
     
