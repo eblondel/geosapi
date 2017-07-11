@@ -44,7 +44,7 @@ GSPublishable <- R6Class("GSPublishable",
    public = list(
      full = TRUE,
      name = NULL,
-     type = NULL,
+     attr_type = NULL,
      
      initialize = function(xml = NULL, name, type){
        super$initialize(rootName = "published")
@@ -61,7 +61,7 @@ GSPublishable <- R6Class("GSPublishable",
      decode = function(xml){
        names <- getNodeSet(xml, "//name")
        self$name <- xmlValue(names[[1]])
-       self$type <- xmlGetAttr(xml, "type")[1]
+       self$attr_type <- xmlGetAttr(xml, "type")[1]
      },
      
      setName = function(name){
@@ -69,7 +69,7 @@ GSPublishable <- R6Class("GSPublishable",
      },
      
      setType = function(type){
-       self$type = type
+       self$attr_type = type
      }
      
    )                       

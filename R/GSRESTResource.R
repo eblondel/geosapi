@@ -48,7 +48,7 @@ GSRESTResource <- R6Class("GSRESTResource",
       fields <- rev(names(self))
       fields <- fields[!sapply(fields, function(x){
         (class(self[[x]]) %in% c("environment", "function")) ||
-        (x %in% c("rootName", "full", "type"))
+        (x %in% c("rootName", "full", "attr_type"))
       })]
       
       if(is(self, "GSRESTEntrySet")){

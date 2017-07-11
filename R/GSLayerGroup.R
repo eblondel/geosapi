@@ -206,7 +206,7 @@ GSLayerGroup <- R6Class("GSLayerGroup",
        startNb = length(self$publishables)
        add <- TRUE
        invisible(sapply(self$publishables, function(x){
-         if(publishable$name == x$name & publishable$type == x$type){
+         if(publishable$name == x$name & publishable$attr_type == x$attr_type){
            add <<- FALSE
          }
        }))
