@@ -47,7 +47,7 @@ GSPublishable <- R6Class("GSPublishable",
      type = NULL,
      
      initialize = function(xml = NULL, name, type){
-       super$initialize(rootName = "publishable")
+       super$initialize(rootName = "published")
        if(!missing(xml) & !is.null(xml)){
          self$decode(xml)
        }else{
