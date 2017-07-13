@@ -44,7 +44,7 @@ test_that("CREATE layer group",{
   lyr$setWorkspace("topp")
   lyr$addLayer(layer = "tasmania_cities", style = "generic")
   lyr$setBounds(-180,-90,180,90,crs = "EPSG:4326")
-  expect_true(gnman$createLayerGroup(layerGroup = lyr, ws = "topp"))
+  expect_true(gsman$createLayerGroup(layerGroup = lyr, ws = "topp"))
 })
 
 test_that("UPDATE layer group",{
@@ -56,22 +56,22 @@ test_that("UPDATE layer group",{
   lyr$setWorkspace("topp")
   lyr$addLayer(layer = "tasmania_cities", style = "generic")
   lyr$setBounds(-180,-90,180,90,crs = "EPSG:4326")
-  expect_true(gnman$updateLayerGroup(layerGroup = lyr, ws = "topp"))
+  expect_true(gsman$updateLayerGroup(layerGroup = lyr, ws = "topp"))
 })
 
 test_that("READ layer group",{
-  lyr <- gnman$getLayerGroup(lyr = "test_layergroup", ws = "top")
+  lyr <- gsman$getLayerGroup(lyr = "test_layergroup", ws = "top")
   expect_equal(lyr$abstract, "abstract 2")
   expect_is(lyr, "GS")
 })
 
 test_that("READ layer groups",{ 
-  lyrs <- gnman$getLayerGroups(ws = "topp")
+  lyrs <- gsman$getLayerGroups(ws = "topp")
   expect_is(lyrs, "list")
   expect_equal(length(lyrs), 1L)
   expect_is(lyrs[[1]], "GSLayerGroup")
 })
 
 test_that("DELETE layer group",{
-  expect_true(gnman$deleteLayerGroup(lyr = "test_layergroup", ws = "topp"))
+  expect_true(gsman$deleteLayerGroup(lyr = "test_layergroup", ws = "topp"))
 })
