@@ -60,9 +60,9 @@ test_that("UPDATE layer group",{
 })
 
 test_that("READ layer group",{
-  lyr <- gsman$getLayerGroup(lyr = "test_layergroup", ws = "top")
+  lyr <- gsman$getLayerGroup(lyr = "test_layergroup", ws = "topp")
   expect_equal(lyr$abstract, "abstract 2")
-  expect_is(lyr, "GS")
+  expect_is(lyr, "GSLayerGroup")
 })
 
 test_that("READ layer groups",{ 
