@@ -41,7 +41,7 @@ GSRESTResource <- R6Class("GSRESTResource",
       #Generic XML encoder
       rootXML <- newXMLNode(self$rootName)
       if(is(self, "GSPublishable")){
-        xmlAttrs(rootXML) <- c(type = self$type)
+        xmlAttrs(rootXML) <- c(type = self$attr_type)
       }
       
       #list of fields to encode as XML
