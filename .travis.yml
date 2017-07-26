@@ -7,11 +7,10 @@ services:
   - docker
 
 before_install:
-  - docker run --name postgis -e POSTGRES_PASSWORD=geoserver -d mdillon/postgis
-  - docker run -it --link postgis:postgres --rm postgres
-  - sh -c 'exec psql -h "$POSTGRES_PORT_5432_TCP_ADDR" -p "$POSTGRES_PORT_5432_TCP_PORT" -U postgres'
+  - docker pull kartoza/postgis
+  - docker run -d --name="postgis" kartoza/postgis
   - docker pull oscarfonts/geoserver
-  - docker run -d -p 8080:8080 oscarfonts/geoserver
+  - docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver
 
 r:
   - oldrel
