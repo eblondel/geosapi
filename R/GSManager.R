@@ -181,7 +181,7 @@ GSManager <- R6Class("GSManager",
         self$ERROR(err)
         stop(err)
       }else{
-        self$INFO("Successfully connected to GeoServer!\n")
+        self$INFO("Successfully connected to GeoServer!")
       }
       return(TRUE)
     },
