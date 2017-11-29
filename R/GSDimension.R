@@ -56,7 +56,7 @@ GSDimension <- R6Class("GSDimension",
       propsXML <- xmlChildren(xml)
       props <- lapply(propsXML, xmlValue)
       self$setEnabled(as.logical(props$enabled))
-      self$setPresentation(props$presentation)
+      if(!is.null(props$presentation)) self$setPresentation(props$presentation)
       self$setUnit(props$units)
       self$setUnitSymbol(props$unitSymbol)
     },
