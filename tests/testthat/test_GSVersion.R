@@ -11,7 +11,7 @@ context("GSVersion")
 test_that("geoserver versions",{
   gsVersion <- gsman$version
   expect_is(gsVersion, "GSVersion")
-  GS_VERSION <- "2.11.1"
+  GS_VERSION <- "2.12.1"
   expect_equal(gsVersion$version, GS_VERSION)
   expect_is(gsVersion$value, "list")
   expect_equal(length(gsVersion$value), 3L)
