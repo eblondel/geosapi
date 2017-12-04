@@ -288,7 +288,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     deleteDataStore = function(ws, ds, recurse = FALSE){
       self$INFO(sprintf("Deleting datastore '%s' in workspace '%s'", ds, ws))
       deleted <- FALSE
-      path <- sprintf("/workspaces/%s/datastores/%s", ws, ds)
+      path <- sprintf("/workspaces/%s/datastores/%s.xml", ws, ds)
       if(recurse) path <- paste0(path, "?recurse=true")
       req <- GSUtils$DELETE(self$getUrl(), private$user, private$pwd,
                             path = path, verbose = self$verbose.debug)
