@@ -15,7 +15,7 @@ before_install:
 r:
   - oldrel
   - release
-  - devel
+  #- devel
 
 r_packages:
   - R6
