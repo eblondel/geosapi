@@ -1,19 +1,19 @@
-#' Geoserver REST API PostGISDataStore
+#' Geoserver REST API OracleNGDataStore
 #'
 #' @docType class
 #' @importFrom R6 R6Class
 #' @export
-#' @keywords geoserver rest api DataStore PostGIS
-#' @return Object of \code{\link{R6Class}} for modelling a GeoServer PostGIS dataStore
+#' @keywords geoserver rest api DataStore OracleNG
+#' @return Object of \code{\link{R6Class}} for modelling a GeoServer OracleNG dataStore
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @examples
-#'   GSPostGISDataStore$new(dataStore="ds", description = "des", enabled = TRUE)
+#'   GSOracleNGDataStore$new(dataStore="ds", description = "des", enabled = TRUE)
 #'
 #' @section Methods inherited from \code{GSAbstractDBDataStore}:
 #' \describe{
 #'    \item{\code{setDatabaseType(dbtype)}}{
-#'      Sets the database type, here "postgis"
+#'      Sets the database type, here "OracleNG"
 #'    }
 #'    \item{\code{setNamespace(namespace)}}{
 #'      Sets the datastore namespace
@@ -80,17 +80,17 @@
 #' @section Methods :
 #' \describe{
 #'    \item{\code{new(xml, dataStore, description, enabled)}}{
-#'      Instantiates a GSPostGISDataStore object
+#'      Instantiates a GSOracleNGDataStore object
 #'    }
 #'  }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
-GSPostGISDataStore <- R6Class("GSPostGISDataStore",
+GSOracleNGDataStore <- R6Class("GSOracleNGDataStore",
     inherit = GSAbstractDBDataStore,
     private = list(
-      TYPE = "PostGIS",
-      DBTYPE = "postgis"
+      TYPE = "Oracle NG",
+      DBTYPE = "oracle"
     ),
     public = list(
       initialize = function(xml = NULL, dataStore = NULL, description = "", enabled = TRUE){
