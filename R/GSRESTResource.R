@@ -93,9 +93,9 @@ GSRESTResource <- R6Class("GSRESTResource",
                     addChildren(itemsXML, itemXML)
                   }else{
                     if(is.null(itemNames)){
-                      itemXML <- suppressWarnings(newXMLNode("string", item, parent = itemsXML))
+                      itemXML <- suppressWarnings(newXMLNode("string", newXMLTextNode(item), parent = itemsXML))
                     }else{
-                      itemXML <- suppressWarnings(newXMLNode(itemName, item, parent = itemsXML))
+                      itemXML <- suppressWarnings(newXMLNode(itemName, newXMLTextNode(item), parent = itemsXML))
                     }
                   }
                 }
@@ -104,7 +104,7 @@ GSRESTResource <- R6Class("GSRESTResource",
               if(any(class(fieldObj) == "R6")){
                 addChildren(rootXML, fieldObj$encode())
               }else{
-                itemXML <- newXMLNode(field, fieldObj, parent = rootXML)
+                itemXML <- newXMLNode(field, newXMLTextNode(fieldObj), parent = rootXML)
               }
             }
           }
