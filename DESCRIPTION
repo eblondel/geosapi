@@ -3,7 +3,7 @@ Type: Package
 Title: GeoServer REST API R Interface
 Version: 0.3-0
 Date: 2018-03-08
-Author: Emmanuel Blondel <emmanuel.blondel1@gmail.com>
+Authors@R: c(person("Emmanuel", "Blondel", role = c("aut", "cre"), email = "emmanuel.blondel1@gmail.com", comment = c(ORCID = "0000-0002-5870-5762")))
 Maintainer: Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 Description: Provides an R interface to the GeoServer REST API, allowing to upload 
  and publish data in a GeoServer web-application and expose data to OGC Web-Services. 
