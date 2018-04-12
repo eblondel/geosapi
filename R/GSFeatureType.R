@@ -27,6 +27,9 @@
 #'    This method is used to encode a GSFeatureType to XML. Inherited from the
 #'    generic \code{GSRESTResource} encoder
 #'  }
+#'  \item{\code{setCqlFilter(filter)}}{
+#'    Sets a CQL filter for the feature type.
+#'  }
 #'  \item{\code{setVirtualTable(vt)}}{
 #'    Sets a virtual table for the feature type.
 #'  }
@@ -41,6 +44,7 @@ GSFeatureType <- R6Class("GSFeatureType",
   inherit = GSResource,
 
   public = list(
+    cqlFilter = NULL,
     initialize = function(xml = NULL){
       super$initialize(rootName = "featureType")
       if(!missing(xml) & !is.null(xml)){
@@ -50,6 +54,10 @@ GSFeatureType <- R6Class("GSFeatureType",
     
     decode = function(xml){
       super$decode(xml)
+    },
+    
+    setCqlFilter = function(cqlFilter){
+      self$cqlFilter <- cqlFilter
     },
     
     setVirtualTable = function(vt){

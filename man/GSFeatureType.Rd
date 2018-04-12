@@ -31,6 +31,9 @@ Geoserver REST API Resource
    This method is used to encode a GSFeatureType to XML. Inherited from the
    generic \code{GSRESTResource} encoder
  }
+ \item{\code{setCqlFilter(filter)}}{
+   Sets a CQL filter for the feature type.
+ }
  \item{\code{setVirtualTable(vt)}}{
    Sets a virtual table for the feature type.
  }
