@@ -703,11 +703,11 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       self$INFO(sprintf("Unpublishing layer '%s'", lyr))
       unpublished <- FALSE
       layer <- self$getLayer(lyr)
-      if(layer){
+      if(is(layer, "GSLayer")){
         lyrDeleted <- self$deleteLayer(lyr)
       }
       featureType <- self$getFeatureType(ws, ds, lyr)
-      if(featureType){
+      if(is(featureType, "GSFeatureType")){
         ftDeleted <- self$deleteFeatureType(ws, ds, lyr)
         if(ftDeleted){
             unpublished <- TRUE
