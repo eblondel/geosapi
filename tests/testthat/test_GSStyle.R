@@ -4,6 +4,7 @@
 # Description: Unit tests for GSStyle.R
 #=======================
 require(geosapi, quietly = TRUE)
+require(XML)
 require(testthat)
 
 context("GSStyle")
@@ -49,8 +50,8 @@ test_that("UPDATE style",{
   sldStyle2 <- xmlParse(sldFile2)
   expect_true(is(sldStyle2, "XMLInternalDocument"))
   
-  created <- gsman$updateStyle(sldBody = sldStyle2, name = "mystyle")
-  expect_true(created)
+  updated <- gsman$updateStyle(sldBody = sldStyle2, name = "mystyle")
+  expect_true(updated)
   
   sldBody <- gsman$getSLDBody("mystyle")
   expect_equal(xpathApply(sldBody, "//sld:Title", xmlValue)[[1]],
