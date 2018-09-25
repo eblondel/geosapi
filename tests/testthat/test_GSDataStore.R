@@ -23,6 +23,9 @@ test_that("READ dataStores",{
   expect_true(all(dsnames %in% c("states_shapefile","taz_shapes")))
 })
 
+#Shapefile
+#---------------------------------------------------------------------------
+
 test_that("CREATE dataStore - Shapefile",{
   ds = GSShapefileDataStore$new(dataStore="topp_datastore",
                                 description = "topp_datastore description",
@@ -36,7 +39,7 @@ test_that("CREATE dataStore - Shapefile",{
   expect_true(ds$enabled)
 })
 
-test_that("UPDATE datastore",{
+test_that("UPDATE datastore - Shapefile",{
   dataStore <- gsman$getDataStore("topp", "topp_datastore")
   dataStore$setDescription("topp_datastore updated description")
   dataStore$setEnabled(FALSE)
@@ -49,10 +52,44 @@ test_that("UPDATE datastore",{
   expect_false(ds$enabled)
 })
 
-# TODO check unexpected failure only on Travis CI
-#test_that("DELETE dataStore",{
-#  deleted <- gsman$deleteDataStore("topp", "topp_datastore")
-#  expect_true(deleted)
-#  ds <- gsman$getDataStore("topp", "topp_datastore")
-#  expect_is(ds, "NULL")
-#})
+test_that("DELETE dataStore - Shapefile",{
+  deleted <- gsman$deleteDataStore("topp", "topp_datastore", TRUE)
+  expect_true(deleted)
+  ds <- gsman$getDataStore("topp", "topp_datastore")
+  expect_is(ds, "NULL")
+})
+
+#Shapefile Directory
+#---------------------------------------------------------------------------
+
+test_that("CREATE dataStore - Directory of Shapefiles",{
+  ds = GSShapefileDirectoryDataStore$new(dataStore="topp_datastore",
+                                description = "topp_datastore description",
+                                enabled = TRUE, url = "file:data/shapefiles")
+  created <- gsman$createDataStore("topp", ds)
+  expect_true(created)
+  ds <- gsman$getDataStore("topp", "topp_datastore")
+  expect_is(ds, "GSDataStore")
+  expect_equal(ds$description, "topp_datastore description")
+  expect_true(ds$enabled)
+})
+
+test_that("UPDATE datastore - Directory of Shapefiles",{
+  dataStore <- gsman$getDataStore("topp", "topp_datastore")
+  dataStore$setDescription("topp_datastore updated description")
+  dataStore$setEnabled(FALSE)
+  
+  updated <- gsman$updateDataStore("topp", dataStore)
+  expect_true(updated)
+  ds <- gsman$getDataStore("topp", "topp_datastore")
+  expect_is(ds, "GSDataStore")
+  expect_equal(ds$description, "topp_datastore updated description")
+  expect_false(ds$enabled)
+})
+
+test_that("DELETE dataStore - Directory of Shapefiles",{
+  deleted <- gsman$deleteDataStore("topp", "topp_datastore", TRUE)
+  expect_true(deleted)
+  ds <- gsman$getDataStore("topp", "topp_datastore")
+  expect_is(ds, "NULL")
+})
