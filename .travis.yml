@@ -13,7 +13,7 @@ before_install:
   - docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver
 
 r:
-  - oldrel
+  #- oldrel
   - release
   #- devel
 
