@@ -96,7 +96,9 @@ GSDataStore <- R6Class("GSDataStore",
       self$full <- length(enabled) > 0
       if(self$full){
         self$enabled <- as.logical(xmlValue(enabled[[1]]))
-        self$description <- xmlValue(getNodeSet(xml,"//description")[[1]])
+        
+        descriptionXML <- getNodeSet(xml,"//description")
+        if(length(descriptionXML) > 0) self$description <- xmlValue(descriptionXML[[1]])
         
         typeXML <- getNodeSet(xml,"//type")
         if(length(typeXML) > 0) self$type <- xmlValue(typeXML[[1]])
