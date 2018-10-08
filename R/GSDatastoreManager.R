@@ -774,6 +774,8 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     },
     
     #uploadShapefile
+    #NOTES:
+    #see #32 issue when contentType = "application/zip" (?)
     #---------------------------------------------------------------------------
     uploadShapefile = function(ws, ds, endpoint = "file",
                                 configure = "first", update = "append",
@@ -781,7 +783,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(
         self$uploadData(ws, ds, endpoint, extension = "shp",
                         configure, update, filename, charset,
-                        contentType = "application/zip")
+                        contentType = "")
       )
     },
     
