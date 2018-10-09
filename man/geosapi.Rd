@@ -18,8 +18,8 @@ more information about the GeoServer REST API, see <http://docs.geoserver.org/st
 \tabular{ll}{
    Package: \tab geosapi\cr
    Type: \tab Package\cr
-   Version: \tab 0.3-0\cr
-   Date: \tab 2018-09-12\cr
+   Version: \tab 0.3-1\cr
+   Date: \tab 2018-10-09\cr
    License: \tab MIT\cr
    LazyLoad: \tab yes\cr
  }
