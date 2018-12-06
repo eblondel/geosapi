@@ -136,7 +136,7 @@
 #'    a workspace, a datastore, providing an object of class \code{GSFeatureType},
 #'    and \code{GSLayer}
 #'  }
-#'  \item{\code{unpublishLayer(ws, ds, featureType, layer)}}{
+#'  \item{\code{unpublishLayer(ws, ds, lyr)}}{
 #'    Unpublish a web-layer (including the featureType and 'layer' resources), given
 #'    a workspace, a datastore, and a layer name
 #'  }
