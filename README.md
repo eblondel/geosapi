@@ -12,3 +12,7 @@
 ### Citation
 
 We thank in advance people that use ``geosapi`` for citing it in their work / publication(s). For this, please use the citation provided at this link [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1184895.svg)](https://doi.org/10.5281/zenodo.1184895)
+
+### User Manual
+
+A user manual is available at [https://github.com/eblondel/geosapi/wiki](https://github.com/eblondel/geosapi/wiki)
