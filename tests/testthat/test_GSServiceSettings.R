@@ -38,7 +38,7 @@ test_that("Enable/Disable WCS",{
   enabled <- gsman$enableWCS("geosapi")
   expect_true(enabled)
   wcs_settings <- gsman$getWcsSettings("geosapi")
-  expect_true(wms_settings$enabled)
+  expect_true(wcs_settings$enabled)
   disabled <- gsman$disableWCS("geosapi")
   expect_true(disabled)
   wcs_settings <- gsman$getWcsSettings("geosapi")
