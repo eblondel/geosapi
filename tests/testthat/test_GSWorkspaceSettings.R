@@ -1,12 +1,12 @@
-# test_GSWorkspace.R
+# test_GSWorkspaceSettings.R
 # Author: Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 #
-# Description: Unit tests for GSWorkspace*.R
+# Description: Unit tests for GSWorkspaceSettings.R
 #=======================
 require(geosapi, quietly = TRUE)
 require(testthat)
 
-context("GSWorkspace")
+context("GSWorkspaceSettings")
 
 gsman$createWorkspace("geosapi")
 
