@@ -19,7 +19,7 @@ A user manual is available at [https://github.com/eblondel/geosapi/wiki](https:/
 
 ### Sponsors
 
-Many thanks to the following organizations that have provided partial fundings for strenghtening the ``geosapi`` package:
+Many thanks to the following organizations that have provided fundings for strenghtening the ``geosapi`` package:
 
 <a href="http://www.grid.unep.ch"><img src="http://www.grid.unep.ch/images/icons/GRID_black_eng.png"></a>
 
