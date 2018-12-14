@@ -54,6 +54,18 @@ Geoserver REST API Workspace Manager
    Deletes a GeoServer workspace given a name. Returns \code{TRUE} if the 
    workspace has been successfully deleted, \code{FALSE} otherwise
  }
+ \item{\code{getWorkspaceSettings(ws)}}{
+   Get the workspace settings (if existing) as object of class \code{GSWorkspaceSettings}
+ }
+ \item{\code{createWorkspaceSettings(ws, workspaceSettings)}}{
+   Creates a workspace settings for the workspace \code{ws}
+ }
+ \item{\code{updateWorkspaceSettings(ws, workspaceSettings)}}{
+   Updates a workspace settings for the workspace \code{ws}
+ }
+ \item{\code{deleteWorkspaceSettings(ws)}}{
+   Deletes a workspace settings for the workspace \code{ws}
+ }
 }
 }
 

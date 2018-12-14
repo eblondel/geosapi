@@ -51,6 +51,18 @@
 #'    Deletes a GeoServer workspace given a name. Returns \code{TRUE} if the 
 #'    workspace has been successfully deleted, \code{FALSE} otherwise
 #'  }
+#'  \item{\code{getWorkspaceSettings(ws)}}{
+#'    Get the workspace settings (if existing) as object of class \code{GSWorkspaceSettings}
+#'  }
+#'  \item{\code{createWorkspaceSettings(ws, workspaceSettings)}}{
+#'    Creates a workspace settings for the workspace \code{ws}
+#'  }
+#'  \item{\code{updateWorkspaceSettings(ws, workspaceSettings)}}{
+#'    Updates a workspace settings for the workspace \code{ws}
+#'  }
+#'  \item{\code{deleteWorkspaceSettings(ws)}}{
+#'    Deletes a workspace settings for the workspace \code{ws}
+#'  }
 #' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
@@ -183,7 +195,97 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
         self$ERROR("Error while deleting workspace")
       }
       return(deleted)
-    }   
+    },
+    
+    #getWorkspaceSettings
+    #---------------------------------------------------------------------------
+    getWorkspaceSettings = function(ws){
+      if(self$version$lowerThan("2.12")){
+        stop("This feature is available starting from GeoServer 2.12")
+      }
+      self$INFO(sprintf("Fetching settings for workspace '%s'", ws))
+      req <- GSUtils$GET(self$getUrl(), private$user, private$pwd,
+                         sprintf("/workspaces/%s/settings.xml", ws), self$verbose.debug)
+      workspaceSettings <- NULL
+      if(status_code(req) == 200){
+        wsSettingXML <- GSUtils$parseResponseXML(req)
+        workspaceSettings <- GSWorkspaceSettings$new(xml = wsSettingXML)
+        self$INFO("Successfully fetched workspace settings!")
+      }else{
+        self$ERROR("Error while fetching workspace settings")
+      }
+      return(workspaceSettings)
+    },
+    
+    #createWorkspaceSettings
+    #---------------------------------------------------------------------------
+    createWorkspaceSettings = function(ws, workspaceSettings){
+      if(self$version$lowerThan("2.12")){
+        stop("This feature is available starting from GeoServer 2.12")
+      }
+      self$INFO(sprintf("Creating settings for workspace '%s'", ws))
+      created <- FALSE
+      req <- GSUtils$POST(
+        url = self$getUrl(),
+        user = private$user,
+        pwd = private$pwd,
+        path = sprintf("/workspaces/%s/settings.xml", ws),
+        content = GSUtils$getPayloadXML(workspaceSettings),
+        contentType = "text/xml",
+        verbose = self$verbose.debug
+      )
+      if(status_code(req) == 201){
+        self$INFO("Successfully created workspace settings!")
+        created = TRUE
+      }else{
+        self$ERROR("Error while creating workspace settings")
+      }
+      return(created)
+    },
+    
+    #updateWorkspaceSettings
+    #---------------------------------------------------------------------------
+    updateWorkspaceSettings = function(ws, workspaceSettings){
+      if(self$version$lowerThan("2.12")){
+        stop("This feature is available starting from GeoServer 2.12")
+      }
+      self$INFO(sprintf("Updating settings for workspace '%s'", ws))
+      updated <- FALSE
+      req <- GSUtils$PUT(
+        url = self$getUrl(), user = private$user, pwd = private$pwd,
+        path = sprintf("/workspaces/%s/settings.xml", ws),
+        content = GSUtils$getPayloadXML(workspaceSettings),
+        contentType = "application/xml",
+        verbose = self$verbose.debug
+      )
+      if(status_code(req) == 200){
+        self$INFO("Successfully updated workspace settings!")
+        updated = TRUE
+      }else{
+        self$ERROR("Error while updating workspace settings")
+      }
+      return(updated)
+    },
+    
+    #deleteWorkspaceSettings
+    #---------------------------------------------------------------------------
+    deleteWorkspaceSettings = function(ws){
+      if(self$version$lowerThan("2.12")){
+        stop("This feature is available starting from GeoServer 2.12")
+      }
+      self$INFO(sprintf("Deleting settings for workspace '%s'", ws))
+      deleted <- FALSE
+      path <- sprintf("/workspaces/%s/settings", ws)
+      req <- GSUtils$DELETE(self$getUrl(), private$user, private$pwd,
+                            path = path, self$verbose.debug)
+      if(status_code(req) == 200){
+        self$INFO("Successfully deleted workspace settings!")
+        deleted = TRUE
+      }else{
+        self$ERROR("Error while deleting workspace settings")
+      }
+      return(deleted)
+    }
     
   )
   
