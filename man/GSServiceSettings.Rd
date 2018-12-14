@@ -17,6 +17,12 @@ This class models a GeoServer OWS service settings.
 \details{
 Geoserver REST API Service Setting
 }
+\section{Fields}{
+
+\describe{
+\item{\code{verbose}}{}
+}}
+
 \section{Methods}{
 
 \describe{
@@ -33,7 +39,10 @@ Geoserver REST API Service Setting
    generic \code{GSRESTResource} encoder
  }
  \item{\code{setEnabled(enabled)}}{
-   Sets if the layer is enabled (TRUE) or not (FALSE)
+   Sets if the service is enabled (TRUE) or not (FALSE)
+ }
+ \item{\code{setCiteCompliant(citeCompliant)}}{
+   Sets if the service is compliant with CITE (TRUE) or not (FALSE)
  }
  \item{\code{setName(name)}}{
    Sets the service name
@@ -46,6 +55,24 @@ Geoserver REST API Service Setting
  }
  \item{\code{setMaintainer(maintainer)}}{
    Sets the service maintainer
+ }
+ \item{\code{setKeywords(keywords)}}{
+   Sets a list of keywords
+ }
+ \item{\code{addKeyword(keyword)}}{
+   Sets a keyword. Returns TRUE if set, FALSE otherwise
+ }
+ \item{\code{delKeyword(keyword)}}{
+   Deletes a keyword. Returns TRUE if deleted, FALSE otherwise
+ }
+ \item{\code{setOnlineResource(onlineResource)}}{
+   Sets the online resource
+ }
+ \item{\code{setSchemaBaseURL(schemaBaseURL)}}{
+   Sets the schema base URL. Default is http://schemas.opengis.net
+ }
+ \item{\code{setVerbose(verbose)}}{
+   Sets verbose
  }
 }
 }
