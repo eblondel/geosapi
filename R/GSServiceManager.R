@@ -104,7 +104,6 @@ GSServiceManager <- R6Class("GSServiceManager",
       restPath <- NULL
       service <- tolower(service)
       if(!is.null(ws)){
-        ws <- tolower(ws)
         self$INFO(sprintf("Fetching %s service settings in workspace '%s'", service, ws))
         restPath <- sprintf("/services/%s/workspaces/%s/settings.xml", service, ws)
       }else{
@@ -142,7 +141,6 @@ GSServiceManager <- R6Class("GSServiceManager",
       restPath <- NULL
       service <- tolower(service)
       if(!is.null(ws)){
-        ws <- tolower(ws)
         self$INFO(sprintf("Fetching %s service settings in workspace '%s'", service, ws))
         restPath <- sprintf("/services/%s/workspaces/%s/settings.xml", service, ws)
       }else{
