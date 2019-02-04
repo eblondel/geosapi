@@ -20,7 +20,7 @@ test_that("Enable/Disable WMS",{
   disabled <- gsman$disableWMS("geosapiWS")
   expect_true(disabled)
   wms_settings <- gsman$getWmsSettings("geosapiWS")
-  expect_false(wms_settings$enabled)
+  expect_null(wms_settings)
 })
 
 test_that("Enable/Disable WFS",{
@@ -31,7 +31,7 @@ test_that("Enable/Disable WFS",{
   disabled <- gsman$disableWFS("geosapiWS")
   expect_true(disabled)
   wfs_settings <- gsman$getWfsSettings("geosapiWS")
-  expect_false(wfs_settings$enabled)
+  expect_null(wfs_settings)
 })
 
 test_that("Enable/Disable WCS",{
@@ -42,7 +42,7 @@ test_that("Enable/Disable WCS",{
   disabled <- gsman$disableWCS("geosapiWS")
   expect_true(disabled)
   wcs_settings <- gsman$getWcsSettings("geosapiWS")
-  expect_false(wcs_settings$enabled)
+  expect_null(wcs_settings)
 })
 
 gsman$deleteWorkspace("geosapiWS")
