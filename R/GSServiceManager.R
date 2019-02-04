@@ -46,6 +46,10 @@
 #'    An optional workspace name \code{ws} can be specified to update service settings
 #'    applying to a workspace.
 #'  }
+#'  \item{\code{deleteServiceSettings(service, ws)}}{
+#'    Deletes the service settings. This methods is used internally by \pkg{geosapi} 
+#'    for disabling a service setting at workspace level.
+#'  }
 #'  \item{\code{updateWmsSettings(serviceSettings, ws)}}{
 #'    Updates the WMS settings with an object of class \code{GSServiceSetting}.
 #'    An optional workspace name \code{ws} can be specified to update WMS settings
@@ -69,6 +73,11 @@
 #'  }
 #'  \item{\code{enableWCS(ws)}}{
 #'    Enables the WCS, either globally, or for a given workspace (optional)
+#'  }
+#'  \item{\code{disableServiceSettings(service, ws)}}{
+#'    Disables a service, either globally, or for a given workspace (optional).
+#'    For a global service setting, an UPDATE operation will be applied, while
+#'    for a workspace service setting, a DELETE operation is applied.
 #'  }
 #'  \item{\code{disableWMS(ws)}}{
 #'    Disables the WMS, either globally, or for a given workspace (optional)
@@ -164,6 +173,36 @@ GSServiceManager <- R6Class("GSServiceManager",
       }
       return(updated)
     },
+    #deleteServiceSettings
+    #---------------------------------------------------------------------------
+    deleteServiceSettings = function(service, ws = NULL){
+      if(self$version$lowerThan("2.12")){
+        stop("This feature is available starting from GeoServer 2.12")
+      }
+      deleted <- FALSE
+      restPath <- NULL
+      service <- tolower(service)
+      if(!is.null(ws)){
+        ws <- tolower(ws)
+        self$INFO(sprintf("Deleting %s service settings in workspace '%s'", service, ws))
+        restPath <- sprintf("/services/%s/workspaces/%s/settings.xml", service, ws)
+      }else{
+        #normally this delete operation is not available
+        self$INFO(sprintf("Deleting %s service global settings", service))
+        restPath <- sprintf("/services/%s/settings.xml", service)
+      }
+      req <- GSUtils$DELETE(
+        url = self$getUrl(), user = private$user, pwd = private$pwd,
+        path = restPath, verbose = self$verbose.debug
+      )
+      if(status_code(req) == 200){
+        self$INFO("Successfully deleted service settings!")
+        deleted = TRUE
+      }else{
+        self$ERROR("Error while deleted service settings")
+      }
+      return(deleted)
+    },
     updateWmsSettings = function(serviceSettings, ws = NULL){
       return(self$updateServiceSettings(serviceSettings, service = "WMS", ws = ws))
     },
@@ -185,20 +224,27 @@ GSServiceManager <- R6Class("GSServiceManager",
       serviceSettings <- GSServiceSettings$new(service = "WCS")
       return(self$updateWcsSettings(serviceSettings, ws = ws))
     },
+    disableServiceSettings = function(service, ws = NULL){
+      disabled <- FALSE
+      if(is.null(ws)){
+        #use update op for global service setting
+        serviceSettings <- GSServiceSettings$new(service = service)
+        serviceSettings$setEnabled(FALSE)
+        disabled <- self$updateWmsSettings(serviceSettings, ws = ws)
+      }else{
+        #use delete op for workspace service setting
+        disabled <- self$deleteServiceSettings(service = service, ws = ws)
+      }
+      return(disabled)
+    },
     disableWMS = function(ws = NULL){
-      serviceSettings <- GSServiceSettings$new(service = "WMS")
-      serviceSettings$setEnabled(FALSE)
-      return(self$updateWmsSettings(serviceSettings, ws = ws))
+      return(self$disableServiceSettings(service = "WMS", ws = ws))
     },
     disableWFS = function(ws = NULL){
-      serviceSettings <- GSServiceSettings$new(service = "WFS")
-      serviceSettings$setEnabled(FALSE)
-      return(self$updateWfsSettings(serviceSettings, ws = ws))
+      return(self$disableServiceSettings(service = "WFS", ws = ws))
     },
     disableWCS = function(ws = NULL){
-      serviceSettings <- GSServiceSettings$new(service = "WCS")
-      serviceSettings$setEnabled(FALSE)
-      return(self$updateWcsSettings(serviceSettings, ws = ws))
+      return(self$disableServiceSettings(service = "WCS", ws = ws))
     }
     
   )

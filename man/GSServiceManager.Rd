@@ -49,6 +49,10 @@ Geoserver REST API Service Manager
    An optional workspace name \code{ws} can be specified to update service settings
    applying to a workspace.
  }
+ \item{\code{deleteServiceSettings(service, ws)}}{
+   Deletes the service settings. This methods is used internally by \pkg{geosapi} 
+   for disabling a service setting at workspace level.
+ }
  \item{\code{updateWmsSettings(serviceSettings, ws)}}{
    Updates the WMS settings with an object of class \code{GSServiceSetting}.
    An optional workspace name \code{ws} can be specified to update WMS settings
@@ -72,6 +76,11 @@ Geoserver REST API Service Manager
  }
  \item{\code{enableWCS(ws)}}{
    Enables the WCS, either globally, or for a given workspace (optional)
+ }
+ \item{\code{disableServiceSettings(service, ws)}}{
+   Disables a service, either globally, or for a given workspace (optional).
+   For a global service setting, an UPDATE operation will be applied, while
+   for a workspace service setting, a DELETE operation is applied.
  }
  \item{\code{disableWMS(ws)}}{
    Disables the WMS, either globally, or for a given workspace (optional)
