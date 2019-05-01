@@ -47,7 +47,7 @@ GSRESTResource <- R6Class("GSRESTResource",
       #list of fields to encode as XML
       fields <- rev(names(self))
       fields <- fields[!sapply(fields, function(x){
-        (class(self[[x]]) %in% c("environment", "function")) ||
+        (class(self[[x]])[1] %in% c("environment", "function")) ||
         (x %in% c("rootName", "full", "attr_type"))
       })]
       
