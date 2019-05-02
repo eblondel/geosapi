@@ -3,7 +3,6 @@
 \docType{class}
 \name{GSDimension}
 \alias{GSDimension}
-\alias{GSDimension}
 \alias{GSFeatureDimension}
 \title{A GeoServer dimension}
 \format{\code{\link{R6Class}} object.}

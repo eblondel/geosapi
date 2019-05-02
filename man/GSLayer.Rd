@@ -3,9 +3,7 @@
 \docType{class}
 \name{GSLayer}
 \alias{GSLayer}
-\alias{GSLayer}
 \alias{GSPublishable}
-\alias{GSLayer}
 \alias{GSStyle}
 \title{A GeoServer layer resource}
 \format{\code{\link{R6Class}} object.}
