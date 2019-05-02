@@ -47,7 +47,7 @@
 #'    applying to a workspace.
 #'  }
 #'  \item{\code{deleteServiceSettings(service, ws)}}{
-#'    Deletes the service settings. This methods is used internally by \pkg{geosapi} 
+#'    Deletes the service settings. This method is used internally by \pkg{geosapi} 
 #'    for disabling a service setting at workspace level.
 #'  }
 #'  \item{\code{updateWmsSettings(serviceSettings, ws)}}{
@@ -88,10 +88,6 @@
 #'  \item{\code{disableWCS(ws)}}{
 #'    Disables the WCS, either globally, or for a given workspace (optional)
 #'  }
-#' }
-#' 
-#' @section \code{Settings} methods:
-#' \describe{ 
 #' }
 #' 
 #' 
