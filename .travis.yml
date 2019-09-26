@@ -9,7 +9,7 @@ services:
 before_install:
   - docker pull kartoza/postgis
   - docker run -d --name="postgis" kartoza/postgis
-  - docker pull oscarfonts/geoserver
+  - docker pull oscarfonts/geoserver:2.15.2
   - docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver
 
 r:
