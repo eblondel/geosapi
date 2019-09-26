@@ -22,4 +22,4 @@ A user manual is available at [https://github.com/eblondel/geosapi/wiki](https:/
 
 Many thanks to the following organizations that have provided fundings for strenghtening the ``geosapi`` package:
 
-<a href="http://www.grid.unep.ch"><img src="http://www.grid.unep.ch/images/icons/GRID_black_eng.png"></a>
+<a href="http://www.grid.unep.ch"><img src="https://pbs.twimg.com/profile_images/1125507706276732933/NnJ77e3y_400x400.png"></a>
