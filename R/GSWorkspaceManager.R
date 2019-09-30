@@ -225,16 +225,16 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
       }
       self$INFO(sprintf("Creating settings for workspace '%s'", ws))
       created <- FALSE
-      req <- GSUtils$POST(
+      req <- GSUtils$PUT(
         url = self$getUrl(),
         user = private$user,
         pwd = private$pwd,
         path = sprintf("/workspaces/%s/settings.xml", ws),
         content = GSUtils$getPayloadXML(workspaceSettings),
-        contentType = "text/xml",
+        contentType = "application/xml",
         verbose = self$verbose.debug
       )
-      if(status_code(req) == 201){
+      if(status_code(req) == 200){
         self$INFO("Successfully created workspace settings!")
         created = TRUE
       }else{

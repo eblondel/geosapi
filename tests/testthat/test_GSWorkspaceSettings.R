@@ -23,7 +23,12 @@ test_that("READ workspace settings",{
 
 test_that("UPDATE workspace settings",{
   settings <- GSWorkspaceSettings$new()
+  settings$setNumDecimals(4)
+  settings$setVerbose(TRUE)
   updated <- gsman$updateWorkspaceSettings("geosapi", settings)
+  settings2 <- gsman$getWorkspaceSettings("geosapi")
+  expect_equal(settings2$numDecimals, 4)
+  expect_true(settings2$verbose)
   expect_true(updated)
 })
 

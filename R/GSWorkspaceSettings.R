@@ -69,7 +69,7 @@ GSWorkspaceSettings <- R6Class("GSWorkspaceSettings",
        charset <- getNodeSet(xml, "//charset")
        if(length(charset)>0) self$charset <- xmlValue(charset[[1]])
        numDecimals <- getNodeSet(xml, "//numDecimals")
-       if(length(numDecimals)>0) self$numDecimals <- xmlValue(numDecimals[[1]])
+       if(length(numDecimals)>0) self$numDecimals <- as.integer(xmlValue(numDecimals[[1]]))
        onlineResource <- getNodeSet(xml, "//onlineResource")
        if(length(onlineResource)>0) self$onlineResource <- xmlValue(onlineResource[[1]])
        verbose <- getNodeSet(xml, "//verbose")
