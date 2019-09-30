@@ -26,7 +26,14 @@ matrix:
     before_install:
     - docker pull kartoza/postgis
     - docker run -d --name="postgis" kartoza/postgis
-    - docker pull oscarfonts/geoserver:latest
+    - docker pull oscarfonts/geoserver:2.16.0
+    - docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver
+  - name: "GeoServer 2.15.3"
+    services: docker
+    before_install:
+    - docker pull kartoza/postgis
+    - docker run -d --name="postgis" kartoza/postgis
+    - docker pull oscarfonts/geoserver:2.15.3
     - docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver
   - name: "GeoServer 2.15.2"
     services: docker
@@ -35,12 +42,89 @@ matrix:
     - docker run -d --name="postgis" kartoza/postgis
     - docker pull oscarfonts/geoserver:2.15.2
     - docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver
+  - name: "GeoServer 2.15.1"
+    services: docker
+    before_install:
+    - docker pull kartoza/postgis
+    - docker run -d --name="postgis" kartoza/postgis
+    - docker pull oscarfonts/geoserver:2.15.1
+    - docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver
+  - name: "GeoServer 2.15.0"
+    services: docker
+    before_install:
+    - docker pull kartoza/postgis
+    - docker run -d --name="postgis" kartoza/postgis
+    - docker pull oscarfonts/geoserver:2.15.0
+    - docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver
   - name: "GeoServer 2.14.4"
     services: docker
     before_install:
     - docker pull kartoza/postgis
     - docker run -d --name="postgis" kartoza/postgis
     - docker pull oscarfonts/geoserver:2.14.4
+    - docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver
+  - name: "GeoServer 2.14.3"
+    services: docker
+    before_install:
+    - docker pull kartoza/postgis
+    - docker run -d --name="postgis" kartoza/postgis
+    - docker pull oscarfonts/geoserver:2.14.3
+    - docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver
+  - name: "GeoServer 2.14.2"
+    services: docker
+    before_install:
+    - docker pull kartoza/postgis
+    - docker run -d --name="postgis" kartoza/postgis
+    - docker pull oscarfonts/geoserver:2.14.2
+    - docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver
+  - name: "GeoServer 2.14.1"
+    services: docker
+    before_install:
+    - docker pull kartoza/postgis
+    - docker run -d --name="postgis" kartoza/postgis
+    - docker pull oscarfonts/geoserver:2.14.1
+    - docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver
+  - name: "GeoServer 2.14.0"
+    services: docker
+    before_install:
+    - docker pull kartoza/postgis
+    - docker run -d --name="postgis" kartoza/postgis
+    - docker pull oscarfonts/geoserver:2.14.0
+    - docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver
+  - name: "GeoServer 2.13.4"
+    services: docker
+    before_install:
+    - docker pull kartoza/postgis
+    - docker run -d --name="postgis" kartoza/postgis
+    - docker pull oscarfonts/geoserver:2.13.4
+    - docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver
+  - name: "GeoServer 2.13.3"
+    services: docker
+    before_install:
+    - docker pull kartoza/postgis
+    - docker run -d --name="postgis" kartoza/postgis
+    - docker pull oscarfonts/geoserver:2.13.3
+    - docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver
+  - name: "GeoServer 2.13.2"
+    services: docker
+    before_install:
+    - docker pull kartoza/postgis
+    - docker run -d --name="postgis" kartoza/postgis
+    - docker pull oscarfonts/geoserver:2.13.2
+    - docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver
+  - name: "GeoServer 2.13.1"
+    services: docker
+    before_install:
+    - docker pull kartoza/postgis
+    - docker run -d --name="postgis" kartoza/postgis
+    - docker pull oscarfonts/geoserver:2.13.1
+    - docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver
+  - name: "GeoServer 2.13.0"
+    services: docker
+    before_install:
+    - docker pull kartoza/postgis
+    - docker run -d --name="postgis" kartoza/postgis
+    - docker pull oscarfonts/geoserver:2.13.0
     - docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver
 
 after_script:
