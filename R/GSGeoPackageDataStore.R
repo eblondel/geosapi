@@ -84,9 +84,6 @@
 #'    \item{\code{new(xml, dataStore, description, enabled, database)}}{
 #'      Instantiates a GSGeoPackageDataStore object
 #'    }
-#'    \item{\code{setUrl(url)}}{
-#'      Set the spatial files data URL
-#'    }
 #' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
