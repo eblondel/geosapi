@@ -21,7 +21,14 @@ r_check_args: --as-cran
 
 matrix:
   include:
-  - name: "GeoServer 2.16.0"
+  - name: "GeoServer 2.17.1"
+    services: docker
+    before_install:
+    - docker pull kartoza/postgis
+    - docker run -d --name="postgis" kartoza/postgis
+    - docker pull oscarfonts/geoserver:2.17.1
+    - docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver
+  - name: "GeoServer 2.16.3"
     services: docker
     before_install:
     - docker pull kartoza/postgis
