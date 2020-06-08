@@ -95,7 +95,7 @@ GSGeoPackageDataStore <- R6Class("GSGeoPackageDataStore",
   inherit = GSAbstractDBDataStore,
   private = list(
     TYPE = "GeoPackage",
-    dbtype = "geopkg"
+    DBTYPE = "geopkg"
   ),
   public = list(
     initialize = function(xml = NULL, dataStore = NULL, 
@@ -105,6 +105,14 @@ GSGeoPackageDataStore <- R6Class("GSGeoPackageDataStore",
                        dataStore = dataStore, description = description,
                        enabled = enabled)
       if(!is.null(database)) super$setDatabase(database)
+      super$setMinConnections(NULL)
+      super$setMaxConnections(NULL)
+      super$setConnectionTimeout(NULL)
+      super$setFetchSize(NULL)
+      super$setLooseBBox(NULL)
+      super$setPreparedStatements(NULL)
+      super$setMaxOpenPreparedStatements(NULL)
+      super$setEstimatedExtends(NULL)
     }
    )                     
 )

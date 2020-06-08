@@ -93,3 +93,38 @@ test_that("DELETE dataStore - Directory of Shapefiles",{
   ds <- gsman$getDataStore("topp", "topp_datastore")
   expect_is(ds, "NULL")
 })
+
+#GeoPackage
+#------------------------------------------------------------------------
+test_that("CREATE dataStore - GeoPackage",{
+  ds = GSGeoPackageDataStore$new(dataStore="topp_datastore_gpkg",
+                                description = "topp_datastore description",
+                                enabled = TRUE,
+                                database = "file:data/somefile.gpkg")
+  created <- gsman$createDataStore("topp", ds)
+  expect_true(created)
+  ds <- gsman$getDataStore("topp", "topp_datastore_gpkg")
+  expect_is(ds, "GSDataStore")
+  expect_equal(ds$description, "topp_datastore description")
+  expect_true(ds$enabled)
+})
+
+test_that("UPDATE datastore - GeoPackage",{
+  dataStore <- gsman$getDataStore("topp", "topp_datastore_gpkg")
+  dataStore$setDescription("topp_datastore updated description")
+  dataStore$setEnabled(FALSE)
+  
+  updated <- gsman$updateDataStore("topp", dataStore)
+  expect_true(updated)
+  ds <- gsman$getDataStore("topp", "topp_datastore_gpkg")
+  expect_is(ds, "GSDataStore")
+  expect_equal(ds$description, "topp_datastore updated description")
+  expect_false(ds$enabled)
+})
+
+test_that("DELETE dataStore - GeoPackage",{
+  deleted <- gsman$deleteDataStore("topp", "topp_datastore_gpkg", TRUE)
+  expect_true(deleted)
+  ds <- gsman$getDataStore("topp", "topp_datastore_gpkg")
+  expect_is(ds, "NULL")
+})
