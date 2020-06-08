@@ -164,9 +164,13 @@
 #'                               configure, update, filename, charset)}}{
 #'    Uploads a Spatialite database to a target dataStore
 #'  }
-##'  \item{\code{uploadAppschema(ws, ds, endpoint,
+#'  \item{\code{uploadAppschema(ws, ds, endpoint,
 #'                               configure, update, filename, charset)}}{
 #'    Uploads a appschema file to a target dataStore
+#'  }
+#'  \item{\code{uploadGeopackage(ws, ds, endpoint,
+#'                               configure, update, filename, charset)}}{
+#'    Uploads a GeoPackage file to a target dataStore                             
 #'  }
 #' }
 #' 
@@ -735,7 +739,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
                      endpoint, paste0(supportedEndpoints, collapse=",")))
       }
       
-      supportedExtensions <- c("shp", "spatialite", "h2")
+      supportedExtensions <- c("shp", "spatialite", "h2", "gpkg")
       if(!(extension %in% supportedExtensions)){
         stop(sprintf("Unsupported extension '%s'. Possible values: [%s]",
                      extension, paste0(supportedExtensions, collapse=",")))
@@ -832,6 +836,18 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         self$uploadData(ws, ds, endpoint, extension = "appschema",
                         configure, update, filename, charset,
                         contentType = "application/appschema")
+      )
+    },
+    
+    #uploadGeoPackage
+    #---------------------------------------------------------------------------
+    uploadGeoPackage = function(ws, ds, endpoint = "file",
+                               configure = "first", update = "append",
+                               filename, charset = "UTF-8"){
+      return(
+        self$uploadData(ws, ds, endpoint, extension = "gpkg",
+                        configure, update, filename, charset,
+                        contentType = "")
       )
     }
     
