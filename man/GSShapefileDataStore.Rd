@@ -4,9 +4,8 @@
 \name{GSShapefileDataStore}
 \alias{GSShapefileDataStore}
 \title{Geoserver REST API ShapeFileDataStore}
-\format{\code{\link{R6Class}} object.}
-\usage{
-GSShapefileDataStore
+\format{
+\code{\link{R6Class}} object.
 }
 \value{
 Object of \code{\link{R6Class}} for modelling a GeoServer Shapefile dataStore

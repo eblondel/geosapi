@@ -4,9 +4,8 @@
 \name{GSRESTResource}
 \alias{GSRESTResource}
 \title{Geoserver REST API REST Resource interface}
-\format{\code{\link{R6Class}} object.}
-\usage{
-GSRESTResource
+\format{
+\code{\link{R6Class}} object.
 }
 \value{
 Object of \code{\link{R6Class}} for modelling a GeoServer REST resource interface

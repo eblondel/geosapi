@@ -4,9 +4,8 @@
 \name{GSManager}
 \alias{GSManager}
 \title{Geoserver REST API Manager}
-\format{\code{\link{R6Class}} object.}
-\usage{
-GSManager
+\format{
+\code{\link{R6Class}} object.
 }
 \value{
 Object of \code{\link{R6Class}} with methods for communication with

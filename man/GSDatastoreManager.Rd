@@ -4,9 +4,8 @@
 \name{GSDataStoreManager}
 \alias{GSDataStoreManager}
 \title{Geoserver REST API DataStore Manager}
-\format{\code{\link{R6Class}} object.}
-\usage{
-GSDataStoreManager
+\format{
+\code{\link{R6Class}} object.
 }
 \value{
 Object of \code{\link{R6Class}} with methods for managing GeoServer
@@ -182,6 +181,10 @@ Geoserver REST API DataStore Manager
  \item{\code{uploadAppschema(ws, ds, endpoint,
                               configure, update, filename, charset)}}{
    Uploads a appschema file to a target dataStore
+ }
+ \item{\code{uploadGeopackage(ws, ds, endpoint,
+                              configure, update, filename, charset)}}{
+   Uploads a GeoPackage file to a target dataStore                             
  }
 }
 }

@@ -4,9 +4,8 @@
 \name{GSLayerGroup}
 \alias{GSLayerGroup}
 \title{A GeoServer layergroup resource}
-\format{\code{\link{R6Class}} object.}
-\usage{
-GSLayerGroup
+\format{
+\code{\link{R6Class}} object.
 }
 \value{
 Object of \code{\link{R6Class}} for modelling a GeoServer layergroup

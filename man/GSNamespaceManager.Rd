@@ -4,9 +4,8 @@
 \name{GSNamespaceManager}
 \alias{GSNamespaceManager}
 \title{Geoserver REST API Namespace Manager}
-\format{\code{\link{R6Class}} object.}
-\usage{
-GSNamespaceManager
+\format{
+\code{\link{R6Class}} object.
 }
 \value{
 Object of \code{\link{R6Class}} with methods for managing the namespaces

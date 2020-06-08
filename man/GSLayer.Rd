@@ -6,13 +6,12 @@
 \alias{GSPublishable}
 \alias{GSStyle}
 \title{A GeoServer layer resource}
-\format{\code{\link{R6Class}} object.}
-\usage{
-GSLayer
+\format{
+\code{\link{R6Class}} object.
 
-GSPublishable
+\code{\link{R6Class}} object.
 
-GSStyle
+\code{\link{R6Class}} object.
 }
 \value{
 Object of \code{\link{R6Class}} for modelling a GeoServer layer

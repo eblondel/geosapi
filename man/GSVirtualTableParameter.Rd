@@ -4,9 +4,8 @@
 \name{GSVirtualTableParameter}
 \alias{GSVirtualTableParameter}
 \title{Geoserver REST API GSVirtualTableParameter}
-\format{\code{\link{R6Class}} object.}
-\usage{
-GSVirtualTableParameter
+\format{
+\code{\link{R6Class}} object.
 }
 \value{
 Object of \code{\link{R6Class}} for modelling a GeoServer virtual table parameter

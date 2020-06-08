@@ -4,9 +4,8 @@
 \name{GSStyleManager}
 \alias{GSStyleManager}
 \title{Geoserver REST API Style Manager}
-\format{\code{\link{R6Class}} object.}
-\usage{
-GSStyleManager
+\format{
+\code{\link{R6Class}} object.
 }
 \value{
 Object of \code{\link{R6Class}} with methods for managing the styles

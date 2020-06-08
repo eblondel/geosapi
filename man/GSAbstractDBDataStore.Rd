@@ -4,9 +4,8 @@
 \name{GSAbstractDBDataStore}
 \alias{GSAbstractDBDataStore}
 \title{Geoserver REST API AbstractDBDataStore}
-\format{\code{\link{R6Class}} object.}
-\usage{
-GSAbstractDBDataStore
+\format{
+\code{\link{R6Class}} object.
 }
 \value{
 Object of \code{\link{R6Class}} for modelling a GeoServer abstract DB dataStore

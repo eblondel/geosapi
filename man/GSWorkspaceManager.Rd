@@ -4,9 +4,8 @@
 \name{GSWorkspaceManager}
 \alias{GSWorkspaceManager}
 \title{Geoserver REST API Workspace Manager}
-\format{\code{\link{R6Class}} object.}
-\usage{
-GSWorkspaceManager
+\format{
+\code{\link{R6Class}} object.
 }
 \value{
 Object of \code{\link{R6Class}} with methods for managing the workspaces

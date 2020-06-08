@@ -4,9 +4,8 @@
 \name{GSResource}
 \alias{GSResource}
 \title{A GeoServer abstract resource}
-\format{\code{\link{R6Class}} object.}
-\usage{
-GSResource
+\format{
+\code{\link{R6Class}} object.
 }
 \value{
 Object of \code{\link{R6Class}} for modelling a GeoServer resource

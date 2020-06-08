@@ -4,9 +4,8 @@
 \name{GSFeatureType}
 \alias{GSFeatureType}
 \title{A GeoServer feature type}
-\format{\code{\link{R6Class}} object.}
-\usage{
-GSFeatureType
+\format{
+\code{\link{R6Class}} object.
 }
 \value{
 Object of \code{\link{R6Class}} for modelling a GeoServer feature type

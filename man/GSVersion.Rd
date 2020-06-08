@@ -4,9 +4,8 @@
 \name{GSVersion}
 \alias{GSVersion}
 \title{A GeoServer version}
-\format{\code{\link{R6Class}} object.}
-\usage{
-GSVersion
+\format{
+\code{\link{R6Class}} object.
 }
 \value{
 Object of \code{\link{R6Class}} for modelling a GeoServer version

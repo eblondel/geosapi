@@ -4,9 +4,8 @@
 \name{GSWorkspaceSettings}
 \alias{GSWorkspaceSettings}
 \title{Geoserver REST API Workspace Setting}
-\format{\code{\link{R6Class}} object.}
-\usage{
-GSWorkspaceSettings
+\format{
+\code{\link{R6Class}} object.
 }
 \value{
 Object of \code{\link{R6Class}} for modelling a GeoServer workspace settings

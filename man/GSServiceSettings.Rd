@@ -4,9 +4,8 @@
 \name{GSServiceSettings}
 \alias{GSServiceSettings}
 \title{A GeoServer service settings resource}
-\format{\code{\link{R6Class}} object.}
-\usage{
-GSServiceSettings
+\format{
+\code{\link{R6Class}} object.
 }
 \value{
 Object of \code{\link{R6Class}} for modelling a GeoServer OWS service setting

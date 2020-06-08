@@ -4,9 +4,8 @@
 \name{GSVirtualTable}
 \alias{GSVirtualTable}
 \title{Geoserver REST API GSVirtualTable}
-\format{\code{\link{R6Class}} object.}
-\usage{
-GSVirtualTable
+\format{
+\code{\link{R6Class}} object.
 }
 \value{
 Object of \code{\link{R6Class}} for modelling a GeoServer virtual table

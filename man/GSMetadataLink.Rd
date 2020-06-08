@@ -4,9 +4,8 @@
 \name{GSMetadataLink}
 \alias{GSMetadataLink}
 \title{A GeoServer resource metadataLink}
-\format{\code{\link{R6Class}} object.}
-\usage{
-GSMetadataLink
+\format{
+\code{\link{R6Class}} object.
 }
 \value{
 Object of \code{\link{R6Class}} for modelling a GeoServer resource metadataLink

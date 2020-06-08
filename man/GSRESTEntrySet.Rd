@@ -4,9 +4,8 @@
 \name{GSRESTEntrySet}
 \alias{GSRESTEntrySet}
 \title{Geoserver REST API XML entry set}
-\format{\code{\link{R6Class}} object.}
-\usage{
-GSRESTEntrySet
+\format{
+\code{\link{R6Class}} object.
 }
 \value{
 Object of \code{\link{R6Class}} for modelling a entry set

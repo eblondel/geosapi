@@ -4,9 +4,8 @@
 \name{GSNamespace}
 \alias{GSNamespace}
 \title{Geoserver REST API Namespace}
-\format{\code{\link{R6Class}} object.}
-\usage{
-GSNamespace
+\format{
+\code{\link{R6Class}} object.
 }
 \value{
 Object of \code{\link{R6Class}} for modelling a GeoServer namespace

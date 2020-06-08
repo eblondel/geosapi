@@ -4,9 +4,8 @@
 \name{GSOracleNGDataStore}
 \alias{GSOracleNGDataStore}
 \title{Geoserver REST API OracleNGDataStore}
-\format{\code{\link{R6Class}} object.}
-\usage{
-GSOracleNGDataStore
+\format{
+\code{\link{R6Class}} object.
 }
 \value{
 Object of \code{\link{R6Class}} for modelling a GeoServer OracleNG dataStore
