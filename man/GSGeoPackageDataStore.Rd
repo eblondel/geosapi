@@ -3,11 +3,6 @@
 \docType{class}
 \name{GSGeoPackageDataStore}
 \alias{GSGeoPackageDataStore}
-\alias{enabled}
-\alias{=}
-\alias{TRUE,}
-\alias{database}
-\alias{NULL)}
 \title{Geoserver REST API GeoPackageDataStore}
 \format{
 \code{\link{R6Class}} object.
@@ -97,7 +92,12 @@ Geoserver REST API GeoPackageDataStore
 }
 
 \examples{
-GSGeoPackageDataStore$new(dataStore="ds", description = "des", 
+ds <- GSGeoPackageDataStore$new(
+ dataStore="ds", description = "des", 
+ enabled = TRUE, database = NULL
+)
+
+
 }
 \author{
 Emmanuel Blondel <emmanuel.blondel1@gmail.com>

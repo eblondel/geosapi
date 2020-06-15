@@ -8,14 +8,16 @@
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @examples
-#' GSGeoPackageDataStore$new(dataStore="ds", description = "des", 
-#' @aliases enabled = TRUE, database = NULL)
+#' ds <- GSGeoPackageDataStore$new(
+#'  dataStore="ds", description = "des", 
+#'  enabled = TRUE, database = NULL
+#' )
 #'
 #'
 #' @section Methods inherited from \code{GSAbstractDBDataStore}:
 #' \describe{
 #'    \item{\code{setDatabaseType(dbtype)}}{
-#'      Sets the database type, here "postgis"
+#'      Sets the database type, here "geopkg
 #'    }
 #'    \item{\code{setNamespace(namespace)}}{
 #'      Sets the datastore namespace
