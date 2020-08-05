@@ -21,7 +21,7 @@ r_check_args: --as-cran
 
 matrix:
   include:
-  - name: "GeoServer 2.17.0"
+  - name: "GeoServer latest"
     services: docker
     apt_packages:
       - libxml2-dev
@@ -29,7 +29,17 @@ matrix:
     before_install:
     - docker pull kartoza/postgis
     - docker run -d --name="postgis" kartoza/postgis
-    - docker pull oscarfonts/geoserver:2.17.0
+    - docker pull oscarfonts/geoserver:latest
+    - docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver
+  - name: "GeoServer 2.17.2"
+    services: docker
+    apt_packages:
+      - libxml2-dev
+      - libsodium-dev
+    before_install:
+    - docker pull kartoza/postgis
+    - docker run -d --name="postgis" kartoza/postgis
+    - docker pull oscarfonts/geoserver:2.17.2
     - docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver
   - name: "GeoServer 2.16.3"
     services: docker
