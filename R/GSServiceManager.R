@@ -115,7 +115,9 @@ GSServiceManager <- R6Class("GSServiceManager",
         self$INFO(sprintf("Fetching %s service global settings", service))
         restPath <- sprintf("/services/%s/settings.xml", service)
       }
-      req <- GSUtils$GET(self$getUrl(), private$user, private$pwd, restPath, verbose = self$verbose.debug)
+      req <- GSUtils$GET(self$getUrl(), private$user,
+                         keyring::key_get(service = private$keyring_service, username = private$user),
+                         restPath, verbose = self$verbose.debug)
       serviceSettings <- NULL
       if(status_code(req) == 200){
         settingsXML <- GSUtils$parseResponseXML(req)
@@ -153,7 +155,8 @@ GSServiceManager <- R6Class("GSServiceManager",
         restPath <- sprintf("/services/%s/settings.xml", service)
       }
       req <- GSUtils$PUT(
-        url = self$getUrl(), user = private$user, pwd = private$pwd,
+        url = self$getUrl(), user = private$user, 
+        pwd = keyring::key_get(service = private$keyring_service, username = private$user),
         path = restPath,
         content = GSUtils$getPayloadXML(serviceSettings),
         contentType = "application/xml",
@@ -185,7 +188,8 @@ GSServiceManager <- R6Class("GSServiceManager",
         restPath <- sprintf("/services/%s/settings.xml", service)
       }
       req <- GSUtils$DELETE(
-        url = self$getUrl(), user = private$user, pwd = private$pwd,
+        url = self$getUrl(), user = private$user, 
+        pwd = keyring::key_get(service = private$keyring_service, username = private$user),
         path = restPath, verbose = self$verbose.debug
       )
       if(status_code(req) == 200){

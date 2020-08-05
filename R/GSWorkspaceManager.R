@@ -76,7 +76,8 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
     #---------------------------------------------------------------------------
     getWorkspaces = function(){
       self$INFO("Fetching list of workspaces")
-      req <- GSUtils$GET(self$getUrl(), private$user, private$pwd,
+      req <- GSUtils$GET(self$getUrl(), private$user,
+                         keyring::key_get(service = private$keyring_service, username = private$user),
                          "/workspaces.xml", self$verbose.debug)
       wsList <- NULL
       if(status_code(req) == 200){
@@ -104,7 +105,8 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
     #---------------------------------------------------------------------------
     getWorkspace = function(ws){
       self$INFO(sprintf("Fetching workspace '%s'", ws))
-      req <- GSUtils$GET(self$getUrl(), private$user, private$pwd,
+      req <- GSUtils$GET(self$getUrl(), private$user,
+                         keyring::key_get(service = private$keyring_service, username = private$user),
                       sprintf("/workspaces/%s.xml", ws), self$verbose.debug)
       workspace <- NULL
       if(status_code(req) == 200){
@@ -129,7 +131,7 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
         req <- GSUtils$POST(
           url = self$getUrl(),
           user = private$user,
-          pwd = private$pwd,
+          pwd = keyring::key_get(service = private$keyring_service, username = private$user),
           path = "/workspaces",
           content = GSUtils$getPayloadXML(ws),
           contentType = "text/xml",
@@ -143,7 +145,9 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
         }
       }else{
         self$INFO("Delegating workspace creation to namespace manager")
-        nsman <- GSNamespaceManager$new(self$getUrl(), private$user, private$pwd, self$loggerType)
+        nsman <- GSNamespaceManager$new(self$getUrl(), private$user,
+                                        keyring::key_get(service = private$keyring_service, username = private$user),
+                                        self$loggerType)
         created <- nsman$createNamespace(name, uri)
       }
       return(created)
@@ -157,7 +161,8 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
       if(missing(uri)){
         workspace <- GSWorkspace$new(name = name)
         req <- GSUtils$PUT(
-          url = self$getUrl(), user = private$user, pwd = private$pwd,
+          url = self$getUrl(), user = private$user,
+          pwd = keyring::key_get(service = private$keyring_service, username = private$user),
           path = sprintf("/workspaces/%s.xml", name),
           content = GSUtils$getPayloadXML(workspace),
           contentType = "application/xml",
@@ -171,7 +176,9 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
         }
       }else{
         self$INFO("Delegating workspace update to namespace manager")
-        nsman <- GSNamespaceManager$new(self$getUrl(), private$user, private$pwd, self$loggerType)
+        nsman <- GSNamespaceManager$new(self$getUrl(), private$user, 
+                                        keyring::key_get(service = private$keyring_service, username = private$user),
+                                        self$loggerType)
         updated <- nsman$updateNamespace(name, uri)
       }
       return(updated)
@@ -186,7 +193,8 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
       if(recurse) path <- paste0(path, "?recurse=true")
       #TODO hack for style removing (not managed by REST API)
       
-      req <- GSUtils$DELETE(self$getUrl(), private$user, private$pwd,
+      req <- GSUtils$DELETE(self$getUrl(), private$user,
+                            keyring::key_get(service = private$keyring_service, username = private$user),
                          path = path, self$verbose.debug)
       if(status_code(req) == 200){
         self$INFO("Successfully deleted workspace!")
@@ -204,7 +212,8 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
         stop("This feature is available starting from GeoServer 2.12")
       }
       self$INFO(sprintf("Fetching settings for workspace '%s'", ws))
-      req <- GSUtils$GET(self$getUrl(), private$user, private$pwd,
+      req <- GSUtils$GET(self$getUrl(), private$user,
+                         keyring::key_get(service = private$keyring_service, username = private$user),
                          sprintf("/workspaces/%s/settings.xml", ws), self$verbose.debug)
       workspaceSettings <- NULL
       if(status_code(req) == 200){
@@ -228,7 +237,7 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
       req <- GSUtils$PUT(
         url = self$getUrl(),
         user = private$user,
-        pwd = private$pwd,
+        pwd = keyring::key_get(service = private$keyring_service, username = private$user),
         path = sprintf("/workspaces/%s/settings.xml", ws),
         content = GSUtils$getPayloadXML(workspaceSettings),
         contentType = "application/xml",
@@ -252,7 +261,8 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
       self$INFO(sprintf("Updating settings for workspace '%s'", ws))
       updated <- FALSE
       req <- GSUtils$PUT(
-        url = self$getUrl(), user = private$user, pwd = private$pwd,
+        url = self$getUrl(), user = private$user,
+        pwd = keyring::key_get(service = private$keyring_service, username = private$user),
         path = sprintf("/workspaces/%s/settings.xml", ws),
         content = GSUtils$getPayloadXML(workspaceSettings),
         contentType = "application/xml",
@@ -276,7 +286,8 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
       self$INFO(sprintf("Deleting settings for workspace '%s'", ws))
       deleted <- FALSE
       path <- sprintf("/workspaces/%s/settings", ws)
-      req <- GSUtils$DELETE(self$getUrl(), private$user, private$pwd,
+      req <- GSUtils$DELETE(self$getUrl(), private$user,
+                            keyring::key_get(service = private$keyring_service, username = private$user),
                             path = path, self$verbose.debug)
       if(status_code(req) == 200){
         self$INFO("Successfully deleted workspace settings!")

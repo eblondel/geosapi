@@ -65,7 +65,8 @@ GSStyleManager <- R6Class("GSStyleManager",
     #---------------------------------------------------------------------------
     getStyles = function(){
       self$INFO("Fetching list of styles")
-      req <- GSUtils$GET(self$getUrl(), private$user, private$pwd,
+      req <- GSUtils$GET(self$getUrl(), private$user,
+                         keyring::key_get(service = private$keyring_service, username = private$user),
                          "/styles.xml", self$verbose.debug)
       styleList <- NULL
       if(status_code(req) == 200){
@@ -98,7 +99,8 @@ GSStyleManager <- R6Class("GSStyleManager",
         reqUrl <- sprintf("/workspaces/%s", ws)
       }
       reqUrl <- paste0(reqUrl, sprintf("/styles/%s.xml", style))
-      req <- GSUtils$GET(self$getUrl(), private$user, private$pwd,
+      req <- GSUtils$GET(self$getUrl(), private$user,
+                         keyring::key_get(service = private$keyring_service, username = private$user),
                          reqUrl, self$verbose.debug)
       style <- NULL
       if(status_code(req) == 200){
@@ -148,7 +150,7 @@ GSStyleManager <- R6Class("GSStyleManager",
       req <- GSUtils$POST(
         url = self$getUrl(),
         user = private$user,
-        pwd = private$pwd,
+        pwd = keyring::key_get(service = private$keyring_service, username = private$user),
         path = reqUrl,
         content = as(sldBody, "character"),
         contentType = contentType,
@@ -198,7 +200,8 @@ GSStyleManager <- R6Class("GSStyleManager",
       
       updated <- FALSE
       req <- GSUtils$PUT(
-        url = self$getUrl(), user = private$user, pwd = private$pwd,
+        url = self$getUrl(), user = private$user,
+        pwd = keyring::key_get(service = private$keyring_service, username = private$user),
         path = reqUrl,
         content = as(sldBody, "character"),
         contentType = contentType,
@@ -228,7 +231,8 @@ GSStyleManager <- R6Class("GSStyleManager",
       path <- paste0(path, "&purge=", tolower(as.character(recurse)))
       #TODO hack for style removing (not managed by REST API) - check version
       
-      req <- GSUtils$DELETE(self$getUrl(), private$user, private$pwd,
+      req <- GSUtils$DELETE(self$getUrl(), private$user,
+                            keyring::key_get(service = private$keyring_service, username = private$user),
                             path = path, self$verbose.debug)
       if(status_code(req) == 200){
         self$INFO("Successfully deleted style!")
@@ -261,7 +265,8 @@ GSStyleManager <- R6Class("GSStyleManager",
         reqUrl <- sprintf("/workspaces/%s", ws)
       }
       reqUrl <- paste0(reqUrl, sprintf("/styles/%s.sld", style))
-      req <- GSUtils$GET(self$getUrl(), private$user, private$pwd,
+      req <- GSUtils$GET(self$getUrl(), private$user,
+                         keyring::key_get(service = private$keyring_service, username = private$user),
                          reqUrl, self$verbose.debug)
       style <- NULL
       if(status_code(req) == 200){

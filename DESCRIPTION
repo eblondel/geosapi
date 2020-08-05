@@ -2,7 +2,7 @@ Package: geosapi
 Type: Package
 Title: GeoServer REST API R Interface
 Version: 0.5
-Date: 2020-06-08
+Date: 2020-08-05
 Authors@R: c(person("Emmanuel", "Blondel", role = c("aut", "cre"), email = "emmanuel.blondel1@gmail.com", comment = c(ORCID = "0000-0002-5870-5762")))
 Maintainer: Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 Description: Provides an R interface to the GeoServer REST API, allowing to upload 
@@ -12,7 +12,7 @@ Description: Provides an R interface to the GeoServer REST API, allowing to uplo
  layers, styles, as well as vector data upload operations. For more information about 
  the GeoServer REST API, see <http://docs.geoserver.org/stable/en/user/rest/>.
 Depends: R (>= 3.1.0)
-Imports: R6, openssl, httr, XML
+Imports: R6, openssl, httr, XML, keyring
 Suggests: testthat, roxygen2
 License: MIT + file LICENSE
 URL: https://github.com/eblondel/geosapi/wiki, http://geoserver.org/

@@ -5,6 +5,7 @@
 #' @importFrom openssl base64_encode
 #' @import httr
 #' @import XML
+#' @import keyring
 #' @export
 #' @keywords geoserver rest api
 #' @return Object of \code{\link{R6Class}} with methods for communication with
@@ -70,11 +71,10 @@
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 GSManager <- R6Class("GSManager",
   lock_objects = FALSE,
-  
-  #TODO provider specific formatter to prevent these fields to be printable
+
   private = list(
-    user = NA,
-    pwd = NA
+    keyring_service = NULL,
+    user = NA
   ),
                      
   public = list(
@@ -95,6 +95,8 @@ GSManager <- R6Class("GSManager",
     url = NA,
     version = NULL,
     initialize = function(url, user, pwd, logger = NULL){
+      
+      private$keyring_service <- paste0("geosapi@", url)
       
       #logger
       if(!missing(logger)){
@@ -124,7 +126,7 @@ GSManager <- R6Class("GSManager",
       }
       self$url = baseUrl
       private$user = user
-      private$pwd = pwd
+      keyring::key_set_with_value(private$keyring_service, username = user, password = pwd)
       
       #try to connect
       if(self$getClassName() == "GSManager"){
@@ -150,7 +152,7 @@ GSManager <- R6Class("GSManager",
       }
       
       #inherit GeoServer version
-      self$version <- GSVersion$new(url, private$user, private$pwd)
+      self$version <- GSVersion$new(url, user, pwd)
       
       invisible(self)
       
@@ -165,7 +167,13 @@ GSManager <- R6Class("GSManager",
     #connect
     #---------------------------------------------------------------------------
     connect = function(){
-      req <- GSUtils$GET(self$getUrl(), private$user, private$pwd, "/", self$verbose.debug)
+      req <- GSUtils$GET(
+        self$getUrl(), 
+        private$user, 
+        keyring::key_get(service = private$keyring_service, username = private$user), 
+        "/", 
+        self$verbose.debug
+      )
       if(status_code(req) == 401){
         err <- "Impossible to connect to GeoServer: Wrong credentials"
         self$ERROR(err)
@@ -191,7 +199,9 @@ GSManager <- R6Class("GSManager",
     reload = function(){
       self$INFO("Reloading GeoServer catalog")
       reloaded <- FALSE
-      req <- GSUtils$POST(self$getUrl(), private$user, private$pwd, "/reload",
+      req <- GSUtils$POST(self$getUrl(), private$user, 
+                          keyring::key_get(service = private$keyring_service, username = private$user), 
+                          "/reload",
                           content = NULL, contentType = "text/plain",
                           self$verbose.debug)
       if(status_code(req) == 200){
@@ -212,15 +222,21 @@ GSManager <- R6Class("GSManager",
     #Resources GS managers
     #---------------------------------------------------------------------------
     getWorkspaceManager = function(){
-      return(GSWorkspaceManager$new(self$getUrl(), private$user, private$pwd, self$loggerType))
+      return(GSWorkspaceManager$new(self$getUrl(), private$user, 
+                                    keyring::key_get(service = private$keyring_service, username = private$user),
+                                    self$loggerType))
     },
     
     getNamespaceManager = function(){
-      return(GSNamespaceManager$new(self$getUrl(), private$user, private$pwd, self$loggerType))
+      return(GSNamespaceManager$new(self$getUrl(), private$user, 
+                                    keyring::key_get(service = private$keyring_service, username = private$user)
+                                    , self$loggerType))
     },
     
     getDataStoreManager = function(){
-      return(GSDataStoreManager$new(self$getUrl(), private$user, private$pwd, self$loggerType))
+      return(GSDataStoreManager$new(self$getUrl(), private$user,
+                                    keyring::key_get(service = private$keyring_service, username = private$user),
+                                    self$loggerType))
     }
     
   )
