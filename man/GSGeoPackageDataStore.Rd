@@ -17,7 +17,7 @@ Geoserver REST API GeoPackageDataStore
 
 \describe{
    \item{\code{setDatabaseType(dbtype)}}{
-     Sets the database type, here "postgis"
+     Sets the database type, here "geopkg
    }
    \item{\code{setNamespace(namespace)}}{
      Sets the datastore namespace
