@@ -16,7 +16,17 @@ Geoserver REST API GSVirtualTable
 \section{Fields}{
 
 \describe{
-\item{\code{keyColumn}}{}
+\item{\code{name}}{name}
+
+\item{\code{sql}}{SQL statement}
+
+\item{\code{escapeSql}}{escape SQL?}
+
+\item{\code{keyColumn}}{key column}
+
+\item{\code{geometry}}{geometry}
+
+\item{\code{parameters}}{list of virtual parameters}
 }}
 
 \section{Methods}{

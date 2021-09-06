@@ -16,7 +16,13 @@ Geoserver REST API Namespace
 \section{Fields}{
 
 \describe{
-\item{\code{full}}{}
+\item{\code{name}}{namespace name}
+
+\item{\code{prefix}}{namespace prefix}
+
+\item{\code{uri}}{namespace URI}
+
+\item{\code{full}}{completeness of the namespace description}
 }}
 
 \section{Methods}{

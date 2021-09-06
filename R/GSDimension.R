@@ -14,11 +14,11 @@
 #' @examples
 #' dim <- GSDimension$new()
 #'
-#' @field enabled
-#' @field presentation
-#' @field resolution
-#' @field units
-#' @field unitSymbol
+#' @field enabled true/false
+#' @field presentation dimension presentation
+#' @field resolution dimension resolution
+#' @field units dimension units
+#' @field unitSymbol dimension unitsSymbol
 #'
 #' @section Methods:
 #' \describe{

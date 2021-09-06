@@ -16,7 +16,11 @@ Geoserver REST API GSVirtualTableGeometry
 \section{Fields}{
 
 \describe{
-\item{\code{srid}}{}
+\item{\code{name}}{geometry name}
+
+\item{\code{type}}{geometry type}
+
+\item{\code{srid}}{geometry SRID}
 }}
 
 \section{Methods}{

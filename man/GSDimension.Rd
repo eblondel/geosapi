@@ -28,9 +28,19 @@ Geoserver REST API FeatureDimension
 \section{Fields}{
 
 \describe{
-\item{\code{unitSymbol}}{}
+\item{\code{enabled}}{true/false}
 
-\item{\code{endAttribute}}{}
+\item{\code{presentation}}{dimension presentation}
+
+\item{\code{resolution}}{dimension resolution}
+
+\item{\code{units}}{dimension units}
+
+\item{\code{unitSymbol}}{dimension unitsSymbol}
+
+\item{\code{attribute}}{attribute}
+
+\item{\code{endAttribute}}{end attribute}
 }}
 
 \section{Methods}{

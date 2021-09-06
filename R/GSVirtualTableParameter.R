@@ -11,9 +11,9 @@
 #' GSVirtualTableParameter$new(name = "fieldname", defaultValue = "default_value",
 #'                             regexpValidator = "someregexp")
 #'
-#' @field name
-#' @field defaultValue
-#' @field regexpValidator
+#' @field name parameter name
+#' @field defaultValue parameter default value
+#' @field regexpValidator parameter regexp validator
 #'
 #' @section Methods:
 #' \describe{

@@ -11,18 +11,18 @@
 #' @return Object of \code{\link{R6Class}} for modelling a GeoServer OWS service setting
 #' @format \code{\link{R6Class}} object.
 #' 
-#' @field enabled
-#' @field citeCompliant
-#' @field name
-#' @field title
-#' @field maintainer
-#' @field abstrct
-#' @field accessConstraints
-#' @field fees
-#' @field keywords
-#' @field onlineResource
-#' @field schemaBaseURL
-#' @field verbose
+#' @field enabled is service enabled or not?
+#' @field citeCompliant is service cite compliant?
+#' @field name service name
+#' @field title service title
+#' @field maintainer service maintainer
+#' @field abstract service abastract
+#' @field accessConstraints service access constraints
+#' @field fees service fees
+#' @field keywords services keywords
+#' @field onlineResource service online resource
+#' @field schemaBaseURL service schema base URL
+#' @field verbose service verbose or not?
 #' 
 #' @examples
 #' settings <- GSServiceSettings$new(service = "WMS")

@@ -16,7 +16,15 @@ Geoserver REST API DataStore
 \section{Fields}{
 
 \describe{
-\item{\code{workspace}}{}
+\item{\code{full}}{completeness of datastore description}
+
+\item{\code{name}}{datastore name}
+
+\item{\code{description}}{datastore description}
+
+\item{\code{type}}{datastore type}
+
+\item{\code{connectionParmaeters}}{list of datastore connection parameters}
 }}
 
 \section{Methods}{

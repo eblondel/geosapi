@@ -10,10 +10,12 @@
 #' @examples
 #' GSVirtualTable$new()
 #'
-#' @field name
-#' @field sql
-#' @field escapeSql
-#' @field keyColumn
+#' @field name name
+#' @field sql SQL statement
+#' @field escapeSql escape SQL?
+#' @field keyColumn key column
+#' @field geometry geometry
+#' @field parameters list of virtual parameters
 #'
 #' @section Methods:
 #' \describe{

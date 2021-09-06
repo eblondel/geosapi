@@ -21,7 +21,29 @@ Geoserver REST API Resource
 \section{Fields}{
 
 \describe{
-\item{\code{nativeBoundingBox}}{}
+\item{\code{name}}{resource name}
+
+\item{\code{nativeName}}{resource native name}
+
+\item{\code{title}}{resource title}
+
+\item{\code{description}}{resource description}
+
+\item{\code{abstract}}{resource abstract}
+
+\item{\code{keywordsr}}{resource keywords}
+
+\item{\code{metadataLinks}}{resource metadata links}
+
+\item{\code{projectionPolicy}}{resource projection policy}
+
+\item{\code{srs}}{resource srs}
+
+\item{\code{nativeCRS}}{resource native CRS}
+
+\item{\code{latLonBoundingBox}}{resource lat/lon bounding box}
+
+\item{\code{nativeBoundingBox}}{resource lat/lon native bounding box}
 }}
 
 \section{Methods}{

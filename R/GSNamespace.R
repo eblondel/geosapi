@@ -10,10 +10,10 @@
 #' @examples
 #' GSNamespace$new(prefix = "prefix", uri = "http://prefix")
 #'
-#' @field name
-#' @field prefix
-#' @field uri
-#' @field full
+#' @field name namespace name
+#' @field prefix namespace prefix
+#' @field uri namespace URI
+#' @field full completeness of the namespace description
 #'
 #' @section Methods:
 #' \describe{

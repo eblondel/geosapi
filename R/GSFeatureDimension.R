@@ -14,8 +14,8 @@
 #' @examples
 #' dim <- GSFeatureDimension$new()
 #'
-#' @field attribute
-#' @field endAttribute
+#' @field attribute attribute
+#' @field endAttribute end attribute
 #'
 #' @section Methods:
 #' \describe{

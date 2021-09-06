@@ -16,18 +16,18 @@
 #' @examples
 #' res <- GSResource$new(rootName = "featureType")
 #'
-#' @field name
-#' @field nativeName
-#' @field title
-#' @field description
-#' @field abstract
-#' @field keywords
-#' @field metadataLinks
-#' @field projectionPolicy
-#' @field srs
-#' @field nativeCRS
-#' @field latLonBoundingBox
-#' @field nativeBoundingBox
+#' @field name resource name
+#' @field nativeName resource native name
+#' @field title resource title
+#' @field description resource description
+#' @field abstract resource abstract
+#' @field keywordsr resource keywords
+#' @field metadataLinks resource metadata links
+#' @field projectionPolicy resource projection policy
+#' @field srs resource srs
+#' @field nativeCRS resource native CRS
+#' @field latLonBoundingBox resource lat/lon bounding box
+#' @field nativeBoundingBox resource lat/lon native bounding box
 #'
 #' @section Methods:
 #' \describe{

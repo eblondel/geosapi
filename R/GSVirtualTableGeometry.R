@@ -10,9 +10,9 @@
 #' @examples
 #' GSVirtualTableGeometry$new(name = "work", type = "MultiPolygon", srid = 4326)
 #'
-#' @field name
-#' @field type
-#' @field srid
+#' @field name geometry name
+#' @field type geometry type
+#' @field srid geometry SRID
 #'
 #' @section Methods:
 #' \describe{

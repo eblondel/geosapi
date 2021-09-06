@@ -19,7 +19,29 @@ Geoserver REST API Service Setting
 \section{Fields}{
 
 \describe{
-\item{\code{verbose}}{}
+\item{\code{enabled}}{is service enabled or not?}
+
+\item{\code{citeCompliant}}{is service cite compliant?}
+
+\item{\code{name}}{service name}
+
+\item{\code{title}}{service title}
+
+\item{\code{maintainer}}{service maintainer}
+
+\item{\code{abstract}}{service abastract}
+
+\item{\code{accessConstraints}}{service access constraints}
+
+\item{\code{fees}}{service fees}
+
+\item{\code{keywords}}{services keywords}
+
+\item{\code{onlineResource}}{service online resource}
+
+\item{\code{schemaBaseURL}}{service schema base URL}
+
+\item{\code{verbose}}{service verbose or not?}
 }}
 
 \section{Methods}{

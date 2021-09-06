@@ -7,8 +7,11 @@
 #' @return Object of \code{\link{R6Class}} for modelling a GeoServer dataStore
 #' @format \code{\link{R6Class}} object.
 #'
-#' @field name
-#' @field workspace
+#' @field full completeness of datastore description
+#' @field name datastore name
+#' @field description datastore description
+#' @field type datastore type
+#' @field connectionParmaeters list of datastore connection parameters
 #'
 #' @section Methods:
 #' \describe{

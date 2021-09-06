@@ -16,7 +16,11 @@ Geoserver REST API GSVirtualTableParameter
 \section{Fields}{
 
 \describe{
-\item{\code{regexpValidator}}{}
+\item{\code{name}}{parameter name}
+
+\item{\code{defaultValue}}{parameter default value}
+
+\item{\code{regexpValidator}}{parameter regexp validator}
 }}
 
 \section{Methods}{
