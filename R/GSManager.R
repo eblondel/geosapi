@@ -73,6 +73,7 @@ GSManager <- R6Class("GSManager",
   lock_objects = FALSE,
 
   private = list(
+    keyring_backend = keyring::backend_env$new(),
     keyring_service = NULL,
     user = NA
   ),
@@ -126,7 +127,7 @@ GSManager <- R6Class("GSManager",
       }
       self$url = baseUrl
       private$user = user
-      keyring::key_set_with_value(private$keyring_service, username = user, password = pwd)
+      private$keyring_backend$set_with_value(private$keyring_service, username = user, password = pwd)
       
       #try to connect
       if(self$getClassName() == "GSManager"){
@@ -170,7 +171,7 @@ GSManager <- R6Class("GSManager",
       req <- GSUtils$GET(
         self$getUrl(), 
         private$user, 
-        keyring::key_get(service = private$keyring_service, username = private$user), 
+        private$keyring_backend$get(service = private$keyring_service, username = private$user), 
         "/", 
         self$verbose.debug
       )
@@ -200,7 +201,7 @@ GSManager <- R6Class("GSManager",
       self$INFO("Reloading GeoServer catalog")
       reloaded <- FALSE
       req <- GSUtils$POST(self$getUrl(), private$user, 
-                          keyring::key_get(service = private$keyring_service, username = private$user), 
+                          private$keyring_backend$get(service = private$keyring_service, username = private$user), 
                           "/reload",
                           content = NULL, contentType = "text/plain",
                           self$verbose.debug)
@@ -223,19 +224,19 @@ GSManager <- R6Class("GSManager",
     #---------------------------------------------------------------------------
     getWorkspaceManager = function(){
       return(GSWorkspaceManager$new(self$getUrl(), private$user, 
-                                    keyring::key_get(service = private$keyring_service, username = private$user),
+                                    private$keyring_backend$get(service = private$keyring_service, username = private$user),
                                     self$loggerType))
     },
     
     getNamespaceManager = function(){
       return(GSNamespaceManager$new(self$getUrl(), private$user, 
-                                    keyring::key_get(service = private$keyring_service, username = private$user)
+                                    private$keyring_backend$get(service = private$keyring_service, username = private$user)
                                     , self$loggerType))
     },
     
     getDataStoreManager = function(){
       return(GSDataStoreManager$new(self$getUrl(), private$user,
-                                    keyring::key_get(service = private$keyring_service, username = private$user),
+                                    private$keyring_backend$get(service = private$keyring_service, username = private$user),
                                     self$loggerType))
     }
     

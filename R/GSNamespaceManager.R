@@ -61,7 +61,7 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
     getNamespaces = function(){
       self$INFO("Fetching list of namespaces")
       req <- GSUtils$GET(self$getUrl(), private$user,
-                         keyring::key_get(service = private$keyring_service, username = private$user),
+                         private$keyring_backend$get(service = private$keyring_service, username = private$user),
                          "/namespaces.xml", self$verbose.debug)
       nsList <- NULL
       if(status_code(req) == 200){
@@ -90,7 +90,7 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
     getNamespace = function(ns){
       self$INFO(sprintf("Fetching workspace '%s'", ns))
       req <- GSUtils$GET(self$getUrl(), private$user,
-                         keyring::key_get(service = private$keyring_service, username = private$user),
+                         private$keyring_backend$get(service = private$keyring_service, username = private$user),
                          sprintf("/namespaces/%s.xml", ns), self$verbose.debug)
       namespace <- NULL
       if(status_code(req) == 200){
@@ -114,7 +114,7 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
       req <- GSUtils$POST(
         url = self$getUrl(),
         user = private$user,
-        pwd = keyring::key_get(service = private$keyring_service, username = private$user),
+        pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
         path = "/namespaces",
         content = GSUtils$getPayloadXML(namespace),
         contentType = "text/xml",
@@ -139,7 +139,7 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
       
       req <- GSUtils$PUT(
         url = self$getUrl(), user = private$user,
-        pwd = keyring::key_get(service = private$keyring_service, username = private$user),
+        pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
         path = sprintf("/namespaces/%s.xml", prefix),
         content = GSUtils$getPayloadXML(namespace),
         contentType = "application/xml",
@@ -164,7 +164,7 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
       #TODO hack for style removing (not managed by REST API)
       
       req <- GSUtils$DELETE(self$getUrl(), private$user,
-                            keyring::key_get(service = private$keyring_service, username = private$user),
+                            private$keyring_backend$get(service = private$keyring_service, username = private$user),
                             path = path, self$verbose.debug)
       if(status_code(req) == 200){
         self$INFO("Successfully deleted namespace!")

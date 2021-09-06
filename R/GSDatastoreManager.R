@@ -190,7 +190,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       self$INFO(sprintf("Fetching list of datastores in workspace '%s'", ws))
       req <- GSUtils$GET(
         self$getUrl(), private$user,
-        keyring::key_get(service = private$keyring_service, username = private$user),
+        private$keyring_backend$get(service = private$keyring_service, username = private$user),
         sprintf("/workspaces/%s/datastores.xml", ws),
         verbose = self$verbose.debug)
       dsList <- NULL
@@ -227,7 +227,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       self$INFO(sprintf("Fetching datastore '%s' in workspace '%s'", ds, ws))
       req <- GSUtils$GET(
         self$getUrl(), private$user,
-        keyring::key_get(service = private$keyring_service, username = private$user),
+        private$keyring_backend$get(service = private$keyring_service, username = private$user),
         sprintf("/workspaces/%s/datastores/%s.xml", ws, ds),
         verbose = self$verbose.debug)
       dataStore <- NULL
@@ -254,7 +254,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       req <- GSUtils$POST(
         url = self$getUrl(),
         user = private$user,
-        pwd = keyring::key_get(service = private$keyring_service, username = private$user),
+        pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
         path = sprintf("/workspaces/%s/datastores.xml", ws),
         content = GSUtils$getPayloadXML(dataStore),
         contentType = "text/xml",
@@ -275,7 +275,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       self$INFO(sprintf("Updating datastore '%s' in workspace '%s'", dataStore$name, ws))
       req <- GSUtils$PUT(
         url = self$getUrl(), user = private$user, 
-        pwd = keyring::key_get(service = private$keyring_service, username = private$user),
+        pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
         path = sprintf("/workspaces/%s/datastores/%s.xml", ws, dataStore$name),
         content = GSUtils$getPayloadXML(dataStore),
         contentType = "application/xml",
@@ -298,7 +298,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       path <- sprintf("/workspaces/%s/datastores/%s.xml", ws, ds)
       if(recurse) path <- paste0(path, "?recurse=true")
       req <- GSUtils$DELETE(self$getUrl(), private$user, 
-                            keyring::key_get(service = private$keyring_service, username = private$user),
+                            private$keyring_backend$get(service = private$keyring_service, username = private$user),
                             path = path, verbose = self$verbose.debug)
       if(status_code(req) == 200){
         self$INFO("Successfully deleted datastore!")
@@ -324,7 +324,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       
       req <- GSUtils$GET(
         self$getUrl(), private$user,
-        keyring::key_get(service = private$keyring_service, username = private$user),
+        private$keyring_backend$get(service = private$keyring_service, username = private$user),
         sprintf("/workspaces/%s/datastores/%s/featuretypes.xml?list=%s", ws, ds, list),
         verbose = self$verbose.debug)
       ftList <- NULL
@@ -355,7 +355,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       self$INFO(sprintf("Fetching featureType '%s' in datastore '%s' (workspace '%s')", ft, ds, ws))
       req <- GSUtils$GET(
         self$getUrl(), private$user, 
-        keyring::key_get(service = private$keyring_service, username = private$user),
+        private$keyring_backend$get(service = private$keyring_service, username = private$user),
         sprintf("/workspaces/%s/datastores/%s/featuretypes/%s.xml", ws, ds, ft),
         verbose = self$verbose.debug)
       featureType <- NULL
@@ -377,7 +377,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       req <- GSUtils$POST(
         url = self$getUrl(),
         user = private$user,
-        pwd = keyring::key_get(service = private$keyring_service, username = private$user),
+        pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
         path = sprintf("/workspaces/%s/datastores/%s/featuretypes.xml", ws, ds),
         content = GSUtils$getPayloadXML(featureType),
         contentType = "text/xml",
@@ -399,7 +399,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       updated <- FALSE
       req <- GSUtils$PUT(
         url = self$getUrl(), user = private$user, 
-        pwd = keyring::key_get(service = private$keyring_service, username = private$user),
+        pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
         path = sprintf("/workspaces/%s/datastores/%s/featuretypes/%s.xml",
                        ws, ds, featureType$name),
         content = GSUtils$getPayloadXML(featureType),
@@ -423,7 +423,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       path <- sprintf("/workspaces/%s/datastores/%s/featuretypes/%s.xml", ws, ds, ft)
       if(recurse) path <- paste0(path, "?recurse=true")
       req <- GSUtils$DELETE(self$getUrl(), private$user,
-                            keyring::key_get(service = private$keyring_service, username = private$user),
+                            private$keyring_backend$get(service = private$keyring_service, username = private$user),
                             path = path, verbose = self$verbose.debug)
       if(status_code(req) == 200){
         self$INFO("Successfuly deleted featureType!")
@@ -443,7 +443,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       self$INFO("Fetching layers")
       req <- GSUtils$GET(
         self$getUrl(), private$user, 
-        keyring::key_get(service = private$keyring_service, username = private$user),
+        private$keyring_backend$get(service = private$keyring_service, username = private$user),
         "/layers.xml", verbose = self$verbose.debug)
       lyrList <- NULL
       if(status_code(req) == 200){
@@ -473,7 +473,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       self$INFO(sprintf("Fetching layer '%s'", lyr))
       req <- GSUtils$GET(
         self$getUrl(), private$user,
-        keyring::key_get(service = private$keyring_service, username = private$user),
+        private$keyring_backend$get(service = private$keyring_service, username = private$user),
         sprintf("/layers/%s.xml", lyr),
         verbose = self$verbose.debug)
       layer <- NULL
@@ -494,7 +494,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       created <- FALSE
       req <- GSUtils$PUT(
         url = self$getUrl(), user = private$user,
-        pwd = keyring::key_get(service = private$keyring_service, username = private$user),
+        pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
         path = sprintf("/layers/%s.xml", layer$name),
         content = GSUtils$getPayloadXML(layer),
         contentType = "application/xml",
@@ -516,7 +516,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       updated <- FALSE
       req <- GSUtils$PUT(
         url = self$getUrl(), user = private$user,
-        pwd = keyring::key_get(service = private$keyring_service, username = private$user),
+        pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
         path = sprintf("/layers/%s.xml", layer$name),
         content = GSUtils$getPayloadXML(layer),
         contentType = "application/xml",
@@ -538,7 +538,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       deleted <- FALSE
       path <- sprintf("/layers/%s.xml", lyr)
       req <- GSUtils$DELETE(self$getUrl(), private$user,
-                            keyring::key_get(service = private$keyring_service, username = private$user),
+                            private$keyring_backend$get(service = private$keyring_service, username = private$user),
                             path = path, verbose = self$verbose.debug)
       if(status_code(req) == 200){
         self$INFO("Successfuly deleted layer!")
@@ -562,7 +562,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       }
       req <- GSUtils$GET(
         self$getUrl(), private$user,
-        keyring::key_get(service = private$keyring_service, username = private$user),
+        private$keyring_backend$get(service = private$keyring_service, username = private$user),
         ifelse(missing(ws),"/layergroups.xml", sprintf("/workspaces/%s/layergroups.xml", ws)), 
         verbose = self$verbose.debug)
       lyrList <- NULL
@@ -597,7 +597,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       }
       req <- GSUtils$GET(
         self$getUrl(), private$user,
-        keyring::key_get(service = private$keyring_service, username = private$user),
+        private$keyring_backend$get(service = private$keyring_service, username = private$user),
         ifelse(is.null(ws),
                sprintf("/layergroups/%s.xml", lyr),
                sprintf("/workspaces/%s/layergroups/%s.xml", ws, lyr)),
@@ -624,7 +624,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       created <- FALSE
       req <- GSUtils$POST(
         url = self$getUrl(), user = private$user,
-        pwd = keyring::key_get(service = private$keyring_service, username = private$user),
+        pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
         path = ifelse(is.null(ws),"/layergroups.xml",
                       sprintf("/workspaces/%s/layergroups.xml", ws)),
         content = GSUtils$getPayloadXML(layerGroup),
@@ -651,7 +651,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       updated <- FALSE
       req <- GSUtils$PUT(
         url = self$getUrl(), user = private$user,
-        pwd = keyring::key_get(service = private$keyring_service, username = private$user),
+        pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
         path = ifelse(is.null(ws),
                       sprintf("/layergroups/%s.xml", layerGroup$name),
                       sprintf("/workspaces/%s/layergroups/%s.xml", ws, layerGroup$name)),
@@ -681,7 +681,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
                      sprintf("/layergroups/%s.xml", lyr),
                      sprintf("/workspaces/%s/layergroups/%s.xml", ws, lyr))
       req <- GSUtils$DELETE(self$getUrl(), private$user, 
-                            keyring::key_get(service = private$keyring_service, username = private$user),
+                            private$keyring_backend$get(service = private$keyring_service, username = private$user),
                             path = path, verbose = self$verbose.debug)
       if(status_code(req) == 200){
         self$INFO("Successfuly deleted layer group!")
@@ -777,7 +777,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       
       req <- GSUtils$PUT(
         url = self$getUrl(), user = private$user,
-        pwd = keyring::key_get(service = private$keyring_service, username = private$user),
+        pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
         path = sprintf("/workspaces/%s/datastores/%s/%s.%s?configure=%s&update=%s",
                        ws, ds, endpoint, extension, configure, update),
         content = NULL,
