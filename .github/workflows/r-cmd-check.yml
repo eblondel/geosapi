@@ -21,8 +21,6 @@ jobs:
     strategy:
       matrix:
         config:
-          - {os: macOS-latest,   r: '3.6.3',  geoserver: 'latest'}
-          - {os: windows-latest, r: '3.6.3',  geoserver: 'latest'}
           - {os: ubuntu-20.04,   r: '3.6.3',  geoserver: 'latest', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
           - {os: ubuntu-20.04,   r: '3.6.3',  geoserver: '2.19.2', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
           - {os: ubuntu-20.04,   r: '3.6.3',  geoserver: '2.18.5', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
