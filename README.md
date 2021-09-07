@@ -1,7 +1,7 @@
 **geosapi**
 ===========
 
-[![Build Status](https://travis-ci.org/eblondel/geosapi.svg?branch=master)](https://travis-ci.org/eblondel/geosapi)
+[![Build Status](https://github.com/eblondel/geosapi/actions/workflows/r-cmd-check.yml/badge.svg?branch=master)](https://github.com/eblondel/geosapi/actions/workflows/r-cmd-check.yml)
 [![codecov.io](http://codecov.io/github/eblondel/geosapi/coverage.svg?branch=master)](http://codecov.io/github/eblondel/geosapi?branch=master)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/geosapi)](https://cran.r-project.org/package=geosapi)
 [![cran checks](https://cranchecks.info/badges/worst/geosapi)](https://cran.r-project.org/web/checks/check_results_geosapi.html)
