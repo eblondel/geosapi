@@ -1,0 +1,48 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+#
+# See https://github.com/r-lib/actions/tree/master/examples#readme for
+# additional example workflows available for the R community.
+
+name: R-CMD-check
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: ${{ matrix.config.os }} | (${{ matrix.config.r }})
+    runs-on: ${{ matrix.config.os }}
+    strategy:
+      matrix:
+        config:
+          - {os: ubuntu-20.04, r: 'release', geoserver: '2.16.0', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+    steps:
+      - uses: actions/checkout@v2
+      
+      #Docker Geoserver set-up
+      - name: Set up GeoServer ${{ matrix.config.geoserver }}
+      - run: |
+          docker pull kartoza/postgis
+          docker run -d --name="postgis" kartoza/postgis
+          docker pull oscarfonts/geoserver:${{ matrix.config.geoserver }}
+          docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver
+      #R Set-up
+      - name: Set up R ${{ matrix.config.r }}
+        uses: r-lib/actions/setup-r@ffe45a39586f073cc2e9af79c4ba563b657dc6e3
+        with:
+          r-version: ${{ matrix.config.r }}
+      #Install dependencies
+      - name: Install dependencies
+        run: |
+          install.packages(c("remotes", "rcmdcheck"))
+          remotes::install_deps(dependencies = TRUE)
+        shell: Rscript {0}
+      - name: Check
+        run: rcmdcheck::rcmdcheck(args = "--as-cran", error_on = "error")
+        shell: Rscript {0}
