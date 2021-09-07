@@ -27,7 +27,7 @@ jobs:
       
       #Docker Geoserver set-up
       - name: Set up GeoServer ${{ matrix.config.geoserver }}
-      - run: |
+        run: |
           docker pull kartoza/postgis
           docker run -d --name="postgis" kartoza/postgis
           docker pull oscarfonts/geoserver:${{ matrix.config.geoserver }}
