@@ -21,17 +21,22 @@ jobs:
     strategy:
       matrix:
         config:
-          - {os: ubuntu-20.04, r: '3.6.3', geoserver: '2.16.0', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          - {os: macOS-latest,   r: '3.6.3',  geoserver: 'latest'}
+          - {os: windows-latest, r: '3.6.3',  geoserver: 'latest'}
+          - {os: ubuntu-20.04,   r: '3.6.3',  geoserver: 'latest', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          - {os: ubuntu-20.04,   r: '3.6.3',  geoserver: '2.19.2', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          - {os: ubuntu-20.04,   r: '3.6.3',  geoserver: '2.18.5', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          - {os: ubuntu-20.04,   r: '3.6.3',  geoserver: '2.17.5', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          - {os: ubuntu-20.04,   r: '3.6.3',  geoserver: '2.16.5', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          - {os: ubuntu-20.04,   r: '3.6.3',  geoserver: '2.15.4', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
     steps:
       - uses: actions/checkout@v2
-      
       #Docker Geoserver set-up
       - name: Set up GeoServer ${{ matrix.config.geoserver }}
         run: |
           docker pull kartoza/postgis
           docker run -d --name="postgis" kartoza/postgis
-          docker pull oscarfonts/geoserver:${{ matrix.config.geoserver }}
-          docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver
+          docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver:${{ matrix.config.geoserver}}
       #R Set-up
       - name: Set up R ${{ matrix.config.r }}
         uses: r-lib/actions/setup-r@v1
