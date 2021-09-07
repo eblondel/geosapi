@@ -16,18 +16,18 @@ jobs:
       matrix:
         config:
           - {os: ubuntu-20.04,   r: '4.0.5',  geoserver: 'latest', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
-          - {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.19.2', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
-          - {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.18.5', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
-          - {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.17.5', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
-          - {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.16.5', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
-          - {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.15.4', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
-          - {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.14.4', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
-          - {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.13.4', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
-          - {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.12.4', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
-          - {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.11.5', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
-          - {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.10.5', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
-          - {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.9.4', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
-          - {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.8.5', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          #- {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.19.2', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          #- {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.18.5', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          #- {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.17.5', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          #- {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.16.5', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          #- {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.15.4', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          #- {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.14.4', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          #- {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.13.4', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          #- {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.12.4', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          #- {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.11.5', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          #- {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.10.5', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          #- {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.9.4', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          #- {os: ubuntu-20.04,   r: '4.0.5',  geoserver: '2.8.5', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
     steps:
       - uses: actions/checkout@v2
       #Docker Geoserver set-up
