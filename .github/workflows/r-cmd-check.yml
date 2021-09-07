@@ -1,0 +1,50 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+#
+# See https://github.com/r-lib/actions/tree/master/examples#readme for
+# additional example workflows available for the R community.
+
+name: R-CMD-check
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: ${{ matrix.config.os }} | R ${{ matrix.config.r }} | GeoServer ${{ matrix.config.geoserver }}
+    runs-on: ${{ matrix.config.os }}
+    strategy:
+      matrix:
+        config:
+          - {os: ubuntu-20.04,   r: '3.6.3',  geoserver: 'latest', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          - {os: ubuntu-20.04,   r: '3.6.3',  geoserver: '2.19.2', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          - {os: ubuntu-20.04,   r: '3.6.3',  geoserver: '2.18.5', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          - {os: ubuntu-20.04,   r: '3.6.3',  geoserver: '2.17.5', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          - {os: ubuntu-20.04,   r: '3.6.3',  geoserver: '2.16.5', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+          - {os: ubuntu-20.04,   r: '3.6.3',  geoserver: '2.15.4', rspm: "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"}
+    steps:
+      - uses: actions/checkout@v2
+      #Docker Geoserver set-up
+      - name: Set up GeoServer ${{ matrix.config.geoserver }}
+        run: |
+          docker pull kartoza/postgis
+          docker run -d --name="postgis" kartoza/postgis
+          docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver:${{ matrix.config.geoserver}}
+      #R Set-up
+      - name: Set up R ${{ matrix.config.r }}
+        uses: r-lib/actions/setup-r@v1
+        with:
+          r-version: ${{ matrix.config.r }}
+      #Install dependencies
+      - name: Install dependencies
+        uses: r-lib/actions/setup-r-dependencies@v1
+      #Check R Package
+      - name: Check R package
+        uses: r-lib/actions/check-r-package@check-r-package
+        with:
+          artifact-name: ${{ matrix.config.os }}_r-${{ matrix.config.r }}_geoserver-${{matrix.config.geoserver}}-results
