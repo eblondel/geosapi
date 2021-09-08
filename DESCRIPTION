@@ -13,7 +13,7 @@ Description: Provides an R interface to the GeoServer REST API, allowing to uplo
  the GeoServer REST API, see <http://docs.geoserver.org/stable/en/user/rest/>.
 Depends: R (>= 3.1.0)
 Imports: R6, openssl, httr, XML, keyring
-Suggests: testthat, roxygen2
+Suggests: testthat, roxygen2, covr
 License: MIT + file LICENSE
 URL: https://github.com/eblondel/geosapi/wiki, http://geoserver.org/
 BugReports: https://github.com/eblondel/geosapi/issues
