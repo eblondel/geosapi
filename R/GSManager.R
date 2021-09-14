@@ -25,12 +25,16 @@
 #'
 #' @section Methods:
 #' \describe{
-#'  \item{\code{new(url, user, pwd, logger)}}{
+#'  \item{\code{new(url, user, pwd, logger, keyring_backend)}}{
 #'    This method is used to instantiate a GSManager with the \code{url} of the
-#'    GeoServer and credentials to authenticate (\code{user}/\code{pwd}). By default,
-#'    the \code{logger} argument will be set to \code{NULL} (no logger). This argument
-#'    accepts two possible values: \code{INFO}: to print only geosapi logs,
-#'    \code{DEBUG}: to print geosapi and CURL logs
+#'    GeoServer and credentials to authenticate (\code{user}/\code{pwd}). 
+#'    
+#'    By default, the \code{logger} argument will be set to \code{NULL} (no logger). 
+#'    This argument accepts two possible values: \code{INFO}: to print only geosapi logs,
+#'    \code{DEBUG}: to print geosapi and CURL logs.
+#'    
+#'    The \code{keyring_backend} can be set to use a different backend for storing 
+#'    the Geoserver user password with \pkg{keyring} (Default value is 'env').
 #'  }
 #'  \item{\code{logger(type, text)}}{
 #'    Basic logger to report geosapi logs. Used internally
@@ -73,7 +77,7 @@ GSManager <- R6Class("GSManager",
   lock_objects = FALSE,
 
   private = list(
-    keyring_backend = keyring::backend_env$new(),
+    keyring_backend = NULL,
     keyring_service = NULL,
     user = NA
   ),
@@ -95,8 +99,10 @@ GSManager <- R6Class("GSManager",
     #manager
     url = NA,
     version = NULL,
-    initialize = function(url, user, pwd, logger = NULL){
+    initialize = function(url, user, pwd, logger = NULL,
+                          keyring_backend = 'env'){
       
+      private$keyring_backend <- keyring:::known_backends[[keyring_backend]]$new()
       private$keyring_service <- paste0("geosapi@", url)
       
       #logger
