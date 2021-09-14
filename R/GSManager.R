@@ -102,6 +102,11 @@ GSManager <- R6Class("GSManager",
     initialize = function(url, user, pwd, logger = NULL,
                           keyring_backend = 'env'){
       
+      if(!keyring_backend %in% names(keyring:::known_backends)){
+        errMsg <- sprintf("Backend '%s' is not a known keyring backend!", keyring_backend)
+        self$ERROR(errMsg)
+        stop(errMsg)
+      }
       private$keyring_backend <- keyring:::known_backends[[keyring_backend]]$new()
       private$keyring_service <- paste0("geosapi@", url)
       
