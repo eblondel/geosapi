@@ -64,6 +64,9 @@ Geoserver REST API Manager
  \item{\code{reload()}}{
    Reloads the GeoServer catalog.
  }
+ \item{\code{getSystemStatus()}}{
+   Get system status
+ }
  \item{\code{getClassName()}}{
    Retrieves the name of the class instance
  }

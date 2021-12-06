@@ -60,7 +60,7 @@ GSUtils$getUserToken <- function(user, pwd){
   return(token)
 }
 
-GSUtils$GET <- function(url, user, pwd, path, verbose = FALSE){
+GSUtils$GET <- function(url, user, pwd, path, contentType = "text/xml", verbose = FALSE){
   if(verbose){
     req <- with_verbose(GSUtils$GET(url, user, pwd, path))
   }else{
@@ -70,7 +70,8 @@ GSUtils$GET <- function(url, user, pwd, path, verbose = FALSE){
       url = url,
       add_headers(
         "User-Agent" = GSUtils$getUserAgent(),
-        "Authorization" = paste("Basic", GSUtils$getUserToken(user, pwd))
+        "Authorization" = paste("Basic", GSUtils$getUserToken(user, pwd)),
+        "Content-Type" = contentType
       )
     )
   }

@@ -6,6 +6,8 @@
 #' @import httr
 #' @import XML
 #' @import keyring
+#' @importFrom readr read_csv
+#' @importFrom readr write_csv
 #' @export
 #' @keywords geoserver rest api
 #' @return Object of \code{\link{R6Class}} with methods for communication with
@@ -57,6 +59,9 @@
 #'  }
 #'  \item{\code{reload()}}{
 #'    Reloads the GeoServer catalog.
+#'  }
+#'  \item{\code{getSystemStatus()}}{
+#'    Get system status
 #'  }
 #'  \item{\code{getClassName()}}{
 #'    Retrieves the name of the class instance
@@ -223,6 +228,44 @@ GSManager <- R6Class("GSManager",
         self$ERROR("Error while reloading the GeoServer catalog")
       }
       return(reloaded)
+    },
+    
+    #getSystemStatus
+    #---------------------------------------------------------------------------
+    getSystemStatus = function(){
+      self$INFO("Get system status")
+      datetime <- Sys.time()
+      req <- GSUtils$GET(self$getUrl(), private$user, 
+                         private$keyring_backend$get(service = private$keyring_service, username = private$user),
+                         "/about/system-status",
+                         contentType = "application/json",
+                         self$verbose.debug)
+      if(status_code(req) == 200){
+        self$INFO("Successfully fetched system status")
+      }else{
+        self$ERROR("Error while fetching system status")
+      }
+      content <- httr::content(req)
+      status <- list(
+        raw = do.call("rbind", lapply(content$metrics$metric, function(metric){
+          met <- data.frame(metric, stringsAsFactors = FALSE)
+          return(met)
+        }))
+      )
+      status$values = {
+        df <- cbind(time = datetime, data.frame(t(status$raw$value), stringsAsFactors = F))
+        colnames(df) <- c("TIME", status$raw$identifier)
+        df
+      }
+
+      return(status)
+    },
+    
+    #monitor
+    #---------------------------------------------------------------------------
+    monitor = function(file = NULL, append = FALSE, sleep = 1){
+      monitor <- GSShinyMonitor$new(manager = self, file = file, append = append, sleep = sleep)
+      monitor$run()
     },
 
     #getClassName
