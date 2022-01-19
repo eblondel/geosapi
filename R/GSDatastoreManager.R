@@ -28,23 +28,23 @@
 #' \describe{ 
 #'  \item{\code{getDataStores(ws)}}{
 #'    Get the list of available dataStores. Returns an object of class \code{list}
-#'    giving items of class \code{\link{GSDataStore}}
+#'    giving items of class \code{\link{GSAbstractDataStore}}
 #'  }
 #'  \item{\code{getDataStoreNames(ws)}}{
 #'    Get the list of available dataStore names. Returns an vector of class \code{character}
 #'  }
 #'  \item{\code{getDataStore(ws, ds)}}{
-#'    Get an object of class \code{\link{GSDataStore}} given a workspace and datastore
+#'    Get an object of class \code{\link{GSAbstractDataStore}} given a workspace and datastore
 #'    names.
 #'  }
 #'  \item{\code{createDataStore(ws, dataStore)}}{
-#'    Creates a new datastore given a workspace and an object of class \code{\link{GSDataStore}}
+#'    Creates a new datastore given a workspace and an object of class \code{\link{GSAbstractDataStore}}
 #'  }
 #'  \item{\code{updateDataStore(ws, dataStore)}}{
 #'    Updates an existing dataStore given a workspace and an object of class \code{\link{GSDataStore}}
 #'  }
 #'  \item{\code{deleteDataStore(ws, ds, recurse)}}{
-#'    Deletes a datastore given a workspace and an object of class \code{\link{GSDataStore}}.
+#'    Deletes a datastore given a workspace and an object of class \code{\link{GSAbstractDataStore}}.
 #'    By defaut, the option \code{recurse} is set to FALSE, ie datastore layers are not removed.
 #'    To remove all datastore layers, set this option to TRUE.
 #'  }
@@ -176,7 +176,7 @@
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
-GSDataStoreManager <- R6Class("GSDataStoreManager",
+GSAbstractDataStoreManager <- R6Class("GSAbstractDataStoreManager",
   inherit = GSManager,
   
   public = list(   
@@ -203,7 +203,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
           dataStore <- switch(dsType,
               "Shapefile" = GSShapefileDataStore$new(xml = xml),
               "Directory of spatial files (shapefiles)" = GSShapefileDirectoryDataStore$new(xml = xml),
-              GSDataStore$new(xml = dsXML)
+              GSAbstractDataStore$new(xml = dsXML)
           )
           return(dataStore)
         })
@@ -237,7 +237,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         dataStore <- switch(dsType,
           "Shapefile" = GSShapefileDataStore$new(xml = dsXML),
           "Directory of spatial files (shapefiles)" = GSShapefileDirectoryDataStore$new(xml = dsXML),
-          GSDataStore$new(xml = dsXML)
+          GSAbstractDataStore$new(xml = dsXML)
         )
         self$INFO("Successfully fetched datastore!")
       }else{

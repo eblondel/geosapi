@@ -16,7 +16,7 @@ Geoserver REST API ShapeFileDirectoryDataStore
 \section{Methods}{
 
 \describe{
-   \item{\code{new(xml, dataStore, description, enabled, url)}}{
+   \item{\code{new(xml, name, description, enabled, url)}}{
      Instantiates a GSShapefileDirectoryDataStore object
    }
    \item{\code{setUrl(url)}}{
@@ -41,7 +41,7 @@ Geoserver REST API ShapeFileDirectoryDataStore
 }
 
 \examples{
-GSShapefileDirectoryDataStore$new(dataStore="ds", description = "des",
+GSShapefileDirectoryDataStore$new(name = "ds", description = "des",
                          enabled = TRUE, url = "file://data")
 
 }

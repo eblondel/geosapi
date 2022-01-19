@@ -85,14 +85,14 @@ Geoserver REST API PostGISDataStore
 \section{Methods }{
 
 \describe{
-   \item{\code{new(xml, dataStore, description, enabled)}}{
+   \item{\code{new(xml, name, description, enabled)}}{
      Instantiates a GSPostGISDataStore object
    }
  }
 }
 
 \examples{
-  GSPostGISDataStore$new(dataStore="ds", description = "des", enabled = TRUE)
+  GSPostGISDataStore$new(name = "ds", description = "des", enabled = TRUE)
 
 }
 \author{

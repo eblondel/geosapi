@@ -85,7 +85,7 @@ Geoserver REST API GeoPackageDataStore
 \section{Methods}{
 
 \describe{
-   \item{\code{new(xml, dataStore, description, enabled, database)}}{
+   \item{\code{new(xml, name, description, enabled, database)}}{
      Instantiates a GSGeoPackageDataStore object
    }
 }
@@ -93,7 +93,7 @@ Geoserver REST API GeoPackageDataStore
 
 \examples{
 ds <- GSGeoPackageDataStore$new(
- dataStore="ds", description = "des", 
+ name = "ds", description = "des", 
  enabled = TRUE, database = NULL
 )
 

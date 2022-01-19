@@ -7,32 +7,19 @@
 #' @return Object of \code{\link{R6Class}} for modelling a GeoServer dataStore
 #' @format \code{\link{R6Class}} object.
 #'
-#' @field full completeness of datastore description
-#' @field name datastore name
-#' @field description datastore description
-#' @field type datastore type
-#' @field connectionParmaeters list of datastore connection parameters
+#' @field connectionParameters connection parameters
 #'
 #' @section Methods:
 #' \describe{
-#'  \item{\code{new(xml, dataStore, description, type, enabled, connectionParameters)}}{
-#'    This method is used to instantiate a GSDataStore
+#'  \item{\code{new(xml, type, name, description, enabled, connectionParameters)}}{
+#'    This method is used to instantiate a \code{GSAbstractDataStore}
 #'  }
 #'  \item{\code{decode(xml)}}{
-#'    This method is used to decode a GSDataStore from XML
+#'    This method is used to decode a \code{GSAbstractDataStore} from XML
 #'  }
 #'  \item{\code{encode()}}{
-#'    This method is used to encode a GSNamespace to XML. Inherited from the
+#'    This method is used to encode a \code{GSAbstractDataStore} to XML. Inherited from the
 #'    generic \code{GSRESTResource} encoder
-#'  }
-#'  \item{\code{setEnabled(enabled)}}{
-#'    Sets the datastore as enabled if TRUE, disabled if FALSE
-#'  }
-#'  \item{\code{setDescription(description)}}{
-#'    Sets the datastore description
-#'  }
-#'  \item{\code{setType(type)}}{
-#'    Sets the datastore type
 #'  }
 #'  \item{\code{setConnectionParameters(parameters)}}{
 #'    Sets the datastore connection parameters. The argument should be an object
@@ -54,78 +41,37 @@
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
-GSDataStore <- R6Class("GSDataStore",
-  inherit = GSRESTResource,
+GSAbstractDataStore <- R6Class("GSAbstractDataStore",
+  inherit = GSAbstractStore,
+  private = list(
+    STORE_TYPE = "dataStore"
+  ),
   public = list(
-    full = FALSE,
-    name = NULL,
-    enabled = NULL,
-    description = "",
-    type = NULL,
     connectionParameters = NULL,
-    
-    initialize = function(xml = NULL,
-                          dataStore = NULL, description = "", type = NULL,
-                          enabled = TRUE, connectionParameters){
-      super$initialize(rootName = "dataStore")
+    initialize = function(xml = NULL, type = NULL,
+                          name = NULL, description = "", enabled = TRUE, 
+                          connectionParameters){
+      super$initialize(xml = xml, storeType = private$STORE_TYPE, type = type, 
+                       name = name, description = description, enabled = enabled)
       if(!missing(xml) & !is.null(xml)){
         if(!any(class(xml) %in% c("XMLInternalNode","XMLInternalDocument"))){
           stop("The argument 'xml' is not a valid XML object")
         }
         self$decode(xml)
       }else{
-        
-        if(is.null(dataStore)) stop("dataStore cannot be null")
-        
-        self$name = dataStore
-        self$description = description
-        self$type = type
-        self$enabled = enabled
         self$connectionParameters = GSRESTEntrySet$new(rootName = "connectionParameters")
         if(!missing(connectionParameters)){
           if(!is.list(connectionParameters)) stop("Connection parameters should be provided as named list")
           self$connectionParameters$setEntryset(connectionParameters)
         }
-        self$full <- TRUE
       }
     },
     
     #decode
     #---------------------------------------------------------------------------
     decode = function(xml){
-      names <- getNodeSet(xml, "//dataStore/name")
-      self$name <- xmlValue(names[[1]])
-      enabled <- getNodeSet(xml,"//enabled")
-      self$full <- length(enabled) > 0
-      if(self$full){
-        self$enabled <- as.logical(xmlValue(enabled[[1]]))
-        
-        descriptionXML <- getNodeSet(xml,"//description")
-        if(length(descriptionXML) > 0) self$description <- xmlValue(descriptionXML[[1]])
-        
-        typeXML <- getNodeSet(xml,"//type")
-        if(length(typeXML) > 0) self$type <- xmlValue(typeXML[[1]])
-      
-        self$connectionParameters = GSRESTEntrySet$new(rootName = "connectionParameters", xml)
-      }
-    },
-    
-    #setEnabled
-    #---------------------------------------------------------------------------
-    setEnabled = function(enabled){
-      self$enabled <- enabled
-    },
-    
-    #setDescription
-    #---------------------------------------------------------------------------
-    setDescription = function(description){
-      self$description = description
-    },
-    
-    #setType
-    #---------------------------------------------------------------------------
-    setType = function(type){
-      self$type = type
+      super$decode(xml)
+      self$connectionParameters = GSRESTEntrySet$new(rootName = "connectionParameters", xml)
     },
     
     #setConnectionParameters

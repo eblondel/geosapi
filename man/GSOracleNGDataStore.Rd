@@ -85,14 +85,14 @@ Geoserver REST API OracleNGDataStore
 \section{Methods }{
 
 \describe{
-   \item{\code{new(xml, dataStore, description, enabled)}}{
+   \item{\code{new(xml, name, description, enabled)}}{
      Instantiates a GSOracleNGDataStore object
    }
  }
 }
 
 \examples{
-  GSOracleNGDataStore$new(dataStore="ds", description = "des", enabled = TRUE)
+  GSOracleNGDataStore$new(name = "ds", description = "des", enabled = TRUE)
 
 }
 \author{

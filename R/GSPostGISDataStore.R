@@ -8,7 +8,7 @@
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @examples
-#'   GSPostGISDataStore$new(dataStore="ds", description = "des", enabled = TRUE)
+#'   GSPostGISDataStore$new(name = "ds", description = "des", enabled = TRUE)
 #'
 #' @section Methods inherited from \code{GSAbstractDBDataStore}:
 #' \describe{
@@ -79,7 +79,7 @@
 #' 
 #' @section Methods :
 #' \describe{
-#'    \item{\code{new(xml, dataStore, description, enabled)}}{
+#'    \item{\code{new(xml, name, description, enabled)}}{
 #'      Instantiates a GSPostGISDataStore object
 #'    }
 #'  }
@@ -93,9 +93,9 @@ GSPostGISDataStore <- R6Class("GSPostGISDataStore",
       DBTYPE = "postgis"
     ),
     public = list(
-      initialize = function(xml = NULL, dataStore = NULL, description = "", enabled = TRUE){
+      initialize = function(xml = NULL, name = NULL, description = "", enabled = TRUE){
         super$initialize(xml = xml, type = private$TYPE, dbType = private$DBTYPE,
-                         dataStore = dataStore, description = description,
+                         name = name, description = description,
                          enabled = enabled)
       }
     )                     

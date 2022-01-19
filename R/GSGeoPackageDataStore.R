@@ -9,7 +9,7 @@
 #' 
 #' @examples
 #' ds <- GSGeoPackageDataStore$new(
-#'  dataStore="ds", description = "des", 
+#'  name = "ds", description = "des", 
 #'  enabled = TRUE, database = NULL
 #' )
 #'
@@ -83,7 +83,7 @@
 #' 
 #' @section Methods:
 #' \describe{
-#'    \item{\code{new(xml, dataStore, description, enabled, database)}}{
+#'    \item{\code{new(xml, name, description, enabled, database)}}{
 #'      Instantiates a GSGeoPackageDataStore object
 #'    }
 #' }
@@ -97,11 +97,11 @@ GSGeoPackageDataStore <- R6Class("GSGeoPackageDataStore",
     DBTYPE = "geopkg"
   ),
   public = list(
-    initialize = function(xml = NULL, dataStore = NULL, 
+    initialize = function(xml = NULL, name = NULL, 
                           description = "", enabled = TRUE,
                           database = NULL){
       super$initialize(xml = xml, type = private$TYPE, dbType = private$DBTYPE,
-                       dataStore = dataStore, description = description,
+                       name = name, description = description,
                        enabled = enabled)
       if(!is.null(database)) super$setDatabase(database)
       super$setMinConnections(NULL)

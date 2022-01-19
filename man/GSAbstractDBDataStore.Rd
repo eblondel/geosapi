@@ -19,7 +19,7 @@ Internal abstract class used for setting DB stores
 \section{Methods}{
 
 \describe{
-   \item{\code{new(xml, dataStore, description, enabled)}}{
+   \item{\code{new(xml, name, description, enabled)}}{
      Instantiates a GSAbstractDBDataStore object
    }
    \item{\code{setDatabaseType(dbtype)}}{

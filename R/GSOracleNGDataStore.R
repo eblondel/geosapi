@@ -8,7 +8,7 @@
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @examples
-#'   GSOracleNGDataStore$new(dataStore="ds", description = "des", enabled = TRUE)
+#'   GSOracleNGDataStore$new(name = "ds", description = "des", enabled = TRUE)
 #'
 #' @section Methods inherited from \code{GSAbstractDBDataStore}:
 #' \describe{
@@ -79,7 +79,7 @@
 #' 
 #' @section Methods :
 #' \describe{
-#'    \item{\code{new(xml, dataStore, description, enabled)}}{
+#'    \item{\code{new(xml, name, description, enabled)}}{
 #'      Instantiates a GSOracleNGDataStore object
 #'    }
 #'  }
@@ -93,9 +93,9 @@ GSOracleNGDataStore <- R6Class("GSOracleNGDataStore",
       DBTYPE = "oracle"
     ),
     public = list(
-      initialize = function(xml = NULL, dataStore = NULL, description = "", enabled = TRUE){
+      initialize = function(xml = NULL, name = NULL, description = "", enabled = TRUE){
         super$initialize(xml = xml, type = private$TYPE, dbType = private$DBTYPE,
-                         dataStore = dataStore, description = description,
+                         name = name, description = description,
                          enabled = enabled)
       }
     )                     

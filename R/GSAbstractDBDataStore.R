@@ -11,7 +11,7 @@
 #'
 #' @section Methods:
 #' \describe{
-#'    \item{\code{new(xml, dataStore, description, enabled)}}{
+#'    \item{\code{new(xml, name, description, enabled)}}{
 #'      Instantiates a GSAbstractDBDataStore object
 #'    }
 #'    \item{\code{setDatabaseType(dbtype)}}{
@@ -82,13 +82,13 @@
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
 GSAbstractDBDataStore <- R6Class("GSAbstractDBDataStore",
-    inherit = GSDataStore,
+    inherit = GSAbstractDataStore,
     public = list(
       
       initialize = function(xml = NULL, type = NULL, dbType = NULL,
-                            dataStore = NULL, description = "", enabled = TRUE){
+                            name = NULL, description = "", enabled = TRUE){
         if(missing(xml)) xml <- NULL
-        super$initialize(xml = xml, dataStore = dataStore,
+        super$initialize(xml = xml, name = name,
                          description = description,
                          enabled = enabled)
         if(is.null(xml)){
