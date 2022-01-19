@@ -176,7 +176,7 @@
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
-GSAbstractDataStoreManager <- R6Class("GSAbstractDataStoreManager",
+GSDataStoreManager <- R6Class("GSDataStoreManager",
   inherit = GSManager,
   
   public = list(   
@@ -203,6 +203,9 @@ GSAbstractDataStoreManager <- R6Class("GSAbstractDataStoreManager",
           dataStore <- switch(dsType,
               "Shapefile" = GSShapefileDataStore$new(xml = xml),
               "Directory of spatial files (shapefiles)" = GSShapefileDirectoryDataStore$new(xml = xml),
+              "GeoPackage" = GSGeoPackageDataStore$new(xml = xml),
+              "PostGIS" = GSPostGISDataStore$new(xml = xml),
+              "Oracle NG" = GSOracleNGDataStore$new(xml = xml),
               GSAbstractDataStore$new(xml = dsXML)
           )
           return(dataStore)
@@ -237,6 +240,9 @@ GSAbstractDataStoreManager <- R6Class("GSAbstractDataStoreManager",
         dataStore <- switch(dsType,
           "Shapefile" = GSShapefileDataStore$new(xml = dsXML),
           "Directory of spatial files (shapefiles)" = GSShapefileDirectoryDataStore$new(xml = dsXML),
+          "GeoPackage" = GSGeoPackageDataStore$new(xml = dsXML),
+          "PostGIS" = GSPostGISDataStore$new(xml = xml),
+          "Oracle NG" = GSOracleNGDataStore$new(xml = xml),
           GSAbstractDataStore$new(xml = dsXML)
         )
         self$INFO("Successfully fetched datastore!")
