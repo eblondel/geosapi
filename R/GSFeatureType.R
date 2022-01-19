@@ -61,6 +61,9 @@ GSFeatureType <- R6Class("GSFeatureType",
     },
     
     setVirtualTable = function(vt){
+      if(!is(vt, "GSVirtualTable")){
+        stop("Argument 'vt' should be an object of class 'GSVirtualTable'")
+      }
       added <- super$setMetadata("JDBC_VIRTUAL_TABLE", vt)
       return(added)
     },
