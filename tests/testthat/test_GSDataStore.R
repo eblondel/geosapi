@@ -97,7 +97,7 @@ test_that("DELETE dataStore - Directory of Shapefiles",{
 #GeoPackage
 #------------------------------------------------------------------------
 test_that("CREATE dataStore - GeoPackage",{
-  ds = GSGeoPackageDataStore$new(dataStore="topp_datastore_gpkg",
+  ds = GSGeoPackageDataStore$new(name = "topp_datastore_gpkg",
                                 description = "topp_datastore description",
                                 enabled = TRUE,
                                 database = "file:data/somefile.gpkg")
