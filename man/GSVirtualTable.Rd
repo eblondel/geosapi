@@ -56,10 +56,10 @@ Geoserver REST API GSVirtualTable
  \item{\code{setGeometry(vtg)}}{
    Sets the virtual table geometry
  }
- \item{\code{addParameter(vtp)}}{
+ \item{\code{addParameter(parameter)}}{
    Adds a virtual table parameter
  }
- \item{\code{delParameter(param)}}{
+ \item{\code{delParameter(parameter)}}{
    Removes a virtual table parameter.
  }
 }

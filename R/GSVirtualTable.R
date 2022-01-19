@@ -43,10 +43,10 @@
 #'  \item{\code{setGeometry(vtg)}}{
 #'    Sets the virtual table geometry
 #'  }
-#'  \item{\code{addParameter(vtp)}}{
+#'  \item{\code{addParameter(parameter)}}{
 #'    Adds a virtual table parameter
 #'  }
-#'  \item{\code{delParameter(param)}}{
+#'  \item{\code{delParameter(parameter)}}{
 #'    Removes a virtual table parameter.
 #'  }
 #' }
@@ -127,10 +127,10 @@ GSVirtualTable <- R6Class("GSVirtualTable",
        return(endNb == startNb+1)
      },
      
-     delParameter = function(param){
+     delParameter = function(parameter){
        startNb = length(self$parameters)
        availableParams <- sapply(self$parameters, function(x){x$name})
-       self$parameters = self$parameters[which(availableParams != style$name)]
+       self$parameters = self$parameters[which(availableParams != parameter$name)]
        endNb = length(self$parameters)
        return(endNb == startNb-1)
      }
