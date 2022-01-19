@@ -163,7 +163,7 @@ GSShinyMonitor <- R6Class("GSShinyMonitor",
                               type = "scatter", mode = "lines",
                               text = ~sprintf("%s %s",round(y,2), self$getMetric("PER_CPU_LOAD")[i,]$unit))
         }
-        p %>% layout(
+        p %>% plotly::layout(
           showlegend=T,
           hovermode ='closest',
           xaxis = list(
