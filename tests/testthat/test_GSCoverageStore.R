@@ -23,17 +23,108 @@ test_that("READ coverageStores",{
   expect_true(all(csnames %in% c("arcGridSample","img_sample2", "mosaic","worldImageSample")))
 })
 
+
 #GeoTIFF
+#==========================================================================
+#GeoTIFF CoverageStore CRUD 
 #---------------------------------------------------------------------------
 
 test_that("CREATE coverageStore - GeoTIFF",{
   cs = GSGeoTIFFCoverageStore$new(name="sfdem_new",
                                 description = "sfdem new description", enabled = TRUE,
-                                url = "file:data/sf/sfdem.tif")
+                                url = "file:data/sf/sfdem_new.tif")
   created <- gsman$createCoverageStore("sf", cs)
   expect_true(created)
-  ds <- gsman$getCoverageStore("sf", "sfdem_new")
-  expect_is(ds, "GSGeoTIFFDataStore")
-  expect_equal(ds$description, "topp_datastore description")
-  expect_true(ds$enabled)
+  cs <- gsman$getCoverageStore("sf", "sfdem_new")
+  expect_is(cs, "GSGeoTIFFCoverageStore")
+  expect_equal(cs$description, "sfdem_new description")
+  expect_true(cs$enabled)
+})
+
+test_that("UPDATE coverageStore - GeoTIFF",{
+  coverageStore <- gsman$getCoverageStore("sf", "sfdem_new")
+  coverageStore$setDescription("sfdem_new updated description")
+  coverageStore$setEnabled(FALSE)
+  
+  updated <- gsman$updateCoverageStore("sf", coverageStore)
+  expect_true(updated)
+  cs <- gsman$getCoverageStore("sf", "sfdem_new")
+  expect_is(cs, "GSGeoTIFFCoverageStore")
+  expect_equal(cs$description, "sfdem_new updated description")
+  expect_false(cs$enabled)
+})
+
+test_that("DELETE coverageStore - GeoPackage",{
+  deleted <- gsman$deleteCoverageStore("sf", "sfdem_new", TRUE)
+  expect_true(deleted)
+  cs <- gsman$getCoverageStore("sf", "sfdem_new")
+  expect_is(cs, "NULL")
+})
+
+#GeoTIFF Upload CRUD 
+#---------------------------------------------------------------------------
+test_that("Upload coverage file - GeoTIFF",{
+  uploaded <- gsman$uploadGeoTIFF(ws = "sf", cs = "sfdem_new",
+                                  endpoint = "file", configure = "none", update = "overwrite",
+                                  filename = system.file("extdata/sfdem_new.tif", package = "geosapi"))
+  expect_true(uploaded)
+})
+
+#GeoTIFF Coverage CRUD 
+#---------------------------------------------------------------------------
+test_that("Create coverage - based on GeoTIFF", {
+  cov <- GSCoverage$new()
+  cov$setName("sfdem_new")
+  cov$setNativeName("sfdem_new")
+  cov$setTitle("Title for sfdem")
+  cov$setDescription("Description for sfdem")
+  cov$addKeyword("sfdem keyword1")
+  cov$addKeyword("sfdem keyword2")
+  cov$addKeyword("sfdem keyword3")
+  
+  md1 <- GSMetadataLink$new(
+    type = "text/xml",
+    metadataType = "ISO19115:2003",
+    content = "http://somelink.org/sfdem_new/xml"
+  )
+  cov$addMetadataLink(md1)
+  md2 <- GSMetadataLink$new(
+    type = "text/html",
+    metadataType = "ISO19115:2003",
+    content = "http://somelink.org/sfdem_new/html"
+  )
+  cov$addMetadataLink(md2)
+  
+  cov$setSrs("EPSG:4326")
+  cov$setNativeCRS("EPSG:26713")
+  cov$setLatLonBoundingBox(-103.87108701853181, 44.370187074132616, -103.62940739432703, 44.5016011535299, crs = "EPSG:4326")
+  cov$setNativeBoundingBox(589980, 4913700, 609000, 4928010, crs = "EPSG:26713")
+  
+  created <- gsman$createCoverage(ws = "sf", cs = "sfdem_new", coverage = cov)
+  expect_true(created)
+
+})
+
+test_that("Get coverage - based on GeoTIFF",{
+  cov <- gsman$getCoverage(ws = "sf", cs = "sfdem_new", cv = "sfdem_new")
+  expect_is(cov, "GSCoverage")
+  expect_equal(cov$name, "sfdem_new")
+})
+
+test_that("Update coverage - based on GeoTIFF", {
+  cov <- gsman$getCoverage(ws = "sf", cs = "sfdem_new", cv = "sfdem_new")
+  cov$setEnabled(FALSE)
+  cov$setAbstract("this is a modified abstract")
+  updated <- gsman$updateCoverage(ws = "sf", cs = "sfdem_new", coverage = cov)
+  expect_true(updated)
+  cov_updated <- gsman$getCoverage(ws = "sf", cs = "sfdem_new", cv = "sfdem_new")
+  expect_false(cov_updated$enabled)
+  expect_equal(cov_updated$abstract, "this is a modified abstract")
+})
+
+test_that("Delete coverage - based on GeoTIFF",{
+  deleted <- gsman$deleteCoverage(ws = "sf", cs = "sfdem_new", cv = "sfdem_new", recurse = TRUE)
+  expect_true(deleted)
+  cov <- gsman$getCoverage(ws = "sf", cs = "sfdem_new", cv = "sfdem_new")
+  expect_null(cov)
 })

@@ -39,18 +39,21 @@
 #'
 GSAbstractStore <- R6Class("GSAbstractStore",
  inherit = GSRESTResource,
+ private = list(
+   store_type = NULL
+ ),
  public = list(
-   store_type = NULL,
    full = FALSE,
    name = NULL,
    enabled = NULL,
    description = "",
    type = NULL,
+   workspace = NULL,
    
    initialize = function(xml = NULL, storeType, type = NULL,
                          name = NULL, description = "", enabled = TRUE){
      super$initialize(rootName = storeType)
-     self$store_type = storeType
+     private$store_type = storeType
      if(!missing(xml) & !is.null(xml)){
        if(!any(class(xml) %in% c("XMLInternalNode","XMLInternalDocument"))){
          stop("The argument 'xml' is not a valid XML object")
@@ -69,7 +72,7 @@ GSAbstractStore <- R6Class("GSAbstractStore",
    #decode
    #---------------------------------------------------------------------------
    decode = function(xml){
-     names <- getNodeSet(xml, sprintf("//%s/name", self$store_type))
+     names <- getNodeSet(xml, sprintf("//%s/name", private$store_type))
      self$name <- xmlValue(names[[1]])
      enabled <- getNodeSet(xml,"//enabled")
      self$full <- length(enabled) > 0

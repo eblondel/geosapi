@@ -74,11 +74,11 @@ Geoserver REST API DataStore Manager
    Creates a new featureType given a workspace, datastore names and an object of
    class \code{\link{GSFeatureType}}
  }
- \item{\code{updateFeatureType(ws, ds, FeatureType)}}{
+ \item{\code{updateFeatureType(ws, ds, featureType)}}{
    Updates a featureType given a workspace, datastore names and an object of
    class \code{\link{GSFeatureType}}
  }
- \item{\code{deleteFeatureType(ws, ds, featureType, recurse)}}{
+ \item{\code{deleteFeatureType(ws, ds, ft, recurse)}}{
    Deletes a featureType given a workspace, datastore names, and an object of 
    class \code{\link{GSFeatureType}}. By defaut, the option \code{recurse} is 
    set to FALSE, ie datastore layers are not removed.
