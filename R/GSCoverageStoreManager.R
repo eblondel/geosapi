@@ -238,7 +238,7 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
     createCoverageStore = function(ws, coverageStore){
       self$INFO(sprintf("Creating coverage store '%s' in workspace '%s'", coverageStore$name, ws))
       created <- FALSE
-      if(is.null(coverageStore$workspace)) coverageStore$ws <- ws
+      if(is.null(coverageStore$workspace)) coverageStore$workspace <- ws
       req <- GSUtils$POST(
         url = self$getUrl(),
         user = private$user,
@@ -259,6 +259,7 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
     #updatCoverageStore
     #---------------------------------------------------------------------------
     updateCoverageStore = function(ws, coverageStore){
+      if(is.null(coverageStore$workspace)) coverageStore$workspace <- ws
       updated <- FALSE
       self$INFO(sprintf("Updating coverage store '%s' in workspace '%s'", coverageStore$name, ws))
       req <- GSUtils$PUT(
