@@ -179,19 +179,25 @@ GSResource <- R6Class("GSResource",
            self$projectionPolicy <- xmlValue(projPolicies[[1]])
          }
          
-         metadata <- getNodeSet(xml, "//metadata/entry")
-         if(length(metadata)>0){
-           for(md in metadata){
-              key <- xmlGetAttr(md, "key")
-              child <- xmlChildren(md)
-              if(names(child) == "dimensionInfo"){
-                if(any(class(self) == "GSFeatureType")){
-                  dim <- GSFeatureDimension$new(xml = child$dimensionInfo)
-                }else{
-                  dim <- GSDimension$new(xml = child$dimensionInfo)
-                }
-                self$setMetadata(key, dim)   
+         md_entries <- getNodeSet(xml, "//metadata/entry")
+         if(length(md_entries)>0){
+           for(md_entry in md_entries){
+              key <- xmlGetAttr(md_entry, "key")
+              child <- xmlChildren(md_entry)
+              meta <- NULL
+              if(is(self, "GSFeatureType")){
+                meta <- switch(names(child),
+                  "dimensionInfo" = GSFeatureDimension$new(xml = child$dimensionInfo),
+                  "virtualTable" = GSVirtualTable$new(xml = child$virtualTable)
+                )
               }
+              if(is(self, "GSCoverage")){
+                meta <- switch(names(child),
+                  "dimensionInfo" = GSDimension$new(xml = child$dimensionInfo),
+                  "coverageView" = GSCoverageView$new(xml = child$coverageView)
+                )
+              }
+              if(!is.null(meta)) self$setMetadata(key, meta)
            }
          }
        }
