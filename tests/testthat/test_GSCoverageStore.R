@@ -54,7 +54,7 @@ test_that("UPDATE coverageStore - GeoTIFF",{
   expect_false(cs$enabled)
 })
 
-test_that("DELETE coverageStore - GeoPackage",{
+test_that("DELETE coverageStore - GeoTIFF",{
   deleted <- gsman$deleteCoverageStore("sf", "sfdem_new", TRUE)
   expect_true(deleted)
   cs <- gsman$getCoverageStore("sf", "sfdem_new")
