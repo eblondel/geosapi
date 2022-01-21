@@ -101,7 +101,7 @@ GSUtils$PUT <- function(url, user, pwd, path,
       add_headers(
         "User-Agent" = GSUtils$getUserAgent(),
         "Authorization" = paste("Basic", GSUtils$getUserToken(user, pwd)),
-        "Content-type" = contentType
+        "Content-Type" = contentType
       ),    
       body = body
     )
@@ -120,7 +120,7 @@ GSUtils$POST <- function(url, user, pwd, path, content, contentType, verbose = F
       add_headers(
         "User-Agent" = GSUtils$getUserAgent(),
         "Authorization" = paste("Basic", GSUtils$getUserToken(user, pwd)),
-        "Content-type" = contentType
+        "Content-Type" = contentType
       ),    
       body = content
     )

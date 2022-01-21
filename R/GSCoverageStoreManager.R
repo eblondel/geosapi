@@ -245,7 +245,7 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
         pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
         path = sprintf("/workspaces/%s/coveragestores.xml", ws),
         content = GSUtils$getPayloadXML(coverageStore),
-        contentType = "text/xml",
+        contentType = "application/xml",
         verbose = self$verbose.debug
       )
       if(status_code(req) == 201){
@@ -368,7 +368,7 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
         pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
         path = sprintf("/workspaces/%s/coveragestores/%s/coverages.xml", ws, cs),
         content = GSUtils$getPayloadXML(coverage),
-        contentType = "text/xml",
+        contentType = "application/xml",
         verbose = self$verbose.debug
       )
       if(status_code(req) == 201){
@@ -487,7 +487,7 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
         ws = ws, cs = cs, 
         endpoint = endpoint, extension = "geotiff", filename = filename,
         configure = configure, update = update, 
-        contentType = "image/geotiff"
+        contentType = "text/plain"
       ))
     },
     
@@ -511,7 +511,7 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
         ws = ws, cs = cs, 
         endpoint = endpoint, extension = "arcgrid", filename = filename,
         configure = configure, update = update, 
-        contentType = "image/arcgrid"
+        contentType = "text/plain"
       ))
     },
     

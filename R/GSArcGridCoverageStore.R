@@ -23,7 +23,7 @@ GSArcGridCoverageStore <- R6Class("GSArcGridCoverageStore",
   ),
   public = list(
    url = NULL,
-   initialize = function(xml = NULL, name = NULL, description = "", enabled = TRUE, url){
+   initialize = function(xml = NULL, name = NULL, description = "", enabled = TRUE, url = NULL){
      super$initialize(xml = xml, type = private$TYPE, 
                       name = name, description = description, enabled = enabled, url = url)
    }

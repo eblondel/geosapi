@@ -31,7 +31,7 @@ GSAbstractCoverageStore <- R6Class("GSAbstractCoverageStore",
  public = list(
    url = NULL,
    initialize = function(xml = NULL, type = NULL,
-                         name = NULL, description = "", enabled = TRUE, url){
+                         name = NULL, description = "", enabled = TRUE, url = NULL){
      super$initialize(xml = xml, storeType = private$STORE_TYPE, type = type, 
                       name = name, description = description, enabled = enabled)
      if(!missing(xml) & !is.null(xml)){
