@@ -31,8 +31,7 @@ test_that("READ coverageStores",{
 
 test_that("CRUD operations coverageStore - GeoTIFF",{
   cs = GSGeoTIFFCoverageStore$new(name="sfdem_new",
-                                description = "sfdem_new description", enabled = TRUE,
-                                url = "file:data/sf/sfdem_new.tif")
+                                description = "sfdem_new description", enabled = TRUE)
   #CREATE
   created <- gsman$createCoverageStore("sf", cs)
   expect_true(created)
@@ -65,8 +64,7 @@ test_that("CRUD operations coverageStore - GeoTIFF",{
 test_that("Upload coverage file and Create coverage - GeoTIFF",{
   #prerequisite - create store
   cs = GSGeoTIFFCoverageStore$new(name="sfdem_new",
-                                  description = "sfdem_new description", enabled = TRUE,
-                                  url = "file:data/sf/sfdem_new.tif")
+                                  description = "sfdem_new description", enabled = TRUE)
   created <- gsman$createCoverageStore("sf", cs)
   expect_true(created)
   
