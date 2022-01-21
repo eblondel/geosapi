@@ -41,7 +41,7 @@
 #'    Creates a new datastore given a workspace and an object of class \code{\link{GSAbstractDataStore}}
 #'  }
 #'  \item{\code{updateDataStore(ws, dataStore)}}{
-#'    Updates an existing dataStore given a workspace and an object of class \code{\link{GSDataStore}}
+#'    Updates an existing dataStore given a workspace and an object of class \code{\link{GSAbstractDataStore}}
 #'  }
 #'  \item{\code{deleteDataStore(ws, ds, recurse)}}{
 #'    Deletes a datastore given a workspace and an object of class \code{\link{GSAbstractDataStore}}.
