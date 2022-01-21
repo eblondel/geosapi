@@ -67,7 +67,8 @@ test_that("Upload coverage file and Create coverage - GeoTIFF",{
   cs = GSGeoTIFFCoverageStore$new(name="sfdem_new",
                                   description = "sfdem_new description", enabled = TRUE,
                                   url = "file:data/sf/sfdem_new.tif")
-  gsman$createCoverageStore("sf", cs)
+  created <- gsman$createCoverageStore("sf", cs)
+  expect_true(created)
   
   #UPLOAD coverage file
   uploaded <- gsman$uploadGeoTIFF(ws = "sf", cs = "sfdem_new",
