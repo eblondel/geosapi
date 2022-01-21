@@ -29,19 +29,19 @@ test_that("READ coverageStores",{
 #GeoTIFF CoverageStore CRUD 
 #---------------------------------------------------------------------------
 
-test_that("CREATE coverageStore - GeoTIFF",{
+test_that("CRUD operations coverageStore - GeoTIFF",{
   cs = GSGeoTIFFCoverageStore$new(name="sfdem_new",
                                 description = "sfdem_new description", enabled = TRUE,
                                 url = "file:data/sf/sfdem_new.tif")
+  #CREATE
   created <- gsman$createCoverageStore("sf", cs)
   expect_true(created)
   cs <- gsman$getCoverageStore("sf", "sfdem_new")
   expect_is(cs, "GSGeoTIFFCoverageStore")
   expect_equal(cs$description, "sfdem_new description")
   expect_true(cs$enabled)
-})
 
-test_that("UPDATE coverageStore - GeoTIFF",{
+  #UPDATE
   coverageStore <- gsman$getCoverageStore("sf", "sfdem_new")
   coverageStore$setDescription("sfdem_new updated description")
   coverageStore$setEnabled(FALSE)
@@ -52,9 +52,8 @@ test_that("UPDATE coverageStore - GeoTIFF",{
   expect_is(cs, "GSGeoTIFFCoverageStore")
   expect_equal(cs$description, "sfdem_new updated description")
   expect_false(cs$enabled)
-})
 
-test_that("DELETE coverageStore - GeoTIFF",{
+  #DELETE
   deleted <- gsman$deleteCoverageStore("sf", "sfdem_new", TRUE)
   expect_true(deleted)
   cs <- gsman$getCoverageStore("sf", "sfdem_new")
