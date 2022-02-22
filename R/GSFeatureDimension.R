@@ -1,5 +1,3 @@
-#' Geoserver REST API FeatureDimension
-#'
 #' @docType class
 #' @importFrom R6 R6Class
 #' @export
