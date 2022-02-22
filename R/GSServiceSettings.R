@@ -11,19 +11,6 @@
 #' @return Object of \code{\link{R6Class}} for modelling a GeoServer OWS service setting
 #' @format \code{\link{R6Class}} object.
 #' 
-#' @field enabled is service enabled or not?
-#' @field citeCompliant is service cite compliant?
-#' @field name service name
-#' @field title service title
-#' @field maintainer service maintainer
-#' @field abstract service abastract
-#' @field accessConstraints service access constraints
-#' @field fees service fees
-#' @field keywords services keywords
-#' @field onlineResource service online resource
-#' @field schemaBaseURL service schema base URL
-#' @field verbose service verbose or not?
-#' 
 #' @examples
 #' settings <- GSServiceSettings$new(service = "WMS")
 #' settings$setEnabled(TRUE)
@@ -85,18 +72,34 @@
 GSServiceSettings <- R6Class("GSServiceSettings",
    inherit = GSRESTResource,
    public = list(
+     #' @field enabled is service enabled or not?
      enabled = TRUE,
+     #' @field citeCompliant is service cite compliant?
      citeCompliant = FALSE,
+     #' @field name service name
      name = NULL,
+     #' @field title service title
      title = NULL,
+     #' @field maintainer service maintainer
      maintainer = NULL,
+     #' @field abstrct service abastract
      abstrct = NULL,
+     #' @field accessConstraints service access constraints
      accessConstraints = "NONE",
+     #' @field fees service fees
      fees = "NONE",
+     #' @field keywords services keywords
      keywords = list(),
+     #' @field onlineResource service online resource
      onlineResource = NULL,
+     #' @field schemaBaseURL service schema base URL
      schemaBaseURL = "http://schemas.opengis.net",
+     #' @field verbose service verbose or not?
      verbose = FALSE,
+     
+     #'@description Initializes an object of class \link{GSServiceSettings}
+     #'@param xml object of class \link{XMLInternalNode-class}
+     #'@param service service service acronym
      initialize = function(xml = NULL, service){
        super$initialize(rootName = tolower(service))
        self$setName(toupper(service))
@@ -105,6 +108,8 @@ GSServiceSettings <- R6Class("GSServiceSettings",
        }
      },
      
+     #'@description Decodes from XML
+     #'@param xml object of class \link{XMLInternalNode-class}
      decode = function(xml){
        enabled <- getNodeSet(xml, "//enabled")
        if(length(enabled)>0) self$enabled <- as.logical(xmlValue(enabled[[1]]))
@@ -131,44 +136,65 @@ GSServiceSettings <- R6Class("GSServiceSettings",
        if(length(verbose)>0) self$verbose <- as.logical(xmlValue(verbose[[1]]))
      },
      
+     #'@description Set enabled
+     #'@param enabled enabled
      setEnabled = function(enabled){
        self$enabled = enabled
      },
      
+     #'@description Set cite compliant
+     #'@param citeCompliant cite compliant
      setCiteCompliant = function(citeCompliant){
        self$citeCompliant <- citeCompliant
      },
      
+     #'@description Set name
+     #'@param name name
      setName = function(name){
        self$name = name
      },
      
+     #'@description Set title
+     #'@param title title
      setTitle = function(title){
        self$title = title
      },
      
+     #'@description Set maintainer
+     #'@param maintainer maintainer
      setMaintainer = function(maintainer){
        self$maintainer = maintainer
      },
      
+     #'@description Set abstract
+     #'@param abstract abstract
      setAbstract = function(abstract){
        self$abstrct = abstract
      },
      
+     #'@description Set access constraints
+     #'@param accessConstraints access constraints
      setAccessConstraints = function(accessConstraints){
        self$accessConstraints = accessConstraints
      },
      
+     #'@description Set fees
+     #'@param fees fees
      setFees = function(fees){
        self$fees = fees
      },
      
+     #'@description Set keywords
+     #'@param keywords keywords
      setKeywords = function(keywords){
        if(!is.list(keywords)) keywords = list(keywords)
        self$keywords = keywords
        return(TRUE)
      },
      
+     #'@description Adds a keyword
+     #'@param keyword keyword
+     #'@return \code{TRUE} if added, \code{FALSE} otherwise
      addKeyword = function(keyword){
        startNb = length(self$keywords)
        if(length(which(self$keywords == keyword)) == 0){
@@ -178,6 +204,9 @@ GSServiceSettings <- R6Class("GSServiceSettings",
        return(endNb == startNb+1)
      },
      
+     #'@description Deletes a keyword
+     #'@param keyword keyword
+     #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
      delKeyword = function(keyword){
        startNb = length(self$keywords)
        self$keywords = self$keywords[which(self$keywords != keyword)]

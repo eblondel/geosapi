@@ -12,21 +12,7 @@
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @examples
-#' lyr <- GSStyle$new()
-#'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(xml)}}{
-#'    This method is used to instantiate a GS Style
-#'  }
-#'  \item{\code{decode(xml)}}{
-#'    This method is used to decode a GSStyle from XML
-#'  }
-#'  \item{\code{encode()}}{
-#'    This method is used to encode a GSStyle to XML. Inherited from the
-#'    generic \code{GSRESTResource} encoder
-#'  }
-#' }
+#'   lyr <- GSStyle$new()
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -34,10 +20,17 @@ GSStyle <- R6Class("GSStyle",
   inherit = GSRESTResource,
   
   public = list(
+    #'@field full full
     full = TRUE,
+    #'@field name name
     name = NULL,
+    #'@field filename filename
     filename = NULL,
     
+    #'@description Initializes a \link{GSStyle}
+    #'@param xml an object of class \link{XMLInternalNode-class}
+    #'@param name name
+    #'@param filename filename
     initialize = function(xml = NULL, name = NULL, filename = NULL){
      super$initialize(rootName = "style")
      if(!missing(xml) & !is.null(xml)){
@@ -52,6 +45,8 @@ GSStyle <- R6Class("GSStyle",
      }
     },
     
+    #'@description Decodes from XML
+    #'@param xml an object of class \link{XMLInternalNode-class}
     decode = function(xml){
      names <- getNodeSet(xml, "//name")
      self$setName(xmlValue(names[[1]]))
@@ -62,10 +57,14 @@ GSStyle <- R6Class("GSStyle",
      }
     },
     
+    #'@description set name
+    #'@param name name
     setName = function(name){
      self$name = name
     },
     
+    #'@description Set filename
+    #'@param filename filename
     setFilename = function(filename){
      self$filename = filename
     }

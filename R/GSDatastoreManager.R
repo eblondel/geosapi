@@ -12,167 +12,6 @@
 #' \dontrun{
 #'    GSDataStoreManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
 #'  }
-#'
-#' @section Constructor:
-#' \describe{
-#'  \item{\code{new(url, user, pwd, logger)}}{
-#'    This method is used to instantiate a GSManager with the \code{url} of the
-#'    GeoServer and credentials to authenticate (\code{user}/\code{pwd}). By default,
-#'    the \code{logger} argument will be set to \code{NULL} (no logger). This argument
-#'    accepts two possible values: \code{INFO}: to print only geosapi logs,
-#'    \code{DEBUG}: to print geosapi and CURL logs
-#'  }
-#' }
-#' 
-#' @section \code{DataStore} methods:
-#' \describe{ 
-#'  \item{\code{getDataStores(ws)}}{
-#'    Get the list of available dataStores. Returns an object of class \code{list}
-#'    giving items of class \code{\link{GSAbstractDataStore}}
-#'  }
-#'  \item{\code{getDataStoreNames(ws)}}{
-#'    Get the list of available dataStore names. Returns an vector of class \code{character}
-#'  }
-#'  \item{\code{getDataStore(ws, ds)}}{
-#'    Get an object of class \code{\link{GSAbstractDataStore}} given a workspace and datastore
-#'    names.
-#'  }
-#'  \item{\code{createDataStore(ws, dataStore)}}{
-#'    Creates a new datastore given a workspace and an object of class \code{\link{GSAbstractDataStore}}
-#'  }
-#'  \item{\code{updateDataStore(ws, dataStore)}}{
-#'    Updates an existing dataStore given a workspace and an object of class \code{\link{GSAbstractDataStore}}
-#'  }
-#'  \item{\code{deleteDataStore(ws, ds, recurse)}}{
-#'    Deletes a datastore given a workspace and an object of class \code{\link{GSAbstractDataStore}}.
-#'    By defaut, the option \code{recurse} is set to FALSE, ie datastore layers are not removed.
-#'    To remove all datastore layers, set this option to TRUE.
-#'  }
-#' }
-#' 
-#' @section \code{FeatureType} methods:
-#' \describe{ 
-#'  \item{\code{getFeatureTypes(ws, ds)}}{
-#'    Get the list of available feature types for given workspace and datastore.
-#'    Returns an object of class \code{list} giving items of class \code{\link{GSFeatureType}}
-#'  }
-#'  \item{\code{getFeatureTypeNames(ws, ds)}}{
-#'    Get the list of available feature type names for given workspace and datastore.
-#'    Returns an vector of class\code{character}
-#'  }
-#'  \item{\code{getFeatureType(ws, ds, ft)}}{
-#'    Get an object of class \code{\link{GSFeatureType}} given a workspace, datastore
-#'    and feature type names.
-#'  }
-#'  \item{\code{createFeatureType(ws, ds, featureType)}}{
-#'    Creates a new featureType given a workspace, datastore names and an object of
-#'    class \code{\link{GSFeatureType}}
-#'  }
-#'  \item{\code{updateFeatureType(ws, ds, featureType)}}{
-#'    Updates a featureType given a workspace, datastore names and an object of
-#'    class \code{\link{GSFeatureType}}
-#'  }
-#'  \item{\code{deleteFeatureType(ws, ds, ft, recurse)}}{
-#'    Deletes a featureType given a workspace, datastore names, and an object of 
-#'    class \code{\link{GSFeatureType}}. By defaut, the option \code{recurse} is 
-#'    set to FALSE, ie datastore layers are not removed.
-#'  }
-#' }
-#' 
-#' @section \code{Layer} methods:
-#' \describe{ 
-#'  \item{\code{getLayers()}}{
-#'    Get the list of layers. Returns an object of class \code{list} giving items 
-#'    of class \code{\link{GSLayer}}
-#'  }
-#'  \item{\code{getLayerNames()}}{
-#'    Get the list of layer names.
-#'  }
-#'  \item{\code{getLayer(lyr)}}{
-#'    Get an object of class \code{\link{GSLayer}} if existing
-#'  }
-#'  \item{\code{createLayer(layer)}}{
-#'    Creates a new layer given an object of class \code{\link{GSLayer}}
-#'  }
-#'  \item{\code{updateLayer(layer)}}{
-#'    Creates a layer given an object of class \code{\link{GSLayer}}
-#'  }
-#'  \item{\code{deleteLayer(layer)}}{
-#'    Deletes a layer given an object of class \code{\link{GSLayer}}
-#'  }
-#' }
-#' 
-#' @section \code{LayerGroup} methods:
-#' \describe{ 
-#'  \item{\code{getLayerGroups()}}{
-#'    Get the list of layers. Returns an object of class \code{list} giving items 
-#'    of class \code{\link{GSLayer}}
-#'  }
-#'  \item{\code{getLayerGroupNames()}}{
-#'    Get the list of layer names.
-#'  }
-#'  \item{\code{getLayerGroup(lyr, ws)}}{
-#'    Get an object of class \code{\link{GSLayerGroup}} if existing. Can be restrained
-#'    to a workspace.
-#'  }
-#'  \item{\code{createLayerGroup(layerGroup, ws)}}{
-#'    Creates a new layer given an object of class \code{\link{GSLayerGroup}}. Can be
-#'    restrained to a particular workspace.
-#'  }
-#'  \item{\code{updateLayerGroup(layerGroup, ws)}}{
-#'    Creates a layer given an object of class \code{\link{GSLayerGroup}}. Can be
-#'    restrained to a particular workspace.
-#'  }
-#'  \item{\code{deleteLayerGroup(layerGroup, ws)}}{
-#'    Deletes a layer given an object of class \code{\link{GSLayerGroup}}. Can be
-#'    restrained to a particular workspace.
-#'  }
-#' }
-#' 
-#' @section Main \code{Layer} user publication methods:
-#' \describe{ 
-#'  \item{\code{publishLayer(ws, ds, featureType, layer)}}{
-#'    Publish a web-layer (including the featureType and 'layer' resources), given
-#'    a workspace, a datastore, providing an object of class \code{GSFeatureType},
-#'    and \code{GSLayer}
-#'  }
-#'  \item{\code{unpublishLayer(ws, ds, lyr)}}{
-#'    Unpublish a web-layer (including the featureType and 'layer' resources), given
-#'    a workspace, a datastore, and a layer name
-#'  }
-#' }
-#' 
-#' @section Data upload methods:
-#' \describe{ 
-#'  \item{\code{uploadData(ws, ds, endpoint, extension,
-#'                         configure, update, filename, charset, contentType)}}{
-#'    Uploads data to a target dataStore
-#'  }
-#'  \item{\code{uploadShapefile(ws, ds, endpoint,
-#'                              configure, update, filename, charset)}}{
-#'    Uploads a zipped ESRIshapefile to a target dataStore
-#'  }
-#'  \item{\code{uploadProperties(ws, ds, endpoint,
-#'                               configure, update, filename, charset)}}{
-#'    Uploads a properties file to a target dataStore
-#'  }
-#'  \item{\code{uploadH2(ws, ds, endpoint,
-#'                       configure, update, filename, charset)}}{
-#'    Uploads a H2 database to a target dataStore
-#'  }
-#'  \item{\code{uploadSpatialite(ws, ds, endpoint,
-#'                               configure, update, filename, charset)}}{
-#'    Uploads a Spatialite database to a target dataStore
-#'  }
-#'  \item{\code{uploadAppschema(ws, ds, endpoint,
-#'                               configure, update, filename, charset)}}{
-#'    Uploads a appschema file to a target dataStore
-#'  }
-#'  \item{\code{uploadGeopackage(ws, ds, endpoint,
-#'                               configure, update, filename, charset)}}{
-#'    Uploads a GeoPackage file to a target dataStore                             
-#'  }
-#' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -184,8 +23,9 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #DataStore generic CRUD methods
     #===========================================================================
     
-    #getDataStores
-    #---------------------------------------------------------------------------
+    #'@description Get the list of available dataStores. 
+    #'@param ws workspace name
+    #'@return an object of class \code{list} giving items of class \code{\link{GSAbstractDataStore}}
     getDataStores = function(ws){
       self$INFO(sprintf("Fetching list of datastores in workspace '%s'", ws))
       req <- GSUtils$GET(
@@ -217,15 +57,18 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(dsList)
     },
     
-    #getDataStoreNames
-    #---------------------------------------------------------------------------
+    #'@description Get the list of available dataStore names.
+    #'@param ws workspace name
+    #'@return a vector of class \code{character}
     getDataStoreNames = function(ws){
       dsList <- sapply(self$getDataStores(ws), function(x){x$name})
       return(dsList)
     },
     
-    #getDataStore
-    #---------------------------------------------------------------------------
+    #'@description Get an object of class \code{\link{GSAbstractDataStore}} given a workspace and datastore names.
+    #'@param ws workspace name
+    #'@param ds datastore name
+    #'@return the datastore
     getDataStore = function(ws, ds){
       self$INFO(sprintf("Fetching datastore '%s' in workspace '%s'", ds, ws))
       req <- GSUtils$GET(
@@ -252,8 +95,10 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(dataStore)
     },
     
-    #createDataStore
-    #---------------------------------------------------------------------------
+    #'@description Creates a datastore given a workspace and an object of class \code{\link{GSAbstractDataStore}}.
+    #'@param ws workspace name
+    #'@param dataStore datastore object of class \link{GSAbstractDataStore}
+    #'@return \code{TRUE} if created, \code{FALSE} otherwise
     createDataStore = function(ws, dataStore){
       self$INFO(sprintf("Creating datastore '%s' in workspace '%s'", dataStore$name, ws))
       created <- FALSE
@@ -274,8 +119,11 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       }
     },
     
-    #updateDataStore
-    #---------------------------------------------------------------------------
+    
+    #'@description Updates a datastore given a workspace and an object of class \code{\link{GSAbstractDataStore}}.
+    #'@param ws workspace name
+    #'@param dataStore datastore object of class \link{GSAbstractDataStore}
+    #'@return \code{TRUE} if updated, \code{FALSE} otherwise
     updateDataStore = function(ws, dataStore){
       updated <- FALSE
       self$INFO(sprintf("Updating datastore '%s' in workspace '%s'", dataStore$name, ws))
@@ -296,8 +144,13 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(updated)
     },
     
-    #deleteDataStore
-    #---------------------------------------------------------------------------
+    #'@description Deletes a datastore given workspace and datastore names.
+    #'    By defaut, the option \code{recurse} is set to FALSE, ie datastore layers are not removed.
+    #'    To remove all datastore layers, set this option to TRUE.
+    #'@param ws workspace name
+    #'@param ds datastore name
+    #'@param recurse recurse 
+    #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
     deleteDataStore = function(ws, ds, recurse = FALSE){
       self$INFO(sprintf("Deleting datastore '%s' in workspace '%s'", ds, ws))
       deleted <- FALSE
@@ -318,8 +171,11 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #DataStore featureType CRUD methods
     #===========================================================================
     
-    #getFeatureTypes
-    #---------------------------------------------------------------------------
+    #'@description Get the list of available feature types for given workspace and datastore.
+    #'@param ws workspace name
+    #'@param ds datastore name
+    #'@param list list type value, among "configured", "available", "available_with_geom", "all"
+    #'@return an object of class \code{list} giving items of class \code{\link{GSFeatureType}}
     getFeatureTypes = function(ws, ds, list = "configured"){
       self$INFO(sprintf("Fetching featureTypes for datastore '%s' in workspace '%s'", ds, ws))
       supportedListValues <- c("configured", "available", "available_with_geom", "all")
@@ -348,15 +204,20 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(ftList)
     },
     
-    #getFeatureTypeNames
-    #---------------------------------------------------------------------------
+    #'@description Get the list of available feature type names for given workspace and datastore.
+    #'@param ws workspace name
+    #'@param ds datastore name
+    #'@return a vector of class\code{character}
     getFeatureTypeNames = function(ws, ds){
       ftList <- sapply(self$getFeatureTypes(ws, ds), function(x){x$name})
       return(ftList)
     },
     
-    #getFeatureType
-    #---------------------------------------------------------------------------
+    #'@description Get an object of class \code{\link{GSFeatureType}} given a workspace, datastore and feature type names.
+    #'@param ws workspace name
+    #'@param ds datastore name
+    #'@param ft feature type name
+    #'@return an object of class \link{GSFeatureType}
     getFeatureType = function(ws, ds, ft){
       self$INFO(sprintf("Fetching featureType '%s' in datastore '%s' (workspace '%s')", ft, ds, ws))
       req <- GSUtils$GET(
@@ -375,8 +236,11 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(featureType)
     },
     
-    #createFeatureType
-    #---------------------------------------------------------------------------
+    #'@description Creates a new featureType given a workspace, datastore names and an object of class \code{\link{GSFeatureType}}
+    #'@param ws workspace name
+    #'@param ds datastore name
+    #'@param featureType feature type
+    #'@return \code{TRUE} if created, \code{FALSE} otherwise
     createFeatureType = function(ws, ds, featureType){
       self$INFO(sprintf("Creating featureType '%s' in datastore '%s' (workspace '%s')", featureType$name, ds, ws))
       created <- FALSE
@@ -398,8 +262,11 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(created)
     },
     
-    #updateFeatureType
-    #---------------------------------------------------------------------------
+    #'@description Updates a featureType given a workspace, datastore names and an object of class \code{\link{GSFeatureType}}
+    #'@param ws workspace name
+    #'@param ds datastore name
+    #'@param featureType feature type
+    #'@return \code{TRUE} if updated, \code{FALSE} otherwise
     updateFeatureType = function(ws, ds, featureType){
       self$INFO(sprintf("Updating featureType '%s' in datastore '%s' (workspace '%s')", featureType$name, ds, ws))
       updated <- FALSE
@@ -421,8 +288,14 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(updated)
     },
     
-    #deleteFeatureType
-    #---------------------------------------------------------------------------
+    #'@description Deletes a featureType given a workspace, datastore names, and an object of 
+    #'    class \code{\link{GSFeatureType}}. By defaut, the option \code{recurse} is 
+    #'    set to FALSE, ie datastore layers are not removed.
+    #'@param ws workspace name
+    #'@param ds datastore name
+    #'@param ft feature type name
+    #'@param recurse recurse
+    #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
     deleteFeatureType = function(ws, ds, ft, recurse = FALSE){
       self$INFO(sprintf("Deleting featureType '%s' in datastore '%s' (workspace '%s')", ft, ds, ws))
       deleted <- FALSE
@@ -443,8 +316,8 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #Layer CRUD methods
     #===========================================================================
 
-    #getLayers
-    #---------------------------------------------------------------------------
+    #'@description Get the list of layers.
+    #'@return an object of class \code{list} giving items of class \code{\link{GSLayer}}
     getLayers = function(){
       self$INFO("Fetching layers")
       req <- GSUtils$GET(
@@ -466,15 +339,16 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(lyrList)
     },
     
-    #getLayerNames
-    #---------------------------------------------------------------------------
+    #'@description Get the list of layer names.
+    #'@return a vector of class \code{character}
     getLayerNames = function(){
       lyrList <- sapply(self$getLayers(), function(x){x$name})
       return(lyrList)
     },
     
-    #getLayer
-    #---------------------------------------------------------------------------
+    #'@description Get layer by name
+    #'@param lyr layer name
+    #'@return an object of class \link{GSLayer}
     getLayer = function(lyr){
       self$INFO(sprintf("Fetching layer '%s'", lyr))
       req <- GSUtils$GET(
@@ -493,8 +367,9 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(layer)
     },
     
-    #createLayer
-    #---------------------------------------------------------------------------
+    #'@description Creates a new layer given an object of class \code{\link{GSLayer}}
+    #'@param  layer object of class \link{GSLayer}
+    #'@return \code{TRUE} if created, \code{FALSE} otherwise
     createLayer = function(layer){
       self$INFO(sprintf("Creating layer '%s'", layer$name))
       created <- FALSE
@@ -515,8 +390,9 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(created)
     },
     
-    #updateLayer
-    #---------------------------------------------------------------------------
+    #'@description Updates a layer given an object of class \code{\link{GSLayer}}
+    #'@param  layer object of class \link{GSLayer}
+    #'@return \code{TRUE} if updated, \code{FALSE} otherwise
     updateLayer = function(layer){
       self$INFO(sprintf("Updating layer '%s'", layer$name))
       updated <- FALSE
@@ -537,8 +413,9 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(updated)
     },
     
-    #deleteLayer
-    #---------------------------------------------------------------------------
+    #'@description Deletes layer given an object of class \code{\link{GSLayer}}
+    #'@param  lyr layer name
+    #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
     deleteLayer = function(lyr){
       self$INFO(sprintf("Deleting layer '%s'", lyr))
       deleted <- FALSE
@@ -558,8 +435,9 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #LayerGroup CRUD methods
     #===========================================================================
     
-    #getLayerGroups
-    #---------------------------------------------------------------------------
+    #'@description Get layer groups
+    #'@param ws workspace name. Optional
+    #'@return a list of objects of class \link{GSLayerGroup}
     getLayerGroups = function(ws = NULL){
       if(missing(ws)){
         self$INFO("Fetching layer groups")
@@ -586,15 +464,18 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(lyrList)
     },
     
-    #getLayerGroupNames
-    #---------------------------------------------------------------------------
+    #'@description Get layer group names
+    #'@param ws workspace name
+    #'@return a list of layer group names, as vector of class \code{character}
     getLayerGroupNames = function(ws = NULL){
       lyrList <- sapply(self$getLayerGroups(ws), function(x){x$name})
       return(lyrList)
     },
     
-    #getLayerGroup
-    #---------------------------------------------------------------------------
+    #'@description Get layer group
+    #'@param lyr lyr
+    #'@param ws workspace name
+    #'@return an object of class \link{GSLayerGroup}
     getLayerGroup = function(lyr, ws = NULL){
       if(is.null(ws)){
         self$INFO(sprintf("Fetching layer group '%s'", lyr))
@@ -619,8 +500,10 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(layer)
     },
     
-    #createLayerGroup
-    #---------------------------------------------------------------------------
+    #'@description Creates a layer group
+    #'@param layerGroup object of class \link{GSLayerGroup}
+    #'@param ws workspace name. Optional
+    #'@return \code{TRUE} if created, \code{FALSE} otherwise
     createLayerGroup = function(layerGroup, ws = NULL){
       if(is.null(ws)){
         self$INFO(sprintf("Creating layer group '%s'", layerGroup$name))
@@ -646,8 +529,10 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(created)
     },
     
-    #updateLayerGroup
-    #---------------------------------------------------------------------------
+    #'@description Updates a layer group
+    #'@param layerGroup object of class \link{GSLayerGroup}
+    #'@param ws workspace name. Optional
+    #'@return \code{TRUE} if updated, \code{FALSE} otherwise
     updateLayerGroup = function(layerGroup, ws = NULL){
       if(is.null(ws)){
         self$INFO(sprintf("Updating layer '%s'", layerGroup$name))
@@ -674,8 +559,10 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(updated)
     },
     
-    #deleteLayerGroup
-    #---------------------------------------------------------------------------
+    #'@description Deletes a layer group
+    #'@param lyr layer group name
+    #'@param ws workspace name. Optional
+    #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
     deleteLayerGroup = function(lyr, ws = NULL){
       if(is.null(ws)){
         self$INFO(sprintf("Deleting layer group '%s'", lyr))
@@ -700,8 +587,13 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     
     #Layer publication methods
     #===========================================================================    
-    #publishLayer
-    #---------------------------------------------------------------------------
+    #'@description Publish a feature type/layer pair given a workspace and datastore. The name 'layer' here 
+    #'encompasses both \link{GSFeatureType} and \link{GSLayer} resources.
+    #'@param ws workspace name
+    #'@param ds datastore name
+    #'@param featureType object of class \link{GSFeatureType}
+    #'@param layer object of class \link{GSLayer}
+    #'@return \code{TRUE} if published, \code{FALSE} otherwise
     publishLayer = function(ws, ds, featureType, layer){
       self$INFO(sprintf("Publishing layer '%s'", layer$name))
       published <- FALSE
@@ -725,8 +617,12 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(published)
     },
     
-    #unpublishLayer
-    #---------------------------------------------------------------------------
+    #'@description Unpublish a feature type/layer pair given a workspace and datastore. The name 'layer' here 
+    #'encompasses both \link{GSFeatureType} and \link{GSLayer} resources.
+    #'@param ws workspace name
+    #'@param ds datastore name
+    #'@param lyr layer name
+    #'@return \code{TRUE} if published, \code{FALSE} otherwise
     unpublishLayer = function(ws, ds, lyr){
       self$INFO(sprintf("Unpublishing layer '%s'", lyr))
       unpublished <- FALSE
@@ -747,8 +643,22 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     
     #Upload methods
     #===========================================================================
-    #uploadData
-    #---------------------------------------------------------------------------
+    #'@description Uploads features data. The \code{extension} corresponds to the format/type of features to be uploaded among "shp", "spatialite", "h2", "gpkg". 
+    #'    The \code{endpoint} takes a value among \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name 
+    #'    of the coverage file to upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
+    #'    \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
+    #'    both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
+    #'    the first upload, \code{"overwrite"} in case the file should be overwriten.
+    #'@param ws workspace name
+    #'@param ds datastore name
+    #'@param endpoint endpoint
+    #'@param extension extension
+    #'@param configure configure strategy among values: "first" or "none"
+    #'@param update update strategy, among values: "append", "overwrite"
+    #'@param filename file name of the resource to upload
+    #'@param charset charset
+    #'@param contentType content type
+    #'@return \code{TRUE} if uploaded, \code{FALSE} otherwise
     uploadData = function(ws, ds, endpoint = "file", extension,
                           configure = "first", update = "append", filename,
                           charset, contentType){
@@ -802,10 +712,20 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(uploaded)
     },
     
-    #uploadShapefile
-    #NOTES:
-    #see #32 issue when contentType = "application/zip" (?)
-    #---------------------------------------------------------------------------
+    #'@description Uploads zipped shapefile.
+    #'    The \code{endpoint} takes a value among \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name 
+    #'    of the coverage file to upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
+    #'    \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
+    #'    both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
+    #'    the first upload, \code{"overwrite"} in case the file should be overwriten.
+    #'@param ws workspace name
+    #'@param ds datastore name
+    #'@param endpoint endpoint
+    #'@param configure configure strategy among values: "first" or "none"
+    #'@param update update strategy, among values: "append", "overwrite"
+    #'@param filename file name of the resource to upload
+    #'@param charset charset
+    #'@return \code{TRUE} if uploaded, \code{FALSE} otherwise
     uploadShapefile = function(ws, ds, endpoint = "file",
                                 configure = "first", update = "append",
                                filename, charset = "UTF-8"){
@@ -816,8 +736,20 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       )
     },
     
-    #uploadProperties (to test)
-    #---------------------------------------------------------------------------
+    #'@description Uploads properties.
+    #'    The \code{endpoint} takes a value among \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name 
+    #'    of the coverage file to upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
+    #'    \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
+    #'    both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
+    #'    the first upload, \code{"overwrite"} in case the file should be overwriten.
+    #'@param ws workspace name
+    #'@param ds datastore name
+    #'@param endpoint endpoint
+    #'@param configure configure strategy among values: "first" or "none"
+    #'@param update update strategy, among values: "append", "overwrite"
+    #'@param filename file name of the resource to upload
+    #'@param charset charset
+    #'@return \code{TRUE} if uploaded, \code{FALSE} otherwise
     uploadProperties = function(ws, ds, endpoint = "file",
                                configure = "first", update = "append",
                                filename, charset = "UTF-8"){
@@ -828,8 +760,20 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       )
     },
     
-    #uploadH2 (to test)
-    #---------------------------------------------------------------------------
+    #'@description Uploads H2 database.
+    #'    The \code{endpoint} takes a value among \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name 
+    #'    of the coverage file to upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
+    #'    \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
+    #'    both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
+    #'    the first upload, \code{"overwrite"} in case the file should be overwriten.
+    #'@param ws workspace name
+    #'@param ds datastore name
+    #'@param endpoint endpoint
+    #'@param configure configure strategy among values: "first" or "none"
+    #'@param update update strategy, among values: "append", "overwrite"
+    #'@param filename file name of the resource to upload
+    #'@param charset charset
+    #'@return \code{TRUE} if uploaded, \code{FALSE} otherwise
     uploadH2 = function(ws, ds, endpoint = "file",
                         configure = "first", update = "append",
                         filename, charset = "UTF-8"){
@@ -840,8 +784,20 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       )
     },
     
-    #uploadSpatialite (to test)
-    #---------------------------------------------------------------------------
+    #'@description Uploads spatialite file.
+    #'    The \code{endpoint} takes a value among \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name 
+    #'    of the coverage file to upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
+    #'    \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
+    #'    both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
+    #'    the first upload, \code{"overwrite"} in case the file should be overwriten.
+    #'@param ws workspace name
+    #'@param ds datastore name
+    #'@param endpoint endpoint
+    #'@param configure configure strategy among values: "first" or "none"
+    #'@param update update strategy, among values: "append", "overwrite"
+    #'@param filename file name of the resource to upload
+    #'@param charset charset
+    #'@return \code{TRUE} if uploaded, \code{FALSE} otherwise
     uploadSpatialite = function(ws, ds, endpoint = "file",
                         configure = "first", update = "append",
                         filename, charset = "UTF-8"){
@@ -852,8 +808,20 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       )
     },
     
-    #uploadAppschema (to test)
-    #---------------------------------------------------------------------------
+    #'@description Uploads App schema.
+    #'    The \code{endpoint} takes a value among \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name 
+    #'    of the coverage file to upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
+    #'    \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
+    #'    both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
+    #'    the first upload, \code{"overwrite"} in case the file should be overwriten.
+    #'@param ws workspace name
+    #'@param ds datastore name
+    #'@param endpoint endpoint
+    #'@param configure configure strategy among values: "first" or "none"
+    #'@param update update strategy, among values: "append", "overwrite"
+    #'@param filename file name of the resource to upload
+    #'@param charset charset
+    #'@return \code{TRUE} if uploaded, \code{FALSE} otherwise
     uploadAppschema = function(ws, ds, endpoint = "file",
                                 configure = "first", update = "append",
                                 filename, charset = "UTF-8"){
@@ -864,8 +832,20 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       )
     },
     
-    #uploadGeoPackage
-    #---------------------------------------------------------------------------
+    #'@description Uploads GeoPackage.
+    #'    The \code{endpoint} takes a value among \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name 
+    #'    of the coverage file to upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
+    #'    \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
+    #'    both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
+    #'    the first upload, \code{"overwrite"} in case the file should be overwriten.
+    #'@param ws workspace name
+    #'@param ds datastore name
+    #'@param endpoint endpoint
+    #'@param configure configure strategy among values: "first" or "none"
+    #'@param update update strategy, among values: "append", "overwrite"
+    #'@param filename file name of the resource to upload
+    #'@param charset charset
+    #'@return \code{TRUE} if uploaded, \code{FALSE} otherwise
     uploadGeoPackage = function(ws, ds, endpoint = "file",
                                configure = "first", update = "append",
                                filename, charset = "UTF-8"){

@@ -12,40 +12,9 @@ Object of \code{\link{R6Class}} for modelling a entry set
 }
 \description{
 Geoserver REST API XML entry set
+
+Geoserver REST API XML entry set
 }
-\section{Fields}{
-
-\describe{
-\item{\code{entryset}}{}
-}}
-
-\section{Methods}{
-
-\describe{
- \item{\code{new(xml)}}{
-   This method is used to instantiate a GSDataStore
- }
- \item{\code{decode(xml)}}{
-   This method is used to decode a GSRESTEntrySet from XML
- }
- \item{\code{encode()}}{
-   This method is used to encode a GSRESTEntrySet as XML
- }
- \item{\code{setEntryset(entryset)}}{
-   Sets an entryset (list)
- }
- \item{\code{addEntry(key, value)}}{
-   Adds an entry (key/value pair). Returns TRUE if added, FALSE otherwise
- }
- \item{\code{setEntry(key, value)}}{
-   Sets an entry (key/value pair).
- }
- \item{\code{delEntry(key)}}{
-   Deletes an entry by key. Returns TRUE if removed, FALSE otherwise
- }
-}
-}
-
 \author{
 Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 }
@@ -53,3 +22,166 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{entryset}
 \keyword{geoserver}
 \keyword{rest}
+\section{Super class}{
+\code{\link[geosapi:GSRESTResource]{geosapi::GSRESTResource}} -> \code{GSRESTEntrySet}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{entryset}}{entryset}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{GSRESTEntrySet$new()}}
+\item \href{#method-decode}{\code{GSRESTEntrySet$decode()}}
+\item \href{#method-setEntryset}{\code{GSRESTEntrySet$setEntryset()}}
+\item \href{#method-addEntry}{\code{GSRESTEntrySet$addEntry()}}
+\item \href{#method-setEntry}{\code{GSRESTEntrySet$setEntry()}}
+\item \href{#method-delEntry}{\code{GSRESTEntrySet$delEntry()}}
+\item \href{#method-clone}{\code{GSRESTEntrySet$clone()}}
+}
+}
+\if{html}{
+\out{<details open ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+Initializes an object of class \link{GSRESTEntrySet}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSRESTEntrySet$new(rootName, xml = NULL, entryset)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{rootName}}{root name}
+
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+
+\item{\code{entryset}}{entry set}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-decode}{}}}
+\subsection{Method \code{decode()}}{
+Decodes from XML
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSRESTEntrySet$decode(xml)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setEntryset"></a>}}
+\if{latex}{\out{\hypertarget{method-setEntryset}{}}}
+\subsection{Method \code{setEntryset()}}{
+Set entry set
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSRESTEntrySet$setEntryset(entryset)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{entryset}}{entry set}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-addEntry"></a>}}
+\if{latex}{\out{\hypertarget{method-addEntry}{}}}
+\subsection{Method \code{addEntry()}}{
+Adds entry set
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSRESTEntrySet$addEntry(key, value)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{key}}{key}
+
+\item{\code{value}}{value}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if added, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setEntry"></a>}}
+\if{latex}{\out{\hypertarget{method-setEntry}{}}}
+\subsection{Method \code{setEntry()}}{
+Sets entry set
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSRESTEntrySet$setEntry(key, value)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{key}}{key}
+
+\item{\code{value}}{value}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-delEntry"></a>}}
+\if{latex}{\out{\hypertarget{method-delEntry}{}}}
+\subsection{Method \code{delEntry()}}{
+Deletes entry set
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSRESTEntrySet$delEntry(key)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{key}}{key}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if deleted, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSRESTEntrySet$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

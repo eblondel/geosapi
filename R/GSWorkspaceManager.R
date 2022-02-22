@@ -12,58 +12,6 @@
 #' \dontrun{
 #'    GSWorkspaceManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
 #' }
-#'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(url, user, pwd, logger)}}{
-#'    This method is used to instantiate a GSManager with the \code{url} of the
-#'    GeoServer and credentials to authenticate (\code{user}/\code{pwd}). By default,
-#'    the \code{logger} argument will be set to \code{NULL} (no logger). This argument
-#'    accepts two possible values: \code{INFO}: to print only geosapi logs,
-#'    \code{DEBUG}: to print geosapi and CURL logs
-#'  }
-#'  \item{\code{getWorkspaces()}}{
-#'    Get the list of available workspace. Returns an object of class \code{list}
-#'    containing items of class \code{\link{GSWorkspace}}
-#'  }
-#'  \item{\code{getWorkspaceNames()}}{
-#'    Get the list of available workspace names. Returns an vector of class 
-#'    \code{character}
-#'  }
-#'  \item{\code{getWorkspace(ws)}}{
-#'    Get a \code{\link{GSWorkspace}} object given a workspace name.
-#'  }
-#'  \item{\code{createWorkspace(name, uri)}}{
-#'    Creates a GeoServer workspace given a name, and an optional URI. If the URI
-#'    is not specified, GeoServer will automatically create an associated Namespace 
-#'    with the URI being "http://{workspaceName}. If the URI is specified, the method
-#'    invokes the method \code{createNamespace(ns, uri)} of the \code{\link{GSNamespaceManager}}.
-#'    Returns \code{TRUE} if the workspace has been successfully created, \code{FALSE} otherwise
-#'  }
-#'  \item{\code{updateWorkspace(name, uri)}}{
-#'    Updates a GeoServer workspace given a name, and an optional URI. If the URI
-#'    is not specified, GeoServer will automatically update the associated Namespace 
-#'    with the URI being "http://{workspaceName}. If the URI is specified, the method
-#'    invokes the method \code{updateNamespace(ns, uri)} of the \code{\link{GSNamespaceManager}}.
-#'    Returns \code{TRUE} if the workspace has been successfully updated, \code{FALSE} otherwise
-#'  }
-#'  \item{\code{deleteWorkspace(ws)}}{
-#'    Deletes a GeoServer workspace given a name. Returns \code{TRUE} if the 
-#'    workspace has been successfully deleted, \code{FALSE} otherwise
-#'  }
-#'  \item{\code{getWorkspaceSettings(ws)}}{
-#'    Get the workspace settings (if existing) as object of class \code{GSWorkspaceSettings}
-#'  }
-#'  \item{\code{createWorkspaceSettings(ws, workspaceSettings)}}{
-#'    Creates a workspace settings for the workspace \code{ws}
-#'  }
-#'  \item{\code{updateWorkspaceSettings(ws, workspaceSettings)}}{
-#'    Updates a workspace settings for the workspace \code{ws}
-#'  }
-#'  \item{\code{deleteWorkspaceSettings(ws)}}{
-#'    Deletes a workspace settings for the workspace \code{ws}
-#'  }
-#' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -72,8 +20,9 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
 
   public = list(
     
-    #getWorkspaces
-    #---------------------------------------------------------------------------
+    #'@description Get the list of available workspace. Returns an object of class \code{list}
+    #'    containing items of class \code{\link{GSWorkspace}}
+    #'@param a list of \link{GSWorkspace}
     getWorkspaces = function(){
       self$INFO("Fetching list of workspaces")
       req <- GSUtils$GET(self$getUrl(), private$user,
@@ -94,15 +43,16 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
       return(wsList)
     },
     
-    #getWorkspaceNames
-    #---------------------------------------------------------------------------
+    #'@description Get the list of available workspace names. Returns an vector of class \code{character}
+    #'@return a list of workspace names
     getWorkspaceNames = function(){
       wsList <- sapply(self$getWorkspaces(), function(x){x$name})
       return(wsList)
     },
     
-    #getWorkspace
-    #---------------------------------------------------------------------------
+    #'@description Get a \code{\link{GSWorkspace}} object given a workspace name.
+    #'@param ws workspace name
+    #'@return an object of class \link{GSWorkspace}
     getWorkspace = function(ws){
       self$INFO(sprintf("Fetching workspace '%s'", ws))
       req <- GSUtils$GET(self$getUrl(), private$user,
@@ -119,8 +69,14 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
       return(workspace)
     },
     
-    #createWorkspace
-    #---------------------------------------------------------------------------
+    #'@description Creates a GeoServer workspace given a name, and an optional URI. If the URI
+    #'    is not specified, GeoServer will automatically create an associated Namespace 
+    #'    with the URI being "http://{workspaceName}. If the URI is specified, the method
+    #'    invokes the method \code{createNamespace(ns, uri)} of the \code{\link{GSNamespaceManager}}.
+    #'    Returns \code{TRUE} if the workspace has been successfully created, \code{FALSE} otherwise
+    #'@param name name
+    #'@param uri uri
+    #'@return \code{TRUE} if created, \code{FALSE} otherwise
     createWorkspace = function(name, uri){
       self$INFO(sprintf("Creating workspace '%s'", name))
       created <- FALSE
@@ -153,8 +109,14 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
       return(created)
     },
     
-    #updateWorkspace
-    #---------------------------------------------------------------------------
+    #'@description Updates a GeoServer workspace given a name, and an optional URI. If the URI
+    #'    is not specified, GeoServer will automatically update the associated Namespace 
+    #'    with the URI being "http://{workspaceName}. If the URI is specified, the method
+    #'    invokes the method \code{updateNamespace(ns, uri)} of the \code{\link{GSNamespaceManager}}.
+    #'    Returns \code{TRUE} if the workspace has been successfully updated, \code{FALSE} otherwise
+    #'@param name name
+    #'@param uri uri
+    #'@return \code{TRUE} if created, \code{FALSE} otherwise
     updateWorkspace = function(name, uri){
       self$INFO(sprintf("Updating workspace '%s'", name))
       updated <- FALSE
@@ -184,8 +146,10 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
       return(updated)
     },
     
-    #deleteWorkspace
-    #---------------------------------------------------------------------------
+    #'@description Deletes a GeoServer workspace given a name. 
+    #'@param name name
+    #'@param recurse recurse
+    #'@return \code{TRUE} if the workspace has been successfully deleted, \code{FALSE} otherwise
     deleteWorkspace = function(name, recurse = FALSE){
       self$INFO(sprintf("Deleting workspace '%s'", name))
       deleted <- FALSE
@@ -205,8 +169,9 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
       return(deleted)
     },
     
-    #getWorkspaceSettings
-    #---------------------------------------------------------------------------
+    #'@description Updates workspace settings
+    #'@param ws workspace name
+    #'@return an object of class \link{GSWorkspaceSettings}
     getWorkspaceSettings = function(ws){
       if(self$version$lowerThan("2.12")){
         stop("This feature is available starting from GeoServer 2.12")
@@ -226,8 +191,10 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
       return(workspaceSettings)
     },
     
-    #createWorkspaceSettings
-    #---------------------------------------------------------------------------
+    #'@description Creates workspace settings
+    #'@param ws workspace name
+    #'@param workspaceSettings object of class \link{GSWorkspaceSettings}
+    #'@return \code{TRUE} if created, \code{FALSE} otherwise
     createWorkspaceSettings = function(ws, workspaceSettings){
       if(self$version$lowerThan("2.12")){
         stop("This feature is available starting from GeoServer 2.12")
@@ -252,8 +219,10 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
       return(created)
     },
     
-    #updateWorkspaceSettings
-    #---------------------------------------------------------------------------
+    #'@description Updates workspace settings
+    #'@param ws workspace name
+    #'@param workspaceSettings object of class \link{GSWorkspaceSettings}
+    #'@return \code{TRUE} if updated, \code{FALSE} otherwise
     updateWorkspaceSettings = function(ws, workspaceSettings){
       if(self$version$lowerThan("2.12")){
         stop("This feature is available starting from GeoServer 2.12")
@@ -277,8 +246,9 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
       return(updated)
     },
     
-    #deleteWorkspaceSettings
-    #---------------------------------------------------------------------------
+    #'@description Deletes workspace settings
+    #'@param ws workspace name
+    #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
     deleteWorkspaceSettings = function(ws){
       if(self$version$lowerThan("2.12")){
         stop("This feature is available starting from GeoServer 2.12")

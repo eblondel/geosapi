@@ -22,22 +22,6 @@
 #'            )
 #' }
 #' 
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(url, user, pwd)}}{
-#'    This method is used to instantiate a GSVersion object.
-#'  }
-#'  \item{\code{lowerThan(version)}}{
-#'    Compares to a version and returns TRUE if it is lower, FALSE otherwise
-#'  }
-#'  \item{\code{greaterThan(version)}}{
-#'    Compares to a version and returns TRUE if it is greater, FALSE otherwise
-#'  }
-#'  \item{\code{equalTo(version)}}{
-#'    Compares to a version and returns TRUE if it is equal, FALSE otherwise
-#'  }
-#' }
-#' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
 GSVersion <- R6Class("GSVersion",
@@ -59,8 +43,15 @@ GSVersion <- R6Class("GSVersion",
   ),
                      
   public = list(
+    #'@field version version
     version = NULL,
+    #'@field value value
     value = NULL,
+    
+    #'@description Initializes an object of class \link{GSVersion}
+    #'@param url url
+    #'@param user user
+    #'@param pwd pwd
     initialize = function(url, user, pwd){ 
       
       #try to grab version from web admin
@@ -96,8 +87,9 @@ GSVersion <- R6Class("GSVersion",
       }
     },
     
-    #lowerThan
-    #---------------------------------------------------------------------------
+    #'@description  Compares to a version and returns TRUE if it is lower, FALSE otherwise
+    #'@param version version
+    #'@return \code{TRUE} if lower, \code{FALSE} otherwise
     lowerThan = function(version){
       lower <- FALSE
       if(is.character(version)){
@@ -115,8 +107,9 @@ GSVersion <- R6Class("GSVersion",
       return(lower)
     },
 
-    #greaterThan
-    #---------------------------------------------------------------------------
+    #'@description  Compares to a version and returns TRUE if it is greater, FALSE otherwise
+    #'@param version version
+    #'@return \code{TRUE} if greater, \code{FALSE} otherwise
     greaterThan = function(version){
       greater <- FALSE
       if(is.character(version)){
@@ -134,8 +127,9 @@ GSVersion <- R6Class("GSVersion",
       return(greater)
     },
     
-    #equalTo
-    #---------------------------------------------------------------------------
+    #'@description  Compares to a version and returns TRUE if it is equal, FALSE otherwise
+    #'@param version version
+    #'@return \code{TRUE} if equal, \code{FALSE} otherwise
     equalTo = function(version){
       equal <- FALSE
       if(is.character(version)){

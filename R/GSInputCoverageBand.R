@@ -8,10 +8,7 @@
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @examples
-#' GSInputCoverageBand$new()
-#' 
-#' @field coverageName coverage name
-#' @field band coverage band
+#'   GSInputCoverageBand$new()
 #'
 #' @section Methods:
 #' \describe{
@@ -34,8 +31,15 @@
 GSInputCoverageBand <- R6Class("GSInputCoverageBand",
   inherit = GSRESTResource,                    
   public = list(
+    #'@field coverageName coverage name
     coverageName = NULL,
+    #'@field band band
     band = NULL,
+    
+    #'@description Initializes an object of class \link{GSInputCoverageBand}
+    #'@param xml object of class \link{XMLInternalNode-class}
+    #'@param coverageName coverage name
+    #'@param band band name
     initialize = function(xml = NULL, coverageName = NULL, band = NULL){
       super$initialize(rootName = "inputCoverageBand")
       if(!missing(xml) & !is.null(xml)){
@@ -46,6 +50,8 @@ GSInputCoverageBand <- R6Class("GSInputCoverageBand",
       }
     },
     
+    #'@description Decodes from XML
+    #'@param xml object of class \link{XMLInternalNode-class}
     decode = function(xml){
       coverageNames <- getNodeSet(xml, "//coverageName")
       self$coverageName <- xmlValue(coverageNames[[1]])
@@ -53,12 +59,14 @@ GSInputCoverageBand <- R6Class("GSInputCoverageBand",
       self$band <- xmlValue(bands[[1]])
     },
     
-    #setCoverageName
+    #'@description Set coverage name
+    #'@param coverageName coverage name
     setCoverageName = function(coverageName){
       self$coverageName = coverageName
     },
   
-    #setBand
+    #'@description Set band
+    #'@param band band
     setBand = function(band){
       self$band = band
     }

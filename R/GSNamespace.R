@@ -9,36 +9,25 @@
 #' 
 #' @examples
 #' GSNamespace$new(prefix = "prefix", uri = "http://prefix")
-#'
-#' @field name namespace name
-#' @field prefix namespace prefix
-#' @field uri namespace URI
-#' @field full completeness of the namespace description
-#'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(xml, prefix, uri)}}{
-#'    This method is used to instantiate a GSNamespace
-#'  }
-#'  \item{\code{decode(xml)}}{
-#'    This method is used to decode a GSNamespace from XML
-#'  }
-#'  \item{\code{encode()}}{
-#'    This method is used to encode a GSNamespace to XML. Inherited from the
-#'    generic \code{GSRESTResource} encoder
-#'  }
-#' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
 GSNamespace <- R6Class("GSNamespace",
-  inherit = GSRESTResource,                     
+  inherit = GSRESTResource,  
   public = list(
+    #' @field name namespace name
     name = NA,
+    #' @field prefix namespace prefix
     prefix = NA,
+    #' @field uri namespace URI
     uri = NA,
+    #' @field full completeness of the namespace description
     full = FALSE,
    
+    #'@description Initializes an object of class \link{GSNamespace}
+    #'@param xml object of class \link{XMLInternalNode-class}
+    #'@param prefix prefix
+    #'@param uri uri
     initialize = function(xml = NULL, prefix, uri){
       super$initialize(rootName = "namespace")
       if(!missing(xml) & !is.null(xml)){
@@ -51,6 +40,8 @@ GSNamespace <- R6Class("GSNamespace",
       }
     },
     
+    #'@description Decodes from XML
+    #'@param xml object of class \link{XMLInternalNode-class}
     decode = function(xml){
       names <- getNodeSet(xml, "//name")
       if(length(names)>0){

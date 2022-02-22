@@ -12,42 +12,6 @@
 #' \dontrun{
 #'    GSNamespaceManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
 #' }
-#'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(url, user, pwd, logger)}}{
-#'    This method is used to instantiate a GSManager with the \code{url} of the
-#'    GeoServer and credentials to authenticate (\code{user}/\code{pwd}). By default,
-#'    the \code{logger} argument will be set to \code{NULL} (no logger). This argument
-#'    accepts two possible values: \code{INFO}: to print only geosapi logs,
-#'    \code{DEBUG}: to print geosapi and CURL logs
-#'  }
-#'  \item{\code{getNamespaces()}}{
-#'    Get the list of available namespace. Returns an object of class \code{list}
-#'    containing items of class \code{\link{GSNamespace}}
-#'  }
-#'  \item{\code{getNamespaceNames()}}{
-#'    Get the list of available namespace names. Returns an vector of class 
-#'    \code{character}
-#'  }
-#'  \item{\code{getNamespace(ns)}}{
-#'    Get a \code{\link{GSNamespace}} object given a namespace name.
-#'  }
-#'  \item{\code{createNamespace(prefix, uri)}}{
-#'    Creates a GeoServer namespace given a prefix, and an optional URI. Returns
-#'    \code{TRUE} if the namespace has been successfully created, \code{FALSE}
-#'    otherwise
-#'  }
-#'  \item{\code{updateNamespace(ns, uri)}}{
-#'    Updates a GeoServer namespace given a name, and an optional URI. Returns
-#'    \code{TRUE} if the namespace has been successfully updated, \code{FALSE}
-#'    otherwise
-#'  }
-#'  \item{\code{deleteNamespace(ns)}}{
-#'    Deletes a GeoServer namespace given a name. Returns \code{TRUE} if the 
-#'    namespace has been successfully deleted, \code{FALSE} otherwise
-#'  }
-#' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -56,8 +20,8 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
   
   public = list(
     
-    #getNamespaces
-    #---------------------------------------------------------------------------
+    #'@description Get the list of available namespace. Re
+    #'@return an object of class \code{list} containing items of class \code{\link{GSNamespace}}
     getNamespaces = function(){
       self$INFO("Fetching list of namespaces")
       req <- GSUtils$GET(self$getUrl(), private$user,
@@ -78,15 +42,16 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
       return(nsList)
     },
     
-    #getNamespaceNames
-    #---------------------------------------------------------------------------
+    #'@description Get the list of available namespace names.
+    #'@return a vector of class \code{character}
     getNamespaceNames = function(){
       nsList <- sapply(self$getNamespaces(), function(x){x$name})
       return(nsList)
     },
     
-    #getNamespace
-    #---------------------------------------------------------------------------
+    #'@description Get a \code{\link{GSNamespace}} object given a namespace name.
+    #'@param ns namespace
+    #'@return an object of class \link{GSNamespace}
     getNamespace = function(ns){
       self$INFO(sprintf("Fetching workspace '%s'", ns))
       req <- GSUtils$GET(self$getUrl(), private$user,
@@ -103,8 +68,10 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
       return(namespace)
     },
     
-    #createNamespace
-    #---------------------------------------------------------------------------
+    #'@description  Creates a GeoServer namespace given a prefix, and an optional URI. 
+    #'@param prefix prefix
+    #'@param uri uri
+    #'@return \code{TRUE} if the namespace has been successfully created, \code{FALSE} otherwise
     createNamespace = function(prefix, uri){
       
       self$INFO(sprintf("Creating namespace '%s'", prefix))
@@ -129,8 +96,10 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
       return(created)
     },
     
-    #updateNamespace
-    #---------------------------------------------------------------------------
+    #'@description  Updates a GeoServer namespace given a prefix, and an optional URI. 
+    #'@param prefix prefix
+    #'@param uri uri
+    #'@return \code{TRUE} if the namespace has been successfully updated, \code{FALSE} otherwise
     updateNamespace = function(prefix, uri){
       
       self$INFO(sprintf("Updating namespace '%s'", prefix))
@@ -154,8 +123,10 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
       return(updated)
     },
     
-    #deleteNamespace
-    #---------------------------------------------------------------------------
+    #'@description Deletes a GeoServer namespace given a name. 
+    #'@param name name
+    #'@param recurse recurse
+    #'@return \code{TRUE} if the namespace has been successfully deleted, \code{FALSE} otherwise
     deleteNamespace = function(name, recurse = FALSE){
       self$INFO(sprintf("Deleting namespace '%s'", name))
       deleted <- FALSE

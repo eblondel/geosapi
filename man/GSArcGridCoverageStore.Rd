@@ -12,16 +12,9 @@ Object of \code{\link{R6Class}} for modelling a GeoServer ArcGrid CoverageStore
 }
 \description{
 Geoserver REST API ArcGridCoverageStore
-}
-\section{Methods}{
 
-\describe{
- \item{\code{new(xml, name, description, enabled, url)}}{
-   This method is used to instantiate a \code{GSArcGridCoverageStore}
- }
+Geoserver REST API ArcGridCoverageStore
 }
-}
-
 \author{
 Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 }
@@ -30,3 +23,81 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{api}
 \keyword{geoserver}
 \keyword{rest}
+\section{Super classes}{
+\code{\link[geosapi:GSRESTResource]{geosapi::GSRESTResource}} -> \code{\link[geosapi:GSAbstractStore]{geosapi::GSAbstractStore}} -> \code{\link[geosapi:GSAbstractCoverageStore]{geosapi::GSAbstractCoverageStore}} -> \code{GSArcGridCoverageStore}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{url}}{url}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{GSArcGridCoverageStore$new()}}
+\item \href{#method-clone}{\code{GSArcGridCoverageStore$clone()}}
+}
+}
+\if{html}{
+\out{<details ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setDescription">}\href{../../geosapi/html/GSAbstractStore.html#method-setDescription}{\code{geosapi::GSAbstractStore$setDescription()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setEnabled">}\href{../../geosapi/html/GSAbstractStore.html#method-setEnabled}{\code{geosapi::GSAbstractStore$setEnabled()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setType">}\href{../../geosapi/html/GSAbstractStore.html#method-setType}{\code{geosapi::GSAbstractStore$setType()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractCoverageStore" data-id="decode">}\href{../../geosapi/html/GSAbstractCoverageStore.html#method-decode}{\code{geosapi::GSAbstractCoverageStore$decode()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractCoverageStore" data-id="setUrl">}\href{../../geosapi/html/GSAbstractCoverageStore.html#method-setUrl}{\code{geosapi::GSAbstractCoverageStore$setUrl()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+initializes an abstract ArcGrid coverage store
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSArcGridCoverageStore$new(
+  xml = NULL,
+  name = NULL,
+  description = "",
+  enabled = TRUE,
+  url = NULL
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{an object of class \link{XMLInternalNode-class} to create object from XML}
+
+\item{\code{name}}{coverage store name}
+
+\item{\code{description}}{coverage store description}
+
+\item{\code{enabled}}{whether the store should be enabled or not. Default is \code{TRUE}}
+
+\item{\code{url}}{url}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSArcGridCoverageStore$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

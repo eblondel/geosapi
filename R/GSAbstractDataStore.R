@@ -6,38 +6,6 @@
 #' @keywords geoserver rest api DataStore
 #' @return Object of \code{\link{R6Class}} for modelling a GeoServer dataStore
 #' @format \code{\link{R6Class}} object.
-#'
-#' @field connectionParameters connection parameters
-#'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(xml, type, name, description, enabled, connectionParameters)}}{
-#'    This method is used to instantiate a \code{GSAbstractDataStore}
-#'  }
-#'  \item{\code{decode(xml)}}{
-#'    This method is used to decode a \code{GSAbstractDataStore} from XML
-#'  }
-#'  \item{\code{encode()}}{
-#'    This method is used to encode a \code{GSAbstractDataStore} to XML. Inherited from the
-#'    generic \code{GSRESTResource} encoder
-#'  }
-#'  \item{\code{setConnectionParameters(parameters)}}{
-#'    Sets the datastore connection parameters. The argument should be an object
-#'    of class \code{GSRESTEntrySet} giving a list of key/value parameter entries.
-#'  }
-#'  \item{\code{addConnectionParameter(key, value)}}{
-#'    Adds a datastore connection parameter. Convenience wrapper of \code{GSRESTEntrySet} 
-#'    \code{addEntry} method.
-#'  }
-#'  \item{\code{setConnectionParameter(key, value)}}{
-#'    Sets a datastore connection parameter. Convenience wrapper of \code{GSRESTEntrySet} 
-#'    \code{setEntry} method.
-#'  }
-#'  \item{\code{delConnectionParameter(key)}}{
-#'    Deletes a datastore connection parameter. Convenience wrapper of \code{GSRESTEntrySet} 
-#'    \code{delEntry} method.
-#'  }
-#' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -47,7 +15,16 @@ GSAbstractDataStore <- R6Class("GSAbstractDataStore",
     STORE_TYPE = "dataStore"
   ),
   public = list(
+    #'@field connectionParameters the list of connection parameters
     connectionParameters = NULL,
+    
+    #'@description initializes an abstract data store
+    #'@param xml an object of class \link{XMLInternalNode-class} to create object from XML
+    #'@param type the type of coverage store
+    #'@param name coverage store name
+    #'@param description coverage store description
+    #'@param enabled whether the store should be enabled or not. Default is \code{TRUE}
+    #'@param connectionParameters the list of connection parameters
     initialize = function(xml = NULL, type = NULL,
                           name = NULL, description = "", enabled = TRUE, 
                           connectionParameters){
@@ -67,34 +44,41 @@ GSAbstractDataStore <- R6Class("GSAbstractDataStore",
       }
     },
     
-    #decode
-    #---------------------------------------------------------------------------
+    #'@description Decodes a data store from XML
+    #'@param xml an object of class \link{XMLInternalNode-class}
+    #'@return an object of class \link{GSAbstractDataStore}
     decode = function(xml){
       super$decode(xml)
       self$connectionParameters = GSRESTEntrySet$new(rootName = "connectionParameters", xml)
     },
     
-    #setConnectionParameters
-    #---------------------------------------------------------------------------
+    #'@description Set list connection parameters. The argument should be an object
+    #'    of class \code{GSRESTEntrySet} giving a list of key/value parameter entries.
+    #'@param parameters an object of class \link{GSRESTEntrySet}
     setConnectionParameters = function(parameters){
       self$connectionParameters = parameters
     },
     
-    #addConnectionParameter
-    #---------------------------------------------------------------------------
+    #'@description Adds a connection parameter
+    #'@param key connection parameter key
+    #'@param value connection parameter value
+    #'@return \code{TRUE} if added, \code{FALSE} otherwise
     addConnectionParameter = function(key, value){
       added <- self$connectionParameters$addEntry(key, value)
       return(added)
     },
     
-    #setConnectionParameter
-    #---------------------------------------------------------------------------
+    #'@description Sets a connection parameter
+    #'@param key connection parameter key
+    #'@param value connection parameter value
     setConnectionParameter = function(key, value){
       self$connectionParameters$setEntry(key, value)
     },
     
-    #delConnectionParameter
-    #---------------------------------------------------------------------------
+    #'@description Removes a connection parameter
+    #'@param key connection parameter key
+    #'@param value connection parameter value
+    #'@return \code{TRUE} if removed, \code{FALSE} otherwise
     delConnectionParameter = function(key){
       deleted <- self$connectionParameters$delEntry(key)
       return(deleted)

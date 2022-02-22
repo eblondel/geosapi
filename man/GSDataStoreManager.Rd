@@ -13,182 +13,9 @@ DataStores (i.e. stores of vector data)
 }
 \description{
 Geoserver REST API DataStore Manager
-}
-\section{Constructor}{
 
-\describe{
- \item{\code{new(url, user, pwd, logger)}}{
-   This method is used to instantiate a GSManager with the \code{url} of the
-   GeoServer and credentials to authenticate (\code{user}/\code{pwd}). By default,
-   the \code{logger} argument will be set to \code{NULL} (no logger). This argument
-   accepts two possible values: \code{INFO}: to print only geosapi logs,
-   \code{DEBUG}: to print geosapi and CURL logs
- }
+Geoserver REST API DataStore Manager
 }
-}
-
-\section{\code{DataStore} methods}{
-
-\describe{ 
- \item{\code{getDataStores(ws)}}{
-   Get the list of available dataStores. Returns an object of class \code{list}
-   giving items of class \code{\link{GSAbstractDataStore}}
- }
- \item{\code{getDataStoreNames(ws)}}{
-   Get the list of available dataStore names. Returns an vector of class \code{character}
- }
- \item{\code{getDataStore(ws, ds)}}{
-   Get an object of class \code{\link{GSAbstractDataStore}} given a workspace and datastore
-   names.
- }
- \item{\code{createDataStore(ws, dataStore)}}{
-   Creates a new datastore given a workspace and an object of class \code{\link{GSAbstractDataStore}}
- }
- \item{\code{updateDataStore(ws, dataStore)}}{
-   Updates an existing dataStore given a workspace and an object of class \code{\link{GSAbstractDataStore}}
- }
- \item{\code{deleteDataStore(ws, ds, recurse)}}{
-   Deletes a datastore given a workspace and an object of class \code{\link{GSAbstractDataStore}}.
-   By defaut, the option \code{recurse} is set to FALSE, ie datastore layers are not removed.
-   To remove all datastore layers, set this option to TRUE.
- }
-}
-}
-
-\section{\code{FeatureType} methods}{
-
-\describe{ 
- \item{\code{getFeatureTypes(ws, ds)}}{
-   Get the list of available feature types for given workspace and datastore.
-   Returns an object of class \code{list} giving items of class \code{\link{GSFeatureType}}
- }
- \item{\code{getFeatureTypeNames(ws, ds)}}{
-   Get the list of available feature type names for given workspace and datastore.
-   Returns an vector of class\code{character}
- }
- \item{\code{getFeatureType(ws, ds, ft)}}{
-   Get an object of class \code{\link{GSFeatureType}} given a workspace, datastore
-   and feature type names.
- }
- \item{\code{createFeatureType(ws, ds, featureType)}}{
-   Creates a new featureType given a workspace, datastore names and an object of
-   class \code{\link{GSFeatureType}}
- }
- \item{\code{updateFeatureType(ws, ds, featureType)}}{
-   Updates a featureType given a workspace, datastore names and an object of
-   class \code{\link{GSFeatureType}}
- }
- \item{\code{deleteFeatureType(ws, ds, ft, recurse)}}{
-   Deletes a featureType given a workspace, datastore names, and an object of 
-   class \code{\link{GSFeatureType}}. By defaut, the option \code{recurse} is 
-   set to FALSE, ie datastore layers are not removed.
- }
-}
-}
-
-\section{\code{Layer} methods}{
-
-\describe{ 
- \item{\code{getLayers()}}{
-   Get the list of layers. Returns an object of class \code{list} giving items 
-   of class \code{\link{GSLayer}}
- }
- \item{\code{getLayerNames()}}{
-   Get the list of layer names.
- }
- \item{\code{getLayer(lyr)}}{
-   Get an object of class \code{\link{GSLayer}} if existing
- }
- \item{\code{createLayer(layer)}}{
-   Creates a new layer given an object of class \code{\link{GSLayer}}
- }
- \item{\code{updateLayer(layer)}}{
-   Creates a layer given an object of class \code{\link{GSLayer}}
- }
- \item{\code{deleteLayer(layer)}}{
-   Deletes a layer given an object of class \code{\link{GSLayer}}
- }
-}
-}
-
-\section{\code{LayerGroup} methods}{
-
-\describe{ 
- \item{\code{getLayerGroups()}}{
-   Get the list of layers. Returns an object of class \code{list} giving items 
-   of class \code{\link{GSLayer}}
- }
- \item{\code{getLayerGroupNames()}}{
-   Get the list of layer names.
- }
- \item{\code{getLayerGroup(lyr, ws)}}{
-   Get an object of class \code{\link{GSLayerGroup}} if existing. Can be restrained
-   to a workspace.
- }
- \item{\code{createLayerGroup(layerGroup, ws)}}{
-   Creates a new layer given an object of class \code{\link{GSLayerGroup}}. Can be
-   restrained to a particular workspace.
- }
- \item{\code{updateLayerGroup(layerGroup, ws)}}{
-   Creates a layer given an object of class \code{\link{GSLayerGroup}}. Can be
-   restrained to a particular workspace.
- }
- \item{\code{deleteLayerGroup(layerGroup, ws)}}{
-   Deletes a layer given an object of class \code{\link{GSLayerGroup}}. Can be
-   restrained to a particular workspace.
- }
-}
-}
-
-\section{Main \code{Layer} user publication methods}{
-
-\describe{ 
- \item{\code{publishLayer(ws, ds, featureType, layer)}}{
-   Publish a web-layer (including the featureType and 'layer' resources), given
-   a workspace, a datastore, providing an object of class \code{GSFeatureType},
-   and \code{GSLayer}
- }
- \item{\code{unpublishLayer(ws, ds, lyr)}}{
-   Unpublish a web-layer (including the featureType and 'layer' resources), given
-   a workspace, a datastore, and a layer name
- }
-}
-}
-
-\section{Data upload methods}{
-
-\describe{ 
- \item{\code{uploadData(ws, ds, endpoint, extension,
-                        configure, update, filename, charset, contentType)}}{
-   Uploads data to a target dataStore
- }
- \item{\code{uploadShapefile(ws, ds, endpoint,
-                             configure, update, filename, charset)}}{
-   Uploads a zipped ESRIshapefile to a target dataStore
- }
- \item{\code{uploadProperties(ws, ds, endpoint,
-                              configure, update, filename, charset)}}{
-   Uploads a properties file to a target dataStore
- }
- \item{\code{uploadH2(ws, ds, endpoint,
-                      configure, update, filename, charset)}}{
-   Uploads a H2 database to a target dataStore
- }
- \item{\code{uploadSpatialite(ws, ds, endpoint,
-                              configure, update, filename, charset)}}{
-   Uploads a Spatialite database to a target dataStore
- }
- \item{\code{uploadAppschema(ws, ds, endpoint,
-                              configure, update, filename, charset)}}{
-   Uploads a appschema file to a target dataStore
- }
- \item{\code{uploadGeopackage(ws, ds, endpoint,
-                              configure, update, filename, charset)}}{
-   Uploads a GeoPackage file to a target dataStore                             
- }
-}
-}
-
 \examples{
 \dontrun{
    GSDataStoreManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
@@ -202,3 +29,971 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{api}
 \keyword{geoserver}
 \keyword{rest}
+\section{Super class}{
+\code{\link[geosapi:GSManager]{geosapi::GSManager}} -> \code{GSDataStoreManager}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-getDataStores}{\code{GSDataStoreManager$getDataStores()}}
+\item \href{#method-getDataStoreNames}{\code{GSDataStoreManager$getDataStoreNames()}}
+\item \href{#method-getDataStore}{\code{GSDataStoreManager$getDataStore()}}
+\item \href{#method-createDataStore}{\code{GSDataStoreManager$createDataStore()}}
+\item \href{#method-updateDataStore}{\code{GSDataStoreManager$updateDataStore()}}
+\item \href{#method-deleteDataStore}{\code{GSDataStoreManager$deleteDataStore()}}
+\item \href{#method-getFeatureTypes}{\code{GSDataStoreManager$getFeatureTypes()}}
+\item \href{#method-getFeatureTypeNames}{\code{GSDataStoreManager$getFeatureTypeNames()}}
+\item \href{#method-getFeatureType}{\code{GSDataStoreManager$getFeatureType()}}
+\item \href{#method-createFeatureType}{\code{GSDataStoreManager$createFeatureType()}}
+\item \href{#method-updateFeatureType}{\code{GSDataStoreManager$updateFeatureType()}}
+\item \href{#method-deleteFeatureType}{\code{GSDataStoreManager$deleteFeatureType()}}
+\item \href{#method-getLayers}{\code{GSDataStoreManager$getLayers()}}
+\item \href{#method-getLayerNames}{\code{GSDataStoreManager$getLayerNames()}}
+\item \href{#method-getLayer}{\code{GSDataStoreManager$getLayer()}}
+\item \href{#method-createLayer}{\code{GSDataStoreManager$createLayer()}}
+\item \href{#method-updateLayer}{\code{GSDataStoreManager$updateLayer()}}
+\item \href{#method-deleteLayer}{\code{GSDataStoreManager$deleteLayer()}}
+\item \href{#method-getLayerGroups}{\code{GSDataStoreManager$getLayerGroups()}}
+\item \href{#method-getLayerGroupNames}{\code{GSDataStoreManager$getLayerGroupNames()}}
+\item \href{#method-getLayerGroup}{\code{GSDataStoreManager$getLayerGroup()}}
+\item \href{#method-createLayerGroup}{\code{GSDataStoreManager$createLayerGroup()}}
+\item \href{#method-updateLayerGroup}{\code{GSDataStoreManager$updateLayerGroup()}}
+\item \href{#method-deleteLayerGroup}{\code{GSDataStoreManager$deleteLayerGroup()}}
+\item \href{#method-publishLayer}{\code{GSDataStoreManager$publishLayer()}}
+\item \href{#method-unpublishLayer}{\code{GSDataStoreManager$unpublishLayer()}}
+\item \href{#method-uploadData}{\code{GSDataStoreManager$uploadData()}}
+\item \href{#method-uploadShapefile}{\code{GSDataStoreManager$uploadShapefile()}}
+\item \href{#method-uploadProperties}{\code{GSDataStoreManager$uploadProperties()}}
+\item \href{#method-uploadH2}{\code{GSDataStoreManager$uploadH2()}}
+\item \href{#method-uploadSpatialite}{\code{GSDataStoreManager$uploadSpatialite()}}
+\item \href{#method-uploadAppschema}{\code{GSDataStoreManager$uploadAppschema()}}
+\item \href{#method-uploadGeoPackage}{\code{GSDataStoreManager$uploadGeoPackage()}}
+\item \href{#method-clone}{\code{GSDataStoreManager$clone()}}
+}
+}
+\if{html}{
+\out{<details ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="connect">}\href{../../geosapi/html/GSManager.html#method-connect}{\code{geosapi::GSManager$connect()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="ERROR">}\href{../../geosapi/html/GSManager.html#method-ERROR}{\code{geosapi::GSManager$ERROR()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getClassName">}\href{../../geosapi/html/GSManager.html#method-getClassName}{\code{geosapi::GSManager$getClassName()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getCoverageStoreManager">}\href{../../geosapi/html/GSManager.html#method-getCoverageStoreManager}{\code{geosapi::GSManager$getCoverageStoreManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getDataStoreManager">}\href{../../geosapi/html/GSManager.html#method-getDataStoreManager}{\code{geosapi::GSManager$getDataStoreManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getNamespaceManager">}\href{../../geosapi/html/GSManager.html#method-getNamespaceManager}{\code{geosapi::GSManager$getNamespaceManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getServiceManager">}\href{../../geosapi/html/GSManager.html#method-getServiceManager}{\code{geosapi::GSManager$getServiceManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getStyleManager">}\href{../../geosapi/html/GSManager.html#method-getStyleManager}{\code{geosapi::GSManager$getStyleManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getSystemStatus">}\href{../../geosapi/html/GSManager.html#method-getSystemStatus}{\code{geosapi::GSManager$getSystemStatus()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getUrl">}\href{../../geosapi/html/GSManager.html#method-getUrl}{\code{geosapi::GSManager$getUrl()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getWorkspaceManager">}\href{../../geosapi/html/GSManager.html#method-getWorkspaceManager}{\code{geosapi::GSManager$getWorkspaceManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="INFO">}\href{../../geosapi/html/GSManager.html#method-INFO}{\code{geosapi::GSManager$INFO()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="initialize">}\href{../../geosapi/html/GSManager.html#method-initialize}{\code{geosapi::GSManager$initialize()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="logger">}\href{../../geosapi/html/GSManager.html#method-logger}{\code{geosapi::GSManager$logger()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="monitor">}\href{../../geosapi/html/GSManager.html#method-monitor}{\code{geosapi::GSManager$monitor()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="reload">}\href{../../geosapi/html/GSManager.html#method-reload}{\code{geosapi::GSManager$reload()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="WARN">}\href{../../geosapi/html/GSManager.html#method-WARN}{\code{geosapi::GSManager$WARN()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getDataStores"></a>}}
+\if{latex}{\out{\hypertarget{method-getDataStores}{}}}
+\subsection{Method \code{getDataStores()}}{
+Get the list of available dataStores.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$getDataStores(ws)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object of class \code{list} giving items of class \code{\link{GSAbstractDataStore}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getDataStoreNames"></a>}}
+\if{latex}{\out{\hypertarget{method-getDataStoreNames}{}}}
+\subsection{Method \code{getDataStoreNames()}}{
+Get the list of available dataStore names.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$getDataStoreNames(ws)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+a vector of class \code{character}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getDataStore"></a>}}
+\if{latex}{\out{\hypertarget{method-getDataStore}{}}}
+\subsection{Method \code{getDataStore()}}{
+Get an object of class \code{\link{GSAbstractDataStore}} given a workspace and datastore names.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$getDataStore(ws, ds)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{ds}}{datastore name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+the datastore
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-createDataStore"></a>}}
+\if{latex}{\out{\hypertarget{method-createDataStore}{}}}
+\subsection{Method \code{createDataStore()}}{
+Creates a datastore given a workspace and an object of class \code{\link{GSAbstractDataStore}}.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$createDataStore(ws, dataStore)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{dataStore}}{datastore object of class \link{GSAbstractDataStore}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if created, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-updateDataStore"></a>}}
+\if{latex}{\out{\hypertarget{method-updateDataStore}{}}}
+\subsection{Method \code{updateDataStore()}}{
+Updates a datastore given a workspace and an object of class \code{\link{GSAbstractDataStore}}.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$updateDataStore(ws, dataStore)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{dataStore}}{datastore object of class \link{GSAbstractDataStore}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if updated, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-deleteDataStore"></a>}}
+\if{latex}{\out{\hypertarget{method-deleteDataStore}{}}}
+\subsection{Method \code{deleteDataStore()}}{
+Deletes a datastore given workspace and datastore names.
+   By defaut, the option \code{recurse} is set to FALSE, ie datastore layers are not removed.
+   To remove all datastore layers, set this option to TRUE.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$deleteDataStore(ws, ds, recurse = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{ds}}{datastore name}
+
+\item{\code{recurse}}{recurse}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if deleted, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getFeatureTypes"></a>}}
+\if{latex}{\out{\hypertarget{method-getFeatureTypes}{}}}
+\subsection{Method \code{getFeatureTypes()}}{
+Get the list of available feature types for given workspace and datastore.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$getFeatureTypes(ws, ds, list = "configured")}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{ds}}{datastore name}
+
+\item{\code{list}}{list type value, among "configured", "available", "available_with_geom", "all"}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object of class \code{list} giving items of class \code{\link{GSFeatureType}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getFeatureTypeNames"></a>}}
+\if{latex}{\out{\hypertarget{method-getFeatureTypeNames}{}}}
+\subsection{Method \code{getFeatureTypeNames()}}{
+Get the list of available feature type names for given workspace and datastore.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$getFeatureTypeNames(ws, ds)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{ds}}{datastore name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+a vector of class\code{character}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getFeatureType"></a>}}
+\if{latex}{\out{\hypertarget{method-getFeatureType}{}}}
+\subsection{Method \code{getFeatureType()}}{
+Get an object of class \code{\link{GSFeatureType}} given a workspace, datastore and feature type names.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$getFeatureType(ws, ds, ft)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{ds}}{datastore name}
+
+\item{\code{ft}}{feature type name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object of class \link{GSFeatureType}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-createFeatureType"></a>}}
+\if{latex}{\out{\hypertarget{method-createFeatureType}{}}}
+\subsection{Method \code{createFeatureType()}}{
+Creates a new featureType given a workspace, datastore names and an object of class \code{\link{GSFeatureType}}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$createFeatureType(ws, ds, featureType)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{ds}}{datastore name}
+
+\item{\code{featureType}}{feature type}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if created, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-updateFeatureType"></a>}}
+\if{latex}{\out{\hypertarget{method-updateFeatureType}{}}}
+\subsection{Method \code{updateFeatureType()}}{
+Updates a featureType given a workspace, datastore names and an object of class \code{\link{GSFeatureType}}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$updateFeatureType(ws, ds, featureType)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{ds}}{datastore name}
+
+\item{\code{featureType}}{feature type}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if updated, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-deleteFeatureType"></a>}}
+\if{latex}{\out{\hypertarget{method-deleteFeatureType}{}}}
+\subsection{Method \code{deleteFeatureType()}}{
+Deletes a featureType given a workspace, datastore names, and an object of 
+   class \code{\link{GSFeatureType}}. By defaut, the option \code{recurse} is 
+   set to FALSE, ie datastore layers are not removed.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$deleteFeatureType(ws, ds, ft, recurse = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{ds}}{datastore name}
+
+\item{\code{ft}}{feature type name}
+
+\item{\code{recurse}}{recurse}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if deleted, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getLayers"></a>}}
+\if{latex}{\out{\hypertarget{method-getLayers}{}}}
+\subsection{Method \code{getLayers()}}{
+Get the list of layers.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$getLayers()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+an object of class \code{list} giving items of class \code{\link{GSLayer}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getLayerNames"></a>}}
+\if{latex}{\out{\hypertarget{method-getLayerNames}{}}}
+\subsection{Method \code{getLayerNames()}}{
+Get the list of layer names.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$getLayerNames()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+a vector of class \code{character}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getLayer"></a>}}
+\if{latex}{\out{\hypertarget{method-getLayer}{}}}
+\subsection{Method \code{getLayer()}}{
+Get layer by name
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$getLayer(lyr)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{lyr}}{layer name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object of class \link{GSLayer}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-createLayer"></a>}}
+\if{latex}{\out{\hypertarget{method-createLayer}{}}}
+\subsection{Method \code{createLayer()}}{
+Creates a new layer given an object of class \code{\link{GSLayer}}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$createLayer(layer)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{layer}}{object of class \link{GSLayer}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if created, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-updateLayer"></a>}}
+\if{latex}{\out{\hypertarget{method-updateLayer}{}}}
+\subsection{Method \code{updateLayer()}}{
+Updates a layer given an object of class \code{\link{GSLayer}}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$updateLayer(layer)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{layer}}{object of class \link{GSLayer}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if updated, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-deleteLayer"></a>}}
+\if{latex}{\out{\hypertarget{method-deleteLayer}{}}}
+\subsection{Method \code{deleteLayer()}}{
+Deletes layer given an object of class \code{\link{GSLayer}}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$deleteLayer(lyr)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{lyr}}{layer name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if deleted, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getLayerGroups"></a>}}
+\if{latex}{\out{\hypertarget{method-getLayerGroups}{}}}
+\subsection{Method \code{getLayerGroups()}}{
+Get layer groups
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$getLayerGroups(ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name. Optional}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+a list of objects of class \link{GSLayerGroup}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getLayerGroupNames"></a>}}
+\if{latex}{\out{\hypertarget{method-getLayerGroupNames}{}}}
+\subsection{Method \code{getLayerGroupNames()}}{
+Get layer group names
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$getLayerGroupNames(ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+a list of layer group names, as vector of class \code{character}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getLayerGroup"></a>}}
+\if{latex}{\out{\hypertarget{method-getLayerGroup}{}}}
+\subsection{Method \code{getLayerGroup()}}{
+Get layer group
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$getLayerGroup(lyr, ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{lyr}}{lyr}
+
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object of class \link{GSLayerGroup}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-createLayerGroup"></a>}}
+\if{latex}{\out{\hypertarget{method-createLayerGroup}{}}}
+\subsection{Method \code{createLayerGroup()}}{
+Creates a layer group
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$createLayerGroup(layerGroup, ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{layerGroup}}{object of class \link{GSLayerGroup}}
+
+\item{\code{ws}}{workspace name. Optional}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if created, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-updateLayerGroup"></a>}}
+\if{latex}{\out{\hypertarget{method-updateLayerGroup}{}}}
+\subsection{Method \code{updateLayerGroup()}}{
+Updates a layer group
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$updateLayerGroup(layerGroup, ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{layerGroup}}{object of class \link{GSLayerGroup}}
+
+\item{\code{ws}}{workspace name. Optional}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if updated, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-deleteLayerGroup"></a>}}
+\if{latex}{\out{\hypertarget{method-deleteLayerGroup}{}}}
+\subsection{Method \code{deleteLayerGroup()}}{
+Deletes a layer group
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$deleteLayerGroup(lyr, ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{lyr}}{layer group name}
+
+\item{\code{ws}}{workspace name. Optional}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if deleted, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-publishLayer"></a>}}
+\if{latex}{\out{\hypertarget{method-publishLayer}{}}}
+\subsection{Method \code{publishLayer()}}{
+Publish a feature type/layer pair given a workspace and datastore. The name 'layer' here 
+encompasses both \link{GSFeatureType} and \link{GSLayer} resources.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$publishLayer(ws, ds, featureType, layer)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{ds}}{datastore name}
+
+\item{\code{featureType}}{object of class \link{GSFeatureType}}
+
+\item{\code{layer}}{object of class \link{GSLayer}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if published, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-unpublishLayer"></a>}}
+\if{latex}{\out{\hypertarget{method-unpublishLayer}{}}}
+\subsection{Method \code{unpublishLayer()}}{
+Unpublish a feature type/layer pair given a workspace and datastore. The name 'layer' here 
+encompasses both \link{GSFeatureType} and \link{GSLayer} resources.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$unpublishLayer(ws, ds, lyr)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{ds}}{datastore name}
+
+\item{\code{lyr}}{layer name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if published, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-uploadData"></a>}}
+\if{latex}{\out{\hypertarget{method-uploadData}{}}}
+\subsection{Method \code{uploadData()}}{
+Uploads features data. The \code{extension} corresponds to the format/type of features to be uploaded among "shp", "spatialite", "h2", "gpkg". 
+   The \code{endpoint} takes a value among \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name 
+   of the coverage file to upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
+   \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
+   both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
+   the first upload, \code{"overwrite"} in case the file should be overwriten.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$uploadData(
+  ws,
+  ds,
+  endpoint = "file",
+  extension,
+  configure = "first",
+  update = "append",
+  filename,
+  charset,
+  contentType
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{ds}}{datastore name}
+
+\item{\code{endpoint}}{endpoint}
+
+\item{\code{extension}}{extension}
+
+\item{\code{configure}}{configure strategy among values: "first" or "none"}
+
+\item{\code{update}}{update strategy, among values: "append", "overwrite"}
+
+\item{\code{filename}}{file name of the resource to upload}
+
+\item{\code{charset}}{charset}
+
+\item{\code{contentType}}{content type}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if uploaded, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-uploadShapefile"></a>}}
+\if{latex}{\out{\hypertarget{method-uploadShapefile}{}}}
+\subsection{Method \code{uploadShapefile()}}{
+Uploads zipped shapefile.
+   The \code{endpoint} takes a value among \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name 
+   of the coverage file to upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
+   \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
+   both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
+   the first upload, \code{"overwrite"} in case the file should be overwriten.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$uploadShapefile(
+  ws,
+  ds,
+  endpoint = "file",
+  configure = "first",
+  update = "append",
+  filename,
+  charset = "UTF-8"
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{ds}}{datastore name}
+
+\item{\code{endpoint}}{endpoint}
+
+\item{\code{configure}}{configure strategy among values: "first" or "none"}
+
+\item{\code{update}}{update strategy, among values: "append", "overwrite"}
+
+\item{\code{filename}}{file name of the resource to upload}
+
+\item{\code{charset}}{charset}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if uploaded, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-uploadProperties"></a>}}
+\if{latex}{\out{\hypertarget{method-uploadProperties}{}}}
+\subsection{Method \code{uploadProperties()}}{
+Uploads properties.
+   The \code{endpoint} takes a value among \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name 
+   of the coverage file to upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
+   \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
+   both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
+   the first upload, \code{"overwrite"} in case the file should be overwriten.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$uploadProperties(
+  ws,
+  ds,
+  endpoint = "file",
+  configure = "first",
+  update = "append",
+  filename,
+  charset = "UTF-8"
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{ds}}{datastore name}
+
+\item{\code{endpoint}}{endpoint}
+
+\item{\code{configure}}{configure strategy among values: "first" or "none"}
+
+\item{\code{update}}{update strategy, among values: "append", "overwrite"}
+
+\item{\code{filename}}{file name of the resource to upload}
+
+\item{\code{charset}}{charset}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if uploaded, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-uploadH2"></a>}}
+\if{latex}{\out{\hypertarget{method-uploadH2}{}}}
+\subsection{Method \code{uploadH2()}}{
+Uploads H2 database.
+   The \code{endpoint} takes a value among \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name 
+   of the coverage file to upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
+   \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
+   both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
+   the first upload, \code{"overwrite"} in case the file should be overwriten.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$uploadH2(
+  ws,
+  ds,
+  endpoint = "file",
+  configure = "first",
+  update = "append",
+  filename,
+  charset = "UTF-8"
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{ds}}{datastore name}
+
+\item{\code{endpoint}}{endpoint}
+
+\item{\code{configure}}{configure strategy among values: "first" or "none"}
+
+\item{\code{update}}{update strategy, among values: "append", "overwrite"}
+
+\item{\code{filename}}{file name of the resource to upload}
+
+\item{\code{charset}}{charset}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if uploaded, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-uploadSpatialite"></a>}}
+\if{latex}{\out{\hypertarget{method-uploadSpatialite}{}}}
+\subsection{Method \code{uploadSpatialite()}}{
+Uploads spatialite file.
+   The \code{endpoint} takes a value among \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name 
+   of the coverage file to upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
+   \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
+   both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
+   the first upload, \code{"overwrite"} in case the file should be overwriten.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$uploadSpatialite(
+  ws,
+  ds,
+  endpoint = "file",
+  configure = "first",
+  update = "append",
+  filename,
+  charset = "UTF-8"
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{ds}}{datastore name}
+
+\item{\code{endpoint}}{endpoint}
+
+\item{\code{configure}}{configure strategy among values: "first" or "none"}
+
+\item{\code{update}}{update strategy, among values: "append", "overwrite"}
+
+\item{\code{filename}}{file name of the resource to upload}
+
+\item{\code{charset}}{charset}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if uploaded, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-uploadAppschema"></a>}}
+\if{latex}{\out{\hypertarget{method-uploadAppschema}{}}}
+\subsection{Method \code{uploadAppschema()}}{
+Uploads App schema.
+   The \code{endpoint} takes a value among \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name 
+   of the coverage file to upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
+   \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
+   both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
+   the first upload, \code{"overwrite"} in case the file should be overwriten.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$uploadAppschema(
+  ws,
+  ds,
+  endpoint = "file",
+  configure = "first",
+  update = "append",
+  filename,
+  charset = "UTF-8"
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{ds}}{datastore name}
+
+\item{\code{endpoint}}{endpoint}
+
+\item{\code{configure}}{configure strategy among values: "first" or "none"}
+
+\item{\code{update}}{update strategy, among values: "append", "overwrite"}
+
+\item{\code{filename}}{file name of the resource to upload}
+
+\item{\code{charset}}{charset}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if uploaded, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-uploadGeoPackage"></a>}}
+\if{latex}{\out{\hypertarget{method-uploadGeoPackage}{}}}
+\subsection{Method \code{uploadGeoPackage()}}{
+Uploads GeoPackage.
+   The \code{endpoint} takes a value among \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name 
+   of the coverage file to upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
+   \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
+   both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
+   the first upload, \code{"overwrite"} in case the file should be overwriten.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$uploadGeoPackage(
+  ws,
+  ds,
+  endpoint = "file",
+  configure = "first",
+  update = "append",
+  filename,
+  charset = "UTF-8"
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{ds}}{datastore name}
+
+\item{\code{endpoint}}{endpoint}
+
+\item{\code{configure}}{configure strategy among values: "first" or "none"}
+
+\item{\code{update}}{update strategy, among values: "append", "overwrite"}
+
+\item{\code{filename}}{file name of the resource to upload}
+
+\item{\code{charset}}{charset}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if uploaded, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSDataStoreManager$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

@@ -19,22 +19,6 @@ the metadataLink
 \details{
 Geoserver REST API Metadatalink
 }
-\section{Methods}{
-
-\describe{
- \item{\code{new(xml, type, metadataType, content)}}{
-   This method is used to instantiate a GSMetadataLink
- }
- \item{\code{decode(xml)}}{
-   This method is used to decode a GSMetadataLink from XML
- }
- \item{\code{encode()}}{
-   This method is used to encode a GSMetadataLink to XML. Inherited from the
-   generic \code{GSRESTResource} encoder
- }
-}
-}
-
 \author{
 Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 }
@@ -43,3 +27,144 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{metadataLink}
 \keyword{resource}
 \keyword{rest}
+\section{Super class}{
+\code{\link[geosapi:GSRESTResource]{geosapi::GSRESTResource}} -> \code{GSMetadataLink}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{type}}{type}
+
+\item{\code{metadataType}}{metadata type}
+
+\item{\code{content}}{content}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{GSMetadataLink$new()}}
+\item \href{#method-decode}{\code{GSMetadataLink$decode()}}
+\item \href{#method-setType}{\code{GSMetadataLink$setType()}}
+\item \href{#method-setMetadataType}{\code{GSMetadataLink$setMetadataType()}}
+\item \href{#method-setContent}{\code{GSMetadataLink$setContent()}}
+\item \href{#method-clone}{\code{GSMetadataLink$clone()}}
+}
+}
+\if{html}{
+\out{<details open ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+Initializes an object of class \link{GSMetadataLink}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSMetadataLink$new(xml = NULL, type, metadataType, content)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+
+\item{\code{type}}{type}
+
+\item{\code{metadataType}}{metadata type}
+
+\item{\code{content}}{content}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-decode}{}}}
+\subsection{Method \code{decode()}}{
+Decodes from XML
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSMetadataLink$decode(xml)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setType"></a>}}
+\if{latex}{\out{\hypertarget{method-setType}{}}}
+\subsection{Method \code{setType()}}{
+Set type type
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSMetadataLink$setType(type)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{type}}{type}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setMetadataType"></a>}}
+\if{latex}{\out{\hypertarget{method-setMetadataType}{}}}
+\subsection{Method \code{setMetadataType()}}{
+Set metadata type
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSMetadataLink$setMetadataType(metadataType)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{metadataType}}{metadata type. Supported values: "ISO19115:2003", "FGDC", "TC211", "19139", "other"}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setContent"></a>}}
+\if{latex}{\out{\hypertarget{method-setContent}{}}}
+\subsection{Method \code{setContent()}}{
+Set content
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSMetadataLink$setContent(content)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{content}}{content}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSMetadataLink$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

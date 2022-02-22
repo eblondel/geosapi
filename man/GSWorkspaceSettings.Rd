@@ -12,47 +12,13 @@ Object of \code{\link{R6Class}} for modelling a GeoServer workspace settings
 }
 \description{
 Geoserver REST API Workspace Setting
-}
-\section{Methods}{
 
-\describe{
- \item{\code{new(xml)}}{
-   This method is used to instantiate a \code{GSWorkspaceSettings}. This settings 
-   object is required to activate a workspace configuration, using the method
-   \code{GSManager$createWorkspaceSettings}. Supported from GeoServer 2.12
- }
- \item{\code{decode(xml)}}{
-   This method is used to decode a \code{GSWorkspaceSettings} from XML
- }
- \item{\code{encode()}}{
-   This method is used to encode a \code{GSWorkspaceSettings} to XML. 
-   Inherited from the generic \code{GSRESTResource} encoder
- }
- \item{\code{setCharset(charset)}}{
-   Set charset
- }
- \item{\code{setNumDecimals(numDecimals)}}{
-   Set number of decimals
- }
- \item{\code{setOnlineResource(onlineResource)}}{
-   Set the online resource
- }
- \item{\code{setVerbose(verbose)}}{
-   Set verbose
- }
- \item{\code{setVerboseExceptions(verboseExceptions)}}{
-   Set verbose exceptions
- }
- \item{\code{setLocalWorkspaceIncludesPrefix(includesPrefix)}}{
-   Set if the Local workspace includes prefix
- }
+Geoserver REST API Workspace Setting
 }
-}
-
 \examples{
-settings <- GSWorkspaceSettings$new()
-settings$setCharset("UTF-8")
-settings$setNumDecimals(5)
+  settings <- GSWorkspaceSettings$new()
+  settings$setCharset("UTF-8")
+  settings$setNumDecimals(5)
 
 }
 \author{
@@ -63,3 +29,202 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{rest}
 \keyword{settings}
 \keyword{workspace}
+\section{Super class}{
+\code{\link[geosapi:GSRESTResource]{geosapi::GSRESTResource}} -> \code{GSWorkspaceSettings}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{contact}}{contact}
+
+\item{\code{charset}}{charset}
+
+\item{\code{numDecimals}}{number of decimal}
+
+\item{\code{onlineResource}}{online resource}
+
+\item{\code{verbose}}{verbose}
+
+\item{\code{verboseExceptions}}{verbose exceptions}
+
+\item{\code{localWorkspaceIncludesPrefix}}{local workspace includes prefix}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{GSWorkspaceSettings$new()}}
+\item \href{#method-decode}{\code{GSWorkspaceSettings$decode()}}
+\item \href{#method-setCharset}{\code{GSWorkspaceSettings$setCharset()}}
+\item \href{#method-setNumDecimals}{\code{GSWorkspaceSettings$setNumDecimals()}}
+\item \href{#method-setOnlineResource}{\code{GSWorkspaceSettings$setOnlineResource()}}
+\item \href{#method-setVerbose}{\code{GSWorkspaceSettings$setVerbose()}}
+\item \href{#method-setVerboseExceptions}{\code{GSWorkspaceSettings$setVerboseExceptions()}}
+\item \href{#method-setLocalWorkspaceIncludesPrefix}{\code{GSWorkspaceSettings$setLocalWorkspaceIncludesPrefix()}}
+\item \href{#method-clone}{\code{GSWorkspaceSettings$clone()}}
+}
+}
+\if{html}{
+\out{<details open ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+This method is used to instantiate a \code{GSWorkspaceSettings}. This settings 
+   object is required to activate a workspace configuration, using the method
+   \code{GSManager$createWorkspaceSettings}. Supported from GeoServer 2.12
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSWorkspaceSettings$new(xml = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-decode}{}}}
+\subsection{Method \code{decode()}}{
+Decodes from XML
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSWorkspaceSettings$decode(xml)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setCharset"></a>}}
+\if{latex}{\out{\hypertarget{method-setCharset}{}}}
+\subsection{Method \code{setCharset()}}{
+Set charset
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSWorkspaceSettings$setCharset(charset)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{charset}}{charset}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setNumDecimals"></a>}}
+\if{latex}{\out{\hypertarget{method-setNumDecimals}{}}}
+\subsection{Method \code{setNumDecimals()}}{
+Set number of decimals
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSWorkspaceSettings$setNumDecimals(numDecimals)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{numDecimals}}{number of decimals}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setOnlineResource"></a>}}
+\if{latex}{\out{\hypertarget{method-setOnlineResource}{}}}
+\subsection{Method \code{setOnlineResource()}}{
+Set online resource
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSWorkspaceSettings$setOnlineResource(onlineResource)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{onlineResource}}{online resource}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setVerbose"></a>}}
+\if{latex}{\out{\hypertarget{method-setVerbose}{}}}
+\subsection{Method \code{setVerbose()}}{
+Set verbose
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSWorkspaceSettings$setVerbose(verbose)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{verbose}}{verbose}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setVerboseExceptions"></a>}}
+\if{latex}{\out{\hypertarget{method-setVerboseExceptions}{}}}
+\subsection{Method \code{setVerboseExceptions()}}{
+Set verbose exceptions
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSWorkspaceSettings$setVerboseExceptions(verboseExceptions)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{verboseExceptions}}{verbose exceptions}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setLocalWorkspaceIncludesPrefix"></a>}}
+\if{latex}{\out{\hypertarget{method-setLocalWorkspaceIncludesPrefix}{}}}
+\subsection{Method \code{setLocalWorkspaceIncludesPrefix()}}{
+Set local workspace includes prefix
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSWorkspaceSettings$setLocalWorkspaceIncludesPrefix(includesPrefix)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{includesPrefix}}{includes prefix}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSWorkspaceSettings$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

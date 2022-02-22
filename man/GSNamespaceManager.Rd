@@ -13,45 +13,9 @@ Object of \code{\link{R6Class}} with methods for managing the namespaces
 }
 \description{
 Geoserver REST API Namespace Manager
-}
-\section{Methods}{
 
-\describe{
- \item{\code{new(url, user, pwd, logger)}}{
-   This method is used to instantiate a GSManager with the \code{url} of the
-   GeoServer and credentials to authenticate (\code{user}/\code{pwd}). By default,
-   the \code{logger} argument will be set to \code{NULL} (no logger). This argument
-   accepts two possible values: \code{INFO}: to print only geosapi logs,
-   \code{DEBUG}: to print geosapi and CURL logs
- }
- \item{\code{getNamespaces()}}{
-   Get the list of available namespace. Returns an object of class \code{list}
-   containing items of class \code{\link{GSNamespace}}
- }
- \item{\code{getNamespaceNames()}}{
-   Get the list of available namespace names. Returns an vector of class 
-   \code{character}
- }
- \item{\code{getNamespace(ns)}}{
-   Get a \code{\link{GSNamespace}} object given a namespace name.
- }
- \item{\code{createNamespace(prefix, uri)}}{
-   Creates a GeoServer namespace given a prefix, and an optional URI. Returns
-   \code{TRUE} if the namespace has been successfully created, \code{FALSE}
-   otherwise
- }
- \item{\code{updateNamespace(ns, uri)}}{
-   Updates a GeoServer namespace given a name, and an optional URI. Returns
-   \code{TRUE} if the namespace has been successfully updated, \code{FALSE}
-   otherwise
- }
- \item{\code{deleteNamespace(ns)}}{
-   Deletes a GeoServer namespace given a name. Returns \code{TRUE} if the 
-   namespace has been successfully deleted, \code{FALSE} otherwise
- }
+Geoserver REST API Namespace Manager
 }
-}
-
 \examples{
 \dontrun{
    GSNamespaceManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
@@ -65,3 +29,171 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{geoserver}
 \keyword{namespace}
 \keyword{rest}
+\section{Super class}{
+\code{\link[geosapi:GSManager]{geosapi::GSManager}} -> \code{GSNamespaceManager}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-getNamespaces}{\code{GSNamespaceManager$getNamespaces()}}
+\item \href{#method-getNamespaceNames}{\code{GSNamespaceManager$getNamespaceNames()}}
+\item \href{#method-getNamespace}{\code{GSNamespaceManager$getNamespace()}}
+\item \href{#method-createNamespace}{\code{GSNamespaceManager$createNamespace()}}
+\item \href{#method-updateNamespace}{\code{GSNamespaceManager$updateNamespace()}}
+\item \href{#method-deleteNamespace}{\code{GSNamespaceManager$deleteNamespace()}}
+\item \href{#method-clone}{\code{GSNamespaceManager$clone()}}
+}
+}
+\if{html}{
+\out{<details ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="connect">}\href{../../geosapi/html/GSManager.html#method-connect}{\code{geosapi::GSManager$connect()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="ERROR">}\href{../../geosapi/html/GSManager.html#method-ERROR}{\code{geosapi::GSManager$ERROR()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getClassName">}\href{../../geosapi/html/GSManager.html#method-getClassName}{\code{geosapi::GSManager$getClassName()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getCoverageStoreManager">}\href{../../geosapi/html/GSManager.html#method-getCoverageStoreManager}{\code{geosapi::GSManager$getCoverageStoreManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getDataStoreManager">}\href{../../geosapi/html/GSManager.html#method-getDataStoreManager}{\code{geosapi::GSManager$getDataStoreManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getNamespaceManager">}\href{../../geosapi/html/GSManager.html#method-getNamespaceManager}{\code{geosapi::GSManager$getNamespaceManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getServiceManager">}\href{../../geosapi/html/GSManager.html#method-getServiceManager}{\code{geosapi::GSManager$getServiceManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getStyleManager">}\href{../../geosapi/html/GSManager.html#method-getStyleManager}{\code{geosapi::GSManager$getStyleManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getSystemStatus">}\href{../../geosapi/html/GSManager.html#method-getSystemStatus}{\code{geosapi::GSManager$getSystemStatus()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getUrl">}\href{../../geosapi/html/GSManager.html#method-getUrl}{\code{geosapi::GSManager$getUrl()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getWorkspaceManager">}\href{../../geosapi/html/GSManager.html#method-getWorkspaceManager}{\code{geosapi::GSManager$getWorkspaceManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="INFO">}\href{../../geosapi/html/GSManager.html#method-INFO}{\code{geosapi::GSManager$INFO()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="initialize">}\href{../../geosapi/html/GSManager.html#method-initialize}{\code{geosapi::GSManager$initialize()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="logger">}\href{../../geosapi/html/GSManager.html#method-logger}{\code{geosapi::GSManager$logger()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="monitor">}\href{../../geosapi/html/GSManager.html#method-monitor}{\code{geosapi::GSManager$monitor()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="reload">}\href{../../geosapi/html/GSManager.html#method-reload}{\code{geosapi::GSManager$reload()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="WARN">}\href{../../geosapi/html/GSManager.html#method-WARN}{\code{geosapi::GSManager$WARN()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getNamespaces"></a>}}
+\if{latex}{\out{\hypertarget{method-getNamespaces}{}}}
+\subsection{Method \code{getNamespaces()}}{
+Get the list of available namespace. Re
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSNamespaceManager$getNamespaces()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+an object of class \code{list} containing items of class \code{\link{GSNamespace}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getNamespaceNames"></a>}}
+\if{latex}{\out{\hypertarget{method-getNamespaceNames}{}}}
+\subsection{Method \code{getNamespaceNames()}}{
+Get the list of available namespace names.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSNamespaceManager$getNamespaceNames()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+a vector of class \code{character}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getNamespace"></a>}}
+\if{latex}{\out{\hypertarget{method-getNamespace}{}}}
+\subsection{Method \code{getNamespace()}}{
+Get a \code{\link{GSNamespace}} object given a namespace name.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSNamespaceManager$getNamespace(ns)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ns}}{namespace}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object of class \link{GSNamespace}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-createNamespace"></a>}}
+\if{latex}{\out{\hypertarget{method-createNamespace}{}}}
+\subsection{Method \code{createNamespace()}}{
+Creates a GeoServer namespace given a prefix, and an optional URI.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSNamespaceManager$createNamespace(prefix, uri)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{prefix}}{prefix}
+
+\item{\code{uri}}{uri}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if the namespace has been successfully created, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-updateNamespace"></a>}}
+\if{latex}{\out{\hypertarget{method-updateNamespace}{}}}
+\subsection{Method \code{updateNamespace()}}{
+Updates a GeoServer namespace given a prefix, and an optional URI.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSNamespaceManager$updateNamespace(prefix, uri)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{prefix}}{prefix}
+
+\item{\code{uri}}{uri}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if the namespace has been successfully updated, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-deleteNamespace"></a>}}
+\if{latex}{\out{\hypertarget{method-deleteNamespace}{}}}
+\subsection{Method \code{deleteNamespace()}}{
+Deletes a GeoServer namespace given a name.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSNamespaceManager$deleteNamespace(name, recurse = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{name}}{name}
+
+\item{\code{recurse}}{recurse}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if the namespace has been successfully deleted, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSNamespaceManager$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

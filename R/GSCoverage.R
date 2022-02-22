@@ -14,27 +14,6 @@
 #' 
 #' @examples
 #' gt <- GSCoverage$new()
-#'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(rootName, xml)}}{
-#'    This method is used to instantiate a \code{GSCoverage}
-#'  }
-#'  \item{\code{decode(xml)}}{
-#'    This method is used to decode a \code{GSCoverage}. Inherited from the
-#'    generic \code{GSRESTResource} encoder
-#'  }
-#'  \item{\code{encode()}}{
-#'    This method is used to encode a \code{GSCoverage} to XML. Inherited from the
-#'    generic \code{GSRESTResource} encoder
-#'  }
-#'  \item{\code{setView(cv)}}{
-#'    Sets a coverage view for the coverage.
-#'  }
-#'  \item{\code{delView()}}{
-#'    Deletes the coverage view for the coverage
-#'  }
-#' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -42,7 +21,11 @@ GSCoverage <- R6Class("GSCoverage",
    inherit = GSResource,
    
    public = list(
+     #'@field cqlFilter CQL filter
      cqlFilter = NULL,
+     
+     #'@description Initializes a \link{GSCoverage} from XML
+     #'@param xml object of class \link{XMLInternalNode-class}
      initialize = function(xml = NULL){
        super$initialize(rootName = "coverage")
        if(!missing(xml) & !is.null(xml)){
@@ -50,10 +33,15 @@ GSCoverage <- R6Class("GSCoverage",
        }
      },
      
+     #'@description Decodes coverage from XML
+     #'@param xml object of class \link{XMLInternalNode-class}
      decode = function(xml){
        super$decode(xml)
      },
      
+     #'@description Set view
+     #'@param cv cv, object of class \link{GSCoverageView}
+     #'@return \code{TRUE} if set, \code{FALSE} otherwise
      setView = function(cv){
        if(!is(cv, "GSCoverageView")){
          stop("Argument 'cv' should be an object of class 'GSCoverageView'")
@@ -62,6 +50,8 @@ GSCoverage <- R6Class("GSCoverage",
        return(added)
      },
      
+     #'@description Deletes view
+     #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
      delView = function(){
        deleted <- super$delMetadata("COVERAGE_VIEW")
        return(deleted)

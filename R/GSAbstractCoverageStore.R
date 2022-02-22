@@ -6,20 +6,6 @@
 #' @keywords geoserver rest api CoverageStore
 #' @return Object of \code{\link{R6Class}} for modelling a GeoServer CoverageStore
 #' @format \code{\link{R6Class}} object.
-#'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(xml, type, name, description, enabled)}}{
-#'    This method is used to instantiate a \code{GSAbstractCoverageStore}
-#'  }
-#'  \item{\code{decode(xml)}}{
-#'    This method is used to decode a \code{GSAbstractCoverageStore} from XML
-#'  }
-#'  \item{\code{encode()}}{
-#'    This method is used to encode a \code{GSAbstractCoverageStore} to XML. Inherited from the
-#'    generic \code{GSRESTResource} encoder
-#'  }
-#' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -29,7 +15,16 @@ GSAbstractCoverageStore <- R6Class("GSAbstractCoverageStore",
    STORE_TYPE = "coverageStore"
  ),
  public = list(
+   #'@field url URL of the abstract coverage store
    url = NULL,
+   
+   #'@description initializes an abstract coverage store
+   #'@param xml an object of class \link{XMLInternalNode-class} to create object from XML
+   #'@param type the type of coverage store
+   #'@param name coverage store name
+   #'@param description coverage store description
+   #'@param enabled whether the store should be enabled or not. Default is \code{TRUE}
+   #'@param url URL of the store
    initialize = function(xml = NULL, type = NULL,
                          name = NULL, description = "", enabled = TRUE, url = NULL){
      super$initialize(xml = xml, storeType = private$STORE_TYPE, type = type, 
@@ -44,14 +39,17 @@ GSAbstractCoverageStore <- R6Class("GSAbstractCoverageStore",
      }
    },
    
-   #decode
+   #'@description Decodes a coverage store from XML
+   #'@param xml an object of class \link{XMLInternalNode-class}
+   #'@return an object of class \link{GSAbstractCoverageStore}
    decode = function(xml){
      super$decode(xml)
      urlXML <- getNodeSet(xml,"//url")
      if(length(urlXML) > 0) self$url <- xmlValue(urlXML[[1]])
    },
    
-   #setUrl
+   #'@description set coverage store URL
+   #'@param url the store URL to set
    setUrl = function(url){
      self$url <- url
    }

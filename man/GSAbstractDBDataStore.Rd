@@ -12,82 +12,12 @@ Object of \code{\link{R6Class}} for modelling a GeoServer abstract DB dataStore
 }
 \description{
 Geoserver REST API AbstractDBDataStore
+
+Geoserver REST API AbstractDBDataStore
 }
 \note{
 Internal abstract class used for setting DB stores
 }
-\section{Methods}{
-
-\describe{
-   \item{\code{new(xml, name, description, enabled)}}{
-     Instantiates a GSAbstractDBDataStore object
-   }
-   \item{\code{setDatabaseType(dbtype)}}{
-     Sets the database type
-   }
-   \item{\code{setNamespace(namespace)}}{
-     Sets the datastore namespace
-   }
-   \item{\code{setHost(host)}}{
-     Sets the database host
-   }
-   \item{\code{setPort(port)}}{
-     Set the database port
-   }
-   \item{\code{setDatabase(database)}}{
-     Set the database name
-   }
-   \item{\code{setSchema(schema)}}{
-     Set the database schema
-   }
-   \item{\code{setUser(user)}}{
-     Set the database username
-   }
-   \item{\code{setPassword(password)}}{
-     Set the database password
-   }
-   \item{\code{setJndiReferenceName(jndiReferenceName)}}{
-     Set a JNDI reference name
-   }
-   \item{\code{setExposePrimaryKeys(exposePrimaryKeys)}}{
-     Set TRUE if primary keys have to be exposed to datastore, FALSE otherwise.
-   }
-   \item{\code{setMaxConnections(maxConnections)}}{
-     Set the maximum number of connections. Default is set to 10.
-   }
-   \item{\code{setMinConnections(minConnections)}}{
-     Set the minimum number of connections. Default is set to 1.
-   }
-   \item{\code{setFetchSize(fetchSize)}}{
-     Set the fetch size. Default is set to 10.
-   }
-   \item{\code{setConnectionTimeout(seconds)}}{
-     Set the connection timeout. Default is set to 20s.
-   }
-   \item{\code{setValidateConnections(validateConnections)}}{
-     Set TRUE if connections have to be validated, FALSE otherwise.
-   }
-   \item{\code{setPrimaryKeyMetadataTable(primaryKeyMetadataTable)}}{
-     Set the name of the primaryKey metadata table
-   }
-   \item{\code{setLooseBBox(looseBBox)}}{
-     Set losse bbox parameter.
-   }
-   \item{\code{setPreparedStatements(preparedStatements)}}{
-     Set prepared statements
-   }
-   \item{\code{setMaxOpenPreparedStatements(maxOpenPreparedStatements)}}{
-     Set maximum open prepared statements
-   }
-   \item{\code{setEstimatedExtends(estimatedExtends)}}{
-     Set estimatedExtend parameter
-   }
-   \item{\code{setDefautConnectionParameters()}}{
-     Set default connection parameters
-   }
-}
-}
-
 \author{
 Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 }
@@ -97,3 +27,453 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{database}
 \keyword{geoserver}
 \keyword{rest}
+\section{Super classes}{
+\code{\link[geosapi:GSRESTResource]{geosapi::GSRESTResource}} -> \code{\link[geosapi:GSAbstractStore]{geosapi::GSAbstractStore}} -> \code{\link[geosapi:GSAbstractDataStore]{geosapi::GSAbstractDataStore}} -> \code{GSAbstractDBDataStore}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{GSAbstractDBDataStore$new()}}
+\item \href{#method-setDatabaseType}{\code{GSAbstractDBDataStore$setDatabaseType()}}
+\item \href{#method-setNamespace}{\code{GSAbstractDBDataStore$setNamespace()}}
+\item \href{#method-setHost}{\code{GSAbstractDBDataStore$setHost()}}
+\item \href{#method-setPort}{\code{GSAbstractDBDataStore$setPort()}}
+\item \href{#method-setDatabase}{\code{GSAbstractDBDataStore$setDatabase()}}
+\item \href{#method-setSchema}{\code{GSAbstractDBDataStore$setSchema()}}
+\item \href{#method-setUser}{\code{GSAbstractDBDataStore$setUser()}}
+\item \href{#method-setPassword}{\code{GSAbstractDBDataStore$setPassword()}}
+\item \href{#method-setJndiReferenceName}{\code{GSAbstractDBDataStore$setJndiReferenceName()}}
+\item \href{#method-setExposePrimaryKeys}{\code{GSAbstractDBDataStore$setExposePrimaryKeys()}}
+\item \href{#method-setMinConnections}{\code{GSAbstractDBDataStore$setMinConnections()}}
+\item \href{#method-setMaxConnections}{\code{GSAbstractDBDataStore$setMaxConnections()}}
+\item \href{#method-setFetchSize}{\code{GSAbstractDBDataStore$setFetchSize()}}
+\item \href{#method-setConnectionTimeout}{\code{GSAbstractDBDataStore$setConnectionTimeout()}}
+\item \href{#method-setValidateConnections}{\code{GSAbstractDBDataStore$setValidateConnections()}}
+\item \href{#method-setPrimaryKeyMetadataTable}{\code{GSAbstractDBDataStore$setPrimaryKeyMetadataTable()}}
+\item \href{#method-setLooseBBox}{\code{GSAbstractDBDataStore$setLooseBBox()}}
+\item \href{#method-setPreparedStatements}{\code{GSAbstractDBDataStore$setPreparedStatements()}}
+\item \href{#method-setMaxOpenPreparedStatements}{\code{GSAbstractDBDataStore$setMaxOpenPreparedStatements()}}
+\item \href{#method-setEstimatedExtends}{\code{GSAbstractDBDataStore$setEstimatedExtends()}}
+\item \href{#method-setDefautConnectionParameters}{\code{GSAbstractDBDataStore$setDefautConnectionParameters()}}
+\item \href{#method-clone}{\code{GSAbstractDBDataStore$clone()}}
+}
+}
+\if{html}{
+\out{<details ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setDescription">}\href{../../geosapi/html/GSAbstractStore.html#method-setDescription}{\code{geosapi::GSAbstractStore$setDescription()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setEnabled">}\href{../../geosapi/html/GSAbstractStore.html#method-setEnabled}{\code{geosapi::GSAbstractStore$setEnabled()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setType">}\href{../../geosapi/html/GSAbstractStore.html#method-setType}{\code{geosapi::GSAbstractStore$setType()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="addConnectionParameter">}\href{../../geosapi/html/GSAbstractDataStore.html#method-addConnectionParameter}{\code{geosapi::GSAbstractDataStore$addConnectionParameter()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="decode">}\href{../../geosapi/html/GSAbstractDataStore.html#method-decode}{\code{geosapi::GSAbstractDataStore$decode()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="delConnectionParameter">}\href{../../geosapi/html/GSAbstractDataStore.html#method-delConnectionParameter}{\code{geosapi::GSAbstractDataStore$delConnectionParameter()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="setConnectionParameter">}\href{../../geosapi/html/GSAbstractDataStore.html#method-setConnectionParameter}{\code{geosapi::GSAbstractDataStore$setConnectionParameter()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="setConnectionParameters">}\href{../../geosapi/html/GSAbstractDataStore.html#method-setConnectionParameters}{\code{geosapi::GSAbstractDataStore$setConnectionParameters()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+initializes an abstract DB data store
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDBDataStore$new(
+  xml = NULL,
+  type = NULL,
+  dbType = NULL,
+  name = NULL,
+  description = "",
+  enabled = TRUE
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{an object of class \link{XMLInternalNode-class} to create object from XML}
+
+\item{\code{type}}{the type of DB data store}
+
+\item{\code{dbType}}{DB type}
+
+\item{\code{name}}{coverage store name}
+
+\item{\code{description}}{coverage store description}
+
+\item{\code{enabled}}{whether the store should be enabled or not. Default is \code{TRUE}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setDatabaseType"></a>}}
+\if{latex}{\out{\hypertarget{method-setDatabaseType}{}}}
+\subsection{Method \code{setDatabaseType()}}{
+Set database type
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDBDataStore$setDatabaseType(dbtype)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{dbtype}}{DB type}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setNamespace"></a>}}
+\if{latex}{\out{\hypertarget{method-setNamespace}{}}}
+\subsection{Method \code{setNamespace()}}{
+Set namespace
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDBDataStore$setNamespace(namespace)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{namespace}}{namespace}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setHost"></a>}}
+\if{latex}{\out{\hypertarget{method-setHost}{}}}
+\subsection{Method \code{setHost()}}{
+Set host
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDBDataStore$setHost(host)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{host}}{host}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setPort"></a>}}
+\if{latex}{\out{\hypertarget{method-setPort}{}}}
+\subsection{Method \code{setPort()}}{
+Set port
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDBDataStore$setPort(port)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{port}}{port}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setDatabase"></a>}}
+\if{latex}{\out{\hypertarget{method-setDatabase}{}}}
+\subsection{Method \code{setDatabase()}}{
+Set database
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDBDataStore$setDatabase(database)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{database}}{database}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setSchema"></a>}}
+\if{latex}{\out{\hypertarget{method-setSchema}{}}}
+\subsection{Method \code{setSchema()}}{
+Set schema
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDBDataStore$setSchema(schema)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{schema}}{schema}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setUser"></a>}}
+\if{latex}{\out{\hypertarget{method-setUser}{}}}
+\subsection{Method \code{setUser()}}{
+Set user
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDBDataStore$setUser(user)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{user}}{user}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setPassword"></a>}}
+\if{latex}{\out{\hypertarget{method-setPassword}{}}}
+\subsection{Method \code{setPassword()}}{
+Set password
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDBDataStore$setPassword(password)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{password}}{password}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setJndiReferenceName"></a>}}
+\if{latex}{\out{\hypertarget{method-setJndiReferenceName}{}}}
+\subsection{Method \code{setJndiReferenceName()}}{
+Set JNDI reference name
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDBDataStore$setJndiReferenceName(jndiReferenceName)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{jndiReferenceName}}{JNDI reference name}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setExposePrimaryKeys"></a>}}
+\if{latex}{\out{\hypertarget{method-setExposePrimaryKeys}{}}}
+\subsection{Method \code{setExposePrimaryKeys()}}{
+Set expose primary keyws
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDBDataStore$setExposePrimaryKeys(exposePrimaryKeys)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{exposePrimaryKeys}}{expose primary keys}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setMinConnections"></a>}}
+\if{latex}{\out{\hypertarget{method-setMinConnections}{}}}
+\subsection{Method \code{setMinConnections()}}{
+Set min connections
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDBDataStore$setMinConnections(minConnections = 1)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{minConnections}}{min connections. Default is 11}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setMaxConnections"></a>}}
+\if{latex}{\out{\hypertarget{method-setMaxConnections}{}}}
+\subsection{Method \code{setMaxConnections()}}{
+Set max connections
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDBDataStore$setMaxConnections(maxConnections = 10)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{maxConnections}}{max connections. Default is 10}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setFetchSize"></a>}}
+\if{latex}{\out{\hypertarget{method-setFetchSize}{}}}
+\subsection{Method \code{setFetchSize()}}{
+Set fetch size
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDBDataStore$setFetchSize(fetchSize = 1000)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{fetchSize}}{fetch size. Default is 1000}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setConnectionTimeout"></a>}}
+\if{latex}{\out{\hypertarget{method-setConnectionTimeout}{}}}
+\subsection{Method \code{setConnectionTimeout()}}{
+Set connection timeout
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDBDataStore$setConnectionTimeout(seconds = 20)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{seconds}}{timeout (in seconds). Default is 20}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setValidateConnections"></a>}}
+\if{latex}{\out{\hypertarget{method-setValidateConnections}{}}}
+\subsection{Method \code{setValidateConnections()}}{
+Set validate connection
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDBDataStore$setValidateConnections(validateConnections)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{validateConnections}}{Validate connections}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setPrimaryKeyMetadataTable"></a>}}
+\if{latex}{\out{\hypertarget{method-setPrimaryKeyMetadataTable}{}}}
+\subsection{Method \code{setPrimaryKeyMetadataTable()}}{
+Set primary key metadata table
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDBDataStore$setPrimaryKeyMetadataTable(primaryKeyMetadataTable)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{primaryKeyMetadataTable}}{primary key metadata table}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setLooseBBox"></a>}}
+\if{latex}{\out{\hypertarget{method-setLooseBBox}{}}}
+\subsection{Method \code{setLooseBBox()}}{
+Set loose bbox
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDBDataStore$setLooseBBox(looseBBox = TRUE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{looseBBox}}{loose bbox. Default is \code{TRUE}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setPreparedStatements"></a>}}
+\if{latex}{\out{\hypertarget{method-setPreparedStatements}{}}}
+\subsection{Method \code{setPreparedStatements()}}{
+Set prepared statemnts
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDBDataStore$setPreparedStatements(preparedStatements = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{preparedStatements}}{prepared Statements. Default is \code{FALSE}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setMaxOpenPreparedStatements"></a>}}
+\if{latex}{\out{\hypertarget{method-setMaxOpenPreparedStatements}{}}}
+\subsection{Method \code{setMaxOpenPreparedStatements()}}{
+Set max open prepared statements
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDBDataStore$setMaxOpenPreparedStatements(
+  maxOpenPreparedStatements = 50
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{maxOpenPreparedStatements}}{max open preepared statements. Default is 50}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setEstimatedExtends"></a>}}
+\if{latex}{\out{\hypertarget{method-setEstimatedExtends}{}}}
+\subsection{Method \code{setEstimatedExtends()}}{
+Set estimatedExtends
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDBDataStore$setEstimatedExtends(estimatedExtends = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{estimatedExtends}}{estimated extends. Default is \code{FALSE}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setDefautConnectionParameters"></a>}}
+\if{latex}{\out{\hypertarget{method-setDefautConnectionParameters}{}}}
+\subsection{Method \code{setDefautConnectionParameters()}}{
+Set default connection parameters
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDBDataStore$setDefautConnectionParameters()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDBDataStore$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

@@ -13,6 +13,8 @@ of a GeoServer instance.
 }
 \description{
 Geoserver REST API Style Manager
+
+Geoserver REST API Style Manager
 }
 \section{Methods}{
 
@@ -25,19 +27,16 @@ Geoserver REST API Style Manager
    \code{DEBUG}: to print geosapi and CURL logs
  }
  \item{\code{getStyles()}}{
-   Get the list of available styles. Returns an object of class \code{list}
-   containing items of class \code{\link{GSStyle}}
+   
  }
  \item{\code{getStyleNames()}}{
-   Get the list of available style names. Returns an vector of class 
-   \code{character}
+   
  }
  \item{\code{getStyle(style)}}{
-   Get a \code{\link{GSStyle}} object given a style name.
+   
  }
  \item{\code{createStyle(file, sldBody, name, raw, ws)}}{
-   Creates a GeoServer style given a name. Returns \code{TRUE} if the style 
-   has been successfully created, \code{FALSE} otherwise
+   
  }
  \item{\code{updateStyle(file, sldBody, name, raw, ws)}}{
    Updates a GeoServer style. Returns \code{TRUE} if the style has been 
@@ -70,3 +69,233 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{geoserver}
 \keyword{rest}
 \keyword{style}
+\section{Super class}{
+\code{\link[geosapi:GSManager]{geosapi::GSManager}} -> \code{GSStyleManager}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-getStyles}{\code{GSStyleManager$getStyles()}}
+\item \href{#method-getStyleNames}{\code{GSStyleManager$getStyleNames()}}
+\item \href{#method-getStyle}{\code{GSStyleManager$getStyle()}}
+\item \href{#method-createStyle}{\code{GSStyleManager$createStyle()}}
+\item \href{#method-updateStyle}{\code{GSStyleManager$updateStyle()}}
+\item \href{#method-deleteStyle}{\code{GSStyleManager$deleteStyle()}}
+\item \href{#method-getSLDVersion}{\code{GSStyleManager$getSLDVersion()}}
+\item \href{#method-getSLDBody}{\code{GSStyleManager$getSLDBody()}}
+\item \href{#method-clone}{\code{GSStyleManager$clone()}}
+}
+}
+\if{html}{
+\out{<details ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="connect">}\href{../../geosapi/html/GSManager.html#method-connect}{\code{geosapi::GSManager$connect()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="ERROR">}\href{../../geosapi/html/GSManager.html#method-ERROR}{\code{geosapi::GSManager$ERROR()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getClassName">}\href{../../geosapi/html/GSManager.html#method-getClassName}{\code{geosapi::GSManager$getClassName()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getCoverageStoreManager">}\href{../../geosapi/html/GSManager.html#method-getCoverageStoreManager}{\code{geosapi::GSManager$getCoverageStoreManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getDataStoreManager">}\href{../../geosapi/html/GSManager.html#method-getDataStoreManager}{\code{geosapi::GSManager$getDataStoreManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getNamespaceManager">}\href{../../geosapi/html/GSManager.html#method-getNamespaceManager}{\code{geosapi::GSManager$getNamespaceManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getServiceManager">}\href{../../geosapi/html/GSManager.html#method-getServiceManager}{\code{geosapi::GSManager$getServiceManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getStyleManager">}\href{../../geosapi/html/GSManager.html#method-getStyleManager}{\code{geosapi::GSManager$getStyleManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getSystemStatus">}\href{../../geosapi/html/GSManager.html#method-getSystemStatus}{\code{geosapi::GSManager$getSystemStatus()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getUrl">}\href{../../geosapi/html/GSManager.html#method-getUrl}{\code{geosapi::GSManager$getUrl()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getWorkspaceManager">}\href{../../geosapi/html/GSManager.html#method-getWorkspaceManager}{\code{geosapi::GSManager$getWorkspaceManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="INFO">}\href{../../geosapi/html/GSManager.html#method-INFO}{\code{geosapi::GSManager$INFO()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="initialize">}\href{../../geosapi/html/GSManager.html#method-initialize}{\code{geosapi::GSManager$initialize()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="logger">}\href{../../geosapi/html/GSManager.html#method-logger}{\code{geosapi::GSManager$logger()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="monitor">}\href{../../geosapi/html/GSManager.html#method-monitor}{\code{geosapi::GSManager$monitor()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="reload">}\href{../../geosapi/html/GSManager.html#method-reload}{\code{geosapi::GSManager$reload()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="WARN">}\href{../../geosapi/html/GSManager.html#method-WARN}{\code{geosapi::GSManager$WARN()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getStyles"></a>}}
+\if{latex}{\out{\hypertarget{method-getStyles}{}}}
+\subsection{Method \code{getStyles()}}{
+Get the list of available styles.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSStyleManager$getStyles()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+an object of class \code{list} containing items of class \code{\link{GSStyle}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getStyleNames"></a>}}
+\if{latex}{\out{\hypertarget{method-getStyleNames}{}}}
+\subsection{Method \code{getStyleNames()}}{
+Get the list of available style names
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSStyleManager$getStyleNames()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+a vector of class \code{character}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getStyle"></a>}}
+\if{latex}{\out{\hypertarget{method-getStyle}{}}}
+\subsection{Method \code{getStyle()}}{
+Get a \code{\link{GSStyle}} object given a style name.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSStyleManager$getStyle(style, ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{style}}{style name}
+
+\item{\code{ws}}{workspace name. Optional}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+object of class \link{GSStyle}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-createStyle"></a>}}
+\if{latex}{\out{\hypertarget{method-createStyle}{}}}
+\subsection{Method \code{createStyle()}}{
+Creates a GeoServer style given a name.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSStyleManager$createStyle(file, sldBody = NULL, name, raw = FALSE, ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{file}}{file}
+
+\item{\code{sldBody}}{SLD body}
+
+\item{\code{name}}{name}
+
+\item{\code{raw}}{raw}
+
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if the style has been successfully created, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-updateStyle"></a>}}
+\if{latex}{\out{\hypertarget{method-updateStyle}{}}}
+\subsection{Method \code{updateStyle()}}{
+Updates a GeoServer style given a name.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSStyleManager$updateStyle(file, sldBody = NULL, name, raw = FALSE, ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{file}}{file}
+
+\item{\code{sldBody}}{SLD body}
+
+\item{\code{name}}{name}
+
+\item{\code{raw}}{raw}
+
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if the style has been successfully updated, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-deleteStyle"></a>}}
+\if{latex}{\out{\hypertarget{method-deleteStyle}{}}}
+\subsection{Method \code{deleteStyle()}}{
+Deletes a style given a name.
+   By defaut, the option \code{recurse} is set to FALSE, ie datastore layers are not removed.
+   To remove all coverage store layers, set this option to TRUE. The \code{purge} parameter is used 
+   to customize the delete of files on disk (in case the underlying reader implements a delete method).
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSStyleManager$deleteStyle(name, recurse = FALSE, purge = FALSE, ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{name}}{name}
+
+\item{\code{recurse}}{recurse}
+
+\item{\code{purge}}{purge}
+
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if the style has been successfully deleted, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getSLDVersion"></a>}}
+\if{latex}{\out{\hypertarget{method-getSLDVersion}{}}}
+\subsection{Method \code{getSLDVersion()}}{
+Get SLD version
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSStyleManager$getSLDVersion(sldBody)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{sldBody}}{SLD body}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getSLDBody"></a>}}
+\if{latex}{\out{\hypertarget{method-getSLDBody}{}}}
+\subsection{Method \code{getSLDBody()}}{
+Get SLD body
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSStyleManager$getSLDBody(style, ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{style}}{style name}
+
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object of class \link{XMLInternalNode-class}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSStyleManager$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

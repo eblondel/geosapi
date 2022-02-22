@@ -19,24 +19,6 @@ of Geoserver.
 \details{
 Geoserver REST API - Geoserver Version
 }
-\section{Methods}{
-
-\describe{
- \item{\code{new(url, user, pwd)}}{
-   This method is used to instantiate a GSVersion object.
- }
- \item{\code{lowerThan(version)}}{
-   Compares to a version and returns TRUE if it is lower, FALSE otherwise
- }
- \item{\code{greaterThan(version)}}{
-   Compares to a version and returns TRUE if it is greater, FALSE otherwise
- }
- \item{\code{equalTo(version)}}{
-   Compares to a version and returns TRUE if it is equal, FALSE otherwise
- }
-}
-}
-
 \examples{
 \dontrun{
 version <- GSVersion$new(
@@ -53,3 +35,121 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{geoserver}
 \keyword{rest}
 \keyword{version}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{version}}{version}
+
+\item{\code{value}}{value}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{GSVersion$new()}}
+\item \href{#method-lowerThan}{\code{GSVersion$lowerThan()}}
+\item \href{#method-greaterThan}{\code{GSVersion$greaterThan()}}
+\item \href{#method-equalTo}{\code{GSVersion$equalTo()}}
+\item \href{#method-clone}{\code{GSVersion$clone()}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+Initializes an object of class \link{GSVersion}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSVersion$new(url, user, pwd)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{url}}{url}
+
+\item{\code{user}}{user}
+
+\item{\code{pwd}}{pwd}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-lowerThan"></a>}}
+\if{latex}{\out{\hypertarget{method-lowerThan}{}}}
+\subsection{Method \code{lowerThan()}}{
+Compares to a version and returns TRUE if it is lower, FALSE otherwise
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSVersion$lowerThan(version)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{version}}{version}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if lower, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-greaterThan"></a>}}
+\if{latex}{\out{\hypertarget{method-greaterThan}{}}}
+\subsection{Method \code{greaterThan()}}{
+Compares to a version and returns TRUE if it is greater, FALSE otherwise
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSVersion$greaterThan(version)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{version}}{version}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if greater, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-equalTo"></a>}}
+\if{latex}{\out{\hypertarget{method-equalTo}{}}}
+\subsection{Method \code{equalTo()}}{
+Compares to a version and returns TRUE if it is equal, FALSE otherwise
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSVersion$equalTo(version)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{version}}{version}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if equal, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSVersion$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

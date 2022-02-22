@@ -16,19 +16,6 @@
 #' @examples
 #' res <- GSResource$new(rootName = "featureType")
 #'
-#' @field name resource name
-#' @field nativeName resource native name
-#' @field title resource title
-#' @field description resource description
-#' @field abstract resource abstract
-#' @field keywordsr resource keywords
-#' @field metadataLinks resource metadata links
-#' @field projectionPolicy resource projection policy
-#' @field srs resource srs
-#' @field nativeCRS resource native CRS
-#' @field latLonBoundingBox resource lat/lon bounding box
-#' @field nativeBoundingBox resource lat/lon native bounding box
-#'
 #' @section Methods:
 #' \describe{
 #'  \item{\code{new(rootName, xml)}}{
@@ -106,22 +93,40 @@ GSResource <- R6Class("GSResource",
    ),
    
    public = list(
+     #'@field full full
      full = TRUE,
+     #' @field name resource name
      name = NULL,
+     #' @field nativeName resource native name
      nativeName = NULL,
+     #' @field title resource title
      title = NULL,
+     #' @field description resource description
      description = NULL,
+     #' @field abstract resource abstract
      abstract = NULL,
+     #' @field keywords resource keywords
      keywords = list(),
+     #' @field metadataLinks resource metadata links
      metadataLinks = list(),
+     #' @field nativeCRS resource native CRS
      nativeCRS = NULL,
+     #' @field srs resource srs
      srs = NULL,
+     #' @field nativeBoundingBox resource lat/lon native bounding box
      nativeBoundingBox = list(minx = NA, miny = NA, maxx = NA, maxy = NA, crs = NA),
+     #' @field latLonBoundingBox resource lat/lon bounding box
      latLonBoundingBox = list(minx = NA, miny = NA, maxx = NA, maxy = NA, crs = NA),
+     #' @field projectionPolicy resource projection policy
      projectionPolicy = NULL,
+     #'@field enabled enabled
      enabled = TRUE,
+     #'@field metadata metadata
      metadata = NULL,
      
+     #'@description Initializes a \link{GSResource}
+     #'@param rootName root name
+     #'@param xml object of class \link{XMLInternalNode-class}
      initialize = function(rootName = NULL, xml = NULL){
         super$initialize(rootName = rootName)
         if(!missing(xml) & !is.null(xml)){
@@ -129,6 +134,8 @@ GSResource <- R6Class("GSResource",
         }
      },
      
+     #'@description Decodes from XML
+     #'@param xml object of class \link{XMLInternalNode-class}
      decode = function(xml){
        names <- getNodeSet(xml, "//name")
        self$name <- xmlValue(names[[1]])
@@ -203,36 +210,53 @@ GSResource <- R6Class("GSResource",
        }
      },
      
+     #'@description Set enabled
+     #'@param enabled enabled
      setEnabled = function(enabled){
        self$enabled = enabled
      },
      
+     #'@description Set name
+     #'@param name name
      setName = function(name){
        self$name = name
      },
      
+     #'@description Set native name
+     #'@param nativeName native name
      setNativeName = function(nativeName){
        self$nativeName = nativeName
      },
      
+     #'@description Set title
+     #'@param title title
      setTitle = function(title){
        self$title = title
      },
      
+     #'@description Set description
+     #'@param description description
      setDescription = function(description){
        self$description = description
      },
      
+     #'@description Set abstract
+     #'@param abstract abstract
      setAbstract = function(abstract){
        self$abstract = abstract
      },
      
+     #'@description Set keyword(s)
+     #'@param keywords keywords
      setKeywords = function(keywords){
        if(!is.list(keywords)) keywords = list(keywords)
        self$keywords = keywords
        return(TRUE)
      },
      
+     #'@description Adds keyword
+     #'@param keyword keyword
+     #'@return \code{TRUE} if added, \code{FALSE} otherwise
      addKeyword = function(keyword){
        startNb = length(self$keywords)
        if(length(which(self$keywords == keyword)) == 0){
@@ -242,6 +266,9 @@ GSResource <- R6Class("GSResource",
        return(endNb == startNb+1)
      },
      
+     #'@description Deletes keyword
+     #'@param keyword keyword
+     #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
      delKeyword = function(keyword){
        startNb = length(self$keywords)
        self$keywords = self$keywords[which(self$keywords != keyword)]
@@ -249,10 +276,15 @@ GSResource <- R6Class("GSResource",
        return(endNb == startNb-1)
      },
      
+     #'@description Set metadata links
+     #'@param metadataLinks metadata links
      setMetadataLinks = function(metadataLinks){
        self$metadataLinks <- metadataLinks
      },
      
+     #'@description Adds metadata link
+     #'@param metadataLink object of class \link{GSMetadataLink}
+     #'@return \code{TRUE} if added, \code{FALSE} otherwise
      addMetadataLink = function(metadataLink){
        startNb = length(self$metadataLinks)
        links <- lapply(self$metadataLinks, function(x){x$content})
@@ -263,6 +295,9 @@ GSResource <- R6Class("GSResource",
        return(endNb == startNb+1)
      },
      
+     #'@description Deletes metadata link
+     #'@param metadataLink object of class \link{GSMetadataLink}
+     #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
      deleteMetadataLink = function(metadataLink){
        startNb = length(self$metadataLinks)
        links <- lapply(self$metadataLinks, function(x){x$content})
@@ -271,6 +306,8 @@ GSResource <- R6Class("GSResource",
        return(endNb == startNb-1)
      },
      
+     #'@description Set projection policy
+     #'@param projectionPolicy projection policy
      setProjectionPolicy = function(projectionPolicy){
        if(!(projectionPolicy %in% private$allowedProjectionPolicies)){
         stop(sprintf("'%s' is not a valid projection policy", projectionPolicy))
@@ -278,22 +315,44 @@ GSResource <- R6Class("GSResource",
        self$projectionPolicy = projectionPolicy
      },
      
+     #'@description Set SRS
+     #'@param srs srs
      setSrs = function(srs){
        self$srs = srs
      },
      
+     #'@description Set native CRS
+     #'@param nativeCRS native crs
      setNativeCRS = function(nativeCRS){
        self$nativeCRS = nativeCRS
      },
 
+     #'@description Set LatLon bounding box
+     #'@param minx minx
+     #'@param miny miny
+     #'@param maxx maxx
+     #'@param maxy maxy
+     #'@param bbox bbox
+     #'@param crs crs
      setLatLonBoundingBox = function(minx, miny, maxx, maxy, bbox = NULL, crs){
        self$latLonBoundingBox <- GSUtils$setBbox(minx, miny, maxx, maxy, bbox, crs)
      },
      
+     #'@description Set native bounding box
+     #'@param minx minx
+     #'@param miny miny
+     #'@param maxx maxx
+     #'@param maxy maxy
+     #'@param bbox bbox
+     #'@param crs crs
      setNativeBoundingBox = function(minx, miny, maxx, maxy, bbox = NULL, crs){
        self$nativeBoundingBox <- GSUtils$setBbox(minx, miny, maxx, maxy, bbox, crs)
      },
      
+     #'@description Set metadata
+     #'@param key key
+     #'@param metadata metadata
+     #'@return \code{TRUE} if added, \code{FALSE} otherwise
      setMetadata = function(key, metadata){
        if(is.null(self$metadata)){
          self$metadata = GSRESTEntrySet$new(rootName = "metadata")
@@ -302,6 +361,9 @@ GSResource <- R6Class("GSResource",
        return(added)
      },
      
+     #'@description Deletes metadata
+     #'@param key key
+     #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
      delMetadata = function(key){
        deleted <- FALSE
        if(!is.null(self$metadata)){
@@ -311,6 +373,10 @@ GSResource <- R6Class("GSResource",
        return(deleted)
      },
      
+     #'@description Set metadata dimension
+     #'@param key key
+     #'@param dimension dimension
+     #'@param custom custom
      setMetadataDimension = function(key, dimension, custom = FALSE){
       if(custom) key <- paste0("custom_dimension_", toupper(key))
       added <- self$setMetadata(key, dimension)

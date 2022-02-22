@@ -4,7 +4,7 @@
 #' @importFrom R6 R6Class
 #' @export
 #' 
-#' @name GSLayer
+#' @name GSPublishable
 #' @title A GeoServer layer group publishable
 #' @description This class models a GeoServer layer. This class is to be
 #' used internally by \pkg{geosapi} for configuring layers or layer groups
@@ -14,27 +14,7 @@
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @examples
-#' publishable <- GSPublishable$new(name = "name", type = "layer")
-#'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(rootName, xml)}}{
-#'    This method is used to instantiate a GSPublishable
-#'  }
-#'  \item{\code{decode(xml)}}{
-#'    This method is used to decode a GSPublishable
-#'  }
-#'  \item{\code{encode()}}{
-#'    This method is used to encode a GSPublishable to XML. Inherited from the
-#'    generic \code{GSRESTResource} encoder
-#'  }
-#'  \item{\code{setName(name)}}{
-#'    Sets the publishable name.
-#'  }
-#'  \item{\code{setType(type)}}{
-#'    Sets the publishable type.
-#'  }
-#'}
+#'   publishable <- GSPublishable$new(name = "name", type = "layer")
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -42,10 +22,17 @@ GSPublishable <- R6Class("GSPublishable",
    inherit = GSRESTResource,
    
    public = list(
+     #'@field full full
      full = TRUE,
+     #'@field name name
      name = NULL,
+     #'@field attr_type type of attribute
      attr_type = NULL,
      
+     #'@description Initializes a \link{GSPublishable}
+     #'@param xml an object of class \link{XMLInternalNode-class}
+     #'@param name name
+     #'@param type type
      initialize = function(xml = NULL, name, type){
        super$initialize(rootName = "published")
        if(!missing(xml) & !is.null(xml)){
@@ -58,16 +45,22 @@ GSPublishable <- R6Class("GSPublishable",
        }
      },
      
+     #'@description Decodes from XML
+     #'@param xml an object of class \link{XMLInternalNode-class}
      decode = function(xml){
        names <- getNodeSet(xml, "//name")
        self$name <- xmlValue(names[[1]])
        self$attr_type <- xmlGetAttr(xml, "type")[1]
      },
      
+     #'@description set name
+     #'@param name name
      setName = function(name){
        self$name = name
      },
      
+     #'@description Set type
+     #'@param type type
      setType = function(type){
        self$attr_type = type
      }

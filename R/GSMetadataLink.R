@@ -13,20 +13,6 @@
 #' @keywords geoserver rest api resource metadataLink
 #' @return Object of \code{\link{R6Class}} for modelling a GeoServer resource metadataLink
 #' @format \code{\link{R6Class}} object.
-#'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(xml, type, metadataType, content)}}{
-#'    This method is used to instantiate a GSMetadataLink
-#'  }
-#'  \item{\code{decode(xml)}}{
-#'    This method is used to decode a GSMetadataLink from XML
-#'  }
-#'  \item{\code{encode()}}{
-#'    This method is used to encode a GSMetadataLink to XML. Inherited from the
-#'    generic \code{GSRESTResource} encoder
-#'  }
-#' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -34,9 +20,18 @@ GSMetadataLink <- R6Class("GSMetadataLink",
    inherit = GSRESTResource,
    
    public = list(
+     #'@field type type
      type = NULL,
+     #'@field metadataType metadata type
      metadataType = NULL,
+     #'@field content content
      content = NULL,
+     
+     #'@description Initializes an object of class \link{GSMetadataLink}
+     #'@param xml object of class \link{XMLInternalNode-class}
+     #'@param type type
+     #'@param metadataType metadata type
+     #'@param content content
      initialize = function(xml = NULL, type, metadataType, content){
        super$initialize(rootName = "metadataLink")
        if(!missing(xml) & !is.null(xml)){
@@ -48,6 +43,8 @@ GSMetadataLink <- R6Class("GSMetadataLink",
        }
      },
      
+     #'@description Decodes from XML
+     #'@param xml object of class \link{XMLInternalNode-class}
      decode = function(xml){
         propsXML <- xmlChildren(xml)
         props <- lapply(propsXML, xmlValue)
@@ -56,10 +53,14 @@ GSMetadataLink <- R6Class("GSMetadataLink",
         self$setContent(props$content)
      },
      
+     #'@description Set type type
+     #'@param type type
      setType = function(type){
         self$type = type
      },
      
+     #'@description Set metadata type
+     #'@param metadataType metadata type. Supported values: "ISO19115:2003", "FGDC", "TC211", "19139", "other"
      setMetadataType = function(metadataType){
         supportedMetadataTypes <- c("ISO19115:2003", "FGDC", "TC211", "19139", "other")
         if(!(metadataType %in% supportedMetadataTypes)){
@@ -70,6 +71,8 @@ GSMetadataLink <- R6Class("GSMetadataLink",
         self$metadataType <- metadataType
      },
      
+     #'@description Set content 
+     #'@param content content
      setContent = function(content){
        self$content = content
      }

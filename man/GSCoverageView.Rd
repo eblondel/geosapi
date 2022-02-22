@@ -12,49 +12,11 @@ Object of \code{\link{R6Class}} for modelling a GeoServer coverage view
 }
 \description{
 Geoserver REST API GSCoverageView
+
+Geoserver REST API GSCoverageView
 }
-\section{Fields}{
-
-\describe{
-\item{\code{name}}{name}
-}}
-
-\section{Methods}{
-
-\describe{
- \item{\code{new(xml)}}{
-   This method is used to instantiate a \code{GSCoverageView}
- }
- \item{\code{decode(xml)}}{
-   This method is used to decode a \code{GSCoverageView} from XML
- }
- \item{\code{encode()}}{
-   This method is used to encode a \code{GSCoverageView} to XML
- }
- \item{\code{setName(name)}}{
-   Sets the name of the coverage view
- }
- \item{\code{setEnvelopeCompositionType}}{
-   Sets the envelope composition type. Type of Envelope Composition, used to expose the bounding box 
-   of the CoverageView, either 'UNION' or 'INTERSECTION'.
- }
- \item{\code{setSelectedResolution(selectedResolution)}}{
-   Sets the selected resolution
- }
- \item{\code{setSelectedResolutionIndex(selectedResolutionIndex)}}{
-   Sets the selected resolution index
- }
- \item{\code{addBand(band)}}{
-   Adds a coverage band
- }
- \item{\code{delBand(band)}}{
-   Removes a coverage band.
- }
-}
-}
-
 \examples{
-GSCoverageView$new()
+  GSCoverageView$new()
 
 }
 \author{
@@ -64,3 +26,203 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{coverageView}
 \keyword{geoserver}
 \keyword{rest}
+\section{Super class}{
+\code{\link[geosapi:GSRESTResource]{geosapi::GSRESTResource}} -> \code{GSCoverageView}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{name}}{name}
+
+\item{\code{envelopeCompositionType}}{envelope composition type}
+
+\item{\code{selectedResolution}}{selected resolution}
+
+\item{\code{selectedResolutionIndex}}{selected resolution index}
+
+\item{\code{coverageBands}}{coverage bands}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{GSCoverageView$new()}}
+\item \href{#method-decode}{\code{GSCoverageView$decode()}}
+\item \href{#method-setName}{\code{GSCoverageView$setName()}}
+\item \href{#method-setEnvelopeCompositionType}{\code{GSCoverageView$setEnvelopeCompositionType()}}
+\item \href{#method-setSelectedResolution}{\code{GSCoverageView$setSelectedResolution()}}
+\item \href{#method-setSelectedResolutionIndex}{\code{GSCoverageView$setSelectedResolutionIndex()}}
+\item \href{#method-addBand}{\code{GSCoverageView$addBand()}}
+\item \href{#method-delBand}{\code{GSCoverageView$delBand()}}
+\item \href{#method-clone}{\code{GSCoverageView$clone()}}
+}
+}
+\if{html}{
+\out{<details open ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+Initializes an object of class \link{GSCoverageView}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageView$new(xml = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-decode}{}}}
+\subsection{Method \code{decode()}}{
+Decodes from XML
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageView$decode(xml)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setName"></a>}}
+\if{latex}{\out{\hypertarget{method-setName}{}}}
+\subsection{Method \code{setName()}}{
+Set name
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageView$setName(name)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{name}}{name}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setEnvelopeCompositionType"></a>}}
+\if{latex}{\out{\hypertarget{method-setEnvelopeCompositionType}{}}}
+\subsection{Method \code{setEnvelopeCompositionType()}}{
+Sets the envelope composition type. Type of Envelope Composition, used to expose the bounding box 
+of the CoverageView, either 'UNION' or 'INTERSECTION'.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageView$setEnvelopeCompositionType(envelopeCompositionType)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{envelopeCompositionType}}{envelope composition type}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setSelectedResolution"></a>}}
+\if{latex}{\out{\hypertarget{method-setSelectedResolution}{}}}
+\subsection{Method \code{setSelectedResolution()}}{
+Set selected resolution
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageView$setSelectedResolution(selectedResolution)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{selectedResolution}}{selected resolution}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setSelectedResolutionIndex"></a>}}
+\if{latex}{\out{\hypertarget{method-setSelectedResolutionIndex}{}}}
+\subsection{Method \code{setSelectedResolutionIndex()}}{
+Set selected resolution index
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageView$setSelectedResolutionIndex(selectedResolutionIndex)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{selectedResolutionIndex}}{selected resolution index}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-addBand"></a>}}
+\if{latex}{\out{\hypertarget{method-addBand}{}}}
+\subsection{Method \code{addBand()}}{
+Adds band
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageView$addBand(band)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{band}}{object of class \link{GSCoverageBand}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if added, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-delBand"></a>}}
+\if{latex}{\out{\hypertarget{method-delBand}{}}}
+\subsection{Method \code{delBand()}}{
+Deletes band
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageView$delBand(band)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{band}}{object of class \link{GSCoverageBand}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if deleted, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageView$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

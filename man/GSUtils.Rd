@@ -13,6 +13,8 @@ with the REST API of a GeoServer instance.
 }
 \description{
 Geoserver REST API Manager Utils
+
+Geoserver REST API Manager Utils
 }
 \section{Static methods}{
 
@@ -62,3 +64,27 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{api}
 \keyword{geoserver}
 \keyword{rest}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-clone}{\code{GSUtils$clone()}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSUtils$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

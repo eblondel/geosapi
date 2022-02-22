@@ -8,76 +8,6 @@
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @note Internal abstract class used for setting DB stores
-#'
-#' @section Methods:
-#' \describe{
-#'    \item{\code{new(xml, name, description, enabled)}}{
-#'      Instantiates a GSAbstractDBDataStore object
-#'    }
-#'    \item{\code{setDatabaseType(dbtype)}}{
-#'      Sets the database type
-#'    }
-#'    \item{\code{setNamespace(namespace)}}{
-#'      Sets the datastore namespace
-#'    }
-#'    \item{\code{setHost(host)}}{
-#'      Sets the database host
-#'    }
-#'    \item{\code{setPort(port)}}{
-#'      Set the database port
-#'    }
-#'    \item{\code{setDatabase(database)}}{
-#'      Set the database name
-#'    }
-#'    \item{\code{setSchema(schema)}}{
-#'      Set the database schema
-#'    }
-#'    \item{\code{setUser(user)}}{
-#'      Set the database username
-#'    }
-#'    \item{\code{setPassword(password)}}{
-#'      Set the database password
-#'    }
-#'    \item{\code{setJndiReferenceName(jndiReferenceName)}}{
-#'      Set a JNDI reference name
-#'    }
-#'    \item{\code{setExposePrimaryKeys(exposePrimaryKeys)}}{
-#'      Set TRUE if primary keys have to be exposed to datastore, FALSE otherwise.
-#'    }
-#'    \item{\code{setMaxConnections(maxConnections)}}{
-#'      Set the maximum number of connections. Default is set to 10.
-#'    }
-#'    \item{\code{setMinConnections(minConnections)}}{
-#'      Set the minimum number of connections. Default is set to 1.
-#'    }
-#'    \item{\code{setFetchSize(fetchSize)}}{
-#'      Set the fetch size. Default is set to 10.
-#'    }
-#'    \item{\code{setConnectionTimeout(seconds)}}{
-#'      Set the connection timeout. Default is set to 20s.
-#'    }
-#'    \item{\code{setValidateConnections(validateConnections)}}{
-#'      Set TRUE if connections have to be validated, FALSE otherwise.
-#'    }
-#'    \item{\code{setPrimaryKeyMetadataTable(primaryKeyMetadataTable)}}{
-#'      Set the name of the primaryKey metadata table
-#'    }
-#'    \item{\code{setLooseBBox(looseBBox)}}{
-#'      Set losse bbox parameter.
-#'    }
-#'    \item{\code{setPreparedStatements(preparedStatements)}}{
-#'      Set prepared statements
-#'    }
-#'    \item{\code{setMaxOpenPreparedStatements(maxOpenPreparedStatements)}}{
-#'      Set maximum open prepared statements
-#'    }
-#'    \item{\code{setEstimatedExtends(estimatedExtends)}}{
-#'      Set estimatedExtend parameter
-#'    }
-#'    \item{\code{setDefautConnectionParameters()}}{
-#'      Set default connection parameters
-#'    }
-#' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -85,6 +15,13 @@ GSAbstractDBDataStore <- R6Class("GSAbstractDBDataStore",
     inherit = GSAbstractDataStore,
     public = list(
       
+      #'@description initializes an abstract DB data store
+      #'@param xml an object of class \link{XMLInternalNode-class} to create object from XML
+      #'@param type the type of DB data store
+      #'@param dbType DB type
+      #'@param name coverage store name
+      #'@param description coverage store description
+      #'@param enabled whether the store should be enabled or not. Default is \code{TRUE}
       initialize = function(xml = NULL, type = NULL, dbType = NULL,
                             name = NULL, description = "", enabled = TRUE){
         if(missing(xml)) xml <- NULL
@@ -98,86 +35,127 @@ GSAbstractDBDataStore <- R6Class("GSAbstractDBDataStore",
         self$setDatabaseType(dbType)
       },
       
+      #'@description Set database type
+      #'@param dbtype DB type
       setDatabaseType = function(dbtype) {
         self$setConnectionParameter("dbtype", dbtype);
       },
       
+      #'@description Set namespace
+      #'@param namespace namespace
       setNamespace = function(namespace) {
         self$setConnectionParameter("namespace", namespace);
       },
       
+      #'@description Set host
+      #'@param host host
       setHost = function(host) {
         self$setConnectionParameter("host", host);
       },
       
+      #'@description Set port
+      #'@param port port
       setPort = function(port) {
         self$setConnectionParameter("port", port);
       },
       
+      #'@description Set database
+      #'@param database database
       setDatabase = function(database) {
         self$setConnectionParameter("database", database);
       },
       
+      #'@description Set schema
+      #'@param schema schema
       setSchema = function(schema) {
         self$setConnectionParameter("schema", schema);
       },
       
+      #'@description Set user
+      #'@param user user
       setUser = function(user) {
         self$setConnectionParameter("user", user);
       },
       
+      #'@description Set password
+      #'@param password password
       setPassword = function(password) {
         self$setConnectionParameter("passwd", password);
       },
       
+      #'@description Set JNDI reference name
+      #'@param jndiReferenceName JNDI reference name
       setJndiReferenceName = function(jndiReferenceName) {
         self$setConnectionParameter("jndiReferenceName", jndiReferenceName);
       },
       
+      #'@description Set expose primary keyws
+      #'@param exposePrimaryKeys expose primary keys
       setExposePrimaryKeys = function(exposePrimaryKeys) {
         self$setConnectionParameter("Expose primary keys", exposePrimaryKeys);
       },
       
-      setMaxConnections = function(maxConnections = 10) {
-        self$setConnectionParameter("max connections", maxConnections);
-      },
-      
+      #'@description Set min connections
+      #'@param minConnections min connections. Default is 11
       setMinConnections = function(minConnections = 1) {
         self$setConnectionParameter("min connections", minConnections);
       },
       
+      #'@description Set max connections
+      #'@param maxConnections max connections. Default is 10
+      setMaxConnections = function(maxConnections = 10) {
+        self$setConnectionParameter("max connections", maxConnections);
+      },
+      
+      #'@description Set fetch size
+      #'@param fetchSize fetch size. Default is 1000
       setFetchSize = function(fetchSize = 1000) {
         self$setConnectionParameter("fetch size", fetchSize);
       },
       
+      #'@description Set connection timeout
+      #'@param seconds timeout (in seconds). Default is 20
       setConnectionTimeout = function(seconds = 20) {
         self$setConnectionParameter("Connection timeout", seconds);
       },
       
+      #'@description Set validate connection
+      #'@param validateConnections Validate connections
       setValidateConnections = function(validateConnections) {
         self$setConnectionParameter("validate connections", validateConnections);
       },
       
+      #'@description Set primary key metadata table
+      #'@param primaryKeyMetadataTable primary key metadata table
       setPrimaryKeyMetadataTable = function(primaryKeyMetadataTable) {
         self$setConnectionParameter("Primary key metadata table", primaryKeyMetadataTable);
       },
       
+      #'@description Set loose bbox
+      #'@param looseBBox loose bbox. Default is \code{TRUE}
       setLooseBBox = function(looseBBox = TRUE) {
         self$setConnectionParameter("Loose bbox", looseBBox);
       },
       
+      #'@description Set prepared statemnts
+      #'@param preparedStatements prepared Statements. Default is \code{FALSE}
       setPreparedStatements = function(preparedStatements = FALSE) {
         self$setConnectionParameter("preparedStatements", preparedStatements);
       },
       
+      #'@description Set max open prepared statements
+      #'@param maxOpenPreparedStatements max open preepared statements. Default is 50
       setMaxOpenPreparedStatements = function(maxOpenPreparedStatements = 50) {
         self$setConnectionParameter("Max open prepared statements", maxOpenPreparedStatements);
       },
       
+      #'@description Set estimatedExtends
+      #'@param estimatedExtends estimated extends. Default is \code{FALSE}
       setEstimatedExtends = function(estimatedExtends = FALSE){
         self$setConnectionParameter("Estimated extends", estimatedExtends);
       },
       
+      #'@description Set default connection parameters
       setDefautConnectionParameters = function(){
         self$setMinConnections()
         self$setMaxConnections()

@@ -12,6 +12,8 @@ Object of \code{\link{R6Class}} with methods for managing GeoServer services
 }
 \description{
 Geoserver REST API Service Manager
+
+Geoserver REST API Service Manager
 }
 \section{Constructor}{
 
@@ -24,9 +26,7 @@ Geoserver REST API Service Manager
    \code{DEBUG}: to print geosapi and CURL logs
  }
  \item{\code{getServiceSettings(service, ws)}}{
-   Get the service settings. To get the service settings for a specific workspace,
-   specify the workspace name as \code{ws} parameter, otherwise global settings are
-   retrieved.
+   
  }
  \item{\code{getWmsSettings(ws)}}{
    Get WMS settings. To get the WMS settings for a specific workspace,
@@ -106,3 +106,422 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{geoserver}
 \keyword{rest}
 \keyword{service}
+\section{Super class}{
+\code{\link[geosapi:GSManager]{geosapi::GSManager}} -> \code{GSServiceManager}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-getServiceSettings}{\code{GSServiceManager$getServiceSettings()}}
+\item \href{#method-getWmsSettings}{\code{GSServiceManager$getWmsSettings()}}
+\item \href{#method-getWfsSettings}{\code{GSServiceManager$getWfsSettings()}}
+\item \href{#method-getWcsSettings}{\code{GSServiceManager$getWcsSettings()}}
+\item \href{#method-updateServiceSettings}{\code{GSServiceManager$updateServiceSettings()}}
+\item \href{#method-deleteServiceSettings}{\code{GSServiceManager$deleteServiceSettings()}}
+\item \href{#method-updateWmsSettings}{\code{GSServiceManager$updateWmsSettings()}}
+\item \href{#method-updateWfsSettings}{\code{GSServiceManager$updateWfsSettings()}}
+\item \href{#method-updateWcsSettings}{\code{GSServiceManager$updateWcsSettings()}}
+\item \href{#method-enableWMS}{\code{GSServiceManager$enableWMS()}}
+\item \href{#method-enableWFS}{\code{GSServiceManager$enableWFS()}}
+\item \href{#method-enableWCS}{\code{GSServiceManager$enableWCS()}}
+\item \href{#method-disableServiceSettings}{\code{GSServiceManager$disableServiceSettings()}}
+\item \href{#method-disableWMS}{\code{GSServiceManager$disableWMS()}}
+\item \href{#method-disableWFS}{\code{GSServiceManager$disableWFS()}}
+\item \href{#method-disableWCS}{\code{GSServiceManager$disableWCS()}}
+\item \href{#method-clone}{\code{GSServiceManager$clone()}}
+}
+}
+\if{html}{
+\out{<details ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="connect">}\href{../../geosapi/html/GSManager.html#method-connect}{\code{geosapi::GSManager$connect()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="ERROR">}\href{../../geosapi/html/GSManager.html#method-ERROR}{\code{geosapi::GSManager$ERROR()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getClassName">}\href{../../geosapi/html/GSManager.html#method-getClassName}{\code{geosapi::GSManager$getClassName()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getCoverageStoreManager">}\href{../../geosapi/html/GSManager.html#method-getCoverageStoreManager}{\code{geosapi::GSManager$getCoverageStoreManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getDataStoreManager">}\href{../../geosapi/html/GSManager.html#method-getDataStoreManager}{\code{geosapi::GSManager$getDataStoreManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getNamespaceManager">}\href{../../geosapi/html/GSManager.html#method-getNamespaceManager}{\code{geosapi::GSManager$getNamespaceManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getServiceManager">}\href{../../geosapi/html/GSManager.html#method-getServiceManager}{\code{geosapi::GSManager$getServiceManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getStyleManager">}\href{../../geosapi/html/GSManager.html#method-getStyleManager}{\code{geosapi::GSManager$getStyleManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getSystemStatus">}\href{../../geosapi/html/GSManager.html#method-getSystemStatus}{\code{geosapi::GSManager$getSystemStatus()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getUrl">}\href{../../geosapi/html/GSManager.html#method-getUrl}{\code{geosapi::GSManager$getUrl()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getWorkspaceManager">}\href{../../geosapi/html/GSManager.html#method-getWorkspaceManager}{\code{geosapi::GSManager$getWorkspaceManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="INFO">}\href{../../geosapi/html/GSManager.html#method-INFO}{\code{geosapi::GSManager$INFO()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="initialize">}\href{../../geosapi/html/GSManager.html#method-initialize}{\code{geosapi::GSManager$initialize()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="logger">}\href{../../geosapi/html/GSManager.html#method-logger}{\code{geosapi::GSManager$logger()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="monitor">}\href{../../geosapi/html/GSManager.html#method-monitor}{\code{geosapi::GSManager$monitor()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="reload">}\href{../../geosapi/html/GSManager.html#method-reload}{\code{geosapi::GSManager$reload()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="WARN">}\href{../../geosapi/html/GSManager.html#method-WARN}{\code{geosapi::GSManager$WARN()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getServiceSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-getServiceSettings}{}}}
+\subsection{Method \code{getServiceSettings()}}{
+Get the service settings. To get the service settings for a specific workspace,
+   specify the workspace name as \code{ws} parameter, otherwise global settings are
+   retrieved.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceManager$getServiceSettings(service, ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{service}}{service}
+
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object of class \link{GSServiceSettings}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getWmsSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-getWmsSettings}{}}}
+\subsection{Method \code{getWmsSettings()}}{
+Get WMS settings. To get the WMS settings for a specific workspace,
+   specify the workspace name as \code{ws} parameter, otherwise global settings are
+   retrieved.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceManager$getWmsSettings(ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object of class \link{GSServiceSettings}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getWfsSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-getWfsSettings}{}}}
+\subsection{Method \code{getWfsSettings()}}{
+Get WFS settings. To get the WFS settings for a specific workspace,
+   specify the workspace name as \code{ws} parameter, otherwise global settings are
+   retrieved.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceManager$getWfsSettings(ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object of class \link{GSServiceSettings}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getWcsSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-getWcsSettings}{}}}
+\subsection{Method \code{getWcsSettings()}}{
+Get WCS settings. To get the WCS settings for a specific workspace,
+   specify the workspace name as \code{ws} parameter, otherwise global settings are
+   retrieved.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceManager$getWcsSettings(ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object of class \link{GSServiceSettings}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-updateServiceSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-updateServiceSettings}{}}}
+\subsection{Method \code{updateServiceSettings()}}{
+Updates the service settings with an object of class \code{GSServiceSettings}.
+   An optional workspace name \code{ws} can be specified to update service settings
+   applying to a workspace.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceManager$updateServiceSettings(serviceSettings, service, ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{serviceSettings}}{serviceSettings object of class \link{GSServiceSettings}}
+
+\item{\code{service}}{service}
+
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if updated, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-deleteServiceSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-deleteServiceSettings}{}}}
+\subsection{Method \code{deleteServiceSettings()}}{
+Deletes the service settings. This method is used internally by \pkg{geosapi} 
+   for disabling a service setting at workspace level.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceManager$deleteServiceSettings(service, ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{service}}{service}
+
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if deleted, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-updateWmsSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-updateWmsSettings}{}}}
+\subsection{Method \code{updateWmsSettings()}}{
+Updates the WMS settings with an object of class \code{GSServiceSettings}.
+   An optional workspace name \code{ws} can be specified to update WMS settings
+   applying to a workspace.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceManager$updateWmsSettings(serviceSettings, ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{serviceSettings}}{service settings object of class \link{GSServiceSettings}}
+
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if deleted, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-updateWfsSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-updateWfsSettings}{}}}
+\subsection{Method \code{updateWfsSettings()}}{
+Updates the WFS settings with an object of class \code{GSServiceSettings}.
+   An optional workspace name \code{ws} can be specified to update WFS settings
+   applying to a workspace.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceManager$updateWfsSettings(serviceSettings, ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{serviceSettings}}{service settings object of class \link{GSServiceSettings}}
+
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if deleted, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-updateWcsSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-updateWcsSettings}{}}}
+\subsection{Method \code{updateWcsSettings()}}{
+Updates the WCS settings with an object of class \code{GSServiceSettings}.
+   An optional workspace name \code{ws} can be specified to update WCS settings
+   applying to a workspace.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceManager$updateWcsSettings(serviceSettings, ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{serviceSettings}}{service settings object of class \link{GSServiceSettings}}
+
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if deleted, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-enableWMS"></a>}}
+\if{latex}{\out{\hypertarget{method-enableWMS}{}}}
+\subsection{Method \code{enableWMS()}}{
+Enables WMS service settings
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceManager$enableWMS(ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if enabled, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-enableWFS"></a>}}
+\if{latex}{\out{\hypertarget{method-enableWFS}{}}}
+\subsection{Method \code{enableWFS()}}{
+Enables WFS service settings
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceManager$enableWFS(ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if enabled, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-enableWCS"></a>}}
+\if{latex}{\out{\hypertarget{method-enableWCS}{}}}
+\subsection{Method \code{enableWCS()}}{
+Enables WCS service settings
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceManager$enableWCS(ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if enabled, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-disableServiceSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-disableServiceSettings}{}}}
+\subsection{Method \code{disableServiceSettings()}}{
+Disables service settings
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceManager$disableServiceSettings(service, ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{service}}{service}
+
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if disabled, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-disableWMS"></a>}}
+\if{latex}{\out{\hypertarget{method-disableWMS}{}}}
+\subsection{Method \code{disableWMS()}}{
+Disables WMS service settings
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceManager$disableWMS(ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if disabled, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-disableWFS"></a>}}
+\if{latex}{\out{\hypertarget{method-disableWFS}{}}}
+\subsection{Method \code{disableWFS()}}{
+Disables WFS service settings
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceManager$disableWFS(ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if disabled, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-disableWCS"></a>}}
+\if{latex}{\out{\hypertarget{method-disableWCS}{}}}
+\subsection{Method \code{disableWCS()}}{
+Disables WCS service settings
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceManager$disableWCS(ws = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if disabled, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceManager$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

@@ -13,30 +13,7 @@
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @examples
-#' ft <- GSFeatureType$new()
-#'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(rootName, xml)}}{
-#'    This method is used to instantiate a GSResource
-#'  }
-#'  \item{\code{decode(xml)}}{
-#'    This method is used to decode a GSResource from XML
-#'  }
-#'  \item{\code{encode()}}{
-#'    This method is used to encode a GSFeatureType to XML. Inherited from the
-#'    generic \code{GSRESTResource} encoder
-#'  }
-#'  \item{\code{setCqlFilter(filter)}}{
-#'    Sets a CQL filter for the feature type.
-#'  }
-#'  \item{\code{setVirtualTable(vt)}}{
-#'    Sets a virtual table for the feature type.
-#'  }
-#'  \item{\code{delVirtualTable()}}{
-#'    Deletes the virtual table for the feature type
-#'  }
-#' }
+#'   ft <- GSFeatureType$new()
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -44,7 +21,11 @@ GSFeatureType <- R6Class("GSFeatureType",
   inherit = GSResource,
 
   public = list(
+    #'@field cqlFilter CQL filter
     cqlFilter = NULL,
+    
+    #'@description Initializes an object of class \link{GSFeatureType}
+    #'@param xml object of class \link{XMLInternalNode-class}
     initialize = function(xml = NULL){
       super$initialize(rootName = "featureType")
       if(!missing(xml) & !is.null(xml)){
@@ -52,14 +33,21 @@ GSFeatureType <- R6Class("GSFeatureType",
       }
     },
     
+    #'@description Decodes from XML
+    #'@param xml object of class \link{XMLInternalNode-class}
     decode = function(xml){
       super$decode(xml)
     },
     
+    #'@description Set CQL filter
+    #'@param cqlFilter CQL filter
     setCqlFilter = function(cqlFilter){
       self$cqlFilter <- cqlFilter
     },
     
+    #'@description Set virtual table
+    #'@param vt object of class \link{GSVirtualTable}
+    #'@return \code{TRUE} if set/added, \code{FALSE} otherwise
     setVirtualTable = function(vt){
       if(!is(vt, "GSVirtualTable")){
         stop("Argument 'vt' should be an object of class 'GSVirtualTable'")
@@ -68,6 +56,9 @@ GSFeatureType <- R6Class("GSFeatureType",
       return(added)
     },
     
+    #'@description Deletes virtual table
+    #'@param vt object of class \link{GSVirtualTable}
+    #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
     delVirtualTable = function(){
       deleted <- super$delMetadata("JDBC_VIRTUAL_TABLE")
       return(deleted)

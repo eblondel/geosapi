@@ -8,31 +8,19 @@
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @examples
-#' GSWorkspace$new(name = "work")
-#'
-#' @field name
-#'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(xml, name)}}{
-#'    This method is used to instantiate a GSWorkspace
-#'  }
-#'  \item{\code{decode(xml)}}{
-#'    This method is used to decode a GSWorkspace from XML
-#'  }
-#'  \item{\code{encode()}}{
-#'    This method is used to encode a GSWorkspace to XML. Inherited from the
-#'    generic \code{GSRESTResource} encoder
-#'  }
-#' }
+#'   GSWorkspace$new(name = "work")
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
 GSWorkspace <- R6Class("GSWorkspace",
   inherit = GSRESTResource,                    
   public = list(
+    #'@field name name
     name = NA,
     
+    #'@description initializes a \link{GSWorkspace}
+    #'@param xml an object of class \link{XMLInternalNode-class}
+    #'@param name name
     initialize = function(xml = NULL, name){
       super$initialize(rootName = "workspace")
       if(!missing(xml) & !is.null(xml)){
@@ -42,6 +30,8 @@ GSWorkspace <- R6Class("GSWorkspace",
       }
     },
     
+    #'@description Decodes from XML
+    #'@param xml an object of class \link{XMLInternalNode-class}
     decode = function(xml){
       names <- getNodeSet(xml, "//name")
       self$name <- xmlValue(names[[1]])

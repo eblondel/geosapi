@@ -13,70 +13,7 @@
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @examples
-#' lyr <- GSLayerGroup$new()
-#'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(rootName, xml)}}{
-#'    This method is used to instantiate a GSLayer
-#'  }
-#'  \item{\code{decode(xml)}}{
-#'    This method is used to decode a GSLayer from XML
-#'  }
-#'  \item{\code{encode()}}{
-#'    This method is used to encode a GSLayer to XML. Inherited from the
-#'    generic \code{GSRESTResource} encoder
-#'  }
-#'  \item{\code{setName(name)}}{
-#'    Sets the name.
-#'  }
-#'  \item{\code{setTitle(title)}}{
-#'    Sets the title.
-#'  }
-#'  \item{\code{setAbstract(abstract)}}{
-#'    Sets the abstract.
-#'  }
-#'  \item{\code{setMode(mode)}}{
-#'    Sets the mode.
-#'  }
-#'  \item{\code{setWorkspace(ws)}}{
-#'    Sets the worksapce
-#'  }
-#'  \item{\code{addLayer(layer)}}{
-#'    Adds a layer
-#'  }
-#'  \item{\code{delLayer(layer)}}{
-#'    Deletes a layer
-#'  }
-#'  \item{\code{addLayerGroup(layerGroup)}}{
-#'    Adds a layer group
-#'  }
-#'  \item{\code{delLayerGroup(layerGroup)}}{
-#'    Deletes a layer group
-#'  }
-#'  \item{\code{setStyles(styles)}}{
-#'    Sets a list of optional styles
-#'  }
-#'  \item{\code{addStyle(style)}}{
-#'    Sets an available style. Returns TRUE if set, FALSE otherwise
-#'  }
-#'  \item{\code{delStyle(name)}}{
-#'    Deletes an available. Returns TRUE if deleted, FALSE otherwise
-#'  }
-#'  \item{\code{setMetadataLinks(metadataLinks)}}{
-#'    Sets a list of \code{GSMetadataLinks}
-#'  }
-#'  \item{\code{addMetadataLink(metadataLink)}}{
-#'    Adds a metadataLink
-#'  }
-#'  \item{\code{delMetadataLink(metadataLink)}}{
-#'    Deletes a metadataLink
-#'  }
-#'  \item{\code{setBounds(minx, miny, maxx, maxy, bbox, crs)}}{
-#'    Sets the layer group bounds. Either from coordinates or from
-#'    a \code{bbox} object (matrix).
-#'  }
-#'}
+#'   lyr <- GSLayerGroup$new()
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -84,18 +21,29 @@ GSLayerGroup <- R6Class("GSLayerGroup",
    inherit = GSRESTResource,
    
    public = list(
+     #'@field full full
      full = TRUE,
+     #'@field name name
      name = NULL,
+     #'@field mode mode
      mode = NULL,
+     #'@field title title
      title = NULL,
+     #'@field abstractTxt abstract
      abstractTxt = NULL,
+     #'@field workspace workspace
      workspace = NULL,
+     #'@field publishables publishables
      publishables = list(),
+     #'@field styles styles
      styles = list(),
+     #'@field metadataLinks metadata links
      metadataLinks = list(),
+     #'@field bounds bounds
      bounds = list(minx = NA, miny = NA, maxx = NA, maxy = NA, crs = NA),
      
-     
+     #'@description Initializes an object of class \link{GSLayerGroup}
+     #'@param xml object of class \link{XMLInternalNode-class}
      initialize = function(xml = NULL){
        super$initialize(rootName = "layerGroup")
        if(!missing(xml) & !is.null(xml)){
@@ -103,6 +51,8 @@ GSLayerGroup <- R6Class("GSLayerGroup",
        }
      },
      
+     #'@description Decodes from XML
+     #'@param xml object of class \link{XMLInternalNode-class}
      decode = function(xml){
        names <- getNodeSet(xml, "//name")
        self$name <- xmlValue(names[[1]])
@@ -163,10 +113,14 @@ GSLayerGroup <- R6Class("GSLayerGroup",
        }
      },
      
+     #'@description Set name
+     #'@param name name
      setName = function(name){
        self$name = name
      },
      
+     #'@description Set mode
+     #'@param mode a mode value among "SINGLE", "NAMED", "CONTAINER", "EO"
      setMode = function(mode){
        allowedModes <- c("SINGLE", "NAMED", "CONTAINER", "EO")
        if(!(mode %in% allowedModes)){
@@ -175,14 +129,20 @@ GSLayerGroup <- R6Class("GSLayerGroup",
        self$mode = mode
      },
      
+     #'@description Set title
+     #'@param title title
      setTitle = function(title){
        self$title = title
      },
      
+     #'@description Set abstract
+     #'@param abstract abstract
      setAbstract = function(abstract){
        self$abstractTxt = abstract
      },
      
+     #'@description Set workspace
+     #'@param workspace workspace name, object of class \link{GSWorkspace} or \code{character}
      setWorkspace = function(workspace){
        if(!is(workspace, "GSWorkspace")){
          workspace <- GSWorkspace$new(name = workspace)
@@ -190,18 +150,26 @@ GSLayerGroup <- R6Class("GSLayerGroup",
        self$workspace = workspace
      },
      
+     #'@description Adds layer
+     #'@param layer layer name
+     #'@param style style name
      addLayer = function(layer, style){
        ps <- GSPublishable$new(name = layer, type = "layer")
        self$addPublishable(ps)
        self$addStyle(style)
      },
      
+     #'@description Adds layer group
+     #'@param layerGroup layer group
      addLayerGroup = function(layerGroup){
        ps <- GSPublishable$new(name = layer, type = "layerGroup")
        self$addPublishable(ps)
        self$addStyle(NA)
      },
      
+     #'@description Adds publishable
+     #'@param publishable publishable
+     #'@return \code{TRUE} if added, \code{FALSE} otherwise
      addPublishable = function(publishable){
        startNb = length(self$publishables)
        add <- TRUE
@@ -217,12 +185,17 @@ GSLayerGroup <- R6Class("GSLayerGroup",
        return(endNb == startNb+1)
      },
      
+     #'@description Set styles
+     #'@param styles styles
      setStyles = function(styles){
        if(!is.list(styles)) styles = list(styles)
        self$styles = styles
        return(TRUE)
      },
      
+     #'@description Adds a style
+     #'@param style style
+     #'@return \code{TRUE} if added, \code{FALSE} otherwise
      addStyle = function(style){
         if(class(style) == "character") style <- GSStyle$new(xml=NULL, name = style)
         startNb = length(self$styles)
@@ -231,10 +204,15 @@ GSLayerGroup <- R6Class("GSLayerGroup",
         return(endNb == startNb+1)
      },
      
+     #'@description Set metadata links
+     #'@param metadataLinks metadata links
      setMetadataLinks = function(metadataLinks){
        self$metadataLinks <- metadataLinks
      },
      
+     #'@description Adds metadata link
+     #'@param metadataLink object of class \link{GSMetadataLink}
+     #'@return \code{TRUE} if added, \code{FALSE} otherwise
      addMetadataLink = function(metadataLink){
        startNb = length(self$metadataLinks)
        links <- lapply(self$metadataLinks, function(x){x$content})
@@ -245,6 +223,9 @@ GSLayerGroup <- R6Class("GSLayerGroup",
        return(endNb == startNb+1)
      },
      
+     #'@description Deletes metadata link
+     #'@param metadataLink object of class \link{GSMetadataLink}
+     #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
      deleteMetadataLink = function(metadataLink){
        startNb = length(self$metadataLinks)
        links <- lapply(self$metadataLinks, function(x){x$content})
@@ -253,6 +234,13 @@ GSLayerGroup <- R6Class("GSLayerGroup",
        return(endNb == startNb-1)
      },
      
+     #'@description Set bounds
+     #'@param minx minx
+     #'@param miny miny
+     #'@param maxx maxx
+     #'@param maxy maxy
+     #'@param bbox bbox
+     #'@param crs crs
      setBounds = function(minx, miny, maxx, maxy, bbox = NULL, crs){
        self$bounds <- GSUtils$setBbox(minx, miny, maxx, maxy, bbox, crs)
      }

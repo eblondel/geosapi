@@ -7,10 +7,7 @@
 #' @return Object of \code{\link{R6Class}} for modelling a GeoServer store
 #' @format \code{\link{R6Class}} object.
 #'
-#' @field name store name
-#' @field description store description
-#' @field enabled if the store is enabled or not
-#' @field type store type
+
 #'
 #' @section Methods:
 #' \describe{
@@ -43,13 +40,26 @@ GSAbstractStore <- R6Class("GSAbstractStore",
    store_type = NULL
  ),
  public = list(
+   #'@field full whether store object is fully described
    full = FALSE,
+   #' @field name store name
    name = NULL,
+   #'@field enabled if the store is enabled or not
    enabled = NULL,
+   #'@field description store description
    description = "",
+   #' @field type store type
    type = NULL,
+   #'@field workspace workspace name
    workspace = NULL,
-   
+
+   #'@description initializes an abstract store
+   #'@param xml an object of class \link{XMLInternalNode-class} to create object from XML
+   #'@param storeType store type
+   #'@param type the type of coverage store
+   #'@param name coverage store name
+   #'@param description coverage store description
+   #'@param enabled whether the store should be enabled or not. Default is \code{TRUE}
    initialize = function(xml = NULL, storeType, type = NULL,
                          name = NULL, description = "", enabled = TRUE){
      super$initialize(rootName = storeType)
@@ -69,8 +79,8 @@ GSAbstractStore <- R6Class("GSAbstractStore",
      }
    },
    
-   #decode
-   #---------------------------------------------------------------------------
+   #'@description Decodes store from XML
+   #'@param xml object of class \link{XMLInternalNode-class}
    decode = function(xml){
      names <- getNodeSet(xml, sprintf("//%s/name", private$store_type))
      self$name <- xmlValue(names[[1]])
@@ -87,20 +97,20 @@ GSAbstractStore <- R6Class("GSAbstractStore",
      }
    },
    
-   #setType
-   #---------------------------------------------------------------------------
+   #'@description Set type
+   #'@param type type
    setType = function(type){
      self$type = type
    },
    
-   #setEnabled
-   #---------------------------------------------------------------------------
+   #'@description Set enabled
+   #'@param enabled enabled
    setEnabled = function(enabled){
      self$enabled <- enabled
    },
    
-   #setDescription
-   #---------------------------------------------------------------------------
+   #'@description Set description
+   #'@param description description
    setDescription = function(description){
      self$description = description
    }

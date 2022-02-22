@@ -12,19 +12,9 @@ Object of \code{\link{R6Class}} for modelling a GeoServer coverage band
 }
 \description{
 Geoserver REST API GSCoverageBand
+
+Geoserver REST API GSCoverageBand
 }
-\section{Fields}{
-
-\describe{
-\item{\code{inputCoverageBands}}{list of input coverage bands}
-
-\item{\code{definition}}{coverage band definition}
-
-\item{\code{index}}{coverage band index}
-
-\item{\code{compositionType}}{coverage band composition type}
-}}
-
 \section{Methods}{
 
 \describe{
@@ -58,6 +48,7 @@ Geoserver REST API GSCoverageBand
 \examples{
 GSCoverageBand$new()
 
+
 }
 \author{
 Emmanuel Blondel <emmanuel.blondel1@gmail.com>
@@ -66,3 +57,200 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{coverageBand}
 \keyword{geoserver}
 \keyword{rest}
+\section{Super class}{
+\code{\link[geosapi:GSRESTResource]{geosapi::GSRESTResource}} -> \code{GSCoverageBand}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{inputCoverageBands}}{list of input coverage bands}
+
+\item{\code{definition}}{coverage band definition}
+
+\item{\code{index}}{coverage band index}
+
+\item{\code{compositionType}}{coverage band composition type}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{GSCoverageBand$new()}}
+\item \href{#method-decode}{\code{GSCoverageBand$decode()}}
+\item \href{#method-setName}{\code{GSCoverageBand$setName()}}
+\item \href{#method-setDefinition}{\code{GSCoverageBand$setDefinition()}}
+\item \href{#method-setIndex}{\code{GSCoverageBand$setIndex()}}
+\item \href{#method-setCompositionType}{\code{GSCoverageBand$setCompositionType()}}
+\item \href{#method-addInputBand}{\code{GSCoverageBand$addInputBand()}}
+\item \href{#method-delInputBand}{\code{GSCoverageBand$delInputBand()}}
+\item \href{#method-clone}{\code{GSCoverageBand$clone()}}
+}
+}
+\if{html}{
+\out{<details open ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+Initalizes a \link{GSCoverageBand}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageBand$new(xml = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-decode}{}}}
+\subsection{Method \code{decode()}}{
+Decodes from XML
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageBand$decode(xml)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setName"></a>}}
+\if{latex}{\out{\hypertarget{method-setName}{}}}
+\subsection{Method \code{setName()}}{
+Set name
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageBand$setName(name)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{name}}{name}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setDefinition"></a>}}
+\if{latex}{\out{\hypertarget{method-setDefinition}{}}}
+\subsection{Method \code{setDefinition()}}{
+Set definition
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageBand$setDefinition(definition)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{definition}}{definition}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setIndex"></a>}}
+\if{latex}{\out{\hypertarget{method-setIndex}{}}}
+\subsection{Method \code{setIndex()}}{
+Set index
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageBand$setIndex(index)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{index}}{index}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setCompositionType"></a>}}
+\if{latex}{\out{\hypertarget{method-setCompositionType}{}}}
+\subsection{Method \code{setCompositionType()}}{
+Set composition type
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageBand$setCompositionType(compositionType)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{compositionType}}{composition type}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-addInputBand"></a>}}
+\if{latex}{\out{\hypertarget{method-addInputBand}{}}}
+\subsection{Method \code{addInputBand()}}{
+Adds an input band
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageBand$addInputBand(band)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{band}}{object of class \link{GSInputCoverageBand}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if added, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-delInputBand"></a>}}
+\if{latex}{\out{\hypertarget{method-delInputBand}{}}}
+\subsection{Method \code{delInputBand()}}{
+Deletes an input band
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageBand$delInputBand(band)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{band}}{object of class \link{GSInputCoverageBand}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if deleted, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageBand$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

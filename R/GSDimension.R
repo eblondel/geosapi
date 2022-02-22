@@ -12,27 +12,7 @@
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @examples
-#' dim <- GSDimension$new()
-#'
-#' @field enabled true/false
-#' @field presentation dimension presentation
-#' @field resolution dimension resolution
-#' @field units dimension units
-#' @field unitSymbol dimension unitsSymbol
-#'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(xml)}}{
-#'    This method is used to instantiate a GSResource
-#'  }
-#'  \item{\code{decode(xml)}}{
-#'    This method is used to decode a GSResource from XML
-#'  }
-#'  \item{\code{encode()}}{
-#'    This method is used to encode a GSFeatureType to XML. Inherited from the
-#'    generic \code{GSRESTResource} encoder
-#'  }
-#' }
+#'   dim <- GSDimension$new()
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -40,11 +20,19 @@ GSDimension <- R6Class("GSDimension",
   inherit = GSRESTResource,
   
   public = list(
+    #' @field enabled true/false
     enabled = TRUE,
+    #' @field presentation dimension presentation
     presentation = NULL,
+    #' @field resolution dimension resolution
     resolution = NULL,
+    #' @field units dimension units
     units = NULL,
+    #' @field unitSymbol dimension unitsSymbol
     unitSymbol = NULL,
+    
+    #'@description Initializes an object of class \link{GSDimension}
+    #'@param xml object of class \link{XMLInternalNode-class}
     initialize = function(xml = NULL){
       super$initialize(rootName = "dimensionInfo")
       if(!missing(xml) & !is.null(xml)){
@@ -52,6 +40,8 @@ GSDimension <- R6Class("GSDimension",
       }
     },
    
+    #'@description Decodes from XML
+    #'@param xml object of class \link{XMLInternalNode-class}
     decode = function(xml){
       propsXML <- xmlChildren(xml)
       props <- lapply(propsXML, xmlValue)
@@ -61,10 +51,15 @@ GSDimension <- R6Class("GSDimension",
       self$setUnitSymbol(props$unitSymbol)
     },
     
+    #'@description Set enabled
+    #'@param enabled enabled
     setEnabled = function(enabled){
       self$enabled = enabled
     },
     
+    #'@description Set presentation
+    #'@param presentation presentation. Possible values: "LIST", "CONTINUOUS_INTERVAL", "DISCRETE_INTERVAL"
+    #'@param interval interval
     setPresentation = function(presentation, interval = NULL){
       supportedPresentations <- c("LIST", "CONTINUOUS_INTERVAL", "DISCRETE_INTERVAL")
       if(!(presentation %in% supportedPresentations)){
@@ -81,10 +76,14 @@ GSDimension <- R6Class("GSDimension",
       }
     },
     
+    #'@description Set unit
+    #'@param unit unit
     setUnit = function(unit){
       self$units = unit
     },
     
+    #'@description Set unit symbol
+    #'@param unitSymbol unit symbol
     setUnitSymbol = function(unitSymbol){
       self$unitSymbol = unitSymbol
     }

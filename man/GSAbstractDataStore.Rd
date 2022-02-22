@@ -12,45 +12,9 @@ Object of \code{\link{R6Class}} for modelling a GeoServer dataStore
 }
 \description{
 Geoserver REST API DataStore
+
+Geoserver REST API DataStore
 }
-\section{Fields}{
-
-\describe{
-\item{\code{connectionParameters}}{connection parameters}
-}}
-
-\section{Methods}{
-
-\describe{
- \item{\code{new(xml, type, name, description, enabled, connectionParameters)}}{
-   This method is used to instantiate a \code{GSAbstractDataStore}
- }
- \item{\code{decode(xml)}}{
-   This method is used to decode a \code{GSAbstractDataStore} from XML
- }
- \item{\code{encode()}}{
-   This method is used to encode a \code{GSAbstractDataStore} to XML. Inherited from the
-   generic \code{GSRESTResource} encoder
- }
- \item{\code{setConnectionParameters(parameters)}}{
-   Sets the datastore connection parameters. The argument should be an object
-   of class \code{GSRESTEntrySet} giving a list of key/value parameter entries.
- }
- \item{\code{addConnectionParameter(key, value)}}{
-   Adds a datastore connection parameter. Convenience wrapper of \code{GSRESTEntrySet} 
-   \code{addEntry} method.
- }
- \item{\code{setConnectionParameter(key, value)}}{
-   Sets a datastore connection parameter. Convenience wrapper of \code{GSRESTEntrySet} 
-   \code{setEntry} method.
- }
- \item{\code{delConnectionParameter(key)}}{
-   Deletes a datastore connection parameter. Convenience wrapper of \code{GSRESTEntrySet} 
-   \code{delEntry} method.
- }
-}
-}
-
 \author{
 Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 }
@@ -58,3 +22,188 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{api}
 \keyword{geoserver}
 \keyword{rest}
+\section{Super classes}{
+\code{\link[geosapi:GSRESTResource]{geosapi::GSRESTResource}} -> \code{\link[geosapi:GSAbstractStore]{geosapi::GSAbstractStore}} -> \code{GSAbstractDataStore}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{connectionParameters}}{the list of connection parameters}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{GSAbstractDataStore$new()}}
+\item \href{#method-decode}{\code{GSAbstractDataStore$decode()}}
+\item \href{#method-setConnectionParameters}{\code{GSAbstractDataStore$setConnectionParameters()}}
+\item \href{#method-addConnectionParameter}{\code{GSAbstractDataStore$addConnectionParameter()}}
+\item \href{#method-setConnectionParameter}{\code{GSAbstractDataStore$setConnectionParameter()}}
+\item \href{#method-delConnectionParameter}{\code{GSAbstractDataStore$delConnectionParameter()}}
+\item \href{#method-clone}{\code{GSAbstractDataStore$clone()}}
+}
+}
+\if{html}{
+\out{<details open ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setDescription">}\href{../../geosapi/html/GSAbstractStore.html#method-setDescription}{\code{geosapi::GSAbstractStore$setDescription()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setEnabled">}\href{../../geosapi/html/GSAbstractStore.html#method-setEnabled}{\code{geosapi::GSAbstractStore$setEnabled()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setType">}\href{../../geosapi/html/GSAbstractStore.html#method-setType}{\code{geosapi::GSAbstractStore$setType()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+initializes an abstract data store
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDataStore$new(
+  xml = NULL,
+  type = NULL,
+  name = NULL,
+  description = "",
+  enabled = TRUE,
+  connectionParameters
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{an object of class \link{XMLInternalNode-class} to create object from XML}
+
+\item{\code{type}}{the type of coverage store}
+
+\item{\code{name}}{coverage store name}
+
+\item{\code{description}}{coverage store description}
+
+\item{\code{enabled}}{whether the store should be enabled or not. Default is \code{TRUE}}
+
+\item{\code{connectionParameters}}{the list of connection parameters}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-decode}{}}}
+\subsection{Method \code{decode()}}{
+Decodes a data store from XML
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDataStore$decode(xml)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{an object of class \link{XMLInternalNode-class}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object of class \link{GSAbstractDataStore}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setConnectionParameters"></a>}}
+\if{latex}{\out{\hypertarget{method-setConnectionParameters}{}}}
+\subsection{Method \code{setConnectionParameters()}}{
+Set list connection parameters. The argument should be an object
+   of class \code{GSRESTEntrySet} giving a list of key/value parameter entries.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDataStore$setConnectionParameters(parameters)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{parameters}}{an object of class \link{GSRESTEntrySet}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-addConnectionParameter"></a>}}
+\if{latex}{\out{\hypertarget{method-addConnectionParameter}{}}}
+\subsection{Method \code{addConnectionParameter()}}{
+Adds a connection parameter
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDataStore$addConnectionParameter(key, value)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{key}}{connection parameter key}
+
+\item{\code{value}}{connection parameter value}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if added, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setConnectionParameter"></a>}}
+\if{latex}{\out{\hypertarget{method-setConnectionParameter}{}}}
+\subsection{Method \code{setConnectionParameter()}}{
+Sets a connection parameter
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDataStore$setConnectionParameter(key, value)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{key}}{connection parameter key}
+
+\item{\code{value}}{connection parameter value}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-delConnectionParameter"></a>}}
+\if{latex}{\out{\hypertarget{method-delConnectionParameter}{}}}
+\subsection{Method \code{delConnectionParameter()}}{
+Removes a connection parameter
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDataStore$delConnectionParameter(key)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{key}}{connection parameter key}
+
+\item{\code{value}}{connection parameter value}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if removed, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractDataStore$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

@@ -18,34 +18,6 @@ used internally for modelling instances of class \code{GSFeatureType} or
 \details{
 Geoserver REST API Resource
 }
-\section{Fields}{
-
-\describe{
-\item{\code{name}}{resource name}
-
-\item{\code{nativeName}}{resource native name}
-
-\item{\code{title}}{resource title}
-
-\item{\code{description}}{resource description}
-
-\item{\code{abstract}}{resource abstract}
-
-\item{\code{keywordsr}}{resource keywords}
-
-\item{\code{metadataLinks}}{resource metadata links}
-
-\item{\code{projectionPolicy}}{resource projection policy}
-
-\item{\code{srs}}{resource srs}
-
-\item{\code{nativeCRS}}{resource native CRS}
-
-\item{\code{latLonBoundingBox}}{resource lat/lon bounding box}
-
-\item{\code{nativeBoundingBox}}{resource lat/lon native bounding box}
-}}
-
 \section{Methods}{
 
 \describe{
@@ -126,3 +98,514 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{geoserver}
 \keyword{resource}
 \keyword{rest}
+\section{Super class}{
+\code{\link[geosapi:GSRESTResource]{geosapi::GSRESTResource}} -> \code{GSResource}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{full}}{full}
+
+\item{\code{name}}{resource name}
+
+\item{\code{nativeName}}{resource native name}
+
+\item{\code{title}}{resource title}
+
+\item{\code{description}}{resource description}
+
+\item{\code{abstract}}{resource abstract}
+
+\item{\code{keywords}}{resource keywords}
+
+\item{\code{metadataLinks}}{resource metadata links}
+
+\item{\code{nativeCRS}}{resource native CRS}
+
+\item{\code{srs}}{resource srs}
+
+\item{\code{nativeBoundingBox}}{resource lat/lon native bounding box}
+
+\item{\code{latLonBoundingBox}}{resource lat/lon bounding box}
+
+\item{\code{projectionPolicy}}{resource projection policy}
+
+\item{\code{enabled}}{enabled}
+
+\item{\code{metadata}}{metadata}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{GSResource$new()}}
+\item \href{#method-decode}{\code{GSResource$decode()}}
+\item \href{#method-setEnabled}{\code{GSResource$setEnabled()}}
+\item \href{#method-setName}{\code{GSResource$setName()}}
+\item \href{#method-setNativeName}{\code{GSResource$setNativeName()}}
+\item \href{#method-setTitle}{\code{GSResource$setTitle()}}
+\item \href{#method-setDescription}{\code{GSResource$setDescription()}}
+\item \href{#method-setAbstract}{\code{GSResource$setAbstract()}}
+\item \href{#method-setKeywords}{\code{GSResource$setKeywords()}}
+\item \href{#method-addKeyword}{\code{GSResource$addKeyword()}}
+\item \href{#method-delKeyword}{\code{GSResource$delKeyword()}}
+\item \href{#method-setMetadataLinks}{\code{GSResource$setMetadataLinks()}}
+\item \href{#method-addMetadataLink}{\code{GSResource$addMetadataLink()}}
+\item \href{#method-deleteMetadataLink}{\code{GSResource$deleteMetadataLink()}}
+\item \href{#method-setProjectionPolicy}{\code{GSResource$setProjectionPolicy()}}
+\item \href{#method-setSrs}{\code{GSResource$setSrs()}}
+\item \href{#method-setNativeCRS}{\code{GSResource$setNativeCRS()}}
+\item \href{#method-setLatLonBoundingBox}{\code{GSResource$setLatLonBoundingBox()}}
+\item \href{#method-setNativeBoundingBox}{\code{GSResource$setNativeBoundingBox()}}
+\item \href{#method-setMetadata}{\code{GSResource$setMetadata()}}
+\item \href{#method-delMetadata}{\code{GSResource$delMetadata()}}
+\item \href{#method-setMetadataDimension}{\code{GSResource$setMetadataDimension()}}
+\item \href{#method-clone}{\code{GSResource$clone()}}
+}
+}
+\if{html}{
+\out{<details open ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+Initializes a \link{GSResource}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSResource$new(rootName = NULL, xml = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{rootName}}{root name}
+
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-decode}{}}}
+\subsection{Method \code{decode()}}{
+Decodes from XML
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSResource$decode(xml)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setEnabled"></a>}}
+\if{latex}{\out{\hypertarget{method-setEnabled}{}}}
+\subsection{Method \code{setEnabled()}}{
+Set enabled
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSResource$setEnabled(enabled)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{enabled}}{enabled}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setName"></a>}}
+\if{latex}{\out{\hypertarget{method-setName}{}}}
+\subsection{Method \code{setName()}}{
+Set name
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSResource$setName(name)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{name}}{name}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setNativeName"></a>}}
+\if{latex}{\out{\hypertarget{method-setNativeName}{}}}
+\subsection{Method \code{setNativeName()}}{
+Set native name
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSResource$setNativeName(nativeName)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{nativeName}}{native name}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setTitle"></a>}}
+\if{latex}{\out{\hypertarget{method-setTitle}{}}}
+\subsection{Method \code{setTitle()}}{
+Set title
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSResource$setTitle(title)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{title}}{title}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setDescription"></a>}}
+\if{latex}{\out{\hypertarget{method-setDescription}{}}}
+\subsection{Method \code{setDescription()}}{
+Set description
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSResource$setDescription(description)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{description}}{description}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setAbstract"></a>}}
+\if{latex}{\out{\hypertarget{method-setAbstract}{}}}
+\subsection{Method \code{setAbstract()}}{
+Set abstract
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSResource$setAbstract(abstract)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{abstract}}{abstract}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setKeywords"></a>}}
+\if{latex}{\out{\hypertarget{method-setKeywords}{}}}
+\subsection{Method \code{setKeywords()}}{
+Set keyword(s)
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSResource$setKeywords(keywords)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{keywords}}{keywords}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-addKeyword"></a>}}
+\if{latex}{\out{\hypertarget{method-addKeyword}{}}}
+\subsection{Method \code{addKeyword()}}{
+Adds keyword
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSResource$addKeyword(keyword)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{keyword}}{keyword}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if added, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-delKeyword"></a>}}
+\if{latex}{\out{\hypertarget{method-delKeyword}{}}}
+\subsection{Method \code{delKeyword()}}{
+Deletes keyword
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSResource$delKeyword(keyword)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{keyword}}{keyword}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if deleted, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setMetadataLinks"></a>}}
+\if{latex}{\out{\hypertarget{method-setMetadataLinks}{}}}
+\subsection{Method \code{setMetadataLinks()}}{
+Set metadata links
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSResource$setMetadataLinks(metadataLinks)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{metadataLinks}}{metadata links}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-addMetadataLink"></a>}}
+\if{latex}{\out{\hypertarget{method-addMetadataLink}{}}}
+\subsection{Method \code{addMetadataLink()}}{
+Adds metadata link
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSResource$addMetadataLink(metadataLink)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{metadataLink}}{object of class \link{GSMetadataLink}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if added, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-deleteMetadataLink"></a>}}
+\if{latex}{\out{\hypertarget{method-deleteMetadataLink}{}}}
+\subsection{Method \code{deleteMetadataLink()}}{
+Deletes metadata link
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSResource$deleteMetadataLink(metadataLink)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{metadataLink}}{object of class \link{GSMetadataLink}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if deleted, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setProjectionPolicy"></a>}}
+\if{latex}{\out{\hypertarget{method-setProjectionPolicy}{}}}
+\subsection{Method \code{setProjectionPolicy()}}{
+Set projection policy
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSResource$setProjectionPolicy(projectionPolicy)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{projectionPolicy}}{projection policy}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setSrs"></a>}}
+\if{latex}{\out{\hypertarget{method-setSrs}{}}}
+\subsection{Method \code{setSrs()}}{
+Set SRS
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSResource$setSrs(srs)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{srs}}{srs}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setNativeCRS"></a>}}
+\if{latex}{\out{\hypertarget{method-setNativeCRS}{}}}
+\subsection{Method \code{setNativeCRS()}}{
+Set native CRS
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSResource$setNativeCRS(nativeCRS)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{nativeCRS}}{native crs}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setLatLonBoundingBox"></a>}}
+\if{latex}{\out{\hypertarget{method-setLatLonBoundingBox}{}}}
+\subsection{Method \code{setLatLonBoundingBox()}}{
+Set LatLon bounding box
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSResource$setLatLonBoundingBox(minx, miny, maxx, maxy, bbox = NULL, crs)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{minx}}{minx}
+
+\item{\code{miny}}{miny}
+
+\item{\code{maxx}}{maxx}
+
+\item{\code{maxy}}{maxy}
+
+\item{\code{bbox}}{bbox}
+
+\item{\code{crs}}{crs}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setNativeBoundingBox"></a>}}
+\if{latex}{\out{\hypertarget{method-setNativeBoundingBox}{}}}
+\subsection{Method \code{setNativeBoundingBox()}}{
+Set native bounding box
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSResource$setNativeBoundingBox(minx, miny, maxx, maxy, bbox = NULL, crs)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{minx}}{minx}
+
+\item{\code{miny}}{miny}
+
+\item{\code{maxx}}{maxx}
+
+\item{\code{maxy}}{maxy}
+
+\item{\code{bbox}}{bbox}
+
+\item{\code{crs}}{crs}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setMetadata"></a>}}
+\if{latex}{\out{\hypertarget{method-setMetadata}{}}}
+\subsection{Method \code{setMetadata()}}{
+Set metadata
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSResource$setMetadata(key, metadata)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{key}}{key}
+
+\item{\code{metadata}}{metadata}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if added, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-delMetadata"></a>}}
+\if{latex}{\out{\hypertarget{method-delMetadata}{}}}
+\subsection{Method \code{delMetadata()}}{
+Deletes metadata
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSResource$delMetadata(key)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{key}}{key}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if deleted, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setMetadataDimension"></a>}}
+\if{latex}{\out{\hypertarget{method-setMetadataDimension}{}}}
+\subsection{Method \code{setMetadataDimension()}}{
+Set metadata dimension
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSResource$setMetadataDimension(key, dimension, custom = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{key}}{key}
+
+\item{\code{dimension}}{dimension}
+
+\item{\code{custom}}{custom}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSResource$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

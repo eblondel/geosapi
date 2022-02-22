@@ -12,15 +12,9 @@ Object of \code{\link{R6Class}} for modelling a GeoServer input coverage band
 }
 \description{
 Geoserver REST API GSInputCoverageBand
+
+Geoserver REST API GSInputCoverageBand
 }
-\section{Fields}{
-
-\describe{
-\item{\code{coverageName}}{coverage name}
-
-\item{\code{band}}{coverage band}
-}}
-
 \section{Methods}{
 
 \describe{
@@ -40,7 +34,7 @@ Geoserver REST API GSInputCoverageBand
 }
 
 \examples{
-GSInputCoverageBand$new()
+  GSInputCoverageBand$new()
 
 }
 \author{
@@ -50,3 +44,122 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{geoserver}
 \keyword{inputCoverageBand}
 \keyword{rest}
+\section{Super class}{
+\code{\link[geosapi:GSRESTResource]{geosapi::GSRESTResource}} -> \code{GSInputCoverageBand}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{coverageName}}{coverage name}
+
+\item{\code{band}}{band}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{GSInputCoverageBand$new()}}
+\item \href{#method-decode}{\code{GSInputCoverageBand$decode()}}
+\item \href{#method-setCoverageName}{\code{GSInputCoverageBand$setCoverageName()}}
+\item \href{#method-setBand}{\code{GSInputCoverageBand$setBand()}}
+\item \href{#method-clone}{\code{GSInputCoverageBand$clone()}}
+}
+}
+\if{html}{
+\out{<details open ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+Initializes an object of class \link{GSInputCoverageBand}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSInputCoverageBand$new(xml = NULL, coverageName = NULL, band = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+
+\item{\code{coverageName}}{coverage name}
+
+\item{\code{band}}{band name}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-decode}{}}}
+\subsection{Method \code{decode()}}{
+Decodes from XML
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSInputCoverageBand$decode(xml)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setCoverageName"></a>}}
+\if{latex}{\out{\hypertarget{method-setCoverageName}{}}}
+\subsection{Method \code{setCoverageName()}}{
+Set coverage name
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSInputCoverageBand$setCoverageName(coverageName)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{coverageName}}{coverage name}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setBand"></a>}}
+\if{latex}{\out{\hypertarget{method-setBand}{}}}
+\subsection{Method \code{setBand()}}{
+Set band
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSInputCoverageBand$setBand(band)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{band}}{band}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSInputCoverageBand$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

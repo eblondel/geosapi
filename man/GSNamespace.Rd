@@ -12,35 +12,9 @@ Object of \code{\link{R6Class}} for modelling a GeoServer namespace
 }
 \description{
 Geoserver REST API Namespace
+
+Geoserver REST API Namespace
 }
-\section{Fields}{
-
-\describe{
-\item{\code{name}}{namespace name}
-
-\item{\code{prefix}}{namespace prefix}
-
-\item{\code{uri}}{namespace URI}
-
-\item{\code{full}}{completeness of the namespace description}
-}}
-
-\section{Methods}{
-
-\describe{
- \item{\code{new(xml, prefix, uri)}}{
-   This method is used to instantiate a GSNamespace
- }
- \item{\code{decode(xml)}}{
-   This method is used to decode a GSNamespace from XML
- }
- \item{\code{encode()}}{
-   This method is used to encode a GSNamespace to XML. Inherited from the
-   generic \code{GSRESTResource} encoder
- }
-}
-}
-
 \examples{
 GSNamespace$new(prefix = "prefix", uri = "http://prefix")
 
@@ -52,3 +26,90 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{geoserver}
 \keyword{namespace}
 \keyword{rest}
+\section{Super class}{
+\code{\link[geosapi:GSRESTResource]{geosapi::GSRESTResource}} -> \code{GSNamespace}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{name}}{namespace name}
+
+\item{\code{prefix}}{namespace prefix}
+
+\item{\code{uri}}{namespace URI}
+
+\item{\code{full}}{completeness of the namespace description}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{GSNamespace$new()}}
+\item \href{#method-decode}{\code{GSNamespace$decode()}}
+\item \href{#method-clone}{\code{GSNamespace$clone()}}
+}
+}
+\if{html}{
+\out{<details open ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+Initializes an object of class \link{GSNamespace}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSNamespace$new(xml = NULL, prefix, uri)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+
+\item{\code{prefix}}{prefix}
+
+\item{\code{uri}}{uri}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-decode}{}}}
+\subsection{Method \code{decode()}}{
+Decodes from XML
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSNamespace$decode(xml)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSNamespace$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

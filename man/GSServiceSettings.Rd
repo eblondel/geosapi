@@ -16,34 +16,6 @@ This class models a GeoServer OWS service settings.
 \details{
 Geoserver REST API Service Setting
 }
-\section{Fields}{
-
-\describe{
-\item{\code{enabled}}{is service enabled or not?}
-
-\item{\code{citeCompliant}}{is service cite compliant?}
-
-\item{\code{name}}{service name}
-
-\item{\code{title}}{service title}
-
-\item{\code{maintainer}}{service maintainer}
-
-\item{\code{abstract}}{service abastract}
-
-\item{\code{accessConstraints}}{service access constraints}
-
-\item{\code{fees}}{service fees}
-
-\item{\code{keywords}}{services keywords}
-
-\item{\code{onlineResource}}{service online resource}
-
-\item{\code{schemaBaseURL}}{service schema base URL}
-
-\item{\code{verbose}}{service verbose or not?}
-}}
-
 \section{Methods}{
 
 \describe{
@@ -115,3 +87,308 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{geoserver}
 \keyword{rest}
 \keyword{service}
+\section{Super class}{
+\code{\link[geosapi:GSRESTResource]{geosapi::GSRESTResource}} -> \code{GSServiceSettings}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{enabled}}{is service enabled or not?}
+
+\item{\code{citeCompliant}}{is service cite compliant?}
+
+\item{\code{name}}{service name}
+
+\item{\code{title}}{service title}
+
+\item{\code{maintainer}}{service maintainer}
+
+\item{\code{abstrct}}{service abastract}
+
+\item{\code{accessConstraints}}{service access constraints}
+
+\item{\code{fees}}{service fees}
+
+\item{\code{keywords}}{services keywords}
+
+\item{\code{onlineResource}}{service online resource}
+
+\item{\code{schemaBaseURL}}{service schema base URL}
+
+\item{\code{verbose}}{service verbose or not?}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{GSServiceSettings$new()}}
+\item \href{#method-decode}{\code{GSServiceSettings$decode()}}
+\item \href{#method-setEnabled}{\code{GSServiceSettings$setEnabled()}}
+\item \href{#method-setCiteCompliant}{\code{GSServiceSettings$setCiteCompliant()}}
+\item \href{#method-setName}{\code{GSServiceSettings$setName()}}
+\item \href{#method-setTitle}{\code{GSServiceSettings$setTitle()}}
+\item \href{#method-setMaintainer}{\code{GSServiceSettings$setMaintainer()}}
+\item \href{#method-setAbstract}{\code{GSServiceSettings$setAbstract()}}
+\item \href{#method-setAccessConstraints}{\code{GSServiceSettings$setAccessConstraints()}}
+\item \href{#method-setFees}{\code{GSServiceSettings$setFees()}}
+\item \href{#method-setKeywords}{\code{GSServiceSettings$setKeywords()}}
+\item \href{#method-addKeyword}{\code{GSServiceSettings$addKeyword()}}
+\item \href{#method-delKeyword}{\code{GSServiceSettings$delKeyword()}}
+\item \href{#method-clone}{\code{GSServiceSettings$clone()}}
+}
+}
+\if{html}{
+\out{<details open ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+Initializes an object of class \link{GSServiceSettings}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceSettings$new(xml = NULL, service)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+
+\item{\code{service}}{service service acronym}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-decode}{}}}
+\subsection{Method \code{decode()}}{
+Decodes from XML
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceSettings$decode(xml)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setEnabled"></a>}}
+\if{latex}{\out{\hypertarget{method-setEnabled}{}}}
+\subsection{Method \code{setEnabled()}}{
+Set enabled
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceSettings$setEnabled(enabled)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{enabled}}{enabled}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setCiteCompliant"></a>}}
+\if{latex}{\out{\hypertarget{method-setCiteCompliant}{}}}
+\subsection{Method \code{setCiteCompliant()}}{
+Set cite compliant
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceSettings$setCiteCompliant(citeCompliant)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{citeCompliant}}{cite compliant}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setName"></a>}}
+\if{latex}{\out{\hypertarget{method-setName}{}}}
+\subsection{Method \code{setName()}}{
+Set name
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceSettings$setName(name)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{name}}{name}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setTitle"></a>}}
+\if{latex}{\out{\hypertarget{method-setTitle}{}}}
+\subsection{Method \code{setTitle()}}{
+Set title
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceSettings$setTitle(title)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{title}}{title}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setMaintainer"></a>}}
+\if{latex}{\out{\hypertarget{method-setMaintainer}{}}}
+\subsection{Method \code{setMaintainer()}}{
+Set maintainer
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceSettings$setMaintainer(maintainer)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{maintainer}}{maintainer}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setAbstract"></a>}}
+\if{latex}{\out{\hypertarget{method-setAbstract}{}}}
+\subsection{Method \code{setAbstract()}}{
+Set abstract
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceSettings$setAbstract(abstract)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{abstract}}{abstract}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setAccessConstraints"></a>}}
+\if{latex}{\out{\hypertarget{method-setAccessConstraints}{}}}
+\subsection{Method \code{setAccessConstraints()}}{
+Set access constraints
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceSettings$setAccessConstraints(accessConstraints)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{accessConstraints}}{access constraints}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setFees"></a>}}
+\if{latex}{\out{\hypertarget{method-setFees}{}}}
+\subsection{Method \code{setFees()}}{
+Set fees
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceSettings$setFees(fees)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{fees}}{fees}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setKeywords"></a>}}
+\if{latex}{\out{\hypertarget{method-setKeywords}{}}}
+\subsection{Method \code{setKeywords()}}{
+Set keywords
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceSettings$setKeywords(keywords)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{keywords}}{keywords}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-addKeyword"></a>}}
+\if{latex}{\out{\hypertarget{method-addKeyword}{}}}
+\subsection{Method \code{addKeyword()}}{
+Adds a keyword
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceSettings$addKeyword(keyword)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{keyword}}{keyword}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if added, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-delKeyword"></a>}}
+\if{latex}{\out{\hypertarget{method-delKeyword}{}}}
+\subsection{Method \code{delKeyword()}}{
+Deletes a keyword
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceSettings$delKeyword(keyword)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{keyword}}{keyword}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if deleted, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSServiceSettings$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

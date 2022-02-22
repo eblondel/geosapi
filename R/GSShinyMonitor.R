@@ -6,13 +6,6 @@
 #' @keywords geoserver monitoring
 #' @return Object of \code{\link{R6Class}} for setting a GS Shiny monitoring app
 #' @format \code{\link{R6Class}} object.
-#'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(manager, sleep)}}{
-#'    This method is used to instantiate a R shiny monitoring app for a Geoserver 
-#'  }
-#' }
 #' 
 #' @note Internal class used for \code{GSManager$monitor} method
 #' 
@@ -185,6 +178,12 @@ GSShinyMonitor <- R6Class("GSShinyMonitor",
     
   ),
   public = list(
+    
+    #'@description Initializes a Geoserver shiny monitoring tool
+    #'@param manager object of class \link{GSManager}
+    #'@param file file File where to store monitoring results
+    #'@param append append. Whether results should be appended to existing file
+    #'@param sleep sleep. Interval in seconds to trigger monitor calls
     initialize = function(manager, file = NULL, append = FALSE, sleep = 1){
       monitor_file <- file
       if(is.null(file)){
@@ -208,12 +207,14 @@ GSShinyMonitor <- R6Class("GSShinyMonitor",
       requireNamespace("plotly")
     },
     
-    #getMetric
+    #'@description Get metric
+    #'@param name name
+    #'@return the Geoserver monitored metric
     getMetric = function(name){
       return(private$status_metrics[private$status_metrics$name == name,])
     },
     
-    #run
+    #'@description Runs the application
     run = function(){
       shiny::shinyApp(ui = private$monitor_ui, server = private$monitor_server)
     }

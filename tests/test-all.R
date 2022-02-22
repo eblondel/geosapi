@@ -5,7 +5,7 @@ library(geosapi)
 gsUrl <- "http://localhost:8080/geoserver"
 gsUsr <- "admin"
 gsPwd <- "geoserver"
-gsLogger <- "DEBUG"
+gsLogger <- "INFO"
 gsman <- try(GSManager$new(gsUrl, gsUsr, gsPwd, gsLogger))
 
 

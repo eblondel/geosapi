@@ -97,6 +97,13 @@ GSGeoPackageDataStore <- R6Class("GSGeoPackageDataStore",
     DBTYPE = "geopkg"
   ),
   public = list(
+    
+    #'@description initializes an GeoPackage data store
+    #'@param xml an object of class \link{XMLInternalNode-class} to create object from XML
+    #'@param name coverage store name
+    #'@param description coverage store description
+    #'@param enabled whether the store should be enabled or not. Default is \code{TRUE}
+    #'@param database database
     initialize = function(xml = NULL, name = NULL, 
                           description = "", enabled = TRUE,
                           database = NULL){

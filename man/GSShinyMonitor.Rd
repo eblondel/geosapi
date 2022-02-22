@@ -12,21 +12,94 @@ Object of \code{\link{R6Class}} for setting a GS Shiny monitoring app
 }
 \description{
 Geoserver REST API DataStore
+
+Geoserver REST API DataStore
 }
 \note{
 Internal class used for \code{GSManager$monitor} method
 }
-\section{Methods}{
-
-\describe{
- \item{\code{new(manager, sleep)}}{
-   This method is used to instantiate a R shiny monitoring app for a Geoserver 
- }
-}
-}
-
 \author{
 Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 }
 \keyword{geoserver}
 \keyword{monitoring}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{GSShinyMonitor$new()}}
+\item \href{#method-getMetric}{\code{GSShinyMonitor$getMetric()}}
+\item \href{#method-run}{\code{GSShinyMonitor$run()}}
+\item \href{#method-clone}{\code{GSShinyMonitor$clone()}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+Initializes a Geoserver shiny monitoring tool
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSShinyMonitor$new(manager, file = NULL, append = FALSE, sleep = 1)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{manager}}{object of class \link{GSManager}}
+
+\item{\code{file}}{file File where to store monitoring results}
+
+\item{\code{append}}{append. Whether results should be appended to existing file}
+
+\item{\code{sleep}}{sleep. Interval in seconds to trigger monitor calls}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getMetric"></a>}}
+\if{latex}{\out{\hypertarget{method-getMetric}{}}}
+\subsection{Method \code{getMetric()}}{
+Get metric
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSShinyMonitor$getMetric(name)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{name}}{name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+the Geoserver monitored metric
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-run"></a>}}
+\if{latex}{\out{\hypertarget{method-run}{}}}
+\subsection{Method \code{run()}}{
+Runs the application
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSShinyMonitor$run()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSShinyMonitor$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

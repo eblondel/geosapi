@@ -12,25 +12,95 @@ Object of \code{\link{R6Class}} for modelling a GeoServer REST resource interfac
 }
 \description{
 Geoserver REST API REST Resource interface
-}
-\section{Abstract Methods}{
 
-\describe{
- \item{\code{new()}}{
-   This method is used to instantiate a GSRESTResource
- }
- \item{\code{decode(xml)}}{
-   Decodes a GS* R6 object from XML representation
- }
- \item{\code{encode()}}{
-   Encodes a GS* R6 object to XML representation
- }
+Geoserver REST API REST Resource interface
 }
-}
-
 \author{
 Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 }
 \keyword{api}
 \keyword{geoserver}
 \keyword{rest}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{rootName}}{root name}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{GSRESTResource$new()}}
+\item \href{#method-decode}{\code{GSRESTResource$decode()}}
+\item \href{#method-encode}{\code{GSRESTResource$encode()}}
+\item \href{#method-clone}{\code{GSRESTResource$clone()}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+Initializes an object of class \link{GSRESTResource}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSRESTResource$new(xml, rootName)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+
+\item{\code{rootName}}{root name}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-decode}{}}}
+\subsection{Method \code{decode()}}{
+Decodes from XML. Abstract method to be implemented by sub-classes
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSRESTResource$decode(xml)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-encode"></a>}}
+\if{latex}{\out{\hypertarget{method-encode}{}}}
+\subsection{Method \code{encode()}}{
+Encodes as XML
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSRESTResource$encode()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+an object of class \link{XMLInternalNode-class}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSRESTResource$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

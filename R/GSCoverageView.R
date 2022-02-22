@@ -8,53 +8,26 @@
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @examples
-#' GSCoverageView$new()
-#'
-#' @field name name
-#'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(xml)}}{
-#'    This method is used to instantiate a \code{GSCoverageView}
-#'  }
-#'  \item{\code{decode(xml)}}{
-#'    This method is used to decode a \code{GSCoverageView} from XML
-#'  }
-#'  \item{\code{encode()}}{
-#'    This method is used to encode a \code{GSCoverageView} to XML
-#'  }
-#'  \item{\code{setName(name)}}{
-#'    Sets the name of the coverage view
-#'  }
-#'  \item{\code{setEnvelopeCompositionType}}{
-#'    Sets the envelope composition type. Type of Envelope Composition, used to expose the bounding box 
-#'    of the CoverageView, either 'UNION' or 'INTERSECTION'.
-#'  }
-#'  \item{\code{setSelectedResolution(selectedResolution)}}{
-#'    Sets the selected resolution
-#'  }
-#'  \item{\code{setSelectedResolutionIndex(selectedResolutionIndex)}}{
-#'    Sets the selected resolution index
-#'  }
-#'  \item{\code{addBand(band)}}{
-#'    Adds a coverage band
-#'  }
-#'  \item{\code{delBand(band)}}{
-#'    Removes a coverage band.
-#'  }
-#' }
+#'   GSCoverageView$new()
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
 GSCoverageView <- R6Class("GSCoverageView",
   inherit = GSRESTResource,                    
   public = list(
+    #'@field name name
     name = NA,
+    #'@field envelopeCompositionType envelope composition type
     envelopeCompositionType = NULL,
+    #'@field selectedResolution selected resolution
     selectedResolution = NULL,
+    #'@field selectedResolutionIndex selected resolution index
     selectedResolutionIndex = NULL,
+    #'@field coverageBands coverage bands
     coverageBands = list(),
     
+    #'@description Initializes an object of class \link{GSCoverageView}
+    #'@param xml object of class \link{XMLInternalNode-class}
     initialize = function(xml = NULL){
       super$initialize(rootName = "coverageView")
       if(!missing(xml) & !is.null(xml)){
@@ -62,6 +35,8 @@ GSCoverageView <- R6Class("GSCoverageView",
       }
     },
     
+    #'@description Decodes from XML
+    #'@param xml object of class \link{XMLInternalNode-class}
     decode = function(xml){
       names <- getNodeSet(xml, "//name")
       self$name <- xmlValue(names[[1]])
@@ -84,12 +59,15 @@ GSCoverageView <- R6Class("GSCoverageView",
       }   
     },
     
-    #setName
+    #'@description Set name
+    #'@param name name
     setName = function(name){
       self$name = name
     },
     
-    #setEnvelopeCompositionType
+    #'@description Sets the envelope composition type. Type of Envelope Composition, used to expose the bounding box 
+    #' of the CoverageView, either 'UNION' or 'INTERSECTION'.
+    #'@param envelopeCompositionType envelope composition type
     setEnvelopeCompositionType = function(envelopeCompositionType){
       ectValues <- c("UNION", "INTERSECTION")
       if(!envelopeCompositionType %in% ectValues){
@@ -99,7 +77,8 @@ GSCoverageView <- R6Class("GSCoverageView",
       self$envelopeCompositionType = envelopeCompositionType
     },
     
-    #setSelectedResolution
+    #'@description Set selected resolution
+    #'@param selectedResolution selected resolution
     setSelectedResolution = function(selectedResolution){
       srValues <- c("BEST", "WORST")
       if(!selectedResolution %in% srValues){
@@ -109,12 +88,15 @@ GSCoverageView <- R6Class("GSCoverageView",
       self$selectedResolution = selectedResolution
     },
     
-    #setSelectedResolutionIndex
+    #'@description Set selected resolution index
+    #'@param selectedResolutionIndex selected resolution index
     setSelectedResolutionIndex = function(selectedResolutionIndex){
       self$selectedResolutionIndex = selectedResolutionIndex
     },
     
-    #addBand
+    #'@description Adds band
+    #'@param band object of class \link{GSCoverageBand}
+    #'@return \code{TRUE} if added, \code{FALSE} otherwise
     addBand = function(band){
       if(!is(band, "GSCoverageBand")){
         stop("The 'band' object object should be of class 'GSCoverageBand'")
@@ -128,7 +110,9 @@ GSCoverageView <- R6Class("GSCoverageView",
       return(endNb == startNb+1)
     },
     
-    #delBand
+    #'@description Deletes band
+    #'@param band object of class \link{GSCoverageBand}
+    #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
     delBand = function(band){
       if(!is(band, "GSCoverageBand")){
         stop("The 'band' object object should be of class 'GSCoverageBand'")

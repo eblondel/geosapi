@@ -13,34 +13,14 @@ the REST API of a GeoServer instance.
 }
 \description{
 Geoserver REST API Manager
+
+Geoserver REST API Manager
 }
-\section{Fields}{
-
-\describe{
-\item{\code{loggerType}}{the type of logger}
-
-\item{\code{verbose.info}}{if geosapi logs have to be printed}
-
-\item{\code{verbose.debug}}{if curl logs have to be printed}
-
-\item{\code{url}}{the Base url of GeoServer}
-
-\item{\code{version}}{the version of Geoserver. Handled as \code{GSVersion} object}
-}}
-
 \section{Methods}{
 
 \describe{
  \item{\code{new(url, user, pwd, logger, keyring_backend)}}{
-   This method is used to instantiate a GSManager with the \code{url} of the
-   GeoServer and credentials to authenticate (\code{user}/\code{pwd}). 
    
-   By default, the \code{logger} argument will be set to \code{NULL} (no logger). 
-   This argument accepts two possible values: \code{INFO}: to print only geosapi logs,
-   \code{DEBUG}: to print geosapi and CURL logs.
-   
-   The \code{keyring_backend} can be set to use a different backend for storing 
-   the Geoserver user password with \pkg{keyring} (Default value is 'env').
  }
  \item{\code{logger(type, text)}}{
    Basic logger to report geosapi logs. Used internally
@@ -94,3 +74,326 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{api}
 \keyword{geoserver}
 \keyword{rest}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{verbose.info}}{if geosapi logs have to be printed}
+
+\item{\code{verbose.debug}}{if curl logs have to be printed}
+
+\item{\code{loggerType}}{the type of logger}
+
+\item{\code{url}}{the Base url of GeoServer}
+
+\item{\code{version}}{the version of Geoserver. Handled as \code{GSVersion} object}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-logger}{\code{GSManager$logger()}}
+\item \href{#method-INFO}{\code{GSManager$INFO()}}
+\item \href{#method-WARN}{\code{GSManager$WARN()}}
+\item \href{#method-ERROR}{\code{GSManager$ERROR()}}
+\item \href{#method-new}{\code{GSManager$new()}}
+\item \href{#method-getUrl}{\code{GSManager$getUrl()}}
+\item \href{#method-connect}{\code{GSManager$connect()}}
+\item \href{#method-reload}{\code{GSManager$reload()}}
+\item \href{#method-getSystemStatus}{\code{GSManager$getSystemStatus()}}
+\item \href{#method-monitor}{\code{GSManager$monitor()}}
+\item \href{#method-getClassName}{\code{GSManager$getClassName()}}
+\item \href{#method-getWorkspaceManager}{\code{GSManager$getWorkspaceManager()}}
+\item \href{#method-getNamespaceManager}{\code{GSManager$getNamespaceManager()}}
+\item \href{#method-getDataStoreManager}{\code{GSManager$getDataStoreManager()}}
+\item \href{#method-getCoverageStoreManager}{\code{GSManager$getCoverageStoreManager()}}
+\item \href{#method-getServiceManager}{\code{GSManager$getServiceManager()}}
+\item \href{#method-getStyleManager}{\code{GSManager$getStyleManager()}}
+\item \href{#method-clone}{\code{GSManager$clone()}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-logger"></a>}}
+\if{latex}{\out{\hypertarget{method-logger}{}}}
+\subsection{Method \code{logger()}}{
+Prints a log message
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSManager$logger(type, text)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{type}}{type of log, "INFO", "WARN", "ERROR"}
+
+\item{\code{text}}{text}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-INFO"></a>}}
+\if{latex}{\out{\hypertarget{method-INFO}{}}}
+\subsection{Method \code{INFO()}}{
+Prints an INFO log message
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSManager$INFO(text)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{text}}{text}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-WARN"></a>}}
+\if{latex}{\out{\hypertarget{method-WARN}{}}}
+\subsection{Method \code{WARN()}}{
+Prints an WARN log message
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSManager$WARN(text)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{text}}{text}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-ERROR"></a>}}
+\if{latex}{\out{\hypertarget{method-ERROR}{}}}
+\subsection{Method \code{ERROR()}}{
+Prints an ERROR log message
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSManager$ERROR(text)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{text}}{text}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+This method is used to instantiate a GSManager with the \code{url} of the
+   GeoServer and credentials to authenticate (\code{user}/\code{pwd}). 
+   
+   By default, the \code{logger} argument will be set to \code{NULL} (no logger). 
+   This argument accepts two possible values: \code{INFO}: to print only geosapi logs,
+   \code{DEBUG}: to print geosapi and CURL logs.
+   
+   The \code{keyring_backend} can be set to use a different backend for storing 
+   the Geoserver user password with \pkg{keyring} (Default value is 'env').
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSManager$new(url, user, pwd, logger = NULL, keyring_backend = "env")}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{url}}{url}
+
+\item{\code{user}}{user}
+
+\item{\code{pwd}}{pwd}
+
+\item{\code{logger}}{logger}
+
+\item{\code{keyring_backend}}{keyring backend. Default is 'env'}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getUrl"></a>}}
+\if{latex}{\out{\hypertarget{method-getUrl}{}}}
+\subsection{Method \code{getUrl()}}{
+Get URL
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSManager$getUrl()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+the Geoserver URL
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-connect"></a>}}
+\if{latex}{\out{\hypertarget{method-connect}{}}}
+\subsection{Method \code{connect()}}{
+Connects to geoServer
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSManager$connect()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+\code{TRUE} if connected, raises an error otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-reload"></a>}}
+\if{latex}{\out{\hypertarget{method-reload}{}}}
+\subsection{Method \code{reload()}}{
+Reloads the GeoServer catalog
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSManager$reload()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+\code{TRUE} if reloaded, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getSystemStatus"></a>}}
+\if{latex}{\out{\hypertarget{method-getSystemStatus}{}}}
+\subsection{Method \code{getSystemStatus()}}{
+Get system status
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSManager$getSystemStatus()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+an object of class \code{data.frame} given the date time and metrics value
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-monitor"></a>}}
+\if{latex}{\out{\hypertarget{method-monitor}{}}}
+\subsection{Method \code{monitor()}}{
+Monitors the Geoserver by launching a small shiny monitoring application
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSManager$monitor(file = NULL, append = FALSE, sleep = 1)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{file}}{file where to store monitoring results}
+
+\item{\code{append}}{whether to append results to existing files}
+
+\item{\code{sleep}}{sleeping interval to trigger a system status call}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getClassName"></a>}}
+\if{latex}{\out{\hypertarget{method-getClassName}{}}}
+\subsection{Method \code{getClassName()}}{
+Get class name
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSManager$getClassName()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+the self class name, as \code{character}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getWorkspaceManager"></a>}}
+\if{latex}{\out{\hypertarget{method-getWorkspaceManager}{}}}
+\subsection{Method \code{getWorkspaceManager()}}{
+Get Workspace manager
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSManager$getWorkspaceManager()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+an object of class \link{GSWorkspaceManager}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getNamespaceManager"></a>}}
+\if{latex}{\out{\hypertarget{method-getNamespaceManager}{}}}
+\subsection{Method \code{getNamespaceManager()}}{
+Get Namespace manager
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSManager$getNamespaceManager()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+an object of class \link{GSNamespaceManager}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getDataStoreManager"></a>}}
+\if{latex}{\out{\hypertarget{method-getDataStoreManager}{}}}
+\subsection{Method \code{getDataStoreManager()}}{
+Get Datastore manager
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSManager$getDataStoreManager()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+an object of class \link{GSDataStoreManager}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getCoverageStoreManager"></a>}}
+\if{latex}{\out{\hypertarget{method-getCoverageStoreManager}{}}}
+\subsection{Method \code{getCoverageStoreManager()}}{
+Get Coverage store manager
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSManager$getCoverageStoreManager()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+an object of class \link{GSCoverageStoreManager}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getServiceManager"></a>}}
+\if{latex}{\out{\hypertarget{method-getServiceManager}{}}}
+\subsection{Method \code{getServiceManager()}}{
+Get service manager
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSManager$getServiceManager()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+an object of class \link{GSServiceManager}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getStyleManager"></a>}}
+\if{latex}{\out{\hypertarget{method-getStyleManager}{}}}
+\subsection{Method \code{getStyleManager()}}{
+Get style manager
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSManager$getStyleManager()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+an object of class \link{GSStyleManager}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSManager$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

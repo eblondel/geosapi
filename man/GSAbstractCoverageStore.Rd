@@ -12,23 +12,9 @@ Object of \code{\link{R6Class}} for modelling a GeoServer CoverageStore
 }
 \description{
 Geoserver REST API CoverageStore
-}
-\section{Methods}{
 
-\describe{
- \item{\code{new(xml, type, name, description, enabled)}}{
-   This method is used to instantiate a \code{GSAbstractCoverageStore}
- }
- \item{\code{decode(xml)}}{
-   This method is used to decode a \code{GSAbstractCoverageStore} from XML
- }
- \item{\code{encode()}}{
-   This method is used to encode a \code{GSAbstractCoverageStore} to XML. Inherited from the
-   generic \code{GSRESTResource} encoder
- }
+Geoserver REST API CoverageStore
 }
-}
-
 \author{
 Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 }
@@ -36,3 +22,121 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{api}
 \keyword{geoserver}
 \keyword{rest}
+\section{Super classes}{
+\code{\link[geosapi:GSRESTResource]{geosapi::GSRESTResource}} -> \code{\link[geosapi:GSAbstractStore]{geosapi::GSAbstractStore}} -> \code{GSAbstractCoverageStore}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{url}}{URL of the abstract coverage store}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{GSAbstractCoverageStore$new()}}
+\item \href{#method-decode}{\code{GSAbstractCoverageStore$decode()}}
+\item \href{#method-setUrl}{\code{GSAbstractCoverageStore$setUrl()}}
+\item \href{#method-clone}{\code{GSAbstractCoverageStore$clone()}}
+}
+}
+\if{html}{
+\out{<details open ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setDescription">}\href{../../geosapi/html/GSAbstractStore.html#method-setDescription}{\code{geosapi::GSAbstractStore$setDescription()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setEnabled">}\href{../../geosapi/html/GSAbstractStore.html#method-setEnabled}{\code{geosapi::GSAbstractStore$setEnabled()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setType">}\href{../../geosapi/html/GSAbstractStore.html#method-setType}{\code{geosapi::GSAbstractStore$setType()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+initializes an abstract coverage store
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractCoverageStore$new(
+  xml = NULL,
+  type = NULL,
+  name = NULL,
+  description = "",
+  enabled = TRUE,
+  url = NULL
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{an object of class \link{XMLInternalNode-class} to create object from XML}
+
+\item{\code{type}}{the type of coverage store}
+
+\item{\code{name}}{coverage store name}
+
+\item{\code{description}}{coverage store description}
+
+\item{\code{enabled}}{whether the store should be enabled or not. Default is \code{TRUE}}
+
+\item{\code{url}}{URL of the store}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-decode}{}}}
+\subsection{Method \code{decode()}}{
+Decodes a coverage store from XML
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractCoverageStore$decode(xml)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{an object of class \link{XMLInternalNode-class}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object of class \link{GSAbstractCoverageStore}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setUrl"></a>}}
+\if{latex}{\out{\hypertarget{method-setUrl}{}}}
+\subsection{Method \code{setUrl()}}{
+set coverage store URL
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractCoverageStore$setUrl(url)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{url}}{the store URL to set}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractCoverageStore$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

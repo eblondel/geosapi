@@ -10,10 +10,7 @@
 #' @examples
 #' GSCoverageBand$new()
 #' 
-#' @field inputCoverageBands list of input coverage bands
-#' @field definition coverage band definition
-#' @field index coverage band index
-#' @field compositionType coverage band composition type
+
 #'
 #' @section Methods:
 #' \describe{
@@ -48,10 +45,18 @@
 GSCoverageBand <- R6Class("GSCoverageBand",
   inherit = GSRESTResource,                    
   public = list(
+    
+    #' @field inputCoverageBands list of input coverage bands
     inputCoverageBands = list(),
+    #' @field definition coverage band definition
     definition = NULL,
+    #' @field index coverage band index
     index = NULL,
+    #' @field compositionType coverage band composition type
     compositionType = "BAND_SELECT",
+    
+    #'@description Initalizes a \link{GSCoverageBand}
+    #'@param xml object of class \link{XMLInternalNode-class}
     initialize = function(xml = NULL){
       super$initialize(rootName = "coverageBand")
       if(!missing(xml) & !is.null(xml)){
@@ -59,6 +64,8 @@ GSCoverageBand <- R6Class("GSCoverageBand",
       }
     },
     
+    #'@description Decodes from XML
+    #'@param xml object of class \link{XMLInternalNode-class}
     decode = function(xml){
 
       def <- getNodeSet(xml, "//definition")
@@ -79,27 +86,33 @@ GSCoverageBand <- R6Class("GSCoverageBand",
       }   
     },
     
-    #setName
+    #'@description Set name
+    #'@param name name
     setName = function(name){
       self$name = name
     },
     
-    #setDefinition
+    #'@description Set definition
+    #'@param definition definition
     setDefinition = function(definition){
       self$definition = definition
     },
     
-    #setIndex
+    #'@description Set index
+    #'@param index index
     setIndex = function(index){
       self$index = index
     },
     
-    #setCompositionType
+    #'@description Set composition type
+    #'@param compositionType composition type
     setCompositionType = function(compositionType){
       self$compositionType = compositionType
     },
     
-    #addInputBand
+    #'@description Adds an input band
+    #'@param band object of class \link{GSInputCoverageBand}
+    #'@return \code{TRUE} if added, \code{FALSE} otherwise
     addInputBand = function(band){
       if(!is(band, "GSInputCoverageBand")){
         stop("The 'band' object object should be of class 'GSInputCoverageBand'")
@@ -113,7 +126,9 @@ GSCoverageBand <- R6Class("GSCoverageBand",
       return(endNb == startNb+1)
     },
     
-    #delInputBand
+    #'@description Deletes an input band
+    #'@param band object of class \link{GSInputCoverageBand}
+    #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
     delInputBand = function(band){
       if(!is(band, "GSInputCoverageBand")){
         stop("The 'band' object object should be of class 'GSInputCoverageBand'")

@@ -4,7 +4,7 @@
 #' @importFrom R6 R6Class
 #' @export
 #' 
-#' @name GSDimension
+#' @name GSFeatureDimension
 #' @title A GeoServer dimension
 #' @description This class models a GeoServer feature dimension.
 #' @keywords geoserver rest api resource dimension
@@ -12,24 +12,7 @@
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @examples
-#' dim <- GSFeatureDimension$new()
-#'
-#' @field attribute attribute
-#' @field endAttribute end attribute
-#'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(xml)}}{
-#'    This method is used to instantiate a GSResource
-#'  }
-#'  \item{\code{decode(xml)}}{
-#'    This method is used to decode a GSResource from XML
-#'  }
-#'  \item{\code{encode()}}{
-#'    This method is used to encode a GSFeatureType to XML. Inherited from the
-#'    generic \code{GSRESTResource} encoder
-#'  }
-#' }
+#'   dim <- GSFeatureDimension$new()
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -37,8 +20,13 @@ GSFeatureDimension <- R6Class("GSFeatureDimension",
   inherit = GSDimension,
   
   public = list(
+   #'@field attribute attribute
    attribute = NULL,
+   #'@field endAttribute end attribute
    endAttribute = NULL,
+   
+   #'@description Initializes an object of class \link{GSFeatureDimension}
+   #'@param xml object of class \link{XMLInternalNode-class}
    initialize = function(xml = NULL){
      super$initialize(xml)
      if(!missing(xml) & !is.null(xml)){
@@ -46,6 +34,8 @@ GSFeatureDimension <- R6Class("GSFeatureDimension",
      }
    },
    
+   #'@description Decodes from XML
+   #'@param xml object of class \link{XMLInternalNode-class}
    decode = function(xml){
      super$decode(xml)
      propsXML <- xmlChildren(xml)
@@ -54,10 +44,14 @@ GSFeatureDimension <- R6Class("GSFeatureDimension",
      self$setEndAttribute(props$endAttribute)
    },
    
+   #'@description Set attribute
+   #'@param attribute attribute
    setAttribute = function(attribute){
      self$attribute = attribute
    },
    
+   #'@description Set end attribute
+   #'@param endAttribute end attribute
    setEndAttribute = function(endAttribute){
      self$endAttribute = endAttribute
    }

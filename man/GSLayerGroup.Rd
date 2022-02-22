@@ -17,73 +17,8 @@ used for clustering layers into a group.
 \details{
 Geoserver REST API LayerGroup
 }
-\section{Methods}{
-
-\describe{
- \item{\code{new(rootName, xml)}}{
-   This method is used to instantiate a GSLayer
- }
- \item{\code{decode(xml)}}{
-   This method is used to decode a GSLayer from XML
- }
- \item{\code{encode()}}{
-   This method is used to encode a GSLayer to XML. Inherited from the
-   generic \code{GSRESTResource} encoder
- }
- \item{\code{setName(name)}}{
-   Sets the name.
- }
- \item{\code{setTitle(title)}}{
-   Sets the title.
- }
- \item{\code{setAbstract(abstract)}}{
-   Sets the abstract.
- }
- \item{\code{setMode(mode)}}{
-   Sets the mode.
- }
- \item{\code{setWorkspace(ws)}}{
-   Sets the worksapce
- }
- \item{\code{addLayer(layer)}}{
-   Adds a layer
- }
- \item{\code{delLayer(layer)}}{
-   Deletes a layer
- }
- \item{\code{addLayerGroup(layerGroup)}}{
-   Adds a layer group
- }
- \item{\code{delLayerGroup(layerGroup)}}{
-   Deletes a layer group
- }
- \item{\code{setStyles(styles)}}{
-   Sets a list of optional styles
- }
- \item{\code{addStyle(style)}}{
-   Sets an available style. Returns TRUE if set, FALSE otherwise
- }
- \item{\code{delStyle(name)}}{
-   Deletes an available. Returns TRUE if deleted, FALSE otherwise
- }
- \item{\code{setMetadataLinks(metadataLinks)}}{
-   Sets a list of \code{GSMetadataLinks}
- }
- \item{\code{addMetadataLink(metadataLink)}}{
-   Adds a metadataLink
- }
- \item{\code{delMetadataLink(metadataLink)}}{
-   Deletes a metadataLink
- }
- \item{\code{setBounds(minx, miny, maxx, maxy, bbox, crs)}}{
-   Sets the layer group bounds. Either from coordinates or from
-   a \code{bbox} object (matrix).
- }
-}
-}
-
 \examples{
-lyr <- GSLayerGroup$new()
+  lyr <- GSLayerGroup$new()
 
 }
 \author{
@@ -97,3 +32,374 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{layer}
 \keyword{resource}
 \keyword{rest}
+\section{Super class}{
+\code{\link[geosapi:GSRESTResource]{geosapi::GSRESTResource}} -> \code{GSLayerGroup}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{full}}{full}
+
+\item{\code{name}}{name}
+
+\item{\code{mode}}{mode}
+
+\item{\code{title}}{title}
+
+\item{\code{abstractTxt}}{abstract}
+
+\item{\code{workspace}}{workspace}
+
+\item{\code{publishables}}{publishables}
+
+\item{\code{styles}}{styles}
+
+\item{\code{metadataLinks}}{metadata links}
+
+\item{\code{bounds}}{bounds}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{GSLayerGroup$new()}}
+\item \href{#method-decode}{\code{GSLayerGroup$decode()}}
+\item \href{#method-setName}{\code{GSLayerGroup$setName()}}
+\item \href{#method-setMode}{\code{GSLayerGroup$setMode()}}
+\item \href{#method-setTitle}{\code{GSLayerGroup$setTitle()}}
+\item \href{#method-setAbstract}{\code{GSLayerGroup$setAbstract()}}
+\item \href{#method-setWorkspace}{\code{GSLayerGroup$setWorkspace()}}
+\item \href{#method-addLayer}{\code{GSLayerGroup$addLayer()}}
+\item \href{#method-addLayerGroup}{\code{GSLayerGroup$addLayerGroup()}}
+\item \href{#method-addPublishable}{\code{GSLayerGroup$addPublishable()}}
+\item \href{#method-setStyles}{\code{GSLayerGroup$setStyles()}}
+\item \href{#method-addStyle}{\code{GSLayerGroup$addStyle()}}
+\item \href{#method-setMetadataLinks}{\code{GSLayerGroup$setMetadataLinks()}}
+\item \href{#method-addMetadataLink}{\code{GSLayerGroup$addMetadataLink()}}
+\item \href{#method-deleteMetadataLink}{\code{GSLayerGroup$deleteMetadataLink()}}
+\item \href{#method-setBounds}{\code{GSLayerGroup$setBounds()}}
+\item \href{#method-clone}{\code{GSLayerGroup$clone()}}
+}
+}
+\if{html}{
+\out{<details open ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+Initializes an object of class \link{GSLayerGroup}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSLayerGroup$new(xml = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-decode}{}}}
+\subsection{Method \code{decode()}}{
+Decodes from XML
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSLayerGroup$decode(xml)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setName"></a>}}
+\if{latex}{\out{\hypertarget{method-setName}{}}}
+\subsection{Method \code{setName()}}{
+Set name
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSLayerGroup$setName(name)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{name}}{name}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setMode"></a>}}
+\if{latex}{\out{\hypertarget{method-setMode}{}}}
+\subsection{Method \code{setMode()}}{
+Set mode
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSLayerGroup$setMode(mode)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{mode}}{a mode value among "SINGLE", "NAMED", "CONTAINER", "EO"}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setTitle"></a>}}
+\if{latex}{\out{\hypertarget{method-setTitle}{}}}
+\subsection{Method \code{setTitle()}}{
+Set title
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSLayerGroup$setTitle(title)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{title}}{title}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setAbstract"></a>}}
+\if{latex}{\out{\hypertarget{method-setAbstract}{}}}
+\subsection{Method \code{setAbstract()}}{
+Set abstract
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSLayerGroup$setAbstract(abstract)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{abstract}}{abstract}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setWorkspace"></a>}}
+\if{latex}{\out{\hypertarget{method-setWorkspace}{}}}
+\subsection{Method \code{setWorkspace()}}{
+Set workspace
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSLayerGroup$setWorkspace(workspace)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{workspace}}{workspace name, object of class \link{GSWorkspace} or \code{character}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-addLayer"></a>}}
+\if{latex}{\out{\hypertarget{method-addLayer}{}}}
+\subsection{Method \code{addLayer()}}{
+Adds layer
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSLayerGroup$addLayer(layer, style)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{layer}}{layer name}
+
+\item{\code{style}}{style name}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-addLayerGroup"></a>}}
+\if{latex}{\out{\hypertarget{method-addLayerGroup}{}}}
+\subsection{Method \code{addLayerGroup()}}{
+Adds layer group
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSLayerGroup$addLayerGroup(layerGroup)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{layerGroup}}{layer group}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-addPublishable"></a>}}
+\if{latex}{\out{\hypertarget{method-addPublishable}{}}}
+\subsection{Method \code{addPublishable()}}{
+Adds publishable
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSLayerGroup$addPublishable(publishable)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{publishable}}{publishable}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if added, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setStyles"></a>}}
+\if{latex}{\out{\hypertarget{method-setStyles}{}}}
+\subsection{Method \code{setStyles()}}{
+Set styles
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSLayerGroup$setStyles(styles)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{styles}}{styles}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-addStyle"></a>}}
+\if{latex}{\out{\hypertarget{method-addStyle}{}}}
+\subsection{Method \code{addStyle()}}{
+Adds a style
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSLayerGroup$addStyle(style)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{style}}{style}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if added, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setMetadataLinks"></a>}}
+\if{latex}{\out{\hypertarget{method-setMetadataLinks}{}}}
+\subsection{Method \code{setMetadataLinks()}}{
+Set metadata links
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSLayerGroup$setMetadataLinks(metadataLinks)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{metadataLinks}}{metadata links}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-addMetadataLink"></a>}}
+\if{latex}{\out{\hypertarget{method-addMetadataLink}{}}}
+\subsection{Method \code{addMetadataLink()}}{
+Adds metadata link
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSLayerGroup$addMetadataLink(metadataLink)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{metadataLink}}{object of class \link{GSMetadataLink}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if added, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-deleteMetadataLink"></a>}}
+\if{latex}{\out{\hypertarget{method-deleteMetadataLink}{}}}
+\subsection{Method \code{deleteMetadataLink()}}{
+Deletes metadata link
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSLayerGroup$deleteMetadataLink(metadataLink)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{metadataLink}}{object of class \link{GSMetadataLink}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if deleted, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setBounds"></a>}}
+\if{latex}{\out{\hypertarget{method-setBounds}{}}}
+\subsection{Method \code{setBounds()}}{
+Set bounds
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSLayerGroup$setBounds(minx, miny, maxx, maxy, bbox = NULL, crs)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{minx}}{minx}
+
+\item{\code{miny}}{miny}
+
+\item{\code{maxx}}{maxx}
+
+\item{\code{maxy}}{maxy}
+
+\item{\code{bbox}}{bbox}
+
+\item{\code{crs}}{crs}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSLayerGroup$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

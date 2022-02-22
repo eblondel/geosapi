@@ -13,61 +13,9 @@ Object of \code{\link{R6Class}} with methods for managing the workspaces
 }
 \description{
 Geoserver REST API Workspace Manager
-}
-\section{Methods}{
 
-\describe{
- \item{\code{new(url, user, pwd, logger)}}{
-   This method is used to instantiate a GSManager with the \code{url} of the
-   GeoServer and credentials to authenticate (\code{user}/\code{pwd}). By default,
-   the \code{logger} argument will be set to \code{NULL} (no logger). This argument
-   accepts two possible values: \code{INFO}: to print only geosapi logs,
-   \code{DEBUG}: to print geosapi and CURL logs
- }
- \item{\code{getWorkspaces()}}{
-   Get the list of available workspace. Returns an object of class \code{list}
-   containing items of class \code{\link{GSWorkspace}}
- }
- \item{\code{getWorkspaceNames()}}{
-   Get the list of available workspace names. Returns an vector of class 
-   \code{character}
- }
- \item{\code{getWorkspace(ws)}}{
-   Get a \code{\link{GSWorkspace}} object given a workspace name.
- }
- \item{\code{createWorkspace(name, uri)}}{
-   Creates a GeoServer workspace given a name, and an optional URI. If the URI
-   is not specified, GeoServer will automatically create an associated Namespace 
-   with the URI being "http://{workspaceName}. If the URI is specified, the method
-   invokes the method \code{createNamespace(ns, uri)} of the \code{\link{GSNamespaceManager}}.
-   Returns \code{TRUE} if the workspace has been successfully created, \code{FALSE} otherwise
- }
- \item{\code{updateWorkspace(name, uri)}}{
-   Updates a GeoServer workspace given a name, and an optional URI. If the URI
-   is not specified, GeoServer will automatically update the associated Namespace 
-   with the URI being "http://{workspaceName}. If the URI is specified, the method
-   invokes the method \code{updateNamespace(ns, uri)} of the \code{\link{GSNamespaceManager}}.
-   Returns \code{TRUE} if the workspace has been successfully updated, \code{FALSE} otherwise
- }
- \item{\code{deleteWorkspace(ws)}}{
-   Deletes a GeoServer workspace given a name. Returns \code{TRUE} if the 
-   workspace has been successfully deleted, \code{FALSE} otherwise
- }
- \item{\code{getWorkspaceSettings(ws)}}{
-   Get the workspace settings (if existing) as object of class \code{GSWorkspaceSettings}
- }
- \item{\code{createWorkspaceSettings(ws, workspaceSettings)}}{
-   Creates a workspace settings for the workspace \code{ws}
- }
- \item{\code{updateWorkspaceSettings(ws, workspaceSettings)}}{
-   Updates a workspace settings for the workspace \code{ws}
- }
- \item{\code{deleteWorkspaceSettings(ws)}}{
-   Deletes a workspace settings for the workspace \code{ws}
- }
+Geoserver REST API Workspace Manager
 }
-}
-
 \examples{
 \dontrun{
    GSWorkspaceManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
@@ -81,3 +29,272 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{geoserver}
 \keyword{rest}
 \keyword{workspace}
+\section{Super class}{
+\code{\link[geosapi:GSManager]{geosapi::GSManager}} -> \code{GSWorkspaceManager}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-getWorkspaces}{\code{GSWorkspaceManager$getWorkspaces()}}
+\item \href{#method-getWorkspaceNames}{\code{GSWorkspaceManager$getWorkspaceNames()}}
+\item \href{#method-getWorkspace}{\code{GSWorkspaceManager$getWorkspace()}}
+\item \href{#method-createWorkspace}{\code{GSWorkspaceManager$createWorkspace()}}
+\item \href{#method-updateWorkspace}{\code{GSWorkspaceManager$updateWorkspace()}}
+\item \href{#method-deleteWorkspace}{\code{GSWorkspaceManager$deleteWorkspace()}}
+\item \href{#method-getWorkspaceSettings}{\code{GSWorkspaceManager$getWorkspaceSettings()}}
+\item \href{#method-createWorkspaceSettings}{\code{GSWorkspaceManager$createWorkspaceSettings()}}
+\item \href{#method-updateWorkspaceSettings}{\code{GSWorkspaceManager$updateWorkspaceSettings()}}
+\item \href{#method-deleteWorkspaceSettings}{\code{GSWorkspaceManager$deleteWorkspaceSettings()}}
+\item \href{#method-clone}{\code{GSWorkspaceManager$clone()}}
+}
+}
+\if{html}{
+\out{<details ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="connect">}\href{../../geosapi/html/GSManager.html#method-connect}{\code{geosapi::GSManager$connect()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="ERROR">}\href{../../geosapi/html/GSManager.html#method-ERROR}{\code{geosapi::GSManager$ERROR()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getClassName">}\href{../../geosapi/html/GSManager.html#method-getClassName}{\code{geosapi::GSManager$getClassName()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getCoverageStoreManager">}\href{../../geosapi/html/GSManager.html#method-getCoverageStoreManager}{\code{geosapi::GSManager$getCoverageStoreManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getDataStoreManager">}\href{../../geosapi/html/GSManager.html#method-getDataStoreManager}{\code{geosapi::GSManager$getDataStoreManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getNamespaceManager">}\href{../../geosapi/html/GSManager.html#method-getNamespaceManager}{\code{geosapi::GSManager$getNamespaceManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getServiceManager">}\href{../../geosapi/html/GSManager.html#method-getServiceManager}{\code{geosapi::GSManager$getServiceManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getStyleManager">}\href{../../geosapi/html/GSManager.html#method-getStyleManager}{\code{geosapi::GSManager$getStyleManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getSystemStatus">}\href{../../geosapi/html/GSManager.html#method-getSystemStatus}{\code{geosapi::GSManager$getSystemStatus()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getUrl">}\href{../../geosapi/html/GSManager.html#method-getUrl}{\code{geosapi::GSManager$getUrl()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getWorkspaceManager">}\href{../../geosapi/html/GSManager.html#method-getWorkspaceManager}{\code{geosapi::GSManager$getWorkspaceManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="INFO">}\href{../../geosapi/html/GSManager.html#method-INFO}{\code{geosapi::GSManager$INFO()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="initialize">}\href{../../geosapi/html/GSManager.html#method-initialize}{\code{geosapi::GSManager$initialize()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="logger">}\href{../../geosapi/html/GSManager.html#method-logger}{\code{geosapi::GSManager$logger()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="monitor">}\href{../../geosapi/html/GSManager.html#method-monitor}{\code{geosapi::GSManager$monitor()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="reload">}\href{../../geosapi/html/GSManager.html#method-reload}{\code{geosapi::GSManager$reload()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="WARN">}\href{../../geosapi/html/GSManager.html#method-WARN}{\code{geosapi::GSManager$WARN()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getWorkspaces"></a>}}
+\if{latex}{\out{\hypertarget{method-getWorkspaces}{}}}
+\subsection{Method \code{getWorkspaces()}}{
+Get the list of available workspace. Returns an object of class \code{list}
+   containing items of class \code{\link{GSWorkspace}}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSWorkspaceManager$getWorkspaces()}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{a}}{list of \link{GSWorkspace}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getWorkspaceNames"></a>}}
+\if{latex}{\out{\hypertarget{method-getWorkspaceNames}{}}}
+\subsection{Method \code{getWorkspaceNames()}}{
+Get the list of available workspace names. Returns an vector of class \code{character}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSWorkspaceManager$getWorkspaceNames()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+a list of workspace names
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getWorkspace"></a>}}
+\if{latex}{\out{\hypertarget{method-getWorkspace}{}}}
+\subsection{Method \code{getWorkspace()}}{
+Get a \code{\link{GSWorkspace}} object given a workspace name.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSWorkspaceManager$getWorkspace(ws)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object of class \link{GSWorkspace}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-createWorkspace"></a>}}
+\if{latex}{\out{\hypertarget{method-createWorkspace}{}}}
+\subsection{Method \code{createWorkspace()}}{
+Creates a GeoServer workspace given a name, and an optional URI. If the URI
+   is not specified, GeoServer will automatically create an associated Namespace 
+   with the URI being "http://{workspaceName}. If the URI is specified, the method
+   invokes the method \code{createNamespace(ns, uri)} of the \code{\link{GSNamespaceManager}}.
+   Returns \code{TRUE} if the workspace has been successfully created, \code{FALSE} otherwise
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSWorkspaceManager$createWorkspace(name, uri)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{name}}{name}
+
+\item{\code{uri}}{uri}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if created, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-updateWorkspace"></a>}}
+\if{latex}{\out{\hypertarget{method-updateWorkspace}{}}}
+\subsection{Method \code{updateWorkspace()}}{
+Updates a GeoServer workspace given a name, and an optional URI. If the URI
+   is not specified, GeoServer will automatically update the associated Namespace 
+   with the URI being "http://{workspaceName}. If the URI is specified, the method
+   invokes the method \code{updateNamespace(ns, uri)} of the \code{\link{GSNamespaceManager}}.
+   Returns \code{TRUE} if the workspace has been successfully updated, \code{FALSE} otherwise
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSWorkspaceManager$updateWorkspace(name, uri)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{name}}{name}
+
+\item{\code{uri}}{uri}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if created, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-deleteWorkspace"></a>}}
+\if{latex}{\out{\hypertarget{method-deleteWorkspace}{}}}
+\subsection{Method \code{deleteWorkspace()}}{
+Deletes a GeoServer workspace given a name.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSWorkspaceManager$deleteWorkspace(name, recurse = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{name}}{name}
+
+\item{\code{recurse}}{recurse}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if the workspace has been successfully deleted, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getWorkspaceSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-getWorkspaceSettings}{}}}
+\subsection{Method \code{getWorkspaceSettings()}}{
+Updates workspace settings
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSWorkspaceManager$getWorkspaceSettings(ws)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+an object of class \link{GSWorkspaceSettings}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-createWorkspaceSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-createWorkspaceSettings}{}}}
+\subsection{Method \code{createWorkspaceSettings()}}{
+Creates workspace settings
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSWorkspaceManager$createWorkspaceSettings(ws, workspaceSettings)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{workspaceSettings}}{object of class \link{GSWorkspaceSettings}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if created, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-updateWorkspaceSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-updateWorkspaceSettings}{}}}
+\subsection{Method \code{updateWorkspaceSettings()}}{
+Updates workspace settings
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSWorkspaceManager$updateWorkspaceSettings(ws, workspaceSettings)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{workspaceSettings}}{object of class \link{GSWorkspaceSettings}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if updated, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-deleteWorkspaceSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-deleteWorkspaceSettings}{}}}
+\subsection{Method \code{deleteWorkspaceSettings()}}{
+Deletes workspace settings
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSWorkspaceManager$deleteWorkspaceSettings(ws)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if deleted, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSWorkspaceManager$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

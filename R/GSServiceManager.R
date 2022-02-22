@@ -22,9 +22,7 @@
 #'    \code{DEBUG}: to print geosapi and CURL logs
 #'  }
 #'  \item{\code{getServiceSettings(service, ws)}}{
-#'    Get the service settings. To get the service settings for a specific workspace,
-#'    specify the workspace name as \code{ws} parameter, otherwise global settings are
-#'    retrieved.
+#'    
 #'  }
 #'  \item{\code{getWmsSettings(ws)}}{
 #'    Get WMS settings. To get the WMS settings for a specific workspace,
@@ -100,8 +98,12 @@ GSServiceManager <- R6Class("GSServiceManager",
     
     #Settings generic CRUD methods
     #===========================================================================
-    #getServiceSettings
-    #---------------------------------------------------------------------------
+    #'@description Get the service settings. To get the service settings for a specific workspace,
+    #'    specify the workspace name as \code{ws} parameter, otherwise global settings are
+    #'    retrieved.
+    #'@param service service
+    #'@param ws workspace name
+    #'@return an object of class \link{GSServiceSettings}
     getServiceSettings = function(service, ws = NULL){
       if(self$version$lowerThan("2.12")){
         stop("This feature is available starting from GeoServer 2.12")
@@ -128,18 +130,41 @@ GSServiceManager <- R6Class("GSServiceManager",
       }
       return(serviceSettings)
     },
+    
+    #'@description Get WMS settings. To get the WMS settings for a specific workspace,
+    #'    specify the workspace name as \code{ws} parameter, otherwise global settings are
+    #'    retrieved.
+    #'@param ws workspace name
+    #'@return an object of class \link{GSServiceSettings}
     getWmsSettings = function(ws = NULL){
       return(self$getServiceSettings(service = "WMS", ws = ws))
     },
+    
+    #'@description Get WFS settings. To get the WFS settings for a specific workspace,
+    #'    specify the workspace name as \code{ws} parameter, otherwise global settings are
+    #'    retrieved.
+    #'@param ws workspace name
+    #'@return an object of class \link{GSServiceSettings}
     getWfsSettings = function(ws = NULL){
       return(self$getServiceSettings(service = "WFS", ws = ws))
     },
+    
+    #'@description Get WCS settings. To get the WCS settings for a specific workspace,
+    #'    specify the workspace name as \code{ws} parameter, otherwise global settings are
+    #'    retrieved.
+    #'@param ws workspace name
+    #'@return an object of class \link{GSServiceSettings}
     getWcsSettings = function(ws = NULL){
       return(self$getServiceSettings(service = "WCS", ws = ws))
     },
     
-    #updatServiceSettings
-    #---------------------------------------------------------------------------
+    #'@description Updates the service settings with an object of class \code{GSServiceSettings}.
+    #'    An optional workspace name \code{ws} can be specified to update service settings
+    #'    applying to a workspace.
+    #'@param serviceSettings serviceSettings object of class \link{GSServiceSettings}
+    #'@param service service
+    #'@param ws workspace name
+    #'@return \code{TRUE} if updated, \code{FALSE} otherwise
     updateServiceSettings = function(serviceSettings, service, ws = NULL){
       if(self$version$lowerThan("2.12")){
         stop("This feature is available starting from GeoServer 2.12")
@@ -170,8 +195,12 @@ GSServiceManager <- R6Class("GSServiceManager",
       }
       return(updated)
     },
-    #deleteServiceSettings
-    #---------------------------------------------------------------------------
+    
+    #'@description Deletes the service settings. This method is used internally by \pkg{geosapi} 
+    #'    for disabling a service setting at workspace level.
+    #'@param service service
+    #'@param ws workspace name
+    #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
     deleteServiceSettings = function(service, ws = NULL){
       if(self$version$lowerThan("2.12")){
         stop("This feature is available starting from GeoServer 2.12")
@@ -200,27 +229,65 @@ GSServiceManager <- R6Class("GSServiceManager",
       }
       return(deleted)
     },
+    
+    #'@description Updates the WMS settings with an object of class \code{GSServiceSettings}.
+    #'    An optional workspace name \code{ws} can be specified to update WMS settings
+    #'    applying to a workspace.
+    #'@param serviceSettings service settings object of class \link{GSServiceSettings}
+    #'@param ws workspace name
+    #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
     updateWmsSettings = function(serviceSettings, ws = NULL){
       return(self$updateServiceSettings(serviceSettings, service = "WMS", ws = ws))
     },
+    
+    #'@description Updates the WFS settings with an object of class \code{GSServiceSettings}.
+    #'    An optional workspace name \code{ws} can be specified to update WFS settings
+    #'    applying to a workspace.
+    #'@param serviceSettings service settings object of class \link{GSServiceSettings}
+    #'@param ws workspace name
+    #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
     updateWfsSettings = function(serviceSettings, ws = NULL){
       return(self$updateServiceSettings(serviceSettings, service = "WFS", ws = ws))
     },
+    
+    #'@description Updates the WCS settings with an object of class \code{GSServiceSettings}.
+    #'    An optional workspace name \code{ws} can be specified to update WCS settings
+    #'    applying to a workspace.
+    #'@param serviceSettings service settings object of class \link{GSServiceSettings}
+    #'@param ws workspace name
+    #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
     updateWcsSettings = function(serviceSettings, ws = NULL){
       return(self$updateServiceSettings(serviceSettings, service = "WCS", ws = ws))
     },
+    
+    #'@description Enables WMS service settings
+    #'@param ws workspace name
+    #'@return \code{TRUE} if enabled, \code{FALSE} otherwise
     enableWMS = function(ws = NULL){
       serviceSettings <- GSServiceSettings$new(service = "WMS")
       return(self$updateWmsSettings(serviceSettings, ws = ws))
     },
+    
+    #'@description Enables WFS service settings
+    #'@param ws workspace name
+    #'@return \code{TRUE} if enabled, \code{FALSE} otherwise
     enableWFS = function(ws = NULL){
       serviceSettings <- GSServiceSettings$new(service = "WFS")
       return(self$updateWfsSettings(serviceSettings, ws = ws))
     },
+    
+    #'@description Enables WCS service settings
+    #'@param ws workspace name
+    #'@return \code{TRUE} if enabled, \code{FALSE} otherwise
     enableWCS = function(ws = NULL){
       serviceSettings <- GSServiceSettings$new(service = "WCS")
       return(self$updateWcsSettings(serviceSettings, ws = ws))
     },
+    
+    #'@description Disables service settings
+    #'@param service service
+    #'@param ws workspace name
+    #'@return \code{TRUE} if disabled, \code{FALSE} otherwise
     disableServiceSettings = function(service, ws = NULL){
       disabled <- FALSE
       if(is.null(ws)){
@@ -234,12 +301,24 @@ GSServiceManager <- R6Class("GSServiceManager",
       }
       return(disabled)
     },
+    
+    #'@description Disables WMS service settings
+    #'@param ws workspace name
+    #'@return \code{TRUE} if disabled, \code{FALSE} otherwise
     disableWMS = function(ws = NULL){
       return(self$disableServiceSettings(service = "WMS", ws = ws))
     },
+    
+    #'@description Disables WFS service settings
+    #'@param ws workspace name
+    #'@return \code{TRUE} if disabled, \code{FALSE} otherwise
     disableWFS = function(ws = NULL){
       return(self$disableServiceSettings(service = "WFS", ws = ws))
     },
+    
+    #'@description Disables WCS service settings
+    #'@param ws workspace name
+    #'@return \code{TRUE} if disabled, \code{FALSE} otherwise
     disableWCS = function(ws = NULL){
       return(self$disableServiceSettings(service = "WCS", ws = ws))
     }

@@ -13,160 +13,9 @@ CoverageStores (i.e. stores of coverage data)
 }
 \description{
 Geoserver REST API CoverageStore Manager
-}
-\section{Constructor}{
 
-\describe{
- \item{\code{new(url, user, pwd, logger)}}{
-   This method is used to instantiate a GSManager with the \code{url} of the
-   GeoServer and credentials to authenticate (\code{user}/\code{pwd}). By default,
-   the \code{logger} argument will be set to \code{NULL} (no logger). This argument
-   accepts two possible values: \code{INFO}: to print only geosapi logs,
-   \code{DEBUG}: to print geosapi and CURL logs
- }
+Geoserver REST API CoverageStore Manager
 }
-}
-
-\section{\code{CoverageStore} methods}{
-
-\describe{ 
- \item{\code{getCoverageStores(ws)}}{
-   Get the list of available coverage stores. Returns an object of class \code{list}
-   giving items of class \code{\link{GSAbstractCoverageStore}}
- }
- \item{\code{getCoverageStoreNames(ws)}}{
-   Get the list of available coverage store names. Returns an vector of class \code{character}
- }
- \item{\code{getCoverageStore(ws, cs)}}{
-   Get an object of class \code{\link{GSAbstractDataStore}} given a workspace and coverage store names.
- }
- \item{\code{createCoverageStore(ws, cs)}}{
-   Creates a new coverage store given a workspace, coverage store name. Abstract method used in below format-specific
-   methods to create coverage stores.
- }
- \item{\code{createGeoTIFFCoverageStore(ws, cs, endpoint, filename, configure, update)}}{
-   Creates a new GeoTIFF coverage given a workspace, coverage store name. The \code{endpoint} takes a value among
-   \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name of the GeoTIFF file to
-   upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
-   \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
-   both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
-   the first upload, \code{"overwrite"} in case the file should be overwriten.
- }
- \item{\code{createWorldImageCoverageStore(ws, cs, endpoint, filename, configure, update)}}{
-   Creates a new WorldImage coverage store given a workspace, coverage store name. The \code{endpoint} takes a value among
-   \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name of the zipped file to
-   upload and set for the newly created datastore. It is assumed the zip archive contains the .prj file to set the SRS. 
-   The \code{configure} parameter can take a value among values  \code{"none"} (indicates to configure only the datastore 
-   but no layer configuration) or \code{"first"} (configure both datastore and layer). The \code{update} defines the strategy
-   for the upload: \code{"append"} (default value) for the first upload, \code{"overwrite"} in case the file should be overwriten.
- }
- \item{\code{createArcGridCoverageStore(ws, cs, endpoint, filename, configure, update)}}{
-   Creates a new ArcGrid coverage store given a workspace, coverage store name. The \code{endpoint} takes a value among
-   \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name of the ArcGrid file to
-   upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
-   \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
-   both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
-   the first upload, \code{"overwrite"} in case the file should be overwriten.
- }
- \item{\code{createImageMosaicCoverageStore(ws, cs, endpoint, filename, configure, update)}}{
-   Creates a new ImageMosaic coverage store given a workspace, coverage store name. The \code{endpoint} takes a value among
-   \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name of the ImageMosaic file to
-   upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
-   \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
-   both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
-   the first upload, \code{"overwrite"} in case the file should be overwriten.
- }
- \item{\code{updateCoverageStore(ws, coverageStore)}}{
-   Updates an existing coverage store given a workspace and an object of class \code{\link{GSAbstractCoverageStore}}
- }
- \item{\code{deleteCoverageStore(ws, cs, recurse, purge)}}{
-   Deletes a coverage store given a workspace and an object of class \code{\link{GSAbstractCoverageStore}}.
-   By defaut, the option \code{recurse} is set to FALSE, ie datastore layers are not removed.
-   To remove all coverage store layers, set this option to TRUE. The \code{purge} parameter is used 
-   to customize the delete of files on disk (in case the underlying reader implements a delete method). 
-   It can take one of the three values: none, metadata, all. For more details see \url{https://docs.geoserver.org/stable/en/user/rest/api/coveragestores.html#purge}
- }
-}
-}
-
-\section{\code{Coverage} methods}{
-
-\describe{ 
- \item{\code{getCoverages(ws, cs)}}{
-   Get the list of available coverages for given workspace and coverage store.
-   Returns an object of class \code{list} giving items of class \code{\link{GSCoverage}}
- }
- \item{\code{getCoverageNames(ws, cs)}}{
-   Get the list of available coverage names for given workspace and coverage store.
-   Returns an vector of class\code{character}
- }
- \item{\code{getCoverage(ws, cs, cv)}}{
-   Get an object of class \code{\link{GSCoverage}} given a workspace, coverage store
-   and coverage name.
- }
- \item{\code{createCoverage(ws, cs, coverage)}}{
-   Creates a new coverage given a workspace, coverage store names and an object of
-   class \code{\link{GSCoverage}}
- }
- \item{\code{updateCoverage(ws, cs, coverage)}}{
-   Updates a coverage given a workspace, coverage store names and an object of
-   class \code{\link{GSCoverage}}
- }
- \item{\code{deleteCoverage(ws, cs, cv, recurse)}}{
-   Deletes a coverage given a workspace, coverage store names, and an object of 
-   class \code{\link{GSCoverage}}. By defaut, the option \code{recurse} is 
-   set to FALSE, ie coverage layers are not removed.
- }
-}
-}
-
-\section{Coverage upload methods}{
-
-\describe{ 
- \item{\code{uploadCoverage(ws, cs, endpoint, extension, filename, configure, update)}}{
-   Abstract method to upload a coverage file targeting a workspace (\code{ws}) and datastore (\code{cs}). The \code{extension}
-   corresponds to the format/type of coverage to be uploaded (among values 'geotiff', 'worldimage', 'arcgrid', or 'imagemosaic'). 
-   The \code{endpoint} takes a value among \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name 
-   of the coverage file to upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
-   \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
-   both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
-   the first upload, \code{"overwrite"} in case the file should be overwriten.
- }
- \item{\code{uploadGeoTIFF(ws, cs, endpoint, filename, configure, update)}}{
-   Uploads a GeoTIFF file targeting a workspace (\code{ws}) and datastore (\code{cs}). The \code{endpoint} takes a value among
-   \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name of the GeoTIFF file to
-   upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
-   \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
-   both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
-   the first upload, \code{"overwrite"} in case the file should be overwriten.
- }
- \item{\code{uploadWorldImage(ws, cs, endpoint, filename, configure, update)}}{
-   Uploads a WorldImage file targeting a workspace (\code{ws}) and datastore (\code{cs}). The \code{endpoint} takes a value among
-   \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name of the zipped file to
-   upload and set for the newly created datastore. It is assumed the zip archive contains the .prj file to set the SRS. 
-   The \code{configure} parameter can take a value among values  \code{"none"} (indicates to configure only the datastore 
-   but no layer configuration) or \code{"first"} (configure both datastore and layer). The \code{update} defines the strategy
-   for the upload: \code{"append"} (default value) for the first upload, \code{"overwrite"} in case the file should be overwriten.
- }
- \item{\code{uploadArcGrid(ws, cs, endpoint, filename, configure, update)}}{
-   Uploads an ArcGrid file targeting a workspace (\code{ws}) and datastore (\code{cs}). The \code{endpoint} takes a value among
-   \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name of the ArcGrid file to
-   upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
-   \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
-   both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
-   the first upload, \code{"overwrite"} in case the file should be overwriten.
- }
- \item{\code{uploadImageMosaic(ws, cs, endpoint, filename, configure, update)}}{
-   Uploads an ImageMosaic file targeting a workspace (\code{ws}) and datastore (\code{cs}). The \code{endpoint} takes a value among
-   \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name of the ImageMosaic file to
-   upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
-   \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
-   both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
-   the first upload, \code{"overwrite"} in case the file should be overwriten.
- }
-}
-}
-
 \examples{
 \dontrun{
    GSCoverageStoreManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
@@ -180,3 +29,571 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{api}
 \keyword{geoserver}
 \keyword{rest}
+\section{Super class}{
+\code{\link[geosapi:GSManager]{geosapi::GSManager}} -> \code{GSCoverageStoreManager}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-getCoverageStores}{\code{GSCoverageStoreManager$getCoverageStores()}}
+\item \href{#method-getCoverageStoreNames}{\code{GSCoverageStoreManager$getCoverageStoreNames()}}
+\item \href{#method-getCoverageStore}{\code{GSCoverageStoreManager$getCoverageStore()}}
+\item \href{#method-createCoverageStore}{\code{GSCoverageStoreManager$createCoverageStore()}}
+\item \href{#method-updateCoverageStore}{\code{GSCoverageStoreManager$updateCoverageStore()}}
+\item \href{#method-deleteCoverageStore}{\code{GSCoverageStoreManager$deleteCoverageStore()}}
+\item \href{#method-getCoverages}{\code{GSCoverageStoreManager$getCoverages()}}
+\item \href{#method-getCoverageNames}{\code{GSCoverageStoreManager$getCoverageNames()}}
+\item \href{#method-getCoverage}{\code{GSCoverageStoreManager$getCoverage()}}
+\item \href{#method-createCoverage}{\code{GSCoverageStoreManager$createCoverage()}}
+\item \href{#method-updateCoverage}{\code{GSCoverageStoreManager$updateCoverage()}}
+\item \href{#method-deleteCoverage}{\code{GSCoverageStoreManager$deleteCoverage()}}
+\item \href{#method-uploadCoverage}{\code{GSCoverageStoreManager$uploadCoverage()}}
+\item \href{#method-uploadGeoTIFF}{\code{GSCoverageStoreManager$uploadGeoTIFF()}}
+\item \href{#method-uploadWorldImage}{\code{GSCoverageStoreManager$uploadWorldImage()}}
+\item \href{#method-uploadArcGrid}{\code{GSCoverageStoreManager$uploadArcGrid()}}
+\item \href{#method-uploadImageMosaic}{\code{GSCoverageStoreManager$uploadImageMosaic()}}
+\item \href{#method-clone}{\code{GSCoverageStoreManager$clone()}}
+}
+}
+\if{html}{
+\out{<details ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="connect">}\href{../../geosapi/html/GSManager.html#method-connect}{\code{geosapi::GSManager$connect()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="ERROR">}\href{../../geosapi/html/GSManager.html#method-ERROR}{\code{geosapi::GSManager$ERROR()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getClassName">}\href{../../geosapi/html/GSManager.html#method-getClassName}{\code{geosapi::GSManager$getClassName()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getCoverageStoreManager">}\href{../../geosapi/html/GSManager.html#method-getCoverageStoreManager}{\code{geosapi::GSManager$getCoverageStoreManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getDataStoreManager">}\href{../../geosapi/html/GSManager.html#method-getDataStoreManager}{\code{geosapi::GSManager$getDataStoreManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getNamespaceManager">}\href{../../geosapi/html/GSManager.html#method-getNamespaceManager}{\code{geosapi::GSManager$getNamespaceManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getServiceManager">}\href{../../geosapi/html/GSManager.html#method-getServiceManager}{\code{geosapi::GSManager$getServiceManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getStyleManager">}\href{../../geosapi/html/GSManager.html#method-getStyleManager}{\code{geosapi::GSManager$getStyleManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getSystemStatus">}\href{../../geosapi/html/GSManager.html#method-getSystemStatus}{\code{geosapi::GSManager$getSystemStatus()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getUrl">}\href{../../geosapi/html/GSManager.html#method-getUrl}{\code{geosapi::GSManager$getUrl()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getWorkspaceManager">}\href{../../geosapi/html/GSManager.html#method-getWorkspaceManager}{\code{geosapi::GSManager$getWorkspaceManager()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="INFO">}\href{../../geosapi/html/GSManager.html#method-INFO}{\code{geosapi::GSManager$INFO()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="initialize">}\href{../../geosapi/html/GSManager.html#method-initialize}{\code{geosapi::GSManager$initialize()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="logger">}\href{../../geosapi/html/GSManager.html#method-logger}{\code{geosapi::GSManager$logger()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="monitor">}\href{../../geosapi/html/GSManager.html#method-monitor}{\code{geosapi::GSManager$monitor()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="reload">}\href{../../geosapi/html/GSManager.html#method-reload}{\code{geosapi::GSManager$reload()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="WARN">}\href{../../geosapi/html/GSManager.html#method-WARN}{\code{geosapi::GSManager$WARN()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getCoverageStores"></a>}}
+\if{latex}{\out{\hypertarget{method-getCoverageStores}{}}}
+\subsection{Method \code{getCoverageStores()}}{
+Get the list of available coverage stores. Returns an object of class \code{list}
+   giving items of class \code{\link{GSAbstractCoverageStore}}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageStoreManager$getCoverageStores(ws)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+the list of coverage stores
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getCoverageStoreNames"></a>}}
+\if{latex}{\out{\hypertarget{method-getCoverageStoreNames}{}}}
+\subsection{Method \code{getCoverageStoreNames()}}{
+Get the list of available coverage store names. Returns an vector of class \code{character}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageStoreManager$getCoverageStoreNames(ws)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+the list of coverage store names, as \code{character}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getCoverageStore"></a>}}
+\if{latex}{\out{\hypertarget{method-getCoverageStore}{}}}
+\subsection{Method \code{getCoverageStore()}}{
+Get an object of class \code{\link{GSAbstractDataStore}} given a workspace and coverage store names.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageStoreManager$getCoverageStore(ws, cs)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{cs}}{coverage store name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+the coverage store
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-createCoverageStore"></a>}}
+\if{latex}{\out{\hypertarget{method-createCoverageStore}{}}}
+\subsection{Method \code{createCoverageStore()}}{
+Creates a new coverage store given a workspace, coverage store name. Abstract method used in below format-specific
+   methods to create coverage stores.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageStoreManager$createCoverageStore(ws, coverageStore)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{coverageStore}}{coverage store object}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if created, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-updateCoverageStore"></a>}}
+\if{latex}{\out{\hypertarget{method-updateCoverageStore}{}}}
+\subsection{Method \code{updateCoverageStore()}}{
+Updates a coverage store given a workspace, coverage store name. Abstract method used in below format-specific
+   methods to create coverage stores.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageStoreManager$updateCoverageStore(ws, coverageStore)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{coverageStore}}{coverage store object}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if updated, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-deleteCoverageStore"></a>}}
+\if{latex}{\out{\hypertarget{method-deleteCoverageStore}{}}}
+\subsection{Method \code{deleteCoverageStore()}}{
+Deletes a coverage store given a workspace and an object of class \code{\link{GSAbstractCoverageStore}}.
+   By defaut, the option \code{recurse} is set to FALSE, ie datastore layers are not removed.
+   To remove all coverage store layers, set this option to TRUE. The \code{purge} parameter is used 
+   to customize the delete of files on disk (in case the underlying reader implements a delete method). 
+   It can take one of the three values: none, metadata, all. For more details see \url{https://docs.geoserver.org/stable/en/user/rest/api/coveragestores.html#purge}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageStoreManager$deleteCoverageStore(
+  ws,
+  cs,
+  recurse = FALSE,
+  purge = NULL
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{cs}}{coverage store name}
+
+\item{\code{recurse}}{recurse}
+
+\item{\code{purge}}{purge}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if deleted, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getCoverages"></a>}}
+\if{latex}{\out{\hypertarget{method-getCoverages}{}}}
+\subsection{Method \code{getCoverages()}}{
+Get the list of available coverages for given workspace and coverage store.
+   Returns an object of class \code{list} giving items of class \code{\link{GSCoverage}}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageStoreManager$getCoverages(ws, cs)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{cs}}{coverage store name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+the list of \link{GSCoverage}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getCoverageNames"></a>}}
+\if{latex}{\out{\hypertarget{method-getCoverageNames}{}}}
+\subsection{Method \code{getCoverageNames()}}{
+Get the list of available coverage names for given workspace and coverage store.
+   Returns an object of class \code{list} giving items of class \code{\link{GSCoverage}}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageStoreManager$getCoverageNames(ws, cs)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{cs}}{coverage store name}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+the list of coverage names
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-getCoverage"></a>}}
+\if{latex}{\out{\hypertarget{method-getCoverage}{}}}
+\subsection{Method \code{getCoverage()}}{
+Get coverage
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageStoreManager$getCoverage(ws, cs, cv)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{cs}}{coverage store name}
+
+\item{\code{cv}}{coverage name}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-createCoverage"></a>}}
+\if{latex}{\out{\hypertarget{method-createCoverage}{}}}
+\subsection{Method \code{createCoverage()}}{
+Creates a new coverage given a workspace, coverage store names and an object of class \code{\link{GSCoverage}}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageStoreManager$createCoverage(ws, cs, coverage)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{cs}}{coverage store name}
+
+\item{\code{coverage}}{object of class \link{GSCoverage}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if created, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-updateCoverage"></a>}}
+\if{latex}{\out{\hypertarget{method-updateCoverage}{}}}
+\subsection{Method \code{updateCoverage()}}{
+Updates a coverage given a workspace, coverage store names and an object of class \code{\link{GSCoverage}}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageStoreManager$updateCoverage(ws, cs, coverage)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{cs}}{coverage store name}
+
+\item{\code{coverage}}{object of class \link{GSCoverage}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if updated, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-deleteCoverage"></a>}}
+\if{latex}{\out{\hypertarget{method-deleteCoverage}{}}}
+\subsection{Method \code{deleteCoverage()}}{
+Deletes a coverage given a workspace, coverage store names, and an object of 
+   class \code{\link{GSCoverage}}. By defaut, the option \code{recurse} is 
+   set to FALSE, ie coverage layers are not removed.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageStoreManager$deleteCoverage(ws, cs, cv, recurse = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{cs}}{coverage store name}
+
+\item{\code{cv}}{coverage name}
+
+\item{\code{recurse}}{recurse}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-uploadCoverage"></a>}}
+\if{latex}{\out{\hypertarget{method-uploadCoverage}{}}}
+\subsection{Method \code{uploadCoverage()}}{
+Abstract method to upload a coverage file targeting a workspace (\code{ws}) and datastore (\code{cs}). The \code{extension}
+   corresponds to the format/type of coverage to be uploaded (among values 'geotiff', 'worldimage', 'arcgrid', or 'imagemosaic'). 
+   The \code{endpoint} takes a value among \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name 
+   of the coverage file to upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
+   \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
+   both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
+   the first upload, \code{"overwrite"} in case the file should be overwriten.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageStoreManager$uploadCoverage(
+  ws,
+  cs,
+  endpoint = "file",
+  extension,
+  filename,
+  configure = "first",
+  update = "append",
+  contentType
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{cs}}{coverage store name}
+
+\item{\code{endpoint}}{endpoint. Default is "file"}
+
+\item{\code{extension}}{extension}
+
+\item{\code{filename}}{filename}
+
+\item{\code{configure}}{configure. Default is "first"}
+
+\item{\code{update}}{update. Default is "append"}
+
+\item{\code{contentType}}{content type}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if uploaded, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-uploadGeoTIFF"></a>}}
+\if{latex}{\out{\hypertarget{method-uploadGeoTIFF}{}}}
+\subsection{Method \code{uploadGeoTIFF()}}{
+Uploads a GeoTIFF file targeting a workspace (\code{ws}) and datastore (\code{cs}). The \code{endpoint} takes a value among
+   \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name of the GeoTIFF file to
+   upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
+   \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
+   both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
+   the first upload, \code{"overwrite"} in case the file should be overwriten.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageStoreManager$uploadGeoTIFF(
+  ws,
+  cs,
+  endpoint = "file",
+  filename,
+  configure = "first",
+  update = "append"
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{cs}}{coverage store name}
+
+\item{\code{endpoint}}{endpoint. Default is "file"}
+
+\item{\code{filename}}{filename}
+
+\item{\code{configure}}{configure. Default is "first"}
+
+\item{\code{update}}{update. Default is "append"}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if uploaded, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-uploadWorldImage"></a>}}
+\if{latex}{\out{\hypertarget{method-uploadWorldImage}{}}}
+\subsection{Method \code{uploadWorldImage()}}{
+Uploads a WorldImage file targeting a workspace (\code{ws}) and datastore (\code{cs}). The \code{endpoint} takes a value among
+   \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name of the zipped file to
+   upload and set for the newly created datastore. It is assumed the zip archive contains the .prj file to set the SRS. 
+   The \code{configure} parameter can take a value among values  \code{"none"} (indicates to configure only the datastore 
+   but no layer configuration) or \code{"first"} (configure both datastore and layer). The \code{update} defines the strategy
+   for the upload: \code{"append"} (default value) for the first upload, \code{"overwrite"} in case the file should be overwriten.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageStoreManager$uploadWorldImage(
+  ws,
+  cs,
+  endpoint = "file",
+  filename,
+  configure = "first",
+  update = "append"
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{cs}}{coverage store name}
+
+\item{\code{endpoint}}{endpoint. Default is "file"}
+
+\item{\code{filename}}{filename}
+
+\item{\code{configure}}{configure. Default is "first"}
+
+\item{\code{update}}{update. Default is "append"}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if uploaded, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-uploadArcGrid"></a>}}
+\if{latex}{\out{\hypertarget{method-uploadArcGrid}{}}}
+\subsection{Method \code{uploadArcGrid()}}{
+Uploads an ArcGrid file targeting a workspace (\code{ws}) and datastore (\code{cs}). The \code{endpoint} takes a value among
+   \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name of the ArcGrid file to
+   upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
+   \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
+   both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
+   the first upload, \code{"overwrite"} in case the file should be overwriten.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageStoreManager$uploadArcGrid(
+  ws,
+  cs,
+  endpoint = "file",
+  filename,
+  configure = "first",
+  update = "append"
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{cs}}{coverage store name}
+
+\item{\code{endpoint}}{endpoint. Default is "file"}
+
+\item{\code{filename}}{filename}
+
+\item{\code{configure}}{configure. Default is "first"}
+
+\item{\code{update}}{update. Default is "append"}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if uploaded, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-uploadImageMosaic"></a>}}
+\if{latex}{\out{\hypertarget{method-uploadImageMosaic}{}}}
+\subsection{Method \code{uploadImageMosaic()}}{
+Uploads an ImageMosaic file targeting a workspace (\code{ws}) and datastore (\code{cs}). The \code{endpoint} takes a value among
+   \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name of the ImageMosaic file to
+   upload and set for the newly created datastore. The \code{configure} parameter can take a value among values 
+   \code{"none"} (indicates to configure only the datastore but no layer configuration) or \code{"first"} (configure 
+   both datastore and layer). The \code{update} defines the strategy for the upload: \code{"append"} (default value) for 
+   the first upload, \code{"overwrite"} in case the file should be overwriten.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageStoreManager$uploadImageMosaic(
+  ws,
+  cs,
+  endpoint = "file",
+  filename,
+  configure = "first",
+  update = "append"
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{workspace name}
+
+\item{\code{cs}}{coverage store name}
+
+\item{\code{endpoint}}{endpoint. Default is "file"}
+
+\item{\code{filename}}{filename}
+
+\item{\code{configure}}{configure. Default is "first"}
+
+\item{\code{update}}{update. Default is "append"}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if uploaded, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSCoverageStoreManager$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

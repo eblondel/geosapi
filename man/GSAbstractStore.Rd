@@ -12,19 +12,9 @@ Object of \code{\link{R6Class}} for modelling a GeoServer store
 }
 \description{
 Geoserver REST API Store
+
+Geoserver REST API Store
 }
-\section{Fields}{
-
-\describe{
-\item{\code{name}}{store name}
-
-\item{\code{description}}{store description}
-
-\item{\code{enabled}}{if the store is enabled or not}
-
-\item{\code{type}}{store type}
-}}
-
 \section{Methods}{
 
 \describe{
@@ -57,3 +47,161 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{geoserver}
 \keyword{rest}
 \keyword{store}
+\section{Super class}{
+\code{\link[geosapi:GSRESTResource]{geosapi::GSRESTResource}} -> \code{GSAbstractStore}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{full}}{whether store object is fully described}
+
+\item{\code{name}}{store name}
+
+\item{\code{enabled}}{if the store is enabled or not}
+
+\item{\code{description}}{store description}
+
+\item{\code{type}}{store type}
+
+\item{\code{workspace}}{workspace name}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{GSAbstractStore$new()}}
+\item \href{#method-decode}{\code{GSAbstractStore$decode()}}
+\item \href{#method-setType}{\code{GSAbstractStore$setType()}}
+\item \href{#method-setEnabled}{\code{GSAbstractStore$setEnabled()}}
+\item \href{#method-setDescription}{\code{GSAbstractStore$setDescription()}}
+\item \href{#method-clone}{\code{GSAbstractStore$clone()}}
+}
+}
+\if{html}{
+\out{<details open ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+initializes an abstract store
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractStore$new(
+  xml = NULL,
+  storeType,
+  type = NULL,
+  name = NULL,
+  description = "",
+  enabled = TRUE
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{an object of class \link{XMLInternalNode-class} to create object from XML}
+
+\item{\code{storeType}}{store type}
+
+\item{\code{type}}{the type of coverage store}
+
+\item{\code{name}}{coverage store name}
+
+\item{\code{description}}{coverage store description}
+
+\item{\code{enabled}}{whether the store should be enabled or not. Default is \code{TRUE}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-decode}{}}}
+\subsection{Method \code{decode()}}{
+Decodes store from XML
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractStore$decode(xml)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setType"></a>}}
+\if{latex}{\out{\hypertarget{method-setType}{}}}
+\subsection{Method \code{setType()}}{
+Set type
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractStore$setType(type)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{type}}{type}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setEnabled"></a>}}
+\if{latex}{\out{\hypertarget{method-setEnabled}{}}}
+\subsection{Method \code{setEnabled()}}{
+Set enabled
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractStore$setEnabled(enabled)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{enabled}}{enabled}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setDescription"></a>}}
+\if{latex}{\out{\hypertarget{method-setDescription}{}}}
+\subsection{Method \code{setDescription()}}{
+Set description
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractStore$setDescription(description)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{description}}{description}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAbstractStore$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

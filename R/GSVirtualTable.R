@@ -10,13 +10,6 @@
 #' @examples
 #' GSVirtualTable$new()
 #'
-#' @field name name
-#' @field sql SQL statement
-#' @field escapeSql escape SQL?
-#' @field keyColumn key column
-#' @field geometry geometry
-#' @field parameters list of virtual parameters
-#'
 #' @section Methods:
 #' \describe{
 #'  \item{\code{new(xml)}}{
@@ -56,13 +49,21 @@
 GSVirtualTable <- R6Class("GSVirtualTable",
    inherit = GSRESTResource,                    
    public = list(
+      #' @field name name
      name = NA,
+     #' @field sql SQL statement
      sql = NA,
+     #' @field escapeSql escape SQL?
      escapeSql = FALSE,
+     #' @field keyColumn key column
      keyColumn = NULL,
+     #' @field geometry geometry
      geometry = NULL,
+     #' @field parameters list of virtual parameters
      parameters = list(),
      
+     #'@description Initializes an object of class \link{GSVirtualTable}
+     #'@param xml object of class \link{XMLInternalNode-class}
      initialize = function(xml = NULL){
        super$initialize(rootName = "virtualTable")
        if(!missing(xml) & !is.null(xml)){
@@ -70,6 +71,8 @@ GSVirtualTable <- R6Class("GSVirtualTable",
        }
      },
      
+     #'@description Decodes from XML
+     #'@param xml object of class \link{XMLInternalNode-class}
      decode = function(xml){
        names <- getNodeSet(xml, "//name")
        self$name <- xmlValue(names[[1]])
@@ -97,26 +100,39 @@ GSVirtualTable <- R6Class("GSVirtualTable",
        }   
      },
      
+     #'@description Set name
+     #'@param name name
      setName = function(name){
        self$name = name
      },
      
+     #'@description Set SQL
+     #'@param sql sql
      setSql = function(sql){
        self$sql = sql
      },
      
+     #'@description Set escape SQL
+     #'@param escapeSql escape SQL
      setEscapeSql = function(escapeSql){
        self$escapeSql = escapeSql
      },
      
+     #'@description Set key column
+     #'@param keyColumn key column
      setKeyColumn = function(keyColumn){
        self$keyColumn = keyColumn
      },
      
+     #'@description Set geometry
+     #'@param vtg object of class \link{GSVirtualTableGeometry}
      setGeometry = function(vtg){
        self$geometry = vtg
      },
      
+     #'@description Adds parameter
+     #'@param parameter object of class \link{GSVirtualTableParameter}
+     #'@return \code{TRUE} if added, \code{FALSE} otherwise
      addParameter = function(parameter){
        startNb = length(self$parameters)
        availableParams <- sapply(self$parameters, function(x){x$name})
@@ -126,7 +142,10 @@ GSVirtualTable <- R6Class("GSVirtualTable",
        endNb = length(self$parameters)
        return(endNb == startNb+1)
      },
-     
+    
+     #'@description Deletes parameter
+     #'@param parameter object of class \link{GSVirtualTableParameter}
+     #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
      delParameter = function(parameter){
        startNb = length(self$parameters)
        availableParams <- sapply(self$parameters, function(x){x$name})

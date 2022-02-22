@@ -6,26 +6,18 @@
 #' @keywords geoserver rest api
 #' @return Object of \code{\link{R6Class}} for modelling a GeoServer REST resource interface
 #' @format \code{\link{R6Class}} object.
-#'
-#' @section Abstract Methods:
-#' \describe{
-#'  \item{\code{new()}}{
-#'    This method is used to instantiate a GSRESTResource
-#'  }
-#'  \item{\code{decode(xml)}}{
-#'    Decodes a GS* R6 object from XML representation
-#'  }
-#'  \item{\code{encode()}}{
-#'    Encodes a GS* R6 object to XML representation
-#'  }
-#' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
 GSRESTResource <- R6Class("GSRESTResource",
                        
   public = list(
+    #'@field rootName root name
     rootName = NA,
+    
+    #'@description Initializes an object of class \link{GSRESTResource}
+    #'@param xml object of class \link{XMLInternalNode-class}
+    #'@param rootName root name
     initialize = function(xml, rootName){
       if(missing(rootName) | is.null(rootName)){
         stop("No root name specified for GSRESTResource")
@@ -33,10 +25,14 @@ GSRESTResource <- R6Class("GSRESTResource",
       self$rootName = rootName
     },
     
+    #'@description Decodes from XML. Abstract method to be implemented by sub-classes
+    #'@param xml object of class \link{XMLInternalNode-class}
     decode = function(xml){
       stop("Unimplemented XML 'decode' method") 
     },
     
+    #'@description Encodes as XML
+    #'@return an object of class \link{XMLInternalNode-class}
     encode = function(){
       #Generic XML encoder
       rootXML <- newXMLNode(self$rootName)

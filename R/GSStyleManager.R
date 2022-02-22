@@ -23,19 +23,16 @@
 #'    \code{DEBUG}: to print geosapi and CURL logs
 #'  }
 #'  \item{\code{getStyles()}}{
-#'    Get the list of available styles. Returns an object of class \code{list}
-#'    containing items of class \code{\link{GSStyle}}
+#'    
 #'  }
 #'  \item{\code{getStyleNames()}}{
-#'    Get the list of available style names. Returns an vector of class 
-#'    \code{character}
+#'    
 #'  }
 #'  \item{\code{getStyle(style)}}{
-#'    Get a \code{\link{GSStyle}} object given a style name.
+#'    
 #'  }
 #'  \item{\code{createStyle(file, sldBody, name, raw, ws)}}{
-#'    Creates a GeoServer style given a name. Returns \code{TRUE} if the style 
-#'    has been successfully created, \code{FALSE} otherwise
+#'    
 #'  }
 #'  \item{\code{updateStyle(file, sldBody, name, raw, ws)}}{
 #'    Updates a GeoServer style. Returns \code{TRUE} if the style has been 
@@ -61,8 +58,8 @@ GSStyleManager <- R6Class("GSStyleManager",
   
   public = list(
     
-    #getStyles
-    #---------------------------------------------------------------------------
+    #'@description Get the list of available styles. 
+    #'@return an object of class \code{list} containing items of class \code{\link{GSStyle}}
     getStyles = function(){
       self$INFO("Fetching list of styles")
       req <- GSUtils$GET(self$getUrl(), private$user,
@@ -83,15 +80,17 @@ GSStyleManager <- R6Class("GSStyleManager",
       return(styleList)
     },
     
-    #getStyleNames
-    #---------------------------------------------------------------------------
+    #'@description Get the list of available style names
+    #'@return a vector of class \code{character}
     getStyleNames = function(){
       styleList <- sapply(self$getStyles(), function(x){x$name})
       return(styleList)
     },
     
-    #getStyle
-    #---------------------------------------------------------------------------
+    #'@description Get a \code{\link{GSStyle}} object given a style name.
+    #'@param style style name
+    #'@param ws workspace name. Optional
+    #'@return object of class \link{GSStyle}
     getStyle = function(style, ws = NULL){
       self$INFO(sprintf("Fetching style '%s'", style))
       reqUrl <- ""
@@ -113,8 +112,13 @@ GSStyleManager <- R6Class("GSStyleManager",
       return(style)
     },
     
-    #createStyle
-    #---------------------------------------------------------------------------
+    #'@description Creates a GeoServer style given a name.
+    #'@param file file
+    #'@param sldBody SLD body
+    #'@param name name
+    #'@param raw raw
+    #'@param ws workspace name
+    #'@return \code{TRUE} if the style has been successfully created, \code{FALSE} otherwise
     createStyle = function(file, sldBody = NULL, name, raw = FALSE, ws = NULL){
       self$INFO(sprintf("Creating style '%s'", name))
       created <- FALSE
@@ -165,8 +169,13 @@ GSStyleManager <- R6Class("GSStyleManager",
       return(created)
     },
     
-    #updateStyle
-    #---------------------------------------------------------------------------
+    #'@description Updates a GeoServer style given a name.
+    #'@param file file
+    #'@param sldBody SLD body
+    #'@param name name
+    #'@param raw raw
+    #'@param ws workspace name
+    #'@return \code{TRUE} if the style has been successfully updated, \code{FALSE} otherwise
     updateStyle = function(file, sldBody = NULL, name, raw = FALSE, ws = NULL){
       self$INFO(sprintf("Updating style '%s'", name))
       
@@ -216,8 +225,15 @@ GSStyleManager <- R6Class("GSStyleManager",
       return(updated)
     },
     
-    #deleteStyle
-    #---------------------------------------------------------------------------
+    #'@description Deletes a style given a name.
+    #'    By defaut, the option \code{recurse} is set to FALSE, ie datastore layers are not removed.
+    #'    To remove all coverage store layers, set this option to TRUE. The \code{purge} parameter is used 
+    #'    to customize the delete of files on disk (in case the underlying reader implements a delete method).
+    #'@param name name
+    #'@param recurse recurse
+    #'@param purge purge
+    #'@param ws workspace name
+    #'@return \code{TRUE} if the style has been successfully deleted, \code{FALSE} otherwise
     deleteStyle = function(name, recurse = FALSE, purge = FALSE, ws = NULL){
       self$INFO(sprintf("Deleting style '%s'", name))
       deleted <- FALSE
@@ -243,14 +259,16 @@ GSStyleManager <- R6Class("GSStyleManager",
       return(deleted)
     },
     
-    #getSLDVersion
-    #---------------------------------------------------------------------------
+    #'@description Get SLD version
+    #'@param sldBody SLD body
     getSLDVersion = function(sldBody){
       return(xmlGetAttr(xmlChildren(sldBody)[[1]], "version"))
     },
     
-    #getSLDBody
-    #---------------------------------------------------------------------------
+    #'@description Get SLD body
+    #'@param style style name
+    #'@param ws workspace name
+    #'@return an object of class \link{XMLInternalNode-class}
     getSLDBody = function(style, ws = NULL){
       
       if(self$version$lowerThan("2.2")){

@@ -13,48 +13,7 @@
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @examples
-#' lyr <- GSLayer$new()
-#'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(rootName, xml)}}{
-#'    This method is used to instantiate a GSLayer
-#'  }
-#'  \item{\code{decode(xml)}}{
-#'    This method is used to decode a GSLayer from XML
-#'  }
-#'  \item{\code{encode()}}{
-#'    This method is used to encode a GSLayer to XML. Inherited from the
-#'    generic \code{GSRESTResource} encoder
-#'  }
-#'  \item{\code{setName(name)}}{
-#'    Sets the layer name.
-#'  }
-#'  \item{\code{setPath(path)}}{
-#'    Sets the layer path.
-#'  }
-#'  \item{\code{setDefaultStyle(style)}}{
-#'    Sets the default style.
-#'  }
-#'  \item{\code{setStyles(styles)}}{
-#'    Sets a list of optional styles
-#'  }
-#'  \item{\code{addStyle(style)}}{
-#'    Sets an available style. Returns TRUE if set, FALSE otherwise
-#'  }
-#'  \item{\code{delStyle(name)}}{
-#'    Deletes an available. Returns TRUE if deleted, FALSE otherwise
-#'  }
-#'  \item{\code{setEnabled(enabled)}}{
-#'    Sets if the layer is enabled (TRUE) or not (FALSE)
-#'  }
-#'  \item{\code{setQueryable(queryable)}}{
-#'    Sets if the layer is queryable (TRUE) or not (FALSE)
-#'  }
-#'  \item{\code{setAdvertised(advertised)}}{
-#'    Sets if the layer is advertised (TRUE) or not (FALSE)
-#'  }
-#'}
+#'   lyr <- GSLayer$new()
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -62,15 +21,25 @@ GSLayer <- R6Class("GSLayer",
   inherit = GSRESTResource,
   
   public = list(
+    #'@field full full
     full = TRUE,
+    #'@field name name
     name = NULL,
+    #'@field path path
     path = NULL,
+    #'@field defaultStyle default style
     defaultStyle = list(),
+    #'@field styles styles
     styles = list(),
+    #'@field enabled enabled
     enabled = TRUE,
+    #'@field queryable queryable
     queryable = TRUE,
+    #'@field advertised advertised
     advertised = TRUE,
     
+    #'@description Initializes an object of class \link{GSLayer}
+    #'@param xml object of class \link{XMLInternalNode-class}
     initialize = function(xml = NULL){
       super$initialize(rootName = "layer")
       if(!missing(xml) & !is.null(xml)){
@@ -78,6 +47,8 @@ GSLayer <- R6Class("GSLayer",
       }
     },
    
+    #'@description Decodes from XML
+    #'@param xml object of class \link{XMLInternalNode-class}
     decode = function(xml){
       names <- getNodeSet(xml, "//name")
       self$name <- xmlValue(names[[1]])
@@ -112,37 +83,54 @@ GSLayer <- R6Class("GSLayer",
       }
     },
     
+    #'@description Set name
+    #'@param name name
     setName = function(name){
       self$name = name
     },
     
+    #'@description Set path
+    #'@param path path
     setPath = function(path){
       self$path = path
     },
     
+    #'@description Set enabled
+    #'@param enabled enabled
     setEnabled = function(enabled){
       self$enabled = enabled
     },
     
+    #'@description Set queryable
+    #'@param queryable queryable
     setQueryable = function(queryable){
       self$queryable = queryable
     },
     
+    #'@description Set advertised
+    #'@param advertised advertised
     setAdvertised = function(advertised){
       self$advertised = advertised
     },
     
+    #'@description Set default style
+    #'@param style object o class \link{GSStyle} or \code{character}
     setDefaultStyle = function(style){
       if(any(class(style)=="GSStyle")) style <- style$name
       self$defaultStyle[["name"]] <- style
     },
     
+    #'@description Set styles
+    #'@param styles styles
     setStyles = function(styles){
       if(!is.list(styles)) styles = list(styles)
       self$styles = styles
       return(TRUE)
     },
     
+    #'@description Adds style
+    #'@param style style, object o class \link{GSStyle} or \code{character}
+    #'@return \code{TRUE} if added, \code{FALSE} otherwise
     addStyle = function(style){
       if(class(style) == "character") style <- GSStyle$new(xml=NULL, name = style)
       startNb = length(self$styles)
@@ -154,6 +142,9 @@ GSLayer <- R6Class("GSLayer",
       return(endNb == startNb+1)
     },
     
+    #'@description Deletes style
+    #'@param style style, object o class \link{GSStyle} or \code{character}
+    #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
     delStyle = function(style){
       if(class(style) == "character") style <- GSStyle$new(xml=NULL, name = style)
       startNb = length(self$styles)

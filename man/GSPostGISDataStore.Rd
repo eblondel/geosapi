@@ -12,85 +12,9 @@ Object of \code{\link{R6Class}} for modelling a GeoServer PostGIS dataStore
 }
 \description{
 Geoserver REST API PostGISDataStore
-}
-\section{Methods inherited from \code{GSAbstractDBDataStore}}{
 
-\describe{
-   \item{\code{setDatabaseType(dbtype)}}{
-     Sets the database type, here "postgis"
-   }
-   \item{\code{setNamespace(namespace)}}{
-     Sets the datastore namespace
-   }
-   \item{\code{setHost(host)}}{
-     Sets the database host
-   }
-   \item{\code{setPort(port)}}{
-     Set the database port
-   }
-   \item{\code{setDatabase(database)}}{
-     Set the database name
-   }
-   \item{\code{setSchema(schema)}}{
-     Set the database schema
-   }
-   \item{\code{setUser(user)}}{
-     Set the database username
-   }
-   \item{\code{setPassword(password)}}{
-     Set the database password
-   }
-   \item{\code{setJndiReferenceName(jndiReferenceName)}}{
-     Set a JNDI reference name
-   }
-   \item{\code{setExposePrimaryKeys(exposePrimaryKeys)}}{
-     Set TRUE if primary keys have to be exposed to datastore, FALSE otherwise.
-   }
-   \item{\code{setMaxConnections(maxConnections)}}{
-     Set the maximum number of connections. Default is set to 10.
-   }
-   \item{\code{setMinConnections(minConnections)}}{
-     Set the minimum number of connections. Default is set to 1.
-   }
-   \item{\code{setFetchSize(fetchSize)}}{
-     Set the fetch size. Default is set to 10.
-   }
-   \item{\code{setConnectionTimeout(seconds)}}{
-     Set the connection timeout. Default is set to 20s.
-   }
-   \item{\code{setValidateConnections(validateConnections)}}{
-     Set TRUE if connections have to be validated, FALSE otherwise.
-   }
-   \item{\code{setPrimaryKeyMetadataTable(primaryKeyMetadataTable)}}{
-     Set the name of the primaryKey metadata table
-   }
-   \item{\code{setLooseBBox(looseBBox)}}{
-     Set losse bbox parameter.
-   }
-   \item{\code{setPreparedStatements(preparedStatements)}}{
-     Set prepared statements
-   }
-   \item{\code{setMaxOpenPreparedStatements(maxOpenPreparedStatements)}}{
-     Set maximum open prepared statements
-   }
-   \item{\code{setEstimatedExtends(estimatedExtends)}}{
-     Set estimatedExtend parameter
-   }
-   \item{\code{setDefautConnectionParameters()}}{
-     Set default connection parameters
-   }
+Geoserver REST API PostGISDataStore
 }
-}
-
-\section{Methods }{
-
-\describe{
-   \item{\code{new(xml, name, description, enabled)}}{
-     Instantiates a GSPostGISDataStore object
-   }
- }
-}
-
 \examples{
   GSPostGISDataStore$new(name = "ds", description = "des", enabled = TRUE)
 
@@ -103,3 +27,95 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{api}
 \keyword{geoserver}
 \keyword{rest}
+\section{Super classes}{
+\code{\link[geosapi:GSRESTResource]{geosapi::GSRESTResource}} -> \code{\link[geosapi:GSAbstractStore]{geosapi::GSAbstractStore}} -> \code{\link[geosapi:GSAbstractDataStore]{geosapi::GSAbstractDataStore}} -> \code{\link[geosapi:GSAbstractDBDataStore]{geosapi::GSAbstractDBDataStore}} -> \code{GSPostGISDataStore}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{GSPostGISDataStore$new()}}
+\item \href{#method-clone}{\code{GSPostGISDataStore$clone()}}
+}
+}
+\if{html}{
+\out{<details ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setDescription">}\href{../../geosapi/html/GSAbstractStore.html#method-setDescription}{\code{geosapi::GSAbstractStore$setDescription()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setEnabled">}\href{../../geosapi/html/GSAbstractStore.html#method-setEnabled}{\code{geosapi::GSAbstractStore$setEnabled()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setType">}\href{../../geosapi/html/GSAbstractStore.html#method-setType}{\code{geosapi::GSAbstractStore$setType()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="addConnectionParameter">}\href{../../geosapi/html/GSAbstractDataStore.html#method-addConnectionParameter}{\code{geosapi::GSAbstractDataStore$addConnectionParameter()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="decode">}\href{../../geosapi/html/GSAbstractDataStore.html#method-decode}{\code{geosapi::GSAbstractDataStore$decode()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="delConnectionParameter">}\href{../../geosapi/html/GSAbstractDataStore.html#method-delConnectionParameter}{\code{geosapi::GSAbstractDataStore$delConnectionParameter()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="setConnectionParameter">}\href{../../geosapi/html/GSAbstractDataStore.html#method-setConnectionParameter}{\code{geosapi::GSAbstractDataStore$setConnectionParameter()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="setConnectionParameters">}\href{../../geosapi/html/GSAbstractDataStore.html#method-setConnectionParameters}{\code{geosapi::GSAbstractDataStore$setConnectionParameters()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setConnectionTimeout">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setConnectionTimeout}{\code{geosapi::GSAbstractDBDataStore$setConnectionTimeout()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setDatabase">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setDatabase}{\code{geosapi::GSAbstractDBDataStore$setDatabase()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setDatabaseType">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setDatabaseType}{\code{geosapi::GSAbstractDBDataStore$setDatabaseType()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setDefautConnectionParameters">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setDefautConnectionParameters}{\code{geosapi::GSAbstractDBDataStore$setDefautConnectionParameters()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setEstimatedExtends">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setEstimatedExtends}{\code{geosapi::GSAbstractDBDataStore$setEstimatedExtends()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setExposePrimaryKeys">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setExposePrimaryKeys}{\code{geosapi::GSAbstractDBDataStore$setExposePrimaryKeys()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setFetchSize">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setFetchSize}{\code{geosapi::GSAbstractDBDataStore$setFetchSize()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setHost">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setHost}{\code{geosapi::GSAbstractDBDataStore$setHost()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setJndiReferenceName">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setJndiReferenceName}{\code{geosapi::GSAbstractDBDataStore$setJndiReferenceName()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setLooseBBox">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setLooseBBox}{\code{geosapi::GSAbstractDBDataStore$setLooseBBox()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setMaxConnections">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setMaxConnections}{\code{geosapi::GSAbstractDBDataStore$setMaxConnections()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setMaxOpenPreparedStatements">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setMaxOpenPreparedStatements}{\code{geosapi::GSAbstractDBDataStore$setMaxOpenPreparedStatements()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setMinConnections">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setMinConnections}{\code{geosapi::GSAbstractDBDataStore$setMinConnections()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setNamespace">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setNamespace}{\code{geosapi::GSAbstractDBDataStore$setNamespace()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setPassword">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setPassword}{\code{geosapi::GSAbstractDBDataStore$setPassword()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setPort">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setPort}{\code{geosapi::GSAbstractDBDataStore$setPort()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setPreparedStatements">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setPreparedStatements}{\code{geosapi::GSAbstractDBDataStore$setPreparedStatements()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setPrimaryKeyMetadataTable">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setPrimaryKeyMetadataTable}{\code{geosapi::GSAbstractDBDataStore$setPrimaryKeyMetadataTable()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setSchema">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setSchema}{\code{geosapi::GSAbstractDBDataStore$setSchema()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setUser">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setUser}{\code{geosapi::GSAbstractDBDataStore$setUser()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setValidateConnections">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setValidateConnections}{\code{geosapi::GSAbstractDBDataStore$setValidateConnections()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+initializes a PostGIS data store
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSPostGISDataStore$new(
+  xml = NULL,
+  name = NULL,
+  description = "",
+  enabled = TRUE
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{an object of class \link{XMLInternalNode-class} to create object from XML}
+
+\item{\code{name}}{coverage store name}
+
+\item{\code{description}}{coverage store description}
+
+\item{\code{enabled}}{whether the store should be enabled or not. Default is \code{TRUE}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSPostGISDataStore$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

@@ -9,34 +9,24 @@
 #' 
 #' @examples
 #' GSVirtualTableGeometry$new(name = "work", type = "MultiPolygon", srid = 4326)
-#'
-#' @field name geometry name
-#' @field type geometry type
-#' @field srid geometry SRID
-#'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(xml, name, type, srid)}}{
-#'    This method is used to instantiate a GSVirtualTableGeometry
-#'  }
-#'  \item{\code{decode(xml)}}{
-#'    This method is used to decode a GSVirtualTableGeometry from XML
-#'  }
-#'  \item{\code{encode()}}{
-#'    This method is used to encode a GSVirtualTableGeometry to XML. Inherited from the
-#'    generic \code{GSRESTResource} encoder
-#'  }
-#' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
 GSVirtualTableGeometry <- R6Class("GSVirtualTableGeometry",
    inherit = GSRESTResource,                    
    public = list(
+     #' @field name geometry name
      name = NA,
+     #' @field type geometry type
      type = NA,
+     #' @field srid geometry SRID
      srid = NA,
      
+     #'@description Initializes an object of class \link{GSVirtualTableGeometry}
+     #'@param xml object of class \link{XMLInternalNode-class}
+     #'@param name name
+     #'@param type type
+     #'@param srid srid
      initialize = function(xml = NULL, name, type, srid){
        super$initialize(rootName = "geometry")
        if(!missing(xml) & !is.null(xml)){
@@ -48,6 +38,8 @@ GSVirtualTableGeometry <- R6Class("GSVirtualTableGeometry",
        }
      },
      
+     #'@description Decodes from XML
+     #'@param xml object of class \link{XMLInternalNode-class}
      decode = function(xml){
        names <- getNodeSet(xml, "//name")
        self$name <- xmlValue(names[[1]])

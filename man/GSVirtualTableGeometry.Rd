@@ -12,33 +12,9 @@ Object of \code{\link{R6Class}} for modelling a GeoServer virtual table geometry
 }
 \description{
 Geoserver REST API GSVirtualTableGeometry
+
+Geoserver REST API GSVirtualTableGeometry
 }
-\section{Fields}{
-
-\describe{
-\item{\code{name}}{geometry name}
-
-\item{\code{type}}{geometry type}
-
-\item{\code{srid}}{geometry SRID}
-}}
-
-\section{Methods}{
-
-\describe{
- \item{\code{new(xml, name, type, srid)}}{
-   This method is used to instantiate a GSVirtualTableGeometry
- }
- \item{\code{decode(xml)}}{
-   This method is used to decode a GSVirtualTableGeometry from XML
- }
- \item{\code{encode()}}{
-   This method is used to encode a GSVirtualTableGeometry to XML. Inherited from the
-   generic \code{GSRESTResource} encoder
- }
-}
-}
-
 \examples{
 GSVirtualTableGeometry$new(name = "work", type = "MultiPolygon", srid = 4326)
 
@@ -50,3 +26,90 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{geoserver}
 \keyword{rest}
 \keyword{virtualTable}
+\section{Super class}{
+\code{\link[geosapi:GSRESTResource]{geosapi::GSRESTResource}} -> \code{GSVirtualTableGeometry}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{name}}{geometry name}
+
+\item{\code{type}}{geometry type}
+
+\item{\code{srid}}{geometry SRID}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{GSVirtualTableGeometry$new()}}
+\item \href{#method-decode}{\code{GSVirtualTableGeometry$decode()}}
+\item \href{#method-clone}{\code{GSVirtualTableGeometry$clone()}}
+}
+}
+\if{html}{
+\out{<details open ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+Initializes an object of class \link{GSVirtualTableGeometry}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSVirtualTableGeometry$new(xml = NULL, name, type, srid)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+
+\item{\code{name}}{name}
+
+\item{\code{type}}{type}
+
+\item{\code{srid}}{srid}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-decode}{}}}
+\subsection{Method \code{decode()}}{
+Decodes from XML
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSVirtualTableGeometry$decode(xml)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSVirtualTableGeometry$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

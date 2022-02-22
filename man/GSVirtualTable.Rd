@@ -12,23 +12,9 @@ Object of \code{\link{R6Class}} for modelling a GeoServer virtual table
 }
 \description{
 Geoserver REST API GSVirtualTable
+
+Geoserver REST API GSVirtualTable
 }
-\section{Fields}{
-
-\describe{
-\item{\code{name}}{name}
-
-\item{\code{sql}}{SQL statement}
-
-\item{\code{escapeSql}}{escape SQL?}
-
-\item{\code{keyColumn}}{key column}
-
-\item{\code{geometry}}{geometry}
-
-\item{\code{parameters}}{list of virtual parameters}
-}}
-
 \section{Methods}{
 
 \describe{
@@ -76,3 +62,222 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{geoserver}
 \keyword{rest}
 \keyword{virtualTable}
+\section{Super class}{
+\code{\link[geosapi:GSRESTResource]{geosapi::GSRESTResource}} -> \code{GSVirtualTable}
+}
+\section{Public fields}{
+\if{html}{\out{<div class="r6-fields">}}
+\describe{
+\item{\code{name}}{name}
+
+\item{\code{sql}}{SQL statement}
+
+\item{\code{escapeSql}}{escape SQL?}
+
+\item{\code{keyColumn}}{key column}
+
+\item{\code{geometry}}{geometry}
+
+\item{\code{parameters}}{list of virtual parameters}
+}
+\if{html}{\out{</div>}}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{GSVirtualTable$new()}}
+\item \href{#method-decode}{\code{GSVirtualTable$decode()}}
+\item \href{#method-setName}{\code{GSVirtualTable$setName()}}
+\item \href{#method-setSql}{\code{GSVirtualTable$setSql()}}
+\item \href{#method-setEscapeSql}{\code{GSVirtualTable$setEscapeSql()}}
+\item \href{#method-setKeyColumn}{\code{GSVirtualTable$setKeyColumn()}}
+\item \href{#method-setGeometry}{\code{GSVirtualTable$setGeometry()}}
+\item \href{#method-addParameter}{\code{GSVirtualTable$addParameter()}}
+\item \href{#method-delParameter}{\code{GSVirtualTable$delParameter()}}
+\item \href{#method-clone}{\code{GSVirtualTable$clone()}}
+}
+}
+\if{html}{
+\out{<details open ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+Initializes an object of class \link{GSVirtualTable}
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSVirtualTable$new(xml = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-decode}{}}}
+\subsection{Method \code{decode()}}{
+Decodes from XML
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSVirtualTable$decode(xml)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setName"></a>}}
+\if{latex}{\out{\hypertarget{method-setName}{}}}
+\subsection{Method \code{setName()}}{
+Set name
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSVirtualTable$setName(name)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{name}}{name}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setSql"></a>}}
+\if{latex}{\out{\hypertarget{method-setSql}{}}}
+\subsection{Method \code{setSql()}}{
+Set SQL
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSVirtualTable$setSql(sql)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{sql}}{sql}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setEscapeSql"></a>}}
+\if{latex}{\out{\hypertarget{method-setEscapeSql}{}}}
+\subsection{Method \code{setEscapeSql()}}{
+Set escape SQL
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSVirtualTable$setEscapeSql(escapeSql)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{escapeSql}}{escape SQL}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setKeyColumn"></a>}}
+\if{latex}{\out{\hypertarget{method-setKeyColumn}{}}}
+\subsection{Method \code{setKeyColumn()}}{
+Set key column
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSVirtualTable$setKeyColumn(keyColumn)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{keyColumn}}{key column}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setGeometry"></a>}}
+\if{latex}{\out{\hypertarget{method-setGeometry}{}}}
+\subsection{Method \code{setGeometry()}}{
+Set geometry
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSVirtualTable$setGeometry(vtg)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{vtg}}{object of class \link{GSVirtualTableGeometry}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-addParameter"></a>}}
+\if{latex}{\out{\hypertarget{method-addParameter}{}}}
+\subsection{Method \code{addParameter()}}{
+Adds parameter
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSVirtualTable$addParameter(parameter)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{parameter}}{object of class \link{GSVirtualTableParameter}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if added, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-delParameter"></a>}}
+\if{latex}{\out{\hypertarget{method-delParameter}{}}}
+\subsection{Method \code{delParameter()}}{
+Deletes parameter
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSVirtualTable$delParameter(parameter)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{parameter}}{object of class \link{GSVirtualTableParameter}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if deleted, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSVirtualTable$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}

@@ -12,34 +12,9 @@ Object of \code{\link{R6Class}} for modelling a GeoServer Shapefile directory da
 }
 \description{
 Geoserver REST API ShapeFileDirectoryDataStore
-}
-\section{Methods}{
 
-\describe{
-   \item{\code{new(xml, name, description, enabled, url)}}{
-     Instantiates a GSShapefileDirectoryDataStore object
-   }
-   \item{\code{setUrl(url)}}{
-     Set the spatial files data URL
-   }
-   \item{\code{setCharset(charset)}}{
-     Set the charset used for DBF file. Default value is 'ISO-8859-1'
-   }
-   \item{\code{setCreateSpatialIndex(create)}}{
-     Set the 'Create Spatial Index' option. Default is TRUE
-   }
-   \item{\code{setMemoryMappedBuffer(buffer)}}{
-     Set the 'Memory Mapped Buffer' option. Default is TRUE
-   }
-   \item{\code{CacheReuseMemoryMaps(maps)}}{
-     Set the 'Cache & Reuse Memory Maps' option. Default is TRUE
-   }
-   \item{\code{setDefautConnectionParameters()}}{
-     Set the defaut connection paramaters
-   }
+Geoserver REST API ShapeFileDirectoryDataStore
 }
-}
-
 \examples{
 GSShapefileDirectoryDataStore$new(name = "ds", description = "des",
                          enabled = TRUE, url = "file://data")
@@ -55,3 +30,178 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \keyword{geoserver}
 \keyword{rest}
 \keyword{shapefile}
+\section{Super classes}{
+\code{\link[geosapi:GSRESTResource]{geosapi::GSRESTResource}} -> \code{\link[geosapi:GSAbstractStore]{geosapi::GSAbstractStore}} -> \code{\link[geosapi:GSAbstractDataStore]{geosapi::GSAbstractDataStore}} -> \code{\link[geosapi:GSShapefileDataStore]{geosapi::GSShapefileDataStore}} -> \code{GSShapefileDirectoryDataStore}
+}
+\section{Methods}{
+\subsection{Public methods}{
+\itemize{
+\item \href{#method-new}{\code{GSShapefileDirectoryDataStore$new()}}
+\item \href{#method-setUrl}{\code{GSShapefileDirectoryDataStore$setUrl()}}
+\item \href{#method-setCharset}{\code{GSShapefileDirectoryDataStore$setCharset()}}
+\item \href{#method-setCreateSpatialIndex}{\code{GSShapefileDirectoryDataStore$setCreateSpatialIndex()}}
+\item \href{#method-setMemoryMappedBuffer}{\code{GSShapefileDirectoryDataStore$setMemoryMappedBuffer()}}
+\item \href{#method-setCacheReuseMemoryMaps}{\code{GSShapefileDirectoryDataStore$setCacheReuseMemoryMaps()}}
+\item \href{#method-setDefautConnectionParameters}{\code{GSShapefileDirectoryDataStore$setDefautConnectionParameters()}}
+\item \href{#method-clone}{\code{GSShapefileDirectoryDataStore$clone()}}
+}
+}
+\if{html}{
+\out{<details ><summary>Inherited methods</summary>}
+\itemize{
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setDescription">}\href{../../geosapi/html/GSAbstractStore.html#method-setDescription}{\code{geosapi::GSAbstractStore$setDescription()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setEnabled">}\href{../../geosapi/html/GSAbstractStore.html#method-setEnabled}{\code{geosapi::GSAbstractStore$setEnabled()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setType">}\href{../../geosapi/html/GSAbstractStore.html#method-setType}{\code{geosapi::GSAbstractStore$setType()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="addConnectionParameter">}\href{../../geosapi/html/GSAbstractDataStore.html#method-addConnectionParameter}{\code{geosapi::GSAbstractDataStore$addConnectionParameter()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="decode">}\href{../../geosapi/html/GSAbstractDataStore.html#method-decode}{\code{geosapi::GSAbstractDataStore$decode()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="delConnectionParameter">}\href{../../geosapi/html/GSAbstractDataStore.html#method-delConnectionParameter}{\code{geosapi::GSAbstractDataStore$delConnectionParameter()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="setConnectionParameter">}\href{../../geosapi/html/GSAbstractDataStore.html#method-setConnectionParameter}{\code{geosapi::GSAbstractDataStore$setConnectionParameter()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="setConnectionParameters">}\href{../../geosapi/html/GSAbstractDataStore.html#method-setConnectionParameters}{\code{geosapi::GSAbstractDataStore$setConnectionParameters()}}\out{</span>}
+}
+\out{</details>}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
+\subsection{Method \code{new()}}{
+initializes a shapefile directory data store
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSShapefileDirectoryDataStore$new(
+  xml = NULL,
+  name = NULL,
+  description = "",
+  enabled = TRUE,
+  url
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{xml}}{an object of class \link{XMLInternalNode-class} to create object from XML}
+
+\item{\code{name}}{coverage store name}
+
+\item{\code{description}}{coverage store description}
+
+\item{\code{enabled}}{whether the store should be enabled or not. Default is \code{TRUE}}
+
+\item{\code{url}}{url}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setUrl"></a>}}
+\if{latex}{\out{\hypertarget{method-setUrl}{}}}
+\subsection{Method \code{setUrl()}}{
+Set the spatial files data URL
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSShapefileDirectoryDataStore$setUrl(url)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{url}}{url}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setCharset"></a>}}
+\if{latex}{\out{\hypertarget{method-setCharset}{}}}
+\subsection{Method \code{setCharset()}}{
+Set the charset used for DBF file.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSShapefileDirectoryDataStore$setCharset(charset = "ISO-8859-1")}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{charset}}{charset. Default value is 'ISO-8859-1'}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setCreateSpatialIndex"></a>}}
+\if{latex}{\out{\hypertarget{method-setCreateSpatialIndex}{}}}
+\subsection{Method \code{setCreateSpatialIndex()}}{
+Set the 'Create Spatial Index' option
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSShapefileDirectoryDataStore$setCreateSpatialIndex(create = TRUE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{create}}{create. Default is \code{TRUE}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setMemoryMappedBuffer"></a>}}
+\if{latex}{\out{\hypertarget{method-setMemoryMappedBuffer}{}}}
+\subsection{Method \code{setMemoryMappedBuffer()}}{
+Set the 'Memory Mapped Buffer' option
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSShapefileDirectoryDataStore$setMemoryMappedBuffer(buffer = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{buffer}}{buffer. Default is \code{FALSE}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setCacheReuseMemoryMaps"></a>}}
+\if{latex}{\out{\hypertarget{method-setCacheReuseMemoryMaps}{}}}
+\subsection{Method \code{setCacheReuseMemoryMaps()}}{
+Set the 'Cache & Reuse Memory Maps' option.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSShapefileDirectoryDataStore$setCacheReuseMemoryMaps(maps = TRUE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{maps}}{maps. Default is \code{TRUE}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-setDefautConnectionParameters"></a>}}
+\if{latex}{\out{\hypertarget{method-setDefautConnectionParameters}{}}}
+\subsection{Method \code{setDefautConnectionParameters()}}{
+Set default connection parameters
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSShapefileDirectoryDataStore$setDefautConnectionParameters()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSShapefileDirectoryDataStore$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
+}
+}
