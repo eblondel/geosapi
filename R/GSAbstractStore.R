@@ -6,31 +6,6 @@
 #' @keywords geoserver rest api store
 #' @return Object of \code{\link{R6Class}} for modelling a GeoServer store
 #' @format \code{\link{R6Class}} object.
-#'
-
-#'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(xml, storeType, type, name, description, enabled)}}{
-#'    This method is used to instantiate a \code{GSAbstractStore}
-#'  }
-#'  \item{\code{decode(xml)}}{
-#'    This method is used to decode a \code{GSAbstractStore} from XML
-#'  }
-#'  \item{\code{encode()}}{
-#'    This method is used to encode a \code{GSAbstractStore} to XML. Inherited from the
-#'    generic \code{GSRESTResource} encoder
-#'  }
-#'  \item{\code{setEnabled(enabled)}}{
-#'    Sets the datastore as enabled if TRUE, disabled if FALSE
-#'  }
-#'  \item{\code{setDescription(description)}}{
-#'    Sets the datastore description
-#'  }
-#'  \item{\code{setType(type)}}{
-#'    Sets the datastore type
-#'  }
-#' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
