@@ -132,7 +132,7 @@ GSLayer <- R6Class("GSLayer",
     #'@param style style, object o class \link{GSStyle} or \code{character}
     #'@return \code{TRUE} if added, \code{FALSE} otherwise
     addStyle = function(style){
-      if(class(style) == "character") style <- GSStyle$new(xml=NULL, name = style)
+      if(is(style, "character")) style <- GSStyle$new(xml=NULL, name = style)
       startNb = length(self$styles)
       availableStyles <- sapply(self$styles, function(x){x$name})
       if(length(which(availableStyles == style$name)) == 0){
@@ -146,7 +146,7 @@ GSLayer <- R6Class("GSLayer",
     #'@param style style, object o class \link{GSStyle} or \code{character}
     #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
     delStyle = function(style){
-      if(class(style) == "character") style <- GSStyle$new(xml=NULL, name = style)
+      if(is(style, "character")) style <- GSStyle$new(xml=NULL, name = style)
       startNb = length(self$styles)
       availableStyles <- sapply(self$styles, function(x){x$name})
       self$styles = self$styles[which(availableStyles != style$name)]

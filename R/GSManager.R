@@ -178,7 +178,7 @@ GSManager <- R6Class("GSManager",
           list_of_methods <- rev(names(man))
           for(method in list_of_methods){
             methodObj <- man[[method]]
-            if(!(method %in% names(self)) && class(methodObj) == "function"){
+            if(!(method %in% names(self)) && is(methodObj,"function")){
               self[[method]] <- methodObj
               environment(self[[method]]) <- environment(self$connect)
             } 

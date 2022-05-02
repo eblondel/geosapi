@@ -197,7 +197,7 @@ GSLayerGroup <- R6Class("GSLayerGroup",
      #'@param style style
      #'@return \code{TRUE} if added, \code{FALSE} otherwise
      addStyle = function(style){
-        if(class(style) == "character") style <- GSStyle$new(xml=NULL, name = style)
+        if(is(style, "character")) style <- GSStyle$new(xml=NULL, name = style)
         startNb = length(self$styles)
         self$styles = c(self$styles, style)
         endNb = length(self$styles)
