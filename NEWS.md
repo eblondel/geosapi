@@ -10,7 +10,7 @@
 * [#52](https://github.com/eblondel/geosapi/issues/52) Standardize R6-class documentation
 
 
-## [geosapi 0.5-1](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.5-1.tar.gz) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.5-1.tar.gz)
+## [geosapi 0.5-1](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
 
 **Enhancements**
 
@@ -31,7 +31,7 @@
 
 * [#46](https://github.com/eblondel/geosapi/issues/46) CREATE workspace settings doesn't work 
 
-## [geosapi 0.4](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.4.tar.gz) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.4.tar.gz)
+## [geosapi 0.4-0](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.4-0.tar.gz) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.4-0.tar.gz)
 
 **New features**
 
@@ -50,7 +50,7 @@
 * [#34](https://github.com/eblondel/geosapi/issues/34) unpublishLayer doc typo
 
 
-## [geosapi 0.3](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.3.tar.gz) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.3.tar.gz)
+## [geosapi 0.3-0](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.3-0.tar.gz) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.3-0.tar.gz)
 
 **New features**
 
@@ -68,7 +68,7 @@
 
 
 
-## [geosapi 0.2](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.2.tar.gz) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.2.tar.gz)
+## [geosapi 0.2-0](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.2-0.tar.gz) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.2-0.tar.gz)
 
 **New features**
 
@@ -82,7 +82,7 @@
 * [#20](https://github.com/eblondel/geosapi/issues/20) Allow inheritance of specific datastore classes
 
 
-## [geosapi 0.1](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.1.tar.gz) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.1.tar.gz)
+## [geosapi 0.1-0](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.1-0.tar.gz) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.1-0.tar.gz)
 
 **New features**
 
