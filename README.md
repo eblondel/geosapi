@@ -22,3 +22,5 @@ A user manual is available at [https://github.com/eblondel/geosapi/wiki](https:/
 Many thanks to the following organizations that have provided fundings for strenghtening the ``geosapi`` package:
 
 <a href="https://unepgrid.ch/en"><img height=100 width=200 src="https://www.weadapt.org/sites/weadapt.org/files/styles/large/public/screenshot_2021-05-25_at_16.19.32_0.png?itok=iiEMf_S3"></a><a href="https://www.fao.org/home/en/"><img height=100 width=200 src="https://www.fao.org/fileadmin/templates/family-farming-decade/images/FAO-IFAD-Logos/FAO-Logo-EN.svg"></a>
+<a href="http://www.cnrs.fr"><img src="http://www.cnrs.fr/themes/custom/cnrs/logo.svg" height=100 width=100/></a>
+<a href="https://letg.cnrs.fr"><img height=100 width=50 src="https://letg.cnrs.fr/plugins/letg/images/letg.png"></a>
