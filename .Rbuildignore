@@ -1,8 +1,8 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 doc/slides
-.github
 ^CODE_OF_CONDUCT\.md$
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^\.github$
