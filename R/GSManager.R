@@ -203,11 +203,11 @@ GSManager <- R6Class("GSManager",
     #'@return \code{TRUE} if connected, raises an error otherwise
     connect = function(){
       req <- GSUtils$GET(
-        self$getUrl(), 
-        private$user, 
-        private$keyring_backend$get(service = private$keyring_service, username = private$user), 
-        "/", 
-        self$verbose.debug
+        url = self$getUrl(), 
+        user = private$user, 
+        pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user), 
+        path = "",
+        verbose = self$verbose.debug
       )
       if(status_code(req) == 401){
         err <- "Impossible to connect to GeoServer: Wrong credentials"

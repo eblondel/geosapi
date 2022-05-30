@@ -60,11 +60,11 @@ GSUtils$getUserToken <- function(user, pwd){
   return(token)
 }
 
-GSUtils$GET <- function(url, user, pwd, path, contentType = "text/xml", verbose = FALSE){
+GSUtils$GET <- function(url, user, pwd, path = "", contentType = "text/xml", verbose = FALSE){
   if(verbose){
     req <- with_verbose(GSUtils$GET(url, user, pwd, path))
   }else{
-    if(!grepl("^/", path)) path = paste0("/", path)
+    if(!grepl("^/", path) && path != "") path = paste0("/", path)
     url <- paste0(url, path) 
     req <- httr::GET(
       url = url,
