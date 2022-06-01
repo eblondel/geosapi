@@ -15,7 +15,7 @@ Depends: R (>= 3.1.0)
 Imports: R6, openssl, httr, XML, keyring, readr
 Suggests: testthat, roxygen2, covr, shiny
 License: MIT + file LICENSE
-URL: https://github.com/eblondel/geosapi/wiki, http://geoserver.org/
+URL: https://github.com/eblondel/geosapi/wiki, https://geoserver.org/
 BugReports: https://github.com/eblondel/geosapi/issues
 LazyLoad: yes
 RoxygenNote: 7.1.0
