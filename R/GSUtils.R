@@ -162,7 +162,7 @@ GSUtils$getPayloadXML <- function(obj){
 GSUtils$setBbox = function(minx, miny, maxx, maxy, bbox = NULL, crs){
   
   if(!missing(bbox) & !is.null(bbox)){
-    if(class(bbox) != "matrix") stop("Bbox is not a valid bounding box matrix")
+    if(!is(bbox,"matrix")) stop("Bbox is not a valid bounding box matrix")
     if(all(dim(bbox) != c(2,2))) stop("Bbox is not a valid bounding box matrix")
     minx = bbox[1L,1L]
     miny = bbox[2L,1L]
