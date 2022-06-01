@@ -1,3 +1,9 @@
+## [geosapi 0.6-1](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
+
+**Bug fixes**
+
+* [#51](https://github.com/eblondel/geosapi/issues/51) Trailing slash may encounter issue when creating GSManager
+
 ## [geosapi 0.6](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
 
 **New features**
@@ -9,11 +15,8 @@
 
 * [#52](https://github.com/eblondel/geosapi/issues/52) Standardize R6-class documentation
 
-**Bug fixes**
 
-* [#51](https://github.com/eblondel/geosapi/issues/51) Trailing slash may encounter issue when creating GSManage
-
-## [geosapi 0.5-1](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
+## [geosapi 0.5-1](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.5-1.tar.gz) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.5-1.tar.gz)
 
 **Enhancements**
 
