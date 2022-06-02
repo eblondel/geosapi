@@ -464,7 +464,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       return(
         self$uploadData(ws, ds, endpoint, extension = "shp",
                         configure, update, filename, charset,
-                        contentType = "")
+                        contentType = "application/zip")
       )
     },
     
