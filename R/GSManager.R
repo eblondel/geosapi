@@ -220,7 +220,7 @@ GSManager <- R6Class("GSManager",
         stop(err)
       }
       if(status_code(req) != 200){
-        err <- "Impossible to connectto Geoserver: Unexpected error"
+        err <- sprintf("Impossible to connect to Geoserver: Unexpected error (status code %s)", status_code(req))
         self$ERROR(err)
         stop(err)
       }else{
