@@ -1,0 +1,7 @@
+url: "https://eblondel.github.io/geosapi/"
+
+home:
+  title: GeoServer REST API R Interface
+
+template:
+  bootstrap: 5

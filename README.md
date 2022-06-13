@@ -17,6 +17,8 @@ We thank in advance people that use ``geosapi`` for citing it in their work / pu
 
 A user manual is available at [https://github.com/eblondel/geosapi/wiki](https://github.com/eblondel/geosapi/wiki)
 
+The R package is also documented through its [website](https://eblondel.github.io/geosapi/)
+
 ### Sponsors
 
 Many thanks to the following organizations that have provided fundings for strenghtening the ``geosapi`` package:
