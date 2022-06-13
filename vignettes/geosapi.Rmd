@@ -26,7 +26,7 @@ If you wish to sponsor geosapi, do not hesitate to [contact me](mailto:eblondel.
 
 Many thanks to the following organizations that have provided fundings for strenghtening the ``geosapi`` package:
 
-<a href="https://unepgrid.ch/en"><img height=100 width=200 src="https://www.weadapt.org/sites/weadapt.org/files/styles/large/public/screenshot_2021-05-25_at_16.19.32_0.png?itok=iiEMf_S3"></a><a href="http://www.fao.org"><img height=100 width=200 src="http://www.fao.org/fileadmin/templates/family-farming-decade/images/FAO-IFAD-Logos/FAO-Logo-EN.svg"></a>
+<a href="https://unepgrid.ch/en"><img height=100 width=200 src="https://www.weadapt.org/sites/weadapt.org/files/styles/large/public/screenshot_2021-05-25_at_16.19.32_0.png?itok=iiEMf_S3"></a><a href="https://www.fao.org"><img height=100 width=200 src="https://www.fao.org/fileadmin/templates/family-farming-decade/images/FAO-IFAD-Logos/FAO-Logo-EN.svg"></a>
 
 
 ***
@@ -114,7 +114,7 @@ Many thanks to the following organizations that have provided fundings for stren
 ### 1. Overview and vision
 ***
 
-Until now, equivalent tools were existing for other programming languages (e.g. Java, Python) but not in R. [geosapi](https//github.com/eblondel/geosapi) intends to provide R native interface to the GeoServer REST API, in order to facilitate publication of geographic data resources from R to [GeoServer](http://geoserver.org/).
+Until now, equivalent tools were existing for other programming languages (e.g. Java, Python) but not in R. [geosapi](https://github.com/eblondel/geosapi) intends to provide R native interface to the GeoServer REST API, in order to facilitate publication of geographic data resources from R to [GeoServer](https://geoserver.org/).
 
 <a name="package_status"/>
 
@@ -182,7 +182,7 @@ The ``GSManager`` inherits all methods of resource dependent managers, to provid
 
 #### 4.3 Manipulate GeoServer ``workspaces``
 
->**GeoServer API doc**: http://docs.geoserver.org/stable/en/user/rest/api/workspaces.html
+>**GeoServer API doc**: https://docs.geoserver.org/stable/en/user/rest/api/workspaces.html
 
 <a name="GSWorkspace-get"/>
 
@@ -229,7 +229,7 @@ The ``recurse`` parameter allows to delete all layers published under the delete
 
 #### 4.4 Manipulate GeoServer ``namespaces``
 
->**GeoServer API doc**: http://docs.geoserver.org/stable/en/user/rest/api/namespaces.html
+>**GeoServer API doc**: https://docs.geoserver.org/stable/en/user/rest/api/namespaces.html
 
 <a name="GSNamespace-get"/>
 
@@ -280,7 +280,7 @@ The ``recurse`` parameter allows to delete all layers published under the delete
 
 ##### 4.5.1 Manipulate GeoServer ``dataStores``
 
->**GeoServer API doc**: http://docs.geoserver.org/stable/en/user/rest/api/datastores.html
+>**GeoServer API doc**: https://docs.geoserver.org/stable/en/user/rest/api/datastores.html
 
 <a name="GSDataStore-get"/>
 
@@ -396,7 +396,7 @@ Example with an OGC Geopackage upload
 
 ##### 4.5.3 Manipulate GeoServer ``featureType``
 
->**GeoServer API doc**: http://docs.geoserver.org/stable/en/user/rest/api/featuretypes.html
+>**GeoServer API doc**: https://docs.geoserver.org/stable/en/user/rest/api/featuretypes.html
 
 <a name="GSFeatureType-get"/>
 
@@ -495,7 +495,7 @@ The ``recurse`` parameter allows to delete the layer published for the deleted f
 
 ##### 4.5.4 Manipulate GeoServer ``layers``
 
->**GeoServer API doc**: http://docs.geoserver.org/stable/en/user/rest/api/layers.html
+>**GeoServer API doc**: https://docs.geoserver.org/stable/en/user/rest/api/layers.html
 
 <a name="GSLayer-get"/>
 
@@ -606,7 +606,7 @@ The method ``publishLayer`` will sequentially do two requests to GeoServer:
 
 ##### 4.5.6 Manipulate GeoServer ``layer groups``
 
->**GeoServer API doc**: http://docs.geoserver.org/stable/en/user/rest/api/layergroups.html
+>**GeoServer API doc**: https://docs.geoserver.org/stable/en/user/rest/api/layergroups.html
 
 <a name="GSLayerGroup-get"/>
 
@@ -669,7 +669,7 @@ The method ``publishLayer`` will sequentially do two requests to GeoServer:
 
 ##### 4.6.1 Manipulate GeoServer ``coveragestores``
 
->**GeoServer API doc**: http://docs.geoserver.org/stable/en/user/rest/api/coveragestores.html
+>**GeoServer API doc**: https://docs.geoserver.org/stable/en/user/rest/api/coveragestores.html
 
 <a name="GSCoverageStore-get"/>
 
@@ -784,7 +784,7 @@ Example with a GeoTIFF upload
 
 ##### 4.6.3 Manipulate GeoServer ``coverages``
 
->**GeoServer API doc**: http://docs.geoserver.org/stable/en/user/rest/api/coverages.html
+>**GeoServer API doc**: https://docs.geoserver.org/stable/en/user/rest/api/coverages.html
 
 <a name="GSCoverage-get"/>
 
