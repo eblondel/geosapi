@@ -46,7 +46,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
               "GeoPackage" = GSGeoPackageDataStore$new(xml = xml),
               "PostGIS" = GSPostGISDataStore$new(xml = xml),
               "Oracle NG" = GSOracleNGDataStore$new(xml = xml),
-              GSAbstractDataStore$new(xml = dsXML)
+              GSAbstractDataStore$new(xml = xml)
           )
           return(dataStore)
         })
@@ -84,8 +84,8 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
           "Shapefile" = GSShapefileDataStore$new(xml = dsXML),
           "Directory of spatial files (shapefiles)" = GSShapefileDirectoryDataStore$new(xml = dsXML),
           "GeoPackage" = GSGeoPackageDataStore$new(xml = dsXML),
-          "PostGIS" = GSPostGISDataStore$new(xml = xml),
-          "Oracle NG" = GSOracleNGDataStore$new(xml = xml),
+          "PostGIS" = GSPostGISDataStore$new(xml = dsXML),
+          "Oracle NG" = GSOracleNGDataStore$new(xml = dsXML),
           GSAbstractDataStore$new(xml = dsXML)
         )
         self$INFO("Successfully fetched datastore!")
