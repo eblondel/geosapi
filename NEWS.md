@@ -1,4 +1,4 @@
-## [geosapi 0.6-3](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-topublish-orange.svg)](https://cran.r-project.org/package=geosapi)
+## [geosapi 0.6-3](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
 
 **Bug fixes**
 
