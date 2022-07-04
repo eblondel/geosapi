@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">geosapi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6-3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6-4</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -128,10 +128,10 @@
 </h5>
 <p>For now, the package can be installed from Github</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span></code></pre></div>
 <p>Once the devtools package loaded, you can use the install_github to install <code>geosapi. By default, package will be installed from</code>master`` which is the current version in development (likely to be unstable).</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"eblondel/geosapi"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"eblondel/geosapi"</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSManager"></a></p>
 </div>
 <div class="section level5">
@@ -139,11 +139,11 @@
 </h5>
 <p>The main entry point of <code>geosapi</code> is the <code>GSManager</code>. To configure it, enter the following line, specifying the base <code>URL</code> of your GeoServer, and your credentials:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">gsman</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSManager.html">GSManager</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>
-    url <span class="op">=</span> <span class="st">"http://localhost:8080/geoserver"</span>, <span class="co">#baseUrl of the Geoserver</span>
-    user <span class="op">=</span> <span class="st">"admin"</span>, pwd <span class="op">=</span> <span class="st">"geoserver"</span>, <span class="co">#credentials</span>
-    logger <span class="op">=</span> <span class="cn">NULL</span> <span class="co">#logger, for info or debugging purpose</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">gsman</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSManager.html">GSManager</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
+<span>    url <span class="op">=</span> <span class="st">"http://localhost:8080/geoserver"</span>, <span class="co">#baseUrl of the Geoserver</span></span>
+<span>    user <span class="op">=</span> <span class="st">"admin"</span>, pwd <span class="op">=</span> <span class="st">"geoserver"</span>, <span class="co">#credentials</span></span>
+<span>    logger <span class="op">=</span> <span class="cn">NULL</span> <span class="co">#logger, for info or debugging purpose</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p>By default, the <code>geosapi</code> <strong>logger</strong> is deactivated. To enable the logger, specify the level of log you wish as parameter of the above R code. Two logging levels are available:</p>
 <ul>
 <li>
@@ -166,35 +166,35 @@
 <h6 id="get-a-list-of-workspaces">4.3.1 Get a (list of) <code>workspace(s)</code><a class="anchor" aria-label="anchor" href="#get-a-list-of-workspaces"></a>
 </h6>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="co">#get workspace objects</span>
-  <span class="va">wslist</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getWorkspaces</span><span class="op">(</span><span class="op">)</span>
-
-  <span class="co">#get workspace names only</span>
-  <span class="va">wsnames</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getWorkspaceNames</span><span class="op">(</span><span class="op">)</span>
-
-  <span class="co">#get workspace by name</span>
-  <span class="va">ws</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getWorkspace</span><span class="op">(</span><span class="st">"topp"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="co">#get workspace objects</span></span>
+<span>  <span class="va">wslist</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getWorkspaces</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co">#get workspace names only</span></span>
+<span>  <span class="va">wsnames</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getWorkspaceNames</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co">#get workspace by name</span></span>
+<span>  <span class="va">ws</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getWorkspace</span><span class="op">(</span><span class="st">"topp"</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSWorkspace-create"></a></p>
 </div>
 <div class="section level6">
 <h6 id="create-a-new-workspace">4.3.2 Create a new <code>workspace</code><a class="anchor" aria-label="anchor" href="#create-a-new-workspace"></a>
 </h6>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createWorkspace</span><span class="op">(</span><span class="st">"geosapi"</span>, <span class="st">"http://geoapi"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createWorkspace</span><span class="op">(</span><span class="st">"geosapi"</span>, <span class="st">"http://geoapi"</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSWorkspace-update"></a></p>
 </div>
 <div class="section level6">
 <h6 id="update-an-existing-workspace">4.3.3 Update an existing <code>workspace</code><a class="anchor" aria-label="anchor" href="#update-an-existing-workspace"></a>
 </h6>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">updated</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateWorkspace</span><span class="op">(</span><span class="st">"geosapi"</span>, <span class="st">"http://newgeoapi"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">updated</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateWorkspace</span><span class="op">(</span><span class="st">"geosapi"</span>, <span class="st">"http://newgeoapi"</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSWorkspace-delete"></a></p>
 </div>
 <div class="section level6">
 <h6 id="delete-an-existing-workspace">4.3.4 Delete an existing <code>workspace</code><a class="anchor" aria-label="anchor" href="#delete-an-existing-workspace"></a>
 </h6>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">deleted</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">deleteWorkspace</span><span class="op">(</span><span class="st">"geosapi"</span>, recurse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">deleted</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">deleteWorkspace</span><span class="op">(</span><span class="st">"geosapi"</span>, recurse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>The <code>recurse</code> parameter allows to delete all layers published under the deleted workspace.</p>
 <p><a name="GSNamespace"></a></p>
 </div>
@@ -210,35 +210,35 @@
 <h6 id="get-a-list-of-namespaces">4.4.1 Get a (list of) <code>namespace(s)</code><a class="anchor" aria-label="anchor" href="#get-a-list-of-namespaces"></a>
 </h6>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="co">#get namespace objects</span>
-  <span class="va">nslist</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getNamespaces</span><span class="op">(</span><span class="op">)</span>
-
-  <span class="co">#get namespace names only</span>
-  <span class="va">nsnames</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getNamespaceNames</span><span class="op">(</span><span class="op">)</span>
-
-  <span class="co">#get namespace by name</span>
-  <span class="va">ns</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getNamespace</span><span class="op">(</span><span class="st">"topp"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="co">#get namespace objects</span></span>
+<span>  <span class="va">nslist</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getNamespaces</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co">#get namespace names only</span></span>
+<span>  <span class="va">nsnames</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getNamespaceNames</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co">#get namespace by name</span></span>
+<span>  <span class="va">ns</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getNamespace</span><span class="op">(</span><span class="st">"topp"</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSNamespace-create"></a></p>
 </div>
 <div class="section level6">
 <h6 id="create-a-new-namespace">4.4.2 Create a new <code>namespace</code><a class="anchor" aria-label="anchor" href="#create-a-new-namespace"></a>
 </h6>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createNamespace</span><span class="op">(</span><span class="st">"geosapi"</span>, <span class="st">"http://geoapi"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createNamespace</span><span class="op">(</span><span class="st">"geosapi"</span>, <span class="st">"http://geoapi"</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSNamespace-update"></a></p>
 </div>
 <div class="section level6">
 <h6 id="update-an-existing-namespace">4.4.3 Update an existing <code>namespace</code><a class="anchor" aria-label="anchor" href="#update-an-existing-namespace"></a>
 </h6>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">updated</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateNamespace</span><span class="op">(</span><span class="st">"geosapi"</span>, <span class="st">"http://newgeoapi"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">updated</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateNamespace</span><span class="op">(</span><span class="st">"geosapi"</span>, <span class="st">"http://newgeoapi"</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSNamespace-delete"></a></p>
 </div>
 <div class="section level6">
 <h6 id="delete-an-existing-namespace">4.4.4 Delete an existing <code>namespace</code><a class="anchor" aria-label="anchor" href="#delete-an-existing-namespace"></a>
 </h6>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">deleted</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">deleteNamespace</span><span class="op">(</span><span class="st">"geosapi"</span>, recurse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">deleted</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">deleteNamespace</span><span class="op">(</span><span class="st">"geosapi"</span>, recurse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>The <code>recurse</code> parameter allows to delete all layers published under the deleted namespace.</p>
 <p><a name="vectordata"></a></p>
 </div>
@@ -258,14 +258,14 @@
 <h6 id="get-a-list-of-datastores">4.5.1.1 Get a (list of) <code>dataStore(s)</code><a class="anchor" aria-label="anchor" href="#get-a-list-of-datastores"></a>
 </h6>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="co">#get datastore objects</span>
-  <span class="va">dslist</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getDataStores</span><span class="op">(</span><span class="st">"topp"</span><span class="op">)</span>
-
-  <span class="co">#get datastore names only</span>
-  <span class="va">dsnames</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getDataStoreNames</span><span class="op">(</span><span class="st">"topp"</span><span class="op">)</span>
-
-  <span class="co">#get datastore by name</span>
-  <span class="va">ns</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getDataStore</span><span class="op">(</span><span class="st">"topp"</span>, <span class="st">"states_shapefile"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="co">#get datastore objects</span></span>
+<span>  <span class="va">dslist</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getDataStores</span><span class="op">(</span><span class="st">"topp"</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co">#get datastore names only</span></span>
+<span>  <span class="va">dsnames</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getDataStoreNames</span><span class="op">(</span><span class="st">"topp"</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co">#get datastore by name</span></span>
+<span>  <span class="va">ns</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getDataStore</span><span class="op">(</span><span class="st">"topp"</span>, <span class="st">"states_shapefile"</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSDataStore-create"></a></p>
 </div>
 <div class="section level7">
@@ -277,51 +277,51 @@
 </li>
 </ul>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">ds</span> <span class="op">=</span> <span class="va"><a href="../reference/GSShapefileDataStore.html">GSShapefileDataStore</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>dataStore<span class="op">=</span><span class="st">"topp_datastore"</span>,
-                                description <span class="op">=</span> <span class="st">"topp_datastore description"</span>,
-                                enabled <span class="op">=</span> <span class="cn">TRUE</span>,
-                                url <span class="op">=</span> <span class="st">"file:data/shapefiles/states.shp"</span><span class="op">)</span>
-  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createDataStore</span><span class="op">(</span><span class="st">"topp"</span>, <span class="va">ds</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">ds</span> <span class="op">=</span> <span class="va"><a href="../reference/GSShapefileDataStore.html">GSShapefileDataStore</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>dataStore<span class="op">=</span><span class="st">"topp_datastore"</span>,</span>
+<span>                                description <span class="op">=</span> <span class="st">"topp_datastore description"</span>,</span>
+<span>                                enabled <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                                url <span class="op">=</span> <span class="st">"file:data/shapefiles/states.shp"</span><span class="op">)</span></span>
+<span>  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createDataStore</span><span class="op">(</span><span class="st">"topp"</span>, <span class="va">ds</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSShapefileDirectoryDataStore-create"></a></p>
 <ul>
 <li>4.5.1.2.2 Create a <strong>Shapefiles Directory</strong> <code>dataStore</code>
 </li>
 </ul>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">ds</span> <span class="op">=</span> <span class="va"><a href="../reference/GSShapefileDirectoryDataStore.html">GSShapefileDirectoryDataStore</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>dataStore<span class="op">=</span><span class="st">"topp_datastore"</span>,
-                                description <span class="op">=</span> <span class="st">"topp_datastore description"</span>,
-                                enabled <span class="op">=</span> <span class="cn">TRUE</span>,
-                                url <span class="op">=</span> <span class="st">"file:data/shapefiles"</span><span class="op">)</span>
-  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createDataStore</span><span class="op">(</span><span class="st">"topp"</span>, <span class="va">ds</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">ds</span> <span class="op">=</span> <span class="va"><a href="../reference/GSShapefileDirectoryDataStore.html">GSShapefileDirectoryDataStore</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>dataStore<span class="op">=</span><span class="st">"topp_datastore"</span>,</span>
+<span>                                description <span class="op">=</span> <span class="st">"topp_datastore description"</span>,</span>
+<span>                                enabled <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                                url <span class="op">=</span> <span class="st">"file:data/shapefiles"</span><span class="op">)</span></span>
+<span>  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createDataStore</span><span class="op">(</span><span class="st">"topp"</span>, <span class="va">ds</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSShapefileDirectoryDataStore-create"></a></p>
 <ul>
 <li>4.5.1.2.3 Create a <strong>GeoPackage</strong> <code>dataStore</code>
 </li>
 </ul>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">ds</span> <span class="op">=</span> <span class="va"><a href="../reference/GSGeoPackageDataStore.html">GSGeoPackageDataStore</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>dataStore<span class="op">=</span><span class="st">"topp_datastore"</span>,
-                                description <span class="op">=</span> <span class="st">"topp_datastore description"</span>,
-                                enabled <span class="op">=</span> <span class="cn">TRUE</span>,
-                                database <span class="op">=</span> <span class="st">"file:data/somefile.gpkg"</span><span class="op">)</span>
-  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createDataStore</span><span class="op">(</span><span class="st">"topp"</span>, <span class="va">ds</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">ds</span> <span class="op">=</span> <span class="va"><a href="../reference/GSGeoPackageDataStore.html">GSGeoPackageDataStore</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>dataStore<span class="op">=</span><span class="st">"topp_datastore"</span>,</span>
+<span>                                description <span class="op">=</span> <span class="st">"topp_datastore description"</span>,</span>
+<span>                                enabled <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>                                database <span class="op">=</span> <span class="st">"file:data/somefile.gpkg"</span><span class="op">)</span></span>
+<span>  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createDataStore</span><span class="op">(</span><span class="st">"topp"</span>, <span class="va">ds</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSDataStore-update"></a></p>
 </div>
 <div class="section level7">
 <h6 id="update-an-existing-datastore">4.5.1.3 Update an existing <code>dataStore</code><a class="anchor" aria-label="anchor" href="#update-an-existing-datastore"></a>
 </h6>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">dataStore</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getDataStore</span><span class="op">(</span><span class="st">"topp"</span>, <span class="st">"topp_datastore"</span><span class="op">)</span>
-  <span class="va">dataStore</span><span class="op">$</span><span class="fu">setDescription</span><span class="op">(</span><span class="st">"topp_datastore updated description"</span><span class="op">)</span>
-  <span class="va">dataStore</span><span class="op">$</span><span class="fu">setEnabled</span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span>
-  
-  <span class="va">updated</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateDataStore</span><span class="op">(</span><span class="st">"topp"</span>, <span class="va">dataStore</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">dataStore</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getDataStore</span><span class="op">(</span><span class="st">"topp"</span>, <span class="st">"topp_datastore"</span><span class="op">)</span></span>
+<span>  <span class="va">dataStore</span><span class="op">$</span><span class="fu">setDescription</span><span class="op">(</span><span class="st">"topp_datastore updated description"</span><span class="op">)</span></span>
+<span>  <span class="va">dataStore</span><span class="op">$</span><span class="fu">setEnabled</span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">updated</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateDataStore</span><span class="op">(</span><span class="st">"topp"</span>, <span class="va">dataStore</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSDataStore-delete"></a></p>
 </div>
 <div class="section level7">
 <h6 id="delete-an-existing-datastore">4.5.1.4 Delete an existing <code>dataStore</code><a class="anchor" aria-label="anchor" href="#delete-an-existing-datastore"></a>
 </h6>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">deleted</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">deleteDataStore</span><span class="op">(</span><span class="st">"topp"</span>, <span class="st">"topp_datastore"</span>, recurse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">deleted</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">deleteDataStore</span><span class="op">(</span><span class="st">"topp"</span>, <span class="st">"topp_datastore"</span>, recurse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>The <code>recurse</code> parameter allows to delete all layers published under the deleted datastore.</p>
 <p><a name="GSFeatureType-upload"></a></p>
 </div>
@@ -333,11 +333,11 @@
 <p>To simplify the upload, several data-specific methods were designed targeting specific data file extensions. These methods share the same parameters as above except the <code>extension</code> and <code>contentType</code> that will be pre-set according to the data upload format: * <code>uploadShapefile</code>: upload a shapefile * <code>uploadProperties</code>: upload a properties file * <code>uploadH2</code>: upload a H2 database * <code>uploadSpatialite</code>: upload a spatialite file * <code>uploadAppSchema</code>: upload an app schema * <code>uploadGeoPackage</code>: upload an OGC GeoPackage</p>
 <p>Example with an OGC Geopackage upload</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">uploaded</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">uploadGeoPackage</span><span class="op">(</span>
-    ws <span class="op">=</span> <span class="st">"my_workspace"</span>, ds <span class="op">=</span> <span class="st">"my_gpkg_datastore"</span>,
-    endpoint <span class="op">=</span> <span class="st">"file"</span>, configure <span class="op">=</span> <span class="st">"first"</span>, update <span class="op">=</span> <span class="st">"overwrite"</span>,
-    charset <span class="op">=</span> <span class="st">"UTF-8"</span>, filename <span class="op">=</span> <span class="st">"myfile.gpkg"</span>
-  <span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">uploaded</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">uploadGeoPackage</span><span class="op">(</span></span>
+<span>    ws <span class="op">=</span> <span class="st">"my_workspace"</span>, ds <span class="op">=</span> <span class="st">"my_gpkg_datastore"</span>,</span>
+<span>    endpoint <span class="op">=</span> <span class="st">"file"</span>, configure <span class="op">=</span> <span class="st">"first"</span>, update <span class="op">=</span> <span class="st">"overwrite"</span>,</span>
+<span>    charset <span class="op">=</span> <span class="st">"UTF-8"</span>, filename <span class="op">=</span> <span class="st">"myfile.gpkg"</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
 <p><a name="GSFeatureType"></a></p>
 </div>
 <div class="section level6">
@@ -351,83 +351,83 @@
 <h6 id="get-a-list-of-featuretypes">4.5.3.1 Get a (list of) <code>featureType(s)</code><a class="anchor" aria-label="anchor" href="#get-a-list-of-featuretypes"></a>
 </h6>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="co">#get featureType objects</span>
-  <span class="va">ftlist</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getFeatureTypes</span><span class="op">(</span><span class="st">"topp"</span>, <span class="st">"taz_shapes"</span><span class="op">)</span>
-
-  <span class="co">#get featureType names only</span>
-  <span class="va">ftnames</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getFeatureTypeNames</span><span class="op">(</span><span class="op">)</span>
-
-  <span class="co">#get featureType by name</span>
-  <span class="va">ft</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getFeatureType</span><span class="op">(</span><span class="st">"topp"</span>, <span class="st">"taz_shapes"</span>, <span class="st">"tasmania_cities"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="co">#get featureType objects</span></span>
+<span>  <span class="va">ftlist</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getFeatureTypes</span><span class="op">(</span><span class="st">"topp"</span>, <span class="st">"taz_shapes"</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co">#get featureType names only</span></span>
+<span>  <span class="va">ftnames</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getFeatureTypeNames</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co">#get featureType by name</span></span>
+<span>  <span class="va">ft</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getFeatureType</span><span class="op">(</span><span class="st">"topp"</span>, <span class="st">"taz_shapes"</span>, <span class="st">"tasmania_cities"</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSFeatureType-create"></a></p>
 </div>
 <div class="section level7">
 <h6 id="create-a-new-featuretype">4.5.3.2 Create a new <code>featureType</code><a class="anchor" aria-label="anchor" href="#create-a-new-featuretype"></a>
 </h6>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="co">#create featuretype object</span>
-  <span class="va">featureType</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSFeatureType.html">GSFeatureType</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">setName</span><span class="op">(</span><span class="st">"tasmania_cities2"</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">setNativeName</span><span class="op">(</span><span class="st">"tasmania_cities"</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">setAbstract</span><span class="op">(</span><span class="st">"abstract"</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">setTitle</span><span class="op">(</span><span class="st">"title"</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">setSrs</span><span class="op">(</span><span class="st">"EPSG:4326"</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">setNativeCRS</span><span class="op">(</span><span class="st">"EPSG:4326"</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">setEnabled</span><span class="op">(</span><span class="cn">TRUE</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">setProjectionPolicy</span><span class="op">(</span><span class="st">"REPROJECT_TO_DECLARED"</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">setLatLonBoundingBox</span><span class="op">(</span><span class="op">-</span><span class="fl">180</span>,<span class="op">-</span><span class="fl">90</span>,<span class="fl">180</span>,<span class="fl">90</span>, crs <span class="op">=</span> <span class="st">"EPSG:4326"</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">setNativeBoundingBox</span><span class="op">(</span><span class="op">-</span><span class="fl">180</span>,<span class="op">-</span><span class="fl">90</span>,<span class="fl">180</span>,<span class="fl">90</span>, crs <span class="op">=</span><span class="st">"EPSG:4326"</span><span class="op">)</span> 
-  
-  <span class="va">md1</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSMetadataLink.html">GSMetadataLink</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"text/xml"</span>, metadataType <span class="op">=</span> <span class="st">"ISO19115:2003"</span>, content <span class="op">=</span> <span class="st">"http://somelink.org/xml"</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">addMetadataLink</span><span class="op">(</span><span class="va">md1</span><span class="op">)</span>
-  <span class="va">md2</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSMetadataLink.html">GSMetadataLink</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"text/html"</span>, metadataType <span class="op">=</span> <span class="st">"ISO19115:2003"</span>, content <span class="op">=</span> <span class="st">"http://somelink.org/html"</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">addMetadataLink</span><span class="op">(</span><span class="va">md2</span><span class="op">)</span>
-
-  <span class="co">#create the feature type in GeoServer</span>
-  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createFeatureType</span><span class="op">(</span><span class="st">"topp"</span>, <span class="st">"taz_shapes"</span>, <span class="va">featureType</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="co">#create featuretype object</span></span>
+<span>  <span class="va">featureType</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSFeatureType.html">GSFeatureType</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">setName</span><span class="op">(</span><span class="st">"tasmania_cities2"</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">setNativeName</span><span class="op">(</span><span class="st">"tasmania_cities"</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">setAbstract</span><span class="op">(</span><span class="st">"abstract"</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">setTitle</span><span class="op">(</span><span class="st">"title"</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">setSrs</span><span class="op">(</span><span class="st">"EPSG:4326"</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">setNativeCRS</span><span class="op">(</span><span class="st">"EPSG:4326"</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">setEnabled</span><span class="op">(</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">setProjectionPolicy</span><span class="op">(</span><span class="st">"REPROJECT_TO_DECLARED"</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">setLatLonBoundingBox</span><span class="op">(</span><span class="op">-</span><span class="fl">180</span>,<span class="op">-</span><span class="fl">90</span>,<span class="fl">180</span>,<span class="fl">90</span>, crs <span class="op">=</span> <span class="st">"EPSG:4326"</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">setNativeBoundingBox</span><span class="op">(</span><span class="op">-</span><span class="fl">180</span>,<span class="op">-</span><span class="fl">90</span>,<span class="fl">180</span>,<span class="fl">90</span>, crs <span class="op">=</span><span class="st">"EPSG:4326"</span><span class="op">)</span> </span>
+<span>  </span>
+<span>  <span class="va">md1</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSMetadataLink.html">GSMetadataLink</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"text/xml"</span>, metadataType <span class="op">=</span> <span class="st">"ISO19115:2003"</span>, content <span class="op">=</span> <span class="st">"http://somelink.org/xml"</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">addMetadataLink</span><span class="op">(</span><span class="va">md1</span><span class="op">)</span></span>
+<span>  <span class="va">md2</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSMetadataLink.html">GSMetadataLink</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"text/html"</span>, metadataType <span class="op">=</span> <span class="st">"ISO19115:2003"</span>, content <span class="op">=</span> <span class="st">"http://somelink.org/html"</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">addMetadataLink</span><span class="op">(</span><span class="va">md2</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co">#create the feature type in GeoServer</span></span>
+<span>  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createFeatureType</span><span class="op">(</span><span class="st">"topp"</span>, <span class="st">"taz_shapes"</span>, <span class="va">featureType</span><span class="op">)</span></span></code></pre></div>
 <p><strong>How to set a Geoserver SQL View</strong></p>
 <p>With <code>geosapi</code>, it is also possible to configure a Geoserver SQL View, possibly with dynamic parameters. For this, GeoServer uses the concept of <em>VirtualTable</em>. The code below explains how to configure such virtual table with <code>geosapi</code>:</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-<span class="co">##virtual table</span>
-<span class="va">vt</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSVirtualTable.html">GSVirtualTable</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span>
-<span class="va">vt</span><span class="op">$</span><span class="fu">setName</span><span class="op">(</span><span class="st">"view name"</span><span class="op">)</span>
-<span class="va">vt</span><span class="op">$</span><span class="fu">setSql</span><span class="op">(</span><span class="st">"select * from mydataset where flag = '%flag%' and year between %start_year% and %end_year%"</span><span class="op">)</span>
-
-<span class="co">## incase of spatial virtual table, specify the geometry column name, type and SRID</span>
-<span class="va">vtg</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSVirtualTableGeometry.html">GSVirtualTableGeometry</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"the_geom"</span>, type <span class="op">=</span> <span class="st">"MultiPolygon"</span>, srid <span class="op">=</span> <span class="fl">4326</span><span class="op">)</span>
-<span class="va">vt</span><span class="op">$</span><span class="fu">setGeometry</span><span class="op">(</span><span class="va">vtg</span><span class="op">)</span>
-
-<span class="co">##in case of dynamic parameters handled in your sql (bound with %)</span>
-<span class="va">vtp1</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSVirtualTableParameter.html">GSVirtualTableParameter</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"flag"</span>, defaultValue <span class="op">=</span> <span class="st">"FRA"</span>, regexpValidator <span class="op">=</span> <span class="st">"^[\\w\\d\\s]+$"</span><span class="op">)</span>
-<span class="va">vtp2</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSVirtualTableParameter.html">GSVirtualTableParameter</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"start_year"</span>, defaultValue <span class="op">=</span> <span class="st">"2000"</span>,regexpValidator <span class="op">=</span> <span class="st">"^[\\d]+$"</span><span class="op">)</span>
-<span class="va">vtp3</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSVirtualTableParameter.html">GSVirtualTableParameter</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"end_year"</span>, defaultValue <span class="op">=</span> <span class="st">"2010"</span>,regexpValidator <span class="op">=</span> <span class="st">"^[\\d]+$"</span><span class="op">)</span>
-<span class="va">vt</span><span class="op">$</span><span class="fu">addParameter</span><span class="op">(</span><span class="va">vtp1</span><span class="op">)</span>
-<span class="va">vt</span><span class="op">$</span><span class="fu">addParameter</span><span class="op">(</span><span class="va">vtp2</span><span class="op">)</span>
-<span class="va">vt</span><span class="op">$</span><span class="fu">addParameter</span><span class="op">(</span><span class="va">vtp3</span><span class="op">)</span>
-
-<span class="co">##add virtual table to featureType</span>
-<span class="va">featureType</span><span class="op">$</span><span class="fu">setVirtualTable</span><span class="op">(</span><span class="va">vt</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span></span>
+<span><span class="co">##virtual table</span></span>
+<span><span class="va">vt</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSVirtualTable.html">GSVirtualTable</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">vt</span><span class="op">$</span><span class="fu">setName</span><span class="op">(</span><span class="st">"view name"</span><span class="op">)</span></span>
+<span><span class="va">vt</span><span class="op">$</span><span class="fu">setSql</span><span class="op">(</span><span class="st">"select * from mydataset where flag = '%flag%' and year between %start_year% and %end_year%"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## incase of spatial virtual table, specify the geometry column name, type and SRID</span></span>
+<span><span class="va">vtg</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSVirtualTableGeometry.html">GSVirtualTableGeometry</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"the_geom"</span>, type <span class="op">=</span> <span class="st">"MultiPolygon"</span>, srid <span class="op">=</span> <span class="fl">4326</span><span class="op">)</span></span>
+<span><span class="va">vt</span><span class="op">$</span><span class="fu">setGeometry</span><span class="op">(</span><span class="va">vtg</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">##in case of dynamic parameters handled in your sql (bound with %)</span></span>
+<span><span class="va">vtp1</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSVirtualTableParameter.html">GSVirtualTableParameter</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"flag"</span>, defaultValue <span class="op">=</span> <span class="st">"FRA"</span>, regexpValidator <span class="op">=</span> <span class="st">"^[\\w\\d\\s]+$"</span><span class="op">)</span></span>
+<span><span class="va">vtp2</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSVirtualTableParameter.html">GSVirtualTableParameter</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"start_year"</span>, defaultValue <span class="op">=</span> <span class="st">"2000"</span>,regexpValidator <span class="op">=</span> <span class="st">"^[\\d]+$"</span><span class="op">)</span></span>
+<span><span class="va">vtp3</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSVirtualTableParameter.html">GSVirtualTableParameter</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"end_year"</span>, defaultValue <span class="op">=</span> <span class="st">"2010"</span>,regexpValidator <span class="op">=</span> <span class="st">"^[\\d]+$"</span><span class="op">)</span></span>
+<span><span class="va">vt</span><span class="op">$</span><span class="fu">addParameter</span><span class="op">(</span><span class="va">vtp1</span><span class="op">)</span></span>
+<span><span class="va">vt</span><span class="op">$</span><span class="fu">addParameter</span><span class="op">(</span><span class="va">vtp2</span><span class="op">)</span></span>
+<span><span class="va">vt</span><span class="op">$</span><span class="fu">addParameter</span><span class="op">(</span><span class="va">vtp3</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">##add virtual table to featureType</span></span>
+<span><span class="va">featureType</span><span class="op">$</span><span class="fu">setVirtualTable</span><span class="op">(</span><span class="va">vt</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSFeatureType-update"></a></p>
 </div>
 <div class="section level7">
 <h6 id="update-an-existing-featuretype">4.5.3.3 Update an existing <code>featureType</code><a class="anchor" aria-label="anchor" href="#update-an-existing-featuretype"></a>
 </h6>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="co">#fetch featureType and update some properties</span>
-  <span class="va">featureType</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getFeatureType</span><span class="op">(</span><span class="st">"topp"</span>, <span class="st">"taz_shapes"</span>, <span class="st">"tasmania_cities2"</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">setAbstract</span><span class="op">(</span><span class="st">"abstract updated"</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">setEnabled</span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span>
-  
-  <span class="co">#update featureType in GeoServer</span>
-  <span class="va">updated</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateFeatureType</span><span class="op">(</span><span class="st">"topp"</span>, <span class="st">"taz_shapes"</span>, <span class="va">featureType</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="co">#fetch featureType and update some properties</span></span>
+<span>  <span class="va">featureType</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getFeatureType</span><span class="op">(</span><span class="st">"topp"</span>, <span class="st">"taz_shapes"</span>, <span class="st">"tasmania_cities2"</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">setAbstract</span><span class="op">(</span><span class="st">"abstract updated"</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">setEnabled</span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co">#update featureType in GeoServer</span></span>
+<span>  <span class="va">updated</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateFeatureType</span><span class="op">(</span><span class="st">"topp"</span>, <span class="st">"taz_shapes"</span>, <span class="va">featureType</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSFeatureType-delete"></a></p>
 </div>
 <div class="section level7">
 <h6 id="delete-an-existing-featuretype">4.5.3.4 Delete an existing <code>featureType</code><a class="anchor" aria-label="anchor" href="#delete-an-existing-featuretype"></a>
 </h6>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">deleted</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">deleteFeatureType</span><span class="op">(</span><span class="st">"topp"</span>, <span class="st">"taz_shapes"</span>, <span class="st">"tasmania_cities2"</span>, recurse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">deleted</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">deleteFeatureType</span><span class="op">(</span><span class="st">"topp"</span>, <span class="st">"taz_shapes"</span>, <span class="st">"tasmania_cities2"</span>, recurse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>The <code>recurse</code> parameter allows to delete the layer published for the deleted featureType.</p>
 <p><a name="GSLayer"></a></p>
 </div>
@@ -443,14 +443,14 @@
 <h6 id="get-a-list-of-layers">4.5.4.1 Get a (list of) <code>layer(s)</code><a class="anchor" aria-label="anchor" href="#get-a-list-of-layers"></a>
 </h6>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="co">#get layer objects</span>
-  <span class="va">layers</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getLayers</span><span class="op">(</span><span class="op">)</span>
-
-  <span class="co">#get layer names only</span>
-  <span class="va">layerNames</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getLayerNames</span><span class="op">(</span><span class="op">)</span>
-
-  <span class="co">#get layer by name</span>
-  <span class="va">layer</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getLayer</span><span class="op">(</span><span class="st">"tasmania_cities"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="co">#get layer objects</span></span>
+<span>  <span class="va">layers</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getLayers</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co">#get layer names only</span></span>
+<span>  <span class="va">layerNames</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getLayerNames</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co">#get layer by name</span></span>
+<span>  <span class="va">layer</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getLayer</span><span class="op">(</span><span class="st">"tasmania_cities"</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSLayer-create"></a></p>
 </div>
 <div class="section level7">
@@ -458,27 +458,27 @@
 </h6>
 <p>This method shows how to <em>publish</em> a created <code>featureType</code> (as created in <a href="https://github.com/eblondel/geosapi/wiki#GSFeatureType-create" class="external-link">4.5.3 Create a new <code>FeatureType</code></a>)</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">layer</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSLayer.html">GSLayer</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span>
-  <span class="va">layer</span><span class="op">$</span><span class="fu">setName</span><span class="op">(</span><span class="st">"tasmania_cities2"</span><span class="op">)</span>
-  <span class="va">layer</span><span class="op">$</span><span class="fu">setDefaultStyle</span><span class="op">(</span><span class="st">"capitals"</span><span class="op">)</span>
-  <span class="va">layer</span><span class="op">$</span><span class="fu">addStyle</span><span class="op">(</span><span class="st">"generic"</span><span class="op">)</span>
-  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createLayer</span><span class="op">(</span><span class="va">layer</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">layer</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSLayer.html">GSLayer</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="va">layer</span><span class="op">$</span><span class="fu">setName</span><span class="op">(</span><span class="st">"tasmania_cities2"</span><span class="op">)</span></span>
+<span>  <span class="va">layer</span><span class="op">$</span><span class="fu">setDefaultStyle</span><span class="op">(</span><span class="st">"capitals"</span><span class="op">)</span></span>
+<span>  <span class="va">layer</span><span class="op">$</span><span class="fu">addStyle</span><span class="op">(</span><span class="st">"generic"</span><span class="op">)</span></span>
+<span>  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createLayer</span><span class="op">(</span><span class="va">layer</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSLayer-update"></a></p>
 </div>
 <div class="section level7">
 <h6 id="update-an-existing-layer">4.5.4.3 Update an existing <code>layer</code><a class="anchor" aria-label="anchor" href="#update-an-existing-layer"></a>
 </h6>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">lyr</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getLayer</span><span class="op">(</span><span class="st">"tasmania_cities"</span><span class="op">)</span>
-  <span class="va">lyr</span><span class="op">$</span><span class="fu">setDefaultStyle</span><span class="op">(</span><span class="st">"generic"</span><span class="op">)</span>
-  <span class="va">updated</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateLayer</span><span class="op">(</span><span class="va">lyr</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">lyr</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getLayer</span><span class="op">(</span><span class="st">"tasmania_cities"</span><span class="op">)</span></span>
+<span>  <span class="va">lyr</span><span class="op">$</span><span class="fu">setDefaultStyle</span><span class="op">(</span><span class="st">"generic"</span><span class="op">)</span></span>
+<span>  <span class="va">updated</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateLayer</span><span class="op">(</span><span class="va">lyr</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSLayer-delete"></a></p>
 </div>
 <div class="section level7">
 <h6 id="delete-an-existing-layer">4.5.4.4 Delete an existing <code>layer</code><a class="anchor" aria-label="anchor" href="#delete-an-existing-layer"></a>
 </h6>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">deleted</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">deleteLayer</span><span class="op">(</span><span class="st">"tasmania_cities2"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">deleted</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">deleteLayer</span><span class="op">(</span><span class="st">"tasmania_cities2"</span><span class="op">)</span></span></code></pre></div>
 <p><a name="publishFeatureLayer"></a></p>
 </div>
 </div>
@@ -498,31 +498,31 @@
 </li>
 </ul>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="co">#create featuretype</span>
-  <span class="va">featureType</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSFeatureType.html">GSFeatureType</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">setName</span><span class="op">(</span><span class="st">"tasmania_cities2"</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">setNativeName</span><span class="op">(</span><span class="st">"tasmania_cities"</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">setAbstract</span><span class="op">(</span><span class="st">"abstract"</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">setTitle</span><span class="op">(</span><span class="st">"title"</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">setSrs</span><span class="op">(</span><span class="st">"EPSG:4326"</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">setNativeCRS</span><span class="op">(</span><span class="st">"EPSG:4326"</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">setEnabled</span><span class="op">(</span><span class="cn">TRUE</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">setProjectionPolicy</span><span class="op">(</span><span class="st">"REPROJECT_TO_DECLARED"</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">setLatLonBoundingBox</span><span class="op">(</span><span class="op">-</span><span class="fl">180</span>,<span class="op">-</span><span class="fl">90</span>,<span class="fl">180</span>,<span class="fl">90</span>, crs <span class="op">=</span> <span class="st">"EPSG:4326"</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">setNativeBoundingBox</span><span class="op">(</span><span class="op">-</span><span class="fl">180</span>,<span class="op">-</span><span class="fl">90</span>,<span class="fl">180</span>,<span class="fl">90</span>, crs <span class="op">=</span><span class="st">"EPSG:4326"</span><span class="op">)</span> 
-  <span class="va">md1</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSMetadataLink.html">GSMetadataLink</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"text/xml"</span>, metadataType <span class="op">=</span> <span class="st">"ISO19115:2003"</span>, content <span class="op">=</span> <span class="st">"http://somelink.org/xml"</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">addMetadataLink</span><span class="op">(</span><span class="va">md1</span><span class="op">)</span>
-  <span class="va">md2</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSMetadataLink.html">GSMetadataLink</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"text/html"</span>, metadataType <span class="op">=</span> <span class="st">"ISO19115:2003"</span>, content <span class="op">=</span> <span class="st">"http://somelink.org/html"</span><span class="op">)</span>
-  <span class="va">featureType</span><span class="op">$</span><span class="fu">addMetadataLink</span><span class="op">(</span><span class="va">md2</span><span class="op">)</span>
-  
-  <span class="co">#create layer</span>
-  <span class="va">layer</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSLayer.html">GSLayer</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span>
-  <span class="va">layer</span><span class="op">$</span><span class="fu">setName</span><span class="op">(</span><span class="st">"tasmania_cities2"</span><span class="op">)</span>
-  <span class="va">layer</span><span class="op">$</span><span class="fu">setDefaultStyle</span><span class="op">(</span><span class="st">"capitals"</span><span class="op">)</span>
-  <span class="va">layer</span><span class="op">$</span><span class="fu">addStyle</span><span class="op">(</span><span class="st">"generic"</span><span class="op">)</span>
-  
-  <span class="co">#try to publish the complete layer (featuretype + layer)</span>
-  <span class="va">published</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">publishLayer</span><span class="op">(</span><span class="st">"topp"</span>, <span class="st">"taz_shapes"</span>, <span class="va">featureType</span>, <span class="va">layer</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="co">#create featuretype</span></span>
+<span>  <span class="va">featureType</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSFeatureType.html">GSFeatureType</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">setName</span><span class="op">(</span><span class="st">"tasmania_cities2"</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">setNativeName</span><span class="op">(</span><span class="st">"tasmania_cities"</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">setAbstract</span><span class="op">(</span><span class="st">"abstract"</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">setTitle</span><span class="op">(</span><span class="st">"title"</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">setSrs</span><span class="op">(</span><span class="st">"EPSG:4326"</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">setNativeCRS</span><span class="op">(</span><span class="st">"EPSG:4326"</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">setEnabled</span><span class="op">(</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">setProjectionPolicy</span><span class="op">(</span><span class="st">"REPROJECT_TO_DECLARED"</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">setLatLonBoundingBox</span><span class="op">(</span><span class="op">-</span><span class="fl">180</span>,<span class="op">-</span><span class="fl">90</span>,<span class="fl">180</span>,<span class="fl">90</span>, crs <span class="op">=</span> <span class="st">"EPSG:4326"</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">setNativeBoundingBox</span><span class="op">(</span><span class="op">-</span><span class="fl">180</span>,<span class="op">-</span><span class="fl">90</span>,<span class="fl">180</span>,<span class="fl">90</span>, crs <span class="op">=</span><span class="st">"EPSG:4326"</span><span class="op">)</span> </span>
+<span>  <span class="va">md1</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSMetadataLink.html">GSMetadataLink</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"text/xml"</span>, metadataType <span class="op">=</span> <span class="st">"ISO19115:2003"</span>, content <span class="op">=</span> <span class="st">"http://somelink.org/xml"</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">addMetadataLink</span><span class="op">(</span><span class="va">md1</span><span class="op">)</span></span>
+<span>  <span class="va">md2</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSMetadataLink.html">GSMetadataLink</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"text/html"</span>, metadataType <span class="op">=</span> <span class="st">"ISO19115:2003"</span>, content <span class="op">=</span> <span class="st">"http://somelink.org/html"</span><span class="op">)</span></span>
+<span>  <span class="va">featureType</span><span class="op">$</span><span class="fu">addMetadataLink</span><span class="op">(</span><span class="va">md2</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co">#create layer</span></span>
+<span>  <span class="va">layer</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSLayer.html">GSLayer</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="va">layer</span><span class="op">$</span><span class="fu">setName</span><span class="op">(</span><span class="st">"tasmania_cities2"</span><span class="op">)</span></span>
+<span>  <span class="va">layer</span><span class="op">$</span><span class="fu">setDefaultStyle</span><span class="op">(</span><span class="st">"capitals"</span><span class="op">)</span></span>
+<span>  <span class="va">layer</span><span class="op">$</span><span class="fu">addStyle</span><span class="op">(</span><span class="st">"generic"</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co">#try to publish the complete layer (featuretype + layer)</span></span>
+<span>  <span class="va">published</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">publishLayer</span><span class="op">(</span><span class="st">"topp"</span>, <span class="st">"taz_shapes"</span>, <span class="va">featureType</span>, <span class="va">layer</span><span class="op">)</span></span></code></pre></div>
 <p><a name="publishFeatureLayer-unpublish"></a></p>
 </div>
 <div class="section level7">
@@ -536,8 +536,8 @@
 </li>
 </ul>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="co">#try to unpublish the complete layer (featuretype + layer)</span>
-  <span class="va">published</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">unpublishLayer</span><span class="op">(</span><span class="st">"topp"</span>, <span class="st">"taz_shapes"</span>, <span class="st">"tasmania_cities2"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="co">#try to unpublish the complete layer (featuretype + layer)</span></span>
+<span>  <span class="va">published</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">unpublishLayer</span><span class="op">(</span><span class="st">"topp"</span>, <span class="st">"taz_shapes"</span>, <span class="st">"tasmania_cities2"</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSLayerGroup"></a></p>
 </div>
 </div>
@@ -552,49 +552,49 @@
 <h6 id="get-a-list-of-layer-groups">4.5.6.1 Get a (list of) <code>layer group(s)</code><a class="anchor" aria-label="anchor" href="#get-a-list-of-layer-groups"></a>
 </h6>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="co">#get layer groups objects</span>
-  <span class="va">layerGroups</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getLayerGroups</span><span class="op">(</span><span class="op">)</span>
-
-  <span class="co">#get layer group names only</span>
-  <span class="va">layerGroupNames</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getLayerGroupNames</span><span class="op">(</span><span class="op">)</span>
-
-  <span class="co">#get layer group by name</span>
-  <span class="va">layerGroup</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getLayerGroup</span><span class="op">(</span><span class="st">"test_layergroup"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="co">#get layer groups objects</span></span>
+<span>  <span class="va">layerGroups</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getLayerGroups</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co">#get layer group names only</span></span>
+<span>  <span class="va">layerGroupNames</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getLayerGroupNames</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co">#get layer group by name</span></span>
+<span>  <span class="va">layerGroup</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getLayerGroup</span><span class="op">(</span><span class="st">"test_layergroup"</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSLayerGroup-create"></a></p>
 </div>
 <div class="section level7">
 <h6 id="create-a-new-layer-group">4.5.6.2 Create a new <code>layer group</code><a class="anchor" aria-label="anchor" href="#create-a-new-layer-group"></a>
 </h6>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">lyr</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSLayerGroup.html">GSLayerGroup</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span>
-  <span class="va">lyr</span><span class="op">$</span><span class="fu">setName</span><span class="op">(</span><span class="st">"test_layergroup"</span><span class="op">)</span>
-  <span class="va">lyr</span><span class="op">$</span><span class="fu">setTitle</span><span class="op">(</span><span class="st">"title"</span><span class="op">)</span>
-  <span class="va">lyr</span><span class="op">$</span><span class="fu">setAbstract</span><span class="op">(</span><span class="st">"abstract"</span><span class="op">)</span>
-  <span class="va">lyr</span><span class="op">$</span><span class="fu">setMode</span><span class="op">(</span><span class="st">"SINGLE"</span><span class="op">)</span>
-  <span class="va">lyr</span><span class="op">$</span><span class="fu">addLayer</span><span class="op">(</span>layer <span class="op">=</span> <span class="st">"tasmania_cities"</span>, style <span class="op">=</span> <span class="st">"generic"</span><span class="op">)</span>
-  <span class="va">lyr</span><span class="op">$</span><span class="fu">setBounds</span><span class="op">(</span><span class="op">-</span><span class="fl">180</span>,<span class="op">-</span><span class="fl">90</span>,<span class="fl">180</span>,<span class="fl">90</span>,crs <span class="op">=</span> <span class="st">"EPSG:4326"</span><span class="op">)</span>
-  <span class="va">gsman</span><span class="op">$</span><span class="fu">createLayerGroup</span><span class="op">(</span>layerGroup <span class="op">=</span> <span class="va">lyr</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">lyr</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSLayerGroup.html">GSLayerGroup</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="va">lyr</span><span class="op">$</span><span class="fu">setName</span><span class="op">(</span><span class="st">"test_layergroup"</span><span class="op">)</span></span>
+<span>  <span class="va">lyr</span><span class="op">$</span><span class="fu">setTitle</span><span class="op">(</span><span class="st">"title"</span><span class="op">)</span></span>
+<span>  <span class="va">lyr</span><span class="op">$</span><span class="fu">setAbstract</span><span class="op">(</span><span class="st">"abstract"</span><span class="op">)</span></span>
+<span>  <span class="va">lyr</span><span class="op">$</span><span class="fu">setMode</span><span class="op">(</span><span class="st">"SINGLE"</span><span class="op">)</span></span>
+<span>  <span class="va">lyr</span><span class="op">$</span><span class="fu">addLayer</span><span class="op">(</span>layer <span class="op">=</span> <span class="st">"tasmania_cities"</span>, style <span class="op">=</span> <span class="st">"generic"</span><span class="op">)</span></span>
+<span>  <span class="va">lyr</span><span class="op">$</span><span class="fu">setBounds</span><span class="op">(</span><span class="op">-</span><span class="fl">180</span>,<span class="op">-</span><span class="fl">90</span>,<span class="fl">180</span>,<span class="fl">90</span>,crs <span class="op">=</span> <span class="st">"EPSG:4326"</span><span class="op">)</span></span>
+<span>  <span class="va">gsman</span><span class="op">$</span><span class="fu">createLayerGroup</span><span class="op">(</span>layerGroup <span class="op">=</span> <span class="va">lyr</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSLayerGroup-update"></a></p>
 </div>
 <div class="section level7">
 <h6 id="update-an-existing-layer-group">4.5.6.3 Update an existing <code>layer group</code><a class="anchor" aria-label="anchor" href="#update-an-existing-layer-group"></a>
 </h6>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">lyr</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSLayerGroup.html">GSLayerGroup</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span>
-  <span class="va">lyr</span><span class="op">$</span><span class="fu">setName</span><span class="op">(</span><span class="st">"test_layergroup"</span><span class="op">)</span>
-  <span class="va">lyr</span><span class="op">$</span><span class="fu">setTitle</span><span class="op">(</span><span class="st">"title"</span><span class="op">)</span>
-  <span class="va">lyr</span><span class="op">$</span><span class="fu">setAbstract</span><span class="op">(</span><span class="st">"abstract 2"</span><span class="op">)</span>
-  <span class="va">lyr</span><span class="op">$</span><span class="fu">setMode</span><span class="op">(</span><span class="st">"SINGLE"</span><span class="op">)</span>
-  <span class="va">lyr</span><span class="op">$</span><span class="fu">addLayer</span><span class="op">(</span>layer <span class="op">=</span> <span class="st">"tasmania_cities"</span>, style <span class="op">=</span> <span class="st">"generic"</span><span class="op">)</span>
-  <span class="va">lyr</span><span class="op">$</span><span class="fu">setBounds</span><span class="op">(</span><span class="op">-</span><span class="fl">180</span>,<span class="op">-</span><span class="fl">90</span>,<span class="fl">180</span>,<span class="fl">90</span>,crs <span class="op">=</span> <span class="st">"EPSG:4326"</span><span class="op">)</span>
-  <span class="va">gsman</span><span class="op">$</span><span class="fu">updateLayerGroup</span><span class="op">(</span>layerGroup <span class="op">=</span> <span class="va">lyr</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">lyr</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSLayerGroup.html">GSLayerGroup</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="va">lyr</span><span class="op">$</span><span class="fu">setName</span><span class="op">(</span><span class="st">"test_layergroup"</span><span class="op">)</span></span>
+<span>  <span class="va">lyr</span><span class="op">$</span><span class="fu">setTitle</span><span class="op">(</span><span class="st">"title"</span><span class="op">)</span></span>
+<span>  <span class="va">lyr</span><span class="op">$</span><span class="fu">setAbstract</span><span class="op">(</span><span class="st">"abstract 2"</span><span class="op">)</span></span>
+<span>  <span class="va">lyr</span><span class="op">$</span><span class="fu">setMode</span><span class="op">(</span><span class="st">"SINGLE"</span><span class="op">)</span></span>
+<span>  <span class="va">lyr</span><span class="op">$</span><span class="fu">addLayer</span><span class="op">(</span>layer <span class="op">=</span> <span class="st">"tasmania_cities"</span>, style <span class="op">=</span> <span class="st">"generic"</span><span class="op">)</span></span>
+<span>  <span class="va">lyr</span><span class="op">$</span><span class="fu">setBounds</span><span class="op">(</span><span class="op">-</span><span class="fl">180</span>,<span class="op">-</span><span class="fl">90</span>,<span class="fl">180</span>,<span class="fl">90</span>,crs <span class="op">=</span> <span class="st">"EPSG:4326"</span><span class="op">)</span></span>
+<span>  <span class="va">gsman</span><span class="op">$</span><span class="fu">updateLayerGroup</span><span class="op">(</span>layerGroup <span class="op">=</span> <span class="va">lyr</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSLayerGroup-delete"></a></p>
 </div>
 <div class="section level7">
 <h6 id="delete-an-existing-layer-group">4.5.6.4 Delete an existing <code>layer group</code><a class="anchor" aria-label="anchor" href="#delete-an-existing-layer-group"></a>
 </h6>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">deleted</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">deleteLayerGroup</span><span class="op">(</span><span class="st">"test_layergroup"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">deleted</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">deleteLayerGroup</span><span class="op">(</span><span class="st">"test_layergroup"</span><span class="op">)</span></span></code></pre></div>
 <p><a name="rasterdata"></a></p>
 </div>
 </div>
@@ -614,14 +614,14 @@
 <h6 id="get-a-list-of-coveragestores">4.6.1.1 Get a (list of) <code>coveragestore(s)</code><a class="anchor" aria-label="anchor" href="#get-a-list-of-coveragestores"></a>
 </h6>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="co">#get coveragestore objects</span>
-  <span class="va">cslist</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getCoverageStores</span><span class="op">(</span><span class="st">"nurc"</span><span class="op">)</span>
-
-  <span class="co">#get coveragestore names only</span>
-  <span class="va">csnames</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getCoverageStoreNames</span><span class="op">(</span><span class="st">"nurc"</span><span class="op">)</span>
-
-  <span class="co">#get coveragestore by name</span>
-  <span class="va">cs</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getCoverageStore</span><span class="op">(</span><span class="st">"nurc"</span>, <span class="st">"mosaic"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="co">#get coveragestore objects</span></span>
+<span>  <span class="va">cslist</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getCoverageStores</span><span class="op">(</span><span class="st">"nurc"</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co">#get coveragestore names only</span></span>
+<span>  <span class="va">csnames</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getCoverageStoreNames</span><span class="op">(</span><span class="st">"nurc"</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co">#get coveragestore by name</span></span>
+<span>  <span class="va">cs</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getCoverageStore</span><span class="op">(</span><span class="st">"nurc"</span>, <span class="st">"mosaic"</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSCoverageStore-create"></a></p>
 </div>
 <div class="section level7">
@@ -633,50 +633,50 @@
 </li>
 </ul>
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">cs</span> <span class="op">=</span> <span class="va"><a href="../reference/GSGeoTIFFCoverageStore.html">GSGeoTIFFCoverageStore</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>name<span class="op">=</span><span class="st">"sfdem_new"</span>, description <span class="op">=</span> <span class="st">"sfdem_new description"</span>, enabled <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createCoverageStore</span><span class="op">(</span><span class="st">"sf"</span>, <span class="va">cs</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">cs</span> <span class="op">=</span> <span class="va"><a href="../reference/GSGeoTIFFCoverageStore.html">GSGeoTIFFCoverageStore</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>name<span class="op">=</span><span class="st">"sfdem_new"</span>, description <span class="op">=</span> <span class="st">"sfdem_new description"</span>, enabled <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createCoverageStore</span><span class="op">(</span><span class="st">"sf"</span>, <span class="va">cs</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSWorldImageCoverageStore-create"></a></p>
 <ul>
 <li>4.6.1.2.2 Create a <strong>WorldImage</strong> <code>coveragestore</code>
 </li>
 </ul>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">cs</span> <span class="op">=</span> <span class="va"><a href="../reference/GSWorldImageCoverageStore.html">GSWorldImageCoverageStore</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>name<span class="op">=</span><span class="st">"sfdem_new"</span>, description <span class="op">=</span> <span class="st">"sfdem_new description"</span>, enabled <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createCoverageStore</span><span class="op">(</span><span class="st">"sf"</span>, <span class="va">cs</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">cs</span> <span class="op">=</span> <span class="va"><a href="../reference/GSWorldImageCoverageStore.html">GSWorldImageCoverageStore</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>name<span class="op">=</span><span class="st">"sfdem_new"</span>, description <span class="op">=</span> <span class="st">"sfdem_new description"</span>, enabled <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createCoverageStore</span><span class="op">(</span><span class="st">"sf"</span>, <span class="va">cs</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSArcGridCoverageStore-create"></a></p>
 <ul>
 <li>4.6.1.2.3 Create a <strong>ArcGrid</strong> <code>coveragestore</code>
 </li>
 </ul>
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">cs</span> <span class="op">=</span> <span class="va"><a href="../reference/GSArcGridCoverageStore.html">GSArcGridCoverageStore</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>name<span class="op">=</span><span class="st">"sfdem_new"</span>, description <span class="op">=</span> <span class="st">"sfdem_new description"</span>, enabled <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createCoverageStore</span><span class="op">(</span><span class="st">"sf"</span>, <span class="va">cs</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">cs</span> <span class="op">=</span> <span class="va"><a href="../reference/GSArcGridCoverageStore.html">GSArcGridCoverageStore</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>name<span class="op">=</span><span class="st">"sfdem_new"</span>, description <span class="op">=</span> <span class="st">"sfdem_new description"</span>, enabled <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createCoverageStore</span><span class="op">(</span><span class="st">"sf"</span>, <span class="va">cs</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSImageMosaicCoverageStore-create"></a></p>
 <ul>
 <li>4.6.1.2.4 Create a <strong>ImageMosaic</strong> <code>coveragestore</code>
 </li>
 </ul>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">cs</span> <span class="op">=</span> <span class="va"><a href="../reference/GSImageMosaicCoverageStore.html">GSImageMosaicCoverageStore</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>name<span class="op">=</span><span class="st">"sfdem_new"</span>, description <span class="op">=</span> <span class="st">"sfdem_new description"</span>, enabled <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createCoverageStore</span><span class="op">(</span><span class="st">"sf"</span>, <span class="va">cs</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">cs</span> <span class="op">=</span> <span class="va"><a href="../reference/GSImageMosaicCoverageStore.html">GSImageMosaicCoverageStore</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>name<span class="op">=</span><span class="st">"sfdem_new"</span>, description <span class="op">=</span> <span class="st">"sfdem_new description"</span>, enabled <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createCoverageStore</span><span class="op">(</span><span class="st">"sf"</span>, <span class="va">cs</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSCoverageStore-update"></a></p>
 </div>
 <div class="section level7">
 <h6 id="update-an-existing-coveragestore">4.6.1.3 Update an existing <code>coveragestore</code><a class="anchor" aria-label="anchor" href="#update-an-existing-coveragestore"></a>
 </h6>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">cs</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getCoverageStore</span><span class="op">(</span><span class="st">"sf"</span>, <span class="st">"sfdem"</span><span class="op">)</span>
-  <span class="va">cs</span><span class="op">$</span><span class="fu">setDescription</span><span class="op">(</span><span class="st">"sfdem updated description"</span><span class="op">)</span>
-  <span class="va">cs</span><span class="op">$</span><span class="fu">setEnabled</span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span>
-  
-  <span class="va">updated</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateCoverageStore</span><span class="op">(</span><span class="st">"sf"</span>, <span class="va">cs</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">cs</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getCoverageStore</span><span class="op">(</span><span class="st">"sf"</span>, <span class="st">"sfdem"</span><span class="op">)</span></span>
+<span>  <span class="va">cs</span><span class="op">$</span><span class="fu">setDescription</span><span class="op">(</span><span class="st">"sfdem updated description"</span><span class="op">)</span></span>
+<span>  <span class="va">cs</span><span class="op">$</span><span class="fu">setEnabled</span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">updated</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateCoverageStore</span><span class="op">(</span><span class="st">"sf"</span>, <span class="va">cs</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSCoverageStore-delete"></a></p>
 </div>
 <div class="section level7">
 <h6 id="delete-an-existing-coveragestore">4.6.1.4 Delete an existing <code>coveragestore</code><a class="anchor" aria-label="anchor" href="#delete-an-existing-coveragestore"></a>
 </h6>
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">deleted</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">deleteCoverageStore</span><span class="op">(</span><span class="st">"sf"</span>, <span class="st">"sfdem"</span>, recurse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">deleted</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">deleteCoverageStore</span><span class="op">(</span><span class="st">"sf"</span>, <span class="st">"sfdem"</span>, recurse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>The <code>recurse</code> parameter allows to delete all coverages published under the deleted coveragestore.</p>
 <p><a name="GSCoverage-upload"></a></p>
 </div>
@@ -688,11 +688,11 @@
 <p>To simplify the upload, several coverage-specific methods were designed targeting specific data file extensions. These methods share the same parameters as above except the <code>extension</code> and <code>contentType</code> that will be pre-set according to the data upload format: * <code>uploadGeoTIFF</code>: upload a GeoTIFF file * <code>uploadWorldImage</code>: upload a WorldImage file * <code>uploadArcGrid</code>: upload an ArcGrid file * <code>uploadImageMosaic</code>: upload an ImageMosaic</p>
 <p>Example with a GeoTIFF upload</p>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">uploaded</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">uploadGeoTIFF</span><span class="op">(</span>
-    ws <span class="op">=</span> <span class="st">"sf"</span>, cs <span class="op">=</span> <span class="st">"sfdem_new"</span>,
-    endpoint <span class="op">=</span> <span class="st">"file"</span>, configure <span class="op">=</span> <span class="st">"none"</span>, update <span class="op">=</span> <span class="st">"overwrite"</span>,
-    filename <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/sfdem_new.tif"</span>, package <span class="op">=</span> <span class="st">"geosapi"</span><span class="op">)</span>
-  <span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">uploaded</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">uploadGeoTIFF</span><span class="op">(</span></span>
+<span>    ws <span class="op">=</span> <span class="st">"sf"</span>, cs <span class="op">=</span> <span class="st">"sfdem_new"</span>,</span>
+<span>    endpoint <span class="op">=</span> <span class="st">"file"</span>, configure <span class="op">=</span> <span class="st">"none"</span>, update <span class="op">=</span> <span class="st">"overwrite"</span>,</span>
+<span>    filename <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata/sfdem_new.tif"</span>, package <span class="op">=</span> <span class="st">"geosapi"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
 <p><a name="GSCoverage"></a></p>
 </div>
 <div class="section level6">
@@ -706,87 +706,87 @@
 <h6 id="get-a-list-of-coverages">4.6.3.1 Get a (list of) <code>coverage(s)</code><a class="anchor" aria-label="anchor" href="#get-a-list-of-coverages"></a>
 </h6>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="co">#get coverage objects</span>
-  <span class="va">covlist</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getCoverages</span><span class="op">(</span><span class="st">"sf"</span>, <span class="st">"sfdem"</span><span class="op">)</span>
-
-  <span class="co">#get coverage names only</span>
-  <span class="va">covnames</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getCoverageNames</span><span class="op">(</span><span class="st">"sf"</span>, <span class="st">"sfdem"</span><span class="op">)</span>
-
-  <span class="co">#get coverage by name</span>
-  <span class="va">cov</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getCoverage</span><span class="op">(</span><span class="st">"sf"</span>, <span class="st">"sfdem"</span>, <span class="st">"sfdem"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="co">#get coverage objects</span></span>
+<span>  <span class="va">covlist</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getCoverages</span><span class="op">(</span><span class="st">"sf"</span>, <span class="st">"sfdem"</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co">#get coverage names only</span></span>
+<span>  <span class="va">covnames</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getCoverageNames</span><span class="op">(</span><span class="st">"sf"</span>, <span class="st">"sfdem"</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co">#get coverage by name</span></span>
+<span>  <span class="va">cov</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getCoverage</span><span class="op">(</span><span class="st">"sf"</span>, <span class="st">"sfdem"</span>, <span class="st">"sfdem"</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSCoverage-create"></a></p>
 </div>
 <div class="section level7">
 <h6 id="create-a-new-coverage">4.6.3.2 Create a new <code>coverage</code><a class="anchor" aria-label="anchor" href="#create-a-new-coverage"></a>
 </h6>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="co">#create coverage object</span>
-  <span class="va">cov</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSCoverage.html">GSCoverage</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span>
-  <span class="va">cov</span><span class="op">$</span><span class="fu">setName</span><span class="op">(</span><span class="st">"sfdem_new"</span><span class="op">)</span>
-  <span class="va">cov</span><span class="op">$</span><span class="fu">setNativeName</span><span class="op">(</span><span class="st">"sfdem_new"</span><span class="op">)</span>
-  <span class="va">cov</span><span class="op">$</span><span class="fu">setTitle</span><span class="op">(</span><span class="st">"Title for sfdem"</span><span class="op">)</span>
-  <span class="va">cov</span><span class="op">$</span><span class="fu">setDescription</span><span class="op">(</span><span class="st">"Description for sfdem"</span><span class="op">)</span>
-  <span class="va">cov</span><span class="op">$</span><span class="fu">addKeyword</span><span class="op">(</span><span class="st">"sfdem keyword1"</span><span class="op">)</span>
-  <span class="va">cov</span><span class="op">$</span><span class="fu">addKeyword</span><span class="op">(</span><span class="st">"sfdem keyword2"</span><span class="op">)</span>
-  <span class="va">cov</span><span class="op">$</span><span class="fu">addKeyword</span><span class="op">(</span><span class="st">"sfdem keyword3"</span><span class="op">)</span>
-  
-  <span class="va">md1</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSMetadataLink.html">GSMetadataLink</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>
-    type <span class="op">=</span> <span class="st">"text/xml"</span>,
-    metadataType <span class="op">=</span> <span class="st">"ISO19115:2003"</span>,
-    content <span class="op">=</span> <span class="st">"http://somelink.org/sfdem_new/xml"</span>
-  <span class="op">)</span>
-  <span class="va">cov</span><span class="op">$</span><span class="fu">addMetadataLink</span><span class="op">(</span><span class="va">md1</span><span class="op">)</span>
-  <span class="va">md2</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSMetadataLink.html">GSMetadataLink</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>
-    type <span class="op">=</span> <span class="st">"text/html"</span>,
-    metadataType <span class="op">=</span> <span class="st">"ISO19115:2003"</span>,
-    content <span class="op">=</span> <span class="st">"http://somelink.org/sfdem_new/html"</span>
-  <span class="op">)</span>
-  <span class="va">cov</span><span class="op">$</span><span class="fu">addMetadataLink</span><span class="op">(</span><span class="va">md2</span><span class="op">)</span>
-  
-  <span class="va">cov</span><span class="op">$</span><span class="fu">setSrs</span><span class="op">(</span><span class="st">"EPSG:4326"</span><span class="op">)</span>
-  <span class="va">cov</span><span class="op">$</span><span class="fu">setNativeCRS</span><span class="op">(</span><span class="st">"EPSG:26713"</span><span class="op">)</span>
-  <span class="va">cov</span><span class="op">$</span><span class="fu">setLatLonBoundingBox</span><span class="op">(</span><span class="op">-</span><span class="fl">103.87108701853181</span>, <span class="fl">44.370187074132616</span>, <span class="op">-</span><span class="fl">103.62940739432703</span>, <span class="fl">44.5016011535299</span>, crs <span class="op">=</span> <span class="st">"EPSG:4326"</span><span class="op">)</span>
-  <span class="va">cov</span><span class="op">$</span><span class="fu">setNativeBoundingBox</span><span class="op">(</span><span class="fl">589980</span>, <span class="fl">4913700</span>, <span class="fl">609000</span>, <span class="fl">4928010</span>, crs <span class="op">=</span> <span class="st">"EPSG:26713"</span><span class="op">)</span>
-  
-  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createCoverage</span><span class="op">(</span>ws <span class="op">=</span> <span class="st">"sf"</span>, cs <span class="op">=</span> <span class="st">"sfdem_new"</span>, coverage <span class="op">=</span> <span class="va">cov</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="co">#create coverage object</span></span>
+<span>  <span class="va">cov</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSCoverage.html">GSCoverage</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="va">cov</span><span class="op">$</span><span class="fu">setName</span><span class="op">(</span><span class="st">"sfdem_new"</span><span class="op">)</span></span>
+<span>  <span class="va">cov</span><span class="op">$</span><span class="fu">setNativeName</span><span class="op">(</span><span class="st">"sfdem_new"</span><span class="op">)</span></span>
+<span>  <span class="va">cov</span><span class="op">$</span><span class="fu">setTitle</span><span class="op">(</span><span class="st">"Title for sfdem"</span><span class="op">)</span></span>
+<span>  <span class="va">cov</span><span class="op">$</span><span class="fu">setDescription</span><span class="op">(</span><span class="st">"Description for sfdem"</span><span class="op">)</span></span>
+<span>  <span class="va">cov</span><span class="op">$</span><span class="fu">addKeyword</span><span class="op">(</span><span class="st">"sfdem keyword1"</span><span class="op">)</span></span>
+<span>  <span class="va">cov</span><span class="op">$</span><span class="fu">addKeyword</span><span class="op">(</span><span class="st">"sfdem keyword2"</span><span class="op">)</span></span>
+<span>  <span class="va">cov</span><span class="op">$</span><span class="fu">addKeyword</span><span class="op">(</span><span class="st">"sfdem keyword3"</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">md1</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSMetadataLink.html">GSMetadataLink</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
+<span>    type <span class="op">=</span> <span class="st">"text/xml"</span>,</span>
+<span>    metadataType <span class="op">=</span> <span class="st">"ISO19115:2003"</span>,</span>
+<span>    content <span class="op">=</span> <span class="st">"http://somelink.org/sfdem_new/xml"</span></span>
+<span>  <span class="op">)</span></span>
+<span>  <span class="va">cov</span><span class="op">$</span><span class="fu">addMetadataLink</span><span class="op">(</span><span class="va">md1</span><span class="op">)</span></span>
+<span>  <span class="va">md2</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSMetadataLink.html">GSMetadataLink</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span></span>
+<span>    type <span class="op">=</span> <span class="st">"text/html"</span>,</span>
+<span>    metadataType <span class="op">=</span> <span class="st">"ISO19115:2003"</span>,</span>
+<span>    content <span class="op">=</span> <span class="st">"http://somelink.org/sfdem_new/html"</span></span>
+<span>  <span class="op">)</span></span>
+<span>  <span class="va">cov</span><span class="op">$</span><span class="fu">addMetadataLink</span><span class="op">(</span><span class="va">md2</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">cov</span><span class="op">$</span><span class="fu">setSrs</span><span class="op">(</span><span class="st">"EPSG:4326"</span><span class="op">)</span></span>
+<span>  <span class="va">cov</span><span class="op">$</span><span class="fu">setNativeCRS</span><span class="op">(</span><span class="st">"EPSG:26713"</span><span class="op">)</span></span>
+<span>  <span class="va">cov</span><span class="op">$</span><span class="fu">setLatLonBoundingBox</span><span class="op">(</span><span class="op">-</span><span class="fl">103.87108701853181</span>, <span class="fl">44.370187074132616</span>, <span class="op">-</span><span class="fl">103.62940739432703</span>, <span class="fl">44.5016011535299</span>, crs <span class="op">=</span> <span class="st">"EPSG:4326"</span><span class="op">)</span></span>
+<span>  <span class="va">cov</span><span class="op">$</span><span class="fu">setNativeBoundingBox</span><span class="op">(</span><span class="fl">589980</span>, <span class="fl">4913700</span>, <span class="fl">609000</span>, <span class="fl">4928010</span>, crs <span class="op">=</span> <span class="st">"EPSG:26713"</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createCoverage</span><span class="op">(</span>ws <span class="op">=</span> <span class="st">"sf"</span>, cs <span class="op">=</span> <span class="st">"sfdem_new"</span>, coverage <span class="op">=</span> <span class="va">cov</span><span class="op">)</span></span></code></pre></div>
 <p><strong>How to set a Geoserver Coverage View</strong></p>
 <p>With <code>geosapi</code>, it is also possible to configure a Geoserver Coverage View. For this, GeoServer uses the concept of <em>CoverageView</em>. The code below explains how to configure such coverage view with <code>geosapi</code>:</p>
 <div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
-<code class="sourceCode R">
-  <span class="co">##coverage view</span>
-  <span class="va">coview</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSCoverageView.html">GSCoverageView</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span>
-  <span class="va">coview</span><span class="op">$</span><span class="fu">setName</span><span class="op">(</span><span class="st">"sfdem_new"</span><span class="op">)</span>
-  <span class="va">coview</span><span class="op">$</span><span class="fu">setEnvelopeCompositionType</span><span class="op">(</span><span class="st">"INTERSECTION"</span><span class="op">)</span>
-  <span class="va">coview</span><span class="op">$</span><span class="fu">setSelectedResolution</span><span class="op">(</span><span class="st">"BEST"</span><span class="op">)</span>
-  <span class="va">coview</span><span class="op">$</span><span class="fu">setSelectedResolutionIndex</span><span class="op">(</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span>
-  <span class="va">coviewband</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSCoverageBand.html">GSCoverageBand</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span>
-  <span class="va">coviewband</span><span class="op">$</span><span class="fu">setDefinition</span><span class="op">(</span><span class="st">"sfdem_new@0"</span><span class="op">)</span>
-  <span class="va">coviewband</span><span class="op">$</span><span class="fu">setIndex</span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>
-  <span class="va">coviewband</span><span class="op">$</span><span class="fu">addInputBand</span><span class="op">(</span><span class="va"><a href="../reference/GSInputCoverageBand.html">GSInputCoverageBand</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span> coverageName <span class="op">=</span> <span class="st">"sfdem_new"</span>, band <span class="op">=</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span>
-  <span class="va">coview</span><span class="op">$</span><span class="fu">addBand</span><span class="op">(</span><span class="va">coviewband</span><span class="op">)</span>
-
-  <span class="co">##add coverage view to coverage</span>
-  <span class="va">cov</span><span class="op">$</span><span class="fu">setView</span><span class="op">(</span><span class="va">coview</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span></span>
+<span>  <span class="co">##coverage view</span></span>
+<span>  <span class="va">coview</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSCoverageView.html">GSCoverageView</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="va">coview</span><span class="op">$</span><span class="fu">setName</span><span class="op">(</span><span class="st">"sfdem_new"</span><span class="op">)</span></span>
+<span>  <span class="va">coview</span><span class="op">$</span><span class="fu">setEnvelopeCompositionType</span><span class="op">(</span><span class="st">"INTERSECTION"</span><span class="op">)</span></span>
+<span>  <span class="va">coview</span><span class="op">$</span><span class="fu">setSelectedResolution</span><span class="op">(</span><span class="st">"BEST"</span><span class="op">)</span></span>
+<span>  <span class="va">coview</span><span class="op">$</span><span class="fu">setSelectedResolutionIndex</span><span class="op">(</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
+<span>  <span class="va">coviewband</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSCoverageBand.html">GSCoverageBand</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="va">coviewband</span><span class="op">$</span><span class="fu">setDefinition</span><span class="op">(</span><span class="st">"sfdem_new@0"</span><span class="op">)</span></span>
+<span>  <span class="va">coviewband</span><span class="op">$</span><span class="fu">setIndex</span><span class="op">(</span><span class="fl">0</span><span class="op">)</span></span>
+<span>  <span class="va">coviewband</span><span class="op">$</span><span class="fu">addInputBand</span><span class="op">(</span><span class="va"><a href="../reference/GSInputCoverageBand.html">GSInputCoverageBand</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span> coverageName <span class="op">=</span> <span class="st">"sfdem_new"</span>, band <span class="op">=</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="va">coview</span><span class="op">$</span><span class="fu">addBand</span><span class="op">(</span><span class="va">coviewband</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co">##add coverage view to coverage</span></span>
+<span>  <span class="va">cov</span><span class="op">$</span><span class="fu">setView</span><span class="op">(</span><span class="va">coview</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSCoverage-update"></a></p>
 </div>
 <div class="section level7">
 <h6 id="update-an-existing-coverage">4.6.3.3 Update an existing <code>coverage</code><a class="anchor" aria-label="anchor" href="#update-an-existing-coverage"></a>
 </h6>
 <div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="co">#fetch coverage and update some properties</span>
-  <span class="va">cov</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getCoverage</span><span class="op">(</span><span class="st">"sf"</span>, <span class="st">"sfdem"</span>, <span class="st">"sfdem"</span><span class="op">)</span>
-  <span class="va">cov</span><span class="op">$</span><span class="fu">setAbstract</span><span class="op">(</span><span class="st">"abstract updated"</span><span class="op">)</span>
-  <span class="va">cov</span><span class="op">$</span><span class="fu">setEnabled</span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span>
-  
-  <span class="co">#update coverage in GeoServer</span>
-  <span class="va">updated</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateCoverage</span><span class="op">(</span><span class="st">"sf"</span>, <span class="st">"sfdem"</span>, <span class="va">cov</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="co">#fetch coverage and update some properties</span></span>
+<span>  <span class="va">cov</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getCoverage</span><span class="op">(</span><span class="st">"sf"</span>, <span class="st">"sfdem"</span>, <span class="st">"sfdem"</span><span class="op">)</span></span>
+<span>  <span class="va">cov</span><span class="op">$</span><span class="fu">setAbstract</span><span class="op">(</span><span class="st">"abstract updated"</span><span class="op">)</span></span>
+<span>  <span class="va">cov</span><span class="op">$</span><span class="fu">setEnabled</span><span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span></span>
+<span>  </span>
+<span>  <span class="co">#update coverage in GeoServer</span></span>
+<span>  <span class="va">updated</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateCoverage</span><span class="op">(</span><span class="st">"sf"</span>, <span class="st">"sfdem"</span>, <span class="va">cov</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSCoverage-delete"></a></p>
 </div>
 <div class="section level7">
 <h6 id="delete-an-existing-coverage">4.6.3.4 Delete an existing <code>coverage</code><a class="anchor" aria-label="anchor" href="#delete-an-existing-coverage"></a>
 </h6>
 <div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">deleted</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">deleteCoverage</span><span class="op">(</span><span class="st">"sf"</span>, <span class="st">"sfdem"</span>, <span class="st">"sfdem"</span>, recurse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">deleted</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">deleteCoverage</span><span class="op">(</span><span class="st">"sf"</span>, <span class="st">"sfdem"</span>, <span class="st">"sfdem"</span>, recurse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>The <code>recurse</code> parameter allows to delete the layer published for the deleted featureType.</p>
 <p><a name="styles"></a></p>
 </div>
@@ -800,37 +800,37 @@
 <h6 id="get-a-list-of-styles">4.7.1 Get a (list of) <code>style</code>(s)<a class="anchor" aria-label="anchor" href="#get-a-list-of-styles"></a>
 </h6>
 <div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">styles</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getStyles</span><span class="op">(</span><span class="op">)</span>
-  <span class="va">stylenames</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getStyleNames</span><span class="op">(</span><span class="op">)</span>
-  <span class="va">style</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getStyle</span><span class="op">(</span><span class="st">"capitals"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">styles</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getStyles</span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="va">stylenames</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getStyleNames</span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="va">style</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getStyle</span><span class="op">(</span><span class="st">"capitals"</span><span class="op">)</span></span></code></pre></div>
 <p>From GeoServer 2.2, it is also possible to get the content of a style, ie the SLD body:</p>
 <div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">sld</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getSLDBody</span><span class="op">(</span><span class="st">"capitals"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">sld</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getSLDBody</span><span class="op">(</span><span class="st">"capitals"</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSStyle-create"></a></p>
 </div>
 <div class="section level6">
 <h6 id="create-a-new-style">4.7.2 Create a new <code>style</code><a class="anchor" aria-label="anchor" href="#create-a-new-style"></a>
 </h6>
 <div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">sldFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"mystyle.sld"</span>, package <span class="op">=</span> <span class="st">"geosapi"</span><span class="op">)</span> <span class="co">#to use 'file' argument of gsman$createStyle</span>
-  <span class="va">sldStyle</span> <span class="op">&lt;-</span> <span class="fu">xmlParse</span><span class="op">(</span><span class="va">sldFile</span><span class="op">)</span> <span class="co">#to use 'sldBody' argument of gsman$createStyle</span>
-  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createStyle</span><span class="op">(</span>file <span class="op">=</span> <span class="va">sldFile</span>, name <span class="op">=</span> <span class="st">"mystyle"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">sldFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"mystyle.sld"</span>, package <span class="op">=</span> <span class="st">"geosapi"</span><span class="op">)</span> <span class="co">#to use 'file' argument of gsman$createStyle</span></span>
+<span>  <span class="va">sldStyle</span> <span class="op">&lt;-</span> <span class="fu">xmlParse</span><span class="op">(</span><span class="va">sldFile</span><span class="op">)</span> <span class="co">#to use 'sldBody' argument of gsman$createStyle</span></span>
+<span>  <span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createStyle</span><span class="op">(</span>file <span class="op">=</span> <span class="va">sldFile</span>, name <span class="op">=</span> <span class="st">"mystyle"</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSStyle-update"></a></p>
 </div>
 <div class="section level6">
 <h6 id="update-a-new-style">4.7.3 Update a new <code>style</code><a class="anchor" aria-label="anchor" href="#update-a-new-style"></a>
 </h6>
 <div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">sldFile2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"mystyle2.sld"</span>, package <span class="op">=</span> <span class="st">"geosapi"</span><span class="op">)</span> <span class="co">#to use 'file' argument of gsman$updateStyle</span>
-  <span class="va">sldStyle2</span> <span class="op">&lt;-</span> <span class="fu">xmlParse</span><span class="op">(</span><span class="va">sldFile2</span><span class="op">)</span> <span class="co">#to use 'sldBody' argument of gsman$updateStyle</span>
-  <span class="va">updated</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateStyle</span><span class="op">(</span>sldBody <span class="op">=</span> <span class="va">sldStyle2</span>, name <span class="op">=</span> <span class="st">"mystyle"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">sldFile2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"mystyle2.sld"</span>, package <span class="op">=</span> <span class="st">"geosapi"</span><span class="op">)</span> <span class="co">#to use 'file' argument of gsman$updateStyle</span></span>
+<span>  <span class="va">sldStyle2</span> <span class="op">&lt;-</span> <span class="fu">xmlParse</span><span class="op">(</span><span class="va">sldFile2</span><span class="op">)</span> <span class="co">#to use 'sldBody' argument of gsman$updateStyle</span></span>
+<span>  <span class="va">updated</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateStyle</span><span class="op">(</span>sldBody <span class="op">=</span> <span class="va">sldStyle2</span>, name <span class="op">=</span> <span class="st">"mystyle"</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSStyle-delete"></a></p>
 </div>
 <div class="section level6">
 <h6 id="delete-an-existing-style">4.7.4 Delete an existing <code>style</code><a class="anchor" aria-label="anchor" href="#delete-an-existing-style"></a>
 </h6>
 <div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
-<code class="sourceCode R">  <span class="va">deleted</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">deleteStyle</span><span class="op">(</span><span class="st">"mystyle"</span>, recurse <span class="op">=</span> <span class="cn">TRUE</span>, purge <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span>  <span class="va">deleted</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">deleteStyle</span><span class="op">(</span><span class="st">"mystyle"</span>, recurse <span class="op">=</span> <span class="cn">TRUE</span>, purge <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p>All methods describe here above also support a <code>ws</code> argument where a workspace can be specified.</p>
 <p><a name="settings_workspaces"></a></p>
 </div>
@@ -845,9 +845,9 @@
 </h6>
 <p>Creating a workspace settings is equivalent to check the “Enabled” checkbox in the <em>Settings</em> section of a workspace edition page in the GeoServer UI. To create it (assuming a workspace named <code>geosapi</code>), run the following code:</p>
 <div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">settings</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSWorkspaceSettings.html">GSWorkspaceSettings</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span>
-<span class="va">settings</span><span class="op">$</span><span class="fu">setNumDecimals</span><span class="op">(</span><span class="fl">5</span><span class="op">)</span> <span class="co">#custom number of decimals for data published in this workspace</span>
-<span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createWorkspaceSettings</span><span class="op">(</span><span class="st">"geosapi"</span>, <span class="va">settings</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">settings</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSWorkspaceSettings.html">GSWorkspaceSettings</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">settings</span><span class="op">$</span><span class="fu">setNumDecimals</span><span class="op">(</span><span class="fl">5</span><span class="op">)</span> <span class="co">#custom number of decimals for data published in this workspace</span></span>
+<span><span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">createWorkspaceSettings</span><span class="op">(</span><span class="st">"geosapi"</span>, <span class="va">settings</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSWorkspaceSettings-get"></a></p>
 </div>
 <div class="section level6">
@@ -855,7 +855,7 @@
 </h6>
 <p>To get a workspace settings, use the following code:</p>
 <div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">geosapi_settings</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getWorkspaceSettings</span><span class="op">(</span><span class="st">"geosapi"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">geosapi_settings</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getWorkspaceSettings</span><span class="op">(</span><span class="st">"geosapi"</span><span class="op">)</span></span></code></pre></div>
 <p>This method can be used in view of updating a workspace settings.</p>
 <p><a name="GSWorkspaceSettings-update"></a></p>
 </div>
@@ -864,9 +864,9 @@
 </h6>
 <p>Similar method can be used for updating the workspace configuration:</p>
 <div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">settings</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getWorkspaceSettings</span><span class="op">(</span><span class="st">"geosapi"</span><span class="op">)</span>
-<span class="va">settings</span><span class="op">$</span><span class="fu">setNumDecimals</span><span class="op">(</span><span class="fl">9</span><span class="op">)</span> <span class="co">#change number of decimals</span>
-<span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateWorkspaceSettings</span><span class="op">(</span><span class="st">"geosapi"</span>, <span class="va">settings</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">settings</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getWorkspaceSettings</span><span class="op">(</span><span class="st">"geosapi"</span><span class="op">)</span></span>
+<span><span class="va">settings</span><span class="op">$</span><span class="fu">setNumDecimals</span><span class="op">(</span><span class="fl">9</span><span class="op">)</span> <span class="co">#change number of decimals</span></span>
+<span><span class="va">created</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateWorkspaceSettings</span><span class="op">(</span><span class="st">"geosapi"</span>, <span class="va">settings</span><span class="op">)</span></span></code></pre></div>
 <p><a name="GSWorkspaceSettings-delete"></a></p>
 </div>
 <div class="section level6">
@@ -874,7 +874,7 @@
 </h6>
 <p>The settings can be deleted (equivalent of unchecking the “Enabled” checkbox in a workspace settings section):</p>
 <div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">deleted</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">deleteWorkspaceSettings</span><span class="op">(</span><span class="st">"geosapi"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">deleted</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">deleteWorkspaceSettings</span><span class="op">(</span><span class="st">"geosapi"</span><span class="op">)</span></span></code></pre></div>
 <p><a name="settings_services"></a></p>
 </div>
 </div>
@@ -887,18 +887,18 @@
 </h6>
 <p>To get an OGC service settings (global, or workspace specific), geosapi offers a generic method that can be used as follows:</p>
 <div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#get WMS global settings</span>
-<span class="va">wms_global_settings</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getServiceSettings</span><span class="op">(</span>service <span class="op">=</span> <span class="st">"WMS"</span><span class="op">)</span>
-
-<span class="co">#get WMS geosapi settings</span>
-<span class="va">wms_geosapi_settings</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getServiceSettings</span><span class="op">(</span>service <span class="op">=</span> <span class="st">"WMS"</span>, ws <span class="op">=</span> <span class="st">"geosapi"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#get WMS global settings</span></span>
+<span><span class="va">wms_global_settings</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getServiceSettings</span><span class="op">(</span>service <span class="op">=</span> <span class="st">"WMS"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#get WMS geosapi settings</span></span>
+<span><span class="va">wms_geosapi_settings</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getServiceSettings</span><span class="op">(</span>service <span class="op">=</span> <span class="st">"WMS"</span>, ws <span class="op">=</span> <span class="st">"geosapi"</span><span class="op">)</span></span></code></pre></div>
 <p>Shortcut methods can also be used as follow:</p>
 <div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#get WMS global settings</span>
-<span class="va">wms_global_settings</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getWmsSettings</span><span class="op">(</span><span class="op">)</span>
-
-<span class="co">#get WMS geosapi settings</span>
-<span class="va">wms_geosapi_settings</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getWmsSettings</span><span class="op">(</span>ws <span class="op">=</span> <span class="st">"geosapi"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#get WMS global settings</span></span>
+<span><span class="va">wms_global_settings</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getWmsSettings</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#get WMS geosapi settings</span></span>
+<span><span class="va">wms_geosapi_settings</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getWmsSettings</span><span class="op">(</span>ws <span class="op">=</span> <span class="st">"geosapi"</span><span class="op">)</span></span></code></pre></div>
 <p>Analog methods are available for WFS and WCS.</p>
 <p><a name="GSServiceSettings-update"></a></p>
 </div>
@@ -910,20 +910,20 @@
 <li>Update the WMS global configuration:</li>
 </ul>
 <div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">wmsSettings</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getWmsSettings</span><span class="op">(</span><span class="op">)</span>
-<span class="va">wmsSettings</span><span class="op">$</span><span class="fu">setTitle</span><span class="op">(</span><span class="st">"Tile for my global WMS"</span><span class="op">)</span>
-<span class="va">updated</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateServiceSettings</span><span class="op">(</span><span class="va">wmsSettings</span>, service <span class="op">=</span> <span class="st">"WMS"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">wmsSettings</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">getWmsSettings</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">wmsSettings</span><span class="op">$</span><span class="fu">setTitle</span><span class="op">(</span><span class="st">"Tile for my global WMS"</span><span class="op">)</span></span>
+<span><span class="va">updated</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateServiceSettings</span><span class="op">(</span><span class="va">wmsSettings</span>, service <span class="op">=</span> <span class="st">"WMS"</span><span class="op">)</span></span></code></pre></div>
 <p>Shortcut update methods are also available. The last code line above can be replaced by:</p>
 <div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">updated</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateWmsSettings</span><span class="op">(</span><span class="va">wmsSettings</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">updated</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateWmsSettings</span><span class="op">(</span><span class="va">wmsSettings</span><span class="op">)</span></span></code></pre></div>
 <ul>
 <li>Update WMS workspace configuration</li>
 </ul>
 <div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">wmsSettings</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSServiceSettings.html">GSServiceSettings</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>service <span class="op">=</span> <span class="st">"WMS"</span><span class="op">)</span>
-<span class="va">wmsSettings</span><span class="op">$</span><span class="fu">setTitle</span><span class="op">(</span><span class="st">"Tile for my workspace WMS"</span><span class="op">)</span>
-<span class="va">wmsSettings</span><span class="op">$</span><span class="fu">setAbstract</span><span class="op">(</span><span class="st">"This WMS is set-up specifically for the workspace geosapi"</span><span class="op">)</span>
-<span class="va">updated</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateServiceSettings</span><span class="op">(</span><span class="va">wmsSettings</span>, service <span class="op">=</span> <span class="st">"WMS"</span>, ws <span class="op">=</span> <span class="st">"geosapi"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">wmsSettings</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/GSServiceSettings.html">GSServiceSettings</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>service <span class="op">=</span> <span class="st">"WMS"</span><span class="op">)</span></span>
+<span><span class="va">wmsSettings</span><span class="op">$</span><span class="fu">setTitle</span><span class="op">(</span><span class="st">"Tile for my workspace WMS"</span><span class="op">)</span></span>
+<span><span class="va">wmsSettings</span><span class="op">$</span><span class="fu">setAbstract</span><span class="op">(</span><span class="st">"This WMS is set-up specifically for the workspace geosapi"</span><span class="op">)</span></span>
+<span><span class="va">updated</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">updateServiceSettings</span><span class="op">(</span><span class="va">wmsSettings</span>, service <span class="op">=</span> <span class="st">"WMS"</span>, ws <span class="op">=</span> <span class="st">"geosapi"</span><span class="op">)</span></span></code></pre></div>
 <p>The last code line above could be replaced by the shortcut method:</p>
 <p><code>updated &lt;- gsman$updateWmsSettings(wmsSettings, ws = "geosapi")</code></p>
 <p><a name="GSServiceSettings-enable"></a></p>
@@ -935,27 +935,27 @@
 <ul>
 <li>Enable/Disable Global OGC services</li>
 </ul>
-<pre><code><span class="co">#disable global WMS</span>
-<span class="va">gsman</span><span class="op">$</span><span class="fu">disableWMS</span><span class="op">(</span><span class="op">)</span>
-<span class="co">#enable global WFS and WCS</span>
-<span class="va">gsman</span><span class="op">$</span><span class="fu">enableWFS</span><span class="op">(</span><span class="op">)</span>
-<span class="va">gsman</span><span class="op">$</span><span class="fu">enableWCS</span><span class="op">(</span><span class="op">)</span></code></pre>
+<pre><code><span><span class="co">#disable global WMS</span></span>
+<span><span class="va">gsman</span><span class="op">$</span><span class="fu">disableWMS</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#enable global WFS and WCS</span></span>
+<span><span class="va">gsman</span><span class="op">$</span><span class="fu">enableWFS</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">gsman</span><span class="op">$</span><span class="fu">enableWCS</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 <ul>
 <li>Enable/Disable OGC services at workspace level</li>
 </ul>
 <div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#activates WMS for workspace 'geosapi'</span>
-<span class="va">enabled</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">enableWMS</span><span class="op">(</span><span class="st">"geosapi"</span><span class="op">)</span>
-
-<span class="co">#deactivates WMS for workspace 'geosapi'</span>
-<span class="va">disabled</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">disableWMS</span><span class="op">(</span><span class="st">"geosapi"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#activates WMS for workspace 'geosapi'</span></span>
+<span><span class="va">enabled</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">enableWMS</span><span class="op">(</span><span class="st">"geosapi"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#deactivates WMS for workspace 'geosapi'</span></span>
+<span><span class="va">disabled</span> <span class="op">&lt;-</span> <span class="va">gsman</span><span class="op">$</span><span class="fu">disableWMS</span><span class="op">(</span><span class="st">"geosapi"</span><span class="op">)</span></span></code></pre></div>
 <p>Analog functions are available for WFS and WCS:</p>
-<pre><code><span class="co">#enable WFS and WCS for geosapi workspace</span>
-<span class="va">gsman</span><span class="op">$</span><span class="fu">enableWFS</span><span class="op">(</span><span class="st">"geosapi"</span><span class="op">)</span>
-<span class="va">gsman</span><span class="op">$</span><span class="fu">enableWCS</span><span class="op">(</span><span class="st">"geosapi"</span><span class="op">)</span></code></pre>
-<pre><code><span class="co">#disable WFS and WCS for geosapi workspace</span>
-<span class="va">gsman</span><span class="op">$</span><span class="fu">disableWFS</span><span class="op">(</span><span class="st">"geosapi"</span><span class="op">)</span>
-<span class="va">gsman</span><span class="op">$</span><span class="fu">disableWCS</span><span class="op">(</span><span class="st">"geosapi"</span><span class="op">)</span></code></pre>
+<pre><code><span><span class="co">#enable WFS and WCS for geosapi workspace</span></span>
+<span><span class="va">gsman</span><span class="op">$</span><span class="fu">enableWFS</span><span class="op">(</span><span class="st">"geosapi"</span><span class="op">)</span></span>
+<span><span class="va">gsman</span><span class="op">$</span><span class="fu">enableWCS</span><span class="op">(</span><span class="st">"geosapi"</span><span class="op">)</span></span></code></pre>
+<pre><code><span><span class="co">#disable WFS and WCS for geosapi workspace</span></span>
+<span><span class="va">gsman</span><span class="op">$</span><span class="fu">disableWFS</span><span class="op">(</span><span class="st">"geosapi"</span><span class="op">)</span></span>
+<span><span class="va">gsman</span><span class="op">$</span><span class="fu">disableWCS</span><span class="op">(</span><span class="st">"geosapi"</span><span class="op">)</span></span></code></pre>
 <p><a name="package_issues"></a></p>
 </div>
 </div>
@@ -980,7 +980,7 @@
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
     </footer>

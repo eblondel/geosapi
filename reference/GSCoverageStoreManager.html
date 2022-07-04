@@ -12,7 +12,7 @@ Geoserver REST API CoverageStore Manager"><!-- mathjax --><script src="https://c
     
     <a class="navbar-brand me-2" href="../index.html">geosapi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6-3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6-4</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -121,7 +121,7 @@ CoverageStores (i.e. stores of coverage data)</p>
 <p>Get the list of available coverage stores. Returns an object of class <code>list</code>
    giving items of class <code><a href="GSAbstractCoverageStore.html">GSAbstractCoverageStore</a></code></p><div class="section">
 <h4 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">getCoverageStores</span><span class="op">(</span><span class="va">ws</span><span class="op">)</span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">getCoverageStores</span><span class="op">(</span><span class="va">ws</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
@@ -141,7 +141,7 @@ CoverageStores (i.e. stores of coverage data)</p>
 <h3 id="method-getcoveragestorenames-">Method <code>getCoverageStoreNames()</code><a class="anchor" aria-label="anchor" href="#method-getcoveragestorenames-"></a></h3>
 <p>Get the list of available coverage store names. Returns an vector of class <code>character</code></p><div class="section">
 <h4 id="usage-1">Usage<a class="anchor" aria-label="anchor" href="#usage-1"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">getCoverageStoreNames</span><span class="op">(</span><span class="va">ws</span><span class="op">)</span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">getCoverageStoreNames</span><span class="op">(</span><span class="va">ws</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
@@ -161,7 +161,7 @@ CoverageStores (i.e. stores of coverage data)</p>
 <h3 id="method-getcoveragestore-">Method <code>getCoverageStore()</code><a class="anchor" aria-label="anchor" href="#method-getcoveragestore-"></a></h3>
 <p>Get an object of class <code><a href="GSAbstractDataStore.html">GSAbstractDataStore</a></code> given a workspace and coverage store names.</p><div class="section">
 <h4 id="usage-2">Usage<a class="anchor" aria-label="anchor" href="#usage-2"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">getCoverageStore</span><span class="op">(</span><span class="va">ws</span>, <span class="va">cs</span><span class="op">)</span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">getCoverageStore</span><span class="op">(</span><span class="va">ws</span>, <span class="va">cs</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
@@ -186,7 +186,7 @@ CoverageStores (i.e. stores of coverage data)</p>
 <p>Creates a new coverage store given a workspace, coverage store name. Abstract method used in below format-specific
    methods to create coverage stores.</p><div class="section">
 <h4 id="usage-3">Usage<a class="anchor" aria-label="anchor" href="#usage-3"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">createCoverageStore</span><span class="op">(</span><span class="va">ws</span>, <span class="va">coverageStore</span><span class="op">)</span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">createCoverageStore</span><span class="op">(</span><span class="va">ws</span>, <span class="va">coverageStore</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
@@ -211,7 +211,7 @@ CoverageStores (i.e. stores of coverage data)</p>
 <p>Updates a coverage store given a workspace, coverage store name. Abstract method used in below format-specific
    methods to create coverage stores.</p><div class="section">
 <h4 id="usage-4">Usage<a class="anchor" aria-label="anchor" href="#usage-4"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">updateCoverageStore</span><span class="op">(</span><span class="va">ws</span>, <span class="va">coverageStore</span><span class="op">)</span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">updateCoverageStore</span><span class="op">(</span><span class="va">ws</span>, <span class="va">coverageStore</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
@@ -239,12 +239,12 @@ CoverageStores (i.e. stores of coverage data)</p>
    to customize the delete of files on disk (in case the underlying reader implements a delete method). 
    It can take one of the three values: none, metadata, all. For more details see <a href="https://docs.geoserver.org/stable/en/user/rest/api/coveragestores.html#purge" class="external-link">https://docs.geoserver.org/stable/en/user/rest/api/coveragestores.html#purge</a></p><div class="section">
 <h4 id="usage-5">Usage<a class="anchor" aria-label="anchor" href="#usage-5"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">deleteCoverageStore</span><span class="op">(</span>
-  <span class="va">ws</span>,
-  <span class="va">cs</span>,
-  recurse <span class="op">=</span> <span class="cn">FALSE</span>,
-  purge <span class="op">=</span> <span class="cn">NULL</span>
-<span class="op">)</span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">deleteCoverageStore</span><span class="op">(</span></span>
+<span>  <span class="va">ws</span>,</span>
+<span>  <span class="va">cs</span>,</span>
+<span>  recurse <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  purge <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
@@ -277,7 +277,7 @@ CoverageStores (i.e. stores of coverage data)</p>
 <p>Get the list of available coverages for given workspace and coverage store.
    Returns an object of class <code>list</code> giving items of class <code><a href="GSCoverage.html">GSCoverage</a></code></p><div class="section">
 <h4 id="usage-6">Usage<a class="anchor" aria-label="anchor" href="#usage-6"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">getCoverages</span><span class="op">(</span><span class="va">ws</span>, <span class="va">cs</span><span class="op">)</span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">getCoverages</span><span class="op">(</span><span class="va">ws</span>, <span class="va">cs</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
@@ -302,7 +302,7 @@ CoverageStores (i.e. stores of coverage data)</p>
 <p>Get the list of available coverage names for given workspace and coverage store.
    Returns an object of class <code>list</code> giving items of class <code><a href="GSCoverage.html">GSCoverage</a></code></p><div class="section">
 <h4 id="usage-7">Usage<a class="anchor" aria-label="anchor" href="#usage-7"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">getCoverageNames</span><span class="op">(</span><span class="va">ws</span>, <span class="va">cs</span><span class="op">)</span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">getCoverageNames</span><span class="op">(</span><span class="va">ws</span>, <span class="va">cs</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
@@ -326,7 +326,7 @@ CoverageStores (i.e. stores of coverage data)</p>
 <h3 id="method-getcoverage-">Method <code>getCoverage()</code><a class="anchor" aria-label="anchor" href="#method-getcoverage-"></a></h3>
 <p>Get coverage</p><div class="section">
 <h4 id="usage-8">Usage<a class="anchor" aria-label="anchor" href="#usage-8"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">getCoverage</span><span class="op">(</span><span class="va">ws</span>, <span class="va">cs</span>, <span class="va">cv</span><span class="op">)</span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">getCoverage</span><span class="op">(</span><span class="va">ws</span>, <span class="va">cs</span>, <span class="va">cv</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
@@ -350,7 +350,7 @@ CoverageStores (i.e. stores of coverage data)</p>
 <h3 id="method-createcoverage-">Method <code>createCoverage()</code><a class="anchor" aria-label="anchor" href="#method-createcoverage-"></a></h3>
 <p>Creates a new coverage given a workspace, coverage store names and an object of class <code><a href="GSCoverage.html">GSCoverage</a></code></p><div class="section">
 <h4 id="usage-9">Usage<a class="anchor" aria-label="anchor" href="#usage-9"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">createCoverage</span><span class="op">(</span><span class="va">ws</span>, <span class="va">cs</span>, <span class="va">coverage</span><span class="op">)</span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">createCoverage</span><span class="op">(</span><span class="va">ws</span>, <span class="va">cs</span>, <span class="va">coverage</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
@@ -378,7 +378,7 @@ CoverageStores (i.e. stores of coverage data)</p>
 <h3 id="method-updatecoverage-">Method <code>updateCoverage()</code><a class="anchor" aria-label="anchor" href="#method-updatecoverage-"></a></h3>
 <p>Updates a coverage given a workspace, coverage store names and an object of class <code><a href="GSCoverage.html">GSCoverage</a></code></p><div class="section">
 <h4 id="usage-10">Usage<a class="anchor" aria-label="anchor" href="#usage-10"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">updateCoverage</span><span class="op">(</span><span class="va">ws</span>, <span class="va">cs</span>, <span class="va">coverage</span><span class="op">)</span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">updateCoverage</span><span class="op">(</span><span class="va">ws</span>, <span class="va">cs</span>, <span class="va">coverage</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
@@ -408,7 +408,7 @@ CoverageStores (i.e. stores of coverage data)</p>
    class <code><a href="GSCoverage.html">GSCoverage</a></code>. By defaut, the option <code>recurse</code> is 
    set to FALSE, ie coverage layers are not removed.</p><div class="section">
 <h4 id="usage-11">Usage<a class="anchor" aria-label="anchor" href="#usage-11"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">deleteCoverage</span><span class="op">(</span><span class="va">ws</span>, <span class="va">cs</span>, <span class="va">cv</span>, recurse <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">deleteCoverage</span><span class="op">(</span><span class="va">ws</span>, <span class="va">cs</span>, <span class="va">cv</span>, recurse <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
@@ -442,16 +442,16 @@ CoverageStores (i.e. stores of coverage data)</p>
    both datastore and layer). The <code>update</code> defines the strategy for the upload: <code>"append"</code> (default value) for 
    the first upload, <code>"overwrite"</code> in case the file should be overwriten.</p><div class="section">
 <h4 id="usage-12">Usage<a class="anchor" aria-label="anchor" href="#usage-12"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">uploadCoverage</span><span class="op">(</span>
-  <span class="va">ws</span>,
-  <span class="va">cs</span>,
-  endpoint <span class="op">=</span> <span class="st">"file"</span>,
-  <span class="va">extension</span>,
-  <span class="va">filename</span>,
-  configure <span class="op">=</span> <span class="st">"first"</span>,
-  update <span class="op">=</span> <span class="st">"append"</span>,
-  <span class="va">contentType</span>
-<span class="op">)</span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">uploadCoverage</span><span class="op">(</span></span>
+<span>  <span class="va">ws</span>,</span>
+<span>  <span class="va">cs</span>,</span>
+<span>  endpoint <span class="op">=</span> <span class="st">"file"</span>,</span>
+<span>  <span class="va">extension</span>,</span>
+<span>  <span class="va">filename</span>,</span>
+<span>  configure <span class="op">=</span> <span class="st">"first"</span>,</span>
+<span>  update <span class="op">=</span> <span class="st">"append"</span>,</span>
+<span>  <span class="va">contentType</span></span>
+<span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
@@ -504,14 +504,14 @@ CoverageStores (i.e. stores of coverage data)</p>
    both datastore and layer). The <code>update</code> defines the strategy for the upload: <code>"append"</code> (default value) for 
    the first upload, <code>"overwrite"</code> in case the file should be overwriten.</p><div class="section">
 <h4 id="usage-13">Usage<a class="anchor" aria-label="anchor" href="#usage-13"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">uploadGeoTIFF</span><span class="op">(</span>
-  <span class="va">ws</span>,
-  <span class="va">cs</span>,
-  endpoint <span class="op">=</span> <span class="st">"file"</span>,
-  <span class="va">filename</span>,
-  configure <span class="op">=</span> <span class="st">"first"</span>,
-  update <span class="op">=</span> <span class="st">"append"</span>
-<span class="op">)</span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">uploadGeoTIFF</span><span class="op">(</span></span>
+<span>  <span class="va">ws</span>,</span>
+<span>  <span class="va">cs</span>,</span>
+<span>  endpoint <span class="op">=</span> <span class="st">"file"</span>,</span>
+<span>  <span class="va">filename</span>,</span>
+<span>  configure <span class="op">=</span> <span class="st">"first"</span>,</span>
+<span>  update <span class="op">=</span> <span class="st">"append"</span></span>
+<span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
@@ -556,14 +556,14 @@ CoverageStores (i.e. stores of coverage data)</p>
    but no layer configuration) or <code>"first"</code> (configure both datastore and layer). The <code>update</code> defines the strategy
    for the upload: <code>"append"</code> (default value) for the first upload, <code>"overwrite"</code> in case the file should be overwriten.</p><div class="section">
 <h4 id="usage-14">Usage<a class="anchor" aria-label="anchor" href="#usage-14"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">uploadWorldImage</span><span class="op">(</span>
-  <span class="va">ws</span>,
-  <span class="va">cs</span>,
-  endpoint <span class="op">=</span> <span class="st">"file"</span>,
-  <span class="va">filename</span>,
-  configure <span class="op">=</span> <span class="st">"first"</span>,
-  update <span class="op">=</span> <span class="st">"append"</span>
-<span class="op">)</span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">uploadWorldImage</span><span class="op">(</span></span>
+<span>  <span class="va">ws</span>,</span>
+<span>  <span class="va">cs</span>,</span>
+<span>  endpoint <span class="op">=</span> <span class="st">"file"</span>,</span>
+<span>  <span class="va">filename</span>,</span>
+<span>  configure <span class="op">=</span> <span class="st">"first"</span>,</span>
+<span>  update <span class="op">=</span> <span class="st">"append"</span></span>
+<span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
@@ -608,14 +608,14 @@ CoverageStores (i.e. stores of coverage data)</p>
    both datastore and layer). The <code>update</code> defines the strategy for the upload: <code>"append"</code> (default value) for 
    the first upload, <code>"overwrite"</code> in case the file should be overwriten.</p><div class="section">
 <h4 id="usage-15">Usage<a class="anchor" aria-label="anchor" href="#usage-15"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">uploadArcGrid</span><span class="op">(</span>
-  <span class="va">ws</span>,
-  <span class="va">cs</span>,
-  endpoint <span class="op">=</span> <span class="st">"file"</span>,
-  <span class="va">filename</span>,
-  configure <span class="op">=</span> <span class="st">"first"</span>,
-  update <span class="op">=</span> <span class="st">"append"</span>
-<span class="op">)</span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">uploadArcGrid</span><span class="op">(</span></span>
+<span>  <span class="va">ws</span>,</span>
+<span>  <span class="va">cs</span>,</span>
+<span>  endpoint <span class="op">=</span> <span class="st">"file"</span>,</span>
+<span>  <span class="va">filename</span>,</span>
+<span>  configure <span class="op">=</span> <span class="st">"first"</span>,</span>
+<span>  update <span class="op">=</span> <span class="st">"append"</span></span>
+<span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
@@ -660,14 +660,14 @@ CoverageStores (i.e. stores of coverage data)</p>
    both datastore and layer). The <code>update</code> defines the strategy for the upload: <code>"append"</code> (default value) for 
    the first upload, <code>"overwrite"</code> in case the file should be overwriten.</p><div class="section">
 <h4 id="usage-16">Usage<a class="anchor" aria-label="anchor" href="#usage-16"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">uploadImageMosaic</span><span class="op">(</span>
-  <span class="va">ws</span>,
-  <span class="va">cs</span>,
-  endpoint <span class="op">=</span> <span class="st">"file"</span>,
-  <span class="va">filename</span>,
-  configure <span class="op">=</span> <span class="st">"first"</span>,
-  update <span class="op">=</span> <span class="st">"append"</span>
-<span class="op">)</span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">uploadImageMosaic</span><span class="op">(</span></span>
+<span>  <span class="va">ws</span>,</span>
+<span>  <span class="va">cs</span>,</span>
+<span>  endpoint <span class="op">=</span> <span class="st">"file"</span>,</span>
+<span>  <span class="va">filename</span>,</span>
+<span>  configure <span class="op">=</span> <span class="st">"first"</span>,</span>
+<span>  update <span class="op">=</span> <span class="st">"append"</span></span>
+<span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
@@ -707,7 +707,7 @@ CoverageStores (i.e. stores of coverage data)</p>
 <h3 id="method-clone-">Method <code>clone()</code><a class="anchor" aria-label="anchor" href="#method-clone-"></a></h3>
 <p>The objects of this class are cloneable with this method.</p><div class="section">
 <h4 id="usage-17">Usage<a class="anchor" aria-label="anchor" href="#usage-17"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">clone</span><span class="op">(</span>deep <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">clone</span><span class="op">(</span>deep <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
@@ -725,11 +725,11 @@ CoverageStores (i.e. stores of coverage data)</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \dontrun{</span></span>
-<span class="r-in">   <span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="st">"http://localhost:8080/geoserver"</span>, <span class="st">"admin"</span>, <span class="st">"geoserver"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span>   <span class="va">GSCoverageStoreManager</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="st">"http://localhost:8080/geoserver"</span>, <span class="st">"admin"</span>, <span class="st">"geoserver"</span><span class="op">)</span></span></span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in curl::curl_fetch_memory(url, handle = handle):</span> Failed to connect to localhost port 8080: Connection refused</span>
-<span class="r-in"> <span class="co"># }</span></span>
-<span class="r-in"></span>
+<span class="r-in"><span> <span class="co"># }</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -741,7 +741,7 @@ CoverageStores (i.e. stores of coverage data)</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
     </footer></div>
