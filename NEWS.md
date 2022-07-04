@@ -1,3 +1,9 @@
+## [geosapi 0.6-4](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
+
+**Enhancements**
+
+* [#55](https://github.com/eblondel/geosapi/issues/55) Support zipped GeoPackage upload
+
 ## [geosapi 0.6-3](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
 
 **Bug fixes**
@@ -5,7 +11,7 @@
 * [#54](https://github.com/eblondel/geosapi/issues/54) Error in `getDataStore`(s) - fix wrong XML handling
 
 
-## [geosapi 0.6-2](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
+## [geosapi 0.6-2](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.6-2.tar.gz)
 
 **Bug fixes**
 
