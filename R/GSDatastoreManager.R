@@ -581,10 +581,12 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     uploadGeoPackage = function(ws, ds, endpoint = "file",
                                configure = "first", update = "append",
                                filename, charset = "UTF-8"){
+      contentType = ""
+      if(endsWith(filename, ".zip")) contentType = "application/zip"
       return(
         self$uploadData(ws, ds, endpoint, extension = "gpkg",
                         configure, update, filename, charset,
-                        contentType = "")
+                        contentType = contentType)
       )
     }
     
