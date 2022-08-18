@@ -35,47 +35,47 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-getLayers}{\code{GSLayerManager$getLayers()}}
-\item \href{#method-getLayerNames}{\code{GSLayerManager$getLayerNames()}}
-\item \href{#method-getLayer}{\code{GSLayerManager$getLayer()}}
-\item \href{#method-createLayer}{\code{GSLayerManager$createLayer()}}
-\item \href{#method-updateLayer}{\code{GSLayerManager$updateLayer()}}
-\item \href{#method-deleteLayer}{\code{GSLayerManager$deleteLayer()}}
-\item \href{#method-getLayerGroups}{\code{GSLayerManager$getLayerGroups()}}
-\item \href{#method-getLayerGroupNames}{\code{GSLayerManager$getLayerGroupNames()}}
-\item \href{#method-getLayerGroup}{\code{GSLayerManager$getLayerGroup()}}
-\item \href{#method-createLayerGroup}{\code{GSLayerManager$createLayerGroup()}}
-\item \href{#method-updateLayerGroup}{\code{GSLayerManager$updateLayerGroup()}}
-\item \href{#method-deleteLayerGroup}{\code{GSLayerManager$deleteLayerGroup()}}
-\item \href{#method-clone}{\code{GSLayerManager$clone()}}
+\item \href{#method-GSLayerManager-getLayers}{\code{GSLayerManager$getLayers()}}
+\item \href{#method-GSLayerManager-getLayerNames}{\code{GSLayerManager$getLayerNames()}}
+\item \href{#method-GSLayerManager-getLayer}{\code{GSLayerManager$getLayer()}}
+\item \href{#method-GSLayerManager-createLayer}{\code{GSLayerManager$createLayer()}}
+\item \href{#method-GSLayerManager-updateLayer}{\code{GSLayerManager$updateLayer()}}
+\item \href{#method-GSLayerManager-deleteLayer}{\code{GSLayerManager$deleteLayer()}}
+\item \href{#method-GSLayerManager-getLayerGroups}{\code{GSLayerManager$getLayerGroups()}}
+\item \href{#method-GSLayerManager-getLayerGroupNames}{\code{GSLayerManager$getLayerGroupNames()}}
+\item \href{#method-GSLayerManager-getLayerGroup}{\code{GSLayerManager$getLayerGroup()}}
+\item \href{#method-GSLayerManager-createLayerGroup}{\code{GSLayerManager$createLayerGroup()}}
+\item \href{#method-GSLayerManager-updateLayerGroup}{\code{GSLayerManager$updateLayerGroup()}}
+\item \href{#method-GSLayerManager-deleteLayerGroup}{\code{GSLayerManager$deleteLayerGroup()}}
+\item \href{#method-GSLayerManager-clone}{\code{GSLayerManager$clone()}}
 }
 }
-\if{html}{
-\out{<details ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="connect">}\href{../../geosapi/html/GSManager.html#method-connect}{\code{geosapi::GSManager$connect()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="ERROR">}\href{../../geosapi/html/GSManager.html#method-ERROR}{\code{geosapi::GSManager$ERROR()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getClassName">}\href{../../geosapi/html/GSManager.html#method-getClassName}{\code{geosapi::GSManager$getClassName()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getCoverageStoreManager">}\href{../../geosapi/html/GSManager.html#method-getCoverageStoreManager}{\code{geosapi::GSManager$getCoverageStoreManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getDataStoreManager">}\href{../../geosapi/html/GSManager.html#method-getDataStoreManager}{\code{geosapi::GSManager$getDataStoreManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getNamespaceManager">}\href{../../geosapi/html/GSManager.html#method-getNamespaceManager}{\code{geosapi::GSManager$getNamespaceManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getServiceManager">}\href{../../geosapi/html/GSManager.html#method-getServiceManager}{\code{geosapi::GSManager$getServiceManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getStyleManager">}\href{../../geosapi/html/GSManager.html#method-getStyleManager}{\code{geosapi::GSManager$getStyleManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getSystemStatus">}\href{../../geosapi/html/GSManager.html#method-getSystemStatus}{\code{geosapi::GSManager$getSystemStatus()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getUrl">}\href{../../geosapi/html/GSManager.html#method-getUrl}{\code{geosapi::GSManager$getUrl()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getWorkspaceManager">}\href{../../geosapi/html/GSManager.html#method-getWorkspaceManager}{\code{geosapi::GSManager$getWorkspaceManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="INFO">}\href{../../geosapi/html/GSManager.html#method-INFO}{\code{geosapi::GSManager$INFO()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="initialize">}\href{../../geosapi/html/GSManager.html#method-initialize}{\code{geosapi::GSManager$initialize()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="logger">}\href{../../geosapi/html/GSManager.html#method-logger}{\code{geosapi::GSManager$logger()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="monitor">}\href{../../geosapi/html/GSManager.html#method-monitor}{\code{geosapi::GSManager$monitor()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="reload">}\href{../../geosapi/html/GSManager.html#method-reload}{\code{geosapi::GSManager$reload()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="WARN">}\href{../../geosapi/html/GSManager.html#method-WARN}{\code{geosapi::GSManager$WARN()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="ERROR"><a href='../../geosapi/html/GSManager.html#method-GSManager-ERROR'><code>geosapi::GSManager$ERROR()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="INFO"><a href='../../geosapi/html/GSManager.html#method-GSManager-INFO'><code>geosapi::GSManager$INFO()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="WARN"><a href='../../geosapi/html/GSManager.html#method-GSManager-WARN'><code>geosapi::GSManager$WARN()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="connect"><a href='../../geosapi/html/GSManager.html#method-GSManager-connect'><code>geosapi::GSManager$connect()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getClassName"><a href='../../geosapi/html/GSManager.html#method-GSManager-getClassName'><code>geosapi::GSManager$getClassName()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getCoverageStoreManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getCoverageStoreManager'><code>geosapi::GSManager$getCoverageStoreManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getDataStoreManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getDataStoreManager'><code>geosapi::GSManager$getDataStoreManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getNamespaceManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getNamespaceManager'><code>geosapi::GSManager$getNamespaceManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getServiceManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getServiceManager'><code>geosapi::GSManager$getServiceManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getStyleManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getStyleManager'><code>geosapi::GSManager$getStyleManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getSystemStatus"><a href='../../geosapi/html/GSManager.html#method-GSManager-getSystemStatus'><code>geosapi::GSManager$getSystemStatus()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getUrl"><a href='../../geosapi/html/GSManager.html#method-GSManager-getUrl'><code>geosapi::GSManager$getUrl()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getWorkspaceManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getWorkspaceManager'><code>geosapi::GSManager$getWorkspaceManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="initialize"><a href='../../geosapi/html/GSManager.html#method-GSManager-initialize'><code>geosapi::GSManager$initialize()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="logger"><a href='../../geosapi/html/GSManager.html#method-GSManager-logger'><code>geosapi::GSManager$logger()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="monitor"><a href='../../geosapi/html/GSManager.html#method-GSManager-monitor'><code>geosapi::GSManager$monitor()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="reload"><a href='../../geosapi/html/GSManager.html#method-GSManager-reload'><code>geosapi::GSManager$reload()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getLayers"></a>}}
-\if{latex}{\out{\hypertarget{method-getLayers}{}}}
+\if{html}{\out{<a id="method-GSLayerManager-getLayers"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerManager-getLayers}{}}}
 \subsection{Method \code{getLayers()}}{
 Get the list of layers.
 \subsection{Usage}{
@@ -87,8 +87,8 @@ an object of class \code{list} giving items of class \code{\link{GSLayer}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getLayerNames"></a>}}
-\if{latex}{\out{\hypertarget{method-getLayerNames}{}}}
+\if{html}{\out{<a id="method-GSLayerManager-getLayerNames"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerManager-getLayerNames}{}}}
 \subsection{Method \code{getLayerNames()}}{
 Get the list of layer names.
 \subsection{Usage}{
@@ -100,8 +100,8 @@ a vector of class \code{character}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getLayer"></a>}}
-\if{latex}{\out{\hypertarget{method-getLayer}{}}}
+\if{html}{\out{<a id="method-GSLayerManager-getLayer"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerManager-getLayer}{}}}
 \subsection{Method \code{getLayer()}}{
 Get layer by name
 \subsection{Usage}{
@@ -120,8 +120,8 @@ an object of class \link{GSLayer}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-createLayer"></a>}}
-\if{latex}{\out{\hypertarget{method-createLayer}{}}}
+\if{html}{\out{<a id="method-GSLayerManager-createLayer"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerManager-createLayer}{}}}
 \subsection{Method \code{createLayer()}}{
 Creates a new layer given an object of class \code{\link{GSLayer}}
 \subsection{Usage}{
@@ -140,8 +140,8 @@ Creates a new layer given an object of class \code{\link{GSLayer}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-updateLayer"></a>}}
-\if{latex}{\out{\hypertarget{method-updateLayer}{}}}
+\if{html}{\out{<a id="method-GSLayerManager-updateLayer"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerManager-updateLayer}{}}}
 \subsection{Method \code{updateLayer()}}{
 Updates a layer given an object of class \code{\link{GSLayer}}
 \subsection{Usage}{
@@ -160,8 +160,8 @@ Updates a layer given an object of class \code{\link{GSLayer}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-deleteLayer"></a>}}
-\if{latex}{\out{\hypertarget{method-deleteLayer}{}}}
+\if{html}{\out{<a id="method-GSLayerManager-deleteLayer"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerManager-deleteLayer}{}}}
 \subsection{Method \code{deleteLayer()}}{
 Deletes layer given an object of class \code{\link{GSLayer}}
 \subsection{Usage}{
@@ -180,8 +180,8 @@ Deletes layer given an object of class \code{\link{GSLayer}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getLayerGroups"></a>}}
-\if{latex}{\out{\hypertarget{method-getLayerGroups}{}}}
+\if{html}{\out{<a id="method-GSLayerManager-getLayerGroups"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerManager-getLayerGroups}{}}}
 \subsection{Method \code{getLayerGroups()}}{
 Get layer groups
 \subsection{Usage}{
@@ -200,8 +200,8 @@ a list of objects of class \link{GSLayerGroup}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getLayerGroupNames"></a>}}
-\if{latex}{\out{\hypertarget{method-getLayerGroupNames}{}}}
+\if{html}{\out{<a id="method-GSLayerManager-getLayerGroupNames"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerManager-getLayerGroupNames}{}}}
 \subsection{Method \code{getLayerGroupNames()}}{
 Get layer group names
 \subsection{Usage}{
@@ -220,8 +220,8 @@ a list of layer group names, as vector of class \code{character}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getLayerGroup"></a>}}
-\if{latex}{\out{\hypertarget{method-getLayerGroup}{}}}
+\if{html}{\out{<a id="method-GSLayerManager-getLayerGroup"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerManager-getLayerGroup}{}}}
 \subsection{Method \code{getLayerGroup()}}{
 Get layer group
 \subsection{Usage}{
@@ -242,8 +242,8 @@ an object of class \link{GSLayerGroup}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-createLayerGroup"></a>}}
-\if{latex}{\out{\hypertarget{method-createLayerGroup}{}}}
+\if{html}{\out{<a id="method-GSLayerManager-createLayerGroup"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerManager-createLayerGroup}{}}}
 \subsection{Method \code{createLayerGroup()}}{
 Creates a layer group
 \subsection{Usage}{
@@ -264,8 +264,8 @@ Creates a layer group
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-updateLayerGroup"></a>}}
-\if{latex}{\out{\hypertarget{method-updateLayerGroup}{}}}
+\if{html}{\out{<a id="method-GSLayerManager-updateLayerGroup"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerManager-updateLayerGroup}{}}}
 \subsection{Method \code{updateLayerGroup()}}{
 Updates a layer group
 \subsection{Usage}{
@@ -286,8 +286,8 @@ Updates a layer group
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-deleteLayerGroup"></a>}}
-\if{latex}{\out{\hypertarget{method-deleteLayerGroup}{}}}
+\if{html}{\out{<a id="method-GSLayerManager-deleteLayerGroup"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerManager-deleteLayerGroup}{}}}
 \subsection{Method \code{deleteLayerGroup()}}{
 Deletes a layer group
 \subsection{Usage}{
@@ -308,8 +308,8 @@ Deletes a layer group
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSLayerManager-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerManager-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

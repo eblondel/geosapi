@@ -54,27 +54,27 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSWorkspaceSettings$new()}}
-\item \href{#method-decode}{\code{GSWorkspaceSettings$decode()}}
-\item \href{#method-setCharset}{\code{GSWorkspaceSettings$setCharset()}}
-\item \href{#method-setNumDecimals}{\code{GSWorkspaceSettings$setNumDecimals()}}
-\item \href{#method-setOnlineResource}{\code{GSWorkspaceSettings$setOnlineResource()}}
-\item \href{#method-setVerbose}{\code{GSWorkspaceSettings$setVerbose()}}
-\item \href{#method-setVerboseExceptions}{\code{GSWorkspaceSettings$setVerboseExceptions()}}
-\item \href{#method-setLocalWorkspaceIncludesPrefix}{\code{GSWorkspaceSettings$setLocalWorkspaceIncludesPrefix()}}
-\item \href{#method-clone}{\code{GSWorkspaceSettings$clone()}}
+\item \href{#method-GSWorkspaceSettings-new}{\code{GSWorkspaceSettings$new()}}
+\item \href{#method-GSWorkspaceSettings-decode}{\code{GSWorkspaceSettings$decode()}}
+\item \href{#method-GSWorkspaceSettings-setCharset}{\code{GSWorkspaceSettings$setCharset()}}
+\item \href{#method-GSWorkspaceSettings-setNumDecimals}{\code{GSWorkspaceSettings$setNumDecimals()}}
+\item \href{#method-GSWorkspaceSettings-setOnlineResource}{\code{GSWorkspaceSettings$setOnlineResource()}}
+\item \href{#method-GSWorkspaceSettings-setVerbose}{\code{GSWorkspaceSettings$setVerbose()}}
+\item \href{#method-GSWorkspaceSettings-setVerboseExceptions}{\code{GSWorkspaceSettings$setVerboseExceptions()}}
+\item \href{#method-GSWorkspaceSettings-setLocalWorkspaceIncludesPrefix}{\code{GSWorkspaceSettings$setLocalWorkspaceIncludesPrefix()}}
+\item \href{#method-GSWorkspaceSettings-clone}{\code{GSWorkspaceSettings$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSWorkspaceSettings-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSWorkspaceSettings-new}{}}}
 \subsection{Method \code{new()}}{
 This method is used to instantiate a \code{GSWorkspaceSettings}. This settings 
    object is required to activate a workspace configuration, using the method
@@ -92,8 +92,8 @@ This method is used to instantiate a \code{GSWorkspaceSettings}. This settings
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-decode"></a>}}
-\if{latex}{\out{\hypertarget{method-decode}{}}}
+\if{html}{\out{<a id="method-GSWorkspaceSettings-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-GSWorkspaceSettings-decode}{}}}
 \subsection{Method \code{decode()}}{
 Decodes from XML
 \subsection{Usage}{
@@ -109,8 +109,8 @@ Decodes from XML
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setCharset"></a>}}
-\if{latex}{\out{\hypertarget{method-setCharset}{}}}
+\if{html}{\out{<a id="method-GSWorkspaceSettings-setCharset"></a>}}
+\if{latex}{\out{\hypertarget{method-GSWorkspaceSettings-setCharset}{}}}
 \subsection{Method \code{setCharset()}}{
 Set charset
 \subsection{Usage}{
@@ -126,8 +126,8 @@ Set charset
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setNumDecimals"></a>}}
-\if{latex}{\out{\hypertarget{method-setNumDecimals}{}}}
+\if{html}{\out{<a id="method-GSWorkspaceSettings-setNumDecimals"></a>}}
+\if{latex}{\out{\hypertarget{method-GSWorkspaceSettings-setNumDecimals}{}}}
 \subsection{Method \code{setNumDecimals()}}{
 Set number of decimals
 \subsection{Usage}{
@@ -143,8 +143,8 @@ Set number of decimals
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setOnlineResource"></a>}}
-\if{latex}{\out{\hypertarget{method-setOnlineResource}{}}}
+\if{html}{\out{<a id="method-GSWorkspaceSettings-setOnlineResource"></a>}}
+\if{latex}{\out{\hypertarget{method-GSWorkspaceSettings-setOnlineResource}{}}}
 \subsection{Method \code{setOnlineResource()}}{
 Set online resource
 \subsection{Usage}{
@@ -160,8 +160,8 @@ Set online resource
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setVerbose"></a>}}
-\if{latex}{\out{\hypertarget{method-setVerbose}{}}}
+\if{html}{\out{<a id="method-GSWorkspaceSettings-setVerbose"></a>}}
+\if{latex}{\out{\hypertarget{method-GSWorkspaceSettings-setVerbose}{}}}
 \subsection{Method \code{setVerbose()}}{
 Set verbose
 \subsection{Usage}{
@@ -177,8 +177,8 @@ Set verbose
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setVerboseExceptions"></a>}}
-\if{latex}{\out{\hypertarget{method-setVerboseExceptions}{}}}
+\if{html}{\out{<a id="method-GSWorkspaceSettings-setVerboseExceptions"></a>}}
+\if{latex}{\out{\hypertarget{method-GSWorkspaceSettings-setVerboseExceptions}{}}}
 \subsection{Method \code{setVerboseExceptions()}}{
 Set verbose exceptions
 \subsection{Usage}{
@@ -194,8 +194,8 @@ Set verbose exceptions
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setLocalWorkspaceIncludesPrefix"></a>}}
-\if{latex}{\out{\hypertarget{method-setLocalWorkspaceIncludesPrefix}{}}}
+\if{html}{\out{<a id="method-GSWorkspaceSettings-setLocalWorkspaceIncludesPrefix"></a>}}
+\if{latex}{\out{\hypertarget{method-GSWorkspaceSettings-setLocalWorkspaceIncludesPrefix}{}}}
 \subsection{Method \code{setLocalWorkspaceIncludesPrefix()}}{
 Set local workspace includes prefix
 \subsection{Usage}{
@@ -211,8 +211,8 @@ Set local workspace includes prefix
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSWorkspaceSettings-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSWorkspaceSettings-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

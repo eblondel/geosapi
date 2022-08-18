@@ -122,32 +122,32 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSServiceSettings$new()}}
-\item \href{#method-decode}{\code{GSServiceSettings$decode()}}
-\item \href{#method-setEnabled}{\code{GSServiceSettings$setEnabled()}}
-\item \href{#method-setCiteCompliant}{\code{GSServiceSettings$setCiteCompliant()}}
-\item \href{#method-setName}{\code{GSServiceSettings$setName()}}
-\item \href{#method-setTitle}{\code{GSServiceSettings$setTitle()}}
-\item \href{#method-setMaintainer}{\code{GSServiceSettings$setMaintainer()}}
-\item \href{#method-setAbstract}{\code{GSServiceSettings$setAbstract()}}
-\item \href{#method-setAccessConstraints}{\code{GSServiceSettings$setAccessConstraints()}}
-\item \href{#method-setFees}{\code{GSServiceSettings$setFees()}}
-\item \href{#method-setKeywords}{\code{GSServiceSettings$setKeywords()}}
-\item \href{#method-addKeyword}{\code{GSServiceSettings$addKeyword()}}
-\item \href{#method-delKeyword}{\code{GSServiceSettings$delKeyword()}}
-\item \href{#method-clone}{\code{GSServiceSettings$clone()}}
+\item \href{#method-GSServiceSettings-new}{\code{GSServiceSettings$new()}}
+\item \href{#method-GSServiceSettings-decode}{\code{GSServiceSettings$decode()}}
+\item \href{#method-GSServiceSettings-setEnabled}{\code{GSServiceSettings$setEnabled()}}
+\item \href{#method-GSServiceSettings-setCiteCompliant}{\code{GSServiceSettings$setCiteCompliant()}}
+\item \href{#method-GSServiceSettings-setName}{\code{GSServiceSettings$setName()}}
+\item \href{#method-GSServiceSettings-setTitle}{\code{GSServiceSettings$setTitle()}}
+\item \href{#method-GSServiceSettings-setMaintainer}{\code{GSServiceSettings$setMaintainer()}}
+\item \href{#method-GSServiceSettings-setAbstract}{\code{GSServiceSettings$setAbstract()}}
+\item \href{#method-GSServiceSettings-setAccessConstraints}{\code{GSServiceSettings$setAccessConstraints()}}
+\item \href{#method-GSServiceSettings-setFees}{\code{GSServiceSettings$setFees()}}
+\item \href{#method-GSServiceSettings-setKeywords}{\code{GSServiceSettings$setKeywords()}}
+\item \href{#method-GSServiceSettings-addKeyword}{\code{GSServiceSettings$addKeyword()}}
+\item \href{#method-GSServiceSettings-delKeyword}{\code{GSServiceSettings$delKeyword()}}
+\item \href{#method-GSServiceSettings-clone}{\code{GSServiceSettings$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSServiceSettings-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceSettings-new}{}}}
 \subsection{Method \code{new()}}{
 Initializes an object of class \link{GSServiceSettings}
 \subsection{Usage}{
@@ -165,8 +165,8 @@ Initializes an object of class \link{GSServiceSettings}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-decode"></a>}}
-\if{latex}{\out{\hypertarget{method-decode}{}}}
+\if{html}{\out{<a id="method-GSServiceSettings-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceSettings-decode}{}}}
 \subsection{Method \code{decode()}}{
 Decodes from XML
 \subsection{Usage}{
@@ -182,8 +182,8 @@ Decodes from XML
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setEnabled"></a>}}
-\if{latex}{\out{\hypertarget{method-setEnabled}{}}}
+\if{html}{\out{<a id="method-GSServiceSettings-setEnabled"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceSettings-setEnabled}{}}}
 \subsection{Method \code{setEnabled()}}{
 Set enabled
 \subsection{Usage}{
@@ -199,8 +199,8 @@ Set enabled
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setCiteCompliant"></a>}}
-\if{latex}{\out{\hypertarget{method-setCiteCompliant}{}}}
+\if{html}{\out{<a id="method-GSServiceSettings-setCiteCompliant"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceSettings-setCiteCompliant}{}}}
 \subsection{Method \code{setCiteCompliant()}}{
 Set cite compliant
 \subsection{Usage}{
@@ -216,8 +216,8 @@ Set cite compliant
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setName"></a>}}
-\if{latex}{\out{\hypertarget{method-setName}{}}}
+\if{html}{\out{<a id="method-GSServiceSettings-setName"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceSettings-setName}{}}}
 \subsection{Method \code{setName()}}{
 Set name
 \subsection{Usage}{
@@ -233,8 +233,8 @@ Set name
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setTitle"></a>}}
-\if{latex}{\out{\hypertarget{method-setTitle}{}}}
+\if{html}{\out{<a id="method-GSServiceSettings-setTitle"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceSettings-setTitle}{}}}
 \subsection{Method \code{setTitle()}}{
 Set title
 \subsection{Usage}{
@@ -250,8 +250,8 @@ Set title
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setMaintainer"></a>}}
-\if{latex}{\out{\hypertarget{method-setMaintainer}{}}}
+\if{html}{\out{<a id="method-GSServiceSettings-setMaintainer"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceSettings-setMaintainer}{}}}
 \subsection{Method \code{setMaintainer()}}{
 Set maintainer
 \subsection{Usage}{
@@ -267,8 +267,8 @@ Set maintainer
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setAbstract"></a>}}
-\if{latex}{\out{\hypertarget{method-setAbstract}{}}}
+\if{html}{\out{<a id="method-GSServiceSettings-setAbstract"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceSettings-setAbstract}{}}}
 \subsection{Method \code{setAbstract()}}{
 Set abstract
 \subsection{Usage}{
@@ -284,8 +284,8 @@ Set abstract
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setAccessConstraints"></a>}}
-\if{latex}{\out{\hypertarget{method-setAccessConstraints}{}}}
+\if{html}{\out{<a id="method-GSServiceSettings-setAccessConstraints"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceSettings-setAccessConstraints}{}}}
 \subsection{Method \code{setAccessConstraints()}}{
 Set access constraints
 \subsection{Usage}{
@@ -301,8 +301,8 @@ Set access constraints
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setFees"></a>}}
-\if{latex}{\out{\hypertarget{method-setFees}{}}}
+\if{html}{\out{<a id="method-GSServiceSettings-setFees"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceSettings-setFees}{}}}
 \subsection{Method \code{setFees()}}{
 Set fees
 \subsection{Usage}{
@@ -318,8 +318,8 @@ Set fees
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setKeywords"></a>}}
-\if{latex}{\out{\hypertarget{method-setKeywords}{}}}
+\if{html}{\out{<a id="method-GSServiceSettings-setKeywords"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceSettings-setKeywords}{}}}
 \subsection{Method \code{setKeywords()}}{
 Set keywords
 \subsection{Usage}{
@@ -335,8 +335,8 @@ Set keywords
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-addKeyword"></a>}}
-\if{latex}{\out{\hypertarget{method-addKeyword}{}}}
+\if{html}{\out{<a id="method-GSServiceSettings-addKeyword"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceSettings-addKeyword}{}}}
 \subsection{Method \code{addKeyword()}}{
 Adds a keyword
 \subsection{Usage}{
@@ -355,8 +355,8 @@ Adds a keyword
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-delKeyword"></a>}}
-\if{latex}{\out{\hypertarget{method-delKeyword}{}}}
+\if{html}{\out{<a id="method-GSServiceSettings-delKeyword"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceSettings-delKeyword}{}}}
 \subsection{Method \code{delKeyword()}}{
 Deletes a keyword
 \subsection{Usage}{
@@ -375,8 +375,8 @@ Deletes a keyword
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSServiceSettings-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceSettings-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

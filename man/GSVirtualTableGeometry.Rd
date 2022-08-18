@@ -43,21 +43,21 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSVirtualTableGeometry$new()}}
-\item \href{#method-decode}{\code{GSVirtualTableGeometry$decode()}}
-\item \href{#method-clone}{\code{GSVirtualTableGeometry$clone()}}
+\item \href{#method-GSVirtualTableGeometry-new}{\code{GSVirtualTableGeometry$new()}}
+\item \href{#method-GSVirtualTableGeometry-decode}{\code{GSVirtualTableGeometry$decode()}}
+\item \href{#method-GSVirtualTableGeometry-clone}{\code{GSVirtualTableGeometry$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSVirtualTableGeometry-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSVirtualTableGeometry-new}{}}}
 \subsection{Method \code{new()}}{
 Initializes an object of class \link{GSVirtualTableGeometry}
 \subsection{Usage}{
@@ -79,8 +79,8 @@ Initializes an object of class \link{GSVirtualTableGeometry}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-decode"></a>}}
-\if{latex}{\out{\hypertarget{method-decode}{}}}
+\if{html}{\out{<a id="method-GSVirtualTableGeometry-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-GSVirtualTableGeometry-decode}{}}}
 \subsection{Method \code{decode()}}{
 Decodes from XML
 \subsection{Usage}{
@@ -96,8 +96,8 @@ Decodes from XML
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSVirtualTableGeometry-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSVirtualTableGeometry-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

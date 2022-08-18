@@ -42,44 +42,44 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSFeatureType$new()}}
-\item \href{#method-decode}{\code{GSFeatureType$decode()}}
-\item \href{#method-setCqlFilter}{\code{GSFeatureType$setCqlFilter()}}
-\item \href{#method-setVirtualTable}{\code{GSFeatureType$setVirtualTable()}}
-\item \href{#method-delVirtualTable}{\code{GSFeatureType$delVirtualTable()}}
-\item \href{#method-clone}{\code{GSFeatureType$clone()}}
+\item \href{#method-GSFeatureType-new}{\code{GSFeatureType$new()}}
+\item \href{#method-GSFeatureType-decode}{\code{GSFeatureType$decode()}}
+\item \href{#method-GSFeatureType-setCqlFilter}{\code{GSFeatureType$setCqlFilter()}}
+\item \href{#method-GSFeatureType-setVirtualTable}{\code{GSFeatureType$setVirtualTable()}}
+\item \href{#method-GSFeatureType-delVirtualTable}{\code{GSFeatureType$delVirtualTable()}}
+\item \href{#method-GSFeatureType-clone}{\code{GSFeatureType$clone()}}
 }
 }
-\if{html}{
-\out{<details ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="addKeyword">}\href{../../geosapi/html/GSResource.html#method-addKeyword}{\code{geosapi::GSResource$addKeyword()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="addMetadataLink">}\href{../../geosapi/html/GSResource.html#method-addMetadataLink}{\code{geosapi::GSResource$addMetadataLink()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="deleteMetadataLink">}\href{../../geosapi/html/GSResource.html#method-deleteMetadataLink}{\code{geosapi::GSResource$deleteMetadataLink()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="delKeyword">}\href{../../geosapi/html/GSResource.html#method-delKeyword}{\code{geosapi::GSResource$delKeyword()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="delMetadata">}\href{../../geosapi/html/GSResource.html#method-delMetadata}{\code{geosapi::GSResource$delMetadata()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setAbstract">}\href{../../geosapi/html/GSResource.html#method-setAbstract}{\code{geosapi::GSResource$setAbstract()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setDescription">}\href{../../geosapi/html/GSResource.html#method-setDescription}{\code{geosapi::GSResource$setDescription()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setEnabled">}\href{../../geosapi/html/GSResource.html#method-setEnabled}{\code{geosapi::GSResource$setEnabled()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setKeywords">}\href{../../geosapi/html/GSResource.html#method-setKeywords}{\code{geosapi::GSResource$setKeywords()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setLatLonBoundingBox">}\href{../../geosapi/html/GSResource.html#method-setLatLonBoundingBox}{\code{geosapi::GSResource$setLatLonBoundingBox()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setMetadata">}\href{../../geosapi/html/GSResource.html#method-setMetadata}{\code{geosapi::GSResource$setMetadata()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setMetadataDimension">}\href{../../geosapi/html/GSResource.html#method-setMetadataDimension}{\code{geosapi::GSResource$setMetadataDimension()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setMetadataLinks">}\href{../../geosapi/html/GSResource.html#method-setMetadataLinks}{\code{geosapi::GSResource$setMetadataLinks()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setName">}\href{../../geosapi/html/GSResource.html#method-setName}{\code{geosapi::GSResource$setName()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setNativeBoundingBox">}\href{../../geosapi/html/GSResource.html#method-setNativeBoundingBox}{\code{geosapi::GSResource$setNativeBoundingBox()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setNativeCRS">}\href{../../geosapi/html/GSResource.html#method-setNativeCRS}{\code{geosapi::GSResource$setNativeCRS()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setNativeName">}\href{../../geosapi/html/GSResource.html#method-setNativeName}{\code{geosapi::GSResource$setNativeName()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setProjectionPolicy">}\href{../../geosapi/html/GSResource.html#method-setProjectionPolicy}{\code{geosapi::GSResource$setProjectionPolicy()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setSrs">}\href{../../geosapi/html/GSResource.html#method-setSrs}{\code{geosapi::GSResource$setSrs()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setTitle">}\href{../../geosapi/html/GSResource.html#method-setTitle}{\code{geosapi::GSResource$setTitle()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="addKeyword"><a href='../../geosapi/html/GSResource.html#method-GSResource-addKeyword'><code>geosapi::GSResource$addKeyword()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="addMetadataLink"><a href='../../geosapi/html/GSResource.html#method-GSResource-addMetadataLink'><code>geosapi::GSResource$addMetadataLink()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="delKeyword"><a href='../../geosapi/html/GSResource.html#method-GSResource-delKeyword'><code>geosapi::GSResource$delKeyword()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="delMetadata"><a href='../../geosapi/html/GSResource.html#method-GSResource-delMetadata'><code>geosapi::GSResource$delMetadata()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="deleteMetadataLink"><a href='../../geosapi/html/GSResource.html#method-GSResource-deleteMetadataLink'><code>geosapi::GSResource$deleteMetadataLink()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setAbstract"><a href='../../geosapi/html/GSResource.html#method-GSResource-setAbstract'><code>geosapi::GSResource$setAbstract()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setDescription"><a href='../../geosapi/html/GSResource.html#method-GSResource-setDescription'><code>geosapi::GSResource$setDescription()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setEnabled"><a href='../../geosapi/html/GSResource.html#method-GSResource-setEnabled'><code>geosapi::GSResource$setEnabled()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setKeywords"><a href='../../geosapi/html/GSResource.html#method-GSResource-setKeywords'><code>geosapi::GSResource$setKeywords()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setLatLonBoundingBox"><a href='../../geosapi/html/GSResource.html#method-GSResource-setLatLonBoundingBox'><code>geosapi::GSResource$setLatLonBoundingBox()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setMetadata"><a href='../../geosapi/html/GSResource.html#method-GSResource-setMetadata'><code>geosapi::GSResource$setMetadata()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setMetadataDimension"><a href='../../geosapi/html/GSResource.html#method-GSResource-setMetadataDimension'><code>geosapi::GSResource$setMetadataDimension()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setMetadataLinks"><a href='../../geosapi/html/GSResource.html#method-GSResource-setMetadataLinks'><code>geosapi::GSResource$setMetadataLinks()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setName"><a href='../../geosapi/html/GSResource.html#method-GSResource-setName'><code>geosapi::GSResource$setName()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setNativeBoundingBox"><a href='../../geosapi/html/GSResource.html#method-GSResource-setNativeBoundingBox'><code>geosapi::GSResource$setNativeBoundingBox()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setNativeCRS"><a href='../../geosapi/html/GSResource.html#method-GSResource-setNativeCRS'><code>geosapi::GSResource$setNativeCRS()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setNativeName"><a href='../../geosapi/html/GSResource.html#method-GSResource-setNativeName'><code>geosapi::GSResource$setNativeName()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setProjectionPolicy"><a href='../../geosapi/html/GSResource.html#method-GSResource-setProjectionPolicy'><code>geosapi::GSResource$setProjectionPolicy()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setSrs"><a href='../../geosapi/html/GSResource.html#method-GSResource-setSrs'><code>geosapi::GSResource$setSrs()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="setTitle"><a href='../../geosapi/html/GSResource.html#method-GSResource-setTitle'><code>geosapi::GSResource$setTitle()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSFeatureType-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSFeatureType-new}{}}}
 \subsection{Method \code{new()}}{
 Initializes an object of class \link{GSFeatureType}
 \subsection{Usage}{
@@ -95,8 +95,8 @@ Initializes an object of class \link{GSFeatureType}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-decode"></a>}}
-\if{latex}{\out{\hypertarget{method-decode}{}}}
+\if{html}{\out{<a id="method-GSFeatureType-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-GSFeatureType-decode}{}}}
 \subsection{Method \code{decode()}}{
 Decodes from XML
 \subsection{Usage}{
@@ -112,8 +112,8 @@ Decodes from XML
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setCqlFilter"></a>}}
-\if{latex}{\out{\hypertarget{method-setCqlFilter}{}}}
+\if{html}{\out{<a id="method-GSFeatureType-setCqlFilter"></a>}}
+\if{latex}{\out{\hypertarget{method-GSFeatureType-setCqlFilter}{}}}
 \subsection{Method \code{setCqlFilter()}}{
 Set CQL filter
 \subsection{Usage}{
@@ -129,8 +129,8 @@ Set CQL filter
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setVirtualTable"></a>}}
-\if{latex}{\out{\hypertarget{method-setVirtualTable}{}}}
+\if{html}{\out{<a id="method-GSFeatureType-setVirtualTable"></a>}}
+\if{latex}{\out{\hypertarget{method-GSFeatureType-setVirtualTable}{}}}
 \subsection{Method \code{setVirtualTable()}}{
 Set virtual table
 \subsection{Usage}{
@@ -149,8 +149,8 @@ Set virtual table
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-delVirtualTable"></a>}}
-\if{latex}{\out{\hypertarget{method-delVirtualTable}{}}}
+\if{html}{\out{<a id="method-GSFeatureType-delVirtualTable"></a>}}
+\if{latex}{\out{\hypertarget{method-GSFeatureType-delVirtualTable}{}}}
 \subsection{Method \code{delVirtualTable()}}{
 Deletes virtual table
 \subsection{Usage}{
@@ -169,8 +169,8 @@ Deletes virtual table
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSFeatureType-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSFeatureType-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

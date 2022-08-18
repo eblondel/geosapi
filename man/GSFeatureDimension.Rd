@@ -40,27 +40,27 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSFeatureDimension$new()}}
-\item \href{#method-decode}{\code{GSFeatureDimension$decode()}}
-\item \href{#method-setAttribute}{\code{GSFeatureDimension$setAttribute()}}
-\item \href{#method-setEndAttribute}{\code{GSFeatureDimension$setEndAttribute()}}
-\item \href{#method-clone}{\code{GSFeatureDimension$clone()}}
+\item \href{#method-GSFeatureDimension-new}{\code{GSFeatureDimension$new()}}
+\item \href{#method-GSFeatureDimension-decode}{\code{GSFeatureDimension$decode()}}
+\item \href{#method-GSFeatureDimension-setAttribute}{\code{GSFeatureDimension$setAttribute()}}
+\item \href{#method-GSFeatureDimension-setEndAttribute}{\code{GSFeatureDimension$setEndAttribute()}}
+\item \href{#method-GSFeatureDimension-clone}{\code{GSFeatureDimension$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSDimension" data-id="setEnabled">}\href{../../geosapi/html/GSDimension.html#method-setEnabled}{\code{geosapi::GSDimension$setEnabled()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSDimension" data-id="setPresentation">}\href{../../geosapi/html/GSDimension.html#method-setPresentation}{\code{geosapi::GSDimension$setPresentation()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSDimension" data-id="setUnit">}\href{../../geosapi/html/GSDimension.html#method-setUnit}{\code{geosapi::GSDimension$setUnit()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSDimension" data-id="setUnitSymbol">}\href{../../geosapi/html/GSDimension.html#method-setUnitSymbol}{\code{geosapi::GSDimension$setUnitSymbol()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSDimension" data-id="setEnabled"><a href='../../geosapi/html/GSDimension.html#method-GSDimension-setEnabled'><code>geosapi::GSDimension$setEnabled()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSDimension" data-id="setPresentation"><a href='../../geosapi/html/GSDimension.html#method-GSDimension-setPresentation'><code>geosapi::GSDimension$setPresentation()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSDimension" data-id="setUnit"><a href='../../geosapi/html/GSDimension.html#method-GSDimension-setUnit'><code>geosapi::GSDimension$setUnit()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSDimension" data-id="setUnitSymbol"><a href='../../geosapi/html/GSDimension.html#method-GSDimension-setUnitSymbol'><code>geosapi::GSDimension$setUnitSymbol()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSFeatureDimension-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSFeatureDimension-new}{}}}
 \subsection{Method \code{new()}}{
 Initializes an object of class \link{GSFeatureDimension}
 \subsection{Usage}{
@@ -76,8 +76,8 @@ Initializes an object of class \link{GSFeatureDimension}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-decode"></a>}}
-\if{latex}{\out{\hypertarget{method-decode}{}}}
+\if{html}{\out{<a id="method-GSFeatureDimension-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-GSFeatureDimension-decode}{}}}
 \subsection{Method \code{decode()}}{
 Decodes from XML
 \subsection{Usage}{
@@ -93,8 +93,8 @@ Decodes from XML
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setAttribute"></a>}}
-\if{latex}{\out{\hypertarget{method-setAttribute}{}}}
+\if{html}{\out{<a id="method-GSFeatureDimension-setAttribute"></a>}}
+\if{latex}{\out{\hypertarget{method-GSFeatureDimension-setAttribute}{}}}
 \subsection{Method \code{setAttribute()}}{
 Set attribute
 \subsection{Usage}{
@@ -110,8 +110,8 @@ Set attribute
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setEndAttribute"></a>}}
-\if{latex}{\out{\hypertarget{method-setEndAttribute}{}}}
+\if{html}{\out{<a id="method-GSFeatureDimension-setEndAttribute"></a>}}
+\if{latex}{\out{\hypertarget{method-GSFeatureDimension-setEndAttribute}{}}}
 \subsection{Method \code{setEndAttribute()}}{
 Set end attribute
 \subsection{Usage}{
@@ -127,8 +127,8 @@ Set end attribute
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSFeatureDimension-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSFeatureDimension-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

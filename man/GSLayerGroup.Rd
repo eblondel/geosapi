@@ -63,35 +63,35 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSLayerGroup$new()}}
-\item \href{#method-decode}{\code{GSLayerGroup$decode()}}
-\item \href{#method-setName}{\code{GSLayerGroup$setName()}}
-\item \href{#method-setMode}{\code{GSLayerGroup$setMode()}}
-\item \href{#method-setTitle}{\code{GSLayerGroup$setTitle()}}
-\item \href{#method-setAbstract}{\code{GSLayerGroup$setAbstract()}}
-\item \href{#method-setWorkspace}{\code{GSLayerGroup$setWorkspace()}}
-\item \href{#method-addLayer}{\code{GSLayerGroup$addLayer()}}
-\item \href{#method-addLayerGroup}{\code{GSLayerGroup$addLayerGroup()}}
-\item \href{#method-addPublishable}{\code{GSLayerGroup$addPublishable()}}
-\item \href{#method-setStyles}{\code{GSLayerGroup$setStyles()}}
-\item \href{#method-addStyle}{\code{GSLayerGroup$addStyle()}}
-\item \href{#method-setMetadataLinks}{\code{GSLayerGroup$setMetadataLinks()}}
-\item \href{#method-addMetadataLink}{\code{GSLayerGroup$addMetadataLink()}}
-\item \href{#method-deleteMetadataLink}{\code{GSLayerGroup$deleteMetadataLink()}}
-\item \href{#method-setBounds}{\code{GSLayerGroup$setBounds()}}
-\item \href{#method-clone}{\code{GSLayerGroup$clone()}}
+\item \href{#method-GSLayerGroup-new}{\code{GSLayerGroup$new()}}
+\item \href{#method-GSLayerGroup-decode}{\code{GSLayerGroup$decode()}}
+\item \href{#method-GSLayerGroup-setName}{\code{GSLayerGroup$setName()}}
+\item \href{#method-GSLayerGroup-setMode}{\code{GSLayerGroup$setMode()}}
+\item \href{#method-GSLayerGroup-setTitle}{\code{GSLayerGroup$setTitle()}}
+\item \href{#method-GSLayerGroup-setAbstract}{\code{GSLayerGroup$setAbstract()}}
+\item \href{#method-GSLayerGroup-setWorkspace}{\code{GSLayerGroup$setWorkspace()}}
+\item \href{#method-GSLayerGroup-addLayer}{\code{GSLayerGroup$addLayer()}}
+\item \href{#method-GSLayerGroup-addLayerGroup}{\code{GSLayerGroup$addLayerGroup()}}
+\item \href{#method-GSLayerGroup-addPublishable}{\code{GSLayerGroup$addPublishable()}}
+\item \href{#method-GSLayerGroup-setStyles}{\code{GSLayerGroup$setStyles()}}
+\item \href{#method-GSLayerGroup-addStyle}{\code{GSLayerGroup$addStyle()}}
+\item \href{#method-GSLayerGroup-setMetadataLinks}{\code{GSLayerGroup$setMetadataLinks()}}
+\item \href{#method-GSLayerGroup-addMetadataLink}{\code{GSLayerGroup$addMetadataLink()}}
+\item \href{#method-GSLayerGroup-deleteMetadataLink}{\code{GSLayerGroup$deleteMetadataLink()}}
+\item \href{#method-GSLayerGroup-setBounds}{\code{GSLayerGroup$setBounds()}}
+\item \href{#method-GSLayerGroup-clone}{\code{GSLayerGroup$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSLayerGroup-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerGroup-new}{}}}
 \subsection{Method \code{new()}}{
 Initializes an object of class \link{GSLayerGroup}
 \subsection{Usage}{
@@ -107,8 +107,8 @@ Initializes an object of class \link{GSLayerGroup}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-decode"></a>}}
-\if{latex}{\out{\hypertarget{method-decode}{}}}
+\if{html}{\out{<a id="method-GSLayerGroup-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerGroup-decode}{}}}
 \subsection{Method \code{decode()}}{
 Decodes from XML
 \subsection{Usage}{
@@ -124,8 +124,8 @@ Decodes from XML
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setName"></a>}}
-\if{latex}{\out{\hypertarget{method-setName}{}}}
+\if{html}{\out{<a id="method-GSLayerGroup-setName"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerGroup-setName}{}}}
 \subsection{Method \code{setName()}}{
 Set name
 \subsection{Usage}{
@@ -141,8 +141,8 @@ Set name
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setMode"></a>}}
-\if{latex}{\out{\hypertarget{method-setMode}{}}}
+\if{html}{\out{<a id="method-GSLayerGroup-setMode"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerGroup-setMode}{}}}
 \subsection{Method \code{setMode()}}{
 Set mode
 \subsection{Usage}{
@@ -158,8 +158,8 @@ Set mode
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setTitle"></a>}}
-\if{latex}{\out{\hypertarget{method-setTitle}{}}}
+\if{html}{\out{<a id="method-GSLayerGroup-setTitle"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerGroup-setTitle}{}}}
 \subsection{Method \code{setTitle()}}{
 Set title
 \subsection{Usage}{
@@ -175,8 +175,8 @@ Set title
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setAbstract"></a>}}
-\if{latex}{\out{\hypertarget{method-setAbstract}{}}}
+\if{html}{\out{<a id="method-GSLayerGroup-setAbstract"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerGroup-setAbstract}{}}}
 \subsection{Method \code{setAbstract()}}{
 Set abstract
 \subsection{Usage}{
@@ -192,8 +192,8 @@ Set abstract
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setWorkspace"></a>}}
-\if{latex}{\out{\hypertarget{method-setWorkspace}{}}}
+\if{html}{\out{<a id="method-GSLayerGroup-setWorkspace"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerGroup-setWorkspace}{}}}
 \subsection{Method \code{setWorkspace()}}{
 Set workspace
 \subsection{Usage}{
@@ -209,8 +209,8 @@ Set workspace
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-addLayer"></a>}}
-\if{latex}{\out{\hypertarget{method-addLayer}{}}}
+\if{html}{\out{<a id="method-GSLayerGroup-addLayer"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerGroup-addLayer}{}}}
 \subsection{Method \code{addLayer()}}{
 Adds layer
 \subsection{Usage}{
@@ -228,8 +228,8 @@ Adds layer
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-addLayerGroup"></a>}}
-\if{latex}{\out{\hypertarget{method-addLayerGroup}{}}}
+\if{html}{\out{<a id="method-GSLayerGroup-addLayerGroup"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerGroup-addLayerGroup}{}}}
 \subsection{Method \code{addLayerGroup()}}{
 Adds layer group
 \subsection{Usage}{
@@ -245,8 +245,8 @@ Adds layer group
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-addPublishable"></a>}}
-\if{latex}{\out{\hypertarget{method-addPublishable}{}}}
+\if{html}{\out{<a id="method-GSLayerGroup-addPublishable"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerGroup-addPublishable}{}}}
 \subsection{Method \code{addPublishable()}}{
 Adds publishable
 \subsection{Usage}{
@@ -265,8 +265,8 @@ Adds publishable
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setStyles"></a>}}
-\if{latex}{\out{\hypertarget{method-setStyles}{}}}
+\if{html}{\out{<a id="method-GSLayerGroup-setStyles"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerGroup-setStyles}{}}}
 \subsection{Method \code{setStyles()}}{
 Set styles
 \subsection{Usage}{
@@ -282,8 +282,8 @@ Set styles
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-addStyle"></a>}}
-\if{latex}{\out{\hypertarget{method-addStyle}{}}}
+\if{html}{\out{<a id="method-GSLayerGroup-addStyle"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerGroup-addStyle}{}}}
 \subsection{Method \code{addStyle()}}{
 Adds a style
 \subsection{Usage}{
@@ -302,8 +302,8 @@ Adds a style
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setMetadataLinks"></a>}}
-\if{latex}{\out{\hypertarget{method-setMetadataLinks}{}}}
+\if{html}{\out{<a id="method-GSLayerGroup-setMetadataLinks"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerGroup-setMetadataLinks}{}}}
 \subsection{Method \code{setMetadataLinks()}}{
 Set metadata links
 \subsection{Usage}{
@@ -319,8 +319,8 @@ Set metadata links
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-addMetadataLink"></a>}}
-\if{latex}{\out{\hypertarget{method-addMetadataLink}{}}}
+\if{html}{\out{<a id="method-GSLayerGroup-addMetadataLink"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerGroup-addMetadataLink}{}}}
 \subsection{Method \code{addMetadataLink()}}{
 Adds metadata link
 \subsection{Usage}{
@@ -339,8 +339,8 @@ Adds metadata link
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-deleteMetadataLink"></a>}}
-\if{latex}{\out{\hypertarget{method-deleteMetadataLink}{}}}
+\if{html}{\out{<a id="method-GSLayerGroup-deleteMetadataLink"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerGroup-deleteMetadataLink}{}}}
 \subsection{Method \code{deleteMetadataLink()}}{
 Deletes metadata link
 \subsection{Usage}{
@@ -359,8 +359,8 @@ Deletes metadata link
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setBounds"></a>}}
-\if{latex}{\out{\hypertarget{method-setBounds}{}}}
+\if{html}{\out{<a id="method-GSLayerGroup-setBounds"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerGroup-setBounds}{}}}
 \subsection{Method \code{setBounds()}}{
 Set bounds
 \subsection{Usage}{
@@ -386,8 +386,8 @@ Set bounds
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSLayerGroup-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayerGroup-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

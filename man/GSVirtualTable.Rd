@@ -85,28 +85,28 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSVirtualTable$new()}}
-\item \href{#method-decode}{\code{GSVirtualTable$decode()}}
-\item \href{#method-setName}{\code{GSVirtualTable$setName()}}
-\item \href{#method-setSql}{\code{GSVirtualTable$setSql()}}
-\item \href{#method-setEscapeSql}{\code{GSVirtualTable$setEscapeSql()}}
-\item \href{#method-setKeyColumn}{\code{GSVirtualTable$setKeyColumn()}}
-\item \href{#method-setGeometry}{\code{GSVirtualTable$setGeometry()}}
-\item \href{#method-addParameter}{\code{GSVirtualTable$addParameter()}}
-\item \href{#method-delParameter}{\code{GSVirtualTable$delParameter()}}
-\item \href{#method-clone}{\code{GSVirtualTable$clone()}}
+\item \href{#method-GSVirtualTable-new}{\code{GSVirtualTable$new()}}
+\item \href{#method-GSVirtualTable-decode}{\code{GSVirtualTable$decode()}}
+\item \href{#method-GSVirtualTable-setName}{\code{GSVirtualTable$setName()}}
+\item \href{#method-GSVirtualTable-setSql}{\code{GSVirtualTable$setSql()}}
+\item \href{#method-GSVirtualTable-setEscapeSql}{\code{GSVirtualTable$setEscapeSql()}}
+\item \href{#method-GSVirtualTable-setKeyColumn}{\code{GSVirtualTable$setKeyColumn()}}
+\item \href{#method-GSVirtualTable-setGeometry}{\code{GSVirtualTable$setGeometry()}}
+\item \href{#method-GSVirtualTable-addParameter}{\code{GSVirtualTable$addParameter()}}
+\item \href{#method-GSVirtualTable-delParameter}{\code{GSVirtualTable$delParameter()}}
+\item \href{#method-GSVirtualTable-clone}{\code{GSVirtualTable$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSVirtualTable-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSVirtualTable-new}{}}}
 \subsection{Method \code{new()}}{
 Initializes an object of class \link{GSVirtualTable}
 \subsection{Usage}{
@@ -122,8 +122,8 @@ Initializes an object of class \link{GSVirtualTable}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-decode"></a>}}
-\if{latex}{\out{\hypertarget{method-decode}{}}}
+\if{html}{\out{<a id="method-GSVirtualTable-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-GSVirtualTable-decode}{}}}
 \subsection{Method \code{decode()}}{
 Decodes from XML
 \subsection{Usage}{
@@ -139,8 +139,8 @@ Decodes from XML
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setName"></a>}}
-\if{latex}{\out{\hypertarget{method-setName}{}}}
+\if{html}{\out{<a id="method-GSVirtualTable-setName"></a>}}
+\if{latex}{\out{\hypertarget{method-GSVirtualTable-setName}{}}}
 \subsection{Method \code{setName()}}{
 Set name
 \subsection{Usage}{
@@ -156,8 +156,8 @@ Set name
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setSql"></a>}}
-\if{latex}{\out{\hypertarget{method-setSql}{}}}
+\if{html}{\out{<a id="method-GSVirtualTable-setSql"></a>}}
+\if{latex}{\out{\hypertarget{method-GSVirtualTable-setSql}{}}}
 \subsection{Method \code{setSql()}}{
 Set SQL
 \subsection{Usage}{
@@ -173,8 +173,8 @@ Set SQL
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setEscapeSql"></a>}}
-\if{latex}{\out{\hypertarget{method-setEscapeSql}{}}}
+\if{html}{\out{<a id="method-GSVirtualTable-setEscapeSql"></a>}}
+\if{latex}{\out{\hypertarget{method-GSVirtualTable-setEscapeSql}{}}}
 \subsection{Method \code{setEscapeSql()}}{
 Set escape SQL
 \subsection{Usage}{
@@ -190,8 +190,8 @@ Set escape SQL
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setKeyColumn"></a>}}
-\if{latex}{\out{\hypertarget{method-setKeyColumn}{}}}
+\if{html}{\out{<a id="method-GSVirtualTable-setKeyColumn"></a>}}
+\if{latex}{\out{\hypertarget{method-GSVirtualTable-setKeyColumn}{}}}
 \subsection{Method \code{setKeyColumn()}}{
 Set key column
 \subsection{Usage}{
@@ -207,8 +207,8 @@ Set key column
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setGeometry"></a>}}
-\if{latex}{\out{\hypertarget{method-setGeometry}{}}}
+\if{html}{\out{<a id="method-GSVirtualTable-setGeometry"></a>}}
+\if{latex}{\out{\hypertarget{method-GSVirtualTable-setGeometry}{}}}
 \subsection{Method \code{setGeometry()}}{
 Set geometry
 \subsection{Usage}{
@@ -224,8 +224,8 @@ Set geometry
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-addParameter"></a>}}
-\if{latex}{\out{\hypertarget{method-addParameter}{}}}
+\if{html}{\out{<a id="method-GSVirtualTable-addParameter"></a>}}
+\if{latex}{\out{\hypertarget{method-GSVirtualTable-addParameter}{}}}
 \subsection{Method \code{addParameter()}}{
 Adds parameter
 \subsection{Usage}{
@@ -244,8 +244,8 @@ Adds parameter
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-delParameter"></a>}}
-\if{latex}{\out{\hypertarget{method-delParameter}{}}}
+\if{html}{\out{<a id="method-GSVirtualTable-delParameter"></a>}}
+\if{latex}{\out{\hypertarget{method-GSVirtualTable-delParameter}{}}}
 \subsection{Method \code{delParameter()}}{
 Deletes parameter
 \subsection{Usage}{
@@ -264,8 +264,8 @@ Deletes parameter
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSVirtualTable-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSVirtualTable-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

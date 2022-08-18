@@ -49,25 +49,25 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSDimension$new()}}
-\item \href{#method-decode}{\code{GSDimension$decode()}}
-\item \href{#method-setEnabled}{\code{GSDimension$setEnabled()}}
-\item \href{#method-setPresentation}{\code{GSDimension$setPresentation()}}
-\item \href{#method-setUnit}{\code{GSDimension$setUnit()}}
-\item \href{#method-setUnitSymbol}{\code{GSDimension$setUnitSymbol()}}
-\item \href{#method-clone}{\code{GSDimension$clone()}}
+\item \href{#method-GSDimension-new}{\code{GSDimension$new()}}
+\item \href{#method-GSDimension-decode}{\code{GSDimension$decode()}}
+\item \href{#method-GSDimension-setEnabled}{\code{GSDimension$setEnabled()}}
+\item \href{#method-GSDimension-setPresentation}{\code{GSDimension$setPresentation()}}
+\item \href{#method-GSDimension-setUnit}{\code{GSDimension$setUnit()}}
+\item \href{#method-GSDimension-setUnitSymbol}{\code{GSDimension$setUnitSymbol()}}
+\item \href{#method-GSDimension-clone}{\code{GSDimension$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSDimension-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDimension-new}{}}}
 \subsection{Method \code{new()}}{
 Initializes an object of class \link{GSDimension}
 \subsection{Usage}{
@@ -83,8 +83,8 @@ Initializes an object of class \link{GSDimension}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-decode"></a>}}
-\if{latex}{\out{\hypertarget{method-decode}{}}}
+\if{html}{\out{<a id="method-GSDimension-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDimension-decode}{}}}
 \subsection{Method \code{decode()}}{
 Decodes from XML
 \subsection{Usage}{
@@ -100,8 +100,8 @@ Decodes from XML
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setEnabled"></a>}}
-\if{latex}{\out{\hypertarget{method-setEnabled}{}}}
+\if{html}{\out{<a id="method-GSDimension-setEnabled"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDimension-setEnabled}{}}}
 \subsection{Method \code{setEnabled()}}{
 Set enabled
 \subsection{Usage}{
@@ -117,8 +117,8 @@ Set enabled
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setPresentation"></a>}}
-\if{latex}{\out{\hypertarget{method-setPresentation}{}}}
+\if{html}{\out{<a id="method-GSDimension-setPresentation"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDimension-setPresentation}{}}}
 \subsection{Method \code{setPresentation()}}{
 Set presentation
 \subsection{Usage}{
@@ -136,8 +136,8 @@ Set presentation
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setUnit"></a>}}
-\if{latex}{\out{\hypertarget{method-setUnit}{}}}
+\if{html}{\out{<a id="method-GSDimension-setUnit"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDimension-setUnit}{}}}
 \subsection{Method \code{setUnit()}}{
 Set unit
 \subsection{Usage}{
@@ -153,8 +153,8 @@ Set unit
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setUnitSymbol"></a>}}
-\if{latex}{\out{\hypertarget{method-setUnitSymbol}{}}}
+\if{html}{\out{<a id="method-GSDimension-setUnitSymbol"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDimension-setUnitSymbol}{}}}
 \subsection{Method \code{setUnitSymbol()}}{
 Set unit symbol
 \subsection{Usage}{
@@ -170,8 +170,8 @@ Set unit symbol
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSDimension-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDimension-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -139,41 +139,41 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSResource$new()}}
-\item \href{#method-decode}{\code{GSResource$decode()}}
-\item \href{#method-setEnabled}{\code{GSResource$setEnabled()}}
-\item \href{#method-setName}{\code{GSResource$setName()}}
-\item \href{#method-setNativeName}{\code{GSResource$setNativeName()}}
-\item \href{#method-setTitle}{\code{GSResource$setTitle()}}
-\item \href{#method-setDescription}{\code{GSResource$setDescription()}}
-\item \href{#method-setAbstract}{\code{GSResource$setAbstract()}}
-\item \href{#method-setKeywords}{\code{GSResource$setKeywords()}}
-\item \href{#method-addKeyword}{\code{GSResource$addKeyword()}}
-\item \href{#method-delKeyword}{\code{GSResource$delKeyword()}}
-\item \href{#method-setMetadataLinks}{\code{GSResource$setMetadataLinks()}}
-\item \href{#method-addMetadataLink}{\code{GSResource$addMetadataLink()}}
-\item \href{#method-deleteMetadataLink}{\code{GSResource$deleteMetadataLink()}}
-\item \href{#method-setProjectionPolicy}{\code{GSResource$setProjectionPolicy()}}
-\item \href{#method-setSrs}{\code{GSResource$setSrs()}}
-\item \href{#method-setNativeCRS}{\code{GSResource$setNativeCRS()}}
-\item \href{#method-setLatLonBoundingBox}{\code{GSResource$setLatLonBoundingBox()}}
-\item \href{#method-setNativeBoundingBox}{\code{GSResource$setNativeBoundingBox()}}
-\item \href{#method-setMetadata}{\code{GSResource$setMetadata()}}
-\item \href{#method-delMetadata}{\code{GSResource$delMetadata()}}
-\item \href{#method-setMetadataDimension}{\code{GSResource$setMetadataDimension()}}
-\item \href{#method-clone}{\code{GSResource$clone()}}
+\item \href{#method-GSResource-new}{\code{GSResource$new()}}
+\item \href{#method-GSResource-decode}{\code{GSResource$decode()}}
+\item \href{#method-GSResource-setEnabled}{\code{GSResource$setEnabled()}}
+\item \href{#method-GSResource-setName}{\code{GSResource$setName()}}
+\item \href{#method-GSResource-setNativeName}{\code{GSResource$setNativeName()}}
+\item \href{#method-GSResource-setTitle}{\code{GSResource$setTitle()}}
+\item \href{#method-GSResource-setDescription}{\code{GSResource$setDescription()}}
+\item \href{#method-GSResource-setAbstract}{\code{GSResource$setAbstract()}}
+\item \href{#method-GSResource-setKeywords}{\code{GSResource$setKeywords()}}
+\item \href{#method-GSResource-addKeyword}{\code{GSResource$addKeyword()}}
+\item \href{#method-GSResource-delKeyword}{\code{GSResource$delKeyword()}}
+\item \href{#method-GSResource-setMetadataLinks}{\code{GSResource$setMetadataLinks()}}
+\item \href{#method-GSResource-addMetadataLink}{\code{GSResource$addMetadataLink()}}
+\item \href{#method-GSResource-deleteMetadataLink}{\code{GSResource$deleteMetadataLink()}}
+\item \href{#method-GSResource-setProjectionPolicy}{\code{GSResource$setProjectionPolicy()}}
+\item \href{#method-GSResource-setSrs}{\code{GSResource$setSrs()}}
+\item \href{#method-GSResource-setNativeCRS}{\code{GSResource$setNativeCRS()}}
+\item \href{#method-GSResource-setLatLonBoundingBox}{\code{GSResource$setLatLonBoundingBox()}}
+\item \href{#method-GSResource-setNativeBoundingBox}{\code{GSResource$setNativeBoundingBox()}}
+\item \href{#method-GSResource-setMetadata}{\code{GSResource$setMetadata()}}
+\item \href{#method-GSResource-delMetadata}{\code{GSResource$delMetadata()}}
+\item \href{#method-GSResource-setMetadataDimension}{\code{GSResource$setMetadataDimension()}}
+\item \href{#method-GSResource-clone}{\code{GSResource$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSResource-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSResource-new}{}}}
 \subsection{Method \code{new()}}{
 Initializes a \link{GSResource}
 \subsection{Usage}{
@@ -191,8 +191,8 @@ Initializes a \link{GSResource}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-decode"></a>}}
-\if{latex}{\out{\hypertarget{method-decode}{}}}
+\if{html}{\out{<a id="method-GSResource-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-GSResource-decode}{}}}
 \subsection{Method \code{decode()}}{
 Decodes from XML
 \subsection{Usage}{
@@ -208,8 +208,8 @@ Decodes from XML
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setEnabled"></a>}}
-\if{latex}{\out{\hypertarget{method-setEnabled}{}}}
+\if{html}{\out{<a id="method-GSResource-setEnabled"></a>}}
+\if{latex}{\out{\hypertarget{method-GSResource-setEnabled}{}}}
 \subsection{Method \code{setEnabled()}}{
 Set enabled
 \subsection{Usage}{
@@ -225,8 +225,8 @@ Set enabled
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setName"></a>}}
-\if{latex}{\out{\hypertarget{method-setName}{}}}
+\if{html}{\out{<a id="method-GSResource-setName"></a>}}
+\if{latex}{\out{\hypertarget{method-GSResource-setName}{}}}
 \subsection{Method \code{setName()}}{
 Set name
 \subsection{Usage}{
@@ -242,8 +242,8 @@ Set name
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setNativeName"></a>}}
-\if{latex}{\out{\hypertarget{method-setNativeName}{}}}
+\if{html}{\out{<a id="method-GSResource-setNativeName"></a>}}
+\if{latex}{\out{\hypertarget{method-GSResource-setNativeName}{}}}
 \subsection{Method \code{setNativeName()}}{
 Set native name
 \subsection{Usage}{
@@ -259,8 +259,8 @@ Set native name
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setTitle"></a>}}
-\if{latex}{\out{\hypertarget{method-setTitle}{}}}
+\if{html}{\out{<a id="method-GSResource-setTitle"></a>}}
+\if{latex}{\out{\hypertarget{method-GSResource-setTitle}{}}}
 \subsection{Method \code{setTitle()}}{
 Set title
 \subsection{Usage}{
@@ -276,8 +276,8 @@ Set title
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setDescription"></a>}}
-\if{latex}{\out{\hypertarget{method-setDescription}{}}}
+\if{html}{\out{<a id="method-GSResource-setDescription"></a>}}
+\if{latex}{\out{\hypertarget{method-GSResource-setDescription}{}}}
 \subsection{Method \code{setDescription()}}{
 Set description
 \subsection{Usage}{
@@ -293,8 +293,8 @@ Set description
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setAbstract"></a>}}
-\if{latex}{\out{\hypertarget{method-setAbstract}{}}}
+\if{html}{\out{<a id="method-GSResource-setAbstract"></a>}}
+\if{latex}{\out{\hypertarget{method-GSResource-setAbstract}{}}}
 \subsection{Method \code{setAbstract()}}{
 Set abstract
 \subsection{Usage}{
@@ -310,8 +310,8 @@ Set abstract
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setKeywords"></a>}}
-\if{latex}{\out{\hypertarget{method-setKeywords}{}}}
+\if{html}{\out{<a id="method-GSResource-setKeywords"></a>}}
+\if{latex}{\out{\hypertarget{method-GSResource-setKeywords}{}}}
 \subsection{Method \code{setKeywords()}}{
 Set keyword(s)
 \subsection{Usage}{
@@ -327,8 +327,8 @@ Set keyword(s)
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-addKeyword"></a>}}
-\if{latex}{\out{\hypertarget{method-addKeyword}{}}}
+\if{html}{\out{<a id="method-GSResource-addKeyword"></a>}}
+\if{latex}{\out{\hypertarget{method-GSResource-addKeyword}{}}}
 \subsection{Method \code{addKeyword()}}{
 Adds keyword
 \subsection{Usage}{
@@ -347,8 +347,8 @@ Adds keyword
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-delKeyword"></a>}}
-\if{latex}{\out{\hypertarget{method-delKeyword}{}}}
+\if{html}{\out{<a id="method-GSResource-delKeyword"></a>}}
+\if{latex}{\out{\hypertarget{method-GSResource-delKeyword}{}}}
 \subsection{Method \code{delKeyword()}}{
 Deletes keyword
 \subsection{Usage}{
@@ -367,8 +367,8 @@ Deletes keyword
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setMetadataLinks"></a>}}
-\if{latex}{\out{\hypertarget{method-setMetadataLinks}{}}}
+\if{html}{\out{<a id="method-GSResource-setMetadataLinks"></a>}}
+\if{latex}{\out{\hypertarget{method-GSResource-setMetadataLinks}{}}}
 \subsection{Method \code{setMetadataLinks()}}{
 Set metadata links
 \subsection{Usage}{
@@ -384,8 +384,8 @@ Set metadata links
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-addMetadataLink"></a>}}
-\if{latex}{\out{\hypertarget{method-addMetadataLink}{}}}
+\if{html}{\out{<a id="method-GSResource-addMetadataLink"></a>}}
+\if{latex}{\out{\hypertarget{method-GSResource-addMetadataLink}{}}}
 \subsection{Method \code{addMetadataLink()}}{
 Adds metadata link
 \subsection{Usage}{
@@ -404,8 +404,8 @@ Adds metadata link
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-deleteMetadataLink"></a>}}
-\if{latex}{\out{\hypertarget{method-deleteMetadataLink}{}}}
+\if{html}{\out{<a id="method-GSResource-deleteMetadataLink"></a>}}
+\if{latex}{\out{\hypertarget{method-GSResource-deleteMetadataLink}{}}}
 \subsection{Method \code{deleteMetadataLink()}}{
 Deletes metadata link
 \subsection{Usage}{
@@ -424,8 +424,8 @@ Deletes metadata link
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setProjectionPolicy"></a>}}
-\if{latex}{\out{\hypertarget{method-setProjectionPolicy}{}}}
+\if{html}{\out{<a id="method-GSResource-setProjectionPolicy"></a>}}
+\if{latex}{\out{\hypertarget{method-GSResource-setProjectionPolicy}{}}}
 \subsection{Method \code{setProjectionPolicy()}}{
 Set projection policy
 \subsection{Usage}{
@@ -441,8 +441,8 @@ Set projection policy
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setSrs"></a>}}
-\if{latex}{\out{\hypertarget{method-setSrs}{}}}
+\if{html}{\out{<a id="method-GSResource-setSrs"></a>}}
+\if{latex}{\out{\hypertarget{method-GSResource-setSrs}{}}}
 \subsection{Method \code{setSrs()}}{
 Set SRS
 \subsection{Usage}{
@@ -458,8 +458,8 @@ Set SRS
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setNativeCRS"></a>}}
-\if{latex}{\out{\hypertarget{method-setNativeCRS}{}}}
+\if{html}{\out{<a id="method-GSResource-setNativeCRS"></a>}}
+\if{latex}{\out{\hypertarget{method-GSResource-setNativeCRS}{}}}
 \subsection{Method \code{setNativeCRS()}}{
 Set native CRS
 \subsection{Usage}{
@@ -475,8 +475,8 @@ Set native CRS
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setLatLonBoundingBox"></a>}}
-\if{latex}{\out{\hypertarget{method-setLatLonBoundingBox}{}}}
+\if{html}{\out{<a id="method-GSResource-setLatLonBoundingBox"></a>}}
+\if{latex}{\out{\hypertarget{method-GSResource-setLatLonBoundingBox}{}}}
 \subsection{Method \code{setLatLonBoundingBox()}}{
 Set LatLon bounding box
 \subsection{Usage}{
@@ -502,8 +502,8 @@ Set LatLon bounding box
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setNativeBoundingBox"></a>}}
-\if{latex}{\out{\hypertarget{method-setNativeBoundingBox}{}}}
+\if{html}{\out{<a id="method-GSResource-setNativeBoundingBox"></a>}}
+\if{latex}{\out{\hypertarget{method-GSResource-setNativeBoundingBox}{}}}
 \subsection{Method \code{setNativeBoundingBox()}}{
 Set native bounding box
 \subsection{Usage}{
@@ -529,8 +529,8 @@ Set native bounding box
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setMetadata"></a>}}
-\if{latex}{\out{\hypertarget{method-setMetadata}{}}}
+\if{html}{\out{<a id="method-GSResource-setMetadata"></a>}}
+\if{latex}{\out{\hypertarget{method-GSResource-setMetadata}{}}}
 \subsection{Method \code{setMetadata()}}{
 Set metadata
 \subsection{Usage}{
@@ -551,8 +551,8 @@ Set metadata
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-delMetadata"></a>}}
-\if{latex}{\out{\hypertarget{method-delMetadata}{}}}
+\if{html}{\out{<a id="method-GSResource-delMetadata"></a>}}
+\if{latex}{\out{\hypertarget{method-GSResource-delMetadata}{}}}
 \subsection{Method \code{delMetadata()}}{
 Deletes metadata
 \subsection{Usage}{
@@ -571,8 +571,8 @@ Deletes metadata
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setMetadataDimension"></a>}}
-\if{latex}{\out{\hypertarget{method-setMetadataDimension}{}}}
+\if{html}{\out{<a id="method-GSResource-setMetadataDimension"></a>}}
+\if{latex}{\out{\hypertarget{method-GSResource-setMetadataDimension}{}}}
 \subsection{Method \code{setMetadataDimension()}}{
 Set metadata dimension
 \subsection{Usage}{
@@ -592,8 +592,8 @@ Set metadata dimension
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSResource-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSResource-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

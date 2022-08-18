@@ -47,27 +47,27 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSCoverageView$new()}}
-\item \href{#method-decode}{\code{GSCoverageView$decode()}}
-\item \href{#method-setName}{\code{GSCoverageView$setName()}}
-\item \href{#method-setEnvelopeCompositionType}{\code{GSCoverageView$setEnvelopeCompositionType()}}
-\item \href{#method-setSelectedResolution}{\code{GSCoverageView$setSelectedResolution()}}
-\item \href{#method-setSelectedResolutionIndex}{\code{GSCoverageView$setSelectedResolutionIndex()}}
-\item \href{#method-addBand}{\code{GSCoverageView$addBand()}}
-\item \href{#method-delBand}{\code{GSCoverageView$delBand()}}
-\item \href{#method-clone}{\code{GSCoverageView$clone()}}
+\item \href{#method-GSCoverageView-new}{\code{GSCoverageView$new()}}
+\item \href{#method-GSCoverageView-decode}{\code{GSCoverageView$decode()}}
+\item \href{#method-GSCoverageView-setName}{\code{GSCoverageView$setName()}}
+\item \href{#method-GSCoverageView-setEnvelopeCompositionType}{\code{GSCoverageView$setEnvelopeCompositionType()}}
+\item \href{#method-GSCoverageView-setSelectedResolution}{\code{GSCoverageView$setSelectedResolution()}}
+\item \href{#method-GSCoverageView-setSelectedResolutionIndex}{\code{GSCoverageView$setSelectedResolutionIndex()}}
+\item \href{#method-GSCoverageView-addBand}{\code{GSCoverageView$addBand()}}
+\item \href{#method-GSCoverageView-delBand}{\code{GSCoverageView$delBand()}}
+\item \href{#method-GSCoverageView-clone}{\code{GSCoverageView$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSCoverageView-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageView-new}{}}}
 \subsection{Method \code{new()}}{
 Initializes an object of class \link{GSCoverageView}
 \subsection{Usage}{
@@ -83,8 +83,8 @@ Initializes an object of class \link{GSCoverageView}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-decode"></a>}}
-\if{latex}{\out{\hypertarget{method-decode}{}}}
+\if{html}{\out{<a id="method-GSCoverageView-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageView-decode}{}}}
 \subsection{Method \code{decode()}}{
 Decodes from XML
 \subsection{Usage}{
@@ -100,8 +100,8 @@ Decodes from XML
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setName"></a>}}
-\if{latex}{\out{\hypertarget{method-setName}{}}}
+\if{html}{\out{<a id="method-GSCoverageView-setName"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageView-setName}{}}}
 \subsection{Method \code{setName()}}{
 Set name
 \subsection{Usage}{
@@ -117,8 +117,8 @@ Set name
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setEnvelopeCompositionType"></a>}}
-\if{latex}{\out{\hypertarget{method-setEnvelopeCompositionType}{}}}
+\if{html}{\out{<a id="method-GSCoverageView-setEnvelopeCompositionType"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageView-setEnvelopeCompositionType}{}}}
 \subsection{Method \code{setEnvelopeCompositionType()}}{
 Sets the envelope composition type. Type of Envelope Composition, used to expose the bounding box 
 of the CoverageView, either 'UNION' or 'INTERSECTION'.
@@ -135,8 +135,8 @@ of the CoverageView, either 'UNION' or 'INTERSECTION'.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setSelectedResolution"></a>}}
-\if{latex}{\out{\hypertarget{method-setSelectedResolution}{}}}
+\if{html}{\out{<a id="method-GSCoverageView-setSelectedResolution"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageView-setSelectedResolution}{}}}
 \subsection{Method \code{setSelectedResolution()}}{
 Set selected resolution
 \subsection{Usage}{
@@ -152,8 +152,8 @@ Set selected resolution
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setSelectedResolutionIndex"></a>}}
-\if{latex}{\out{\hypertarget{method-setSelectedResolutionIndex}{}}}
+\if{html}{\out{<a id="method-GSCoverageView-setSelectedResolutionIndex"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageView-setSelectedResolutionIndex}{}}}
 \subsection{Method \code{setSelectedResolutionIndex()}}{
 Set selected resolution index
 \subsection{Usage}{
@@ -169,8 +169,8 @@ Set selected resolution index
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-addBand"></a>}}
-\if{latex}{\out{\hypertarget{method-addBand}{}}}
+\if{html}{\out{<a id="method-GSCoverageView-addBand"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageView-addBand}{}}}
 \subsection{Method \code{addBand()}}{
 Adds band
 \subsection{Usage}{
@@ -189,8 +189,8 @@ Adds band
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-delBand"></a>}}
-\if{latex}{\out{\hypertarget{method-delBand}{}}}
+\if{html}{\out{<a id="method-GSCoverageView-delBand"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageView-delBand}{}}}
 \subsection{Method \code{delBand()}}{
 Deletes band
 \subsection{Usage}{
@@ -209,8 +209,8 @@ Deletes band
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSCoverageView-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageView-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

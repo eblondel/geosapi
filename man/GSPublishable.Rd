@@ -46,23 +46,23 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSPublishable$new()}}
-\item \href{#method-decode}{\code{GSPublishable$decode()}}
-\item \href{#method-setName}{\code{GSPublishable$setName()}}
-\item \href{#method-setType}{\code{GSPublishable$setType()}}
-\item \href{#method-clone}{\code{GSPublishable$clone()}}
+\item \href{#method-GSPublishable-new}{\code{GSPublishable$new()}}
+\item \href{#method-GSPublishable-decode}{\code{GSPublishable$decode()}}
+\item \href{#method-GSPublishable-setName}{\code{GSPublishable$setName()}}
+\item \href{#method-GSPublishable-setType}{\code{GSPublishable$setType()}}
+\item \href{#method-GSPublishable-clone}{\code{GSPublishable$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSPublishable-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSPublishable-new}{}}}
 \subsection{Method \code{new()}}{
 Initializes a \link{GSPublishable}
 \subsection{Usage}{
@@ -82,8 +82,8 @@ Initializes a \link{GSPublishable}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-decode"></a>}}
-\if{latex}{\out{\hypertarget{method-decode}{}}}
+\if{html}{\out{<a id="method-GSPublishable-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-GSPublishable-decode}{}}}
 \subsection{Method \code{decode()}}{
 Decodes from XML
 \subsection{Usage}{
@@ -99,8 +99,8 @@ Decodes from XML
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setName"></a>}}
-\if{latex}{\out{\hypertarget{method-setName}{}}}
+\if{html}{\out{<a id="method-GSPublishable-setName"></a>}}
+\if{latex}{\out{\hypertarget{method-GSPublishable-setName}{}}}
 \subsection{Method \code{setName()}}{
 set name
 \subsection{Usage}{
@@ -116,8 +116,8 @@ set name
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setType"></a>}}
-\if{latex}{\out{\hypertarget{method-setType}{}}}
+\if{html}{\out{<a id="method-GSPublishable-setType"></a>}}
+\if{latex}{\out{\hypertarget{method-GSPublishable-setType}{}}}
 \subsection{Method \code{setType()}}{
 Set type
 \subsection{Usage}{
@@ -133,8 +133,8 @@ Set type
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSPublishable-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSPublishable-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

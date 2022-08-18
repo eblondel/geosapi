@@ -115,49 +115,49 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSGeoPackageDataStore$new()}}
-\item \href{#method-clone}{\code{GSGeoPackageDataStore$clone()}}
+\item \href{#method-GSGeoPackageDataStore-new}{\code{GSGeoPackageDataStore$new()}}
+\item \href{#method-GSGeoPackageDataStore-clone}{\code{GSGeoPackageDataStore$clone()}}
 }
 }
-\if{html}{
-\out{<details ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setDescription">}\href{../../geosapi/html/GSAbstractStore.html#method-setDescription}{\code{geosapi::GSAbstractStore$setDescription()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setEnabled">}\href{../../geosapi/html/GSAbstractStore.html#method-setEnabled}{\code{geosapi::GSAbstractStore$setEnabled()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setType">}\href{../../geosapi/html/GSAbstractStore.html#method-setType}{\code{geosapi::GSAbstractStore$setType()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="addConnectionParameter">}\href{../../geosapi/html/GSAbstractDataStore.html#method-addConnectionParameter}{\code{geosapi::GSAbstractDataStore$addConnectionParameter()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="decode">}\href{../../geosapi/html/GSAbstractDataStore.html#method-decode}{\code{geosapi::GSAbstractDataStore$decode()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="delConnectionParameter">}\href{../../geosapi/html/GSAbstractDataStore.html#method-delConnectionParameter}{\code{geosapi::GSAbstractDataStore$delConnectionParameter()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="setConnectionParameter">}\href{../../geosapi/html/GSAbstractDataStore.html#method-setConnectionParameter}{\code{geosapi::GSAbstractDataStore$setConnectionParameter()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="setConnectionParameters">}\href{../../geosapi/html/GSAbstractDataStore.html#method-setConnectionParameters}{\code{geosapi::GSAbstractDataStore$setConnectionParameters()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setConnectionTimeout">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setConnectionTimeout}{\code{geosapi::GSAbstractDBDataStore$setConnectionTimeout()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setDatabase">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setDatabase}{\code{geosapi::GSAbstractDBDataStore$setDatabase()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setDatabaseType">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setDatabaseType}{\code{geosapi::GSAbstractDBDataStore$setDatabaseType()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setDefautConnectionParameters">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setDefautConnectionParameters}{\code{geosapi::GSAbstractDBDataStore$setDefautConnectionParameters()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setEstimatedExtends">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setEstimatedExtends}{\code{geosapi::GSAbstractDBDataStore$setEstimatedExtends()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setExposePrimaryKeys">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setExposePrimaryKeys}{\code{geosapi::GSAbstractDBDataStore$setExposePrimaryKeys()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setFetchSize">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setFetchSize}{\code{geosapi::GSAbstractDBDataStore$setFetchSize()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setHost">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setHost}{\code{geosapi::GSAbstractDBDataStore$setHost()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setJndiReferenceName">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setJndiReferenceName}{\code{geosapi::GSAbstractDBDataStore$setJndiReferenceName()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setLooseBBox">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setLooseBBox}{\code{geosapi::GSAbstractDBDataStore$setLooseBBox()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setMaxConnections">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setMaxConnections}{\code{geosapi::GSAbstractDBDataStore$setMaxConnections()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setMaxOpenPreparedStatements">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setMaxOpenPreparedStatements}{\code{geosapi::GSAbstractDBDataStore$setMaxOpenPreparedStatements()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setMinConnections">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setMinConnections}{\code{geosapi::GSAbstractDBDataStore$setMinConnections()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setNamespace">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setNamespace}{\code{geosapi::GSAbstractDBDataStore$setNamespace()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setPassword">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setPassword}{\code{geosapi::GSAbstractDBDataStore$setPassword()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setPort">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setPort}{\code{geosapi::GSAbstractDBDataStore$setPort()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setPreparedStatements">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setPreparedStatements}{\code{geosapi::GSAbstractDBDataStore$setPreparedStatements()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setPrimaryKeyMetadataTable">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setPrimaryKeyMetadataTable}{\code{geosapi::GSAbstractDBDataStore$setPrimaryKeyMetadataTable()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setSchema">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setSchema}{\code{geosapi::GSAbstractDBDataStore$setSchema()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setUser">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setUser}{\code{geosapi::GSAbstractDBDataStore$setUser()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setValidateConnections">}\href{../../geosapi/html/GSAbstractDBDataStore.html#method-setValidateConnections}{\code{geosapi::GSAbstractDBDataStore$setValidateConnections()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setDescription"><a href='../../geosapi/html/GSAbstractStore.html#method-GSAbstractStore-setDescription'><code>geosapi::GSAbstractStore$setDescription()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setEnabled"><a href='../../geosapi/html/GSAbstractStore.html#method-GSAbstractStore-setEnabled'><code>geosapi::GSAbstractStore$setEnabled()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setType"><a href='../../geosapi/html/GSAbstractStore.html#method-GSAbstractStore-setType'><code>geosapi::GSAbstractStore$setType()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="addConnectionParameter"><a href='../../geosapi/html/GSAbstractDataStore.html#method-GSAbstractDataStore-addConnectionParameter'><code>geosapi::GSAbstractDataStore$addConnectionParameter()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="decode"><a href='../../geosapi/html/GSAbstractDataStore.html#method-GSAbstractDataStore-decode'><code>geosapi::GSAbstractDataStore$decode()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="delConnectionParameter"><a href='../../geosapi/html/GSAbstractDataStore.html#method-GSAbstractDataStore-delConnectionParameter'><code>geosapi::GSAbstractDataStore$delConnectionParameter()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="setConnectionParameter"><a href='../../geosapi/html/GSAbstractDataStore.html#method-GSAbstractDataStore-setConnectionParameter'><code>geosapi::GSAbstractDataStore$setConnectionParameter()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDataStore" data-id="setConnectionParameters"><a href='../../geosapi/html/GSAbstractDataStore.html#method-GSAbstractDataStore-setConnectionParameters'><code>geosapi::GSAbstractDataStore$setConnectionParameters()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setConnectionTimeout"><a href='../../geosapi/html/GSAbstractDBDataStore.html#method-GSAbstractDBDataStore-setConnectionTimeout'><code>geosapi::GSAbstractDBDataStore$setConnectionTimeout()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setDatabase"><a href='../../geosapi/html/GSAbstractDBDataStore.html#method-GSAbstractDBDataStore-setDatabase'><code>geosapi::GSAbstractDBDataStore$setDatabase()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setDatabaseType"><a href='../../geosapi/html/GSAbstractDBDataStore.html#method-GSAbstractDBDataStore-setDatabaseType'><code>geosapi::GSAbstractDBDataStore$setDatabaseType()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setDefautConnectionParameters"><a href='../../geosapi/html/GSAbstractDBDataStore.html#method-GSAbstractDBDataStore-setDefautConnectionParameters'><code>geosapi::GSAbstractDBDataStore$setDefautConnectionParameters()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setEstimatedExtends"><a href='../../geosapi/html/GSAbstractDBDataStore.html#method-GSAbstractDBDataStore-setEstimatedExtends'><code>geosapi::GSAbstractDBDataStore$setEstimatedExtends()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setExposePrimaryKeys"><a href='../../geosapi/html/GSAbstractDBDataStore.html#method-GSAbstractDBDataStore-setExposePrimaryKeys'><code>geosapi::GSAbstractDBDataStore$setExposePrimaryKeys()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setFetchSize"><a href='../../geosapi/html/GSAbstractDBDataStore.html#method-GSAbstractDBDataStore-setFetchSize'><code>geosapi::GSAbstractDBDataStore$setFetchSize()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setHost"><a href='../../geosapi/html/GSAbstractDBDataStore.html#method-GSAbstractDBDataStore-setHost'><code>geosapi::GSAbstractDBDataStore$setHost()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setJndiReferenceName"><a href='../../geosapi/html/GSAbstractDBDataStore.html#method-GSAbstractDBDataStore-setJndiReferenceName'><code>geosapi::GSAbstractDBDataStore$setJndiReferenceName()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setLooseBBox"><a href='../../geosapi/html/GSAbstractDBDataStore.html#method-GSAbstractDBDataStore-setLooseBBox'><code>geosapi::GSAbstractDBDataStore$setLooseBBox()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setMaxConnections"><a href='../../geosapi/html/GSAbstractDBDataStore.html#method-GSAbstractDBDataStore-setMaxConnections'><code>geosapi::GSAbstractDBDataStore$setMaxConnections()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setMaxOpenPreparedStatements"><a href='../../geosapi/html/GSAbstractDBDataStore.html#method-GSAbstractDBDataStore-setMaxOpenPreparedStatements'><code>geosapi::GSAbstractDBDataStore$setMaxOpenPreparedStatements()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setMinConnections"><a href='../../geosapi/html/GSAbstractDBDataStore.html#method-GSAbstractDBDataStore-setMinConnections'><code>geosapi::GSAbstractDBDataStore$setMinConnections()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setNamespace"><a href='../../geosapi/html/GSAbstractDBDataStore.html#method-GSAbstractDBDataStore-setNamespace'><code>geosapi::GSAbstractDBDataStore$setNamespace()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setPassword"><a href='../../geosapi/html/GSAbstractDBDataStore.html#method-GSAbstractDBDataStore-setPassword'><code>geosapi::GSAbstractDBDataStore$setPassword()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setPort"><a href='../../geosapi/html/GSAbstractDBDataStore.html#method-GSAbstractDBDataStore-setPort'><code>geosapi::GSAbstractDBDataStore$setPort()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setPreparedStatements"><a href='../../geosapi/html/GSAbstractDBDataStore.html#method-GSAbstractDBDataStore-setPreparedStatements'><code>geosapi::GSAbstractDBDataStore$setPreparedStatements()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setPrimaryKeyMetadataTable"><a href='../../geosapi/html/GSAbstractDBDataStore.html#method-GSAbstractDBDataStore-setPrimaryKeyMetadataTable'><code>geosapi::GSAbstractDBDataStore$setPrimaryKeyMetadataTable()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setSchema"><a href='../../geosapi/html/GSAbstractDBDataStore.html#method-GSAbstractDBDataStore-setSchema'><code>geosapi::GSAbstractDBDataStore$setSchema()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setUser"><a href='../../geosapi/html/GSAbstractDBDataStore.html#method-GSAbstractDBDataStore-setUser'><code>geosapi::GSAbstractDBDataStore$setUser()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractDBDataStore" data-id="setValidateConnections"><a href='../../geosapi/html/GSAbstractDBDataStore.html#method-GSAbstractDBDataStore-setValidateConnections'><code>geosapi::GSAbstractDBDataStore$setValidateConnections()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSGeoPackageDataStore-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSGeoPackageDataStore-new}{}}}
 \subsection{Method \code{new()}}{
 initializes an GeoPackage data store
 \subsection{Usage}{
@@ -187,8 +187,8 @@ initializes an GeoPackage data store
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSGeoPackageDataStore-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSGeoPackageDataStore-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -76,27 +76,27 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSCoverageBand$new()}}
-\item \href{#method-decode}{\code{GSCoverageBand$decode()}}
-\item \href{#method-setName}{\code{GSCoverageBand$setName()}}
-\item \href{#method-setDefinition}{\code{GSCoverageBand$setDefinition()}}
-\item \href{#method-setIndex}{\code{GSCoverageBand$setIndex()}}
-\item \href{#method-setCompositionType}{\code{GSCoverageBand$setCompositionType()}}
-\item \href{#method-addInputBand}{\code{GSCoverageBand$addInputBand()}}
-\item \href{#method-delInputBand}{\code{GSCoverageBand$delInputBand()}}
-\item \href{#method-clone}{\code{GSCoverageBand$clone()}}
+\item \href{#method-GSCoverageBand-new}{\code{GSCoverageBand$new()}}
+\item \href{#method-GSCoverageBand-decode}{\code{GSCoverageBand$decode()}}
+\item \href{#method-GSCoverageBand-setName}{\code{GSCoverageBand$setName()}}
+\item \href{#method-GSCoverageBand-setDefinition}{\code{GSCoverageBand$setDefinition()}}
+\item \href{#method-GSCoverageBand-setIndex}{\code{GSCoverageBand$setIndex()}}
+\item \href{#method-GSCoverageBand-setCompositionType}{\code{GSCoverageBand$setCompositionType()}}
+\item \href{#method-GSCoverageBand-addInputBand}{\code{GSCoverageBand$addInputBand()}}
+\item \href{#method-GSCoverageBand-delInputBand}{\code{GSCoverageBand$delInputBand()}}
+\item \href{#method-GSCoverageBand-clone}{\code{GSCoverageBand$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSCoverageBand-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageBand-new}{}}}
 \subsection{Method \code{new()}}{
 Initalizes a \link{GSCoverageBand}
 \subsection{Usage}{
@@ -112,8 +112,8 @@ Initalizes a \link{GSCoverageBand}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-decode"></a>}}
-\if{latex}{\out{\hypertarget{method-decode}{}}}
+\if{html}{\out{<a id="method-GSCoverageBand-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageBand-decode}{}}}
 \subsection{Method \code{decode()}}{
 Decodes from XML
 \subsection{Usage}{
@@ -129,8 +129,8 @@ Decodes from XML
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setName"></a>}}
-\if{latex}{\out{\hypertarget{method-setName}{}}}
+\if{html}{\out{<a id="method-GSCoverageBand-setName"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageBand-setName}{}}}
 \subsection{Method \code{setName()}}{
 Set name
 \subsection{Usage}{
@@ -146,8 +146,8 @@ Set name
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setDefinition"></a>}}
-\if{latex}{\out{\hypertarget{method-setDefinition}{}}}
+\if{html}{\out{<a id="method-GSCoverageBand-setDefinition"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageBand-setDefinition}{}}}
 \subsection{Method \code{setDefinition()}}{
 Set definition
 \subsection{Usage}{
@@ -163,8 +163,8 @@ Set definition
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setIndex"></a>}}
-\if{latex}{\out{\hypertarget{method-setIndex}{}}}
+\if{html}{\out{<a id="method-GSCoverageBand-setIndex"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageBand-setIndex}{}}}
 \subsection{Method \code{setIndex()}}{
 Set index
 \subsection{Usage}{
@@ -180,8 +180,8 @@ Set index
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setCompositionType"></a>}}
-\if{latex}{\out{\hypertarget{method-setCompositionType}{}}}
+\if{html}{\out{<a id="method-GSCoverageBand-setCompositionType"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageBand-setCompositionType}{}}}
 \subsection{Method \code{setCompositionType()}}{
 Set composition type
 \subsection{Usage}{
@@ -197,8 +197,8 @@ Set composition type
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-addInputBand"></a>}}
-\if{latex}{\out{\hypertarget{method-addInputBand}{}}}
+\if{html}{\out{<a id="method-GSCoverageBand-addInputBand"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageBand-addInputBand}{}}}
 \subsection{Method \code{addInputBand()}}{
 Adds an input band
 \subsection{Usage}{
@@ -217,8 +217,8 @@ Adds an input band
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-delInputBand"></a>}}
-\if{latex}{\out{\hypertarget{method-delInputBand}{}}}
+\if{html}{\out{<a id="method-GSCoverageBand-delInputBand"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageBand-delInputBand}{}}}
 \subsection{Method \code{delInputBand()}}{
 Deletes an input band
 \subsection{Usage}{
@@ -237,8 +237,8 @@ Deletes an input band
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSCoverageBand-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageBand-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

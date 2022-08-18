@@ -44,24 +44,24 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSMetadataLink$new()}}
-\item \href{#method-decode}{\code{GSMetadataLink$decode()}}
-\item \href{#method-setType}{\code{GSMetadataLink$setType()}}
-\item \href{#method-setMetadataType}{\code{GSMetadataLink$setMetadataType()}}
-\item \href{#method-setContent}{\code{GSMetadataLink$setContent()}}
-\item \href{#method-clone}{\code{GSMetadataLink$clone()}}
+\item \href{#method-GSMetadataLink-new}{\code{GSMetadataLink$new()}}
+\item \href{#method-GSMetadataLink-decode}{\code{GSMetadataLink$decode()}}
+\item \href{#method-GSMetadataLink-setType}{\code{GSMetadataLink$setType()}}
+\item \href{#method-GSMetadataLink-setMetadataType}{\code{GSMetadataLink$setMetadataType()}}
+\item \href{#method-GSMetadataLink-setContent}{\code{GSMetadataLink$setContent()}}
+\item \href{#method-GSMetadataLink-clone}{\code{GSMetadataLink$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSMetadataLink-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSMetadataLink-new}{}}}
 \subsection{Method \code{new()}}{
 Initializes an object of class \link{GSMetadataLink}
 \subsection{Usage}{
@@ -83,8 +83,8 @@ Initializes an object of class \link{GSMetadataLink}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-decode"></a>}}
-\if{latex}{\out{\hypertarget{method-decode}{}}}
+\if{html}{\out{<a id="method-GSMetadataLink-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-GSMetadataLink-decode}{}}}
 \subsection{Method \code{decode()}}{
 Decodes from XML
 \subsection{Usage}{
@@ -100,8 +100,8 @@ Decodes from XML
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setType"></a>}}
-\if{latex}{\out{\hypertarget{method-setType}{}}}
+\if{html}{\out{<a id="method-GSMetadataLink-setType"></a>}}
+\if{latex}{\out{\hypertarget{method-GSMetadataLink-setType}{}}}
 \subsection{Method \code{setType()}}{
 Set type type
 \subsection{Usage}{
@@ -117,8 +117,8 @@ Set type type
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setMetadataType"></a>}}
-\if{latex}{\out{\hypertarget{method-setMetadataType}{}}}
+\if{html}{\out{<a id="method-GSMetadataLink-setMetadataType"></a>}}
+\if{latex}{\out{\hypertarget{method-GSMetadataLink-setMetadataType}{}}}
 \subsection{Method \code{setMetadataType()}}{
 Set metadata type
 \subsection{Usage}{
@@ -134,8 +134,8 @@ Set metadata type
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setContent"></a>}}
-\if{latex}{\out{\hypertarget{method-setContent}{}}}
+\if{html}{\out{<a id="method-GSMetadataLink-setContent"></a>}}
+\if{latex}{\out{\hypertarget{method-GSMetadataLink-setContent}{}}}
 \subsection{Method \code{setContent()}}{
 Set content
 \subsection{Usage}{
@@ -151,8 +151,8 @@ Set content
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSMetadataLink-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSMetadataLink-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

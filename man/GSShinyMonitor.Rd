@@ -26,15 +26,15 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSShinyMonitor$new()}}
-\item \href{#method-getMetric}{\code{GSShinyMonitor$getMetric()}}
-\item \href{#method-run}{\code{GSShinyMonitor$run()}}
-\item \href{#method-clone}{\code{GSShinyMonitor$clone()}}
+\item \href{#method-GSShinyMonitor-new}{\code{GSShinyMonitor$new()}}
+\item \href{#method-GSShinyMonitor-getMetric}{\code{GSShinyMonitor$getMetric()}}
+\item \href{#method-GSShinyMonitor-run}{\code{GSShinyMonitor$run()}}
+\item \href{#method-GSShinyMonitor-clone}{\code{GSShinyMonitor$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSShinyMonitor-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSShinyMonitor-new}{}}}
 \subsection{Method \code{new()}}{
 Initializes a Geoserver shiny monitoring tool
 \subsection{Usage}{
@@ -56,8 +56,8 @@ Initializes a Geoserver shiny monitoring tool
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getMetric"></a>}}
-\if{latex}{\out{\hypertarget{method-getMetric}{}}}
+\if{html}{\out{<a id="method-GSShinyMonitor-getMetric"></a>}}
+\if{latex}{\out{\hypertarget{method-GSShinyMonitor-getMetric}{}}}
 \subsection{Method \code{getMetric()}}{
 Get metric
 \subsection{Usage}{
@@ -76,8 +76,8 @@ the Geoserver monitored metric
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-run"></a>}}
-\if{latex}{\out{\hypertarget{method-run}{}}}
+\if{html}{\out{<a id="method-GSShinyMonitor-run"></a>}}
+\if{latex}{\out{\hypertarget{method-GSShinyMonitor-run}{}}}
 \subsection{Method \code{run()}}{
 Runs the application
 \subsection{Usage}{
@@ -86,8 +86,8 @@ Runs the application
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSShinyMonitor-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSShinyMonitor-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

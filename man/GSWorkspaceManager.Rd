@@ -35,45 +35,45 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-getWorkspaces}{\code{GSWorkspaceManager$getWorkspaces()}}
-\item \href{#method-getWorkspaceNames}{\code{GSWorkspaceManager$getWorkspaceNames()}}
-\item \href{#method-getWorkspace}{\code{GSWorkspaceManager$getWorkspace()}}
-\item \href{#method-createWorkspace}{\code{GSWorkspaceManager$createWorkspace()}}
-\item \href{#method-updateWorkspace}{\code{GSWorkspaceManager$updateWorkspace()}}
-\item \href{#method-deleteWorkspace}{\code{GSWorkspaceManager$deleteWorkspace()}}
-\item \href{#method-getWorkspaceSettings}{\code{GSWorkspaceManager$getWorkspaceSettings()}}
-\item \href{#method-createWorkspaceSettings}{\code{GSWorkspaceManager$createWorkspaceSettings()}}
-\item \href{#method-updateWorkspaceSettings}{\code{GSWorkspaceManager$updateWorkspaceSettings()}}
-\item \href{#method-deleteWorkspaceSettings}{\code{GSWorkspaceManager$deleteWorkspaceSettings()}}
-\item \href{#method-clone}{\code{GSWorkspaceManager$clone()}}
+\item \href{#method-GSWorkspaceManager-getWorkspaces}{\code{GSWorkspaceManager$getWorkspaces()}}
+\item \href{#method-GSWorkspaceManager-getWorkspaceNames}{\code{GSWorkspaceManager$getWorkspaceNames()}}
+\item \href{#method-GSWorkspaceManager-getWorkspace}{\code{GSWorkspaceManager$getWorkspace()}}
+\item \href{#method-GSWorkspaceManager-createWorkspace}{\code{GSWorkspaceManager$createWorkspace()}}
+\item \href{#method-GSWorkspaceManager-updateWorkspace}{\code{GSWorkspaceManager$updateWorkspace()}}
+\item \href{#method-GSWorkspaceManager-deleteWorkspace}{\code{GSWorkspaceManager$deleteWorkspace()}}
+\item \href{#method-GSWorkspaceManager-getWorkspaceSettings}{\code{GSWorkspaceManager$getWorkspaceSettings()}}
+\item \href{#method-GSWorkspaceManager-createWorkspaceSettings}{\code{GSWorkspaceManager$createWorkspaceSettings()}}
+\item \href{#method-GSWorkspaceManager-updateWorkspaceSettings}{\code{GSWorkspaceManager$updateWorkspaceSettings()}}
+\item \href{#method-GSWorkspaceManager-deleteWorkspaceSettings}{\code{GSWorkspaceManager$deleteWorkspaceSettings()}}
+\item \href{#method-GSWorkspaceManager-clone}{\code{GSWorkspaceManager$clone()}}
 }
 }
-\if{html}{
-\out{<details ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="connect">}\href{../../geosapi/html/GSManager.html#method-connect}{\code{geosapi::GSManager$connect()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="ERROR">}\href{../../geosapi/html/GSManager.html#method-ERROR}{\code{geosapi::GSManager$ERROR()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getClassName">}\href{../../geosapi/html/GSManager.html#method-getClassName}{\code{geosapi::GSManager$getClassName()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getCoverageStoreManager">}\href{../../geosapi/html/GSManager.html#method-getCoverageStoreManager}{\code{geosapi::GSManager$getCoverageStoreManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getDataStoreManager">}\href{../../geosapi/html/GSManager.html#method-getDataStoreManager}{\code{geosapi::GSManager$getDataStoreManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getNamespaceManager">}\href{../../geosapi/html/GSManager.html#method-getNamespaceManager}{\code{geosapi::GSManager$getNamespaceManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getServiceManager">}\href{../../geosapi/html/GSManager.html#method-getServiceManager}{\code{geosapi::GSManager$getServiceManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getStyleManager">}\href{../../geosapi/html/GSManager.html#method-getStyleManager}{\code{geosapi::GSManager$getStyleManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getSystemStatus">}\href{../../geosapi/html/GSManager.html#method-getSystemStatus}{\code{geosapi::GSManager$getSystemStatus()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getUrl">}\href{../../geosapi/html/GSManager.html#method-getUrl}{\code{geosapi::GSManager$getUrl()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getWorkspaceManager">}\href{../../geosapi/html/GSManager.html#method-getWorkspaceManager}{\code{geosapi::GSManager$getWorkspaceManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="INFO">}\href{../../geosapi/html/GSManager.html#method-INFO}{\code{geosapi::GSManager$INFO()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="initialize">}\href{../../geosapi/html/GSManager.html#method-initialize}{\code{geosapi::GSManager$initialize()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="logger">}\href{../../geosapi/html/GSManager.html#method-logger}{\code{geosapi::GSManager$logger()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="monitor">}\href{../../geosapi/html/GSManager.html#method-monitor}{\code{geosapi::GSManager$monitor()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="reload">}\href{../../geosapi/html/GSManager.html#method-reload}{\code{geosapi::GSManager$reload()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="WARN">}\href{../../geosapi/html/GSManager.html#method-WARN}{\code{geosapi::GSManager$WARN()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="ERROR"><a href='../../geosapi/html/GSManager.html#method-GSManager-ERROR'><code>geosapi::GSManager$ERROR()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="INFO"><a href='../../geosapi/html/GSManager.html#method-GSManager-INFO'><code>geosapi::GSManager$INFO()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="WARN"><a href='../../geosapi/html/GSManager.html#method-GSManager-WARN'><code>geosapi::GSManager$WARN()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="connect"><a href='../../geosapi/html/GSManager.html#method-GSManager-connect'><code>geosapi::GSManager$connect()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getClassName"><a href='../../geosapi/html/GSManager.html#method-GSManager-getClassName'><code>geosapi::GSManager$getClassName()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getCoverageStoreManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getCoverageStoreManager'><code>geosapi::GSManager$getCoverageStoreManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getDataStoreManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getDataStoreManager'><code>geosapi::GSManager$getDataStoreManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getNamespaceManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getNamespaceManager'><code>geosapi::GSManager$getNamespaceManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getServiceManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getServiceManager'><code>geosapi::GSManager$getServiceManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getStyleManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getStyleManager'><code>geosapi::GSManager$getStyleManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getSystemStatus"><a href='../../geosapi/html/GSManager.html#method-GSManager-getSystemStatus'><code>geosapi::GSManager$getSystemStatus()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getUrl"><a href='../../geosapi/html/GSManager.html#method-GSManager-getUrl'><code>geosapi::GSManager$getUrl()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getWorkspaceManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getWorkspaceManager'><code>geosapi::GSManager$getWorkspaceManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="initialize"><a href='../../geosapi/html/GSManager.html#method-GSManager-initialize'><code>geosapi::GSManager$initialize()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="logger"><a href='../../geosapi/html/GSManager.html#method-GSManager-logger'><code>geosapi::GSManager$logger()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="monitor"><a href='../../geosapi/html/GSManager.html#method-GSManager-monitor'><code>geosapi::GSManager$monitor()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="reload"><a href='../../geosapi/html/GSManager.html#method-GSManager-reload'><code>geosapi::GSManager$reload()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getWorkspaces"></a>}}
-\if{latex}{\out{\hypertarget{method-getWorkspaces}{}}}
+\if{html}{\out{<a id="method-GSWorkspaceManager-getWorkspaces"></a>}}
+\if{latex}{\out{\hypertarget{method-GSWorkspaceManager-getWorkspaces}{}}}
 \subsection{Method \code{getWorkspaces()}}{
 Get the list of available workspace. Returns an object of class \code{list}
    containing items of class \code{\link{GSWorkspace}}
@@ -90,8 +90,8 @@ Get the list of available workspace. Returns an object of class \code{list}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getWorkspaceNames"></a>}}
-\if{latex}{\out{\hypertarget{method-getWorkspaceNames}{}}}
+\if{html}{\out{<a id="method-GSWorkspaceManager-getWorkspaceNames"></a>}}
+\if{latex}{\out{\hypertarget{method-GSWorkspaceManager-getWorkspaceNames}{}}}
 \subsection{Method \code{getWorkspaceNames()}}{
 Get the list of available workspace names. Returns an vector of class \code{character}
 \subsection{Usage}{
@@ -103,8 +103,8 @@ a list of workspace names
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getWorkspace"></a>}}
-\if{latex}{\out{\hypertarget{method-getWorkspace}{}}}
+\if{html}{\out{<a id="method-GSWorkspaceManager-getWorkspace"></a>}}
+\if{latex}{\out{\hypertarget{method-GSWorkspaceManager-getWorkspace}{}}}
 \subsection{Method \code{getWorkspace()}}{
 Get a \code{\link{GSWorkspace}} object given a workspace name.
 \subsection{Usage}{
@@ -123,8 +123,8 @@ an object of class \link{GSWorkspace}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-createWorkspace"></a>}}
-\if{latex}{\out{\hypertarget{method-createWorkspace}{}}}
+\if{html}{\out{<a id="method-GSWorkspaceManager-createWorkspace"></a>}}
+\if{latex}{\out{\hypertarget{method-GSWorkspaceManager-createWorkspace}{}}}
 \subsection{Method \code{createWorkspace()}}{
 Creates a GeoServer workspace given a name, and an optional URI. If the URI
    is not specified, GeoServer will automatically create an associated Namespace 
@@ -149,8 +149,8 @@ Creates a GeoServer workspace given a name, and an optional URI. If the URI
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-updateWorkspace"></a>}}
-\if{latex}{\out{\hypertarget{method-updateWorkspace}{}}}
+\if{html}{\out{<a id="method-GSWorkspaceManager-updateWorkspace"></a>}}
+\if{latex}{\out{\hypertarget{method-GSWorkspaceManager-updateWorkspace}{}}}
 \subsection{Method \code{updateWorkspace()}}{
 Updates a GeoServer workspace given a name, and an optional URI. If the URI
    is not specified, GeoServer will automatically update the associated Namespace 
@@ -175,8 +175,8 @@ Updates a GeoServer workspace given a name, and an optional URI. If the URI
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-deleteWorkspace"></a>}}
-\if{latex}{\out{\hypertarget{method-deleteWorkspace}{}}}
+\if{html}{\out{<a id="method-GSWorkspaceManager-deleteWorkspace"></a>}}
+\if{latex}{\out{\hypertarget{method-GSWorkspaceManager-deleteWorkspace}{}}}
 \subsection{Method \code{deleteWorkspace()}}{
 Deletes a GeoServer workspace given a name.
 \subsection{Usage}{
@@ -197,8 +197,8 @@ Deletes a GeoServer workspace given a name.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getWorkspaceSettings"></a>}}
-\if{latex}{\out{\hypertarget{method-getWorkspaceSettings}{}}}
+\if{html}{\out{<a id="method-GSWorkspaceManager-getWorkspaceSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-GSWorkspaceManager-getWorkspaceSettings}{}}}
 \subsection{Method \code{getWorkspaceSettings()}}{
 Updates workspace settings
 \subsection{Usage}{
@@ -217,8 +217,8 @@ an object of class \link{GSWorkspaceSettings}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-createWorkspaceSettings"></a>}}
-\if{latex}{\out{\hypertarget{method-createWorkspaceSettings}{}}}
+\if{html}{\out{<a id="method-GSWorkspaceManager-createWorkspaceSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-GSWorkspaceManager-createWorkspaceSettings}{}}}
 \subsection{Method \code{createWorkspaceSettings()}}{
 Creates workspace settings
 \subsection{Usage}{
@@ -239,8 +239,8 @@ Creates workspace settings
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-updateWorkspaceSettings"></a>}}
-\if{latex}{\out{\hypertarget{method-updateWorkspaceSettings}{}}}
+\if{html}{\out{<a id="method-GSWorkspaceManager-updateWorkspaceSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-GSWorkspaceManager-updateWorkspaceSettings}{}}}
 \subsection{Method \code{updateWorkspaceSettings()}}{
 Updates workspace settings
 \subsection{Usage}{
@@ -261,8 +261,8 @@ Updates workspace settings
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-deleteWorkspaceSettings"></a>}}
-\if{latex}{\out{\hypertarget{method-deleteWorkspaceSettings}{}}}
+\if{html}{\out{<a id="method-GSWorkspaceManager-deleteWorkspaceSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-GSWorkspaceManager-deleteWorkspaceSettings}{}}}
 \subsection{Method \code{deleteWorkspaceSettings()}}{
 Deletes workspace settings
 \subsection{Usage}{
@@ -281,8 +281,8 @@ Deletes workspace settings
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSWorkspaceManager-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSWorkspaceManager-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

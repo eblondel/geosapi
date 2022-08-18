@@ -45,24 +45,24 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSAbstractStore$new()}}
-\item \href{#method-decode}{\code{GSAbstractStore$decode()}}
-\item \href{#method-setType}{\code{GSAbstractStore$setType()}}
-\item \href{#method-setEnabled}{\code{GSAbstractStore$setEnabled()}}
-\item \href{#method-setDescription}{\code{GSAbstractStore$setDescription()}}
-\item \href{#method-clone}{\code{GSAbstractStore$clone()}}
+\item \href{#method-GSAbstractStore-new}{\code{GSAbstractStore$new()}}
+\item \href{#method-GSAbstractStore-decode}{\code{GSAbstractStore$decode()}}
+\item \href{#method-GSAbstractStore-setType}{\code{GSAbstractStore$setType()}}
+\item \href{#method-GSAbstractStore-setEnabled}{\code{GSAbstractStore$setEnabled()}}
+\item \href{#method-GSAbstractStore-setDescription}{\code{GSAbstractStore$setDescription()}}
+\item \href{#method-GSAbstractStore-clone}{\code{GSAbstractStore$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSAbstractStore-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSAbstractStore-new}{}}}
 \subsection{Method \code{new()}}{
 initializes an abstract store
 \subsection{Usage}{
@@ -95,8 +95,8 @@ initializes an abstract store
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-decode"></a>}}
-\if{latex}{\out{\hypertarget{method-decode}{}}}
+\if{html}{\out{<a id="method-GSAbstractStore-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-GSAbstractStore-decode}{}}}
 \subsection{Method \code{decode()}}{
 Decodes store from XML
 \subsection{Usage}{
@@ -112,8 +112,8 @@ Decodes store from XML
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setType"></a>}}
-\if{latex}{\out{\hypertarget{method-setType}{}}}
+\if{html}{\out{<a id="method-GSAbstractStore-setType"></a>}}
+\if{latex}{\out{\hypertarget{method-GSAbstractStore-setType}{}}}
 \subsection{Method \code{setType()}}{
 Set type
 \subsection{Usage}{
@@ -129,8 +129,8 @@ Set type
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setEnabled"></a>}}
-\if{latex}{\out{\hypertarget{method-setEnabled}{}}}
+\if{html}{\out{<a id="method-GSAbstractStore-setEnabled"></a>}}
+\if{latex}{\out{\hypertarget{method-GSAbstractStore-setEnabled}{}}}
 \subsection{Method \code{setEnabled()}}{
 Set enabled
 \subsection{Usage}{
@@ -146,8 +146,8 @@ Set enabled
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setDescription"></a>}}
-\if{latex}{\out{\hypertarget{method-setDescription}{}}}
+\if{html}{\out{<a id="method-GSAbstractStore-setDescription"></a>}}
+\if{latex}{\out{\hypertarget{method-GSAbstractStore-setDescription}{}}}
 \subsection{Method \code{setDescription()}}{
 Set description
 \subsection{Usage}{
@@ -163,8 +163,8 @@ Set description
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSAbstractStore-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSAbstractStore-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -35,56 +35,56 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-getDataStores}{\code{GSDataStoreManager$getDataStores()}}
-\item \href{#method-getDataStoreNames}{\code{GSDataStoreManager$getDataStoreNames()}}
-\item \href{#method-getDataStore}{\code{GSDataStoreManager$getDataStore()}}
-\item \href{#method-createDataStore}{\code{GSDataStoreManager$createDataStore()}}
-\item \href{#method-updateDataStore}{\code{GSDataStoreManager$updateDataStore()}}
-\item \href{#method-deleteDataStore}{\code{GSDataStoreManager$deleteDataStore()}}
-\item \href{#method-getFeatureTypes}{\code{GSDataStoreManager$getFeatureTypes()}}
-\item \href{#method-getFeatureTypeNames}{\code{GSDataStoreManager$getFeatureTypeNames()}}
-\item \href{#method-getFeatureType}{\code{GSDataStoreManager$getFeatureType()}}
-\item \href{#method-createFeatureType}{\code{GSDataStoreManager$createFeatureType()}}
-\item \href{#method-updateFeatureType}{\code{GSDataStoreManager$updateFeatureType()}}
-\item \href{#method-deleteFeatureType}{\code{GSDataStoreManager$deleteFeatureType()}}
-\item \href{#method-publishLayer}{\code{GSDataStoreManager$publishLayer()}}
-\item \href{#method-unpublishLayer}{\code{GSDataStoreManager$unpublishLayer()}}
-\item \href{#method-uploadData}{\code{GSDataStoreManager$uploadData()}}
-\item \href{#method-uploadShapefile}{\code{GSDataStoreManager$uploadShapefile()}}
-\item \href{#method-uploadProperties}{\code{GSDataStoreManager$uploadProperties()}}
-\item \href{#method-uploadH2}{\code{GSDataStoreManager$uploadH2()}}
-\item \href{#method-uploadSpatialite}{\code{GSDataStoreManager$uploadSpatialite()}}
-\item \href{#method-uploadAppschema}{\code{GSDataStoreManager$uploadAppschema()}}
-\item \href{#method-uploadGeoPackage}{\code{GSDataStoreManager$uploadGeoPackage()}}
-\item \href{#method-clone}{\code{GSDataStoreManager$clone()}}
+\item \href{#method-GSDataStoreManager-getDataStores}{\code{GSDataStoreManager$getDataStores()}}
+\item \href{#method-GSDataStoreManager-getDataStoreNames}{\code{GSDataStoreManager$getDataStoreNames()}}
+\item \href{#method-GSDataStoreManager-getDataStore}{\code{GSDataStoreManager$getDataStore()}}
+\item \href{#method-GSDataStoreManager-createDataStore}{\code{GSDataStoreManager$createDataStore()}}
+\item \href{#method-GSDataStoreManager-updateDataStore}{\code{GSDataStoreManager$updateDataStore()}}
+\item \href{#method-GSDataStoreManager-deleteDataStore}{\code{GSDataStoreManager$deleteDataStore()}}
+\item \href{#method-GSDataStoreManager-getFeatureTypes}{\code{GSDataStoreManager$getFeatureTypes()}}
+\item \href{#method-GSDataStoreManager-getFeatureTypeNames}{\code{GSDataStoreManager$getFeatureTypeNames()}}
+\item \href{#method-GSDataStoreManager-getFeatureType}{\code{GSDataStoreManager$getFeatureType()}}
+\item \href{#method-GSDataStoreManager-createFeatureType}{\code{GSDataStoreManager$createFeatureType()}}
+\item \href{#method-GSDataStoreManager-updateFeatureType}{\code{GSDataStoreManager$updateFeatureType()}}
+\item \href{#method-GSDataStoreManager-deleteFeatureType}{\code{GSDataStoreManager$deleteFeatureType()}}
+\item \href{#method-GSDataStoreManager-publishLayer}{\code{GSDataStoreManager$publishLayer()}}
+\item \href{#method-GSDataStoreManager-unpublishLayer}{\code{GSDataStoreManager$unpublishLayer()}}
+\item \href{#method-GSDataStoreManager-uploadData}{\code{GSDataStoreManager$uploadData()}}
+\item \href{#method-GSDataStoreManager-uploadShapefile}{\code{GSDataStoreManager$uploadShapefile()}}
+\item \href{#method-GSDataStoreManager-uploadProperties}{\code{GSDataStoreManager$uploadProperties()}}
+\item \href{#method-GSDataStoreManager-uploadH2}{\code{GSDataStoreManager$uploadH2()}}
+\item \href{#method-GSDataStoreManager-uploadSpatialite}{\code{GSDataStoreManager$uploadSpatialite()}}
+\item \href{#method-GSDataStoreManager-uploadAppschema}{\code{GSDataStoreManager$uploadAppschema()}}
+\item \href{#method-GSDataStoreManager-uploadGeoPackage}{\code{GSDataStoreManager$uploadGeoPackage()}}
+\item \href{#method-GSDataStoreManager-clone}{\code{GSDataStoreManager$clone()}}
 }
 }
-\if{html}{
-\out{<details ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="connect">}\href{../../geosapi/html/GSManager.html#method-connect}{\code{geosapi::GSManager$connect()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="ERROR">}\href{../../geosapi/html/GSManager.html#method-ERROR}{\code{geosapi::GSManager$ERROR()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getClassName">}\href{../../geosapi/html/GSManager.html#method-getClassName}{\code{geosapi::GSManager$getClassName()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getCoverageStoreManager">}\href{../../geosapi/html/GSManager.html#method-getCoverageStoreManager}{\code{geosapi::GSManager$getCoverageStoreManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getDataStoreManager">}\href{../../geosapi/html/GSManager.html#method-getDataStoreManager}{\code{geosapi::GSManager$getDataStoreManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getNamespaceManager">}\href{../../geosapi/html/GSManager.html#method-getNamespaceManager}{\code{geosapi::GSManager$getNamespaceManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getServiceManager">}\href{../../geosapi/html/GSManager.html#method-getServiceManager}{\code{geosapi::GSManager$getServiceManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getStyleManager">}\href{../../geosapi/html/GSManager.html#method-getStyleManager}{\code{geosapi::GSManager$getStyleManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getSystemStatus">}\href{../../geosapi/html/GSManager.html#method-getSystemStatus}{\code{geosapi::GSManager$getSystemStatus()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getUrl">}\href{../../geosapi/html/GSManager.html#method-getUrl}{\code{geosapi::GSManager$getUrl()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getWorkspaceManager">}\href{../../geosapi/html/GSManager.html#method-getWorkspaceManager}{\code{geosapi::GSManager$getWorkspaceManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="INFO">}\href{../../geosapi/html/GSManager.html#method-INFO}{\code{geosapi::GSManager$INFO()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="initialize">}\href{../../geosapi/html/GSManager.html#method-initialize}{\code{geosapi::GSManager$initialize()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="logger">}\href{../../geosapi/html/GSManager.html#method-logger}{\code{geosapi::GSManager$logger()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="monitor">}\href{../../geosapi/html/GSManager.html#method-monitor}{\code{geosapi::GSManager$monitor()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="reload">}\href{../../geosapi/html/GSManager.html#method-reload}{\code{geosapi::GSManager$reload()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="WARN">}\href{../../geosapi/html/GSManager.html#method-WARN}{\code{geosapi::GSManager$WARN()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="ERROR"><a href='../../geosapi/html/GSManager.html#method-GSManager-ERROR'><code>geosapi::GSManager$ERROR()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="INFO"><a href='../../geosapi/html/GSManager.html#method-GSManager-INFO'><code>geosapi::GSManager$INFO()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="WARN"><a href='../../geosapi/html/GSManager.html#method-GSManager-WARN'><code>geosapi::GSManager$WARN()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="connect"><a href='../../geosapi/html/GSManager.html#method-GSManager-connect'><code>geosapi::GSManager$connect()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getClassName"><a href='../../geosapi/html/GSManager.html#method-GSManager-getClassName'><code>geosapi::GSManager$getClassName()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getCoverageStoreManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getCoverageStoreManager'><code>geosapi::GSManager$getCoverageStoreManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getDataStoreManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getDataStoreManager'><code>geosapi::GSManager$getDataStoreManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getNamespaceManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getNamespaceManager'><code>geosapi::GSManager$getNamespaceManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getServiceManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getServiceManager'><code>geosapi::GSManager$getServiceManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getStyleManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getStyleManager'><code>geosapi::GSManager$getStyleManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getSystemStatus"><a href='../../geosapi/html/GSManager.html#method-GSManager-getSystemStatus'><code>geosapi::GSManager$getSystemStatus()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getUrl"><a href='../../geosapi/html/GSManager.html#method-GSManager-getUrl'><code>geosapi::GSManager$getUrl()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getWorkspaceManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getWorkspaceManager'><code>geosapi::GSManager$getWorkspaceManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="initialize"><a href='../../geosapi/html/GSManager.html#method-GSManager-initialize'><code>geosapi::GSManager$initialize()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="logger"><a href='../../geosapi/html/GSManager.html#method-GSManager-logger'><code>geosapi::GSManager$logger()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="monitor"><a href='../../geosapi/html/GSManager.html#method-GSManager-monitor'><code>geosapi::GSManager$monitor()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="reload"><a href='../../geosapi/html/GSManager.html#method-GSManager-reload'><code>geosapi::GSManager$reload()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getDataStores"></a>}}
-\if{latex}{\out{\hypertarget{method-getDataStores}{}}}
+\if{html}{\out{<a id="method-GSDataStoreManager-getDataStores"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDataStoreManager-getDataStores}{}}}
 \subsection{Method \code{getDataStores()}}{
 Get the list of available dataStores.
 \subsection{Usage}{
@@ -103,8 +103,8 @@ an object of class \code{list} giving items of class \code{\link{GSAbstractDataS
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getDataStoreNames"></a>}}
-\if{latex}{\out{\hypertarget{method-getDataStoreNames}{}}}
+\if{html}{\out{<a id="method-GSDataStoreManager-getDataStoreNames"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDataStoreManager-getDataStoreNames}{}}}
 \subsection{Method \code{getDataStoreNames()}}{
 Get the list of available dataStore names.
 \subsection{Usage}{
@@ -123,8 +123,8 @@ a vector of class \code{character}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getDataStore"></a>}}
-\if{latex}{\out{\hypertarget{method-getDataStore}{}}}
+\if{html}{\out{<a id="method-GSDataStoreManager-getDataStore"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDataStoreManager-getDataStore}{}}}
 \subsection{Method \code{getDataStore()}}{
 Get an object of class \code{\link{GSAbstractDataStore}} given a workspace and datastore names.
 \subsection{Usage}{
@@ -145,8 +145,8 @@ the datastore
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-createDataStore"></a>}}
-\if{latex}{\out{\hypertarget{method-createDataStore}{}}}
+\if{html}{\out{<a id="method-GSDataStoreManager-createDataStore"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDataStoreManager-createDataStore}{}}}
 \subsection{Method \code{createDataStore()}}{
 Creates a datastore given a workspace and an object of class \code{\link{GSAbstractDataStore}}.
 \subsection{Usage}{
@@ -167,8 +167,8 @@ Creates a datastore given a workspace and an object of class \code{\link{GSAbstr
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-updateDataStore"></a>}}
-\if{latex}{\out{\hypertarget{method-updateDataStore}{}}}
+\if{html}{\out{<a id="method-GSDataStoreManager-updateDataStore"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDataStoreManager-updateDataStore}{}}}
 \subsection{Method \code{updateDataStore()}}{
 Updates a datastore given a workspace and an object of class \code{\link{GSAbstractDataStore}}.
 \subsection{Usage}{
@@ -189,8 +189,8 @@ Updates a datastore given a workspace and an object of class \code{\link{GSAbstr
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-deleteDataStore"></a>}}
-\if{latex}{\out{\hypertarget{method-deleteDataStore}{}}}
+\if{html}{\out{<a id="method-GSDataStoreManager-deleteDataStore"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDataStoreManager-deleteDataStore}{}}}
 \subsection{Method \code{deleteDataStore()}}{
 Deletes a datastore given workspace and datastore names.
    By defaut, the option \code{recurse} is set to FALSE, ie datastore layers are not removed.
@@ -215,8 +215,8 @@ Deletes a datastore given workspace and datastore names.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getFeatureTypes"></a>}}
-\if{latex}{\out{\hypertarget{method-getFeatureTypes}{}}}
+\if{html}{\out{<a id="method-GSDataStoreManager-getFeatureTypes"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDataStoreManager-getFeatureTypes}{}}}
 \subsection{Method \code{getFeatureTypes()}}{
 Get the list of available feature types for given workspace and datastore.
 \subsection{Usage}{
@@ -239,8 +239,8 @@ an object of class \code{list} giving items of class \code{\link{GSFeatureType}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getFeatureTypeNames"></a>}}
-\if{latex}{\out{\hypertarget{method-getFeatureTypeNames}{}}}
+\if{html}{\out{<a id="method-GSDataStoreManager-getFeatureTypeNames"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDataStoreManager-getFeatureTypeNames}{}}}
 \subsection{Method \code{getFeatureTypeNames()}}{
 Get the list of available feature type names for given workspace and datastore.
 \subsection{Usage}{
@@ -261,8 +261,8 @@ a vector of class\code{character}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getFeatureType"></a>}}
-\if{latex}{\out{\hypertarget{method-getFeatureType}{}}}
+\if{html}{\out{<a id="method-GSDataStoreManager-getFeatureType"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDataStoreManager-getFeatureType}{}}}
 \subsection{Method \code{getFeatureType()}}{
 Get an object of class \code{\link{GSFeatureType}} given a workspace, datastore and feature type names.
 \subsection{Usage}{
@@ -285,8 +285,8 @@ an object of class \link{GSFeatureType}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-createFeatureType"></a>}}
-\if{latex}{\out{\hypertarget{method-createFeatureType}{}}}
+\if{html}{\out{<a id="method-GSDataStoreManager-createFeatureType"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDataStoreManager-createFeatureType}{}}}
 \subsection{Method \code{createFeatureType()}}{
 Creates a new featureType given a workspace, datastore names and an object of class \code{\link{GSFeatureType}}
 \subsection{Usage}{
@@ -309,8 +309,8 @@ Creates a new featureType given a workspace, datastore names and an object of cl
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-updateFeatureType"></a>}}
-\if{latex}{\out{\hypertarget{method-updateFeatureType}{}}}
+\if{html}{\out{<a id="method-GSDataStoreManager-updateFeatureType"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDataStoreManager-updateFeatureType}{}}}
 \subsection{Method \code{updateFeatureType()}}{
 Updates a featureType given a workspace, datastore names and an object of class \code{\link{GSFeatureType}}
 \subsection{Usage}{
@@ -333,8 +333,8 @@ Updates a featureType given a workspace, datastore names and an object of class 
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-deleteFeatureType"></a>}}
-\if{latex}{\out{\hypertarget{method-deleteFeatureType}{}}}
+\if{html}{\out{<a id="method-GSDataStoreManager-deleteFeatureType"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDataStoreManager-deleteFeatureType}{}}}
 \subsection{Method \code{deleteFeatureType()}}{
 Deletes a featureType given a workspace, datastore names, and an object of 
    class \code{\link{GSFeatureType}}. By defaut, the option \code{recurse} is 
@@ -361,8 +361,8 @@ Deletes a featureType given a workspace, datastore names, and an object of
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-publishLayer"></a>}}
-\if{latex}{\out{\hypertarget{method-publishLayer}{}}}
+\if{html}{\out{<a id="method-GSDataStoreManager-publishLayer"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDataStoreManager-publishLayer}{}}}
 \subsection{Method \code{publishLayer()}}{
 Publish a feature type/layer pair given a workspace and datastore. The name 'layer' here 
 encompasses both \link{GSFeatureType} and \link{GSLayer} resources.
@@ -388,8 +388,8 @@ encompasses both \link{GSFeatureType} and \link{GSLayer} resources.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-unpublishLayer"></a>}}
-\if{latex}{\out{\hypertarget{method-unpublishLayer}{}}}
+\if{html}{\out{<a id="method-GSDataStoreManager-unpublishLayer"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDataStoreManager-unpublishLayer}{}}}
 \subsection{Method \code{unpublishLayer()}}{
 Unpublish a feature type/layer pair given a workspace and datastore. The name 'layer' here 
 encompasses both \link{GSFeatureType} and \link{GSLayer} resources.
@@ -413,8 +413,8 @@ encompasses both \link{GSFeatureType} and \link{GSLayer} resources.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-uploadData"></a>}}
-\if{latex}{\out{\hypertarget{method-uploadData}{}}}
+\if{html}{\out{<a id="method-GSDataStoreManager-uploadData"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDataStoreManager-uploadData}{}}}
 \subsection{Method \code{uploadData()}}{
 Uploads features data. The \code{extension} corresponds to the format/type of features to be uploaded among "shp", "spatialite", "h2", "gpkg". 
    The \code{endpoint} takes a value among \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name 
@@ -464,8 +464,8 @@ Uploads features data. The \code{extension} corresponds to the format/type of fe
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-uploadShapefile"></a>}}
-\if{latex}{\out{\hypertarget{method-uploadShapefile}{}}}
+\if{html}{\out{<a id="method-GSDataStoreManager-uploadShapefile"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDataStoreManager-uploadShapefile}{}}}
 \subsection{Method \code{uploadShapefile()}}{
 Uploads zipped shapefile.
    The \code{endpoint} takes a value among \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name 
@@ -509,8 +509,8 @@ Uploads zipped shapefile.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-uploadProperties"></a>}}
-\if{latex}{\out{\hypertarget{method-uploadProperties}{}}}
+\if{html}{\out{<a id="method-GSDataStoreManager-uploadProperties"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDataStoreManager-uploadProperties}{}}}
 \subsection{Method \code{uploadProperties()}}{
 Uploads properties.
    The \code{endpoint} takes a value among \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name 
@@ -554,8 +554,8 @@ Uploads properties.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-uploadH2"></a>}}
-\if{latex}{\out{\hypertarget{method-uploadH2}{}}}
+\if{html}{\out{<a id="method-GSDataStoreManager-uploadH2"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDataStoreManager-uploadH2}{}}}
 \subsection{Method \code{uploadH2()}}{
 Uploads H2 database.
    The \code{endpoint} takes a value among \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name 
@@ -599,8 +599,8 @@ Uploads H2 database.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-uploadSpatialite"></a>}}
-\if{latex}{\out{\hypertarget{method-uploadSpatialite}{}}}
+\if{html}{\out{<a id="method-GSDataStoreManager-uploadSpatialite"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDataStoreManager-uploadSpatialite}{}}}
 \subsection{Method \code{uploadSpatialite()}}{
 Uploads spatialite file.
    The \code{endpoint} takes a value among \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name 
@@ -644,8 +644,8 @@ Uploads spatialite file.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-uploadAppschema"></a>}}
-\if{latex}{\out{\hypertarget{method-uploadAppschema}{}}}
+\if{html}{\out{<a id="method-GSDataStoreManager-uploadAppschema"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDataStoreManager-uploadAppschema}{}}}
 \subsection{Method \code{uploadAppschema()}}{
 Uploads App schema.
    The \code{endpoint} takes a value among \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name 
@@ -689,8 +689,8 @@ Uploads App schema.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-uploadGeoPackage"></a>}}
-\if{latex}{\out{\hypertarget{method-uploadGeoPackage}{}}}
+\if{html}{\out{<a id="method-GSDataStoreManager-uploadGeoPackage"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDataStoreManager-uploadGeoPackage}{}}}
 \subsection{Method \code{uploadGeoPackage()}}{
 Uploads GeoPackage.
    The \code{endpoint} takes a value among \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name 
@@ -734,8 +734,8 @@ Uploads GeoPackage.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSDataStoreManager-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSDataStoreManager-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

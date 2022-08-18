@@ -39,21 +39,21 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSWorkspace$new()}}
-\item \href{#method-decode}{\code{GSWorkspace$decode()}}
-\item \href{#method-clone}{\code{GSWorkspace$clone()}}
+\item \href{#method-GSWorkspace-new}{\code{GSWorkspace$new()}}
+\item \href{#method-GSWorkspace-decode}{\code{GSWorkspace$decode()}}
+\item \href{#method-GSWorkspace-clone}{\code{GSWorkspace$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSWorkspace-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSWorkspace-new}{}}}
 \subsection{Method \code{new()}}{
 initializes a \link{GSWorkspace}
 \subsection{Usage}{
@@ -71,8 +71,8 @@ initializes a \link{GSWorkspace}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-decode"></a>}}
-\if{latex}{\out{\hypertarget{method-decode}{}}}
+\if{html}{\out{<a id="method-GSWorkspace-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-GSWorkspace-decode}{}}}
 \subsection{Method \code{decode()}}{
 Decodes from XML
 \subsection{Usage}{
@@ -88,8 +88,8 @@ Decodes from XML
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSWorkspace-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSWorkspace-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

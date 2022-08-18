@@ -1,3 +1,10 @@
+## [geosapi 0.6-5](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
+
+**Documentation**
+
+* [#56](https://github.com/eblondel/geosapi/issues/56) Upgrade roxygen2 Rd to 7.2.1 (html fix)
+
+
 ## [geosapi 0.6-4](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
 
 **Enhancements**
@@ -11,13 +18,13 @@
 * [#54](https://github.com/eblondel/geosapi/issues/54) Error in `getDataStore`(s) - fix wrong XML handling
 
 
-## [geosapi 0.6-2](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.6-2.tar.gz)
+## [geosapi 0.6-2](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.6-2.tar.gz) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.6-2.tar.gz)
 
 **Bug fixes**
 
 * [#53](https://github.com/eblondel/geosapi/issues/53) Shapefile upload doesn't work anymore - wrong Content-Type
 
-## [geosapi 0.6-1](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.6-1.tar.gz)
+## [geosapi 0.6-1](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.6-1.tar.gz) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.6-1.tar.gz)
 
 **Bug fixes**
 

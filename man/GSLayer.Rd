@@ -34,8 +34,6 @@ Geoserver REST API Style
 }
 \author{
 Emmanuel Blondel <emmanuel.blondel1@gmail.com>
-
-Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 }
 \keyword{api}
 \keyword{coverage}
@@ -73,30 +71,30 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSLayer$new()}}
-\item \href{#method-decode}{\code{GSLayer$decode()}}
-\item \href{#method-setName}{\code{GSLayer$setName()}}
-\item \href{#method-setPath}{\code{GSLayer$setPath()}}
-\item \href{#method-setEnabled}{\code{GSLayer$setEnabled()}}
-\item \href{#method-setQueryable}{\code{GSLayer$setQueryable()}}
-\item \href{#method-setAdvertised}{\code{GSLayer$setAdvertised()}}
-\item \href{#method-setDefaultStyle}{\code{GSLayer$setDefaultStyle()}}
-\item \href{#method-setStyles}{\code{GSLayer$setStyles()}}
-\item \href{#method-addStyle}{\code{GSLayer$addStyle()}}
-\item \href{#method-delStyle}{\code{GSLayer$delStyle()}}
-\item \href{#method-clone}{\code{GSLayer$clone()}}
+\item \href{#method-GSLayer-new}{\code{GSLayer$new()}}
+\item \href{#method-GSLayer-decode}{\code{GSLayer$decode()}}
+\item \href{#method-GSLayer-setName}{\code{GSLayer$setName()}}
+\item \href{#method-GSLayer-setPath}{\code{GSLayer$setPath()}}
+\item \href{#method-GSLayer-setEnabled}{\code{GSLayer$setEnabled()}}
+\item \href{#method-GSLayer-setQueryable}{\code{GSLayer$setQueryable()}}
+\item \href{#method-GSLayer-setAdvertised}{\code{GSLayer$setAdvertised()}}
+\item \href{#method-GSLayer-setDefaultStyle}{\code{GSLayer$setDefaultStyle()}}
+\item \href{#method-GSLayer-setStyles}{\code{GSLayer$setStyles()}}
+\item \href{#method-GSLayer-addStyle}{\code{GSLayer$addStyle()}}
+\item \href{#method-GSLayer-delStyle}{\code{GSLayer$delStyle()}}
+\item \href{#method-GSLayer-clone}{\code{GSLayer$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSLayer-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayer-new}{}}}
 \subsection{Method \code{new()}}{
 Initializes an object of class \link{GSLayer}
 \subsection{Usage}{
@@ -112,8 +110,8 @@ Initializes an object of class \link{GSLayer}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-decode"></a>}}
-\if{latex}{\out{\hypertarget{method-decode}{}}}
+\if{html}{\out{<a id="method-GSLayer-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayer-decode}{}}}
 \subsection{Method \code{decode()}}{
 Decodes from XML
 \subsection{Usage}{
@@ -129,8 +127,8 @@ Decodes from XML
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setName"></a>}}
-\if{latex}{\out{\hypertarget{method-setName}{}}}
+\if{html}{\out{<a id="method-GSLayer-setName"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayer-setName}{}}}
 \subsection{Method \code{setName()}}{
 Set name
 \subsection{Usage}{
@@ -146,8 +144,8 @@ Set name
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setPath"></a>}}
-\if{latex}{\out{\hypertarget{method-setPath}{}}}
+\if{html}{\out{<a id="method-GSLayer-setPath"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayer-setPath}{}}}
 \subsection{Method \code{setPath()}}{
 Set path
 \subsection{Usage}{
@@ -163,8 +161,8 @@ Set path
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setEnabled"></a>}}
-\if{latex}{\out{\hypertarget{method-setEnabled}{}}}
+\if{html}{\out{<a id="method-GSLayer-setEnabled"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayer-setEnabled}{}}}
 \subsection{Method \code{setEnabled()}}{
 Set enabled
 \subsection{Usage}{
@@ -180,8 +178,8 @@ Set enabled
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setQueryable"></a>}}
-\if{latex}{\out{\hypertarget{method-setQueryable}{}}}
+\if{html}{\out{<a id="method-GSLayer-setQueryable"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayer-setQueryable}{}}}
 \subsection{Method \code{setQueryable()}}{
 Set queryable
 \subsection{Usage}{
@@ -197,8 +195,8 @@ Set queryable
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setAdvertised"></a>}}
-\if{latex}{\out{\hypertarget{method-setAdvertised}{}}}
+\if{html}{\out{<a id="method-GSLayer-setAdvertised"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayer-setAdvertised}{}}}
 \subsection{Method \code{setAdvertised()}}{
 Set advertised
 \subsection{Usage}{
@@ -214,8 +212,8 @@ Set advertised
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setDefaultStyle"></a>}}
-\if{latex}{\out{\hypertarget{method-setDefaultStyle}{}}}
+\if{html}{\out{<a id="method-GSLayer-setDefaultStyle"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayer-setDefaultStyle}{}}}
 \subsection{Method \code{setDefaultStyle()}}{
 Set default style
 \subsection{Usage}{
@@ -231,8 +229,8 @@ Set default style
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setStyles"></a>}}
-\if{latex}{\out{\hypertarget{method-setStyles}{}}}
+\if{html}{\out{<a id="method-GSLayer-setStyles"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayer-setStyles}{}}}
 \subsection{Method \code{setStyles()}}{
 Set styles
 \subsection{Usage}{
@@ -248,8 +246,8 @@ Set styles
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-addStyle"></a>}}
-\if{latex}{\out{\hypertarget{method-addStyle}{}}}
+\if{html}{\out{<a id="method-GSLayer-addStyle"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayer-addStyle}{}}}
 \subsection{Method \code{addStyle()}}{
 Adds style
 \subsection{Usage}{
@@ -268,8 +266,8 @@ Adds style
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-delStyle"></a>}}
-\if{latex}{\out{\hypertarget{method-delStyle}{}}}
+\if{html}{\out{<a id="method-GSLayer-delStyle"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayer-delStyle}{}}}
 \subsection{Method \code{delStyle()}}{
 Deletes style
 \subsection{Usage}{
@@ -288,8 +286,8 @@ Deletes style
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSLayer-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSLayer-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{
@@ -322,23 +320,23 @@ The objects of this class are cloneable with this method.
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSStyle$new()}}
-\item \href{#method-decode}{\code{GSStyle$decode()}}
-\item \href{#method-setName}{\code{GSStyle$setName()}}
-\item \href{#method-setFilename}{\code{GSStyle$setFilename()}}
-\item \href{#method-clone}{\code{GSStyle$clone()}}
+\item \href{#method-GSStyle-new}{\code{GSStyle$new()}}
+\item \href{#method-GSStyle-decode}{\code{GSStyle$decode()}}
+\item \href{#method-GSStyle-setName}{\code{GSStyle$setName()}}
+\item \href{#method-GSStyle-setFilename}{\code{GSStyle$setFilename()}}
+\item \href{#method-GSStyle-clone}{\code{GSStyle$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSStyle-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSStyle-new}{}}}
 \subsection{Method \code{new()}}{
 Initializes a \link{GSStyle}
 \subsection{Usage}{
@@ -358,8 +356,8 @@ Initializes a \link{GSStyle}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-decode"></a>}}
-\if{latex}{\out{\hypertarget{method-decode}{}}}
+\if{html}{\out{<a id="method-GSStyle-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-GSStyle-decode}{}}}
 \subsection{Method \code{decode()}}{
 Decodes from XML
 \subsection{Usage}{
@@ -375,8 +373,8 @@ Decodes from XML
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setName"></a>}}
-\if{latex}{\out{\hypertarget{method-setName}{}}}
+\if{html}{\out{<a id="method-GSStyle-setName"></a>}}
+\if{latex}{\out{\hypertarget{method-GSStyle-setName}{}}}
 \subsection{Method \code{setName()}}{
 set name
 \subsection{Usage}{
@@ -392,8 +390,8 @@ set name
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setFilename"></a>}}
-\if{latex}{\out{\hypertarget{method-setFilename}{}}}
+\if{html}{\out{<a id="method-GSStyle-setFilename"></a>}}
+\if{latex}{\out{\hypertarget{method-GSStyle-setFilename}{}}}
 \subsection{Method \code{setFilename()}}{
 Set filename
 \subsection{Usage}{
@@ -409,8 +407,8 @@ Set filename
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSStyle-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSStyle-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

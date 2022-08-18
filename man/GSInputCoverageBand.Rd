@@ -59,23 +59,23 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSInputCoverageBand$new()}}
-\item \href{#method-decode}{\code{GSInputCoverageBand$decode()}}
-\item \href{#method-setCoverageName}{\code{GSInputCoverageBand$setCoverageName()}}
-\item \href{#method-setBand}{\code{GSInputCoverageBand$setBand()}}
-\item \href{#method-clone}{\code{GSInputCoverageBand$clone()}}
+\item \href{#method-GSInputCoverageBand-new}{\code{GSInputCoverageBand$new()}}
+\item \href{#method-GSInputCoverageBand-decode}{\code{GSInputCoverageBand$decode()}}
+\item \href{#method-GSInputCoverageBand-setCoverageName}{\code{GSInputCoverageBand$setCoverageName()}}
+\item \href{#method-GSInputCoverageBand-setBand}{\code{GSInputCoverageBand$setBand()}}
+\item \href{#method-GSInputCoverageBand-clone}{\code{GSInputCoverageBand$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSInputCoverageBand-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSInputCoverageBand-new}{}}}
 \subsection{Method \code{new()}}{
 Initializes an object of class \link{GSInputCoverageBand}
 \subsection{Usage}{
@@ -95,8 +95,8 @@ Initializes an object of class \link{GSInputCoverageBand}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-decode"></a>}}
-\if{latex}{\out{\hypertarget{method-decode}{}}}
+\if{html}{\out{<a id="method-GSInputCoverageBand-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-GSInputCoverageBand-decode}{}}}
 \subsection{Method \code{decode()}}{
 Decodes from XML
 \subsection{Usage}{
@@ -112,8 +112,8 @@ Decodes from XML
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setCoverageName"></a>}}
-\if{latex}{\out{\hypertarget{method-setCoverageName}{}}}
+\if{html}{\out{<a id="method-GSInputCoverageBand-setCoverageName"></a>}}
+\if{latex}{\out{\hypertarget{method-GSInputCoverageBand-setCoverageName}{}}}
 \subsection{Method \code{setCoverageName()}}{
 Set coverage name
 \subsection{Usage}{
@@ -129,8 +129,8 @@ Set coverage name
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setBand"></a>}}
-\if{latex}{\out{\hypertarget{method-setBand}{}}}
+\if{html}{\out{<a id="method-GSInputCoverageBand-setBand"></a>}}
+\if{latex}{\out{\hypertarget{method-GSInputCoverageBand-setBand}{}}}
 \subsection{Method \code{setBand()}}{
 Set band
 \subsection{Usage}{
@@ -146,8 +146,8 @@ Set band
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSInputCoverageBand-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSInputCoverageBand-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

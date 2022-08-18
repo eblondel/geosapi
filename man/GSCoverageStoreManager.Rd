@@ -35,52 +35,52 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-getCoverageStores}{\code{GSCoverageStoreManager$getCoverageStores()}}
-\item \href{#method-getCoverageStoreNames}{\code{GSCoverageStoreManager$getCoverageStoreNames()}}
-\item \href{#method-getCoverageStore}{\code{GSCoverageStoreManager$getCoverageStore()}}
-\item \href{#method-createCoverageStore}{\code{GSCoverageStoreManager$createCoverageStore()}}
-\item \href{#method-updateCoverageStore}{\code{GSCoverageStoreManager$updateCoverageStore()}}
-\item \href{#method-deleteCoverageStore}{\code{GSCoverageStoreManager$deleteCoverageStore()}}
-\item \href{#method-getCoverages}{\code{GSCoverageStoreManager$getCoverages()}}
-\item \href{#method-getCoverageNames}{\code{GSCoverageStoreManager$getCoverageNames()}}
-\item \href{#method-getCoverage}{\code{GSCoverageStoreManager$getCoverage()}}
-\item \href{#method-createCoverage}{\code{GSCoverageStoreManager$createCoverage()}}
-\item \href{#method-updateCoverage}{\code{GSCoverageStoreManager$updateCoverage()}}
-\item \href{#method-deleteCoverage}{\code{GSCoverageStoreManager$deleteCoverage()}}
-\item \href{#method-uploadCoverage}{\code{GSCoverageStoreManager$uploadCoverage()}}
-\item \href{#method-uploadGeoTIFF}{\code{GSCoverageStoreManager$uploadGeoTIFF()}}
-\item \href{#method-uploadWorldImage}{\code{GSCoverageStoreManager$uploadWorldImage()}}
-\item \href{#method-uploadArcGrid}{\code{GSCoverageStoreManager$uploadArcGrid()}}
-\item \href{#method-uploadImageMosaic}{\code{GSCoverageStoreManager$uploadImageMosaic()}}
-\item \href{#method-clone}{\code{GSCoverageStoreManager$clone()}}
+\item \href{#method-GSCoverageStoreManager-getCoverageStores}{\code{GSCoverageStoreManager$getCoverageStores()}}
+\item \href{#method-GSCoverageStoreManager-getCoverageStoreNames}{\code{GSCoverageStoreManager$getCoverageStoreNames()}}
+\item \href{#method-GSCoverageStoreManager-getCoverageStore}{\code{GSCoverageStoreManager$getCoverageStore()}}
+\item \href{#method-GSCoverageStoreManager-createCoverageStore}{\code{GSCoverageStoreManager$createCoverageStore()}}
+\item \href{#method-GSCoverageStoreManager-updateCoverageStore}{\code{GSCoverageStoreManager$updateCoverageStore()}}
+\item \href{#method-GSCoverageStoreManager-deleteCoverageStore}{\code{GSCoverageStoreManager$deleteCoverageStore()}}
+\item \href{#method-GSCoverageStoreManager-getCoverages}{\code{GSCoverageStoreManager$getCoverages()}}
+\item \href{#method-GSCoverageStoreManager-getCoverageNames}{\code{GSCoverageStoreManager$getCoverageNames()}}
+\item \href{#method-GSCoverageStoreManager-getCoverage}{\code{GSCoverageStoreManager$getCoverage()}}
+\item \href{#method-GSCoverageStoreManager-createCoverage}{\code{GSCoverageStoreManager$createCoverage()}}
+\item \href{#method-GSCoverageStoreManager-updateCoverage}{\code{GSCoverageStoreManager$updateCoverage()}}
+\item \href{#method-GSCoverageStoreManager-deleteCoverage}{\code{GSCoverageStoreManager$deleteCoverage()}}
+\item \href{#method-GSCoverageStoreManager-uploadCoverage}{\code{GSCoverageStoreManager$uploadCoverage()}}
+\item \href{#method-GSCoverageStoreManager-uploadGeoTIFF}{\code{GSCoverageStoreManager$uploadGeoTIFF()}}
+\item \href{#method-GSCoverageStoreManager-uploadWorldImage}{\code{GSCoverageStoreManager$uploadWorldImage()}}
+\item \href{#method-GSCoverageStoreManager-uploadArcGrid}{\code{GSCoverageStoreManager$uploadArcGrid()}}
+\item \href{#method-GSCoverageStoreManager-uploadImageMosaic}{\code{GSCoverageStoreManager$uploadImageMosaic()}}
+\item \href{#method-GSCoverageStoreManager-clone}{\code{GSCoverageStoreManager$clone()}}
 }
 }
-\if{html}{
-\out{<details ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="connect">}\href{../../geosapi/html/GSManager.html#method-connect}{\code{geosapi::GSManager$connect()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="ERROR">}\href{../../geosapi/html/GSManager.html#method-ERROR}{\code{geosapi::GSManager$ERROR()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getClassName">}\href{../../geosapi/html/GSManager.html#method-getClassName}{\code{geosapi::GSManager$getClassName()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getCoverageStoreManager">}\href{../../geosapi/html/GSManager.html#method-getCoverageStoreManager}{\code{geosapi::GSManager$getCoverageStoreManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getDataStoreManager">}\href{../../geosapi/html/GSManager.html#method-getDataStoreManager}{\code{geosapi::GSManager$getDataStoreManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getNamespaceManager">}\href{../../geosapi/html/GSManager.html#method-getNamespaceManager}{\code{geosapi::GSManager$getNamespaceManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getServiceManager">}\href{../../geosapi/html/GSManager.html#method-getServiceManager}{\code{geosapi::GSManager$getServiceManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getStyleManager">}\href{../../geosapi/html/GSManager.html#method-getStyleManager}{\code{geosapi::GSManager$getStyleManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getSystemStatus">}\href{../../geosapi/html/GSManager.html#method-getSystemStatus}{\code{geosapi::GSManager$getSystemStatus()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getUrl">}\href{../../geosapi/html/GSManager.html#method-getUrl}{\code{geosapi::GSManager$getUrl()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getWorkspaceManager">}\href{../../geosapi/html/GSManager.html#method-getWorkspaceManager}{\code{geosapi::GSManager$getWorkspaceManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="INFO">}\href{../../geosapi/html/GSManager.html#method-INFO}{\code{geosapi::GSManager$INFO()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="initialize">}\href{../../geosapi/html/GSManager.html#method-initialize}{\code{geosapi::GSManager$initialize()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="logger">}\href{../../geosapi/html/GSManager.html#method-logger}{\code{geosapi::GSManager$logger()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="monitor">}\href{../../geosapi/html/GSManager.html#method-monitor}{\code{geosapi::GSManager$monitor()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="reload">}\href{../../geosapi/html/GSManager.html#method-reload}{\code{geosapi::GSManager$reload()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="WARN">}\href{../../geosapi/html/GSManager.html#method-WARN}{\code{geosapi::GSManager$WARN()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="ERROR"><a href='../../geosapi/html/GSManager.html#method-GSManager-ERROR'><code>geosapi::GSManager$ERROR()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="INFO"><a href='../../geosapi/html/GSManager.html#method-GSManager-INFO'><code>geosapi::GSManager$INFO()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="WARN"><a href='../../geosapi/html/GSManager.html#method-GSManager-WARN'><code>geosapi::GSManager$WARN()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="connect"><a href='../../geosapi/html/GSManager.html#method-GSManager-connect'><code>geosapi::GSManager$connect()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getClassName"><a href='../../geosapi/html/GSManager.html#method-GSManager-getClassName'><code>geosapi::GSManager$getClassName()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getCoverageStoreManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getCoverageStoreManager'><code>geosapi::GSManager$getCoverageStoreManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getDataStoreManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getDataStoreManager'><code>geosapi::GSManager$getDataStoreManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getNamespaceManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getNamespaceManager'><code>geosapi::GSManager$getNamespaceManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getServiceManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getServiceManager'><code>geosapi::GSManager$getServiceManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getStyleManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getStyleManager'><code>geosapi::GSManager$getStyleManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getSystemStatus"><a href='../../geosapi/html/GSManager.html#method-GSManager-getSystemStatus'><code>geosapi::GSManager$getSystemStatus()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getUrl"><a href='../../geosapi/html/GSManager.html#method-GSManager-getUrl'><code>geosapi::GSManager$getUrl()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getWorkspaceManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getWorkspaceManager'><code>geosapi::GSManager$getWorkspaceManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="initialize"><a href='../../geosapi/html/GSManager.html#method-GSManager-initialize'><code>geosapi::GSManager$initialize()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="logger"><a href='../../geosapi/html/GSManager.html#method-GSManager-logger'><code>geosapi::GSManager$logger()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="monitor"><a href='../../geosapi/html/GSManager.html#method-GSManager-monitor'><code>geosapi::GSManager$monitor()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="reload"><a href='../../geosapi/html/GSManager.html#method-GSManager-reload'><code>geosapi::GSManager$reload()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getCoverageStores"></a>}}
-\if{latex}{\out{\hypertarget{method-getCoverageStores}{}}}
+\if{html}{\out{<a id="method-GSCoverageStoreManager-getCoverageStores"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageStoreManager-getCoverageStores}{}}}
 \subsection{Method \code{getCoverageStores()}}{
 Get the list of available coverage stores. Returns an object of class \code{list}
    giving items of class \code{\link{GSAbstractCoverageStore}}
@@ -100,8 +100,8 @@ the list of coverage stores
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getCoverageStoreNames"></a>}}
-\if{latex}{\out{\hypertarget{method-getCoverageStoreNames}{}}}
+\if{html}{\out{<a id="method-GSCoverageStoreManager-getCoverageStoreNames"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageStoreManager-getCoverageStoreNames}{}}}
 \subsection{Method \code{getCoverageStoreNames()}}{
 Get the list of available coverage store names. Returns an vector of class \code{character}
 \subsection{Usage}{
@@ -120,8 +120,8 @@ the list of coverage store names, as \code{character}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getCoverageStore"></a>}}
-\if{latex}{\out{\hypertarget{method-getCoverageStore}{}}}
+\if{html}{\out{<a id="method-GSCoverageStoreManager-getCoverageStore"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageStoreManager-getCoverageStore}{}}}
 \subsection{Method \code{getCoverageStore()}}{
 Get an object of class \code{\link{GSAbstractDataStore}} given a workspace and coverage store names.
 \subsection{Usage}{
@@ -142,8 +142,8 @@ the coverage store
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-createCoverageStore"></a>}}
-\if{latex}{\out{\hypertarget{method-createCoverageStore}{}}}
+\if{html}{\out{<a id="method-GSCoverageStoreManager-createCoverageStore"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageStoreManager-createCoverageStore}{}}}
 \subsection{Method \code{createCoverageStore()}}{
 Creates a new coverage store given a workspace, coverage store name. Abstract method used in below format-specific
    methods to create coverage stores.
@@ -165,8 +165,8 @@ Creates a new coverage store given a workspace, coverage store name. Abstract me
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-updateCoverageStore"></a>}}
-\if{latex}{\out{\hypertarget{method-updateCoverageStore}{}}}
+\if{html}{\out{<a id="method-GSCoverageStoreManager-updateCoverageStore"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageStoreManager-updateCoverageStore}{}}}
 \subsection{Method \code{updateCoverageStore()}}{
 Updates a coverage store given a workspace, coverage store name. Abstract method used in below format-specific
    methods to create coverage stores.
@@ -188,8 +188,8 @@ Updates a coverage store given a workspace, coverage store name. Abstract method
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-deleteCoverageStore"></a>}}
-\if{latex}{\out{\hypertarget{method-deleteCoverageStore}{}}}
+\if{html}{\out{<a id="method-GSCoverageStoreManager-deleteCoverageStore"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageStoreManager-deleteCoverageStore}{}}}
 \subsection{Method \code{deleteCoverageStore()}}{
 Deletes a coverage store given a workspace and an object of class \code{\link{GSAbstractCoverageStore}}.
    By defaut, the option \code{recurse} is set to FALSE, ie datastore layers are not removed.
@@ -223,8 +223,8 @@ Deletes a coverage store given a workspace and an object of class \code{\link{GS
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getCoverages"></a>}}
-\if{latex}{\out{\hypertarget{method-getCoverages}{}}}
+\if{html}{\out{<a id="method-GSCoverageStoreManager-getCoverages"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageStoreManager-getCoverages}{}}}
 \subsection{Method \code{getCoverages()}}{
 Get the list of available coverages for given workspace and coverage store.
    Returns an object of class \code{list} giving items of class \code{\link{GSCoverage}}
@@ -246,8 +246,8 @@ the list of \link{GSCoverage}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getCoverageNames"></a>}}
-\if{latex}{\out{\hypertarget{method-getCoverageNames}{}}}
+\if{html}{\out{<a id="method-GSCoverageStoreManager-getCoverageNames"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageStoreManager-getCoverageNames}{}}}
 \subsection{Method \code{getCoverageNames()}}{
 Get the list of available coverage names for given workspace and coverage store.
    Returns an object of class \code{list} giving items of class \code{\link{GSCoverage}}
@@ -269,8 +269,8 @@ the list of coverage names
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getCoverage"></a>}}
-\if{latex}{\out{\hypertarget{method-getCoverage}{}}}
+\if{html}{\out{<a id="method-GSCoverageStoreManager-getCoverage"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageStoreManager-getCoverage}{}}}
 \subsection{Method \code{getCoverage()}}{
 Get coverage
 \subsection{Usage}{
@@ -290,8 +290,8 @@ Get coverage
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-createCoverage"></a>}}
-\if{latex}{\out{\hypertarget{method-createCoverage}{}}}
+\if{html}{\out{<a id="method-GSCoverageStoreManager-createCoverage"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageStoreManager-createCoverage}{}}}
 \subsection{Method \code{createCoverage()}}{
 Creates a new coverage given a workspace, coverage store names and an object of class \code{\link{GSCoverage}}
 \subsection{Usage}{
@@ -314,8 +314,8 @@ Creates a new coverage given a workspace, coverage store names and an object of 
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-updateCoverage"></a>}}
-\if{latex}{\out{\hypertarget{method-updateCoverage}{}}}
+\if{html}{\out{<a id="method-GSCoverageStoreManager-updateCoverage"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageStoreManager-updateCoverage}{}}}
 \subsection{Method \code{updateCoverage()}}{
 Updates a coverage given a workspace, coverage store names and an object of class \code{\link{GSCoverage}}
 \subsection{Usage}{
@@ -338,8 +338,8 @@ Updates a coverage given a workspace, coverage store names and an object of clas
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-deleteCoverage"></a>}}
-\if{latex}{\out{\hypertarget{method-deleteCoverage}{}}}
+\if{html}{\out{<a id="method-GSCoverageStoreManager-deleteCoverage"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageStoreManager-deleteCoverage}{}}}
 \subsection{Method \code{deleteCoverage()}}{
 Deletes a coverage given a workspace, coverage store names, and an object of 
    class \code{\link{GSCoverage}}. By defaut, the option \code{recurse} is 
@@ -363,8 +363,8 @@ Deletes a coverage given a workspace, coverage store names, and an object of
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-uploadCoverage"></a>}}
-\if{latex}{\out{\hypertarget{method-uploadCoverage}{}}}
+\if{html}{\out{<a id="method-GSCoverageStoreManager-uploadCoverage"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageStoreManager-uploadCoverage}{}}}
 \subsection{Method \code{uploadCoverage()}}{
 Abstract method to upload a coverage file targeting a workspace (\code{ws}) and datastore (\code{cs}). The \code{extension}
    corresponds to the format/type of coverage to be uploaded (among values 'geotiff', 'worldimage', 'arcgrid', or 'imagemosaic'). 
@@ -412,8 +412,8 @@ Abstract method to upload a coverage file targeting a workspace (\code{ws}) and 
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-uploadGeoTIFF"></a>}}
-\if{latex}{\out{\hypertarget{method-uploadGeoTIFF}{}}}
+\if{html}{\out{<a id="method-GSCoverageStoreManager-uploadGeoTIFF"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageStoreManager-uploadGeoTIFF}{}}}
 \subsection{Method \code{uploadGeoTIFF()}}{
 Uploads a GeoTIFF file targeting a workspace (\code{ws}) and datastore (\code{cs}). The \code{endpoint} takes a value among
    \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name of the GeoTIFF file to
@@ -454,8 +454,8 @@ Uploads a GeoTIFF file targeting a workspace (\code{ws}) and datastore (\code{cs
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-uploadWorldImage"></a>}}
-\if{latex}{\out{\hypertarget{method-uploadWorldImage}{}}}
+\if{html}{\out{<a id="method-GSCoverageStoreManager-uploadWorldImage"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageStoreManager-uploadWorldImage}{}}}
 \subsection{Method \code{uploadWorldImage()}}{
 Uploads a WorldImage file targeting a workspace (\code{ws}) and datastore (\code{cs}). The \code{endpoint} takes a value among
    \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name of the zipped file to
@@ -496,8 +496,8 @@ Uploads a WorldImage file targeting a workspace (\code{ws}) and datastore (\code
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-uploadArcGrid"></a>}}
-\if{latex}{\out{\hypertarget{method-uploadArcGrid}{}}}
+\if{html}{\out{<a id="method-GSCoverageStoreManager-uploadArcGrid"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageStoreManager-uploadArcGrid}{}}}
 \subsection{Method \code{uploadArcGrid()}}{
 Uploads an ArcGrid file targeting a workspace (\code{ws}) and datastore (\code{cs}). The \code{endpoint} takes a value among
    \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name of the ArcGrid file to
@@ -538,8 +538,8 @@ Uploads an ArcGrid file targeting a workspace (\code{ws}) and datastore (\code{c
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-uploadImageMosaic"></a>}}
-\if{latex}{\out{\hypertarget{method-uploadImageMosaic}{}}}
+\if{html}{\out{<a id="method-GSCoverageStoreManager-uploadImageMosaic"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageStoreManager-uploadImageMosaic}{}}}
 \subsection{Method \code{uploadImageMosaic()}}{
 Uploads an ImageMosaic file targeting a workspace (\code{ws}) and datastore (\code{cs}). The \code{endpoint} takes a value among
    \code{"file"} (default), \code{"url"} or \code{"external"}. The \code{filename} is the name of the ImageMosaic file to
@@ -580,8 +580,8 @@ Uploads an ImageMosaic file targeting a workspace (\code{ws}) and datastore (\co
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSCoverageStoreManager-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSCoverageStoreManager-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

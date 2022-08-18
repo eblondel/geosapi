@@ -112,51 +112,51 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-getServiceSettings}{\code{GSServiceManager$getServiceSettings()}}
-\item \href{#method-getWmsSettings}{\code{GSServiceManager$getWmsSettings()}}
-\item \href{#method-getWfsSettings}{\code{GSServiceManager$getWfsSettings()}}
-\item \href{#method-getWcsSettings}{\code{GSServiceManager$getWcsSettings()}}
-\item \href{#method-updateServiceSettings}{\code{GSServiceManager$updateServiceSettings()}}
-\item \href{#method-deleteServiceSettings}{\code{GSServiceManager$deleteServiceSettings()}}
-\item \href{#method-updateWmsSettings}{\code{GSServiceManager$updateWmsSettings()}}
-\item \href{#method-updateWfsSettings}{\code{GSServiceManager$updateWfsSettings()}}
-\item \href{#method-updateWcsSettings}{\code{GSServiceManager$updateWcsSettings()}}
-\item \href{#method-enableWMS}{\code{GSServiceManager$enableWMS()}}
-\item \href{#method-enableWFS}{\code{GSServiceManager$enableWFS()}}
-\item \href{#method-enableWCS}{\code{GSServiceManager$enableWCS()}}
-\item \href{#method-disableServiceSettings}{\code{GSServiceManager$disableServiceSettings()}}
-\item \href{#method-disableWMS}{\code{GSServiceManager$disableWMS()}}
-\item \href{#method-disableWFS}{\code{GSServiceManager$disableWFS()}}
-\item \href{#method-disableWCS}{\code{GSServiceManager$disableWCS()}}
-\item \href{#method-clone}{\code{GSServiceManager$clone()}}
+\item \href{#method-GSServiceManager-getServiceSettings}{\code{GSServiceManager$getServiceSettings()}}
+\item \href{#method-GSServiceManager-getWmsSettings}{\code{GSServiceManager$getWmsSettings()}}
+\item \href{#method-GSServiceManager-getWfsSettings}{\code{GSServiceManager$getWfsSettings()}}
+\item \href{#method-GSServiceManager-getWcsSettings}{\code{GSServiceManager$getWcsSettings()}}
+\item \href{#method-GSServiceManager-updateServiceSettings}{\code{GSServiceManager$updateServiceSettings()}}
+\item \href{#method-GSServiceManager-deleteServiceSettings}{\code{GSServiceManager$deleteServiceSettings()}}
+\item \href{#method-GSServiceManager-updateWmsSettings}{\code{GSServiceManager$updateWmsSettings()}}
+\item \href{#method-GSServiceManager-updateWfsSettings}{\code{GSServiceManager$updateWfsSettings()}}
+\item \href{#method-GSServiceManager-updateWcsSettings}{\code{GSServiceManager$updateWcsSettings()}}
+\item \href{#method-GSServiceManager-enableWMS}{\code{GSServiceManager$enableWMS()}}
+\item \href{#method-GSServiceManager-enableWFS}{\code{GSServiceManager$enableWFS()}}
+\item \href{#method-GSServiceManager-enableWCS}{\code{GSServiceManager$enableWCS()}}
+\item \href{#method-GSServiceManager-disableServiceSettings}{\code{GSServiceManager$disableServiceSettings()}}
+\item \href{#method-GSServiceManager-disableWMS}{\code{GSServiceManager$disableWMS()}}
+\item \href{#method-GSServiceManager-disableWFS}{\code{GSServiceManager$disableWFS()}}
+\item \href{#method-GSServiceManager-disableWCS}{\code{GSServiceManager$disableWCS()}}
+\item \href{#method-GSServiceManager-clone}{\code{GSServiceManager$clone()}}
 }
 }
-\if{html}{
-\out{<details ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="connect">}\href{../../geosapi/html/GSManager.html#method-connect}{\code{geosapi::GSManager$connect()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="ERROR">}\href{../../geosapi/html/GSManager.html#method-ERROR}{\code{geosapi::GSManager$ERROR()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getClassName">}\href{../../geosapi/html/GSManager.html#method-getClassName}{\code{geosapi::GSManager$getClassName()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getCoverageStoreManager">}\href{../../geosapi/html/GSManager.html#method-getCoverageStoreManager}{\code{geosapi::GSManager$getCoverageStoreManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getDataStoreManager">}\href{../../geosapi/html/GSManager.html#method-getDataStoreManager}{\code{geosapi::GSManager$getDataStoreManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getNamespaceManager">}\href{../../geosapi/html/GSManager.html#method-getNamespaceManager}{\code{geosapi::GSManager$getNamespaceManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getServiceManager">}\href{../../geosapi/html/GSManager.html#method-getServiceManager}{\code{geosapi::GSManager$getServiceManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getStyleManager">}\href{../../geosapi/html/GSManager.html#method-getStyleManager}{\code{geosapi::GSManager$getStyleManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getSystemStatus">}\href{../../geosapi/html/GSManager.html#method-getSystemStatus}{\code{geosapi::GSManager$getSystemStatus()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getUrl">}\href{../../geosapi/html/GSManager.html#method-getUrl}{\code{geosapi::GSManager$getUrl()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getWorkspaceManager">}\href{../../geosapi/html/GSManager.html#method-getWorkspaceManager}{\code{geosapi::GSManager$getWorkspaceManager()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="INFO">}\href{../../geosapi/html/GSManager.html#method-INFO}{\code{geosapi::GSManager$INFO()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="initialize">}\href{../../geosapi/html/GSManager.html#method-initialize}{\code{geosapi::GSManager$initialize()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="logger">}\href{../../geosapi/html/GSManager.html#method-logger}{\code{geosapi::GSManager$logger()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="monitor">}\href{../../geosapi/html/GSManager.html#method-monitor}{\code{geosapi::GSManager$monitor()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="reload">}\href{../../geosapi/html/GSManager.html#method-reload}{\code{geosapi::GSManager$reload()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="WARN">}\href{../../geosapi/html/GSManager.html#method-WARN}{\code{geosapi::GSManager$WARN()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="ERROR"><a href='../../geosapi/html/GSManager.html#method-GSManager-ERROR'><code>geosapi::GSManager$ERROR()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="INFO"><a href='../../geosapi/html/GSManager.html#method-GSManager-INFO'><code>geosapi::GSManager$INFO()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="WARN"><a href='../../geosapi/html/GSManager.html#method-GSManager-WARN'><code>geosapi::GSManager$WARN()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="connect"><a href='../../geosapi/html/GSManager.html#method-GSManager-connect'><code>geosapi::GSManager$connect()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getClassName"><a href='../../geosapi/html/GSManager.html#method-GSManager-getClassName'><code>geosapi::GSManager$getClassName()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getCoverageStoreManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getCoverageStoreManager'><code>geosapi::GSManager$getCoverageStoreManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getDataStoreManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getDataStoreManager'><code>geosapi::GSManager$getDataStoreManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getNamespaceManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getNamespaceManager'><code>geosapi::GSManager$getNamespaceManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getServiceManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getServiceManager'><code>geosapi::GSManager$getServiceManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getStyleManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getStyleManager'><code>geosapi::GSManager$getStyleManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getSystemStatus"><a href='../../geosapi/html/GSManager.html#method-GSManager-getSystemStatus'><code>geosapi::GSManager$getSystemStatus()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getUrl"><a href='../../geosapi/html/GSManager.html#method-GSManager-getUrl'><code>geosapi::GSManager$getUrl()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="getWorkspaceManager"><a href='../../geosapi/html/GSManager.html#method-GSManager-getWorkspaceManager'><code>geosapi::GSManager$getWorkspaceManager()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="initialize"><a href='../../geosapi/html/GSManager.html#method-GSManager-initialize'><code>geosapi::GSManager$initialize()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="logger"><a href='../../geosapi/html/GSManager.html#method-GSManager-logger'><code>geosapi::GSManager$logger()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="monitor"><a href='../../geosapi/html/GSManager.html#method-GSManager-monitor'><code>geosapi::GSManager$monitor()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="reload"><a href='../../geosapi/html/GSManager.html#method-GSManager-reload'><code>geosapi::GSManager$reload()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getServiceSettings"></a>}}
-\if{latex}{\out{\hypertarget{method-getServiceSettings}{}}}
+\if{html}{\out{<a id="method-GSServiceManager-getServiceSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceManager-getServiceSettings}{}}}
 \subsection{Method \code{getServiceSettings()}}{
 Get the service settings. To get the service settings for a specific workspace,
    specify the workspace name as \code{ws} parameter, otherwise global settings are
@@ -179,8 +179,8 @@ an object of class \link{GSServiceSettings}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getWmsSettings"></a>}}
-\if{latex}{\out{\hypertarget{method-getWmsSettings}{}}}
+\if{html}{\out{<a id="method-GSServiceManager-getWmsSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceManager-getWmsSettings}{}}}
 \subsection{Method \code{getWmsSettings()}}{
 Get WMS settings. To get the WMS settings for a specific workspace,
    specify the workspace name as \code{ws} parameter, otherwise global settings are
@@ -201,8 +201,8 @@ an object of class \link{GSServiceSettings}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getWfsSettings"></a>}}
-\if{latex}{\out{\hypertarget{method-getWfsSettings}{}}}
+\if{html}{\out{<a id="method-GSServiceManager-getWfsSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceManager-getWfsSettings}{}}}
 \subsection{Method \code{getWfsSettings()}}{
 Get WFS settings. To get the WFS settings for a specific workspace,
    specify the workspace name as \code{ws} parameter, otherwise global settings are
@@ -223,8 +223,8 @@ an object of class \link{GSServiceSettings}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getWcsSettings"></a>}}
-\if{latex}{\out{\hypertarget{method-getWcsSettings}{}}}
+\if{html}{\out{<a id="method-GSServiceManager-getWcsSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceManager-getWcsSettings}{}}}
 \subsection{Method \code{getWcsSettings()}}{
 Get WCS settings. To get the WCS settings for a specific workspace,
    specify the workspace name as \code{ws} parameter, otherwise global settings are
@@ -245,8 +245,8 @@ an object of class \link{GSServiceSettings}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-updateServiceSettings"></a>}}
-\if{latex}{\out{\hypertarget{method-updateServiceSettings}{}}}
+\if{html}{\out{<a id="method-GSServiceManager-updateServiceSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceManager-updateServiceSettings}{}}}
 \subsection{Method \code{updateServiceSettings()}}{
 Updates the service settings with an object of class \code{GSServiceSettings}.
    An optional workspace name \code{ws} can be specified to update service settings
@@ -271,8 +271,8 @@ Updates the service settings with an object of class \code{GSServiceSettings}.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-deleteServiceSettings"></a>}}
-\if{latex}{\out{\hypertarget{method-deleteServiceSettings}{}}}
+\if{html}{\out{<a id="method-GSServiceManager-deleteServiceSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceManager-deleteServiceSettings}{}}}
 \subsection{Method \code{deleteServiceSettings()}}{
 Deletes the service settings. This method is used internally by \pkg{geosapi} 
    for disabling a service setting at workspace level.
@@ -294,8 +294,8 @@ Deletes the service settings. This method is used internally by \pkg{geosapi}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-updateWmsSettings"></a>}}
-\if{latex}{\out{\hypertarget{method-updateWmsSettings}{}}}
+\if{html}{\out{<a id="method-GSServiceManager-updateWmsSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceManager-updateWmsSettings}{}}}
 \subsection{Method \code{updateWmsSettings()}}{
 Updates the WMS settings with an object of class \code{GSServiceSettings}.
    An optional workspace name \code{ws} can be specified to update WMS settings
@@ -318,8 +318,8 @@ Updates the WMS settings with an object of class \code{GSServiceSettings}.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-updateWfsSettings"></a>}}
-\if{latex}{\out{\hypertarget{method-updateWfsSettings}{}}}
+\if{html}{\out{<a id="method-GSServiceManager-updateWfsSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceManager-updateWfsSettings}{}}}
 \subsection{Method \code{updateWfsSettings()}}{
 Updates the WFS settings with an object of class \code{GSServiceSettings}.
    An optional workspace name \code{ws} can be specified to update WFS settings
@@ -342,8 +342,8 @@ Updates the WFS settings with an object of class \code{GSServiceSettings}.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-updateWcsSettings"></a>}}
-\if{latex}{\out{\hypertarget{method-updateWcsSettings}{}}}
+\if{html}{\out{<a id="method-GSServiceManager-updateWcsSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceManager-updateWcsSettings}{}}}
 \subsection{Method \code{updateWcsSettings()}}{
 Updates the WCS settings with an object of class \code{GSServiceSettings}.
    An optional workspace name \code{ws} can be specified to update WCS settings
@@ -366,8 +366,8 @@ Updates the WCS settings with an object of class \code{GSServiceSettings}.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-enableWMS"></a>}}
-\if{latex}{\out{\hypertarget{method-enableWMS}{}}}
+\if{html}{\out{<a id="method-GSServiceManager-enableWMS"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceManager-enableWMS}{}}}
 \subsection{Method \code{enableWMS()}}{
 Enables WMS service settings
 \subsection{Usage}{
@@ -386,8 +386,8 @@ Enables WMS service settings
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-enableWFS"></a>}}
-\if{latex}{\out{\hypertarget{method-enableWFS}{}}}
+\if{html}{\out{<a id="method-GSServiceManager-enableWFS"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceManager-enableWFS}{}}}
 \subsection{Method \code{enableWFS()}}{
 Enables WFS service settings
 \subsection{Usage}{
@@ -406,8 +406,8 @@ Enables WFS service settings
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-enableWCS"></a>}}
-\if{latex}{\out{\hypertarget{method-enableWCS}{}}}
+\if{html}{\out{<a id="method-GSServiceManager-enableWCS"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceManager-enableWCS}{}}}
 \subsection{Method \code{enableWCS()}}{
 Enables WCS service settings
 \subsection{Usage}{
@@ -426,8 +426,8 @@ Enables WCS service settings
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-disableServiceSettings"></a>}}
-\if{latex}{\out{\hypertarget{method-disableServiceSettings}{}}}
+\if{html}{\out{<a id="method-GSServiceManager-disableServiceSettings"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceManager-disableServiceSettings}{}}}
 \subsection{Method \code{disableServiceSettings()}}{
 Disables service settings
 \subsection{Usage}{
@@ -448,8 +448,8 @@ Disables service settings
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-disableWMS"></a>}}
-\if{latex}{\out{\hypertarget{method-disableWMS}{}}}
+\if{html}{\out{<a id="method-GSServiceManager-disableWMS"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceManager-disableWMS}{}}}
 \subsection{Method \code{disableWMS()}}{
 Disables WMS service settings
 \subsection{Usage}{
@@ -468,8 +468,8 @@ Disables WMS service settings
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-disableWFS"></a>}}
-\if{latex}{\out{\hypertarget{method-disableWFS}{}}}
+\if{html}{\out{<a id="method-GSServiceManager-disableWFS"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceManager-disableWFS}{}}}
 \subsection{Method \code{disableWFS()}}{
 Disables WFS service settings
 \subsection{Usage}{
@@ -488,8 +488,8 @@ Disables WFS service settings
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-disableWCS"></a>}}
-\if{latex}{\out{\hypertarget{method-disableWCS}{}}}
+\if{html}{\out{<a id="method-GSServiceManager-disableWCS"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceManager-disableWCS}{}}}
 \subsection{Method \code{disableWCS()}}{
 Disables WCS service settings
 \subsection{Usage}{
@@ -508,8 +508,8 @@ Disables WCS service settings
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSServiceManager-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSServiceManager-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

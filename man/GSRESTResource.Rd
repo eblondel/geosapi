@@ -31,15 +31,15 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSRESTResource$new()}}
-\item \href{#method-decode}{\code{GSRESTResource$decode()}}
-\item \href{#method-encode}{\code{GSRESTResource$encode()}}
-\item \href{#method-clone}{\code{GSRESTResource$clone()}}
+\item \href{#method-GSRESTResource-new}{\code{GSRESTResource$new()}}
+\item \href{#method-GSRESTResource-decode}{\code{GSRESTResource$decode()}}
+\item \href{#method-GSRESTResource-encode}{\code{GSRESTResource$encode()}}
+\item \href{#method-GSRESTResource-clone}{\code{GSRESTResource$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSRESTResource-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSRESTResource-new}{}}}
 \subsection{Method \code{new()}}{
 Initializes an object of class \link{GSRESTResource}
 \subsection{Usage}{
@@ -57,8 +57,8 @@ Initializes an object of class \link{GSRESTResource}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-decode"></a>}}
-\if{latex}{\out{\hypertarget{method-decode}{}}}
+\if{html}{\out{<a id="method-GSRESTResource-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-GSRESTResource-decode}{}}}
 \subsection{Method \code{decode()}}{
 Decodes from XML. Abstract method to be implemented by sub-classes
 \subsection{Usage}{
@@ -74,8 +74,8 @@ Decodes from XML. Abstract method to be implemented by sub-classes
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-encode"></a>}}
-\if{latex}{\out{\hypertarget{method-encode}{}}}
+\if{html}{\out{<a id="method-GSRESTResource-encode"></a>}}
+\if{latex}{\out{\hypertarget{method-GSRESTResource-encode}{}}}
 \subsection{Method \code{encode()}}{
 Encodes as XML
 \subsection{Usage}{
@@ -87,8 +87,8 @@ an object of class \link{XMLInternalNode-class}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSRESTResource-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSRESTResource-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

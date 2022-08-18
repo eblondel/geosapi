@@ -36,25 +36,25 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSImageMosaicCoverageStore$new()}}
-\item \href{#method-clone}{\code{GSImageMosaicCoverageStore$clone()}}
+\item \href{#method-GSImageMosaicCoverageStore-new}{\code{GSImageMosaicCoverageStore$new()}}
+\item \href{#method-GSImageMosaicCoverageStore-clone}{\code{GSImageMosaicCoverageStore$clone()}}
 }
 }
-\if{html}{
-\out{<details ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setDescription">}\href{../../geosapi/html/GSAbstractStore.html#method-setDescription}{\code{geosapi::GSAbstractStore$setDescription()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setEnabled">}\href{../../geosapi/html/GSAbstractStore.html#method-setEnabled}{\code{geosapi::GSAbstractStore$setEnabled()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setType">}\href{../../geosapi/html/GSAbstractStore.html#method-setType}{\code{geosapi::GSAbstractStore$setType()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractCoverageStore" data-id="decode">}\href{../../geosapi/html/GSAbstractCoverageStore.html#method-decode}{\code{geosapi::GSAbstractCoverageStore$decode()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractCoverageStore" data-id="setUrl">}\href{../../geosapi/html/GSAbstractCoverageStore.html#method-setUrl}{\code{geosapi::GSAbstractCoverageStore$setUrl()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setDescription"><a href='../../geosapi/html/GSAbstractStore.html#method-GSAbstractStore-setDescription'><code>geosapi::GSAbstractStore$setDescription()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setEnabled"><a href='../../geosapi/html/GSAbstractStore.html#method-GSAbstractStore-setEnabled'><code>geosapi::GSAbstractStore$setEnabled()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setType"><a href='../../geosapi/html/GSAbstractStore.html#method-GSAbstractStore-setType'><code>geosapi::GSAbstractStore$setType()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractCoverageStore" data-id="decode"><a href='../../geosapi/html/GSAbstractCoverageStore.html#method-GSAbstractCoverageStore-decode'><code>geosapi::GSAbstractCoverageStore$decode()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractCoverageStore" data-id="setUrl"><a href='../../geosapi/html/GSAbstractCoverageStore.html#method-GSAbstractCoverageStore-setUrl'><code>geosapi::GSAbstractCoverageStore$setUrl()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSImageMosaicCoverageStore-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSImageMosaicCoverageStore-new}{}}}
 \subsection{Method \code{new()}}{
 Initializes an Image Mosaic coverage store
 \subsection{Usage}{
@@ -84,8 +84,8 @@ Initializes an Image Mosaic coverage store
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSImageMosaicCoverageStore-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSImageMosaicCoverageStore-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

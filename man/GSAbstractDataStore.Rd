@@ -35,28 +35,28 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSAbstractDataStore$new()}}
-\item \href{#method-decode}{\code{GSAbstractDataStore$decode()}}
-\item \href{#method-setConnectionParameters}{\code{GSAbstractDataStore$setConnectionParameters()}}
-\item \href{#method-addConnectionParameter}{\code{GSAbstractDataStore$addConnectionParameter()}}
-\item \href{#method-setConnectionParameter}{\code{GSAbstractDataStore$setConnectionParameter()}}
-\item \href{#method-delConnectionParameter}{\code{GSAbstractDataStore$delConnectionParameter()}}
-\item \href{#method-clone}{\code{GSAbstractDataStore$clone()}}
+\item \href{#method-GSAbstractDataStore-new}{\code{GSAbstractDataStore$new()}}
+\item \href{#method-GSAbstractDataStore-decode}{\code{GSAbstractDataStore$decode()}}
+\item \href{#method-GSAbstractDataStore-setConnectionParameters}{\code{GSAbstractDataStore$setConnectionParameters()}}
+\item \href{#method-GSAbstractDataStore-addConnectionParameter}{\code{GSAbstractDataStore$addConnectionParameter()}}
+\item \href{#method-GSAbstractDataStore-setConnectionParameter}{\code{GSAbstractDataStore$setConnectionParameter()}}
+\item \href{#method-GSAbstractDataStore-delConnectionParameter}{\code{GSAbstractDataStore$delConnectionParameter()}}
+\item \href{#method-GSAbstractDataStore-clone}{\code{GSAbstractDataStore$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setDescription">}\href{../../geosapi/html/GSAbstractStore.html#method-setDescription}{\code{geosapi::GSAbstractStore$setDescription()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setEnabled">}\href{../../geosapi/html/GSAbstractStore.html#method-setEnabled}{\code{geosapi::GSAbstractStore$setEnabled()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setType">}\href{../../geosapi/html/GSAbstractStore.html#method-setType}{\code{geosapi::GSAbstractStore$setType()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setDescription"><a href='../../geosapi/html/GSAbstractStore.html#method-GSAbstractStore-setDescription'><code>geosapi::GSAbstractStore$setDescription()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setEnabled"><a href='../../geosapi/html/GSAbstractStore.html#method-GSAbstractStore-setEnabled'><code>geosapi::GSAbstractStore$setEnabled()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setType"><a href='../../geosapi/html/GSAbstractStore.html#method-GSAbstractStore-setType'><code>geosapi::GSAbstractStore$setType()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSAbstractDataStore-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSAbstractDataStore-new}{}}}
 \subsection{Method \code{new()}}{
 initializes an abstract data store
 \subsection{Usage}{
@@ -89,8 +89,8 @@ initializes an abstract data store
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-decode"></a>}}
-\if{latex}{\out{\hypertarget{method-decode}{}}}
+\if{html}{\out{<a id="method-GSAbstractDataStore-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-GSAbstractDataStore-decode}{}}}
 \subsection{Method \code{decode()}}{
 Decodes a data store from XML
 \subsection{Usage}{
@@ -109,8 +109,8 @@ an object of class \link{GSAbstractDataStore}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setConnectionParameters"></a>}}
-\if{latex}{\out{\hypertarget{method-setConnectionParameters}{}}}
+\if{html}{\out{<a id="method-GSAbstractDataStore-setConnectionParameters"></a>}}
+\if{latex}{\out{\hypertarget{method-GSAbstractDataStore-setConnectionParameters}{}}}
 \subsection{Method \code{setConnectionParameters()}}{
 Set list connection parameters. The argument should be an object
    of class \code{GSRESTEntrySet} giving a list of key/value parameter entries.
@@ -127,8 +127,8 @@ Set list connection parameters. The argument should be an object
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-addConnectionParameter"></a>}}
-\if{latex}{\out{\hypertarget{method-addConnectionParameter}{}}}
+\if{html}{\out{<a id="method-GSAbstractDataStore-addConnectionParameter"></a>}}
+\if{latex}{\out{\hypertarget{method-GSAbstractDataStore-addConnectionParameter}{}}}
 \subsection{Method \code{addConnectionParameter()}}{
 Adds a connection parameter
 \subsection{Usage}{
@@ -149,8 +149,8 @@ Adds a connection parameter
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setConnectionParameter"></a>}}
-\if{latex}{\out{\hypertarget{method-setConnectionParameter}{}}}
+\if{html}{\out{<a id="method-GSAbstractDataStore-setConnectionParameter"></a>}}
+\if{latex}{\out{\hypertarget{method-GSAbstractDataStore-setConnectionParameter}{}}}
 \subsection{Method \code{setConnectionParameter()}}{
 Sets a connection parameter
 \subsection{Usage}{
@@ -168,8 +168,8 @@ Sets a connection parameter
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-delConnectionParameter"></a>}}
-\if{latex}{\out{\hypertarget{method-delConnectionParameter}{}}}
+\if{html}{\out{<a id="method-GSAbstractDataStore-delConnectionParameter"></a>}}
+\if{latex}{\out{\hypertarget{method-GSAbstractDataStore-delConnectionParameter}{}}}
 \subsection{Method \code{delConnectionParameter()}}{
 Removes a connection parameter
 \subsection{Usage}{
@@ -190,8 +190,8 @@ Removes a connection parameter
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSAbstractDataStore-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSAbstractDataStore-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

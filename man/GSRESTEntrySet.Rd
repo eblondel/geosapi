@@ -35,25 +35,25 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GSRESTEntrySet$new()}}
-\item \href{#method-decode}{\code{GSRESTEntrySet$decode()}}
-\item \href{#method-setEntryset}{\code{GSRESTEntrySet$setEntryset()}}
-\item \href{#method-addEntry}{\code{GSRESTEntrySet$addEntry()}}
-\item \href{#method-setEntry}{\code{GSRESTEntrySet$setEntry()}}
-\item \href{#method-delEntry}{\code{GSRESTEntrySet$delEntry()}}
-\item \href{#method-clone}{\code{GSRESTEntrySet$clone()}}
+\item \href{#method-GSRESTEntrySet-new}{\code{GSRESTEntrySet$new()}}
+\item \href{#method-GSRESTEntrySet-decode}{\code{GSRESTEntrySet$decode()}}
+\item \href{#method-GSRESTEntrySet-setEntryset}{\code{GSRESTEntrySet$setEntryset()}}
+\item \href{#method-GSRESTEntrySet-addEntry}{\code{GSRESTEntrySet$addEntry()}}
+\item \href{#method-GSRESTEntrySet-setEntry}{\code{GSRESTEntrySet$setEntry()}}
+\item \href{#method-GSRESTEntrySet-delEntry}{\code{GSRESTEntrySet$delEntry()}}
+\item \href{#method-GSRESTEntrySet-clone}{\code{GSRESTEntrySet$clone()}}
 }
 }
-\if{html}{
-\out{<details open ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode">}\href{../../geosapi/html/GSRESTResource.html#method-encode}{\code{geosapi::GSRESTResource$encode()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details open><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSRESTEntrySet-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSRESTEntrySet-new}{}}}
 \subsection{Method \code{new()}}{
 Initializes an object of class \link{GSRESTEntrySet}
 \subsection{Usage}{
@@ -73,8 +73,8 @@ Initializes an object of class \link{GSRESTEntrySet}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-decode"></a>}}
-\if{latex}{\out{\hypertarget{method-decode}{}}}
+\if{html}{\out{<a id="method-GSRESTEntrySet-decode"></a>}}
+\if{latex}{\out{\hypertarget{method-GSRESTEntrySet-decode}{}}}
 \subsection{Method \code{decode()}}{
 Decodes from XML
 \subsection{Usage}{
@@ -90,8 +90,8 @@ Decodes from XML
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setEntryset"></a>}}
-\if{latex}{\out{\hypertarget{method-setEntryset}{}}}
+\if{html}{\out{<a id="method-GSRESTEntrySet-setEntryset"></a>}}
+\if{latex}{\out{\hypertarget{method-GSRESTEntrySet-setEntryset}{}}}
 \subsection{Method \code{setEntryset()}}{
 Set entry set
 \subsection{Usage}{
@@ -107,8 +107,8 @@ Set entry set
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-addEntry"></a>}}
-\if{latex}{\out{\hypertarget{method-addEntry}{}}}
+\if{html}{\out{<a id="method-GSRESTEntrySet-addEntry"></a>}}
+\if{latex}{\out{\hypertarget{method-GSRESTEntrySet-addEntry}{}}}
 \subsection{Method \code{addEntry()}}{
 Adds entry set
 \subsection{Usage}{
@@ -129,8 +129,8 @@ Adds entry set
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-setEntry"></a>}}
-\if{latex}{\out{\hypertarget{method-setEntry}{}}}
+\if{html}{\out{<a id="method-GSRESTEntrySet-setEntry"></a>}}
+\if{latex}{\out{\hypertarget{method-GSRESTEntrySet-setEntry}{}}}
 \subsection{Method \code{setEntry()}}{
 Sets entry set
 \subsection{Usage}{
@@ -148,8 +148,8 @@ Sets entry set
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-delEntry"></a>}}
-\if{latex}{\out{\hypertarget{method-delEntry}{}}}
+\if{html}{\out{<a id="method-GSRESTEntrySet-delEntry"></a>}}
+\if{latex}{\out{\hypertarget{method-GSRESTEntrySet-delEntry}{}}}
 \subsection{Method \code{delEntry()}}{
 Deletes entry set
 \subsection{Usage}{
@@ -168,8 +168,8 @@ Deletes entry set
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSRESTEntrySet-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSRESTEntrySet-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

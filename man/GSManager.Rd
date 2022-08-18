@@ -92,29 +92,29 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-logger}{\code{GSManager$logger()}}
-\item \href{#method-INFO}{\code{GSManager$INFO()}}
-\item \href{#method-WARN}{\code{GSManager$WARN()}}
-\item \href{#method-ERROR}{\code{GSManager$ERROR()}}
-\item \href{#method-new}{\code{GSManager$new()}}
-\item \href{#method-getUrl}{\code{GSManager$getUrl()}}
-\item \href{#method-connect}{\code{GSManager$connect()}}
-\item \href{#method-reload}{\code{GSManager$reload()}}
-\item \href{#method-getSystemStatus}{\code{GSManager$getSystemStatus()}}
-\item \href{#method-monitor}{\code{GSManager$monitor()}}
-\item \href{#method-getClassName}{\code{GSManager$getClassName()}}
-\item \href{#method-getWorkspaceManager}{\code{GSManager$getWorkspaceManager()}}
-\item \href{#method-getNamespaceManager}{\code{GSManager$getNamespaceManager()}}
-\item \href{#method-getDataStoreManager}{\code{GSManager$getDataStoreManager()}}
-\item \href{#method-getCoverageStoreManager}{\code{GSManager$getCoverageStoreManager()}}
-\item \href{#method-getServiceManager}{\code{GSManager$getServiceManager()}}
-\item \href{#method-getStyleManager}{\code{GSManager$getStyleManager()}}
-\item \href{#method-clone}{\code{GSManager$clone()}}
+\item \href{#method-GSManager-logger}{\code{GSManager$logger()}}
+\item \href{#method-GSManager-INFO}{\code{GSManager$INFO()}}
+\item \href{#method-GSManager-WARN}{\code{GSManager$WARN()}}
+\item \href{#method-GSManager-ERROR}{\code{GSManager$ERROR()}}
+\item \href{#method-GSManager-new}{\code{GSManager$new()}}
+\item \href{#method-GSManager-getUrl}{\code{GSManager$getUrl()}}
+\item \href{#method-GSManager-connect}{\code{GSManager$connect()}}
+\item \href{#method-GSManager-reload}{\code{GSManager$reload()}}
+\item \href{#method-GSManager-getSystemStatus}{\code{GSManager$getSystemStatus()}}
+\item \href{#method-GSManager-monitor}{\code{GSManager$monitor()}}
+\item \href{#method-GSManager-getClassName}{\code{GSManager$getClassName()}}
+\item \href{#method-GSManager-getWorkspaceManager}{\code{GSManager$getWorkspaceManager()}}
+\item \href{#method-GSManager-getNamespaceManager}{\code{GSManager$getNamespaceManager()}}
+\item \href{#method-GSManager-getDataStoreManager}{\code{GSManager$getDataStoreManager()}}
+\item \href{#method-GSManager-getCoverageStoreManager}{\code{GSManager$getCoverageStoreManager()}}
+\item \href{#method-GSManager-getServiceManager}{\code{GSManager$getServiceManager()}}
+\item \href{#method-GSManager-getStyleManager}{\code{GSManager$getStyleManager()}}
+\item \href{#method-GSManager-clone}{\code{GSManager$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-logger"></a>}}
-\if{latex}{\out{\hypertarget{method-logger}{}}}
+\if{html}{\out{<a id="method-GSManager-logger"></a>}}
+\if{latex}{\out{\hypertarget{method-GSManager-logger}{}}}
 \subsection{Method \code{logger()}}{
 Prints a log message
 \subsection{Usage}{
@@ -132,8 +132,8 @@ Prints a log message
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-INFO"></a>}}
-\if{latex}{\out{\hypertarget{method-INFO}{}}}
+\if{html}{\out{<a id="method-GSManager-INFO"></a>}}
+\if{latex}{\out{\hypertarget{method-GSManager-INFO}{}}}
 \subsection{Method \code{INFO()}}{
 Prints an INFO log message
 \subsection{Usage}{
@@ -149,8 +149,8 @@ Prints an INFO log message
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-WARN"></a>}}
-\if{latex}{\out{\hypertarget{method-WARN}{}}}
+\if{html}{\out{<a id="method-GSManager-WARN"></a>}}
+\if{latex}{\out{\hypertarget{method-GSManager-WARN}{}}}
 \subsection{Method \code{WARN()}}{
 Prints an WARN log message
 \subsection{Usage}{
@@ -166,8 +166,8 @@ Prints an WARN log message
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ERROR"></a>}}
-\if{latex}{\out{\hypertarget{method-ERROR}{}}}
+\if{html}{\out{<a id="method-GSManager-ERROR"></a>}}
+\if{latex}{\out{\hypertarget{method-GSManager-ERROR}{}}}
 \subsection{Method \code{ERROR()}}{
 Prints an ERROR log message
 \subsection{Usage}{
@@ -183,8 +183,8 @@ Prints an ERROR log message
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GSManager-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GSManager-new}{}}}
 \subsection{Method \code{new()}}{
 This method is used to instantiate a GSManager with the \code{url} of the
    GeoServer and credentials to authenticate (\code{user}/\code{pwd}). 
@@ -216,8 +216,8 @@ This method is used to instantiate a GSManager with the \code{url} of the
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getUrl"></a>}}
-\if{latex}{\out{\hypertarget{method-getUrl}{}}}
+\if{html}{\out{<a id="method-GSManager-getUrl"></a>}}
+\if{latex}{\out{\hypertarget{method-GSManager-getUrl}{}}}
 \subsection{Method \code{getUrl()}}{
 Get URL
 \subsection{Usage}{
@@ -229,8 +229,8 @@ the Geoserver URL
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-connect"></a>}}
-\if{latex}{\out{\hypertarget{method-connect}{}}}
+\if{html}{\out{<a id="method-GSManager-connect"></a>}}
+\if{latex}{\out{\hypertarget{method-GSManager-connect}{}}}
 \subsection{Method \code{connect()}}{
 Connects to geoServer
 \subsection{Usage}{
@@ -242,8 +242,8 @@ Connects to geoServer
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-reload"></a>}}
-\if{latex}{\out{\hypertarget{method-reload}{}}}
+\if{html}{\out{<a id="method-GSManager-reload"></a>}}
+\if{latex}{\out{\hypertarget{method-GSManager-reload}{}}}
 \subsection{Method \code{reload()}}{
 Reloads the GeoServer catalog
 \subsection{Usage}{
@@ -255,8 +255,8 @@ Reloads the GeoServer catalog
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getSystemStatus"></a>}}
-\if{latex}{\out{\hypertarget{method-getSystemStatus}{}}}
+\if{html}{\out{<a id="method-GSManager-getSystemStatus"></a>}}
+\if{latex}{\out{\hypertarget{method-GSManager-getSystemStatus}{}}}
 \subsection{Method \code{getSystemStatus()}}{
 Get system status
 \subsection{Usage}{
@@ -268,8 +268,8 @@ an object of class \code{data.frame} given the date time and metrics value
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-monitor"></a>}}
-\if{latex}{\out{\hypertarget{method-monitor}{}}}
+\if{html}{\out{<a id="method-GSManager-monitor"></a>}}
+\if{latex}{\out{\hypertarget{method-GSManager-monitor}{}}}
 \subsection{Method \code{monitor()}}{
 Monitors the Geoserver by launching a small shiny monitoring application
 \subsection{Usage}{
@@ -289,8 +289,8 @@ Monitors the Geoserver by launching a small shiny monitoring application
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getClassName"></a>}}
-\if{latex}{\out{\hypertarget{method-getClassName}{}}}
+\if{html}{\out{<a id="method-GSManager-getClassName"></a>}}
+\if{latex}{\out{\hypertarget{method-GSManager-getClassName}{}}}
 \subsection{Method \code{getClassName()}}{
 Get class name
 \subsection{Usage}{
@@ -302,8 +302,8 @@ the self class name, as \code{character}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getWorkspaceManager"></a>}}
-\if{latex}{\out{\hypertarget{method-getWorkspaceManager}{}}}
+\if{html}{\out{<a id="method-GSManager-getWorkspaceManager"></a>}}
+\if{latex}{\out{\hypertarget{method-GSManager-getWorkspaceManager}{}}}
 \subsection{Method \code{getWorkspaceManager()}}{
 Get Workspace manager
 \subsection{Usage}{
@@ -315,8 +315,8 @@ an object of class \link{GSWorkspaceManager}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getNamespaceManager"></a>}}
-\if{latex}{\out{\hypertarget{method-getNamespaceManager}{}}}
+\if{html}{\out{<a id="method-GSManager-getNamespaceManager"></a>}}
+\if{latex}{\out{\hypertarget{method-GSManager-getNamespaceManager}{}}}
 \subsection{Method \code{getNamespaceManager()}}{
 Get Namespace manager
 \subsection{Usage}{
@@ -328,8 +328,8 @@ an object of class \link{GSNamespaceManager}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getDataStoreManager"></a>}}
-\if{latex}{\out{\hypertarget{method-getDataStoreManager}{}}}
+\if{html}{\out{<a id="method-GSManager-getDataStoreManager"></a>}}
+\if{latex}{\out{\hypertarget{method-GSManager-getDataStoreManager}{}}}
 \subsection{Method \code{getDataStoreManager()}}{
 Get Datastore manager
 \subsection{Usage}{
@@ -341,8 +341,8 @@ an object of class \link{GSDataStoreManager}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getCoverageStoreManager"></a>}}
-\if{latex}{\out{\hypertarget{method-getCoverageStoreManager}{}}}
+\if{html}{\out{<a id="method-GSManager-getCoverageStoreManager"></a>}}
+\if{latex}{\out{\hypertarget{method-GSManager-getCoverageStoreManager}{}}}
 \subsection{Method \code{getCoverageStoreManager()}}{
 Get Coverage store manager
 \subsection{Usage}{
@@ -354,8 +354,8 @@ an object of class \link{GSCoverageStoreManager}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getServiceManager"></a>}}
-\if{latex}{\out{\hypertarget{method-getServiceManager}{}}}
+\if{html}{\out{<a id="method-GSManager-getServiceManager"></a>}}
+\if{latex}{\out{\hypertarget{method-GSManager-getServiceManager}{}}}
 \subsection{Method \code{getServiceManager()}}{
 Get service manager
 \subsection{Usage}{
@@ -367,8 +367,8 @@ an object of class \link{GSServiceManager}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-getStyleManager"></a>}}
-\if{latex}{\out{\hypertarget{method-getStyleManager}{}}}
+\if{html}{\out{<a id="method-GSManager-getStyleManager"></a>}}
+\if{latex}{\out{\hypertarget{method-GSManager-getStyleManager}{}}}
 \subsection{Method \code{getStyleManager()}}{
 Get style manager
 \subsection{Usage}{
@@ -380,8 +380,8 @@ an object of class \link{GSStyleManager}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GSManager-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GSManager-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{
