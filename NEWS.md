@@ -1,15 +1,12 @@
-## [geosapi 0.6-5](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
-
-**Documentation**
-
-* [#56](https://github.com/eblondel/geosapi/issues/56) Upgrade roxygen2 Rd to 7.2.1 (html fix)
-
-
 ## [geosapi 0.6-4](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
 
 **Enhancements**
 
 * [#55](https://github.com/eblondel/geosapi/issues/55) Support zipped GeoPackage upload
+
+**Documentation**
+
+* [#56](https://github.com/eblondel/geosapi/issues/56) Upgrade roxygen2 Rd to 7.2.1 (html fix)
 
 ## [geosapi 0.6-3](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
 
