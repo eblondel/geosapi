@@ -170,10 +170,10 @@ GSManager <- R6Class("GSManager",
         self$connect()
       
         #inherit managers methods (experimenting)
-        list_of_classes <- rev(ls("package:geosapi"))
+        list_of_classes <- ls(getNamespaceInfo("geosapi", "exports"))
         supportedManagers <- list_of_classes[regexpr("GS.+Manager", list_of_classes)>0]
         for(manager in supportedManagers){
-          class <- eval(parse(text=manager))
+          class <- eval(parse(text = paste0("geosapi::", manager)))
           man <- class$new(baseUrl, user, pwd, logger)          
           list_of_methods <- rev(names(man))
           for(method in list_of_methods){
