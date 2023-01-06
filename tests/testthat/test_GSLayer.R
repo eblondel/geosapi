@@ -59,7 +59,7 @@ test_that("READ layer",{
 
 test_that("READ layers",{ 
   lyrs <- gsman$getLayers()
-  expect_equal(length(lyrs), 19L)
+  expect_equal(length(lyrs), 23L)
   expect_equal(unique(sapply(lyrs, function(x){class(x)[1]})), "GSLayer")
   expect_false(unique(sapply(lyrs, function(x){x$full})))
 })
