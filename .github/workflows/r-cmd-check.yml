@@ -26,8 +26,7 @@ jobs:
       #Docker Geoserver set-up
       - name: Set up GeoServer ${{ matrix.config.geoserver }}
         run: |
-          docker pull kartoza/postgis
-          docker run -d --name="postgis" kartoza/postgis
+          docker run -d --name="postgis" kartoza/postgis:latest
           docker run --link postgis:postgis -d -p 8080:8080 oscarfonts/geoserver:${{ matrix.config.geoserver}}
       
       #R Set-up
