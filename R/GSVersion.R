@@ -55,7 +55,7 @@ GSVersion <- R6Class("GSVersion",
     initialize = function(url, user, pwd){ 
       
       #try to grab version from web admin
-      req <- GET(paste(url, "web", sep = "/"))
+      req <- GET(paste(dirname(url), "web", sep = "/"))
       if(status_code(req) == 200){
         html <- htmlParse(content(req, "text", encoding = "ISO-8859-1"))
         trgSet <- getNodeSet(html, "//strong")
@@ -71,7 +71,7 @@ GSVersion <- R6Class("GSVersion",
       
       #try to grab version from REST API
       if(is.null(self$version) & is.null(self$value)){
-        req <- GSUtils$GET(url, user, pwd, "/rest/about/version.xml", FALSE)
+        req <- GSUtils$GET(url, user, pwd, "about/version.xml", verbose = FALSE)
         if(status_code(req) == 200){
           xml <- xmlParse(content(req, "text", encoding = "UTF-8"))
           trgSet <- getNodeSet(xml, "//resource[@name='GeoServer']/Version")

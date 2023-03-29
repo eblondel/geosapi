@@ -1,8 +1,8 @@
 Package: geosapi
 Type: Package
 Title: GeoServer REST API R Interface
-Version: 0.6-5
-Date: 2023-01-06
+Version: 0.6-6
+Date: 2023-03-29
 Authors@R: c(person("Emmanuel", "Blondel", role = c("aut", "cre"), email = "emmanuel.blondel1@gmail.com", comment = c(ORCID = "0000-0002-5870-5762")))
 Maintainer: Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 Description: Provides an R interface to the GeoServer REST API, allowing to upload 

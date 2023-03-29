@@ -187,7 +187,7 @@ GSManager <- R6Class("GSManager",
       }
       
       #inherit GeoServer version
-      self$version <- GSVersion$new(url, user, pwd)
+      self$version <- GSVersion$new(baseUrl, user, pwd)
       
       invisible(self)
       

@@ -1,3 +1,10 @@
+## [geosapi 0.6-6](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
+
+**Enhancements**
+
+* [#60](https://github.com/eblondel/geosapi/issues/60) Fix base URL used to retrieve Geoserver version
+
+
 ## [geosapi 0.6-5](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
 
 **Enhancements**
