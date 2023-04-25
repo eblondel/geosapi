@@ -59,12 +59,15 @@ GSStyleManager <- R6Class("GSStyleManager",
   public = list(
     
     #'@description Get the list of available styles. 
+    #'@param ws an optional workspace name
     #'@return an object of class \code{list} containing items of class \code{\link{GSStyle}}
-    getStyles = function(){
+    getStyles = function(ws = NULL){
       self$INFO("Fetching list of styles")
+      req_url <- "/styles.xml"
+      if(!is.null(ws)) req_url <- sprintf("/workspaces/%s/styles.xml", ws)
       req <- GSUtils$GET(self$getUrl(), private$user,
                          private$keyring_backend$get(service = private$keyring_service, username = private$user),
-                         "/styles.xml", self$verbose.debug)
+                         req_url, self$verbose.debug)
       styleList <- NULL
       if(status_code(req) == 200){
         styleXML <- GSUtils$parseResponseXML(req)
@@ -81,9 +84,10 @@ GSStyleManager <- R6Class("GSStyleManager",
     },
     
     #'@description Get the list of available style names
+    #'@param ws an optional workspace name
     #'@return a vector of class \code{character}
-    getStyleNames = function(){
-      styleList <- sapply(self$getStyles(), function(x){x$name})
+    getStyleNames = function(ws = NULL){
+      styleList <- sapply(self$getStyles(ws = ws), function(x){x$name})
       return(styleList)
     },
     

@@ -115,9 +115,16 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \subsection{Method \code{getStyles()}}{
 Get the list of available styles.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GSStyleManager$getStyles()}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GSStyleManager$getStyles(ws = NULL)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{an optional workspace name}
+}
+\if{html}{\out{</div>}}
+}
 \subsection{Returns}{
 an object of class \code{list} containing items of class \code{\link{GSStyle}}
 }
@@ -128,9 +135,16 @@ an object of class \code{list} containing items of class \code{\link{GSStyle}}
 \subsection{Method \code{getStyleNames()}}{
 Get the list of available style names
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GSStyleManager$getStyleNames()}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GSStyleManager$getStyleNames(ws = NULL)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{an optional workspace name}
+}
+\if{html}{\out{</div>}}
+}
 \subsection{Returns}{
 a vector of class \code{character}
 }
