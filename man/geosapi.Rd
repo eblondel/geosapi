@@ -13,16 +13,6 @@ operations on GeoServer workspaces, namespaces, datastores (stores of vector dat
 featuretypes, layers, styles, as well as vector data upload operations. For 
 more information about the GeoServer REST API, see <https://docs.geoserver.org/stable/en/user/rest/> .
 }
-\details{
-\tabular{ll}{
-   Package: \tab geosapi\cr
-   Type: \tab Package\cr
-   Version: \tab 0.6\cr
-   Date: \tab 2022-02-22\cr
-   License: \tab MIT\cr
-   LazyLoad: \tab yes\cr
- }
-}
 \author{
 Emmanuel Blondel \email{emmanuel.blondel1@gmail.com}
 }
