@@ -14,13 +14,19 @@ jobs:
     name: R ${{ matrix.config.r }} | GeoServer ${{ matrix.config.geoserver }} | ${{ matrix.config.os }}
     runs-on: ${{ matrix.config.os }}
     strategy:
+      fail-fast: false
       matrix:
         config:
           - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release', geoserver: 'latest'}
           - {os: ubuntu-latest,   r: 'release', geoserver: 'latest'}
           - {os: ubuntu-latest,   r: 'oldrel-1', geoserver: 'latest'}
+    
+    env:
+      PKG_SYSREQS: false
+    
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+      
       - uses: r-lib/actions/setup-pandoc@v2
       
       #Docker Geoserver set-up
@@ -38,6 +44,10 @@ jobs:
           use-public-rspm: true
       
       #Install dependencies
+      #Install dependencies on Linux
+      - name: Install dependencies on Linux
+        if: runner.os == 'Linux'
+        run: sudo apt-get install -y make libsodium-dev libicu-dev libxml2-dev libssl-dev pandoc librdf0-dev libnode-dev libcurl4-gnutls-dev
       - name: Install dependencies
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
