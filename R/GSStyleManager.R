@@ -149,7 +149,7 @@ GSStyleManager <- R6Class("GSStyleManager",
       }
       
       reqUrl <- ""
-      if(!missing(ws) & is.null(ws)){
+      if(!missing(ws) & !is.null(ws)){
         reqUrl <- sprintf("/workspaces/%s", ws)
       }
       reqUrl <- paste0(reqUrl, "/styles?name=", name)
@@ -205,7 +205,7 @@ GSStyleManager <- R6Class("GSStyleManager",
       }
       
       reqUrl <- ""
-      if(!missing(ws) & is.null(ws)){
+      if(!missing(ws) & !is.null(ws)){
         reqUrl <- sprintf("/workspaces/%s", ws)
       }
       reqUrl <- paste0(reqUrl, sprintf("/styles/%s.xml", name))
@@ -243,7 +243,7 @@ GSStyleManager <- R6Class("GSStyleManager",
       deleted <- FALSE
       
       path <- ""
-      if(!missing(ws) & is.null(ws)){
+      if(!missing(ws) & !is.null(ws)){
         path <- sprintf("/workspaces/%s", ws)
       }
       path <- paste0(path, sprintf("/styles/%s", name))
