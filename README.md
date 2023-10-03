@@ -4,7 +4,7 @@
 [![Build Status](https://github.com/eblondel/geosapi/actions/workflows/r-cmd-check.yml/badge.svg?branch=master)](https://github.com/eblondel/geosapi/actions/workflows/r-cmd-check.yml)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/geosapi)](https://cran.r-project.org/package=geosapi)
 [![cran checks](https://badges.cranchecks.info/worst/geosapi.svg)](https://cran.r-project.org/web/checks/check_results_geosapi.html)
-[![Github_Status_Badge](https://img.shields.io/badge/Github-0.6--6-blue.svg)](https://github.com/eblondel/geosapi)
+[![Github_Status_Badge](https://img.shields.io/badge/Github-0.6--7-blue.svg)](https://github.com/eblondel/geosapi)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1184895.svg)](https://doi.org/10.5281/zenodo.1184895)
 
 ``geosapi``: GeoServer REST API R Interface
