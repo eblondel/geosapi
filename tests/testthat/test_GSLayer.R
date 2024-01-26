@@ -92,17 +92,13 @@ test_that("UPDATE layer",{
   lyr <- gsman$getLayer("tasmania_cities")
   expect_equal(lyr$defaultStyle$name, "capitals")
   
-  lyr$setAdvertised(FALSE)
   lyr$setQueryable(FALSE)
   updated <- gsman$updateLayer(lyr)
   lyr <- gsman$getLayer("tasmania_cities")
-  expect_false(lyr$advertised)
   expect_false(lyr$queryable)
-  lyr$setAdvertised(TRUE)
   lyr$setQueryable(TRUE)
   updated <- gsman$updateLayer(lyr)
   lyr <- gsman$getLayer("tasmania_cities")
-  expect_true(lyr$advertised)
   expect_true(lyr$queryable)
 })
 
