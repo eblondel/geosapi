@@ -122,19 +122,26 @@ GSResource <- R6Class("GSResource",
          if(length(md_entries)>0){
            for(md_entry in md_entries){
               key <- xml2::xml_attr(md_entry, "key")
-              child <- xml2::xml_child(md_entry)
               meta <- NULL
-              if(is(self, "GSFeatureType")){
-                meta <- switch(xml2::xml_name(child),
-                  "dimensionInfo" = GSFeatureDimension$new(xml = child),
-                  "virtualTable" = GSVirtualTable$new(xml = child)
-                )
+              child <- NULL
+              if(length(xml2::xml_children(md_entry))>0){
+                child = xml2::xml_child(md_entry)
+              }else{
+                meta = xml2::xml_text(md_entry)
               }
-              if(is(self, "GSCoverage")){
-                meta <- switch(xml2::xml_name(child),
-                  "dimensionInfo" = GSDimension$new(xml = child),
-                  "coverageView" = GSCoverageView$new(xml = child)
-                )
+              if(!is.null(child)){
+                if(is(self, "GSFeatureType")){
+                  meta <- switch(xml2::xml_name(child),
+                    "dimensionInfo" = GSFeatureDimension$new(xml = child),
+                    "virtualTable" = GSVirtualTable$new(xml = child)
+                  )
+                }
+                if(is(self, "GSCoverage")){
+                  meta <- switch(xml2::xml_name(child),
+                    "dimensionInfo" = GSDimension$new(xml = child),
+                    "coverageView" = GSCoverageView$new(xml = child)
+                  )
+                }
               }
               if(!is.null(meta)) self$setMetadata(key, meta)
            }
