@@ -3,7 +3,7 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   geosapi: geosapi.html
-last_built: 2024-01-26T22:32Z
+last_built: 2024-01-26T22:56Z
 urls:
   reference: https://eblondel.github.io/geosapi/reference
   article: https://eblondel.github.io/geosapi/articles
