@@ -159,7 +159,7 @@ GSUtils$DELETE <- function(url, user, pwd, path, verbose = FALSE){
 }
 
 GSUtils$parseResponseXML <- function(req){
-  return(httr::content(req, encoding = "UTF-8"))
+  return(xml2::read_xml(httr::content(req, "text", encoding = "UTF-8")))
 }
 
 GSUtils$getPayloadXML <- function(obj){

@@ -77,7 +77,7 @@ GSServiceSettings <- R6Class("GSServiceSettings",
        if(length(fees)>0) self$fees <- xml2::xml_text(fees)
        
        self$keywords <- lapply(as(xml2::xml_find_all(xml, "//keywords/string"), "list"), xml2::xml_text)
-       onlineRes <- getNodeSet(xml, "//onlineResource")
+       onlineRes <- xml2::xml_find_first(xml, "//onlineResource")
        if(length(onlineRes)>0) self$onlineResource <- xml2::xml_text(onlineRes)
        schemaBaseURL <- xml2::xml_find_first(xml, "//schemaBaseURL")
        if(length(schemaBaseURL)>0) self$schemaBaseURL <- xml2::xml_text(schemaBaseURL)
