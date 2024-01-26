@@ -252,7 +252,7 @@ Get SLD body
 \if{html}{\out{</div>}}
 }
 \subsection{Returns}{
-an object of class \link{XMLInternalNode-class}
+an object of class \link{xml_node-class}
 }
 }
 \if{html}{\out{<hr>}}
