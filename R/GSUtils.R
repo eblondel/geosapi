@@ -60,20 +60,36 @@ GSUtils$getUserToken <- function(user, pwd){
   return(token)
 }
 
-GSUtils$GET <- function(url, user, pwd, path = "", contentType = "text/xml", verbose = FALSE){
+GSUtils$GET <- function(url, user, pwd, path = "", contentType = "text/xml", verbose = FALSE, filename = NULL){
+  req <- NULL
   if(verbose){
-    req <- with_verbose(GSUtils$GET(url, user, pwd, path))
+    if(is.null(filename)){
+      req <- with_verbose(GSUtils$GET(url, user, pwd, path))
+    }else{
+      req <- with_verbose(GSUtils$GET(url, user, pwd, path, filename = filename))
+    }
   }else{
     if(!grepl("^/", path) && path != "") path = paste0("/", path)
-    url <- paste0(url, path) 
-    req <- httr::GET(
-      url = url,
-      add_headers(
-        "User-Agent" = GSUtils$getUserAgent(),
-        "Authorization" = paste("Basic", GSUtils$getUserToken(user, pwd)),
-        "Content-Type" = contentType
+    url <- paste0(url, path)
+    if(is.null(filename)){
+      req <- httr::GET(
+        url = url,
+        add_headers(
+          "User-Agent" = GSUtils$getUserAgent(),
+          "Authorization" = paste("Basic", GSUtils$getUserToken(user, pwd)),
+          "Content-Type" = contentType
+        )
       )
-    )
+    }else{
+      req <- httr::GET(
+        url = url,
+        add_headers(
+          "User-Agent" = GSUtils$getUserAgent(),
+          "Authorization" = paste("Basic", GSUtils$getUserToken(user, pwd))
+        ),
+        httr::write_disk(path = filename, overwrite = TRUE)
+      )
+    }
   }
   return(req)
 }
