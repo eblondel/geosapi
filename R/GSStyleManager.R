@@ -237,7 +237,7 @@ GSStyleManager <- R6Class("GSStyleManager",
     #'@description Get SLD body
     #'@param style style name
     #'@param ws workspace name
-    #'@return an object of class \link{XMLInternalNode-class}
+    #'@return an object of class \link{xml_node-class}
     getSLDBody = function(style, ws = NULL){
       
       if(self$version$lowerThan("2.2")){
