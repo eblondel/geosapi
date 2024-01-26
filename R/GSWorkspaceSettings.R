@@ -50,7 +50,7 @@ GSWorkspaceSettings <- R6Class("GSWorkspaceSettings",
        charset <- xml2::xml_find_first(xml, "//charset")
        if(length(charset)>0) self$charset <- xml2::xml_text(charset)
        numDecimals <- xml2::xml_find_first(xml, "//numDecimals")
-       if(length(numDecimals)>0) self$numDecimals <- as.integer(xml2::xml_test(numDecimals))
+       if(length(numDecimals)>0) self$numDecimals <- as.integer(xml2::xml_text(numDecimals))
        onlineResource <- xml2::xml_find_first(xml, "//onlineResource")
        if(length(onlineResource)>0) self$onlineResource <- xml2::xml_text(onlineResource)
        verbose <- xml2::xml_find_first(xml, "//verbose")
