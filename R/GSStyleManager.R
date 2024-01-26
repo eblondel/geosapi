@@ -17,13 +17,6 @@
 #'
 GSStyleManager <- R6Class("GSStyleManager",
   inherit = GSManager,
-  
-  private = list(
-    isXMLString = function(str){
-      length(grep("<([a-zA-Z]+:)?[a-zA-Z]+(/?>| [a-zA-Z]+=[\"'])", str)) > 0
-    }
-  ),
-  
   public = list(
     
     #'@description Get the list of available styles. 
@@ -94,7 +87,7 @@ GSStyleManager <- R6Class("GSStyleManager",
       
       if(!missing(file)){
         content <- readChar(file, file.info(file)$size)
-        if(!private$isXMLString(content)){
+        if(!GSUtils$isXMLString(content)){
           stop("SLD style is not recognized XML")
         }
         sldBody <- xml2::read_xml(content)
@@ -150,7 +143,7 @@ GSStyleManager <- R6Class("GSStyleManager",
       
       if(!missing(file)){
         content <- readChar(file, file.info(file)$size)
-        if(!private$isXMLString(content)){
+        if(!GSUtils$isXMLString(content)){
           stop("SLD style is not recognized XML")
         }
         sldBody <- xml2::read_xml(content)

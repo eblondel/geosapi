@@ -15,12 +15,12 @@ test_that("style encoding/decoding",{
 })
 
 test_that("GET style",{
-  style <- gsman$getStyle("capitals")
+  style <- gsman$getStyle("generic")
   expect_is(style, "GSStyle")
 })
 
 test_that("READ style (SLD content)",{
-  sldBody <- gsman$getSLDBody("capitals")
+  sldBody <- gsman$getSLDBody("generic")
   expect_is(sldBody, "xml_document")
 })
 

@@ -191,3 +191,7 @@ GSUtils$setBbox = function(minx, miny, maxx, maxy, bbox = NULL, crs){
   out[["crs"]] = crs
   return(out)
 }
+
+GSUtils$isXMLString = function(str){
+  return(length(grep("<([a-zA-Z]+:)?[a-zA-Z]+(/?>| [a-zA-Z]+=[\"'])", str)) > 0)
+}
