@@ -15,73 +15,6 @@
 #' 
 #' @examples
 #' res <- GSResource$new(rootName = "featureType")
-#'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(rootName, xml)}}{
-#'    This method is used to instantiate a GSResource
-#'  }
-#'  \item{\code{decode(xml)}}{
-#'    This method is used to decode a GSResource from XML
-#'  }
-#'  \item{\code{encode()}}{
-#'    This method is used to encode a GSResource to XML. Inherited from the
-#'    generic \code{GSRESTResource} encoder
-#'  }
-#'  \item{\code{setEnabled(enabled)}}{
-#'    Sets if the resource is enabled or not in GeoServer
-#'  }
-#'  \item{\code{setName(name)}}{
-#'    Sets the resource name
-#'  }
-#'  \item{\code{setNativeName(nativeName)}}{
-#'    Sets the resource native name
-#'  }
-#'  \item{\code{setTitle(title)}}{
-#'    Sets the resource title
-#'  }
-#'  \item{\code{setDescription(description)}}{
-#'    Sets the resource description
-#'  }
-#'  \item{\code{setAbstract(abstract)}}{
-#'    Sets the resource abstract
-#'  }
-#'  \item{\code{setKeywords(keywords)}}{
-#'    Sets a list of keywords
-#'  }
-#'  \item{\code{addKeyword(keyword)}}{
-#'    Sets a keyword. Returns TRUE if set, FALSE otherwise
-#'  }
-#'  \item{\code{delKeyword(keyword)}}{
-#'    Deletes a keyword. Returns TRUE if deleted, FALSE otherwise
-#'  }
-#'  \item{\code{setMetadataLinks(metadataLinks)}}{
-#'    Sets a list of \code{GSMetadataLinks}
-#'  }
-#'  \item{\code{addMetadataLink(metadataLink)}}{
-#'    Adds a metadataLink
-#'  }
-#'  \item{\code{delMetadataLink(metadataLink)}}{
-#'    Deletes a metadataLink
-#'  }
-#'  \item{\code{setNativeCRS(nativeCRS)}}{
-#'    Sets the resource nativeCRS
-#'  }
-#'  \item{\code{setSrs(srs)}}{
-#'    Sets the resource srs
-#'  }
-#'  \item{\code{setNativeBoundingBox(minx, miny, maxx, maxy, bbox, crs)}}{
-#'    Sets the resource nativeBoundingBox. Either from coordinates or from
-#'    a \code{bbox} object (matrix).
-#'  }
-#'  \item{\code{setLatLonBoundingBox(minx, miny, maxx, maxy, bbox, crs)}}{
-#'    Sets the resource latLonBoundingBox. Either from coordinates or from
-#'    a \code{bbox} object (matrix).
-#'  }
-#'  \item{\code{setProjectionPolicy(policy)}}{
-#'    Sets the resource projection policy
-#'  }
-#' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -126,7 +59,7 @@ GSResource <- R6Class("GSResource",
      
      #'@description Initializes a \link{GSResource}
      #'@param rootName root name
-     #'@param xml object of class \link{XMLInternalNode-class}
+     #'@param xml object of class \link{xml_node-class}
      initialize = function(rootName = NULL, xml = NULL){
         super$initialize(rootName = rootName)
         if(!missing(xml) & !is.null(xml)){
@@ -135,73 +68,72 @@ GSResource <- R6Class("GSResource",
      },
      
      #'@description Decodes from XML
-     #'@param xml object of class \link{XMLInternalNode-class}
+     #'@param xml object of class \link{xml_node-class}
      decode = function(xml){
-       names <- getNodeSet(xml, "//name")
-       self$name <- xmlValue(names[[1]])
-       enabled <- getNodeSet(xml, "//enabled")
+       xml = xml2::as_xml_document(xml)
+       self$name <- xml2::xml_find_first(xml, "//name") %>% xml2::xml_text()
+       enabled <- xml2::xml_find_first(xml, "//enabled")
        if(length(enabled)==0) self$full <- FALSE
        
        if(self$full){
-         self$enabled <- as.logical(xmlValue(enabled[[1]]))
-         nativeNames <- getNodeSet(xml, "//nativeName")
-         if(length(nativeNames)>0) self$nativeName <- xmlValue(nativeNames[[1]])
-         titles <- getNodeSet(xml, "//title")
-         if(length(titles)>0) self$title <- xmlValue(titles[[1]])
-         descriptions <- getNodeSet(xml, "//description")
-         if(length(descriptions)>0) self$description <- xmlValue(descriptions[[1]])
-         abstracts <- getNodeSet(xml, "//abstract")
-         if(length(abstracts)>0) self$abstract <- xmlValue(abstracts[[1]])
-         self$keywords <- lapply(getNodeSet(xml, "//keywords/string"), xmlValue)
+         self$enabled <- as.logical(xml2::xml_text(enabled))
+         nativeNames <- xml2::xml_find_first(xml, "//nativeName")
+         if(length(nativeNames)>0) self$nativeName <- xml2::xml_text(nativeNames)
+         titles <- xml2::xml_find_first(xml, "//title")
+         if(length(titles)>0) self$title <- xml2::xml_text(titles)
+         descriptions <- xml2::xml_find_first(xml, "//description")
+         if(length(descriptions)>0) self$description <- xml2::xml_text(descriptions)
+         abstracts <- xml2::xml_find_first(xml, "//abstract")
+         if(length(abstracts)>0) self$abstract <- xml2::xml_text(abstracts)
+         self$keywords <- lapply(as(xml2::xml_find_all(xml, "//keywords/string"), "list"), xml2::xml_text)
          
-         metadataLinksXML <- getNodeSet(xml, "//metadataLinks/metadataLink")
+         metadataLinksXML <- as(xml2::xml_find_all(xml, "//metadataLinks/metadataLink"), "list")
          if(length(metadataLinksXML)>0){
            for(metadataLinkXML in metadataLinksXML){
-             md <- GSMetadataLink$new(xml = metadataLinkXML)
-             self$addMetadataLink(md)
+             self$addMetadataLink(GSMetadataLink$new(xml = metadataLinkXML))
            }
          }
          
-         nativeCRS <- getNodeSet(xml, "//nativeCRS")
+         nativeCRS <- xml2::xml_find_first(xml, "//nativeCRS")
          if(length(nativeCRS)>0){
-           self$nativeCRS <- xmlValue(nativeCRS[[1]])
+           self$nativeCRS <- xml2::xml_text(nativeCRS)
          }
          
          
-         srs <- getNodeSet(xml, "//srs")
+         srs <- xml2::xml_find_first(xml, "//srs")
          if(length(srs)>0){
-           self$srs <- xmlValue(srs[[1]])
+           self$srs <- xml2::xml_text(srs)
          }
 
-         latLonBboxXML <- getNodeSet(xml, "//latLonBoundingBox/*")
-         self$latLonBoundingBox <- lapply(latLonBboxXML, xmlValue)
-         names(self$latLonBoundingBox) <-  lapply(latLonBboxXML, xmlName)
+         latLonBboxXML <- as(xml2::xml_find_all(xml, "//latLonBoundingBox/*"), "list")
+         self$latLonBoundingBox <- lapply(latLonBboxXML, xml2::xml_text)
+         names(self$latLonBoundingBox) <-  lapply(latLonBboxXML, xml2::xml_name)
          
-         nativeBboxXML <- getNodeSet(xml, "//nativeBoundingBox/*")
-         self$nativeBoundingBox <- lapply(nativeBboxXML, xmlValue)
-         names(self$nativeBoundingBox) <-  lapply(nativeBboxXML, xmlName)
+         nativeBboxXML <- as(xml2::xml_find_all(xml, "//nativeBoundingBox/*"), "list")
+         self$nativeBoundingBox <- lapply(nativeBboxXML, xml2::xml_text)
+         names(self$nativeBoundingBox) <-  lapply(nativeBboxXML, xml2::xml_name)
          
-         projPolicies <- getNodeSet(xml, "//projectionPolicy")
+         projPolicies <- xml2::xml_find_first(xml, "//projectionPolicy")
          if(length(projPolicies)>0){
-           self$projectionPolicy <- xmlValue(projPolicies[[1]])
+           self$projectionPolicy <- xml2::xml_text(projPolicies)
          }
          
-         md_entries <- getNodeSet(xml, "//metadata/entry")
+         md_entries <- as(xml2::xml_find_all(xml, "//metadata/entry"), "list")
          if(length(md_entries)>0){
            for(md_entry in md_entries){
-              key <- xmlGetAttr(md_entry, "key")
-              child <- xmlChildren(md_entry)
+              key <- xml2::xml_attr(md_entry, "key")
+              child <- xml2::xml_child(md_entry)
               meta <- NULL
               if(is(self, "GSFeatureType")){
-                meta <- switch(names(child),
-                  "dimensionInfo" = GSFeatureDimension$new(xml = child$dimensionInfo),
-                  "virtualTable" = GSVirtualTable$new(xml = child$virtualTable)
+                meta <- switch(xml2::xml_name(child),
+                  "dimensionInfo" = GSFeatureDimension$new(xml = child),
+                  "virtualTable" = GSVirtualTable$new(xml = child)
                 )
               }
               if(is(self, "GSCoverage")){
-                meta <- switch(names(child),
-                  "dimensionInfo" = GSDimension$new(xml = child$dimensionInfo),
-                  "coverageView" = GSCoverageView$new(xml = child$coverageView)
+                meta <- switch(xml2::xml_name(child),
+                  "dimensionInfo" = GSDimension$new(xml = child),
+                  "coverageView" = GSCoverageView$new(xml = child)
                 )
               }
               if(!is.null(meta)) self$setMetadata(key, meta)
@@ -287,8 +219,8 @@ GSResource <- R6Class("GSResource",
      #'@return \code{TRUE} if added, \code{FALSE} otherwise
      addMetadataLink = function(metadataLink){
        startNb = length(self$metadataLinks)
-       links <- lapply(self$metadataLinks, function(x){x$content})
-       if(length(which(links == metadataLink$content)) == 0){
+       links <- sapply(self$metadataLinks, function(x){x$content})
+       if(!metadataLink$content %in% links){
          self$metadataLinks = c(self$metadataLinks, metadataLink)
        }
        endNb = length(self$metadataLinks)

@@ -15,42 +15,6 @@ Geoserver REST API GSVirtualTable
 
 Geoserver REST API GSVirtualTable
 }
-\section{Methods}{
-
-\describe{
- \item{\code{new(xml)}}{
-   This method is used to instantiate a GSVirtualTable
- }
- \item{\code{decode(xml)}}{
-   This method is used to decode a GSVirtualTable from XML
- }
- \item{\code{encode()}}{
-   This method is used to encode a GSVirtualTable to XML
- }
- \item{\code{setName(name)}}{
-   Sets the name of the virtual table
- }
- \item{\code{setSql(sql)}}{
-   Sets the sql of the virtual table
- }
- \item{\code{setEscapeSql(escapeSql)}}{
-   Sets the escapeSql. Default is FALSE
- }
- \item{\code{setKeyColumn(keyColumn)}}{
-   Sets the keyColumn. Name of the column to be the primary key
- }
- \item{\code{setGeometry(vtg)}}{
-   Sets the virtual table geometry
- }
- \item{\code{addParameter(parameter)}}{
-   Adds a virtual table parameter
- }
- \item{\code{delParameter(parameter)}}{
-   Removes a virtual table parameter.
- }
-}
-}
-
 \examples{
 GSVirtualTable$new()
 
@@ -116,7 +80,7 @@ Initializes an object of class \link{GSVirtualTable}
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+\item{\code{xml}}{object of class \link{xml_node-class}}
 }
 \if{html}{\out{</div>}}
 }
@@ -133,7 +97,7 @@ Decodes from XML
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+\item{\code{xml}}{object of class \link{xml_node-class}}
 }
 \if{html}{\out{</div>}}
 }

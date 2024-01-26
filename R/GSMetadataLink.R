@@ -28,7 +28,7 @@ GSMetadataLink <- R6Class("GSMetadataLink",
      content = NULL,
      
      #'@description Initializes an object of class \link{GSMetadataLink}
-     #'@param xml object of class \link{XMLInternalNode-class}
+     #'@param xml object of class \link{xml_node-class}
      #'@param type type
      #'@param metadataType metadata type
      #'@param content content
@@ -44,13 +44,12 @@ GSMetadataLink <- R6Class("GSMetadataLink",
      },
      
      #'@description Decodes from XML
-     #'@param xml object of class \link{XMLInternalNode-class}
+     #'@param xml object of class \link{xml_node-class}
      decode = function(xml){
-        propsXML <- xmlChildren(xml)
-        props <- lapply(propsXML, xmlValue)
-        self$setType(props$type)
-        self$setMetadataType(props$metadataType)
-        self$setContent(props$content)
+       xml = xml2::as_xml_document(xml)
+        self$setType(xml2::xml_find_first(xml, "//type") %>% xml2::xml_text())
+        self$setMetadataType(xml2::xml_find_first(xml, "//metadataType") %>% xml2::xml_text())
+        self$setContent(xml2::xml_find_first(xml, "//content") %>% xml2::xml_text())
      },
      
      #'@description Set type type

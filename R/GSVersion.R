@@ -55,12 +55,12 @@ GSVersion <- R6Class("GSVersion",
     initialize = function(url, user, pwd){ 
       
       #try to grab version from web admin
-      req <- GET(paste(dirname(url), "web", sep = "/"))
+      req <- httr::GET(paste(dirname(url), "web", sep = "/"))
       if(status_code(req) == 200){
-        html <- htmlParse(content(req, "text", encoding = "ISO-8859-1"))
-        trgSet <- getNodeSet(html, "//strong")
+        html <- xml2::read_html(content(req, "text", encoding = "ISO-8859-1"))
+        trgSet <- xml2::xml_find_first(html, "//strong")
         if(length(trgSet) > 0){
-          version <- xmlValue(trgSet[[1]])
+          version <- xml2::xml_text(trgSet)
           value <- private$getVersionValue(version)
           if(is.list(value)){
             self$version <- version
@@ -73,10 +73,10 @@ GSVersion <- R6Class("GSVersion",
       if(is.null(self$version) & is.null(self$value)){
         req <- GSUtils$GET(url, user, pwd, "about/version.xml", verbose = FALSE)
         if(status_code(req) == 200){
-          xml <- xmlParse(content(req, "text", encoding = "UTF-8"))
-          trgSet <- getNodeSet(xml, "//resource[@name='GeoServer']/Version")
+          xml <- httr::content(req, encoding = "UTF-8")
+          trgSet <- xml2::xml_find_first(xml, "//resource[@name='GeoServer']/Version")
           if(length(trgSet) > 0){
-            version <- xmlValue(trgSet[[1]])
+            version <- xml2::xml_text(trgSet)
             value <- private$getVersionValue(version)
             if(is.list(value)){
               self$version <- version

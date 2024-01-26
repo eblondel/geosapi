@@ -10,31 +10,6 @@
 #' @examples
 #' GSShapefileDataStore$new(name = "ds", description = "des",
 #'                          enabled = TRUE, url = "file://data/shape.shp")
-#'
-#' @section Methods:
-#' \describe{
-#'    \item{\code{new(xml, name, description, enabled, url)}}{
-#'      Instantiates a GSShapefileDataStore object
-#'    }
-#'    \item{\code{setUrl(url)}}{
-#'      Set the spatial files data URL
-#'    }
-#'    \item{\code{setCharset(charset)}}{
-#'      Set the charset used for DBF file. Default value is 'ISO-8859-1'
-#'    }
-#'    \item{\code{setCreateSpatialIndex(create)}}{
-#'      Set the 'Create Spatial Index' option. Default is TRUE
-#'    }
-#'    \item{\code{setMemoryMappedBuffer(buffer)}}{
-#'      Set the 'Memory Mapped Buffer' option. Default is TRUE
-#'    }
-#'    \item{\code{CacheReuseMemoryMaps(maps)}}{
-#'      Set the 'Cache & Reuse Memory Maps' option. Default is TRUE
-#'    }
-#'    \item{\code{setDefautConnectionParameters()}}{
-#'      Set the defaut connection paramaters
-#'    }
-#' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -46,7 +21,7 @@ GSShapefileDataStore <- R6Class("GSShapefileDataStore",
  public = list(
     
     #'@description initializes a shapefile data store
-    #'@param xml an object of class \link{XMLInternalNode-class} to create object from XML
+    #'@param xml an object of class \link{xml_node-class} to create object from XML
     #'@param name coverage store name
     #'@param description coverage store description
     #'@param enabled whether the store should be enabled or not. Default is \code{TRUE}

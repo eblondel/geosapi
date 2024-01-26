@@ -32,7 +32,7 @@ GSDimension <- R6Class("GSDimension",
     unitSymbol = NULL,
     
     #'@description Initializes an object of class \link{GSDimension}
-    #'@param xml object of class \link{XMLInternalNode-class}
+    #'@param xml object of class \link{xml_node-class}
     initialize = function(xml = NULL){
       super$initialize(rootName = "dimensionInfo")
       if(!missing(xml) & !is.null(xml)){
@@ -41,14 +41,17 @@ GSDimension <- R6Class("GSDimension",
     },
    
     #'@description Decodes from XML
-    #'@param xml object of class \link{XMLInternalNode-class}
+    #'@param xml object of class \link{xml_node-class}
     decode = function(xml){
-      propsXML <- xmlChildren(xml)
-      props <- lapply(propsXML, xmlValue)
-      self$setEnabled(as.logical(props$enabled))
-      if(!is.null(props$presentation)) self$setPresentation(props$presentation)
-      self$setUnit(props$units)
-      self$setUnitSymbol(props$unitSymbol)
+      xml = xml2::as_xml_document(xml)
+      enabled = xml2::xml_find_first(xml, "//enabled") %>% xml2::xml_text() %>% as.logical()
+      self$setEnabled(enabled)
+      presentation = xml2::xml_find_first(xml, "//presentation") %>% xml2::xml_text()
+      self$setPresentation(presentation)
+      units = xml2::xml_find_first(xml, "//units") %>% xml2::xml_text()
+      self$setUnit(units)
+      unitSymbol = xml2::xml_find_first(xml, "//unitSymbol") %>% xml2::xml_text()
+      self$setUnitSymbol(unitSymbol)
     },
     
     #'@description Set enabled

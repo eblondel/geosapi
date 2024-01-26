@@ -31,11 +31,8 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
       wsList <- NULL
       if(status_code(req) == 200){
         wsXML <- GSUtils$parseResponseXML(req)
-        wsXMLList <- getNodeSet(wsXML, "//workspace")
-        wsList <- lapply(wsXMLList, function(x){
-          xml <- xmlDoc(x)
-          return(GSWorkspace$new(xml = xml))
-        })
+        wsXMLList <- as(xml2::xml_find_all(wsXML, "//workspace"), "list")
+        wsList <- lapply(wsXMLList, GSWorkspace$new)
         self$INFO(sprintf("Successfully fetched %s workspaces", length(wsList)))
       }else{
         self$ERROR("Error while fetching list of workspaces")

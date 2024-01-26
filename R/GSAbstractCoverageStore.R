@@ -19,7 +19,7 @@ GSAbstractCoverageStore <- R6Class("GSAbstractCoverageStore",
    url = NULL,
    
    #'@description initializes an abstract coverage store
-   #'@param xml an object of class \link{XMLInternalNode-class} to create object from XML
+   #'@param xml an object of class \link{xml_node-class} to create object from XML
    #'@param type the type of coverage store
    #'@param name coverage store name
    #'@param description coverage store description
@@ -30,7 +30,7 @@ GSAbstractCoverageStore <- R6Class("GSAbstractCoverageStore",
      super$initialize(xml = xml, storeType = private$STORE_TYPE, type = type, 
                       name = name, description = description, enabled = enabled)
      if(!missing(xml) & !is.null(xml)){
-       if(!any(class(xml) %in% c("XMLInternalNode","XMLInternalDocument"))){
+       if(!any(class(xml) %in% c("xml_document","xml_node"))){
          stop("The argument 'xml' is not a valid XML object")
        }
        self$decode(xml)
@@ -40,12 +40,13 @@ GSAbstractCoverageStore <- R6Class("GSAbstractCoverageStore",
    },
    
    #'@description Decodes a coverage store from XML
-   #'@param xml an object of class \link{XMLInternalNode-class}
+   #'@param xml an object of class \link{xml_node-class}
    #'@return an object of class \link{GSAbstractCoverageStore}
    decode = function(xml){
+     xml = xml2::as_xml_document(xml)
      super$decode(xml)
-     urlXML <- getNodeSet(xml,"//url")
-     if(length(urlXML) > 0) self$url <- xmlValue(urlXML[[1]])
+     urlXML <- xmL2::xml_find_first(xml,"//url")
+     if(length(urlXML) > 0) self$url <- xml2::xml_text(urlXML)
    },
    
    #'@description set coverage store URL

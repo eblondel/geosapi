@@ -13,48 +13,16 @@
 #'    GSStyleManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
 #' }
 #'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(url, user, pwd, logger)}}{
-#'    This method is used to instantiate a GSManager with the \code{url} of the
-#'    GeoServer and credentials to authenticate (\code{user}/\code{pwd}). By default,
-#'    the \code{logger} argument will be set to \code{NULL} (no logger). This argument
-#'    accepts two possible values: \code{INFO}: to print only geosapi logs,
-#'    \code{DEBUG}: to print geosapi and CURL logs
-#'  }
-#'  \item{\code{getStyles()}}{
-#'    
-#'  }
-#'  \item{\code{getStyleNames()}}{
-#'    
-#'  }
-#'  \item{\code{getStyle(style)}}{
-#'    
-#'  }
-#'  \item{\code{createStyle(file, sldBody, name, raw, ws)}}{
-#'    
-#'  }
-#'  \item{\code{updateStyle(file, sldBody, name, raw, ws)}}{
-#'    Updates a GeoServer style. Returns \code{TRUE} if the style has been 
-#'    successfully updated, \code{FALSE} otherwise
-#'  }
-#'  \item{\code{deleteStyle(style, recurse, purge, ws)}}{
-#'    Deletes a GeoServer style given a name. Returns \code{TRUE} if the style 
-#'    has been successfully deleted, \code{FALSE} otherwise
-#'  }
-#'  \item{\code{getSLDVersion(sldBody)}}{
-#'    Get the SLD version from the XML object (of class \code{XMLInternalDocument})
-#'  }
-#'  \item{\code{getSLDBody(style, ws = NULL)}}{
-#'    Get the SLD Body given a style name. This method is only supported for
-#'    Geoserver >= 2.2.
-#'  }
-#' }
-#' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
 GSStyleManager <- R6Class("GSStyleManager",
   inherit = GSManager,
+  
+  private = list(
+    isXMLString = function(str){
+      length(grep("<([a-zA-Z]+:)?[a-zA-Z]+(/?>| [a-zA-Z]+=[\"'])", str)) > 0
+    }
+  ),
   
   public = list(
     
@@ -71,11 +39,8 @@ GSStyleManager <- R6Class("GSStyleManager",
       styleList <- NULL
       if(status_code(req) == 200){
         styleXML <- GSUtils$parseResponseXML(req)
-        styleXMLList <- getNodeSet(styleXML, "//style")
-        styleList <- lapply(styleXMLList, function(x){
-          xml <- xmlDoc(x)
-          return(GSStyle$new(xml = xml))
-        })
+        styleXMLList <- as(xml2::xml_find_all(styleXML, "//style"), "list")
+        styleList <- lapply(styleXMLList, GSStyle$new)
         self$INFO(sprintf("Successfully fetched %s styles", length(styleList)))
       }else{
         self$ERROR("Error while fetching list of styles")
@@ -129,13 +94,13 @@ GSStyleManager <- R6Class("GSStyleManager",
       
       if(!missing(file)){
         content <- readChar(file, file.info(file)$size)
-        if(!isXMLString(content)){
+        if(!private$isXMLString(content)){
           stop("SLD style is not recognized XML")
         }
-        sldBody <- XML::xmlParse(content)
+        sldBody <- xml2::read_xml(content)
       }
     
-      if(!is(sldBody, "XMLInternalDocument")){
+      if(!is(sldBody, "xml_document")){
         stop("SLD body is not an XML document object")
       }
       
@@ -185,13 +150,13 @@ GSStyleManager <- R6Class("GSStyleManager",
       
       if(!missing(file)){
         content <- readChar(file, file.info(file)$size)
-        if(!isXMLString(content)){
+        if(!private$isXMLString(content)){
           stop("SLD style is not recognized XML")
         }
-        sldBody <- XML::xmlParse(content)
+        sldBody <- xml2::read_xml(content)
       }
       
-      if(!is(sldBody, "XMLInternalDocument")){
+      if(!is(sldBody, "xml_document")){
         stop("SLD body is not an XML document object")
       }
       
@@ -266,7 +231,7 @@ GSStyleManager <- R6Class("GSStyleManager",
     #'@description Get SLD version
     #'@param sldBody SLD body
     getSLDVersion = function(sldBody){
-      return(xmlGetAttr(xmlChildren(sldBody)[[1]], "version"))
+      return(xml2::xml_attr(sldBody, "version"))
     },
     
     #'@description Get SLD body

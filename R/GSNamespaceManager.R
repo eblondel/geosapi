@@ -30,11 +30,8 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
       nsList <- NULL
       if(status_code(req) == 200){
         nsXML <- GSUtils$parseResponseXML(req)
-        nsXMLList <- getNodeSet(nsXML, "//namespace")
-        nsList <- lapply(nsXMLList, function(x){
-          xml <- xmlDoc(x)
-          return(GSNamespace$new(xml = xml))
-        })
+        nsXMLList <- as(xml2::xml_find_all(nsXML, "//namespace"), "list")
+        nsList <- lapply(wsXMLList, GSNamespace$new)
         self$INFO(sprintf("Successfully fetched %s namespaces", length(nsList)))
       }else{
         self$ERROR("Error while fetching list of namespaces")

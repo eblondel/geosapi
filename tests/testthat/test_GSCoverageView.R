@@ -23,13 +23,13 @@ test_that("GSCoverageView encoding/decoding",{
   
   #encoding to XML
   coviewXML <- coview$encode()
-  expect_is(coviewXML, c("XMLInternalElementNode","XMLInternalNode","XMLAbstractNode"))
+  expect_is(coviewXML, c("xml_document", "xml_node"))
   
   #decoding from XML
   coview2 <- GSCoverageView$new(xml = coviewXML)
   coview2XML <- coview2$encode()
   
   #check encoded XML is equal to decoded XML
-  expect_true(all(sapply(XML::compareXMLDocs(XML::xmlDoc(coviewXML), XML::xmlDoc(coview2XML)), length) == 0))
+  testthat::compare(coviewXML, coview2XML)
   
 })

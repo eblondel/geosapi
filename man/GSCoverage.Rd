@@ -88,7 +88,7 @@ Initializes a \link{GSCoverage} from XML
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+\item{\code{xml}}{object of class \link{xml_node-class}}
 }
 \if{html}{\out{</div>}}
 }
@@ -105,7 +105,7 @@ Decodes coverage from XML
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+\item{\code{xml}}{object of class \link{xml_node-class}}
 }
 \if{html}{\out{</div>}}
 }

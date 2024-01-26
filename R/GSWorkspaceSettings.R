@@ -35,7 +35,7 @@ GSWorkspaceSettings <- R6Class("GSWorkspaceSettings",
      #'@description This method is used to instantiate a \code{GSWorkspaceSettings}. This settings 
      #'    object is required to activate a workspace configuration, using the method
      #'    \code{GSManager$createWorkspaceSettings}. Supported from GeoServer 2.12
-     #' @param xml object of class \link{XMLInternalNode-class}
+     #' @param xml object of class \link{xml_node-class}
      initialize = function(xml = NULL){
        super$initialize(rootName = "settings")
        if(!missing(xml) & !is.null(xml)){
@@ -44,20 +44,21 @@ GSWorkspaceSettings <- R6Class("GSWorkspaceSettings",
      },
      
      #'@description Decodes from XML
-     #'@param xml object of class \link{XMLInternalNode-class}
+     #'@param xml object of class \link{xml_node-class}
      decode = function(xml){
-       charset <- getNodeSet(xml, "//charset")
-       if(length(charset)>0) self$charset <- xmlValue(charset[[1]])
-       numDecimals <- getNodeSet(xml, "//numDecimals")
-       if(length(numDecimals)>0) self$numDecimals <- as.integer(xmlValue(numDecimals[[1]]))
-       onlineResource <- getNodeSet(xml, "//onlineResource")
-       if(length(onlineResource)>0) self$onlineResource <- xmlValue(onlineResource[[1]])
-       verbose <- getNodeSet(xml, "//verbose")
-       if(length(verbose)>0) self$verbose <- as.logical(toupper(xmlValue(verbose[[1]])))
-       verboseExceptions <- getNodeSet(xml, "//verboseExceptions")
-       if(length(verboseExceptions)>0) self$verboseExceptions <- as.logical(toupper(xmlValue(verboseExceptions[[1]])))
-       includesPrefix <- getNodeSet(xml, "//localWorkspaceIncludesPrefix")
-       if(length(includesPrefix)>0) self$localWorkspaceIncludesPrefix <- as.logical(toupper(xmlValue(includesPrefix[[1]])))
+       xml = xml2::as_xml_document(xml)
+       charset <- xml2::xml_find_first(xml, "//charset")
+       if(length(charset)>0) self$charset <- xml2::xml_text(charset)
+       numDecimals <- xml2::xml_find_first(xml, "//numDecimals")
+       if(length(numDecimals)>0) self$numDecimals <- as.integer(xml2::xml_test(numDecimals))
+       onlineResource <- xml2::xml_find_first(xml, "//onlineResource")
+       if(length(onlineResource)>0) self$onlineResource <- xml2::xml_text(onlineResource)
+       verbose <- xml2::xml_find_first(xml, "//verbose")
+       if(length(verbose)>0) self$verbose <- as.logical(toupper(xml2::xml_text(verbose)))
+       verboseExceptions <- xml2::xml_find_first(xml, "//verboseExceptions")
+       if(length(verboseExceptions)>0) self$verboseExceptions <- as.logical(toupper(xml2::xml_text(verboseExceptions)))
+       includesPrefix <- xml2::xml_find_first(xml, "//localWorkspaceIncludesPrefix")
+       if(length(includesPrefix)>0) self$localWorkspaceIncludesPrefix <- as.logical(toupper(xml2::xml_text(includesPrefix)))
      },
      
      #'@description Set charset

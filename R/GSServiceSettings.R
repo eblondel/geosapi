@@ -14,58 +14,6 @@
 #' @examples
 #' settings <- GSServiceSettings$new(service = "WMS")
 #' settings$setEnabled(TRUE)
-#'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(rootName, xml)}}{
-#'    This method is used to instantiate a \code{GSServiceSettings}. This settings 
-#'    object is required to model/manipulate an OGC service configuration, using the method
-#'    \code{GSManager$updateServiceSettings} or derivates.
-#'  }
-#'  \item{\code{decode(xml)}}{
-#'    This method is used to decode a \code{GSServiceSettings} from XML
-#'  }
-#'  \item{\code{encode()}}{
-#'    This method is used to encode a \code{GSServiceSettings} to XML. Inherited from the
-#'    generic \code{GSRESTResource} encoder
-#'  }
-#'  \item{\code{setEnabled(enabled)}}{
-#'    Sets if the service is enabled (TRUE) or not (FALSE)
-#'  }
-#'  \item{\code{setCiteCompliant(citeCompliant)}}{
-#'    Sets if the service is compliant with CITE (TRUE) or not (FALSE)
-#'  }
-#'  \item{\code{setName(name)}}{
-#'    Sets the service name
-#'  }
-#'  \item{\code{setTitle(title)}}{
-#'    Sets the service title
-#'  }
-#'  \item{\code{setAbstract(abstract)}}{
-#'    Sets the service abstract
-#'  }
-#'  \item{\code{setMaintainer(maintainer)}}{
-#'    Sets the service maintainer
-#'  }
-#'  \item{\code{setKeywords(keywords)}}{
-#'    Sets a list of keywords
-#'  }
-#'  \item{\code{addKeyword(keyword)}}{
-#'    Sets a keyword. Returns TRUE if set, FALSE otherwise
-#'  }
-#'  \item{\code{delKeyword(keyword)}}{
-#'    Deletes a keyword. Returns TRUE if deleted, FALSE otherwise
-#'  }
-#'  \item{\code{setOnlineResource(onlineResource)}}{
-#'    Sets the online resource
-#'  }
-#'  \item{\code{setSchemaBaseURL(schemaBaseURL)}}{
-#'    Sets the schema base URL. Default is http://schemas.opengis.net
-#'  }
-#'  \item{\code{setVerbose(verbose)}}{
-#'    Sets verbose
-#'  }
-#'}
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -98,7 +46,7 @@ GSServiceSettings <- R6Class("GSServiceSettings",
      verbose = FALSE,
      
      #'@description Initializes an object of class \link{GSServiceSettings}
-     #'@param xml object of class \link{XMLInternalNode-class}
+     #'@param xml object of class \link{xml_node-class}
      #'@param service service service acronym
      initialize = function(xml = NULL, service){
        super$initialize(rootName = tolower(service))
@@ -109,31 +57,32 @@ GSServiceSettings <- R6Class("GSServiceSettings",
      },
      
      #'@description Decodes from XML
-     #'@param xml object of class \link{XMLInternalNode-class}
+     #'@param xml object of class \link{xml_node-class}
      decode = function(xml){
-       enabled <- getNodeSet(xml, "//enabled")
-       if(length(enabled)>0) self$enabled <- as.logical(xmlValue(enabled[[1]]))
-       citeCompliant <- getNodeSet(xml, "//citeCompliant")
-       if(length(citeCompliant)>0) self$citeCompliant <- as.logical(xmlValue(citeCompliant[[1]]))
-       names <- getNodeSet(xml, paste0("//",self$rootName,"/name"))
-       if(length(names)>0) self$name <- xmlValue(names[[1]])
-       titles <- getNodeSet(xml, "//title")
-       if(length(titles)>0) self$title <- xmlValue(titles[[1]])
-       maintainers <- getNodeSet(xml, "//maintainer")
-       if(length(maintainers)>0) self$maintainer <- xmlValue(maintainers[[1]])
-       abstracts <- getNodeSet(xml, "//abstrct")
-       if(length(abstracts)>0) self$abstrct <- xmlValue(abstracts[[1]])
-       accessConstraints <- getNodeSet(xml, "//accessConstraints")
-       if(length(accessConstraints)>0) self$accessConstraints <- xmlValue(accessConstraints[[1]])
-       fees <- getNodeSet(xml, "//fees")
-       if(length(fees)>0) self$fees <- xmlValue(fees[[1]])
-       self$keywords <- lapply(getNodeSet(xml, "//keywords/string"), xmlValue)
+       enabled <- xml2::xml_find_first(xml, "//enabled")
+       if(length(enabled)>0) self$enabled <- as.logical(xml2::xml_text(enabled))
+       citeCompliant <- xml2::xml_find_first(xml, "//citeCompliant")
+       if(length(citeCompliant)>0) self$citeCompliant <- as.logical(xml2::xml_text(citeCompliant))
+       names <- xml2::xml_find_first(xml, paste0("//",self$rootName,"/name"))
+       if(length(names)>0) self$name <- xml2::xml_text(names)
+       titles <- xml2::xml_find_first(xml, "//title")
+       if(length(titles)>0) self$title <- xml2::xml_text(titles)
+       maintainers <- xml2::xml_find_first(xml, "//maintainer")
+       if(length(maintainers)>0) self$maintainer <- xml2::xml_text(maintainers)
+       abstracts <- xml2::xml_find_first(xml, "//abstrct")
+       if(length(abstracts)>0) self$abstrct <- xml2::xml_text(abstracts)
+       accessConstraints <- xml2::xml_find_first(xml, "//accessConstraints")
+       if(length(accessConstraints)>0) self$accessConstraints <- xml2::xml_text(accessConstraints)
+       fees <- xml2::xml_find_first(xml, "//fees")
+       if(length(fees)>0) self$fees <- xml2::xml_text(fees)
+       
+       self$keywords <- lapply(as(xml2::xml_find_all(xml, "//keywords/string"), "list"), xml2::xml_text)
        onlineRes <- getNodeSet(xml, "//onlineResource")
-       if(length(onlineRes)>0) self$onlineResource <- xmlValue(onlineRes[[1]])
-       schemaBaseURL <- getNodeSet(xml, "//schemaBaseURL")
-       if(length(schemaBaseURL)>0) self$schemaBaseURL <- xmlValue(schemaBaseURL[[1]])
-       verbose <- getNodeSet(xml, "//verbose")
-       if(length(verbose)>0) self$verbose <- as.logical(xmlValue(verbose[[1]]))
+       if(length(onlineRes)>0) self$onlineResource <- xml2::xml_text(onlineRes)
+       schemaBaseURL <- xml2::xml_find_first(xml, "//schemaBaseURL")
+       if(length(schemaBaseURL)>0) self$schemaBaseURL <- xml2::xml_text(schemaBaseURL)
+       verbose <- xml2::xml_find_first(xml, "//verbose")
+       if(length(verbose)>0) self$verbose <- as.logical(xml2::xml_text(verbose))
      },
      
      #'@description Set enabled

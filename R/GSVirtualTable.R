@@ -10,40 +10,6 @@
 #' @examples
 #' GSVirtualTable$new()
 #'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(xml)}}{
-#'    This method is used to instantiate a GSVirtualTable
-#'  }
-#'  \item{\code{decode(xml)}}{
-#'    This method is used to decode a GSVirtualTable from XML
-#'  }
-#'  \item{\code{encode()}}{
-#'    This method is used to encode a GSVirtualTable to XML
-#'  }
-#'  \item{\code{setName(name)}}{
-#'    Sets the name of the virtual table
-#'  }
-#'  \item{\code{setSql(sql)}}{
-#'    Sets the sql of the virtual table
-#'  }
-#'  \item{\code{setEscapeSql(escapeSql)}}{
-#'    Sets the escapeSql. Default is FALSE
-#'  }
-#'  \item{\code{setKeyColumn(keyColumn)}}{
-#'    Sets the keyColumn. Name of the column to be the primary key
-#'  }
-#'  \item{\code{setGeometry(vtg)}}{
-#'    Sets the virtual table geometry
-#'  }
-#'  \item{\code{addParameter(parameter)}}{
-#'    Adds a virtual table parameter
-#'  }
-#'  \item{\code{delParameter(parameter)}}{
-#'    Removes a virtual table parameter.
-#'  }
-#' }
-#' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
 GSVirtualTable <- R6Class("GSVirtualTable",
@@ -63,7 +29,7 @@ GSVirtualTable <- R6Class("GSVirtualTable",
      parameters = list(),
      
      #'@description Initializes an object of class \link{GSVirtualTable}
-     #'@param xml object of class \link{XMLInternalNode-class}
+     #'@param xml object of class \link{xml_node-class}
      initialize = function(xml = NULL){
        super$initialize(rootName = "virtualTable")
        if(!missing(xml) & !is.null(xml)){
@@ -72,26 +38,25 @@ GSVirtualTable <- R6Class("GSVirtualTable",
      },
      
      #'@description Decodes from XML
-     #'@param xml object of class \link{XMLInternalNode-class}
+     #'@param xml object of class \link{xml_node-class}
      decode = function(xml){
-       names <- getNodeSet(xml, "//name")
-       self$name <- xmlValue(names[[1]])
-       sql <- getNodeSet(xml, "//sql")
-       self$sql <- xmlValue(sql[[1]])
-       escapeSql <- getNodeSet(xml, "//escapeSql")
+       xml = xml2::as_xml_document(xml)
+       self$name <- xml2::xml_find_first(xml, "//name") %>% xml2::xml_text()
+       self$sql <- xml2::xml_find_first(xml, "//sql") %>% xml2::xml_text()
+       escapeSql <- xml2::xml_find_first(xml, "//escapeSql")
        if(length(escapeSql)>0){
-         self$escapeSql <- as.logical(xmlValue(escapeSql[[1]]))
+         self$escapeSql <- as.logical(xml2::xml_text(escapeSql))
        }
-       keyColumns <- getNodeSet(xml, "//keyColumn")
+       keyColumns <- xml2::xml_find_first(xml, "//keyColumn")
        if(length(keyColumns)>0){
-         self$keyColumn <- xmlValue(keyColumns[[1]])
+         self$keyColumn <- xml2::xml_text(keyColumns)
        }
-       geoms <- getNodeSet(xml, "//geometry")
+       geoms <- xml2::xml_find_first(xml, "//geometry")
        if(length(geoms)>0){
-         vtg <- GSVirtualTableGeometry$new(xml = geoms[[1]])
+         vtg <- GSVirtualTableGeometry$new(xml = geoms)
          self$setGeometry(vtg)
        }
-       params <- getNodeSet(xml, "//parameter")
+       params <- as(xml2::xml_find_all(xml, "//parameter"), "list")
        if(length(params)>0){
         for(param in params){
           vtp <- GSVirtualTableParameter$new(xml = param)

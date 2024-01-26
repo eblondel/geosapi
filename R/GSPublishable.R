@@ -28,7 +28,7 @@ GSPublishable <- R6Class("GSPublishable",
      attr_type = NULL,
      
      #'@description Initializes a \link{GSPublishable}
-     #'@param xml an object of class \link{XMLInternalNode-class}
+     #'@param xml an object of class \link{xml_node-class}
      #'@param name name
      #'@param type type
      initialize = function(xml = NULL, name, type){
@@ -44,11 +44,11 @@ GSPublishable <- R6Class("GSPublishable",
      },
      
      #'@description Decodes from XML
-     #'@param xml an object of class \link{XMLInternalNode-class}
+     #'@param xml an object of class \link{xml_node-class}
      decode = function(xml){
-       names <- getNodeSet(xml, "//name")
-       self$name <- xmlValue(names[[1]])
-       self$attr_type <- xmlGetAttr(xml, "type")[1]
+       xml = xml2::as_xml_document(xml)
+       self$name <- xml2::xml_find_first(xml, "//name") %>% xml2::xml_text()
+       self$attr_type <- xml2::xml_attr(xml, "type")
      },
      
      #'@description set name

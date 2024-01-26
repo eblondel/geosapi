@@ -17,13 +17,13 @@ test_that("virtual table parameter encoding/decoding",{
   expect_equal(vtp$regexpValidator, "^[\\w\\d\\s]+$")
   
   vtpXML <- vtp$encode()
-  expect_is(vtpXML, c("XMLInternalElementNode","XMLInternalNode","XMLAbstractNode"))
+  expect_is(vtpXML, c("xml_document", "xml_node"))
   
   #decoding from XML
   vtp2 <- GSVirtualTableParameter$new(xml = vtpXML)
   vtp2XML <- vtp2$encode()
   
   #check encoded XML is equal to decoded XML
-  expect_true(all(sapply(XML::compareXMLDocs(XML::xmlDoc(vtpXML), XML::xmlDoc(vtp2XML)), length) == 0))
+  testthat::compare(vtpXML, vtp2XML)
   
 })

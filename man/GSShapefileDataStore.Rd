@@ -15,33 +15,6 @@ Geoserver REST API ShapeFileDataStore
 
 Geoserver REST API ShapeFileDataStore
 }
-\section{Methods}{
-
-\describe{
-   \item{\code{new(xml, name, description, enabled, url)}}{
-     Instantiates a GSShapefileDataStore object
-   }
-   \item{\code{setUrl(url)}}{
-     Set the spatial files data URL
-   }
-   \item{\code{setCharset(charset)}}{
-     Set the charset used for DBF file. Default value is 'ISO-8859-1'
-   }
-   \item{\code{setCreateSpatialIndex(create)}}{
-     Set the 'Create Spatial Index' option. Default is TRUE
-   }
-   \item{\code{setMemoryMappedBuffer(buffer)}}{
-     Set the 'Memory Mapped Buffer' option. Default is TRUE
-   }
-   \item{\code{CacheReuseMemoryMaps(maps)}}{
-     Set the 'Cache & Reuse Memory Maps' option. Default is TRUE
-   }
-   \item{\code{setDefautConnectionParameters()}}{
-     Set the defaut connection paramaters
-   }
-}
-}
-
 \examples{
 GSShapefileDataStore$new(name = "ds", description = "des",
                          enabled = TRUE, url = "file://data/shape.shp")
@@ -105,7 +78,7 @@ initializes a shapefile data store
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{an object of class \link{XMLInternalNode-class} to create object from XML}
+\item{\code{xml}}{an object of class \link{xml_node-class} to create object from XML}
 
 \item{\code{name}}{coverage store name}
 

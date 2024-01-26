@@ -68,14 +68,14 @@ test_that("featureType encoding/decoding",{
   
   #encoding to XML
   ftXML <- ft$encode()
-  expect_is(ftXML, c("XMLInternalElementNode","XMLInternalNode","XMLAbstractNode"))
+  expect_is(ftXML, c("xml_document", "xml_node"))
   
   #decoding from XML
   ft2 <- GSFeatureType$new(xml = ftXML)
   ft2XML <- ft2$encode()
   
   #check encoded XML is equal to decoded XML
-  expect_true(all(sapply(XML::compareXMLDocs(XML::xmlDoc(ftXML), XML::xmlDoc(ft2XML)), length) == 0))
+  testthat::compare(ftXML, ft2XML)
   
 })
 

@@ -24,7 +24,7 @@ GSVirtualTableParameter <- R6Class("GSVirtualTableParameter",
     regexpValidator = NA,
     
     #'@description Initializes an object of class \link{GSVirtualTableParameter}
-    #'@param xml object of class \link{XMLInternalNode-class}
+    #'@param xml object of class \link{xml_node-class}
     #'@param name name
     #'@param defaultValue default value
     #'@param regexpValidator regexp validator
@@ -40,14 +40,12 @@ GSVirtualTableParameter <- R6Class("GSVirtualTableParameter",
     },
     
     #'@description Decodes from XML
-    #'@param xml object of class \link{XMLInternalNode-class}
+    #'@param xml object of class \link{xml_node-class}
     decode = function(xml){
-      names <- getNodeSet(xml, "//name")
-      self$name <- xmlValue(names[[1]])
-      defaultValues <- getNodeSet(xml, "//defaultValue")
-      self$defaultValue <- xmlValue(defaultValues[[1]])
-      regexpValidators <- getNodeSet(xml, "//regexpValidator")
-      self$regexpValidator <- xmlValue(regexpValidators[[1]])
+      xml = xml2::as_xml_document(xml)
+      self$name <- xml2::xml_find_first(xml, "//name") %>% xml2::xml_text()
+      self$defaultValue <- xml2::xml_find_first(xml, "//defaultValue") %>% xml2::xml_text()
+      self$regexpValidator <- xml2::xml_find_first(xml, "//regexpValidator") %>% xml2::xml_text()
     }
     
   )                     

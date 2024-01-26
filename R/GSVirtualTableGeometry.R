@@ -23,7 +23,7 @@ GSVirtualTableGeometry <- R6Class("GSVirtualTableGeometry",
      srid = NA,
      
      #'@description Initializes an object of class \link{GSVirtualTableGeometry}
-     #'@param xml object of class \link{XMLInternalNode-class}
+     #'@param xml object of class \link{xml_node-class}
      #'@param name name
      #'@param type type
      #'@param srid srid
@@ -39,14 +39,12 @@ GSVirtualTableGeometry <- R6Class("GSVirtualTableGeometry",
      },
      
      #'@description Decodes from XML
-     #'@param xml object of class \link{XMLInternalNode-class}
+     #'@param xml object of class \link{xml_node-class}
      decode = function(xml){
-       names <- getNodeSet(xml, "//name")
-       self$name <- xmlValue(names[[1]])
-       types <- getNodeSet(xml, "//type")
-       self$type <- xmlValue(types[[1]])
-       srids <- getNodeSet(xml, "//srid")
-       self$srid <- xmlValue(srids[[1]])
+       xml = xml2::as_xml_document(xml)
+       self$name <- xml2::xml_find_first(xml, "//name") %>% xml2::xml_text()
+       self$type <- xml2::xml_find_first(xml, "//type") %>% xml2::xml_text()
+       self$srid <- xml2::xml_find_first(xml, "//srid") %>% xml2::xml_text()
      }
      
    )                     

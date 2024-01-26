@@ -51,13 +51,13 @@ test_that("GSCoverage encoding/decoding",{
   
   #encoding to XML
   covXML <- cov$encode()
-  expect_is(covXML, c("XMLInternalElementNode","XMLInternalNode","XMLAbstractNode"))
+  expect_is(covXML, "xml_node")
   
   #decoding from XML
   cov2 <- GSCoverage$new(xml = covXML)
   cov2XML <- cov2$encode()
   
   #check encoded XML is equal to decoded XML
-  expect_true(all(sapply(XML::compareXMLDocs(XML::xmlDoc(covXML), XML::xmlDoc(cov2XML)), length) == 0))
+  testthat::compare(covXML, cov2XML)
   
 })

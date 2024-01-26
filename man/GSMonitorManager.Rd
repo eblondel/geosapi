@@ -70,6 +70,13 @@ Get the requests
 \if{html}{\out{<div class="r">}}\preformatted{GSMonitorManager$getRequests(offset = 0)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{offset}}{offset}
+}
+\if{html}{\out{</div>}}
+}
 \subsection{Returns}{
 an object of class \code{data.frame}
 }

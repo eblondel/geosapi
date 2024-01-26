@@ -36,10 +36,9 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
       covList <- NULL
       if(status_code(req) == 200){
         covXML <- GSUtils$parseResponseXML(req)
-        covXMLList <- getNodeSet(covXML, "//coverageStore")
-        covList <- lapply(covXMLList, function(x){
-          xml <- xmlDoc(x)
-          covType <-  xmlValue(xmlChildren(xmlRoot(xml))$type)
+        covXMLList <- as(xml2::xml_find_all(covXML, "//coverageStore"), "list")
+        covList <- lapply(covXMLList, function(xml){
+          covType <- xml2::xml_find_first(xml, "//type") %>% xml::xml_text()
           coverageStore <- switch(covType,
             "GeoTIFF" = GSGeoTIFFCoverageStore$new(xml = xml),
             "WorldImage" = GSWorldImageCoverageStore$new(xml = xml),
@@ -77,12 +76,12 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
       coverageStore <- NULL
       if(status_code(req) == 200){
         covXML <- GSUtils$parseResponseXML(req)
-        covType <-  xmlValue(xmlChildren(xmlRoot(covXML))$type)
+        covType <-  xml2::xml_find_first(covXML, "//type") %>% xml2::xml_text()
         coverageStore <- switch(covType,
           "GeoTIFF" = GSGeoTIFFCoverageStore$new(xml = covXML),
           "WorldImage" = GSWorldImageCoverageStore$new(xml = covXML),
           "ImageMosaic" = GSImageMosaicCoverageStore$new(xml = covXML),
-          "ArcGrid" = GSArcGridCoverageStore$new(xml = xml),
+          "ArcGrid" = GSArcGridCoverageStore$new(xml = covXML),
           GSAbstractCoverageStore$new(xml = covXML)
         )
         self$INFO("Successfully fetched coverage store!")
@@ -195,11 +194,8 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
       covList <- NULL
       if(status_code(req) == 200){
         covXML <- GSUtils$parseResponseXML(req)
-        covXMLList <- getNodeSet(covXML, "//coverages/coverage")
-        covList <- lapply(covXMLList, function(x){
-          xml <- xmlDoc(x)
-          return(GSCoverage$new(xml = xml))
-        })
+        covXMLList <- as(xml2::xml_find_all(covXML, "//coverages/coverage"), "list")
+        covList <- lapply(covXMLList, GSCoverage$new)
         self$INFO(sprintf("Successfully fetched %s coverages!", length(covList)))
       }else{
         self$ERROR("Error while fetching list of coverages")

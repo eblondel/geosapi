@@ -8,7 +8,7 @@
 #' @format \code{\link{R6Class}} object.
 #' 
 #' @examples
-#' GSNamespace$new(prefix = "prefix", uri = "http://prefix")
+#' GSNamespace$new(prefix = "my_ns", uri = "http://my_ns")
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -25,7 +25,7 @@ GSNamespace <- R6Class("GSNamespace",
     full = FALSE,
    
     #'@description Initializes an object of class \link{GSNamespace}
-    #'@param xml object of class \link{XMLInternalNode-class}
+    #'@param xml object of class \link{xml_node-class}
     #'@param prefix prefix
     #'@param uri uri
     initialize = function(xml = NULL, prefix, uri){
@@ -41,17 +41,18 @@ GSNamespace <- R6Class("GSNamespace",
     },
     
     #'@description Decodes from XML
-    #'@param xml object of class \link{XMLInternalNode-class}
+    #'@param xml object of class \link{xml_node-class}
     decode = function(xml){
-      names <- getNodeSet(xml, "//name")
+      xml = xml2::as_xml_document(xml)
+      names <- xml2::xml_find_first(xml, "//name")
       if(length(names)>0){
         self$full <- FALSE
-        self$name <- xmlValue(names[[1]])
+        self$name <- xml2::xml_text(names)
       }else{
         self$full <- TRUE
-        self$prefix <- xmlValue(getNodeSet(xml, "//prefix")[[1]])
+        self$prefix <- xml2::xml_find_first(xml, "//prefix") %>% xml2::xml_text()
         self$name <- self$prefix
-        self$uri <- xmlValue(getNodeSet(xml, "//uri")[[1]])
+        self$uri <- xml2::xml_find_first(xml, "//uri") %>% xml2::xml_text()
       }
     }
   )                     

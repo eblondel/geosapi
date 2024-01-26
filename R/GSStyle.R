@@ -28,7 +28,7 @@ GSStyle <- R6Class("GSStyle",
     filename = NULL,
     
     #'@description Initializes a \link{GSStyle}
-    #'@param xml an object of class \link{XMLInternalNode-class}
+    #'@param xml an object of class \link{xml_node-class}
     #'@param name name
     #'@param filename filename
     initialize = function(xml = NULL, name = NULL, filename = NULL){
@@ -46,15 +46,15 @@ GSStyle <- R6Class("GSStyle",
     },
     
     #'@description Decodes from XML
-    #'@param xml an object of class \link{XMLInternalNode-class}
+    #'@param xml an object of class \link{xml_node-class}
     decode = function(xml){
-     names <- getNodeSet(xml, "//name")
-     self$setName(xmlValue(names[[1]]))
-     filenames <- getNodeSet(xml, "//filename")
-     if(length(filenames)==0) self$full <- FALSE
-     if(self$full){
-       self$setFilename(xmlValue(filenames[[1]]))
-     }
+      xml = xml2::as_xml_document(xml)
+      self$setName(xml2::xml_find_first(xml) %>% xml2::xml_text())
+      filenames <- xml2::xml_find_first(xml, "//filename")
+      if(length(filenames)==0) self$full <- FALSE
+      if(self$full){
+        self$setFilename(xml2::xml_text(filenames))
+      }
     },
     
     #'@description set name

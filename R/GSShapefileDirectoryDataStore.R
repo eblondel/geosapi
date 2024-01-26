@@ -21,7 +21,7 @@ GSShapefileDirectoryDataStore <- R6Class("GSShapefileDirectoryDataStore",
     public = list(
       
       #'@description initializes a shapefile directory data store
-      #'@param xml an object of class \link{XMLInternalNode-class} to create object from XML
+      #'@param xml an object of class \link{xml_node-class} to create object from XML
       #'@param name coverage store name
       #'@param description coverage store description
       #'@param enabled whether the store should be enabled or not. Default is \code{TRUE}

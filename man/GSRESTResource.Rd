@@ -49,7 +49,7 @@ Initializes an object of class \link{GSRESTResource}
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+\item{\code{xml}}{object of class \link{xml_node-class}}
 
 \item{\code{rootName}}{root name}
 }
@@ -68,7 +68,7 @@ Decodes from XML. Abstract method to be implemented by sub-classes
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+\item{\code{xml}}{object of class \link{xml_node-class}}
 }
 \if{html}{\out{</div>}}
 }
@@ -83,7 +83,7 @@ Encodes as XML
 }
 
 \subsection{Returns}{
-an object of class \link{XMLInternalNode-class}
+an object of class \link{xml_node-class}
 }
 }
 \if{html}{\out{<hr>}}

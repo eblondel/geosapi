@@ -19,7 +19,7 @@ GSWorkspace <- R6Class("GSWorkspace",
     name = NA,
     
     #'@description initializes a \link{GSWorkspace}
-    #'@param xml an object of class \link{XMLInternalNode-class}
+    #'@param xml an object of class \link{xml_node-class}
     #'@param name name
     initialize = function(xml = NULL, name){
       super$initialize(rootName = "workspace")
@@ -31,10 +31,10 @@ GSWorkspace <- R6Class("GSWorkspace",
     },
     
     #'@description Decodes from XML
-    #'@param xml an object of class \link{XMLInternalNode-class}
+    #'@param xml an object of class \link{xml_node-class}
     decode = function(xml){
-      names <- getNodeSet(xml, "//name")
-      self$name <- xmlValue(names[[1]])
+      xml = xml2::as_xml_document(xml)
+      self$name <- xml2::xml_child(xml) %>% xml2::xml_text()
     }
     
   )                     

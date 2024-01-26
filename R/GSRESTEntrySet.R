@@ -20,12 +20,12 @@ GSRESTEntrySet <- R6Class("GSRESTEntrySet",
    
    #'@description Initializes an object of class \link{GSRESTEntrySet}
    #'@param rootName root name
-   #'@param xml object of class \link{XMLInternalNode-class}
+   #'@param xml object of class \link{xml_node-class}
    #'@param entryset entry set
    initialize = function(rootName, xml = NULL, entryset){
      super$initialize(rootName = rootName)
      if(!missing(xml) & !is.null(xml)){
-       if(!any(class(xml) %in% c("XMLInternalNode","XMLInternalDocument"))){
+       if(!any(class(xml) %in% c("xml_document","xml_node"))){
          stop("The argument 'xml' is not a valid XML object")
        }
        self$decode(xml)
@@ -37,17 +37,18 @@ GSRESTEntrySet <- R6Class("GSRESTEntrySet",
    },
    
    #'@description Decodes from XML
-   #'@param xml object of class \link{XMLInternalNode-class} 
+   #'@param xml object of class \link{xml_node-class} 
    decode = function(xml){
-    entriesXML <- getNodeSet(xml, sprintf("//%s/entry", self$rootName))
+     xml = xml2::as_xml_document(xml)
+    entriesXML <- as(xml2::xml_find_all(xml, sprintf("//%s/entry", self$rootName)), "list")
      self$entryset = lapply(entriesXML, function(x){
-       entry <- xmlValue(x)
+       entry <- xml2::xml_text(x)
        if(entry %in% c("true","false")){
          entry <- as.logical(entry)
        }
        return(entry)
      })
-     names(self$entryset) = lapply(entriesXML, xmlGetAttr, "key")
+     names(self$entryset) = lapply(entriesXML, xml2::xml_attr, "key")
    },
    
    #'@description Set entry set

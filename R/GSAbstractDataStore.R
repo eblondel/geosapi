@@ -19,7 +19,7 @@ GSAbstractDataStore <- R6Class("GSAbstractDataStore",
     connectionParameters = NULL,
     
     #'@description initializes an abstract data store
-    #'@param xml an object of class \link{XMLInternalNode-class} to create object from XML
+    #'@param xml an object of class \link{xml_node-class} to create object from XML
     #'@param type the type of coverage store
     #'@param name coverage store name
     #'@param description coverage store description
@@ -31,7 +31,7 @@ GSAbstractDataStore <- R6Class("GSAbstractDataStore",
       super$initialize(xml = xml, storeType = private$STORE_TYPE, type = type, 
                        name = name, description = description, enabled = enabled)
       if(!missing(xml) & !is.null(xml)){
-        if(!any(class(xml) %in% c("XMLInternalNode","XMLInternalDocument"))){
+        if(!any(class(xml) %in% c("xml_document","xml_node"))){
           stop("The argument 'xml' is not a valid XML object")
         }
         self$decode(xml)
@@ -45,9 +45,10 @@ GSAbstractDataStore <- R6Class("GSAbstractDataStore",
     },
     
     #'@description Decodes a data store from XML
-    #'@param xml an object of class \link{XMLInternalNode-class}
+    #'@param xml an object of class \link{xml_node-class}
     #'@return an object of class \link{GSAbstractDataStore}
     decode = function(xml){
+      xml = xml2::as_xml_document(xml)
       super$decode(xml)
       self$connectionParameters = GSRESTEntrySet$new(rootName = "connectionParameters", xml)
     },

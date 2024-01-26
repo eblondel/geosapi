@@ -21,13 +21,13 @@ test_that("virtual table encoding/decoding",{
   vt$addParameter(vtp2)
   
   vtXML <- vt$encode()
-  expect_is(vtXML, c("XMLInternalElementNode","XMLInternalNode","XMLAbstractNode"))
+  expect_is(vtXML, c("xml_document", "xml_node"))
   
   #decoding from XML
   vt2 <- GSVirtualTable$new(xml = vtXML)
   vt2XML <- vt2$encode()
   
   #check encoded XML is equal to decoded XML
-  expect_true(all(sapply(XML::compareXMLDocs(XML::xmlDoc(vtXML), XML::xmlDoc(vt2XML)), length) == 0))
+  testthat::compare(vtXML, vt2XML)
   
 })

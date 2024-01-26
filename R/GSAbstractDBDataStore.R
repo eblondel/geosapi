@@ -16,7 +16,7 @@ GSAbstractDBDataStore <- R6Class("GSAbstractDBDataStore",
     public = list(
       
       #'@description initializes an abstract DB data store
-      #'@param xml an object of class \link{XMLInternalNode-class} to create object from XML
+      #'@param xml an object of class \link{xml_node-class} to create object from XML
       #'@param type the type of DB data store
       #'@param dbType DB type
       #'@param name coverage store name

@@ -68,13 +68,13 @@ test_that("resource encoding/decoding",{
   
   #encoding to XML
   resXML <- res$encode()
-  expect_is(resXML, c("XMLInternalElementNode","XMLInternalNode","XMLAbstractNode"))
+  expect_is(resXML, c("xml_document", "xml_node"))
   
   #decoding from XML
   res2 <- GSResource$new(rootName = "featureType", xml = resXML)
   res2XML <- res2$encode()
   
   #check encoded XML is equal to decoded XML
-  expect_true(all(sapply(XML::compareXMLDocs(XML::xmlDoc(resXML), XML::xmlDoc(res2XML)), length) == 0))
+  testthat::compare(resXML, res2XML)
   
 })

@@ -18,75 +18,6 @@ used internally for modelling instances of class \code{GSFeatureType} or
 \details{
 Geoserver REST API Resource
 }
-\section{Methods}{
-
-\describe{
- \item{\code{new(rootName, xml)}}{
-   This method is used to instantiate a GSResource
- }
- \item{\code{decode(xml)}}{
-   This method is used to decode a GSResource from XML
- }
- \item{\code{encode()}}{
-   This method is used to encode a GSResource to XML. Inherited from the
-   generic \code{GSRESTResource} encoder
- }
- \item{\code{setEnabled(enabled)}}{
-   Sets if the resource is enabled or not in GeoServer
- }
- \item{\code{setName(name)}}{
-   Sets the resource name
- }
- \item{\code{setNativeName(nativeName)}}{
-   Sets the resource native name
- }
- \item{\code{setTitle(title)}}{
-   Sets the resource title
- }
- \item{\code{setDescription(description)}}{
-   Sets the resource description
- }
- \item{\code{setAbstract(abstract)}}{
-   Sets the resource abstract
- }
- \item{\code{setKeywords(keywords)}}{
-   Sets a list of keywords
- }
- \item{\code{addKeyword(keyword)}}{
-   Sets a keyword. Returns TRUE if set, FALSE otherwise
- }
- \item{\code{delKeyword(keyword)}}{
-   Deletes a keyword. Returns TRUE if deleted, FALSE otherwise
- }
- \item{\code{setMetadataLinks(metadataLinks)}}{
-   Sets a list of \code{GSMetadataLinks}
- }
- \item{\code{addMetadataLink(metadataLink)}}{
-   Adds a metadataLink
- }
- \item{\code{delMetadataLink(metadataLink)}}{
-   Deletes a metadataLink
- }
- \item{\code{setNativeCRS(nativeCRS)}}{
-   Sets the resource nativeCRS
- }
- \item{\code{setSrs(srs)}}{
-   Sets the resource srs
- }
- \item{\code{setNativeBoundingBox(minx, miny, maxx, maxy, bbox, crs)}}{
-   Sets the resource nativeBoundingBox. Either from coordinates or from
-   a \code{bbox} object (matrix).
- }
- \item{\code{setLatLonBoundingBox(minx, miny, maxx, maxy, bbox, crs)}}{
-   Sets the resource latLonBoundingBox. Either from coordinates or from
-   a \code{bbox} object (matrix).
- }
- \item{\code{setProjectionPolicy(policy)}}{
-   Sets the resource projection policy
- }
-}
-}
-
 \examples{
 res <- GSResource$new(rootName = "featureType")
 
@@ -185,7 +116,7 @@ Initializes a \link{GSResource}
 \describe{
 \item{\code{rootName}}{root name}
 
-\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+\item{\code{xml}}{object of class \link{xml_node-class}}
 }
 \if{html}{\out{</div>}}
 }
@@ -202,7 +133,7 @@ Decodes from XML
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+\item{\code{xml}}{object of class \link{xml_node-class}}
 }
 \if{html}{\out{</div>}}
 }

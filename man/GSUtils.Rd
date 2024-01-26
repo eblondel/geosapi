@@ -43,10 +43,7 @@ Geoserver REST API Manager Utils
    by a \code{path} in GeoServer REST API
  }
  \item{\code{parseResponseXML(req)}}{
-   Convenience method to parse XML response from GeoServer REST API. Although package \pkg{httr}
-   suggests the use of \pkg{xml2} package for handling XML, \pkg{geosapi} still relies
-   on the package \pkg{XML}. Response from \pkg{httr} is retrieved as text, and then parsed as
-   XML using \code{xmlParse} function.
+   Convenience method to parse XML response from GeoServer REST API.
  }
  \item{\code{getPayloadXML(obj)}}{
    Convenience method to create payload XML to send to GeoServer.

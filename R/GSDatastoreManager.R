@@ -36,10 +36,9 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       dsList <- NULL
       if(status_code(req) == 200){
         dsXML <- GSUtils$parseResponseXML(req)
-        dsXMLList <- getNodeSet(dsXML, "//dataStore")
-        dsList <- lapply(dsXMLList, function(x){
-          xml <- xmlDoc(x)
-          dsType <-  xmlValue(xmlChildren(xmlRoot(xml))$type)
+        dsXMLList <- as(xml2::xml_find_all(dsXML, "//dataStore"), "list")
+        dsList <- lapply(dsXMLList, function(xml){
+          dsType <-  xml2::xml_find_first(xml, "//type") %>% xml2::xml_text
           dataStore <- switch(dsType,
               "Shapefile" = GSShapefileDataStore$new(xml = xml),
               "Directory of spatial files (shapefiles)" = GSShapefileDirectoryDataStore$new(xml = xml),
@@ -79,7 +78,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       dataStore <- NULL
       if(status_code(req) == 200){
         dsXML <- GSUtils$parseResponseXML(req)
-        dsType <-  xmlValue(xmlChildren(xmlRoot(dsXML))$type)
+        dsType <-  xml2::xml_find_first(dsXML, "//type") %>% xml2::xml_text()
         dataStore <- switch(dsType,
           "Shapefile" = GSShapefileDataStore$new(xml = dsXML),
           "Directory of spatial files (shapefiles)" = GSShapefileDirectoryDataStore$new(xml = dsXML),
@@ -192,11 +191,8 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       ftList <- NULL
       if(status_code(req) == 200){
         ftXML <- GSUtils$parseResponseXML(req)
-        ftXMLList <- getNodeSet(ftXML, "//featureTypes/featureType")
-        ftList <- lapply(ftXMLList, function(x){
-          xml <- xmlDoc(x)
-          return(GSFeatureType$new(xml = xml))
-        })
+        ftXMLList <- as(xml2::xml_find_all(ftXML, "//featureTypes/featureType"), "list")
+        ftList <- lapply(ftXMLList, GSFeatureType$new)
         self$INFO(sprintf("Successfully fetched %s featureTypes!", length(ftList)))
       }else{
         self$ERROR("Error while fetching list of featureTypes")

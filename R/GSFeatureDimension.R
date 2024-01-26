@@ -24,7 +24,7 @@ GSFeatureDimension <- R6Class("GSFeatureDimension",
    endAttribute = NULL,
    
    #'@description Initializes an object of class \link{GSFeatureDimension}
-   #'@param xml object of class \link{XMLInternalNode-class}
+   #'@param xml object of class \link{xml_node-class}
    initialize = function(xml = NULL){
      super$initialize(xml)
      if(!missing(xml) & !is.null(xml)){
@@ -33,13 +33,13 @@ GSFeatureDimension <- R6Class("GSFeatureDimension",
    },
    
    #'@description Decodes from XML
-   #'@param xml object of class \link{XMLInternalNode-class}
+   #'@param xml object of class \link{xml_node-class}
    decode = function(xml){
      super$decode(xml)
-     propsXML <- xmlChildren(xml)
-     props <- lapply(propsXML, xmlValue)
-     self$setAttribute(props$attribute)
-     self$setEndAttribute(props$endAttribute)
+     attribute = xml2::xml_find_first(xml, "//attribute") %>% xml2::xml_text()
+     self$setAttribute(attribute)
+     endAttribute = xml2::xml_find_first(xml, "//endAttribute") %>% xml2::xml_text()
+     self$setEndAttribute(endAttribute)
    },
    
    #'@description Set attribute

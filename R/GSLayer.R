@@ -39,7 +39,7 @@ GSLayer <- R6Class("GSLayer",
     advertised = TRUE,
     
     #'@description Initializes an object of class \link{GSLayer}
-    #'@param xml object of class \link{XMLInternalNode-class}
+    #'@param xml object of class \link{xml_node-class}
     initialize = function(xml = NULL){
       super$initialize(rootName = "layer")
       if(!missing(xml) & !is.null(xml)){
@@ -48,38 +48,39 @@ GSLayer <- R6Class("GSLayer",
     },
    
     #'@description Decodes from XML
-    #'@param xml object of class \link{XMLInternalNode-class}
+    #'@param xml object of class \link{xml_node-class}
     decode = function(xml){
-      names <- getNodeSet(xml, "//name")
-      self$name <- xmlValue(names[[1]])
-      defaultStyle <- getNodeSet(xml, "//defaultStyle/name")
+      xml = xml2::as_xml_document(xml)
+      names <- xml2::xml_find_first(xml, "//name")
+      self$name <- xml2::xml_text(names)
+      defaultStyle <- xml2::xml_find_first(xml, "//defaultStyle/name")
       if(length(defaultStyle)==0) self$full <- FALSE
       
       if(self$full){
-        self$setDefaultStyle(xmlValue(defaultStyle[[1]]))
+        self$setDefaultStyle(xml2::xml_text(defaultStyle))
         
-        styles <- getNodeSet(xml, "//styles/style")
+        styles <- as(xml2::xml_find_all(xml, "//styles/style"), "list")
         if(length(styles)>0){
           styles <- lapply(styles, function(x){
-              child <- xmlChildren(x)
-              style <- GSStyle$new()
-              style$setName(xmlValue(child$name))
-              if("filename" %in% names(child)){
-                style$setFilename(xmlValue(child$filename))
-              }
-              return(style)
+            style <- GSStyle$new()
+            style$setName(xml2::xml_find_first(x, "//name") %>% xml2::xml_text())
+            filename = xml2::xml_find_first(x, "//filename")
+            if(length(filename)>0){
+              style$setFilename(xml2::xml_text(filename))
+            }
+            return(style)
           })
           self$setStyles(styles)
         }
         
-        paths <- getNodeSet(xml, "//path")
-        if(length(paths)>0) self$path = xmlValue(paths[[1]])
-        enabled <- getNodeSet(xml, "//enabled")
-        if(length(enabled)>0) self$enabled <- as.logical(xmlValue(enabled[[1]]))
-        queryable <- getNodeSet(xml, "//queryable")
-        if(length(queryable)>0) self$queryable <- as.logical(xmlValue(queryable[[1]]))
-        advertised <- getNodeSet(xml, "//advertised")
-        if(length(advertised)>0) self$advertised <- as.logical(xmlValue(advertised[[1]]))
+        paths <- xml2::xml_find_first(xml, "//path")
+        if(length(paths)>0) self$path = xml2::xml_text(path)
+        enabled <-xml2::xml_find_first(xml, "//enabled")
+        if(length(enabled)>0) self$enabled <- as.logical(xml2::xml_text(enabled))
+        queryable <- xml2::xml_find_first(xml, "//queryable")
+        if(length(queryable)>0) self$queryable <- as.logical(xml2::xml_text(queryable))
+        advertised <- xml2::xml_find_first(xml, "//advertised")
+        if(length(advertised)>0) self$advertised <- as.logical(xml2::xml_text(advertised))
       }
     },
     

@@ -16,13 +16,13 @@ test_that("virtual table geometry encoding/decoding",{
   expect_equal(vtg$srid, "4326")
   
   vtgXML <- vtg$encode()
-  expect_is(vtgXML, c("XMLInternalElementNode","XMLInternalNode","XMLAbstractNode"))
+  expect_is(vtgXML, c("xml_document", "xml_node"))
   
   #decoding from XML
   vtg2 <- GSVirtualTableGeometry$new(xml = vtgXML)
   vtg2XML <- vtg2$encode()
   
   #check encoded XML is equal to decoded XML
-  expect_true(all(sapply(XML::compareXMLDocs(XML::xmlDoc(vtgXML), XML::xmlDoc(vtg2XML)), length) == 0))
+  testthat::compare(vtgXML, vtg2XML)
   
 })

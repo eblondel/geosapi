@@ -70,7 +70,7 @@ Initializes an Image Mosaic coverage store
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{an object of class \link{XMLInternalNode-class} to create object from XML}
+\item{\code{xml}}{an object of class \link{xml_node-class} to create object from XML}
 
 \item{\code{name}}{coverage store name}
 

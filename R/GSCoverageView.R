@@ -27,7 +27,7 @@ GSCoverageView <- R6Class("GSCoverageView",
     coverageBands = list(),
     
     #'@description Initializes an object of class \link{GSCoverageView}
-    #'@param xml object of class \link{XMLInternalNode-class}
+    #'@param xml object of class \link{xml_node-class}
     initialize = function(xml = NULL){
       super$initialize(rootName = "coverageView")
       if(!missing(xml) & !is.null(xml)){
@@ -36,21 +36,22 @@ GSCoverageView <- R6Class("GSCoverageView",
     },
     
     #'@description Decodes from XML
-    #'@param xml object of class \link{XMLInternalNode-class}
+    #'@param xml object of class \link{xml_node-class}
     decode = function(xml){
-      names <- getNodeSet(xml, "//name")
-      self$name <- xmlValue(names[[1]])
+      xml = xml2::as_xml_document(xml)
+      names <- xml2::xml_find_first(xml, "//name") 
+      self$name <- xml2::xml_text(names)
       
-      ect <- getNodeSet(xml, "//envelopeCompositionType")
-      self$envelopeCompositionType <- xmlValue(ect[[1]])
+      ect <- xml2::xml_find_first(xml, "//envelopeCompositionType")
+      self$envelopeCompositionType <- xml2::xml_text(ect)
       
-      sr <- getNodeSet(xml, "//selectedResolution")
-      self$selectedResolution <- xmlValue(sr[[1]])
+      sr <- xml2::xml_find_first(xml, "//selectedResolution")
+      self$selectedResolution <- xml2::xml_text(sr)
       
-      sri <- getNodeSet(xml, "//selectedResolutionIndex")
-      self$selectedResolutionIndex <- xmlValue(sri[[1]])
+      sri <- xml2::xml_find_first(xml, "//selectedResolutionIndex")
+      self$selectedResolutionIndex <- xml2::xml_text(sri)
       
-      bands <- getNodeSet(xml, "//coverageBand")
+      bands <- as(xml2::xml_find_all(xml, "//coverageBand"), "list")
       if(length(bands)>0){
         for(band in bands){
           band <- GSCoverageBand$new(xml = band)

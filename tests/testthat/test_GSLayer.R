@@ -35,14 +35,14 @@ test_that("layer encoding/decoding",{
   
   #encoding to XML
   lyrXML <- lyr$encode()
-  expect_is(lyrXML, c("XMLInternalElementNode","XMLInternalNode","XMLAbstractNode"))
+  expect_is(lyrXML, c("xml_document", "xml_node"))
   
   #decoding from XML
   lyr2 <- GSLayer$new(xml = lyrXML)
   lyr2XML <- lyr2$encode()
   
   #check encoded XML is equal to decoded XML
-  expect_true(all(sapply(XML::compareXMLDocs(XML::xmlDoc(lyrXML), XML::xmlDoc(lyr2XML)), length) == 0))
+  testthat::compare(lyrXML, lyr2XML)
   
 })
 

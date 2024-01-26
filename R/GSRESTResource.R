@@ -16,7 +16,7 @@ GSRESTResource <- R6Class("GSRESTResource",
     rootName = NA,
     
     #'@description Initializes an object of class \link{GSRESTResource}
-    #'@param xml object of class \link{XMLInternalNode-class}
+    #'@param xml object of class \link{xml_node-class}
     #'@param rootName root name
     initialize = function(xml, rootName){
       if(missing(rootName) | is.null(rootName)){
@@ -26,18 +26,18 @@ GSRESTResource <- R6Class("GSRESTResource",
     },
     
     #'@description Decodes from XML. Abstract method to be implemented by sub-classes
-    #'@param xml object of class \link{XMLInternalNode-class}
+    #'@param xml object of class \link{xml_node-class}
     decode = function(xml){
       stop("Unimplemented XML 'decode' method") 
     },
     
     #'@description Encodes as XML
-    #'@return an object of class \link{XMLInternalNode-class}
+    #'@return an object of class \link{xml_node-class}
     encode = function(){
       #Generic XML encoder
-      rootXML <- newXMLNode(self$rootName)
+      rootXML <- xml2::xml_new_root(self$rootName)
       if(is(self, "GSPublishable")){
-        xmlAttrs(rootXML) <- c(type = self$attr_type)
+        xml2::xml_attrs(rootXML) <- c(type = self$attr_type)
       }
       
       #list of fields to encode as XML
@@ -53,15 +53,20 @@ GSRESTResource <- R6Class("GSRESTResource",
         if(itemNb > 0){
           for(i in 1:itemNb){
             itemName <- names(items)[i]
+            
+            item <- xml2::xml_new_root("entry")
+            xml2::xml_attrs(item) = c(key = itemName)
+            
             itemValue <- items[[itemName]]
             if(is.logical(itemValue)){
               itemValue <- tolower(as.character(itemValue))
+              xml2::xml_text(item) <- itemValue
             }
-            if(any(class(itemValue) == "GSRESTResource")){
+            if(is(itemValue, "GSRESTResource")){
               itemValue <- itemValue$encode()
+              item %>% xml2::xml_add_child(itemValue)
             }
-            item <- newXMLNode("entry", attrs = c(key = itemName),
-                               itemValue, parent = rootXML)
+            rootXML %>% xml2::xml_add_child(item)
           }
         }
       }else{
@@ -76,7 +81,7 @@ GSRESTResource <- R6Class("GSRESTResource",
               if(is(self, "GSVirtualTable")){
                 itemsXML <- rootXML
               }else{
-                itemsXML <- newXMLNode(field, parent = rootXML)
+                itemsXML <- xml2::xml_new_root(field)
               }
               items <- fieldObj
               itemNames <- names(items)
@@ -86,21 +91,28 @@ GSRESTResource <- R6Class("GSRESTResource",
                   itemName <- itemNames[i]
                   if(any(class(item) == "R6")){
                     itemXML <- item$encode()
-                    addChildren(itemsXML, itemXML)
+                    itemsXML %>% xml2::xml_add_child(itemXML)
                   }else{
                     if(is.null(itemNames)){
-                      itemXML <- suppressWarnings(newXMLNode("string", item, parent = itemsXML))
+                      itemXML <- xml2::xml_new_root("string")
+                      if(!is.na(item)) xml2::xml_text(itemXML) <- as.character(item)
+                      itemsXML %>% xml2::xml_add_child(itemXML)
                     }else{
-                      itemXML <- suppressWarnings(newXMLNode(itemName, item, parent = itemsXML))
+                      itemXML <- xml2::xml_new_root(itemName)
+                      if(!is.na(item)) xml2::xml_text(itemXML) <- as.character(item)
+                      itemsXML %>% xml2::xml_add_child(itemXML)
                     }
                   }
                 }
               }
+              if(!is(self, "GSVirtualTable")) rootXML %>% xml2::xml_add_child(itemsXML)
             }else{
               if(any(class(fieldObj) == "R6")){
-                addChildren(rootXML, fieldObj$encode())
+                rootXML %>% xml2::xml_add_child(fieldObj$encode())
               }else{
-                itemXML <- newXMLNode(field, fieldObj, parent = rootXML)
+                itemXML <- xml2::xml_new_root(field)
+                if(!is.na(fieldObj)) xml2::xml_text(itemXML) <- as.character(fieldObj)
+                rootXML %>% xml2::xml_add_child(itemXML)
               }
             }
           }

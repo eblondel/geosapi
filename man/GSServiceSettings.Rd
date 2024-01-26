@@ -16,60 +16,6 @@ This class models a GeoServer OWS service settings.
 \details{
 Geoserver REST API Service Setting
 }
-\section{Methods}{
-
-\describe{
- \item{\code{new(rootName, xml)}}{
-   This method is used to instantiate a \code{GSServiceSettings}. This settings 
-   object is required to model/manipulate an OGC service configuration, using the method
-   \code{GSManager$updateServiceSettings} or derivates.
- }
- \item{\code{decode(xml)}}{
-   This method is used to decode a \code{GSServiceSettings} from XML
- }
- \item{\code{encode()}}{
-   This method is used to encode a \code{GSServiceSettings} to XML. Inherited from the
-   generic \code{GSRESTResource} encoder
- }
- \item{\code{setEnabled(enabled)}}{
-   Sets if the service is enabled (TRUE) or not (FALSE)
- }
- \item{\code{setCiteCompliant(citeCompliant)}}{
-   Sets if the service is compliant with CITE (TRUE) or not (FALSE)
- }
- \item{\code{setName(name)}}{
-   Sets the service name
- }
- \item{\code{setTitle(title)}}{
-   Sets the service title
- }
- \item{\code{setAbstract(abstract)}}{
-   Sets the service abstract
- }
- \item{\code{setMaintainer(maintainer)}}{
-   Sets the service maintainer
- }
- \item{\code{setKeywords(keywords)}}{
-   Sets a list of keywords
- }
- \item{\code{addKeyword(keyword)}}{
-   Sets a keyword. Returns TRUE if set, FALSE otherwise
- }
- \item{\code{delKeyword(keyword)}}{
-   Deletes a keyword. Returns TRUE if deleted, FALSE otherwise
- }
- \item{\code{setOnlineResource(onlineResource)}}{
-   Sets the online resource
- }
- \item{\code{setSchemaBaseURL(schemaBaseURL)}}{
-   Sets the schema base URL. Default is http://schemas.opengis.net
- }
- \item{\code{setVerbose(verbose)}}{
-   Sets verbose
- }
-}
-}
-
 \examples{
 settings <- GSServiceSettings$new(service = "WMS")
 settings$setEnabled(TRUE)
@@ -157,7 +103,7 @@ Initializes an object of class \link{GSServiceSettings}
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+\item{\code{xml}}{object of class \link{xml_node-class}}
 
 \item{\code{service}}{service service acronym}
 }
@@ -176,7 +122,7 @@ Decodes from XML
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{object of class \link{XMLInternalNode-class}}
+\item{\code{xml}}{object of class \link{xml_node-class}}
 }
 \if{html}{\out{</div>}}
 }

@@ -25,7 +25,7 @@ GSFeatureType <- R6Class("GSFeatureType",
     cqlFilter = NULL,
     
     #'@description Initializes an object of class \link{GSFeatureType}
-    #'@param xml object of class \link{XMLInternalNode-class}
+    #'@param xml object of class \link{xml_node-class}
     initialize = function(xml = NULL){
       super$initialize(rootName = "featureType")
       if(!missing(xml) & !is.null(xml)){
@@ -34,7 +34,7 @@ GSFeatureType <- R6Class("GSFeatureType",
     },
     
     #'@description Decodes from XML
-    #'@param xml object of class \link{XMLInternalNode-class}
+    #'@param xml object of class \link{xml_node-class}
     decode = function(xml){
       super$decode(xml)
     },

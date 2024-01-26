@@ -20,6 +20,7 @@ GSMonitorManager <- R6Class("GSMonitorManager",
   public = list(
     
     #'@description Get the requests
+    #'@param offset offset
     #'@return an object of class \code{data.frame}
     getRequests = function(offset = 0){
       self$INFO("Fetching requests")

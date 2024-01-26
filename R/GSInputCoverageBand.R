@@ -9,22 +9,6 @@
 #' 
 #' @examples
 #'   GSInputCoverageBand$new()
-#'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(xml, coverageName, band)}}{
-#'    This method is used to instantiate a \code{GSInputCoverageBand}
-#'  }
-#'  \item{\code{decode(xml)}}{
-#'    This method is used to decode a \code{GSInputCoverageBand} from XML
-#'  }
-#'  \item{\code{setCoverageName(coverageName)}}{
-#'    Sets the coverage name
-#'  }
-#'  \item{\code{setBand(band)}}{
-#'    Sets the coverage band
-#'  }
-#' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -37,7 +21,7 @@ GSInputCoverageBand <- R6Class("GSInputCoverageBand",
     band = NULL,
     
     #'@description Initializes an object of class \link{GSInputCoverageBand}
-    #'@param xml object of class \link{XMLInternalNode-class}
+    #'@param xml object of class \link{xml_node-class}
     #'@param coverageName coverage name
     #'@param band band name
     initialize = function(xml = NULL, coverageName = NULL, band = NULL){
@@ -51,12 +35,13 @@ GSInputCoverageBand <- R6Class("GSInputCoverageBand",
     },
     
     #'@description Decodes from XML
-    #'@param xml object of class \link{XMLInternalNode-class}
+    #'@param xml object of class \link{xml_node-class}
     decode = function(xml){
-      coverageNames <- getNodeSet(xml, "//coverageName")
-      self$coverageName <- xmlValue(coverageNames[[1]])
-      bands <- getNodeSet(xml, "//band")
-      self$band <- xmlValue(bands[[1]])
+      xml = xml2::as_xml_document(xml)
+      coverageNames <- xml2::xml_find_first(xml, "//coverageName")
+      self$coverageName <- xml2::xml_text(coverageNames)
+      bands <- xml2::xml_find_first(xml, "//band")
+      self$band <- xml2::xml_text(bands)
     },
     
     #'@description Set coverage name

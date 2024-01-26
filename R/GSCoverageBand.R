@@ -56,7 +56,7 @@ GSCoverageBand <- R6Class("GSCoverageBand",
     compositionType = "BAND_SELECT",
     
     #'@description Initalizes a \link{GSCoverageBand}
-    #'@param xml object of class \link{XMLInternalNode-class}
+    #'@param xml object of class \link{xml_node-class}
     initialize = function(xml = NULL){
       super$initialize(rootName = "coverageBand")
       if(!missing(xml) & !is.null(xml)){
@@ -65,19 +65,19 @@ GSCoverageBand <- R6Class("GSCoverageBand",
     },
     
     #'@description Decodes from XML
-    #'@param xml object of class \link{XMLInternalNode-class}
+    #'@param xml object of class \link{xml_node-class}
     decode = function(xml){
-
-      def <- getNodeSet(xml, "//definition")
-      self$definition <- xmlValue(def[[1]])
+      xml = xml2::as_xml_document(xml)
+      def <- xml2::xml_find_first(xml, "//definition")
+      self$definition <- xml2::xml_text(def)
       
-      idx <- getNodeSet(xml, "//index")
-      self$index <- xmlValue(idx[[1]])
+      idx <- xml2::xml_find_first(xml, "//index")
+      self$index <- xml2::xml_text(idx)
       
-      ct <- getNodeSet(xml, "//compositionType")
-      self$compositionType <- xmlValue(ct[[1]])
+      ct <- xml2::xml_find_first(xml, "//compositionType")
+      self$compositionType <- xml2::xml_text(ct)
       
-      bands <- getNodeSet(xml, "//inputCoverageBands/inputCoverageBand")
+      bands <- as(xml2::xml_find_all(xml, "//inputCoverageBands/inputCoverageBand"),"list")
       if(length(bands)>0){
         for(band in bands){
           band <- GSInputCoverageBand$new(xml = band)

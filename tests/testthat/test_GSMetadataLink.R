@@ -22,13 +22,13 @@ test_that("metadataLink encoding/decoding",{
   
   #encoding to XML
   mdXML <- md$encode()
-  expect_is(mdXML, c("XMLInternalElementNode","XMLInternalNode","XMLAbstractNode"))
+  expect_is(mdXML, c("xml_document", "xml_node"))
   
   #decoding from XML
   md2 <- GSMetadataLink$new(xml = mdXML)
   md2XML <- md2$encode()
   
   #check encoded XML is equal to decoded XML
-  expect_true(all(sapply(XML::compareXMLDocs(XML::xmlDoc(mdXML), XML::xmlDoc(md2XML)), length) == 0))
+  testthat::compare(mdXML, md2XML)
   
 })

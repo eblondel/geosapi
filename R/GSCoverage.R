@@ -25,7 +25,7 @@ GSCoverage <- R6Class("GSCoverage",
      cqlFilter = NULL,
      
      #'@description Initializes a \link{GSCoverage} from XML
-     #'@param xml object of class \link{XMLInternalNode-class}
+     #'@param xml object of class \link{xml_node-class}
      initialize = function(xml = NULL){
        super$initialize(rootName = "coverage")
        if(!missing(xml) & !is.null(xml)){
@@ -34,7 +34,7 @@ GSCoverage <- R6Class("GSCoverage",
      },
      
      #'@description Decodes coverage from XML
-     #'@param xml object of class \link{XMLInternalNode-class}
+     #'@param xml object of class \link{xml_node-class}
      decode = function(xml){
        super$decode(xml)
      },

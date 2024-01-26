@@ -4,7 +4,7 @@
 #' @importFrom R6 R6Class
 #' @importFrom openssl base64_encode
 #' @import httr
-#' @import XML
+#' @import xml2
 #' @import keyring
 #' @importFrom readr read_csv
 #' @importFrom readr write_csv
@@ -17,50 +17,6 @@
 #' @examples
 #' \dontrun{
 #'    GSManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
-#' }
-#'
-#' @section Methods:
-#' \describe{
-#'  \item{\code{new(url, user, pwd, logger, keyring_backend)}}{
-#'    
-#'  }
-#'  \item{\code{logger(type, text)}}{
-#'    Basic logger to report geosapi logs. Used internally
-#'  }
-#'  \item{\code{INFO(text)}}{
-#'    Logger to report information. Used internally
-#'  }
-#'  \item{\code{WARN(text)}}{
-#'    Logger to report warnings. Used internally
-#'  }
-#'  \item{\code{ERROR(text)}}{
-#'    Logger to report errors. Used internally
-#'  }
-#'  \item{\code{getUrl()}}{
-#'    Get the authentication URL
-#'  }
-#'  \item{\code{connect()}}{
-#'    This methods attempts a connection to GeoServer REST API. User internally
-#'    during initialization of \code{GSManager}.
-#'  }
-#'  \item{\code{reload()}}{
-#'    Reloads the GeoServer catalog.
-#'  }
-#'  \item{\code{getSystemStatus()}}{
-#'    Get system status
-#'  }
-#'  \item{\code{getClassName()}}{
-#'    Retrieves the name of the class instance
-#'  }
-#'  \item{\code{getWorkspaceManager()}}{
-#'    Retrieves an instance of workspace manager
-#'  }
-#'  \item{\code{getNamespaceManager()}}{
-#'    Retrieves an instance of namespace manager
-#'  }
-#'  \item{\code{getDataStoreManager()}}{
-#'    Retrieves an instance of datastore manager
-#'  }
 #' }
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>

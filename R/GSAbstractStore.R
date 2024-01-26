@@ -29,7 +29,7 @@ GSAbstractStore <- R6Class("GSAbstractStore",
    workspace = NULL,
 
    #'@description initializes an abstract store
-   #'@param xml an object of class \link{XMLInternalNode-class} to create object from XML
+   #'@param xml an object of class \link{xml_node-class} to create object from XML
    #'@param storeType store type
    #'@param type the type of coverage store
    #'@param name coverage store name
@@ -40,7 +40,7 @@ GSAbstractStore <- R6Class("GSAbstractStore",
      super$initialize(rootName = storeType)
      private$store_type = storeType
      if(!missing(xml) & !is.null(xml)){
-       if(!any(class(xml) %in% c("XMLInternalNode","XMLInternalDocument"))){
+       if(!any(class(xml) %in% c("xml_document","xml_node"))){
          stop("The argument 'xml' is not a valid XML object")
        }
        self$decode(xml)
@@ -55,20 +55,21 @@ GSAbstractStore <- R6Class("GSAbstractStore",
    },
    
    #'@description Decodes store from XML
-   #'@param xml object of class \link{XMLInternalNode-class}
+   #'@param xml object of class \link{xml_node-class}
    decode = function(xml){
-     names <- getNodeSet(xml, sprintf("//%s/name", private$store_type))
-     self$name <- xmlValue(names[[1]])
-     enabled <- getNodeSet(xml,"//enabled")
+     xml = xml2::as_xml_document(xml)
+     names <- xml2::xml_find_first(xml, sprintf("//%s/name", private$store_type))
+     self$name <- xml2::xml_text(names)
+     enabled <- xml2::xml_find_first(xml,"//enabled")
      self$full <- length(enabled) > 0
      if(self$full){
-       self$enabled <- as.logical(xmlValue(enabled[[1]]))
+       self$enabled <- as.logical(xml2::xml_text(enabled))
        
-       descriptionXML <- getNodeSet(xml,"//description")
-       if(length(descriptionXML) > 0) self$description <- xmlValue(descriptionXML[[1]])
+       descriptionXML <- xml2::xml_find_first(xml,"//description")
+       if(length(descriptionXML) > 0) self$description <- xml2::xml_text(descriptionXML)
        
-       typeXML <- getNodeSet(xml,"//type")
-       if(length(typeXML) > 0) self$type <- xmlValue(typeXML[[1]])
+       typeXML <- xml2::xml_find_first(xml,"//type")
+       if(length(typeXML) > 0) self$type <- xml2::xml_text(typeXML)
      }
    },
    

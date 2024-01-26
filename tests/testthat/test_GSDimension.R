@@ -20,13 +20,13 @@ test_that("dimension encoding/decoding",{
 
   #encoding to XML
   dimXML <- dim$encode()
-  expect_is(dimXML, c("XMLInternalElementNode","XMLInternalNode","XMLAbstractNode"))
+  expect_is(dimXML, c("xml_document", "xml_node"))
   
   #decoding from XML
   dim2 <- GSDimension$new(xml = dimXML)
   dim2XML <- dim2$encode()
   
   #check encoded XML is equal to decoded XML
-  expect_true(all(sapply(XML::compareXMLDocs(XML::xmlDoc(dimXML), XML::xmlDoc(dim2XML)), length) == 0))
+  testthat::compare(dimXML, dim2XML)
   
 })

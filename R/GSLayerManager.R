@@ -34,11 +34,8 @@ GSLayerManager <- R6Class("GSLayerManager",
       lyrList <- NULL
       if(status_code(req) == 200){
         lyrXML <- GSUtils$parseResponseXML(req)
-        lyrXMLList <- getNodeSet(lyrXML, "//layers/layer")
-        lyrList <- lapply(lyrXMLList, function(x){
-          xml <- xmlDoc(x)
-          return(GSLayer$new(xml = xml))
-        })
+        lyrXMLList <- as(xml2::xml_find_all(lyrXML, "//layers/layer"), "list")
+        lyrList <- lapply(lyrXMLList, GSLayer$new)
         self$INFO(sprintf("Successfuly fetched %s layers!", length(lyrList)))
       }else{
         self$ERROR("Error while fetching layers")
@@ -159,11 +156,8 @@ GSLayerManager <- R6Class("GSLayerManager",
       lyrList <- NULL
       if(status_code(req) == 200){
         lyrXML <- GSUtils$parseResponseXML(req)
-        lyrXMLList <- getNodeSet(lyrXML, "//layerGroups/layerGroup")
-        lyrList <- lapply(lyrXMLList, function(x){
-          xml <- xmlDoc(x)
-          return(GSLayerGroup$new(xml = xml))
-        })
+        lyrXMLList <- as(xml2::xml_find_all(lyrXML, "//layerGroups/layerGroup"), "list")
+        lyrList <- lapply(lyrXMLList, GSLayerGroup$new)
         self$INFO(sprintf("Successfuly fetched %s layer groups!", length(lyrList)))
       }else{
         self$ERROR("Error while fetching layer groups")

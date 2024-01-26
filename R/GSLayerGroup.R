@@ -43,7 +43,7 @@ GSLayerGroup <- R6Class("GSLayerGroup",
      bounds = list(minx = NA, miny = NA, maxx = NA, maxy = NA, crs = NA),
      
      #'@description Initializes an object of class \link{GSLayerGroup}
-     #'@param xml object of class \link{XMLInternalNode-class}
+     #'@param xml object of class \link{xml_node-class}
      initialize = function(xml = NULL){
        super$initialize(rootName = "layerGroup")
        if(!missing(xml) & !is.null(xml)){
@@ -52,45 +52,44 @@ GSLayerGroup <- R6Class("GSLayerGroup",
      },
      
      #'@description Decodes from XML
-     #'@param xml object of class \link{XMLInternalNode-class}
+     #'@param xml object of class \link{xml_node-class}
      decode = function(xml){
-       names <- getNodeSet(xml, "//name")
-       self$name <- xmlValue(names[[1]])
+       xml = xml2::as_xml_document(xml)
+       self$name <- xml2::xml_find_first(xml, "//name") %>% xml2::xml_text()
        
        if(self$full){
          
-         titles <- getNodeSet(xml, "//title")
-         if(length(titles)>0) self$title <- xmlValue(titles[[1]])
-         abstracts <- getNodeSet(xml, "//abstractTxt")
-         if(length(abstracts)>0) self$abstractTxt <- xmlValue(abstracts[[1]])
-         modes <- getNodeSet(xml, "//mode")
-         if(length(modes)>0) self$mode <- xmlValue(modes[[1]])
-         workspaces <- getNodeSet(xml, "//workspace")
+         titles <- xml2::xml_find_first(xml, "//title")
+         if(length(titles)>0) self$title <- xml2::xml_text(titles)
+         abstracts <- xml2::xml_find_first(xml, "//abstractTxt")
+         if(length(abstracts)>0) self$abstractTxt <- xml2::xml_text(abstracts)
+         modes <- xml2::xml_find_first(xml, "//mode")
+         if(length(modes)>0) self$mode <- xml2::xml_text(modes)
+         workspaces <- xml2::xml_find_first(xml, "//workspace")
          if(length(workspaces)>0){
-           self$workspace <- GSWorkspace$new(name = xmlValue(workspaces[[1]]))
+           self$workspace <- GSWorkspace$new(name = xml2::xml_text(workspaces))
          }
          
          #publishables
-         publishables <-getNodeSet(xml, "//publishables/published")
+         publishables <- as(xml2::xml_find_all(xml, "//publishables/published"), "list")
          if(length(publishables)>0){
            self$publishables <- lapply(publishables, function(x){
-             child <- xmlChildren(x)
              ps <- GSPublishable$new()
-             ps$setName(xmlValue(child$name))
-             ps$setType(xmlGetAttr(x, "type"))
+             ps$setName(xml2::xml_find_first(x, "//name") %>% xml2::xml_text())
+             ps$setType(xml2::xml_attr(x, "type"))
              return(ps)
            })
          }
          
          #styles
-         styles <- getNodeSet(xml, "//styles/style")
+         styles <- as(xml2::xml_find_all(xml, "//styles/style"), "list")
          if(length(styles)>0){
            styles <- lapply(styles, function(x){
-             child <- xmlChildren(x)
              style <- GSStyle$new()
-             style$setName(xmlValue(child$name))
-             if("filename" %in% names(child)){
-               style$setFilename(xmlValue(child$filename))
+             style$setName(xml2::xml_find_first(x, "//name") %>% xml2::xml_text())
+             filename = xml2::xml_find_first(x, "//filename")
+             if(length(filename)>0){
+               style$setFilename(xml2::xml_text(filename))
              }
              return(style)
            })
@@ -98,7 +97,7 @@ GSLayerGroup <- R6Class("GSLayerGroup",
          }
          
          #metadataLinks
-         metadataLinksXML <- getNodeSet(xml, "//metadataLinks/metadataLink")
+         metadataLinksXML <- as(xml2::xml_find_all(xml, "//metadataLinks/metadataLink"), "list")
          if(length(metadataLinksXML)>0){
            for(metadataLinkXML in metadataLinksXML){
              md <- GSMetadataLink$new(xml = metadataLinkXML)
@@ -107,9 +106,9 @@ GSLayerGroup <- R6Class("GSLayerGroup",
          }
          
          #bounds
-         boundsXML <- getNodeSet(xml, "//bounds/*")
-         self$bounds <- lapply(boundsXML, xmlValue)
-         names(self$bounds) <-  lapply(boundsXML, xmlName)
+         boundsXML <- as(xml2::xml_find_all(xml, "//bounds/*"), "list")
+         self$bounds <- lapply(boundsXML, xml2::xml_text)
+         names(self$bounds) <-  lapply(boundsXML, xml2::xml_name)
        }
      },
      
