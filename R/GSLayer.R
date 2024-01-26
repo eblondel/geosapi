@@ -74,7 +74,7 @@ GSLayer <- R6Class("GSLayer",
         }
         
         paths <- xml2::xml_find_first(xml, "//path")
-        if(length(paths)>0) self$path = xml2::xml_text(path)
+        if(length(paths)>0) self$path = xml2::xml_text(paths)
         enabled <-xml2::xml_find_first(xml, "//enabled")
         if(length(enabled)>0) self$enabled <- as.logical(xml2::xml_text(enabled))
         queryable <- xml2::xml_find_first(xml, "//queryable")

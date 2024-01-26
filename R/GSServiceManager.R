@@ -46,7 +46,7 @@ GSServiceManager <- R6Class("GSServiceManager",
       serviceSettings <- NULL
       if(status_code(req) == 200){
         settingsXML <- GSUtils$parseResponseXML(req)
-        serviceSettings <- GSServiceSettings$new(xml = settingsXML, service = tolower(xmlName(xmlRoot(settingsXML))))
+        serviceSettings <- GSServiceSettings$new(xml = settingsXML, service = tolower(xml2::xml_name(xml2::as_xml_document(settingsXML))))
         self$INFO("Successfully fetched service settings!")
       }else{
         self$ERROR("Error while fetching service settings")

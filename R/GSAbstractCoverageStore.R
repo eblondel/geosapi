@@ -45,7 +45,7 @@ GSAbstractCoverageStore <- R6Class("GSAbstractCoverageStore",
    decode = function(xml){
      xml = xml2::as_xml_document(xml)
      super$decode(xml)
-     urlXML <- xmL2::xml_find_first(xml,"//url")
+     urlXML <- xml2::xml_find_first(xml,"//url")
      if(length(urlXML) > 0) self$url <- xml2::xml_text(urlXML)
    },
    

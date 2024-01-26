@@ -38,7 +38,7 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         dsXML <- GSUtils$parseResponseXML(req)
         dsXMLList <- as(xml2::xml_find_all(dsXML, "//dataStore"), "list")
         dsList <- lapply(dsXMLList, function(xml){
-          dsType <-  xml2::xml_find_first(xml, "//type") %>% xml2::xml_text
+          dsType <-  xml2::xml_find_first(xml, "//type") %>% xml2::xml_text()
           dataStore <- switch(dsType,
               "Shapefile" = GSShapefileDataStore$new(xml = xml),
               "Directory of spatial files (shapefiles)" = GSShapefileDirectoryDataStore$new(xml = xml),

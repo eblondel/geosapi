@@ -38,7 +38,7 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
         covXML <- GSUtils$parseResponseXML(req)
         covXMLList <- as(xml2::xml_find_all(covXML, "//coverageStore"), "list")
         covList <- lapply(covXMLList, function(xml){
-          covType <- xml2::xml_find_first(xml, "//type") %>% xml::xml_text()
+          covType <- xml2::xml_find_first(xml, "//type") %>% xml2::xml_text()
           coverageStore <- switch(covType,
             "GeoTIFF" = GSGeoTIFFCoverageStore$new(xml = xml),
             "WorldImage" = GSWorldImageCoverageStore$new(xml = xml),

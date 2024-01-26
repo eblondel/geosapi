@@ -4,7 +4,6 @@
 # Description: Unit tests for GSStyle.R
 #=======================
 require(geosapi, quietly = TRUE)
-require(XML)
 require(testthat)
 
 context("GSStyle")
