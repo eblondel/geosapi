@@ -14,7 +14,7 @@ GSCoverage"><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/
     
     <a class="navbar-brand me-2" href="../index.html">geosapi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6-7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,75 +73,6 @@ used internally for modelling instances of class <code>GSFeatureType</code> or
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Geoserver REST API Resource</p>
     </div>
-    <div class="section level2">
-    <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
-    
-
-<dl><dt><code>new(rootName, xml)</code></dt>
-<dd><p>This method is used to instantiate a GSResource</p></dd>
-
- <dt><code>decode(xml)</code></dt>
-<dd><p>This method is used to decode a GSResource from XML</p></dd>
-
- <dt><code>encode()</code></dt>
-<dd><p>This method is used to encode a GSResource to XML. Inherited from the
-   generic <code>GSRESTResource</code> encoder</p></dd>
-
- <dt><code>setEnabled(enabled)</code></dt>
-<dd><p>Sets if the resource is enabled or not in GeoServer</p></dd>
-
- <dt><code>setName(name)</code></dt>
-<dd><p>Sets the resource name</p></dd>
-
- <dt><code>setNativeName(nativeName)</code></dt>
-<dd><p>Sets the resource native name</p></dd>
-
- <dt><code>setTitle(title)</code></dt>
-<dd><p>Sets the resource title</p></dd>
-
- <dt><code>setDescription(description)</code></dt>
-<dd><p>Sets the resource description</p></dd>
-
- <dt><code>setAbstract(abstract)</code></dt>
-<dd><p>Sets the resource abstract</p></dd>
-
- <dt><code>setKeywords(keywords)</code></dt>
-<dd><p>Sets a list of keywords</p></dd>
-
- <dt><code>addKeyword(keyword)</code></dt>
-<dd><p>Sets a keyword. Returns TRUE if set, FALSE otherwise</p></dd>
-
- <dt><code>delKeyword(keyword)</code></dt>
-<dd><p>Deletes a keyword. Returns TRUE if deleted, FALSE otherwise</p></dd>
-
- <dt><code>setMetadataLinks(metadataLinks)</code></dt>
-<dd><p>Sets a list of <code>GSMetadataLinks</code></p></dd>
-
- <dt><code>addMetadataLink(metadataLink)</code></dt>
-<dd><p>Adds a metadataLink</p></dd>
-
- <dt><code>delMetadataLink(metadataLink)</code></dt>
-<dd><p>Deletes a metadataLink</p></dd>
-
- <dt><code>setNativeCRS(nativeCRS)</code></dt>
-<dd><p>Sets the resource nativeCRS</p></dd>
-
- <dt><code>setSrs(srs)</code></dt>
-<dd><p>Sets the resource srs</p></dd>
-
- <dt><code>setNativeBoundingBox(minx, miny, maxx, maxy, bbox, crs)</code></dt>
-<dd><p>Sets the resource nativeBoundingBox. Either from coordinates or from
-   a <code>bbox</code> object (matrix).</p></dd>
-
- <dt><code>setLatLonBoundingBox(minx, miny, maxx, maxy, bbox, crs)</code></dt>
-<dd><p>Sets the resource latLonBoundingBox. Either from coordinates or from
-   a <code>bbox</code> object (matrix).</p></dd>
-
- <dt><code>setProjectionPolicy(policy)</code></dt>
-<dd><p>Sets the resource projection policy</p></dd>
-
-
-</dl></div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
     <p>Emmanuel Blondel &lt;emmanuel.blondel1@gmail.com&gt;</p>
@@ -215,7 +146,7 @@ used internally for modelling instances of class <code>GSFeatureType</code> or
 </dl><p></p></div>
     </div>
     <div class="section level2">
-    <h2 id="methods-1">Methods<a class="anchor" aria-label="anchor" href="#methods-1"></a></h2>
+    <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
     
 <div class="section">
 <h3 id="public-methods">Public methods<a class="anchor" aria-label="anchor" href="#public-methods"></a></h3>
@@ -258,7 +189,7 @@ used internally for modelling instances of class <code>GSFeatureType</code> or
 
 
 <dt><code>xml</code></dt>
-<dd><p>object of class XMLInternalNode-class</p></dd>
+<dd><p>object of class xml_node-class</p></dd>
 
 
 </dl><p></p></div>
@@ -274,7 +205,7 @@ used internally for modelling instances of class <code>GSFeatureType</code> or
 <div class="section">
 <h4 id="arguments-1">Arguments<a class="anchor" aria-label="anchor" href="#arguments-1"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>xml</code></dt>
-<dd><p>object of class XMLInternalNode-class</p></dd>
+<dd><p>object of class xml_node-class</p></dd>
 
 
 </dl><p></p></div>

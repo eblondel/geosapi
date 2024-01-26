@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">geosapi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6-7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,60 +67,6 @@
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Geoserver REST API Service Setting</p>
     </div>
-    <div class="section level2">
-    <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
-    
-
-<dl><dt><code>new(rootName, xml)</code></dt>
-<dd><p>This method is used to instantiate a <code>GSServiceSettings</code>. This settings 
-   object is required to model/manipulate an OGC service configuration, using the method
-   <code>GSManager$updateServiceSettings</code> or derivates.</p></dd>
-
- <dt><code>decode(xml)</code></dt>
-<dd><p>This method is used to decode a <code>GSServiceSettings</code> from XML</p></dd>
-
- <dt><code>encode()</code></dt>
-<dd><p>This method is used to encode a <code>GSServiceSettings</code> to XML. Inherited from the
-   generic <code>GSRESTResource</code> encoder</p></dd>
-
- <dt><code>setEnabled(enabled)</code></dt>
-<dd><p>Sets if the service is enabled (TRUE) or not (FALSE)</p></dd>
-
- <dt><code>setCiteCompliant(citeCompliant)</code></dt>
-<dd><p>Sets if the service is compliant with CITE (TRUE) or not (FALSE)</p></dd>
-
- <dt><code>setName(name)</code></dt>
-<dd><p>Sets the service name</p></dd>
-
- <dt><code>setTitle(title)</code></dt>
-<dd><p>Sets the service title</p></dd>
-
- <dt><code>setAbstract(abstract)</code></dt>
-<dd><p>Sets the service abstract</p></dd>
-
- <dt><code>setMaintainer(maintainer)</code></dt>
-<dd><p>Sets the service maintainer</p></dd>
-
- <dt><code>setKeywords(keywords)</code></dt>
-<dd><p>Sets a list of keywords</p></dd>
-
- <dt><code>addKeyword(keyword)</code></dt>
-<dd><p>Sets a keyword. Returns TRUE if set, FALSE otherwise</p></dd>
-
- <dt><code>delKeyword(keyword)</code></dt>
-<dd><p>Deletes a keyword. Returns TRUE if deleted, FALSE otherwise</p></dd>
-
- <dt><code>setOnlineResource(onlineResource)</code></dt>
-<dd><p>Sets the online resource</p></dd>
-
- <dt><code>setSchemaBaseURL(schemaBaseURL)</code></dt>
-<dd><p>Sets the schema base URL. Default is http://schemas.opengis.net</p></dd>
-
- <dt><code>setVerbose(verbose)</code></dt>
-<dd><p>Sets verbose</p></dd>
-
-
-</dl></div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
     <p>Emmanuel Blondel &lt;emmanuel.blondel1@gmail.com&gt;</p>
@@ -182,7 +128,7 @@
 </dl><p></p></div>
     </div>
     <div class="section level2">
-    <h2 id="methods-1">Methods<a class="anchor" aria-label="anchor" href="#methods-1"></a></h2>
+    <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
     
 <div class="section">
 <h3 id="public-methods">Public methods<a class="anchor" aria-label="anchor" href="#public-methods"></a></h3>
@@ -212,7 +158,7 @@
 <div class="section">
 <h4 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>xml</code></dt>
-<dd><p>object of class XMLInternalNode-class</p></dd>
+<dd><p>object of class xml_node-class</p></dd>
 
 
 <dt><code>service</code></dt>
@@ -232,7 +178,7 @@
 <div class="section">
 <h4 id="arguments-1">Arguments<a class="anchor" aria-label="anchor" href="#arguments-1"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>xml</code></dt>
-<dd><p>object of class XMLInternalNode-class</p></dd>
+<dd><p>object of class xml_node-class</p></dd>
 
 
 </dl><p></p></div>

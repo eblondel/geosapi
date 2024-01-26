@@ -12,7 +12,7 @@ Geoserver REST API Service Manager"><!-- mathjax --><script src="https://cdnjs.c
     
     <a class="navbar-brand me-2" href="../index.html">geosapi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6-7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,86 +66,6 @@ Geoserver REST API Service Manager"><!-- mathjax --><script src="https://cdnjs.c
 
 <p>Object of <code>R6Class</code> with methods for managing GeoServer services</p>
     </div>
-    <div class="section level2">
-    <h2 id="constructor">Constructor<a class="anchor" aria-label="anchor" href="#constructor"></a></h2>
-    
-
-<dl><dt><code>new(url, user, pwd, logger)</code></dt>
-<dd><p>This method is used to instantiate a GSManager with the <code>url</code> of the
-   GeoServer and credentials to authenticate (<code>user</code>/<code>pwd</code>). By default,
-   the <code>logger</code> argument will be set to <code>NULL</code> (no logger). This argument
-   accepts two possible values: <code>INFO</code>: to print only geosapi logs,
-   <code>DEBUG</code>: to print geosapi and CURL logs</p></dd>
-
- <dt><code>getServiceSettings(service, ws)</code></dt>
-<dd>
-   
-<p></p></dd>
-
- <dt><code>getWmsSettings(ws)</code></dt>
-<dd><p>Get WMS settings. To get the WMS settings for a specific workspace,
-   specify the workspace name as <code>ws</code> parameter, otherwise global settings are
-   retrieved.</p></dd>
-
- <dt><code>getWfsSettings(ws)</code></dt>
-<dd><p>Get WFS settings. To get the WFS settings for a specific workspace,
-   specify the workspace name as <code>ws</code> parameter, otherwise global settings are
-   retrieved.</p></dd>
-
- <dt><code>getWcsSettings(ws)</code></dt>
-<dd><p>Get WCS settings. To get the WCS settings for a specific workspace,
-   specify the workspace name as <code>ws</code> parameter, otherwise global settings are
-   retrieved.</p></dd>
-
- <dt><code>updateServiceSettings(serviceSettings, service, ws)</code></dt>
-<dd><p>Updates the service settings with an object of class <code>GSServiceSetting</code>.
-   An optional workspace name <code>ws</code> can be specified to update service settings
-   applying to a workspace.</p></dd>
-
- <dt><code>deleteServiceSettings(service, ws)</code></dt>
-<dd><p>Deletes the service settings. This method is used internally by <span class="pkg">geosapi</span> 
-   for disabling a service setting at workspace level.</p></dd>
-
- <dt><code>updateWmsSettings(serviceSettings, ws)</code></dt>
-<dd><p>Updates the WMS settings with an object of class <code>GSServiceSetting</code>.
-   An optional workspace name <code>ws</code> can be specified to update WMS settings
-   applying to a workspace.</p></dd>
-
- <dt><code>updateWfsSettings(serviceSettings, ws)</code></dt>
-<dd><p>Updates the WFS settings with an object of class <code>GSServiceSetting</code>.
-   An optional workspace name <code>ws</code> can be specified to update WFS settings
-   applying to a workspace.</p></dd>
-
- <dt><code>updateWcsSettings(serviceSettings, ws)</code></dt>
-<dd><p>Updates the WCS settings with an object of class <code>GSServiceSettings</code>.
-   An optional workspace name <code>ws</code> can be specified to update WCS settings
-   applying to a workspace.</p></dd>
-
- <dt><code>enableWMS(ws)</code></dt>
-<dd><p>Enables the WMS, either globally, or for a given workspace (optional)</p></dd>
-
- <dt><code>enableWFS(ws)</code></dt>
-<dd><p>Enables the WFS, either globally, or for a given workspace (optional)</p></dd>
-
- <dt><code>enableWCS(ws)</code></dt>
-<dd><p>Enables the WCS, either globally, or for a given workspace (optional)</p></dd>
-
- <dt><code>disableServiceSettings(service, ws)</code></dt>
-<dd><p>Disables a service, either globally, or for a given workspace (optional).
-   For a global service setting, an UPDATE operation will be applied, while
-   for a workspace service setting, a DELETE operation is applied.</p></dd>
-
- <dt><code>disableWMS(ws)</code></dt>
-<dd><p>Disables the WMS, either globally, or for a given workspace (optional)</p></dd>
-
- <dt><code>disableWFS(ws)</code></dt>
-<dd><p>Disables the WFS, either globally, or for a given workspace (optional)</p></dd>
-
- <dt><code>disableWCS(ws)</code></dt>
-<dd><p>Disables the WCS, either globally, or for a given workspace (optional)</p></dd>
-
-
-</dl></div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
     <p>Emmanuel Blondel &lt;emmanuel.blondel1@gmail.com&gt;</p>

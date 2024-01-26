@@ -12,7 +12,7 @@ Geoserver REST API ShapeFileDataStore"><!-- mathjax --><script src="https://cdnj
     
     <a class="navbar-brand me-2" href="../index.html">geosapi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6-7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,33 +67,6 @@ Geoserver REST API ShapeFileDataStore"><!-- mathjax --><script src="https://cdnj
 <p>Object of <code>R6Class</code> for modelling a GeoServer Shapefile dataStore</p>
     </div>
     <div class="section level2">
-    <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
-    
-
-<dl><dt><code>new(xml, name, description, enabled, url)</code></dt>
-<dd><p>Instantiates a GSShapefileDataStore object</p></dd>
-
-   <dt><code>setUrl(url)</code></dt>
-<dd><p>Set the spatial files data URL</p></dd>
-
-   <dt><code>setCharset(charset)</code></dt>
-<dd><p>Set the charset used for DBF file. Default value is 'ISO-8859-1'</p></dd>
-
-   <dt><code>setCreateSpatialIndex(create)</code></dt>
-<dd><p>Set the 'Create Spatial Index' option. Default is TRUE</p></dd>
-
-   <dt><code>setMemoryMappedBuffer(buffer)</code></dt>
-<dd><p>Set the 'Memory Mapped Buffer' option. Default is TRUE</p></dd>
-
-   <dt><code>CacheReuseMemoryMaps(maps)</code></dt>
-<dd><p>Set the 'Cache &amp; Reuse Memory Maps' option. Default is TRUE</p></dd>
-
-   <dt><code>setDefautConnectionParameters()</code></dt>
-<dd><p>Set the defaut connection paramaters</p></dd>
-
-
-</dl></div>
-    <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
     <p>Emmanuel Blondel &lt;emmanuel.blondel1@gmail.com&gt;</p>
     </div>
@@ -102,7 +75,7 @@ Geoserver REST API ShapeFileDataStore"><!-- mathjax --><script src="https://cdnj
     <p><code><a href="GSRESTResource.html">geosapi::GSRESTResource</a></code> -&gt; <code><a href="GSAbstractStore.html">geosapi::GSAbstractStore</a></code> -&gt; <code><a href="GSAbstractDataStore.html">geosapi::GSAbstractDataStore</a></code> -&gt; <code>GSShapefileDataStore</code></p>
     </div>
     <div class="section level2">
-    <h2 id="methods-1">Methods<a class="anchor" aria-label="anchor" href="#methods-1"></a></h2>
+    <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
     
 <div class="section">
 <h3 id="public-methods">Public methods<a class="anchor" aria-label="anchor" href="#public-methods"></a></h3>
@@ -140,7 +113,7 @@ Geoserver REST API ShapeFileDataStore"><!-- mathjax --><script src="https://cdnj
 <div class="section">
 <h4 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>xml</code></dt>
-<dd><p>an object of class XMLInternalNode-class to create object from XML</p></dd>
+<dd><p>an object of class xml_node-class to create object from XML</p></dd>
 
 
 <dt><code>name</code></dt>

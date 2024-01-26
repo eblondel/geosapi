@@ -12,7 +12,7 @@ Geoserver REST API Manager Utils"><!-- mathjax --><script src="https://cdnjs.clo
     
     <a class="navbar-brand me-2" href="../index.html">geosapi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6-7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,10 +95,7 @@ with the REST API of a GeoServer instance.</p>
    by a <code>path</code> in GeoServer REST API</p></dd>
 
  <dt><code>parseResponseXML(req)</code></dt>
-<dd><p>Convenience method to parse XML response from GeoServer REST API. Although package <span class="pkg">httr</span>
-   suggests the use of <span class="pkg">xml2</span> package for handling XML, <span class="pkg">geosapi</span> still relies
-   on the package <span class="pkg">XML</span>. Response from <span class="pkg">httr</span> is retrieved as text, and then parsed as
-   XML using <code>xmlParse</code> function.</p></dd>
+<dd><p>Convenience method to parse XML response from GeoServer REST API.</p></dd>
 
  <dt><code>getPayloadXML(obj)</code></dt>
 <dd><p>Convenience method to create payload XML to send to GeoServer.</p></dd>

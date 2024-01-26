@@ -12,7 +12,7 @@ Geoserver REST API Style Manager"><!-- mathjax --><script src="https://cdnjs.clo
     
     <a class="navbar-brand me-2" href="../index.html">geosapi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6-7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,54 +68,6 @@ Geoserver REST API Style Manager"><!-- mathjax --><script src="https://cdnjs.clo
 of a GeoServer instance.</p>
     </div>
     <div class="section level2">
-    <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
-    
-
-<dl><dt><code>new(url, user, pwd, logger)</code></dt>
-<dd><p>This method is used to instantiate a GSManager with the <code>url</code> of the
-   GeoServer and credentials to authenticate (<code>user</code>/<code>pwd</code>). By default,
-   the <code>logger</code> argument will be set to <code>NULL</code> (no logger). This argument
-   accepts two possible values: <code>INFO</code>: to print only geosapi logs,
-   <code>DEBUG</code>: to print geosapi and CURL logs</p></dd>
-
- <dt><code>getStyles()</code></dt>
-<dd>
-   
-<p></p></dd>
-
- <dt><code>getStyleNames()</code></dt>
-<dd>
-   
-<p></p></dd>
-
- <dt><code>getStyle(style)</code></dt>
-<dd>
-   
-<p></p></dd>
-
- <dt><code>createStyle(file, sldBody, name, raw, ws)</code></dt>
-<dd>
-   
-<p></p></dd>
-
- <dt><code>updateStyle(file, sldBody, name, raw, ws)</code></dt>
-<dd><p>Updates a GeoServer style. Returns <code>TRUE</code> if the style has been 
-   successfully updated, <code>FALSE</code> otherwise</p></dd>
-
- <dt><code>deleteStyle(style, recurse, purge, ws)</code></dt>
-<dd><p>Deletes a GeoServer style given a name. Returns <code>TRUE</code> if the style 
-   has been successfully deleted, <code>FALSE</code> otherwise</p></dd>
-
- <dt><code>getSLDVersion(sldBody)</code></dt>
-<dd><p>Get the SLD version from the XML object (of class <code>XMLInternalDocument</code>)</p></dd>
-
- <dt><code>getSLDBody(style, ws = NULL)</code></dt>
-<dd><p>Get the SLD Body given a style name. This method is only supported for
-   Geoserver &gt;= 2.2.</p></dd>
-
-
-</dl></div>
-    <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
     <p>Emmanuel Blondel &lt;emmanuel.blondel1@gmail.com&gt;</p>
     </div>
@@ -124,7 +76,7 @@ of a GeoServer instance.</p>
     <p><code><a href="GSManager.html">geosapi::GSManager</a></code> -&gt; <code>GSStyleManager</code></p>
     </div>
     <div class="section level2">
-    <h2 id="methods-1">Methods<a class="anchor" aria-label="anchor" href="#methods-1"></a></h2>
+    <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
     
 <div class="section">
 <h3 id="public-methods">Public methods<a class="anchor" aria-label="anchor" href="#public-methods"></a></h3>

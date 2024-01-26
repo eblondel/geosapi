@@ -12,7 +12,7 @@ Geoserver REST API OracleNGDataStore"><!-- mathjax --><script src="https://cdnjs
     
     <a class="navbar-brand me-2" href="../index.html">geosapi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6-7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,84 +66,6 @@ Geoserver REST API OracleNGDataStore"><!-- mathjax --><script src="https://cdnjs
 
 <p>Object of <code>R6Class</code> for modelling a GeoServer OracleNG dataStore</p>
     </div>
-    <div class="section level2">
-    <h2 id="methods-inherited-from-gsabstractdbdatastore">Methods inherited from <code>GSAbstractDBDataStore</code><a class="anchor" aria-label="anchor" href="#methods-inherited-from-gsabstractdbdatastore"></a></h2>
-    
-
-<dl><dt><code>setDatabaseType(dbtype)</code></dt>
-<dd><p>Sets the database type, here "OracleNG"</p></dd>
-
-   <dt><code>setNamespace(namespace)</code></dt>
-<dd><p>Sets the datastore namespace</p></dd>
-
-   <dt><code>setHost(host)</code></dt>
-<dd><p>Sets the database host</p></dd>
-
-   <dt><code>setPort(port)</code></dt>
-<dd><p>Set the database port</p></dd>
-
-   <dt><code>setDatabase(database)</code></dt>
-<dd><p>Set the database name</p></dd>
-
-   <dt><code>setSchema(schema)</code></dt>
-<dd><p>Set the database schema</p></dd>
-
-   <dt><code>setUser(user)</code></dt>
-<dd><p>Set the database username</p></dd>
-
-   <dt><code>setPassword(password)</code></dt>
-<dd><p>Set the database password</p></dd>
-
-   <dt><code>setJndiReferenceName(jndiReferenceName)</code></dt>
-<dd><p>Set a JNDI reference name</p></dd>
-
-   <dt><code>setExposePrimaryKeys(exposePrimaryKeys)</code></dt>
-<dd><p>Set TRUE if primary keys have to be exposed to datastore, FALSE otherwise.</p></dd>
-
-   <dt><code>setMaxConnections(maxConnections)</code></dt>
-<dd><p>Set the maximum number of connections. Default is set to 10.</p></dd>
-
-   <dt><code>setMinConnections(minConnections)</code></dt>
-<dd><p>Set the minimum number of connections. Default is set to 1.</p></dd>
-
-   <dt><code>setFetchSize(fetchSize)</code></dt>
-<dd><p>Set the fetch size. Default is set to 10.</p></dd>
-
-   <dt><code>setConnectionTimeout(seconds)</code></dt>
-<dd><p>Set the connection timeout. Default is set to 20s.</p></dd>
-
-   <dt><code>setValidateConnections(validateConnections)</code></dt>
-<dd><p>Set TRUE if connections have to be validated, FALSE otherwise.</p></dd>
-
-   <dt><code>setPrimaryKeyMetadataTable(primaryKeyMetadataTable)</code></dt>
-<dd><p>Set the name of the primaryKey metadata table</p></dd>
-
-   <dt><code>setLooseBBox(looseBBox)</code></dt>
-<dd><p>Set losse bbox parameter.</p></dd>
-
-   <dt><code>setPreparedStatements(preparedStatements)</code></dt>
-<dd><p>Set prepared statements</p></dd>
-
-   <dt><code>setMaxOpenPreparedStatements(maxOpenPreparedStatements)</code></dt>
-<dd><p>Set maximum open prepared statements</p></dd>
-
-   <dt><code>setEstimatedExtends(estimatedExtends)</code></dt>
-<dd><p>Set estimatedExtend parameter</p></dd>
-
-   <dt><code>setDefautConnectionParameters()</code></dt>
-<dd><p>Set default connection parameters</p></dd>
-
-
-</dl></div>
-    <div class="section level2">
-    <h2 id="methods-">Methods <a class="anchor" aria-label="anchor" href="#methods-"></a></h2>
-    
-
-<dl><dt><code>new(xml, name, description, enabled)</code></dt>
-<dd><p>Instantiates a GSOracleNGDataStore object</p></dd>
-
- 
-</dl></div>
     <div class="section level2">
     <h2 id="author">Author<a class="anchor" aria-label="anchor" href="#author"></a></h2>
     <p>Emmanuel Blondel &lt;emmanuel.blondel1@gmail.com&gt;</p>
@@ -205,7 +127,7 @@ Geoserver REST API OracleNGDataStore"><!-- mathjax --><script src="https://cdnjs
 <div class="section">
 <h4 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>xml</code></dt>
-<dd><p>an object of class XMLInternalNode-class to create object from XML</p></dd>
+<dd><p>an object of class xml_node-class to create object from XML</p></dd>
 
 
 <dt><code>name</code></dt>
