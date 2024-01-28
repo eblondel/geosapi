@@ -8,6 +8,7 @@
 
 * [#65](https://github.com/eblondel/geosapi/issues/65) Support for Geoserver monitoring plugin API methods
 * [#67](https://github.com/eblondel/geosapi/issues/67) Support filename arg for GET methods
+* [#68](https://github.com/eblondel/geosapi/issues/68) Support custom printer for `geosapi` objects
 
 ## [geosapi 0.6-7](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
 
