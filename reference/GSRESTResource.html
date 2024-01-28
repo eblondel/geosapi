@@ -71,14 +71,6 @@ Geoserver REST API REST Resource interface"><!-- mathjax --><script src="https:/
     <p>Emmanuel Blondel &lt;emmanuel.blondel1@gmail.com&gt;</p>
     </div>
     <div class="section level2">
-    <h2 id="public-fields">Public fields<a class="anchor" aria-label="anchor" href="#public-fields"></a></h2>
-    <p></p><div class="r6-fields"><dl><dt><code>rootName</code></dt>
-<dd><p>root name</p></dd>
-
-
-</dl><p></p></div>
-    </div>
-    <div class="section level2">
     <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
     
 <div class="section">
@@ -87,6 +79,8 @@ Geoserver REST API REST Resource interface"><!-- mathjax --><script src="https:/
 <ul><li><p><a href="#method-GSRESTResource-new"><code>GSRESTResource$new()</code></a></p></li>
 <li><p><a href="#method-GSRESTResource-decode"><code>GSRESTResource$decode()</code></a></p></li>
 <li><p><a href="#method-GSRESTResource-encode"><code>GSRESTResource$encode()</code></a></p></li>
+<li><p><a href="#method-GSRESTResource-print"><code>GSRESTResource$print()</code></a></p></li>
+<li><p><a href="#method-GSRESTResource-getClassName"><code>GSRESTResource$getClassName()</code></a></p></li>
 <li><p><a href="#method-GSRESTResource-clone"><code>GSRESTResource$clone()</code></a></p></li>
 </ul></div><p></p><hr><a id="method-GSRESTResource-new"></a><div class="section">
 <h3 id="method-new-">Method <code>new()</code><a class="anchor" aria-label="anchor" href="#method-new-"></a></h3>
@@ -136,15 +130,47 @@ Geoserver REST API REST Resource interface"><!-- mathjax --><script src="https:/
 <p>an object of class xml_node-class</p>
 </div>
 
-</div><p></p><hr><a id="method-GSRESTResource-clone"></a><div class="section">
-<h3 id="method-clone-">Method <code>clone()</code><a class="anchor" aria-label="anchor" href="#method-clone-"></a></h3>
-<p>The objects of this class are cloneable with this method.</p><div class="section">
+</div><p></p><hr><a id="method-GSRESTResource-print"></a><div class="section">
+<h3 id="method-print-">Method <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print()</a></code><a class="anchor" aria-label="anchor" href="#method-print-"></a></h3>
+<p>Provides a custom print output (as tree) of the current class</p><div class="section">
 <h4 id="usage-3">Usage<a class="anchor" aria-label="anchor" href="#usage-3"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSRESTResource</span><span class="op">$</span><span class="fu">clone</span><span class="op">(</span>deep <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSRESTResource</span><span class="op">$</span><span class="fu">print</span><span class="op">(</span><span class="va">...</span>, depth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
 <h4 id="arguments-2">Arguments<a class="anchor" aria-label="anchor" href="#arguments-2"></a></h4>
+<p></p><div class="arguments"><dl><dt><code>...</code></dt>
+<dd><p>args</p></dd>
+
+
+<dt><code>depth</code></dt>
+<dd><p>class nesting depth</p></dd>
+
+
+</dl><p></p></div>
+</div>
+
+</div><p></p><hr><a id="method-GSRESTResource-getClassName"></a><div class="section">
+<h3 id="method-getclassname-">Method <code>getClassName()</code><a class="anchor" aria-label="anchor" href="#method-getclassname-"></a></h3>
+<p>Get class name</p><div class="section">
+<h4 id="usage-4">Usage<a class="anchor" aria-label="anchor" href="#usage-4"></a></h4>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSRESTResource</span><span class="op">$</span><span class="fu">getClassName</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><p></p></div>
+</div>
+
+<div class="section">
+<h4 id="returns-1">Returns<a class="anchor" aria-label="anchor" href="#returns-1"></a></h4>
+<p>an object of class <code>character</code></p>
+</div>
+
+</div><p></p><hr><a id="method-GSRESTResource-clone"></a><div class="section">
+<h3 id="method-clone-">Method <code>clone()</code><a class="anchor" aria-label="anchor" href="#method-clone-"></a></h3>
+<p>The objects of this class are cloneable with this method.</p><div class="section">
+<h4 id="usage-5">Usage<a class="anchor" aria-label="anchor" href="#usage-5"></a></h4>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSRESTResource</span><span class="op">$</span><span class="fu">clone</span><span class="op">(</span>deep <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><p></p></div>
+</div>
+
+<div class="section">
+<h4 id="arguments-3">Arguments<a class="anchor" aria-label="anchor" href="#arguments-3"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>deep</code></dt>
 <dd><p>Whether to make a deep clone.</p></dd>
 

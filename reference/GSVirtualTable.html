@@ -119,6 +119,8 @@ Geoserver REST API GSVirtualTable"><!-- mathjax --><script src="https://cdnjs.cl
 <li><p><a href="#method-GSVirtualTable-delParameter"><code>GSVirtualTable$delParameter()</code></a></p></li>
 <li><p><a href="#method-GSVirtualTable-clone"><code>GSVirtualTable$clone()</code></a></p></li>
 </ul></div><p><details open><summary>Inherited methods</summary><ul><li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href="GSRESTResource.html#method-encode"><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="getClassName"><a href="GSRESTResource.html#method-getClassName"><code>geosapi::GSRESTResource$getClassName()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="print"><a href="GSRESTResource.html#method-print"><code>geosapi::GSRESTResource$print()</code></a></span></li>
 </ul></details></p><hr><a id="method-GSVirtualTable-new"></a><div class="section">
 <h3 id="method-new-">Method <code>new()</code><a class="anchor" aria-label="anchor" href="#method-new-"></a></h3>
 <p>Initializes an object of class GSVirtualTable</p><div class="section">
@@ -294,27 +296,10 @@ Geoserver REST API GSVirtualTable"><!-- mathjax --><script src="https://cdnjs.cl
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">GSVirtualTable</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;GSVirtualTable&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Inherits from: &lt;GSRESTResource&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Public:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     addParameter: function (parameter) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     clone: function (deep = FALSE) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     decode: function (xml) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     delParameter: function (parameter) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     encode: function () </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     escapeSql: FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     geometry: NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     initialize: function (xml = NULL) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     keyColumn: NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     name: NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     parameters: list</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     rootName: virtualTable</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     setEscapeSql: function (escapeSql) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     setGeometry: function (vtg) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     setKeyColumn: function (keyColumn) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     setName: function (name) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     setSql: function (sql) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     sql: NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBBBB;">&lt;</span><span style="color: #BBBBBB; text-decoration: underline;">GSVirtualTable</span><span style="color: #BBBBBB;">&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ....|-- <span style="font-style: italic;">name</span>: <span style="background-color: #BBBBBB;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ....|-- <span style="font-style: italic;">sql</span>: <span style="background-color: #BBBBBB;">NA</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ....|-- <span style="font-style: italic;">escapeSql</span>: <span style="background-color: #BBBBBB;">FALSE</span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

@@ -89,6 +89,8 @@ Geoserver REST API ShapeFileDataStore"><!-- mathjax --><script src="https://cdnj
 <li><p><a href="#method-GSShapefileDataStore-setDefautConnectionParameters"><code>GSShapefileDataStore$setDefautConnectionParameters()</code></a></p></li>
 <li><p><a href="#method-GSShapefileDataStore-clone"><code>GSShapefileDataStore$clone()</code></a></p></li>
 </ul></div><p><details><summary>Inherited methods</summary><ul><li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href="GSRESTResource.html#method-encode"><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="getClassName"><a href="GSRESTResource.html#method-getClassName"><code>geosapi::GSRESTResource$getClassName()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="print"><a href="GSRESTResource.html#method-print"><code>geosapi::GSRESTResource$print()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setDescription"><a href="GSAbstractStore.html#method-setDescription"><code>geosapi::GSAbstractStore$setDescription()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setEnabled"><a href="GSAbstractStore.html#method-setEnabled"><code>geosapi::GSAbstractStore$setEnabled()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="geosapi" data-topic="GSAbstractStore" data-id="setType"><a href="GSAbstractStore.html#method-setType"><code>geosapi::GSAbstractStore$setType()</code></a></span></li>
@@ -247,38 +249,19 @@ Geoserver REST API ShapeFileDataStore"><!-- mathjax --><script src="https://cdnj
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">GSShapefileDataStore</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"ds"</span>, description <span class="op">=</span> <span class="st">"des"</span>,</span></span>
 <span class="r-in"><span>                         enabled <span class="op">=</span> <span class="cn">TRUE</span>, url <span class="op">=</span> <span class="st">"file://data/shape.shp"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;GSShapefileDataStore&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Inherits from: &lt;GSAbstractDataStore&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Public:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     addConnectionParameter: function (key, value) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     clone: function (deep = FALSE) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     connectionParameters: GSRESTEntrySet, GSRESTResource, R6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     decode: function (xml) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     delConnectionParameter: function (key) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     description: des</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     enabled: TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     encode: function () </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     full: TRUE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     initialize: function (xml = NULL, name = NULL, description = "", enabled = TRUE, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     name: ds</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     rootName: dataStore</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     setCacheReuseMemoryMaps: function (maps = TRUE) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     setCharset: function (charset = "ISO-8859-1") </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     setConnectionParameter: function (key, value) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     setConnectionParameters: function (parameters) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     setCreateSpatialIndex: function (create = TRUE) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     setDefautConnectionParameters: function () </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     setDescription: function (description) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     setEnabled: function (enabled) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     setMemoryMappedBuffer: function (buffer = FALSE) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     setType: function (type) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     setUrl: function (url) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     type: Shapefile</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     workspace: NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Private:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     STORE_TYPE: dataStore</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     TYPE: Shapefile</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     store_type: dataStore</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBBBB;">&lt;</span><span style="color: #BBBBBB; text-decoration: underline;">GSShapefileDataStore</span><span style="color: #BBBBBB;">&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ....|-- <span style="font-style: italic;">full</span>: <span style="background-color: #BBBBBB;">TRUE</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ....|-- <span style="font-style: italic;">name</span>: <span style="background-color: #BBBBBB;">ds</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ....|-- <span style="font-style: italic;">enabled</span>: <span style="background-color: #BBBBBB;">TRUE</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ....|-- <span style="font-style: italic;">description</span>: <span style="background-color: #BBBBBB;">des</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ....|-- <span style="font-style: italic;">type</span>: <span style="background-color: #BBBBBB;">Shapefile</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ....|-- <span style="font-style: italic;">connectionParameters</span> <span style="color: #BBBBBB;">&lt;</span><span style="color: #BBBBBB; text-decoration: underline;">GSRESTEntrySet</span><span style="color: #BBBBBB;">&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ........|-- <span style="font-style: italic;">entryset</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ............|-- <span style="font-style: italic;">url</span>: <span style="background-color: #BBBBBB;">file://data/shape.shp</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ............|-- <span style="font-style: italic;">charset</span>: <span style="background-color: #BBBBBB;">ISO-8859-1</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ............|-- <span style="font-style: italic;">create spatial index</span>: <span style="background-color: #BBBBBB;">TRUE</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ............|-- <span style="font-style: italic;">memory mapped buffer</span>: <span style="background-color: #BBBBBB;">FALSE</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ............|-- <span style="font-style: italic;">cache and reuse memory maps</span>: <span style="background-color: #BBBBBB;">TRUE</span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

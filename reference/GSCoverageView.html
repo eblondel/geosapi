@@ -114,6 +114,8 @@ Geoserver REST API GSCoverageView"><!-- mathjax --><script src="https://cdnjs.cl
 <li><p><a href="#method-GSCoverageView-delBand"><code>GSCoverageView$delBand()</code></a></p></li>
 <li><p><a href="#method-GSCoverageView-clone"><code>GSCoverageView$clone()</code></a></p></li>
 </ul></div><p><details open><summary>Inherited methods</summary><ul><li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href="GSRESTResource.html#method-encode"><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="getClassName"><a href="GSRESTResource.html#method-getClassName"><code>geosapi::GSRESTResource$getClassName()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="print"><a href="GSRESTResource.html#method-print"><code>geosapi::GSRESTResource$print()</code></a></span></li>
 </ul></details></p><hr><a id="method-GSCoverageView-new"></a><div class="section">
 <h3 id="method-new-">Method <code>new()</code><a class="anchor" aria-label="anchor" href="#method-new-"></a></h3>
 <p>Initializes an object of class GSCoverageView</p><div class="section">
@@ -274,25 +276,8 @@ of the CoverageView, either 'UNION' or 'INTERSECTION'.</p><div class="section">
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span>  <span class="va">GSCoverageView</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;GSCoverageView&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Inherits from: &lt;GSRESTResource&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Public:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     addBand: function (band) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     clone: function (deep = FALSE) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     coverageBands: list</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     decode: function (xml) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     delBand: function (band) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     encode: function () </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     envelopeCompositionType: NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     initialize: function (xml = NULL) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     name: NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     rootName: coverageView</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     selectedResolution: NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     selectedResolutionIndex: NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     setEnvelopeCompositionType: function (envelopeCompositionType) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     setName: function (name) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     setSelectedResolution: function (selectedResolution) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     setSelectedResolutionIndex: function (selectedResolutionIndex) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBBBB;">&lt;</span><span style="color: #BBBBBB; text-decoration: underline;">GSCoverageView</span><span style="color: #BBBBBB;">&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ....|-- <span style="font-style: italic;">name</span>: <span style="background-color: #BBBBBB;">NA</span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

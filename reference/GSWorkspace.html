@@ -92,6 +92,8 @@ Geoserver REST API Workspace"><!-- mathjax --><script src="https://cdnjs.cloudfl
 <li><p><a href="#method-GSWorkspace-decode"><code>GSWorkspace$decode()</code></a></p></li>
 <li><p><a href="#method-GSWorkspace-clone"><code>GSWorkspace$clone()</code></a></p></li>
 </ul></div><p><details open><summary>Inherited methods</summary><ul><li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href="GSRESTResource.html#method-encode"><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="getClassName"><a href="GSRESTResource.html#method-getClassName"><code>geosapi::GSRESTResource$getClassName()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="print"><a href="GSRESTResource.html#method-print"><code>geosapi::GSRESTResource$print()</code></a></span></li>
 </ul></details></p><hr><a id="method-GSWorkspace-new"></a><div class="section">
 <h3 id="method-new-">Method <code>new()</code><a class="anchor" aria-label="anchor" href="#method-new-"></a></h3>
 <p>initializes a GSWorkspace</p><div class="section">
@@ -151,15 +153,8 @@ Geoserver REST API Workspace"><!-- mathjax --><script src="https://cdnjs.cloudfl
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span>  <span class="va">GSWorkspace</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"work"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;GSWorkspace&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Inherits from: &lt;GSRESTResource&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Public:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     clone: function (deep = FALSE) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     decode: function (xml) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     encode: function () </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     initialize: function (xml = NULL, name) </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     name: work</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     rootName: workspace</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBBBB;">&lt;</span><span style="color: #BBBBBB; text-decoration: underline;">GSWorkspace</span><span style="color: #BBBBBB;">&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ....|-- <span style="font-style: italic;">name</span>: <span style="background-color: #BBBBBB;">work</span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
