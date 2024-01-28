@@ -54,6 +54,8 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 <details><summary>Inherited methods</summary>
 <ul>
 <li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="getClassName"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-getClassName'><code>geosapi::GSRESTResource$getClassName()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="print"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-print'><code>geosapi::GSRESTResource$print()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="addKeyword"><a href='../../geosapi/html/GSResource.html#method-GSResource-addKeyword'><code>geosapi::GSResource$addKeyword()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="addMetadataLink"><a href='../../geosapi/html/GSResource.html#method-GSResource-addMetadataLink'><code>geosapi::GSResource$addMetadataLink()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="geosapi" data-topic="GSResource" data-id="delKeyword"><a href='../../geosapi/html/GSResource.html#method-GSResource-delKeyword'><code>geosapi::GSResource$delKeyword()</code></a></span></li>

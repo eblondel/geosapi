@@ -48,9 +48,11 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 }
 }
 \if{html}{\out{
-<details open><summary>Inherited methods</summary>
+<details><summary>Inherited methods</summary>
 <ul>
 <li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="encode"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-encode'><code>geosapi::GSRESTResource$encode()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="getClassName"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-getClassName'><code>geosapi::GSRESTResource$getClassName()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="geosapi" data-topic="GSRESTResource" data-id="print"><a href='../../geosapi/html/GSRESTResource.html#method-GSRESTResource-print'><code>geosapi::GSRESTResource$print()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="geosapi" data-topic="GSDimension" data-id="setEnabled"><a href='../../geosapi/html/GSDimension.html#method-GSDimension-setEnabled'><code>geosapi::GSDimension$setEnabled()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="geosapi" data-topic="GSDimension" data-id="setPresentation"><a href='../../geosapi/html/GSDimension.html#method-GSDimension-setPresentation'><code>geosapi::GSDimension$setPresentation()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="geosapi" data-topic="GSDimension" data-id="setUnit"><a href='../../geosapi/html/GSDimension.html#method-GSDimension-setUnit'><code>geosapi::GSDimension$setUnit()</code></a></span></li>
