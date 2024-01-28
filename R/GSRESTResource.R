@@ -132,7 +132,7 @@ GSRESTResource <- R6Class("GSRESTResource",
       #fields
       fields <- fields[!sapply(fields, function(x){
         (class(self[[x]])[1] %in% c("environment", "function")) ||
-          (x %in% private$system_fields)
+          (x %in% c("full", "attr_type"))
       })]
       
       cat(crayon::white(paste0("<", crayon::underline(self$getClassName()), ">")))
