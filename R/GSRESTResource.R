@@ -10,10 +10,10 @@
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
 GSRESTResource <- R6Class("GSRESTResource",
-  private = list(
-    rootName = NA
-  ),
   public = list(
+    
+    #'@field rootName root name
+    rootName = NA,
     
     #'@description Initializes an object of class \link{GSRESTResource}
     #'@param xml object of class \link{xml_node-class}
@@ -22,7 +22,7 @@ GSRESTResource <- R6Class("GSRESTResource",
       if(missing(rootName) | is.null(rootName)){
         stop("No root name specified for GSRESTResource")
       }
-      private$rootName = rootName
+      self$rootName = rootName
     },
     
     #'@description Decodes from XML. Abstract method to be implemented by sub-classes
@@ -35,7 +35,7 @@ GSRESTResource <- R6Class("GSRESTResource",
     #'@return an object of class \link{xml_node-class}
     encode = function(){
       #Generic XML encoder
-      rootXML <- xml2::xml_new_root(private$rootName)
+      rootXML <- xml2::xml_new_root(self$rootName)
       if(is(self, "GSPublishable")){
         xml2::xml_attrs(rootXML) <- c(type = self$attr_type)
       }
@@ -44,7 +44,7 @@ GSRESTResource <- R6Class("GSRESTResource",
       fields <- rev(names(self))
       fields <- fields[!sapply(fields, function(x){
         (class(self[[x]])[1] %in% c("environment", "function")) ||
-        (x %in% c("full", "attr_type"))
+        (x %in% c("rootName", "full", "attr_type"))
       })]
       
       if(is(self, "GSRESTEntrySet")){
@@ -132,7 +132,7 @@ GSRESTResource <- R6Class("GSRESTResource",
       #fields
       fields <- fields[!sapply(fields, function(x){
         (class(self[[x]])[1] %in% c("environment", "function")) ||
-          (x %in% c("full", "attr_type"))
+          (x %in% c("rootName", "full", "attr_type"))
       })]
       
       cat(crayon::white(paste0("<", crayon::underline(self$getClassName()), ">")))
