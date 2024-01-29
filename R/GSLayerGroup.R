@@ -73,26 +73,13 @@ GSLayerGroup <- R6Class("GSLayerGroup",
          #publishables
          publishables <- as(xml2::xml_find_all(xml, "//publishables/published"), "list")
          if(length(publishables)>0){
-           self$publishables <- lapply(publishables, function(x){
-             ps <- GSPublishable$new()
-             ps$setName(xml2::xml_find_first(x, "//name") %>% xml2::xml_text())
-             ps$setType(xml2::xml_attr(x, "type"))
-             return(ps)
-           })
+           self$publishables <- lapply(publishables, GSPublishable$new)
          }
          
          #styles
          styles <- as(xml2::xml_find_all(xml, "//styles/style"), "list")
          if(length(styles)>0){
-           styles <- lapply(styles, function(x){
-             style <- GSStyle$new()
-             style$setName(xml2::xml_find_first(x, "//name") %>% xml2::xml_text())
-             filename = xml2::xml_find_first(x, "//filename")
-             if(length(filename)>0){
-               style$setFilename(xml2::xml_text(filename))
-             }
-             return(style)
-           })
+           styles <- lapply(styles, GSStyle$new)
            self$setStyles(styles)
          }
          
