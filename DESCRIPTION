@@ -12,7 +12,7 @@ Description: Provides an R interface to the GeoServer REST API, allowing to uplo
  layers, styles, as well as vector data upload operations. For more information about 
  the GeoServer REST API, see <https://docs.geoserver.org/stable/en/user/rest/>.
 Depends: R (>= 3.1.0)
-Imports: R6, openssl, httr, xml2, keyring, readr
+Imports: R6, openssl, httr, xml2, magrittr, keyring, readr
 Suggests: testthat, waldo, roxygen2, shiny, knitr, markdown
 License: MIT + file LICENSE
 URL: https://github.com/eblondel/geosapi, https://eblondel.github.io/geosapi/, https://geoserver.org/

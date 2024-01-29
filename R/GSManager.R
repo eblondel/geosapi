@@ -6,6 +6,7 @@
 #' @import httr
 #' @import xml2
 #' @import keyring
+#' @import magrittr
 #' @importFrom readr read_csv
 #' @importFrom readr write_csv
 #' @export
