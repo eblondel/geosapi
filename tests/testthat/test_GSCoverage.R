@@ -58,6 +58,6 @@ test_that("GSCoverage encoding/decoding",{
   cov2XML <- cov2$encode()
   
   #check encoded XML is equal to decoded XML
-  testthat::compare(covXML, cov2XML)
+  testthat::expect_true(length(waldo::compare(covXML, cov2XML))==0)
   
 })

@@ -75,6 +75,6 @@ test_that("resource encoding/decoding",{
   res2XML <- res2$encode()
   
   #check encoded XML is equal to decoded XML
-  testthat::compare(resXML, res2XML)
+  testthat::expect_true(length(waldo::compare(resXML, res2XML))==0)
   
 })

@@ -27,6 +27,6 @@ test_that("dimension encoding/decoding",{
   dim2XML <- dim2$encode()
   
   #check encoded XML is equal to decoded XML
-  testthat::compare(dimXML, dim2XML)
+  testthat::expect_true(length(waldo::compare(dimXML, dim2XML))==0)
   
 })

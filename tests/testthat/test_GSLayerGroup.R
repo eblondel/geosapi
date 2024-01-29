@@ -31,7 +31,7 @@ test_that("layer group encoding/decoding",{
   lyr2XML <- lyr2$encode()
   
   #check encoded XML is equal to decoded XML
-  testthat::compare(lyrXML, lyr2XML)
+  testthat::expect_true(length(waldo::compare(lyrXML, lyr2XML))==0)
   
 })
 

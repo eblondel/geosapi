@@ -23,6 +23,6 @@ test_that("virtual table geometry encoding/decoding",{
   vtg2XML <- vtg2$encode()
   
   #check encoded XML is equal to decoded XML
-  testthat::compare(vtgXML, vtg2XML)
+  testthat::expect_true(length(waldo::compare(vtgXML, vtg2XML))==0)
   
 })

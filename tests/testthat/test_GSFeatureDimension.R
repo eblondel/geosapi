@@ -31,7 +31,7 @@ test_that("feature dimension encoding/decoding",{
   dim2XML <- dim2$encode()
   
   #check encoded XML is equal to decoded XML
-  testthat::compare(dimXML, dim2XML)
+  testthat::expect_true(length(waldo::compare(dimXML, dim2XML))==0)
   
 })
 
@@ -57,6 +57,6 @@ test_that("featureType metadata",{
   ft2XML <- ft2$encode()
   
   #check encoded XML is equal to decoded XML
-  testthat::compare(ftXML, ft2XML)
+  testthat::expect_true(length(waldo::compare(ftXML, ft2XML))==0)
   
 })

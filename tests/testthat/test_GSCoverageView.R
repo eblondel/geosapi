@@ -30,6 +30,6 @@ test_that("GSCoverageView encoding/decoding",{
   coview2XML <- coview2$encode()
   
   #check encoded XML is equal to decoded XML
-  testthat::compare(coviewXML, coview2XML)
+  testthat::expect_true(length(waldo::compare(coviewXML, coview2XML))==0)
   
 })

@@ -29,6 +29,6 @@ test_that("metadataLink encoding/decoding",{
   md2XML <- md2$encode()
   
   #check encoded XML is equal to decoded XML
-  testthat::compare(mdXML, md2XML)
+  testthat::expect_true(length(waldo::compare(mdXML, md2XML))==0)
   
 })

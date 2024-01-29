@@ -28,6 +28,6 @@ test_that("virtual table encoding/decoding",{
   vt2XML <- vt2$encode()
   
   #check encoded XML is equal to decoded XML
-  testthat::compare(vtXML, vt2XML)
+  testthat::expect_true(length(waldo::compare(vtXML, vt2XML))==0)
   
 })

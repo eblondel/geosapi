@@ -75,7 +75,7 @@ test_that("featureType encoding/decoding",{
   ft2XML <- ft2$encode()
   
   #check encoded XML is equal to decoded XML
-  testthat::compare(ftXML, ft2XML)
+  testthat::expect_true(length(waldo::compare(ftXML, ft2XML))==0)
   
 })
 
