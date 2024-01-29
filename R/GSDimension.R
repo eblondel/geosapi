@@ -51,7 +51,7 @@ GSDimension <- R6Class("GSDimension",
       units = xml2::xml_find_first(xml, "//units") %>% xml2::xml_text()
       self$setUnit(units)
       unitSymbol = xml2::xml_find_first(xml, "//unitSymbol") %>% xml2::xml_text()
-      self$setUnitSymbol(unitSymbol)
+      if(!is.na(unitSymbol)) self$setUnitSymbol(unitSymbol)
     },
     
     #'@description Set enabled
