@@ -29,7 +29,10 @@ GSServiceManager <- R6Class("GSServiceManager",
     #'@return an object of class \link{GSServiceSettings}
     getServiceSettings = function(service, ws = NULL){
       if(self$version$lowerThan("2.12")){
-        stop("This feature is available starting from GeoServer 2.12")
+        err = "This feature is available starting from GeoServer 2.12"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
+        stop(err)
       }
       restPath <- NULL
       service <- tolower(service)
@@ -47,9 +50,13 @@ GSServiceManager <- R6Class("GSServiceManager",
       if(status_code(req) == 200){
         settingsXML <- GSUtils$parseResponseXML(req)
         serviceSettings <- GSServiceSettings$new(xml = settingsXML, service = tolower(xml2::xml_name(xml2::as_xml_document(settingsXML))))
-        self$INFO("Successfully fetched service settings!")
+        msg = "Successfully fetched service settings!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
       }else{
-        self$ERROR("Error while fetching service settings")
+        err = "Error while fetching service settings"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(serviceSettings)
     },
@@ -90,7 +97,10 @@ GSServiceManager <- R6Class("GSServiceManager",
     #'@return \code{TRUE} if updated, \code{FALSE} otherwise
     updateServiceSettings = function(serviceSettings, service, ws = NULL){
       if(self$version$lowerThan("2.12")){
-        stop("This feature is available starting from GeoServer 2.12")
+        err = "This feature is available starting from GeoServer 2.12"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
+        stop(err)
       }
       updated <- FALSE
       restPath <- NULL
@@ -111,10 +121,14 @@ GSServiceManager <- R6Class("GSServiceManager",
         verbose = self$verbose.debug
       )
       if(status_code(req) == 200){
-        self$INFO("Successfully updated service settings!")
+        msg = "Successfully updated service settings!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         updated = TRUE
       }else{
-        self$ERROR("Error while updating service settings")
+        err = "Error while updating service settings"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(updated)
     },
@@ -126,7 +140,10 @@ GSServiceManager <- R6Class("GSServiceManager",
     #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
     deleteServiceSettings = function(service, ws = NULL){
       if(self$version$lowerThan("2.12")){
-        stop("This feature is available starting from GeoServer 2.12")
+        err = "This feature is available starting from GeoServer 2.12"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
+        stop(err)
       }
       deleted <- FALSE
       restPath <- NULL
@@ -145,10 +162,14 @@ GSServiceManager <- R6Class("GSServiceManager",
         path = restPath, verbose = self$verbose.debug
       )
       if(status_code(req) == 200){
-        self$INFO("Successfully deleted service settings!")
+        msg = "Successfully deleted service settings!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         deleted = TRUE
       }else{
-        self$ERROR("Error while deleted service settings")
+        err = "Error while deleted service settings"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(deleted)
     },

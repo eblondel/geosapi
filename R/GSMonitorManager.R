@@ -23,7 +23,9 @@ GSMonitorManager <- R6Class("GSMonitorManager",
     #'@param offset offset
     #'@return an object of class \code{data.frame}
     getRequests = function(offset = 0){
-      self$INFO("Fetching requests")
+      msg = "Fetching requests"
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       tmp = tempfile(fileext = ".csv")
       req <- GSUtils$GET(
         self$getUrl(), private$user, 
@@ -33,9 +35,13 @@ GSMonitorManager <- R6Class("GSMonitorManager",
       if(status_code(req) == 200){
         out <- readr::read_csv(tmp)
         unlink(tmp)
-        self$INFO(sprintf("Successfully fetched %s requests", nrow(out)))
+        msg = sprintf("Successfully fetched %s requests", nrow(out))
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
       }else{
-        self$ERROR("Error while fetching requests")
+        err = "Error while fetching requests"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(out)
     }

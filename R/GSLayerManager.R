@@ -26,7 +26,9 @@ GSLayerManager <- R6Class("GSLayerManager",
     #'@description Get the list of layers.
     #'@return an object of class \code{list} giving items of class \code{\link{GSLayer}}
     getLayers = function(){
-      self$INFO("Fetching layers")
+      msg = "Fetching layers"
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       req <- GSUtils$GET(
         self$getUrl(), private$user, 
         private$keyring_backend$get(service = private$keyring_service, username = private$user),
@@ -36,9 +38,13 @@ GSLayerManager <- R6Class("GSLayerManager",
         lyrXML <- GSUtils$parseResponseXML(req)
         lyrXMLList <- as(xml2::xml_find_all(lyrXML, "//layers/layer"), "list")
         lyrList <- lapply(lyrXMLList, GSLayer$new)
-        self$INFO(sprintf("Successfuly fetched %s layers!", length(lyrList)))
+        msg = sprintf("Successfuly fetched %s layers!", length(lyrList))
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
       }else{
-        self$ERROR("Error while fetching layers")
+        err = "Error while fetching layers"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(lyrList)
     },
@@ -54,7 +60,9 @@ GSLayerManager <- R6Class("GSLayerManager",
     #'@param lyr layer name
     #'@return an object of class \link{GSLayer}
     getLayer = function(lyr){
-      self$INFO(sprintf("Fetching layer '%s'", lyr))
+      msg = sprintf("Fetching layer '%s'", lyr)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       req <- GSUtils$GET(
         self$getUrl(), private$user,
         private$keyring_backend$get(service = private$keyring_service, username = private$user),
@@ -64,9 +72,13 @@ GSLayerManager <- R6Class("GSLayerManager",
       if(status_code(req) == 200){
         lyrXML <- GSUtils$parseResponseXML(req)
         layer <- GSLayer$new(xml = lyrXML)
-        self$INFO("Successfuly fetched layer!")
+        msg = "Successfuly fetched layer!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
       }else{
-        self$ERROR("Error while fetching layer")
+        err = "Error while fetching layer"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(layer)
     },
@@ -75,7 +87,9 @@ GSLayerManager <- R6Class("GSLayerManager",
     #'@param  layer object of class \link{GSLayer}
     #'@return \code{TRUE} if created, \code{FALSE} otherwise
     createLayer = function(layer){
-      self$INFO(sprintf("Creating layer '%s'", layer$name))
+      msg = sprintf("Creating layer '%s'", layer$name)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       created <- FALSE
       req <- GSUtils$PUT(
         url = self$getUrl(), user = private$user,
@@ -86,10 +100,14 @@ GSLayerManager <- R6Class("GSLayerManager",
         verbose = self$verbose.debug
       )
       if(status_code(req) == 200){
-        self$INFO("Successfuly created layer!")
+        msg = "Successfuly created layer!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         created = TRUE
       }else{
-        self$ERROR("Error while creating layer")
+        err = "Error while creating layer"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(created)
     },
@@ -98,7 +116,9 @@ GSLayerManager <- R6Class("GSLayerManager",
     #'@param  layer object of class \link{GSLayer}
     #'@return \code{TRUE} if updated, \code{FALSE} otherwise
     updateLayer = function(layer){
-      self$INFO(sprintf("Updating layer '%s'", layer$name))
+      msg = sprintf("Updating layer '%s'", layer$name)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       updated <- FALSE
       req <- GSUtils$PUT(
         url = self$getUrl(), user = private$user,
@@ -109,10 +129,14 @@ GSLayerManager <- R6Class("GSLayerManager",
         verbose = self$verbose.debug
       )
       if(status_code(req) == 200){
-        self$INFO("Successfuly updated layer!")
+        msg = "Successfuly updated layer!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         updated = TRUE
       }else{
-        self$ERROR("Error while updating layer")
+        err = "Error while updating layer"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(updated)
     },
@@ -121,17 +145,23 @@ GSLayerManager <- R6Class("GSLayerManager",
     #'@param  lyr layer name
     #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
     deleteLayer = function(lyr){
-      self$INFO(sprintf("Deleting layer '%s'", lyr))
+      msg = sprintf("Deleting layer '%s'", lyr)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       deleted <- FALSE
       path <- sprintf("/layers/%s.xml", lyr)
       req <- GSUtils$DELETE(self$getUrl(), private$user,
                             private$keyring_backend$get(service = private$keyring_service, username = private$user),
                             path = path, verbose = self$verbose.debug)
       if(status_code(req) == 200){
-        self$INFO("Successfuly deleted layer!")
+        msg = "Successfuly deleted layer!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         deleted = TRUE
       }else{
-        self$ERROR("Error while deleting layer")
+        err = "Error while deleting layer"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(deleted)
     },
@@ -144,9 +174,13 @@ GSLayerManager <- R6Class("GSLayerManager",
     #'@return a list of objects of class \link{GSLayerGroup}
     getLayerGroups = function(ws = NULL){
       if(missing(ws)){
-        self$INFO("Fetching layer groups")
+        msg = "Fetching layer groups"
+        cli::cli_alert_info(msg)
+        self$INFO(msg)
       }else{
-        self$INFO(sprintf("Fetching layer groups for workspace '%s'", ws))
+        msg = sprintf("Fetching layer groups for workspace '%s'", ws)
+        cli::cli_alert_info(msg)
+        self$INFO(msg)
       }
       req <- GSUtils$GET(
         self$getUrl(), private$user,
@@ -158,9 +192,13 @@ GSLayerManager <- R6Class("GSLayerManager",
         lyrXML <- GSUtils$parseResponseXML(req)
         lyrXMLList <- as(xml2::xml_find_all(lyrXML, "//layerGroups/layerGroup"), "list")
         lyrList <- lapply(lyrXMLList, GSLayerGroup$new)
-        self$INFO(sprintf("Successfuly fetched %s layer groups!", length(lyrList)))
+        msg = sprintf("Successfuly fetched %s layer groups!", length(lyrList))
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
       }else{
-        self$ERROR("Error while fetching layer groups")
+        err = "Error while fetching layer groups"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(lyrList)
     },
@@ -179,9 +217,13 @@ GSLayerManager <- R6Class("GSLayerManager",
     #'@return an object of class \link{GSLayerGroup}
     getLayerGroup = function(lyr, ws = NULL){
       if(is.null(ws)){
-        self$INFO(sprintf("Fetching layer group '%s'", lyr))
+        msg = sprintf("Fetching layer group '%s'", lyr)
+        cli::cli_alert_info(msg)
+        self$INFO(msg)
       }else{
-        self$INFO(sprintf("Fetching layer group '%s' in workspace '%s'", lyr, ws))
+        msg = sprintf("Fetching layer group '%s' in workspace '%s'", lyr, ws)
+        cli::cli_alert_info(msg)
+        self$INFO(msg)
       }
       req <- GSUtils$GET(
         self$getUrl(), private$user,
@@ -194,9 +236,13 @@ GSLayerManager <- R6Class("GSLayerManager",
       if(status_code(req) == 200){
         lyrXML <- GSUtils$parseResponseXML(req)
         layer <- GSLayerGroup$new(xml = lyrXML)
-        self$INFO("Successfuly fetched layer group!")
+        msg = "Successfuly fetched layer group!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
       }else{
-        self$ERROR("Error while fetching layer group")
+        err = "Error while fetching layer group"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(layer)
     },
@@ -207,9 +253,13 @@ GSLayerManager <- R6Class("GSLayerManager",
     #'@return \code{TRUE} if created, \code{FALSE} otherwise
     createLayerGroup = function(layerGroup, ws = NULL){
       if(is.null(ws)){
-        self$INFO(sprintf("Creating layer group '%s'", layerGroup$name))
+        msg = sprintf("Creating layer group '%s'", layerGroup$name)
+        cli::cli_alert_info(msg)
+        self$INFO(msg)
       }else{
-        self$INFO(sprintf("Creating layer group '%s' in workspace '%s'", layerGroup$name, ws))
+        msg = sprintf("Creating layer group '%s' in workspace '%s'", layerGroup$name, ws)
+        cli::cli_alert_info(msg)
+        self$INFO(msg)
       }
       created <- FALSE
       req <- GSUtils$POST(
@@ -222,10 +272,14 @@ GSLayerManager <- R6Class("GSLayerManager",
         verbose = self$verbose.debug
       )
       if(status_code(req) == 201){
-        self$INFO("Successfuly created layer group!")
+        msg = "Successfuly created layer group!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         created = TRUE
       }else{
-        self$ERROR("Error while creating layer group")
+        err = "Error while creating layer group"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(created)
     },
@@ -236,9 +290,13 @@ GSLayerManager <- R6Class("GSLayerManager",
     #'@return \code{TRUE} if updated, \code{FALSE} otherwise
     updateLayerGroup = function(layerGroup, ws = NULL){
       if(is.null(ws)){
-        self$INFO(sprintf("Updating layer '%s'", layerGroup$name))
+        msg = sprintf("Updating layer '%s'", layerGroup$name)
+        cli::cli_alert_info(msg)
+        self$INFO(msg)
       }else{
-        self$INFO(sprintf("Updating layer '%s' in workspace '%s'", layerGroup$name, ws))
+        msg = sprintf("Updating layer '%s' in workspace '%s'", layerGroup$name, ws)
+        cli::cli_alert_info(msg)
+        self$INFO(msg)
       }
       updated <- FALSE
       req <- GSUtils$PUT(
@@ -252,10 +310,14 @@ GSLayerManager <- R6Class("GSLayerManager",
         verbose = self$verbose.debug
       )
       if(status_code(req) == 200){
-        self$INFO("Successfuly updated layer group!")
+        msg = "Successfuly updated layer group!"
+        cli::cli_alert_success(msgg)
+        self$INFO(msg)
         updated = TRUE
       }else{
-        self$ERROR("Error while updating layer group")
+        err = "Error while updating layer group"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(updated)
     },
@@ -266,9 +328,13 @@ GSLayerManager <- R6Class("GSLayerManager",
     #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
     deleteLayerGroup = function(lyr, ws = NULL){
       if(is.null(ws)){
-        self$INFO(sprintf("Deleting layer group '%s'", lyr))
+        msg = sprintf("Deleting layer group '%s'", lyr)
+        cli::cli_alert_info(msg)
+        self$INFO(msg)
       }else{
-        self$INFO(sprintf("Deleting layer group '%s' in workspace '%s'", lyr, ws))
+        msg = sprintf("Deleting layer group '%s' in workspace '%s'", lyr, ws)
+        cli::cli_alert_info(msg)
+        self$INFO(msg)
       }
       deleted <- FALSE
       path <- ifelse(is.null(ws),
@@ -278,10 +344,14 @@ GSLayerManager <- R6Class("GSLayerManager",
                             private$keyring_backend$get(service = private$keyring_service, username = private$user),
                             path = path, verbose = self$verbose.debug)
       if(status_code(req) == 200){
-        self$INFO("Successfuly deleted layer group!")
+        msg = "Successfuly deleted layer group!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         deleted = TRUE
       }else{
-        self$ERROR("Error while deleting layer group")
+        err = "Error while deleting layer group"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(deleted)
     }

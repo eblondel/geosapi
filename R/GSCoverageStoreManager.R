@@ -28,7 +28,9 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
     #'@param ws workspace name
     #'@return the list of coverage stores
     getCoverageStores = function(ws){
-      self$INFO(sprintf("Fetching list of coverage stores in workspace '%s'", ws))
+      msg = sprintf("Fetching list of coverage stores in workspace '%s'", ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       req <- GSUtils$GET(
         self$getUrl(), private$user, private$keyring_backend$get(service = private$keyring_service, username = private$user),
         sprintf("/workspaces/%s/coveragestores.xml", ws),
@@ -48,9 +50,13 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
           )
           return(coverageStore)
         })
-        self$INFO(sprintf("Successfully fetched %s coverage stores!", length(covList)))
+        msg = sprintf("Successfully fetched %s coverage stores!", length(covList))
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
       }else{
-        self$ERROR("Error while fetching list of datastores")
+        err = "Error while fetching list of datastores"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(covList)
     },
@@ -68,7 +74,9 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
     #'@param cs coverage store name
     #'@return the coverage store
     getCoverageStore = function(ws, cs){
-      self$INFO(sprintf("Fetching coverage store '%s' in workspace '%s'", cs, ws))
+      msg = sprintf("Fetching coverage store '%s' in workspace '%s'", cs, ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       req <- GSUtils$GET(
         self$getUrl(), private$user, private$keyring_backend$get(service = private$keyring_service, username = private$user),
         sprintf("/workspaces/%s/coveragestores/%s.xml", ws, cs),
@@ -84,9 +92,13 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
           "ArcGrid" = GSArcGridCoverageStore$new(xml = covXML),
           GSAbstractCoverageStore$new(xml = covXML)
         )
-        self$INFO("Successfully fetched coverage store!")
+        msg = "Successfully fetched coverage store!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
       }else{
-        self$ERROR("Error while fetching coverage store")
+        err = "Error while fetching coverage store"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(coverageStore)
     },
@@ -97,7 +109,9 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
     #'@param coverageStore coverage store object
     #'@return \code{TRUE} if created, \code{FALSE} otherwise
     createCoverageStore = function(ws, coverageStore){
-      self$INFO(sprintf("Creating coverage store '%s' in workspace '%s'", coverageStore$name, ws))
+      msg = sprintf("Creating coverage store '%s' in workspace '%s'", coverageStore$name, ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       created <- FALSE
       if(is.null(coverageStore$workspace)) coverageStore$workspace <- ws
       req <- GSUtils$POST(
@@ -110,10 +124,14 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
         verbose = self$verbose.debug
       )
       if(status_code(req) == 201){
-        self$INFO("Successfully created coverage store!")
+        msg = "Successfully created coverage store!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         created = TRUE
       }else{
-        self$ERROR("Error while creating coverage store")
+        err = "Error while creating coverage store"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
     },
     
@@ -125,7 +143,9 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
     updateCoverageStore = function(ws, coverageStore){
       if(is.null(coverageStore$workspace)) coverageStore$workspace <- ws
       updated <- FALSE
-      self$INFO(sprintf("Updating coverage store '%s' in workspace '%s'", coverageStore$name, ws))
+      msg = sprintf("Updating coverage store '%s' in workspace '%s'", coverageStore$name, ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       req <- GSUtils$PUT(
         url = self$getUrl(), user = private$user, pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
         path = sprintf("/workspaces/%s/coveragestores/%s.xml", ws, coverageStore$name),
@@ -134,10 +154,14 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
         verbose = self$verbose.debug
       )
       if(status_code(req) == 200){
-        self$INFO("Successfully updated coverage store!")
+        msg = "Successfully updated coverage store!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         updated = TRUE
       }else{
-        self$ERROR("Error while updating coverage store")
+        err = "Error while updating coverage store"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(updated)
     },
@@ -153,25 +177,33 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
     #'@param purge purge
     #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
     deleteCoverageStore = function(ws, cs, recurse = FALSE, purge = NULL){
-      self$INFO(sprintf("Deleting coverage store '%s' in workspace '%s'", cs, ws))
+      msg = sprintf("Deleting coverage store '%s' in workspace '%s'", cs, ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       deleted <- FALSE
       path <- sprintf("/workspaces/%s/coveragestores/%s.xml", ws, cs)
       if(recurse) path <- paste0(path, "?recurse=true")
       if(!is.null(purge)){
         allowedPurgeValues <- c("none","metadata","all")
         if(!(purge %in% allowedPurgeValues)){
-          stop(sprintf("Purge value should be among allowed purge values [%s]",
-                       paste(allowedPurgeValues, collapse=",")))
+          err = sprintf("Purge value should be among allowed purge values [%s]",
+                        paste(allowedPurgeValues, collapse=","))
+          cli::cli_alert_danger(err)
+          stop(err)
         }
         path <- paste0(path, ifelse(recurse,"&","?"), "purge=", purge)
       }
       req <- GSUtils$DELETE(self$getUrl(), private$user, private$keyring_backend$get(service = private$keyring_service, username = private$user),
                             path = path, verbose = self$verbose.debug)
       if(status_code(req) == 200){
-        self$INFO("Successfully deleted coverage store!")
+        msg = "Successfully deleted coverage store!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         deleted = TRUE
       }else{
-        self$ERROR("Error while deleting coverage store")
+        err = "Error while deleting coverage store"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(deleted)  
     },
@@ -185,7 +217,9 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
     #'@param cs coverage store name
     #'@return the list of \link{GSCoverage}
     getCoverages = function(ws, cs){
-      self$INFO(sprintf("Fetching coverages for coverage store '%s' in workspace '%s'", cs, ws))
+      msg = sprintf("Fetching coverages for coverage store '%s' in workspace '%s'", cs, ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       req <- GSUtils$GET(
         self$getUrl(), private$user,
         private$keyring_backend$get(service = private$keyring_service, username = private$user),
@@ -196,9 +230,13 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
         covXML <- GSUtils$parseResponseXML(req)
         covXMLList <- as(xml2::xml_find_all(covXML, "//coverages/coverage"), "list")
         covList <- lapply(covXMLList, GSCoverage$new)
-        self$INFO(sprintf("Successfully fetched %s coverages!", length(covList)))
+        msg = sprintf("Successfully fetched %s coverages!", length(covList))
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
       }else{
-        self$ERROR("Error while fetching list of coverages")
+        err = "Error while fetching list of coverages"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(covList)
     },
@@ -218,7 +256,9 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
     #'@param cs coverage store name
     #'@param cv coverage name
     getCoverage = function(ws, cs, cv){
-      self$INFO(sprintf("Fetching coverage '%s' in coverage store '%s' (workspace '%s')", cv, cs, ws))
+      msg = sprintf("Fetching coverage '%s' in coverage store '%s' (workspace '%s')", cv, cs, ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       req <- GSUtils$GET(
         self$getUrl(), private$user, 
         private$keyring_backend$get(service = private$keyring_service, username = private$user),
@@ -228,9 +268,13 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
       if(status_code(req) == 200){
         covXML <- GSUtils$parseResponseXML(req)
         coverage <- GSCoverage$new(xml = covXML)
-        self$INFO("Successfully fetched coverage!")
+        msg = "Successfully fetched coverage!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
       }else{
-        self$ERROR("Error while fetching coverage")
+        err = "Error while fetching coverage"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(coverage)
     },
@@ -241,7 +285,9 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
     #'@param coverage object of class \link{GSCoverage}
     #'@return \code{TRUE} if created, \code{FALSE} otherwise
     createCoverage = function(ws, cs, coverage){
-      self$INFO(sprintf("Creating coverage '%s' in coverage store '%s' (workspace '%s')", coverage$name, cs, ws))
+      msg = sprintf("Creating coverage '%s' in coverage store '%s' (workspace '%s')", coverage$name, cs, ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       created <- FALSE
       req <- GSUtils$POST(
         url = self$getUrl(),
@@ -253,10 +299,14 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
         verbose = self$verbose.debug
       )
       if(status_code(req) == 201){
-        self$INFO("Successfully created coverage!")
+        msg = "Successfully created coverage!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         created = TRUE
       }else{
-        self$ERROR("Error while creating coverage")
+        err = "Error while creating coverage"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(created)
     },
@@ -267,7 +317,9 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
     #'@param coverage object of class \link{GSCoverage}
     #'@return \code{TRUE} if updated, \code{FALSE} otherwise
     updateCoverage = function(ws, cs, coverage){
-      self$INFO(sprintf("Updating coverage '%s' in coverage store '%s' (workspace '%s')", coverage$name, cs, ws))
+      msg = sprintf("Updating coverage '%s' in coverage store '%s' (workspace '%s')", coverage$name, cs, ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       updated <- FALSE
       req <- GSUtils$PUT(
         url = self$getUrl(), user = private$user, 
@@ -279,10 +331,14 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
         verbose = self$verbose.debug
       )
       if(status_code(req) == 200){
-        self$INFO("Successfully updated coverage!")
+        msg = "Successfully updated coverage!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         updated = TRUE
       }else{
-        self$ERROR("Error while updating coverage")
+        err = "Error while updating coverage"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(updated)
     },
@@ -295,7 +351,9 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
     #'@param cv coverage name
     #'@param recurse recurse
     deleteCoverage = function(ws, cs, cv, recurse = FALSE){
-      self$INFO(sprintf("Deleting coverage '%s' in coverage '%s' (workspace '%s')", cv, cs, ws))
+      msg = sprintf("Deleting coverage '%s' in coverage '%s' (workspace '%s')", cv, cs, ws)
+      cli::cl_alert_info(msg)
+      self$INFO(msg)
       deleted <- FALSE
       path <- sprintf("/workspaces/%s/coveragestores/%s/coverages/%s.xml", ws, cs, cv)
       if(recurse) path <- paste0(path, "?recurse=true")
@@ -303,10 +361,14 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
                             private$keyring_backend$get(service = private$keyring_service, username = private$user),
                             path = path, verbose = self$verbose.debug)
       if(status_code(req) == 200){
-        self$INFO("Successfuly deleted coverage!")
+        msg = "Successfuly deleted coverage!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         deleted = TRUE
       }else{
-        self$ERROR("Error while deleting coverage")
+        err = "Error while deleting coverage"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(deleted)  
     },
@@ -334,33 +396,47 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
                                    endpoint = "file", extension, filename,
                                    configure = "first", update = "append",
                                    contentType){
-      self$INFO(sprintf("Uploading %s coverage in new datastore '%s' (workspace '%s')",
-                        toupper(extension), cs, ws))
+      msg = sprintf("Uploading %s coverage in new datastore '%s' (workspace '%s')",
+                    toupper(extension), cs, ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       
       uploaded <- FALSE
       
       supportedEndpoints <- c("file","url","external")
       if(!(endpoint %in% supportedEndpoints)){
-        stop(sprintf("Unsupported endpoint '%s'. Possible values: [%s]",
-                     endpoint, paste0(supportedEndpoints, collapse=",")))
+        err = sprintf("Unsupported endpoint '%s'. Possible values: [%s]",
+                      endpoint, paste0(supportedEndpoints, collapse=","))
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
+        stop(err)
       }
       
       supportedExtensions <- c("geotiff", "worldimage", "imagemosaic", "arcgrid")
       if(!(extension %in% supportedExtensions)){
-        stop(sprintf("Unsupported extension '%s'. Possible values: [%s]",
-                     extension, paste0(supportedExtensions, collapse=",")))
+        err = sprintf("Unsupported extension '%s'. Possible values: [%s]",
+                      extension, paste0(supportedExtensions, collapse=","))
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
+        stop(err)
       }
       
       supportedConfigurations <- c("first", "none", "all")
       if(!(configure %in% supportedConfigurations)){
-        stop(sprintf("Unsupported configure parameter '%s'. Possible values: [%s]",
-                     configure, paste0(supportedConfigurations, collapse=",")))
+        err = sprintf("Unsupported configure parameter '%s'. Possible values: [%s]",
+                      configure, paste0(supportedConfigurations, collapse=","))
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
+        stop(err)
       }
       
       supportedUpdates <- c("append","overwrite")
       if(!(update %in% supportedUpdates)){
-        stop(sprintf("Unsupported update parameter '%s'. Possible values: [%s]",
-                     update, paste0(supportedUpdates, collapse=",")))
+        err = sprintf("Unsupported update parameter '%s'. Possible values: [%s]",
+                      update, paste0(supportedUpdates, collapse=","))
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
+        stop(err)
       }
       
       req <- GSUtils$PUT(
@@ -373,12 +449,15 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
         verbose = self$verbose.debug
       )
       if(status_code(req) == 201){
-        self$INFO("Successfull coverage upload!")
+        msg = "Successfull coverage upload!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         uploaded = TRUE
       }
       if(!uploaded){
-        self$ERROR("Error while uploading coverage")
-        self$ERROR(http_status(req)$message)
+        err = sprintf("Error while uploading coverage: %s", http_status(req)$message)
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(uploaded)
     },

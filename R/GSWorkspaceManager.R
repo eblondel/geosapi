@@ -24,7 +24,9 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
     #'    containing items of class \code{\link{GSWorkspace}}
     #'@param a list of \link{GSWorkspace}
     getWorkspaces = function(){
-      self$INFO("Fetching list of workspaces")
+      msg = "Fetching list of workspaces"
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       req <- GSUtils$GET(self$getUrl(), private$user,
                          private$keyring_backend$get(service = private$keyring_service, username = private$user),
                          "/workspaces.xml", self$verbose.debug)
@@ -33,9 +35,13 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
         wsXML <- GSUtils$parseResponseXML(req)
         wsXMLList <- as(xml2::xml_find_all(wsXML, "//workspace"), "list")
         wsList <- lapply(wsXMLList, GSWorkspace$new)
-        self$INFO(sprintf("Successfully fetched %s workspaces", length(wsList)))
+        msg = sprintf("Successfully fetched %s workspaces", length(wsList))
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
       }else{
-        self$ERROR("Error while fetching list of workspaces")
+        err = "Error while fetching list of workspaces"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(wsList)
     },
@@ -51,7 +57,9 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
     #'@param ws workspace name
     #'@return an object of class \link{GSWorkspace}
     getWorkspace = function(ws){
-      self$INFO(sprintf("Fetching workspace '%s'", ws))
+      msg = sprintf("Fetching workspace '%s'", ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       req <- GSUtils$GET(self$getUrl(), private$user,
                          private$keyring_backend$get(service = private$keyring_service, username = private$user),
                       sprintf("/workspaces/%s.xml", ws), self$verbose.debug)
@@ -59,9 +67,13 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
       if(status_code(req) == 200){
         wsXML <- GSUtils$parseResponseXML(req)
         workspace <- GSWorkspace$new(xml = wsXML)
-        self$INFO("Successfully fetched workspace!")
+        msg = "Successfully fetched workspace!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
       }else{
-        self$ERROR("Error while fetching workspace")
+        err = "Error while fetching workspace"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(workspace)
     },
@@ -75,7 +87,9 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
     #'@param uri uri
     #'@return \code{TRUE} if created, \code{FALSE} otherwise
     createWorkspace = function(name, uri){
-      self$INFO(sprintf("Creating workspace '%s'", name))
+      msg = sprintf("Creating workspace '%s'", name)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       created <- FALSE
       if(missing(uri)){
         
@@ -91,13 +105,19 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
           verbose = self$verbose.debug
         )
         if(status_code(req) == 201){
-          self$INFO("Successfully created workspace!")
+          msg = "Successfully created workspace!"
+          cli::cli_alert_info(msg)
+          self$INFO(msg)
           created = TRUE
         }else{
-          self$ERROR("Error while creating workspace")
+          err = "Error while creating workspace"
+          cli::cli_alert_danger(err)
+          self$ERROR(err)
         }
       }else{
-        self$INFO("Delegating workspace creation to namespace manager")
+        msg = "Delegating workspace creation to namespace manager"
+        cli::cli_alert_info(msg)
+        self$INFO(msg)
         nsman <- GSNamespaceManager$new(self$getUrl(), private$user,
                                         private$keyring_backend$get(service = private$keyring_service, username = private$user),
                                         self$loggerType)
@@ -115,7 +135,9 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
     #'@param uri uri
     #'@return \code{TRUE} if created, \code{FALSE} otherwise
     updateWorkspace = function(name, uri){
-      self$INFO(sprintf("Updating workspace '%s'", name))
+      msg = sprintf("Updating workspace '%s'", name)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       updated <- FALSE
       if(missing(uri)){
         workspace <- GSWorkspace$new(name = name)
@@ -128,13 +150,19 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
           verbose = self$verbose.debug
         )
         if(status_code(req) == 200){
-          self$INFO("Successfully updated workspace!")
+          msg = "Successfully updated workspace!"
+          cli::cli_alert_success(msg)
+          self$INFO(msg)
           updated = TRUE
         }else{
-          self$ERROR("Error while updating workspace")
+          err = "Error while updating workspace"
+          cli::cli_alert_danger(err)
+          self$ERROR(err)
         }
       }else{
-        self$INFO("Delegating workspace update to namespace manager")
+        msg = "Delegating workspace update to namespace manager"
+        cli::cli_alert_info(msg)
+        self$INFO(msg)
         nsman <- GSNamespaceManager$new(self$getUrl(), private$user, 
                                         private$keyring_backend$get(service = private$keyring_service, username = private$user),
                                         self$loggerType)
@@ -148,7 +176,9 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
     #'@param recurse recurse
     #'@return \code{TRUE} if the workspace has been successfully deleted, \code{FALSE} otherwise
     deleteWorkspace = function(name, recurse = FALSE){
-      self$INFO(sprintf("Deleting workspace '%s'", name))
+      msg = sprintf("Deleting workspace '%s'", name)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       deleted <- FALSE
       path <- sprintf("/workspaces/%s", name)
       if(recurse) path <- paste0(path, "?recurse=true")
@@ -158,10 +188,14 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
                             private$keyring_backend$get(service = private$keyring_service, username = private$user),
                          path = path, self$verbose.debug)
       if(status_code(req) == 200){
-        self$INFO("Successfully deleted workspace!")
+        msg = "Successfully deleted workspace!"
+        cli::cli_alert_info(msg)
+        self$INFO(msg)
         deleted = TRUE
       }else{
-        self$ERROR("Error while deleting workspace")
+        err = "Error while deleting workspace"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(deleted)
     },
@@ -171,9 +205,13 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
     #'@return an object of class \link{GSWorkspaceSettings}
     getWorkspaceSettings = function(ws){
       if(self$version$lowerThan("2.12")){
-        stop("This feature is available starting from GeoServer 2.12")
+        err = "This feature is available starting from GeoServer 2.12"
+        cli::cli_alert_danger(err)
+        stop(err)
       }
-      self$INFO(sprintf("Fetching settings for workspace '%s'", ws))
+      msg = sprintf("Fetching settings for workspace '%s'", ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       req <- GSUtils$GET(self$getUrl(), private$user,
                          private$keyring_backend$get(service = private$keyring_service, username = private$user),
                          sprintf("/workspaces/%s/settings.xml", ws), self$verbose.debug)
@@ -181,9 +219,13 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
       if(status_code(req) == 200){
         wsSettingXML <- GSUtils$parseResponseXML(req)
         workspaceSettings <- GSWorkspaceSettings$new(xml = wsSettingXML)
-        self$INFO("Successfully fetched workspace settings!")
+        msg = "Successfully fetched workspace settings!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
       }else{
-        self$ERROR("Error while fetching workspace settings")
+        err = "Error while fetching workspace settings"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(workspaceSettings)
     },
@@ -194,9 +236,13 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
     #'@return \code{TRUE} if created, \code{FALSE} otherwise
     createWorkspaceSettings = function(ws, workspaceSettings){
       if(self$version$lowerThan("2.12")){
-        stop("This feature is available starting from GeoServer 2.12")
+        err = "This feature is available starting from GeoServer 2.12"
+        cli::cli_alert_danger(err)
+        stop(err)
       }
-      self$INFO(sprintf("Creating settings for workspace '%s'", ws))
+      msg = sprintf("Creating settings for workspace '%s'", ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       created <- FALSE
       req <- GSUtils$PUT(
         url = self$getUrl(),
@@ -208,10 +254,14 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
         verbose = self$verbose.debug
       )
       if(status_code(req) == 200){
-        self$INFO("Successfully created workspace settings!")
+        msg = "Successfully created workspace settings!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         created = TRUE
       }else{
-        self$ERROR("Error while creating workspace settings")
+        err = "Error while creating workspace settings"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(created)
     },
@@ -222,9 +272,13 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
     #'@return \code{TRUE} if updated, \code{FALSE} otherwise
     updateWorkspaceSettings = function(ws, workspaceSettings){
       if(self$version$lowerThan("2.12")){
-        stop("This feature is available starting from GeoServer 2.12")
+        err = "This feature is available starting from GeoServer 2.12"
+        cli::cli_alert_danger(err)
+        stop(err)
       }
-      self$INFO(sprintf("Updating settings for workspace '%s'", ws))
+      msg = sprintf("Updating settings for workspace '%s'", ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       updated <- FALSE
       req <- GSUtils$PUT(
         url = self$getUrl(), user = private$user,
@@ -235,10 +289,14 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
         verbose = self$verbose.debug
       )
       if(status_code(req) == 200){
-        self$INFO("Successfully updated workspace settings!")
+        msg = "Successfully updated workspace settings!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         updated = TRUE
       }else{
-        self$ERROR("Error while updating workspace settings")
+        err = "Error while updating workspace settings"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(updated)
     },
@@ -248,19 +306,27 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
     #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
     deleteWorkspaceSettings = function(ws){
       if(self$version$lowerThan("2.12")){
-        stop("This feature is available starting from GeoServer 2.12")
+        err = "This feature is available starting from GeoServer 2.12"
+        cli::cli_alert_danger(err)
+        stop(err)
       }
-      self$INFO(sprintf("Deleting settings for workspace '%s'", ws))
+      msg = sprintf("Deleting settings for workspace '%s'", ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       deleted <- FALSE
       path <- sprintf("/workspaces/%s/settings", ws)
       req <- GSUtils$DELETE(self$getUrl(), private$user,
                             private$keyring_backend$get(service = private$keyring_service, username = private$user),
                             path = path, self$verbose.debug)
       if(status_code(req) == 200){
-        self$INFO("Successfully deleted workspace settings!")
+        msg = "Successfully deleted workspace settings!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         deleted = TRUE
       }else{
-        self$ERROR("Error while deleting workspace settings")
+        err = "Error while deleting workspace settings"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(deleted)
     }

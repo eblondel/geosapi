@@ -27,7 +27,9 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #'@param ws workspace name
     #'@return an object of class \code{list} giving items of class \code{\link{GSAbstractDataStore}}
     getDataStores = function(ws){
-      self$INFO(sprintf("Fetching list of datastores in workspace '%s'", ws))
+      msg = sprintf("Fetching list of datastores in workspace '%s'", ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       req <- GSUtils$GET(
         self$getUrl(), private$user,
         private$keyring_backend$get(service = private$keyring_service, username = private$user),
@@ -49,9 +51,13 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
           )
           return(dataStore)
         })
-        self$INFO(sprintf("Successfully fetched %s datastores!", length(dsList)))
+        msg = sprintf("Successfully fetched %s datastores!", length(dsList))
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
       }else{
-        self$ERROR("Error while fetching list of datastores")
+        err = "Error while fetching list of datastores"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(dsList)
     },
@@ -69,7 +75,9 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #'@param ds datastore name
     #'@return the datastore
     getDataStore = function(ws, ds){
-      self$INFO(sprintf("Fetching datastore '%s' in workspace '%s'", ds, ws))
+      msg = sprintf("Fetching datastore '%s' in workspace '%s'", ds, ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       req <- GSUtils$GET(
         self$getUrl(), private$user,
         private$keyring_backend$get(service = private$keyring_service, username = private$user),
@@ -87,9 +95,13 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
           "Oracle NG" = GSOracleNGDataStore$new(xml = dsXML),
           GSAbstractDataStore$new(xml = dsXML)
         )
-        self$INFO("Successfully fetched datastore!")
+        msg = "Successfully fetched datastore!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
       }else{
-        self$ERROR("Error while fetching datastore")
+        err = "Error while fetching datastore"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(dataStore)
     },
@@ -99,7 +111,9 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #'@param dataStore datastore object of class \link{GSAbstractDataStore}
     #'@return \code{TRUE} if created, \code{FALSE} otherwise
     createDataStore = function(ws, dataStore){
-      self$INFO(sprintf("Creating datastore '%s' in workspace '%s'", dataStore$name, ws))
+      msg = sprintf("Creating datastore '%s' in workspace '%s'", dataStore$name, ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       created <- FALSE
       req <- GSUtils$POST(
         url = self$getUrl(),
@@ -111,10 +125,14 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         verbose = self$verbose.debug
       )
       if(status_code(req) == 201){
-        self$INFO("Successfully created datastore!")
+        msg = "Successfully created datastore!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         created = TRUE
       }else{
-        self$ERROR("Error while creating datastore")
+        err = "Error while creating datastore"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
     },
     
@@ -125,7 +143,9 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #'@return \code{TRUE} if updated, \code{FALSE} otherwise
     updateDataStore = function(ws, dataStore){
       updated <- FALSE
-      self$INFO(sprintf("Updating datastore '%s' in workspace '%s'", dataStore$name, ws))
+      msg = sprintf("Updating datastore '%s' in workspace '%s'", dataStore$name, ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       req <- GSUtils$PUT(
         url = self$getUrl(), user = private$user, 
         pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
@@ -135,10 +155,14 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         verbose = self$verbose.debug
       )
       if(status_code(req) == 200){
-        self$INFO("Successfully updated datastore!")
+        msg = "Successfully updated datastore!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         updated = TRUE
       }else{
-        self$ERROR("Error while updating datastore")
+        err = "Error while updating datastore"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(updated)
     },
@@ -151,7 +175,9 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #'@param recurse recurse 
     #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
     deleteDataStore = function(ws, ds, recurse = FALSE){
-      self$INFO(sprintf("Deleting datastore '%s' in workspace '%s'", ds, ws))
+      msg = sprintf("Deleting datastore '%s' in workspace '%s'", ds, ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       deleted <- FALSE
       path <- sprintf("/workspaces/%s/datastores/%s.xml", ws, ds)
       if(recurse) path <- paste0(path, "?recurse=true")
@@ -159,10 +185,14 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
                             private$keyring_backend$get(service = private$keyring_service, username = private$user),
                             path = path, verbose = self$verbose.debug)
       if(status_code(req) == 200){
-        self$INFO("Successfully deleted datastore!")
+        msg = "Successfully deleted datastore!"
+        cli::cli_alert_info(msg)
+        self$INFO(msg)
         deleted = TRUE
       }else{
-        self$ERROR("Error while deleting datastore")
+        err = "Error while deleting datastore"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(deleted)  
     },
@@ -176,11 +206,16 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #'@param list list type value, among "configured", "available", "available_with_geom", "all"
     #'@return an object of class \code{list} giving items of class \code{\link{GSFeatureType}}
     getFeatureTypes = function(ws, ds, list = "configured"){
-      self$INFO(sprintf("Fetching featureTypes for datastore '%s' in workspace '%s'", ds, ws))
+      msg = sprintf("Fetching featureTypes for datastore '%s' in workspace '%s'", ds, ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       supportedListValues <- c("configured", "available", "available_with_geom", "all")
       if(!(list %in% supportedListValues)){
-        stop(sprintf("Unsupported 'list' parameter value '%s'. Possible values: [%s]",
-                     list, paste0(supportedListValues, collapse=",")))
+        err = sprintf("Unsupported 'list' parameter value '%s'. Possible values: [%s]",
+                      list, paste0(supportedListValues, collapse=","))
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
+        stop(err)
       }
       
       req <- GSUtils$GET(
@@ -193,9 +228,13 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         ftXML <- GSUtils$parseResponseXML(req)
         ftXMLList <- as(xml2::xml_find_all(ftXML, "//featureTypes/featureType"), "list")
         ftList <- lapply(ftXMLList, GSFeatureType$new)
-        self$INFO(sprintf("Successfully fetched %s featureTypes!", length(ftList)))
+        msg = sprintf("Successfully fetched %s featureTypes!", length(ftList))
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
       }else{
-        self$ERROR("Error while fetching list of featureTypes")
+        err = "Error while fetching list of featureTypes"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(ftList)
     },
@@ -215,7 +254,9 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #'@param ft feature type name
     #'@return an object of class \link{GSFeatureType}
     getFeatureType = function(ws, ds, ft){
-      self$INFO(sprintf("Fetching featureType '%s' in datastore '%s' (workspace '%s')", ft, ds, ws))
+      msg = sprintf("Fetching featureType '%s' in datastore '%s' (workspace '%s')", ft, ds, ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       req <- GSUtils$GET(
         self$getUrl(), private$user, 
         private$keyring_backend$get(service = private$keyring_service, username = private$user),
@@ -225,9 +266,13 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
       if(status_code(req) == 200){
         ftXML <- GSUtils$parseResponseXML(req)
         featureType <- GSFeatureType$new(xml = ftXML)
-        self$INFO("Successfully fetched featureType!")
+        msg = "Successfully fetched featureType!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
       }else{
-        self$ERROR("Error while fetching featureType")
+        err = "Error while fetching featureType"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(featureType)
     },
@@ -238,7 +283,9 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #'@param featureType feature type
     #'@return \code{TRUE} if created, \code{FALSE} otherwise
     createFeatureType = function(ws, ds, featureType){
-      self$INFO(sprintf("Creating featureType '%s' in datastore '%s' (workspace '%s')", featureType$name, ds, ws))
+      msg = sprintf("Creating featureType '%s' in datastore '%s' (workspace '%s')", featureType$name, ds, ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       created <- FALSE
       req <- GSUtils$POST(
         url = self$getUrl(),
@@ -250,10 +297,14 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         verbose = self$verbose.debug
       )
       if(status_code(req) == 201){
-        self$INFO("Successfully created featureType!")
+        msg = "Successfully created featureType!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         created = TRUE
       }else{
-        self$ERROR("Error while creating featureType")
+        err = "Error while creating featureType"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(created)
     },
@@ -264,7 +315,9 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #'@param featureType feature type
     #'@return \code{TRUE} if updated, \code{FALSE} otherwise
     updateFeatureType = function(ws, ds, featureType){
-      self$INFO(sprintf("Updating featureType '%s' in datastore '%s' (workspace '%s')", featureType$name, ds, ws))
+      msg = sprintf("Updating featureType '%s' in datastore '%s' (workspace '%s')", featureType$name, ds, ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       updated <- FALSE
       req <- GSUtils$PUT(
         url = self$getUrl(), user = private$user, 
@@ -276,10 +329,14 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         verbose = self$verbose.debug
       )
       if(status_code(req) == 200){
-        self$INFO("Successfully updated featureType!")
+        msg = "Successfully updated featureType!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         updated = TRUE
       }else{
-        self$ERROR("Error while updating featureType")
+        err = "Error while updating featureType"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(updated)
     },
@@ -293,7 +350,9 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #'@param recurse recurse
     #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
     deleteFeatureType = function(ws, ds, ft, recurse = FALSE){
-      self$INFO(sprintf("Deleting featureType '%s' in datastore '%s' (workspace '%s')", ft, ds, ws))
+      msg = sprintf("Deleting featureType '%s' in datastore '%s' (workspace '%s')", ft, ds, ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       deleted <- FALSE
       path <- sprintf("/workspaces/%s/datastores/%s/featuretypes/%s.xml", ws, ds, ft)
       if(recurse) path <- paste0(path, "?recurse=true")
@@ -301,10 +360,14 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
                             private$keyring_backend$get(service = private$keyring_service, username = private$user),
                             path = path, verbose = self$verbose.debug)
       if(status_code(req) == 200){
-        self$INFO("Successfuly deleted featureType!")
+        msg = "Successfuly deleted featureType!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         deleted = TRUE
       }else{
-        self$ERROR("Error while deleting featureType")
+        err = "Error while deleting featureType"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(deleted)  
     },
@@ -319,7 +382,9 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #'@param layer object of class \link{GSLayer}
     #'@return \code{TRUE} if published, \code{FALSE} otherwise
     publishLayer = function(ws, ds, featureType, layer){
-      self$INFO(sprintf("Publishing layer '%s'", layer$name))
+      msg = sprintf("Publishing layer '%s'", layer$name)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       published <- FALSE
       if(featureType$name != layer$name){
         stop("FeatureType and Layer names differ!")
@@ -329,15 +394,23 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         lyrCreated <- self$createLayer(layer)
         if(lyrCreated){
           published <- TRUE
-          self$INFO("Successfully published layer!")
+          msg = "Successfully published layer!"
+          cli::cli_alert_success(msg)
+          self$INFO(msg)
         }else{
           #rolling back
           published <- FALSE
-          self$INFO("Rolling back - deleting previously created FeatureType!")
+          msg = "Rolling back - deleting previously created FeatureType!"
+          cli::cli_alert_warning(msg)
+          self$WARN(msg)
           ftDeleted <- self$deleteFeatureType(ws, ds, featureType$name)
         }
       }
-      if(!published) self$ERROR("Error while publishing layer")
+      if(!published){
+        err = "Error while publishing layer"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
+      }
       return(published)
     },
     
@@ -348,7 +421,9 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     #'@param lyr layer name
     #'@return \code{TRUE} if published, \code{FALSE} otherwise
     unpublishLayer = function(ws, ds, lyr){
-      self$INFO(sprintf("Unpublishing layer '%s'", lyr))
+      msg = sprintf("Unpublishing layer '%s'", lyr)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       unpublished <- FALSE
       layer <- self$getLayer(lyr)
       if(is(layer, "GSLayer")){
@@ -359,7 +434,9 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         ftDeleted <- self$deleteFeatureType(ws, ds, lyr)
         if(ftDeleted){
             unpublished <- TRUE
-            self$INFO("Successfully unpublished layer!")
+            msg = "Successfully unpublished layer!"
+            cli::cli_alert_success(msg)
+            self$INFO(msg)
         }
       }
       return(unpublished)
@@ -386,33 +463,47 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
     uploadData = function(ws, ds, endpoint = "file", extension,
                           configure = "first", update = "append", filename,
                           charset, contentType){
-      self$INFO(sprintf("Uploading %s data in datastore '%s' (workspace '%s')",
-                        toupper(extension), ds, ws))
+      msg = sprintf("Uploading %s data in datastore '%s' (workspace '%s')",
+                    toupper(extension), ds, ws)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       
       uploaded <- FALSE
       
       supportedEndpoints <- c("file","url","external")
       if(!(endpoint %in% supportedEndpoints)){
-        stop(sprintf("Unsupported endpoint '%s'. Possible values: [%s]",
-                     endpoint, paste0(supportedEndpoints, collapse=",")))
+        err = sprintf("Unsupported endpoint '%s'. Possible values: [%s]",
+                      endpoint, paste0(supportedEndpoints, collapse=","))
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
+        stop(err)
       }
       
       supportedExtensions <- c("shp", "spatialite", "h2", "gpkg")
       if(!(extension %in% supportedExtensions)){
-        stop(sprintf("Unsupported extension '%s'. Possible values: [%s]",
-                     extension, paste0(supportedExtensions, collapse=",")))
+        err = sprintf("Unsupported extension '%s'. Possible values: [%s]",
+                      extension, paste0(supportedExtensions, collapse=","))
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
+        stop(err)
       }
       
       supportedConfigurations <- c("first", "none", "all")
       if(!(configure %in% supportedConfigurations)){
-        stop(sprintf("Unsupported configure parameter '%s'. Possible values: [%s]",
-                     configure, paste0(supportedConfigurations, collapse=",")))
+        err = sprintf("Unsupported configure parameter '%s'. Possible values: [%s]",
+                      configure, paste0(supportedConfigurations, collapse=","))
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
+        stop(err)
       }
       
       supportedUpdates <- c("append","overwrite")
       if(!(update %in% supportedUpdates)){
-        stop(sprintf("Unsupported update parameter '%s'. Possible values: [%s]",
-                     update, paste0(supportedUpdates, collapse=",")))
+        err = sprintf("Unsupported update parameter '%s'. Possible values: [%s]",
+                      update, paste0(supportedUpdates, collapse=","))
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
+        stop(err)
       }
       
       req <- GSUtils$PUT(
@@ -426,12 +517,15 @@ GSDataStoreManager <- R6Class("GSDataStoreManager",
         verbose = self$verbose.debug
       )
       if(status_code(req) == 201){
-        self$INFO("Successfull data upload!")
+        msg = "Successfull data upload!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         uploaded = TRUE
       }
       if(!uploaded){
-        self$ERROR("Error while uploading data")
-        self$ERROR(http_status(req)$message)
+        err = sprintf("Error while uploading data: %s", http_status(req)$message)
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
         self$ERROR("Response headers -->")
         print(headers(req))
         self$ERROR("Response content -->")

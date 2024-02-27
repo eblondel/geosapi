@@ -6,6 +6,7 @@
 #' @import httr
 #' @import xml2
 #' @import keyring
+#' @import cli
 #' @import magrittr
 #' @importFrom readr read_csv
 #' @importFrom readr write_csv
@@ -168,20 +169,25 @@ GSManager <- R6Class("GSManager",
       )
       if(status_code(req) == 401){
         err <- "Impossible to connect to GeoServer: Wrong credentials"
+        cli::cli_alert_danger(err)
         self$ERROR(err)
         stop(err)
       }
       if(status_code(req) == 404){
         err <- "Impossible to connect to GeoServer: Incorrect URL or GeoServer temporarily unavailable"
+        cli::cli_alert_danger(err)
         self$ERROR(err)
         stop(err)
       }
       if(status_code(req) != 200){
         err <- sprintf("Impossible to connect to Geoserver: Unexpected error (status code %s)", status_code(req))
+        cli::cli_alert_danger(err)
         self$ERROR(err)
         stop(err)
       }else{
-        self$INFO("Successfully connected to GeoServer!")
+        msg = "Successfully connected to GeoServer!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
       }
       return(TRUE)
     },
@@ -189,7 +195,9 @@ GSManager <- R6Class("GSManager",
     #'@description Reloads the GeoServer catalog
     #'@return \code{TRUE} if reloaded, \code{FALSE} otherwise
     reload = function(){
-      self$INFO("Reloading GeoServer catalog")
+      msg = "Reloading GeoServer catalog"
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       reloaded <- FALSE
       req <- GSUtils$POST(self$getUrl(), private$user, 
                           private$keyring_backend$get(service = private$keyring_service, username = private$user), 
@@ -197,10 +205,14 @@ GSManager <- R6Class("GSManager",
                           content = NULL, contentType = "text/plain",
                           self$verbose.debug)
       if(status_code(req) == 200){
-        self$INFO("Successfully reloaded GeoServer catalog!")
+        msg = "Successfully reloaded GeoServer catalog!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         reloaded <- TRUE
       }else{
-        self$ERROR("Error while reloading the GeoServer catalog")
+        err = "Error while reloading the GeoServer catalog"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(reloaded)
     },
@@ -208,7 +220,9 @@ GSManager <- R6Class("GSManager",
     #'@description Get system status
     #'@return an object of class \code{data.frame} given the date time and metrics value
     getSystemStatus = function(){
-      self$INFO("Get system status")
+      msg = "Get system status"
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       datetime <- Sys.time()
       req <- GSUtils$GET(self$getUrl(), private$user, 
                          private$keyring_backend$get(service = private$keyring_service, username = private$user),
@@ -216,9 +230,13 @@ GSManager <- R6Class("GSManager",
                          contentType = "application/json",
                          self$verbose.debug)
       if(status_code(req) == 200){
-        self$INFO("Successfully fetched system status")
+        msg = "Successfully fetched system status"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
       }else{
-        self$ERROR("Error while fetching system status")
+        err = "Error while fetching system status"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       content <- httr::content(req)
       status <- list(

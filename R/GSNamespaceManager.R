@@ -23,7 +23,9 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
     #'@description Get the list of available namespace. Re
     #'@return an object of class \code{list} containing items of class \code{\link{GSNamespace}}
     getNamespaces = function(){
-      self$INFO("Fetching list of namespaces")
+      msg = "Fetching list of namespaces"
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       req <- GSUtils$GET(self$getUrl(), private$user,
                          private$keyring_backend$get(service = private$keyring_service, username = private$user),
                          "/namespaces.xml", self$verbose.debug)
@@ -32,9 +34,13 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
         nsXML <- GSUtils$parseResponseXML(req)
         nsXMLList <- as(xml2::xml_find_all(nsXML, "//namespace"), "list")
         nsList <- lapply(nsXMLList, GSNamespace$new)
-        self$INFO(sprintf("Successfully fetched %s namespaces", length(nsList)))
+        msg = sprintf("Successfully fetched %s namespaces", length(nsList))
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
       }else{
-        self$ERROR("Error while fetching list of namespaces")
+        err = "Error while fetching list of namespaces"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(nsList)
     },
@@ -50,7 +56,9 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
     #'@param ns namespace
     #'@return an object of class \link{GSNamespace}
     getNamespace = function(ns){
-      self$INFO(sprintf("Fetching workspace '%s'", ns))
+      msg = sprintf("Fetching workspace '%s'", ns)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       req <- GSUtils$GET(self$getUrl(), private$user,
                          private$keyring_backend$get(service = private$keyring_service, username = private$user),
                          sprintf("/namespaces/%s.xml", ns), self$verbose.debug)
@@ -58,9 +66,13 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
       if(status_code(req) == 200){
         nsXML <- GSUtils$parseResponseXML(req)
         namespace <- GSNamespace$new(xml = nsXML)
-        self$INFO("Successfully fetched namespace!")
+        msg = "Successfully fetched namespace!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
       }else{
-        self$ERROR("Error while fetching namespace")
+        err = "Error while fetching namespace"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(namespace)
     },
@@ -70,8 +82,9 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
     #'@param uri uri
     #'@return \code{TRUE} if the namespace has been successfully created, \code{FALSE} otherwise
     createNamespace = function(prefix, uri){
-      
-      self$INFO(sprintf("Creating namespace '%s'", prefix))
+      msg = sprintf("Creating namespace '%s'", prefix)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       created <- FALSE
       namespace <- GSNamespace$new(prefix = prefix, uri = uri)
 
@@ -85,10 +98,14 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
         verbose = self$verbose.debug
       )
       if(status_code(req) == 201){
-        self$INFO("Successfully created namespace!")
+        msg = "Successfully created namespace!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         created = TRUE
       }else{
-        self$ERROR("Error while creating namespace")
+        err = "Error while creating namespace"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(created)
     },
@@ -98,8 +115,9 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
     #'@param uri uri
     #'@return \code{TRUE} if the namespace has been successfully updated, \code{FALSE} otherwise
     updateNamespace = function(prefix, uri){
-      
-      self$INFO(sprintf("Updating namespace '%s'", prefix))
+      msg = sprintf("Updating namespace '%s'", prefix)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       updated <- FALSE
       namespace <- GSNamespace$new(prefix = prefix, uri = uri)
       
@@ -112,10 +130,14 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
         self$verbose.debug
       )
       if(status_code(req) == 200){
-        self$INFO("Successfully updated namespace!")
+        msg = "Successfully updated namespace!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         updated = TRUE
       }else{
-        self$ERROR("Error while updating namespace")
+        err = "Error while updating namespace"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(updated)
     },
@@ -125,7 +147,9 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
     #'@param recurse recurse
     #'@return \code{TRUE} if the namespace has been successfully deleted, \code{FALSE} otherwise
     deleteNamespace = function(name, recurse = FALSE){
-      self$INFO(sprintf("Deleting namespace '%s'", name))
+      msg = sprintf("Deleting namespace '%s'", name)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
       deleted <- FALSE
       path <- sprintf("/namespaces/%s", name)
       if(recurse) path <- paste0(path, "?recurse=true")
@@ -135,10 +159,14 @@ GSNamespaceManager <- R6Class("GSNamespaceManager",
                             private$keyring_backend$get(service = private$keyring_service, username = private$user),
                             path = path, self$verbose.debug)
       if(status_code(req) == 200){
-        self$INFO("Successfully deleted namespace!")
+        msg = "Successfully deleted namespace!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
         deleted = TRUE
       }else{
-        self$ERROR("Error while deleting namespace")
+        err = "Error while deleting namespace"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
       }
       return(deleted)
     }   
