@@ -80,7 +80,7 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
     
     #'@description Creates a GeoServer workspace given a name, and an optional URI. If the URI
     #'    is not specified, GeoServer will automatically create an associated Namespace 
-    #'    with the URI being "http://{workspaceName}. If the URI is specified, the method
+    #'    with the URI built from the workspace name. If the URI is specified, the method
     #'    invokes the method \code{createNamespace(ns, uri)} of the \code{\link{GSNamespaceManager}}.
     #'    Returns \code{TRUE} if the workspace has been successfully created, \code{FALSE} otherwise
     #'@param name name
@@ -128,7 +128,7 @@ GSWorkspaceManager <- R6Class("GSWorkspaceManager",
     
     #'@description Updates a GeoServer workspace given a name, and an optional URI. If the URI
     #'    is not specified, GeoServer will automatically update the associated Namespace 
-    #'    with the URI being "http://{workspaceName}. If the URI is specified, the method
+    #'    with the URI built from the workspace name. If the URI is specified, the method
     #'    invokes the method \code{updateNamespace(ns, uri)} of the \code{\link{GSNamespaceManager}}.
     #'    Returns \code{TRUE} if the workspace has been successfully updated, \code{FALSE} otherwise
     #'@param name name
