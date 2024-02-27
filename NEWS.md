@@ -1,4 +1,4 @@
-## [geosapi 0.7](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-unavailable-orange.svg)](https://cran.r-project.org/package=geosapi)
+## [geosapi 0.7](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
 
 **Enhancements**
 
@@ -17,7 +17,7 @@
 
 * [#64](https://github.com/eblondel/geosapi/issues/64) Fix workspace-based style creation/update/delete methods
 
-## [geosapi 0.6-6](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
+## [geosapi 0.6-6](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.6-6.tar.gz) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.6-6.tar.gz)
 
 **Enhancements**
 
