@@ -3,6 +3,7 @@
 **Enhancements**
 
 * [#62](https://github.com/eblondel/geosapi/issues/62) Migrate geosapi from XML to xml2
+* [#69](https://github.com/eblondel/geosapi/issues/69) Add cli as dependency for nice logs
 
 **New features**
 
