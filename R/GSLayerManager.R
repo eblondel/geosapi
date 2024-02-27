@@ -311,7 +311,7 @@ GSLayerManager <- R6Class("GSLayerManager",
       )
       if(status_code(req) == 200){
         msg = "Successfuly updated layer group!"
-        cli::cli_alert_success(msgg)
+        cli::cli_alert_success(msg)
         self$INFO(msg)
         updated = TRUE
       }else{

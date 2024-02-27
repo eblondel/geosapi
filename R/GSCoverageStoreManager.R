@@ -352,7 +352,7 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
     #'@param recurse recurse
     deleteCoverage = function(ws, cs, cv, recurse = FALSE){
       msg = sprintf("Deleting coverage '%s' in coverage '%s' (workspace '%s')", cv, cs, ws)
-      cli::cl_alert_info(msg)
+      cli::cli_alert_info(msg)
       self$INFO(msg)
       deleted <- FALSE
       path <- sprintf("/workspaces/%s/coveragestores/%s/coverages/%s.xml", ws, cs, cv)
