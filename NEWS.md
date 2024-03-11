@@ -1,3 +1,9 @@
+## [geosapi 0.7-1](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
+
+**Corrections**
+
+* [#73](https://github.com/eblondel/geosapi/issues/73) Bad XML encoding for entryset
+
 ## [geosapi 0.7](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
 
 **Enhancements**

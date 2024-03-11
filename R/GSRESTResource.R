@@ -60,11 +60,12 @@ GSRESTResource <- R6Class("GSRESTResource",
             itemValue <- items[[itemName]]
             if(is.logical(itemValue)){
               itemValue <- tolower(as.character(itemValue))
-              xml2::xml_text(item) <- itemValue
             }
             if(is(itemValue, "GSRESTResource")){
               itemValue <- itemValue$encode()
               item %>% xml2::xml_add_child(itemValue)
+            }else{
+              xml2::xml_text(item) <- itemValue
             }
             rootXML %>% xml2::xml_add_child(item)
           }
