@@ -1,171 +1,59 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://eblondel.github.io/geosapi/404.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/articles/geosapi.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/index.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSAbstractCoverageStore.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSAbstractDBDataStore.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSAbstractDataStore.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSAbstractStore.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSArcGridCoverageStore.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSCoverage.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSCoverageBand.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSCoverageStoreManager.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSCoverageView.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSDataStoreManager.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSDimension.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSFeatureDimension.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSFeatureType.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSGeoPackageDataStore.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSGeoTIFFCoverageStore.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSImageMosaicCoverageStore.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSInputCoverageBand.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSLayer.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSLayerGroup.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSLayerManager.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSManager.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSMetadataLink.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSMonitorManager.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSNamespace.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSNamespaceManager.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSOracleNGDataStore.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSPostGISDataStore.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSPublishable.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSRESTEntrySet.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSRESTResource.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSResource.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSServiceManager.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSServiceSettings.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSShapefileDataStore.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSShapefileDirectoryDataStore.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSShinyMonitor.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSStyleManager.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSUtils.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSVersion.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSVirtualTable.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSVirtualTableGeometry.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSVirtualTableParameter.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSWorkspace.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSWorkspaceManager.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSWorkspaceSettings.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/GSWorldImageCoverageStore.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/geosapi.html</loc>
-  </url>
-  <url>
-    <loc>https://eblondel.github.io/geosapi/reference/index.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://eblondel.github.io/geosapi/404.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/LICENSE-text.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/articles/geosapi.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/articles/index.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/authors.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/index.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/news/index.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSAbstractCoverageStore.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSAbstractDBDataStore.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSAbstractDataStore.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSAbstractStore.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSArcGridCoverageStore.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSCoverage.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSCoverageBand.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSCoverageStoreManager.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSCoverageView.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSDataStoreManager.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSDimension.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSFeatureDimension.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSFeatureType.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSGeoPackageDataStore.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSGeoTIFFCoverageStore.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSImageMosaicCoverageStore.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSInputCoverageBand.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSLayer.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSLayerGroup.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSLayerManager.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSManager.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSMetadataLink.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSMonitorManager.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSNamespace.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSNamespaceManager.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSOracleNGDataStore.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSPostGISDataStore.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSPublishable.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSRESTEntrySet.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSRESTResource.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSResource.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSServiceManager.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSServiceSettings.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSShapefileDataStore.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSShapefileDirectoryDataStore.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSShinyMonitor.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSStyleManager.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSUtils.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSVersion.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSVirtualTable.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSVirtualTableGeometry.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSVirtualTableParameter.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSWorkspace.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSWorkspaceManager.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSWorkspaceSettings.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSWorldImageCoverageStore.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/geosapi.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/index.html</loc></url>
 </urlset>
+
