@@ -3,9 +3,9 @@
 #' @docType class
 #' @export
 #' @keywords geoserver rest api
-#' @return Object of \code{\link{R6Class}} with static util methods for communication
+#' @return Object of \code{\link[R6]{R6Class}} with static util methods for communication
 #' with the REST API of a GeoServer instance.
-#' @format \code{\link{R6Class}} object.
+#' @format \code{\link[R6]{R6Class}} object.
 #'
 #' @section Static methods:
 #' \describe{

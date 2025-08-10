@@ -4,8 +4,8 @@
 #' @importFrom R6 R6Class
 #' @export
 #' @keywords geoserver rest api virtualTable
-#' @return Object of \code{\link{R6Class}} for modelling a GeoServer virtual table geometry
-#' @format \code{\link{R6Class}} object.
+#' @return Object of \code{\link[R6]{R6Class}} for modelling a GeoServer virtual table geometry
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @examples
 #' GSVirtualTableGeometry$new(name = "work", type = "MultiPolygon", srid = 4326)
@@ -23,7 +23,7 @@ GSVirtualTableGeometry <- R6Class("GSVirtualTableGeometry",
      srid = NA,
      
      #'@description Initializes an object of class \link{GSVirtualTableGeometry}
-     #'@param xml object of class \link{xml_node-class}
+     #'@param xml object of class \link[xml2]{xml_node-class}
      #'@param name name
      #'@param type type
      #'@param srid srid
@@ -39,7 +39,7 @@ GSVirtualTableGeometry <- R6Class("GSVirtualTableGeometry",
      },
      
      #'@description Decodes from XML
-     #'@param xml object of class \link{xml_node-class}
+     #'@param xml object of class \link[xml2]{xml_node-class}
      decode = function(xml){
        xml = xml2::as_xml_document(xml)
        self$name <- xml2::xml_find_first(xml, "//name") %>% xml2::xml_text()

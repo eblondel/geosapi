@@ -5,10 +5,10 @@
 \alias{GSCoverageView}
 \title{Geoserver REST API GSCoverageView}
 \format{
-\code{\link{R6Class}} object.
+\code{\link[R6]{R6Class}} object.
 }
 \value{
-Object of \code{\link{R6Class}} for modelling a GeoServer coverage view
+Object of \code{\link[R6]{R6Class}} for modelling a GeoServer coverage view
 }
 \description{
 Geoserver REST API GSCoverageView
@@ -79,7 +79,7 @@ Initializes an object of class \link{GSCoverageView}
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{object of class \link{xml_node-class}}
+\item{\code{xml}}{object of class \link[xml2]{xml_node-class}}
 }
 \if{html}{\out{</div>}}
 }
@@ -96,7 +96,7 @@ Decodes from XML
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{object of class \link{xml_node-class}}
+\item{\code{xml}}{object of class \link[xml2]{xml_node-class}}
 }
 \if{html}{\out{</div>}}
 }

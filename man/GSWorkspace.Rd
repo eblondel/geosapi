@@ -5,10 +5,10 @@
 \alias{GSWorkspace}
 \title{Geoserver REST API Workspace}
 \format{
-\code{\link{R6Class}} object.
+\code{\link[R6]{R6Class}} object.
 }
 \value{
-Object of \code{\link{R6Class}} for modelling a GeoServer workspace
+Object of \code{\link[R6]{R6Class}} for modelling a GeoServer workspace
 }
 \description{
 Geoserver REST API Workspace
@@ -65,7 +65,7 @@ initializes a \link{GSWorkspace}
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{an object of class \link{xml_node-class}}
+\item{\code{xml}}{an object of class \link[xml2]{xml_node-class}}
 
 \item{\code{name}}{name}
 }
@@ -84,7 +84,7 @@ Decodes from XML
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{an object of class \link{xml_node-class}}
+\item{\code{xml}}{an object of class \link[xml2]{xml_node-class}}
 }
 \if{html}{\out{</div>}}
 }

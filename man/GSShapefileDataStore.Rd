@@ -5,10 +5,10 @@
 \alias{GSShapefileDataStore}
 \title{Geoserver REST API ShapeFileDataStore}
 \format{
-\code{\link{R6Class}} object.
+\code{\link[R6]{R6Class}} object.
 }
 \value{
-Object of \code{\link{R6Class}} for modelling a GeoServer Shapefile dataStore
+Object of \code{\link[R6]{R6Class}} for modelling a GeoServer Shapefile dataStore
 }
 \description{
 Geoserver REST API ShapeFileDataStore
@@ -80,7 +80,7 @@ initializes a shapefile data store
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{an object of class \link{xml_node-class} to create object from XML}
+\item{\code{xml}}{an object of class \link[xml2]{xml_node-class} to create object from XML}
 
 \item{\code{name}}{coverage store name}
 

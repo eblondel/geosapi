@@ -4,8 +4,8 @@
 #' @importFrom R6 R6Class
 #' @export
 #' @keywords geoserver rest api namespace
-#' @return Object of \code{\link{R6Class}} for modelling a GeoServer namespace
-#' @format \code{\link{R6Class}} object.
+#' @return Object of \code{\link[R6]{R6Class}} for modelling a GeoServer namespace
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @examples
 #' GSNamespace$new(prefix = "my_ns", uri = "http://my_ns")
@@ -25,7 +25,7 @@ GSNamespace <- R6Class("GSNamespace",
     full = FALSE,
    
     #'@description Initializes an object of class \link{GSNamespace}
-    #'@param xml object of class \link{xml_node-class}
+    #'@param xml object of class \link[xml2]{xml_node-class}
     #'@param prefix prefix
     #'@param uri uri
     initialize = function(xml = NULL, prefix, uri){
@@ -41,7 +41,7 @@ GSNamespace <- R6Class("GSNamespace",
     },
     
     #'@description Decodes from XML
-    #'@param xml object of class \link{xml_node-class}
+    #'@param xml object of class \link[xml2]{xml_node-class}
     decode = function(xml){
       xml = xml2::as_xml_document(xml)
       names <- xml2::xml_find_first(xml, "//name")

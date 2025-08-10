@@ -8,8 +8,8 @@
 #' used internally by \pkg{geosapi} for configuring layers or layer groups
 #' within an object of class \code{GSLayerGroup}
 #' @keywords geoserver rest api resource layer group publishable
-#' @return Object of \code{\link{R6Class}} for modelling a GeoServer layer group publishable
-#' @format \code{\link{R6Class}} object.
+#' @return Object of \code{\link[R6]{R6Class}} for modelling a GeoServer layer group publishable
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @examples
 #'   publishable <- GSPublishable$new(name = "name", type = "layer")
@@ -28,7 +28,7 @@ GSPublishable <- R6Class("GSPublishable",
      attr_type = NULL,
      
      #'@description Initializes a \link{GSPublishable}
-     #'@param xml an object of class \link{xml_node-class}
+     #'@param xml an object of class \link[xml2]{xml_node-class}
      #'@param name name
      #'@param type type
      initialize = function(xml = NULL, name, type){
@@ -44,7 +44,7 @@ GSPublishable <- R6Class("GSPublishable",
      },
      
      #'@description Decodes from XML
-     #'@param xml an object of class \link{xml_node-class}
+     #'@param xml an object of class \link[xml2]{xml_node-class}
      decode = function(xml){
        xml = xml2::as_xml_document(xml)
        self$name <- xml2::xml_find_first(xml, "//name") %>% xml2::xml_text()

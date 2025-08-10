@@ -5,10 +5,10 @@
 \alias{GSUtils}
 \title{Geoserver REST API Manager Utils}
 \format{
-\code{\link{R6Class}} object.
+\code{\link[R6]{R6Class}} object.
 }
 \value{
-Object of \code{\link{R6Class}} with static util methods for communication
+Object of \code{\link[R6]{R6Class}} with static util methods for communication
 with the REST API of a GeoServer instance.
 }
 \description{

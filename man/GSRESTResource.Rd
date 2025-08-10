@@ -5,10 +5,10 @@
 \alias{GSRESTResource}
 \title{Geoserver REST API REST Resource interface}
 \format{
-\code{\link{R6Class}} object.
+\code{\link[R6]{R6Class}} object.
 }
 \value{
-Object of \code{\link{R6Class}} for modelling a GeoServer REST resource interface
+Object of \code{\link[R6]{R6Class}} for modelling a GeoServer REST resource interface
 }
 \description{
 Geoserver REST API REST Resource interface
@@ -51,7 +51,7 @@ Initializes an object of class \link{GSRESTResource}
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{object of class \link{xml_node-class}}
+\item{\code{xml}}{object of class \link[xml2]{xml_node-class}}
 
 \item{\code{rootName}}{root name}
 }
@@ -70,7 +70,7 @@ Decodes from XML. Abstract method to be implemented by sub-classes
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{object of class \link{xml_node-class}}
+\item{\code{xml}}{object of class \link[xml2]{xml_node-class}}
 }
 \if{html}{\out{</div>}}
 }
@@ -85,7 +85,7 @@ Encodes as XML
 }
 
 \subsection{Returns}{
-an object of class \link{xml_node-class}
+an object of class \link[xml2]{xml_node-class}
 }
 }
 \if{html}{\out{<hr>}}

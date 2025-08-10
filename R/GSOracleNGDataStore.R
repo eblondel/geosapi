@@ -4,8 +4,8 @@
 #' @importFrom R6 R6Class
 #' @export
 #' @keywords geoserver rest api DataStore OracleNG
-#' @return Object of \code{\link{R6Class}} for modelling a GeoServer OracleNG dataStore
-#' @format \code{\link{R6Class}} object.
+#' @return Object of \code{\link[R6]{R6Class}} for modelling a GeoServer OracleNG dataStore
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @examples
 #'   GSOracleNGDataStore$new(name = "ds", description = "des", enabled = TRUE)
@@ -21,7 +21,7 @@ GSOracleNGDataStore <- R6Class("GSOracleNGDataStore",
     public = list(
       
       #'@description initializes an Oracle NG data store
-      #'@param xml an object of class \link{xml_node-class} to create object from XML
+      #'@param xml an object of class \link[xml2]{xml_node-class} to create object from XML
       #'@param name coverage store name
       #'@param description coverage store description
       #'@param enabled whether the store should be enabled or not. Default is \code{TRUE}

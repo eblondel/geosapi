@@ -5,10 +5,10 @@
 \alias{GSManager}
 \title{Geoserver REST API Manager}
 \format{
-\code{\link{R6Class}} object.
+\code{\link[R6]{R6Class}} object.
 }
 \value{
-Object of \code{\link{R6Class}} with methods for communication with
+Object of \code{\link[R6]{R6Class}} with methods for communication with
 the REST API of a GeoServer instance.
 }
 \description{

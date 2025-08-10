@@ -8,8 +8,8 @@
 #' @title A GeoServer layer style
 #' @description This class models a GeoServer style.
 #' @keywords geoserver rest api resourcelayer style
-#' @return Object of \code{\link{R6Class}} for modelling a GeoServer style
-#' @format \code{\link{R6Class}} object.
+#' @return Object of \code{\link[R6]{R6Class}} for modelling a GeoServer style
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @examples
 #'   lyr <- GSStyle$new()
@@ -28,7 +28,7 @@ GSStyle <- R6Class("GSStyle",
     filename = NULL,
     
     #'@description Initializes a \link{GSStyle}
-    #'@param xml an object of class \link{xml_node-class}
+    #'@param xml an object of class \link[xml2]{xml_node-class}
     #'@param name name
     #'@param filename filename
     initialize = function(xml = NULL, name = NULL, filename = NULL){
@@ -46,7 +46,7 @@ GSStyle <- R6Class("GSStyle",
     },
     
     #'@description Decodes from XML
-    #'@param xml an object of class \link{xml_node-class}
+    #'@param xml an object of class \link[xml2]{xml_node-class}
     decode = function(xml){
       xml = xml2::as_xml_document(xml)
       self$setName(xml2::xml_find_first(xml, "//name") %>% xml2::xml_text())

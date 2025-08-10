@@ -4,8 +4,8 @@
 #' @importFrom R6 R6Class
 #' @export
 #' @keywords geoserver rest api
-#' @return Object of \code{\link{R6Class}} for modelling a GeoServer REST resource interface
-#' @format \code{\link{R6Class}} object.
+#' @return Object of \code{\link[R6]{R6Class}} for modelling a GeoServer REST resource interface
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -16,7 +16,7 @@ GSRESTResource <- R6Class("GSRESTResource",
     rootName = NA,
     
     #'@description Initializes an object of class \link{GSRESTResource}
-    #'@param xml object of class \link{xml_node-class}
+    #'@param xml object of class \link[xml2]{xml_node-class}
     #'@param rootName root name
     initialize = function(xml, rootName){
       if(missing(rootName) | is.null(rootName)){
@@ -26,13 +26,13 @@ GSRESTResource <- R6Class("GSRESTResource",
     },
     
     #'@description Decodes from XML. Abstract method to be implemented by sub-classes
-    #'@param xml object of class \link{xml_node-class}
+    #'@param xml object of class \link[xml2]{xml_node-class}
     decode = function(xml){
       stop("Unimplemented XML 'decode' method") 
     },
     
     #'@description Encodes as XML
-    #'@return an object of class \link{xml_node-class}
+    #'@return an object of class \link[xml2]{xml_node-class}
     encode = function(){
       #Generic XML encoder
       rootXML <- xml2::xml_new_root(self$rootName)

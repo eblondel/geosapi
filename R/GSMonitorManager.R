@@ -4,8 +4,8 @@
 #' @importFrom R6 R6Class
 #' @export
 #' @keywords geoserver rest api Layer
-#' @return Object of \code{\link{R6Class}} with methods for the GeoServer Monitoring extension.
-#' @format \code{\link{R6Class}} object.
+#' @return Object of \code{\link[R6]{R6Class}} with methods for the GeoServer Monitoring extension.
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @examples
 #' \dontrun{

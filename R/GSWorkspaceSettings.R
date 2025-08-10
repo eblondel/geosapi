@@ -4,8 +4,8 @@
 #' @importFrom R6 R6Class
 #' @export
 #' @keywords geoserver rest api workspace settings
-#' @return Object of \code{\link{R6Class}} for modelling a GeoServer workspace settings
-#' @format \code{\link{R6Class}} object.
+#' @return Object of \code{\link[R6]{R6Class}} for modelling a GeoServer workspace settings
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @examples
 #'   settings <- GSWorkspaceSettings$new()
@@ -35,7 +35,7 @@ GSWorkspaceSettings <- R6Class("GSWorkspaceSettings",
      #'@description This method is used to instantiate a \code{GSWorkspaceSettings}. This settings 
      #'    object is required to activate a workspace configuration, using the method
      #'    \code{GSManager$createWorkspaceSettings}. Supported from GeoServer 2.12
-     #' @param xml object of class \link{xml_node-class}
+     #' @param xml object of class \link[xml2]{xml_node-class}
      initialize = function(xml = NULL){
        super$initialize(rootName = "settings")
        if(!missing(xml) & !is.null(xml)){
@@ -44,7 +44,7 @@ GSWorkspaceSettings <- R6Class("GSWorkspaceSettings",
      },
      
      #'@description Decodes from XML
-     #'@param xml object of class \link{xml_node-class}
+     #'@param xml object of class \link[xml2]{xml_node-class}
      decode = function(xml){
        xml = xml2::as_xml_document(xml)
        charset <- xml2::xml_find_first(xml, "//charset")

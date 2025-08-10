@@ -5,10 +5,10 @@
 \alias{GSDataStoreManager}
 \title{Geoserver REST API DataStore Manager}
 \format{
-\code{\link{R6Class}} object.
+\code{\link[R6]{R6Class}} object.
 }
 \value{
-Object of \code{\link{R6Class}} with methods for managing GeoServer
+Object of \code{\link[R6]{R6Class}} with methods for managing GeoServer
 DataStores (i.e. stores of vector data)
 }
 \description{

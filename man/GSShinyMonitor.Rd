@@ -5,10 +5,10 @@
 \alias{GSShinyMonitor}
 \title{Geoserver REST API DataStore}
 \format{
-\code{\link{R6Class}} object.
+\code{\link[R6]{R6Class}} object.
 }
 \value{
-Object of \code{\link{R6Class}} for setting a GS Shiny monitoring app
+Object of \code{\link[R6]{R6Class}} for setting a GS Shiny monitoring app
 }
 \description{
 Geoserver REST API DataStore

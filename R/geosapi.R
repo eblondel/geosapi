@@ -1,7 +1,6 @@
 #' @name geosapi
 #' @aliases geosapi-package
 #' @aliases geosapi
-#' @docType package
 #' 
 #' @title GeoServer REST API R Interface
 #' @description Provides an R interface to the GeoServer REST API, allowing to 
@@ -13,4 +12,4 @@
 #'  
 #'@author Emmanuel Blondel \email{emmanuel.blondel1@@gmail.com}
 #'
-NULL
+"_PACKAGE"

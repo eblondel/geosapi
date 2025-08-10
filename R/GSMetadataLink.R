@@ -11,8 +11,8 @@
 #' ISO19115:2003, FGDC, TC211, 19139, other), and a content: an URL that gives 
 #' the metadataLink
 #' @keywords geoserver rest api resource metadataLink
-#' @return Object of \code{\link{R6Class}} for modelling a GeoServer resource metadataLink
-#' @format \code{\link{R6Class}} object.
+#' @return Object of \code{\link[R6]{R6Class}} for modelling a GeoServer resource metadataLink
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -28,7 +28,7 @@ GSMetadataLink <- R6Class("GSMetadataLink",
      content = NULL,
      
      #'@description Initializes an object of class \link{GSMetadataLink}
-     #'@param xml object of class \link{xml_node-class}
+     #'@param xml object of class \link[xml2]{xml_node-class}
      #'@param type type
      #'@param metadataType metadata type
      #'@param content content
@@ -44,7 +44,7 @@ GSMetadataLink <- R6Class("GSMetadataLink",
      },
      
      #'@description Decodes from XML
-     #'@param xml object of class \link{xml_node-class}
+     #'@param xml object of class \link[xml2]{xml_node-class}
      decode = function(xml){
        xml = xml2::as_xml_document(xml)
         self$setType(xml2::xml_find_first(xml, "//type") %>% xml2::xml_text())

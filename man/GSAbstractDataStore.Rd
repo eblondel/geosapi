@@ -5,10 +5,10 @@
 \alias{GSAbstractDataStore}
 \title{Geoserver REST API DataStore}
 \format{
-\code{\link{R6Class}} object.
+\code{\link[R6]{R6Class}} object.
 }
 \value{
-Object of \code{\link{R6Class}} for modelling a GeoServer dataStore
+Object of \code{\link[R6]{R6Class}} for modelling a GeoServer dataStore
 }
 \description{
 Geoserver REST API DataStore
@@ -75,7 +75,7 @@ initializes an abstract data store
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{an object of class \link{xml_node-class} to create object from XML}
+\item{\code{xml}}{an object of class \link[xml2]{xml_node-class} to create object from XML}
 
 \item{\code{type}}{the type of coverage store}
 
@@ -102,7 +102,7 @@ Decodes a data store from XML
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{an object of class \link{xml_node-class}}
+\item{\code{xml}}{an object of class \link[xml2]{xml_node-class}}
 }
 \if{html}{\out{</div>}}
 }

@@ -9,8 +9,8 @@
 #' @description This class models a GeoServer feature type. This class is to be
 #' used for manipulating representations of vector data with GeoServer.
 #' @keywords geoserver rest api resource featureType
-#' @return Object of \code{\link{R6Class}} for modelling a GeoServer feature type
-#' @format \code{\link{R6Class}} object.
+#' @return Object of \code{\link[R6]{R6Class}} for modelling a GeoServer feature type
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @examples
 #'   ft <- GSFeatureType$new()
@@ -25,7 +25,7 @@ GSFeatureType <- R6Class("GSFeatureType",
     cqlFilter = NULL,
     
     #'@description Initializes an object of class \link{GSFeatureType}
-    #'@param xml object of class \link{xml_node-class}
+    #'@param xml object of class \link[xml2]{xml_node-class}
     initialize = function(xml = NULL){
       super$initialize(rootName = "featureType")
       if(!missing(xml) & !is.null(xml)){
@@ -34,7 +34,7 @@ GSFeatureType <- R6Class("GSFeatureType",
     },
     
     #'@description Decodes from XML
-    #'@param xml object of class \link{xml_node-class}
+    #'@param xml object of class \link[xml2]{xml_node-class}
     decode = function(xml){
       super$decode(xml)
     },

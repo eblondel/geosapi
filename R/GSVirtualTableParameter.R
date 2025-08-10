@@ -4,8 +4,8 @@
 #' @importFrom R6 R6Class
 #' @export
 #' @keywords geoserver rest api virtualTable
-#' @return Object of \code{\link{R6Class}} for modelling a GeoServer virtual table parameter
-#' @format \code{\link{R6Class}} object.
+#' @return Object of \code{\link[R6]{R6Class}} for modelling a GeoServer virtual table parameter
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @examples
 #' GSVirtualTableParameter$new(name = "fieldname", defaultValue = "default_value",
@@ -24,7 +24,7 @@ GSVirtualTableParameter <- R6Class("GSVirtualTableParameter",
     regexpValidator = NA,
     
     #'@description Initializes an object of class \link{GSVirtualTableParameter}
-    #'@param xml object of class \link{xml_node-class}
+    #'@param xml object of class \link[xml2]{xml_node-class}
     #'@param name name
     #'@param defaultValue default value
     #'@param regexpValidator regexp validator
@@ -40,7 +40,7 @@ GSVirtualTableParameter <- R6Class("GSVirtualTableParameter",
     },
     
     #'@description Decodes from XML
-    #'@param xml object of class \link{xml_node-class}
+    #'@param xml object of class \link[xml2]{xml_node-class}
     decode = function(xml){
       xml = xml2::as_xml_document(xml)
       self$name <- xml2::xml_find_first(xml, "//name") %>% xml2::xml_text()

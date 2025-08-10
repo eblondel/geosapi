@@ -5,10 +5,10 @@
 \alias{GSStyleManager}
 \title{Geoserver REST API Style Manager}
 \format{
-\code{\link{R6Class}} object.
+\code{\link[R6]{R6Class}} object.
 }
 \value{
-Object of \code{\link{R6Class}} with methods for managing the styles
+Object of \code{\link[R6]{R6Class}} with methods for managing the styles
 of a GeoServer instance.
 }
 \description{
@@ -252,7 +252,7 @@ Get SLD body
 \if{html}{\out{</div>}}
 }
 \subsection{Returns}{
-an object of class \link{xml_node-class}
+an object of class \link[xml2]{xml_node-class}
 }
 }
 \if{html}{\out{<hr>}}

@@ -4,9 +4,9 @@
 #' @importFrom R6 R6Class
 #' @export
 #' @keywords geoserver rest api Layer
-#' @return Object of \code{\link{R6Class}} with methods for managing GeoServer
+#' @return Object of \code{\link[R6]{R6Class}} with methods for managing GeoServer
 #' Layers as results of published feature types or coverages
-#' @format \code{\link{R6Class}} object.
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @examples
 #' \dontrun{

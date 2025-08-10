@@ -7,8 +7,8 @@
 #' @name GSRESTEntrySet
 #' 
 #' @keywords geoserver rest api entryset
-#' @return Object of \code{\link{R6Class}} for modelling a entry set
-#' @format \code{\link{R6Class}} object.
+#' @return Object of \code{\link[R6]{R6Class}} for modelling a entry set
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -20,7 +20,7 @@ GSRESTEntrySet <- R6Class("GSRESTEntrySet",
    
    #'@description Initializes an object of class \link{GSRESTEntrySet}
    #'@param rootName root name
-   #'@param xml object of class \link{xml_node-class}
+   #'@param xml object of class \link[xml2]{xml_node-class}
    #'@param entryset entry set
    initialize = function(rootName, xml = NULL, entryset){
      super$initialize(rootName = rootName)
@@ -37,7 +37,7 @@ GSRESTEntrySet <- R6Class("GSRESTEntrySet",
    },
    
    #'@description Decodes from XML
-   #'@param xml object of class \link{xml_node-class} 
+   #'@param xml object of class \link[xml2]{xml_node-class} 
    decode = function(xml){
      xml = xml2::as_xml_document(xml)
     entriesXML <- as(xml2::xml_find_all(xml, sprintf("//%s/entry", self$rootName)), "list")

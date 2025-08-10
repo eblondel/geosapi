@@ -4,9 +4,9 @@
 #' @importFrom R6 R6Class
 #' @export
 #' @keywords geoserver rest api CoverageStore
-#' @return Object of \code{\link{R6Class}} with methods for managing GeoServer
+#' @return Object of \code{\link[R6]{R6Class}} with methods for managing GeoServer
 #' CoverageStores (i.e. stores of coverage data)
-#' @format \code{\link{R6Class}} object.
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @examples
 #' \dontrun{

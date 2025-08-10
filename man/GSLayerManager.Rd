@@ -5,10 +5,10 @@
 \alias{GSLayerManager}
 \title{Geoserver REST API Layer Manager}
 \format{
-\code{\link{R6Class}} object.
+\code{\link[R6]{R6Class}} object.
 }
 \value{
-Object of \code{\link{R6Class}} with methods for managing GeoServer
+Object of \code{\link[R6]{R6Class}} with methods for managing GeoServer
 Layers as results of published feature types or coverages
 }
 \description{

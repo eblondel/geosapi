@@ -8,8 +8,8 @@
 #' @title A GeoServer service settings resource
 #' @description This class models a GeoServer OWS service settings.
 #' @keywords geoserver rest api service OGC OWS WMS WFS WCS
-#' @return Object of \code{\link{R6Class}} for modelling a GeoServer OWS service setting
-#' @format \code{\link{R6Class}} object.
+#' @return Object of \code{\link[R6]{R6Class}} for modelling a GeoServer OWS service setting
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @examples
 #' settings <- GSServiceSettings$new(service = "WMS")
@@ -46,7 +46,7 @@ GSServiceSettings <- R6Class("GSServiceSettings",
      verbose = FALSE,
      
      #'@description Initializes an object of class \link{GSServiceSettings}
-     #'@param xml object of class \link{xml_node-class}
+     #'@param xml object of class \link[xml2]{xml_node-class}
      #'@param service service service acronym
      initialize = function(xml = NULL, service){
        super$initialize(rootName = tolower(service))
@@ -57,7 +57,7 @@ GSServiceSettings <- R6Class("GSServiceSettings",
      },
      
      #'@description Decodes from XML
-     #'@param xml object of class \link{xml_node-class}
+     #'@param xml object of class \link[xml2]{xml_node-class}
      decode = function(xml){
        enabled <- xml2::xml_find_first(xml, "//enabled")
        if(length(enabled)>0) self$enabled <- as.logical(xml2::xml_text(enabled))

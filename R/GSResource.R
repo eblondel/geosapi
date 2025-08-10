@@ -10,8 +10,8 @@
 #' used internally for modelling instances of class \code{GSFeatureType} or
 #' \code{GSCoverage}
 #' @keywords geoserver rest api resource
-#' @return Object of \code{\link{R6Class}} for modelling a GeoServer resource
-#' @format \code{\link{R6Class}} object.
+#' @return Object of \code{\link[R6]{R6Class}} for modelling a GeoServer resource
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @examples
 #' res <- GSResource$new(rootName = "featureType")
@@ -59,7 +59,7 @@ GSResource <- R6Class("GSResource",
      
      #'@description Initializes a \link{GSResource}
      #'@param rootName root name
-     #'@param xml object of class \link{xml_node-class}
+     #'@param xml object of class \link[xml2]{xml_node-class}
      initialize = function(rootName = NULL, xml = NULL){
         super$initialize(rootName = rootName)
         if(!missing(xml) & !is.null(xml)){
@@ -68,7 +68,7 @@ GSResource <- R6Class("GSResource",
      },
      
      #'@description Decodes from XML
-     #'@param xml object of class \link{xml_node-class}
+     #'@param xml object of class \link[xml2]{xml_node-class}
      decode = function(xml){
        xml = xml2::as_xml_document(xml)
        self$name <- xml2::xml_find_first(xml, "//name") %>% xml2::xml_text()

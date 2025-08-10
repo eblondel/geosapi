@@ -5,10 +5,10 @@
 \alias{GSCoverageStoreManager}
 \title{Geoserver REST API CoverageStore Manager}
 \format{
-\code{\link{R6Class}} object.
+\code{\link[R6]{R6Class}} object.
 }
 \value{
-Object of \code{\link{R6Class}} with methods for managing GeoServer
+Object of \code{\link[R6]{R6Class}} with methods for managing GeoServer
 CoverageStores (i.e. stores of coverage data)
 }
 \description{

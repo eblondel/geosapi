@@ -4,9 +4,9 @@
 #' @importFrom R6 R6Class
 #' @export
 #' @keywords geoserver rest api namespace
-#' @return Object of \code{\link{R6Class}} with methods for managing the namespaces
+#' @return Object of \code{\link[R6]{R6Class}} with methods for managing the namespaces
 #'  of a GeoServer instance.
-#' @format \code{\link{R6Class}} object.
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @examples
 #' \dontrun{

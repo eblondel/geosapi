@@ -5,10 +5,10 @@
 \alias{GSWorkspaceManager}
 \title{Geoserver REST API Workspace Manager}
 \format{
-\code{\link{R6Class}} object.
+\code{\link[R6]{R6Class}} object.
 }
 \value{
-Object of \code{\link{R6Class}} with methods for managing the workspaces
+Object of \code{\link[R6]{R6Class}} with methods for managing the workspaces
  of a GeoServer instance.
 }
 \description{

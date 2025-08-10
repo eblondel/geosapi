@@ -11,8 +11,8 @@
 #' REST API did not support GET operation for the Geoserver version in past releases
 #' of Geoserver.
 #' @keywords geoserver rest api version
-#' @return Object of \code{\link{R6Class}} for modelling a GeoServer version
-#' @format \code{\link{R6Class}} object.
+#' @return Object of \code{\link[R6]{R6Class}} for modelling a GeoServer version
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @examples
 #' \dontrun{

@@ -13,6 +13,16 @@ operations on GeoServer workspaces, namespaces, datastores (stores of vector dat
 featuretypes, layers, styles, as well as vector data upload operations. For 
 more information about the GeoServer REST API, see <https://docs.geoserver.org/stable/en/user/rest/> .
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/eblondel/geosapi}
+  \item \url{https://eblondel.github.io/geosapi/}
+  \item \url{https://geoserver.org/}
+  \item Report bugs at \url{https://github.com/eblondel/geosapi/issues}
+}
+
+}
 \author{
 Emmanuel Blondel \email{emmanuel.blondel1@gmail.com}
 }

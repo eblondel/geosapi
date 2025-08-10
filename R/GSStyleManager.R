@@ -4,9 +4,9 @@
 #' @importFrom R6 R6Class
 #' @export
 #' @keywords geoserver rest api style
-#' @return Object of \code{\link{R6Class}} with methods for managing the styles
+#' @return Object of \code{\link[R6]{R6Class}} with methods for managing the styles
 #' of a GeoServer instance.
-#' @format \code{\link{R6Class}} object.
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @examples
 #' \dontrun{
@@ -278,7 +278,7 @@ GSStyleManager <- R6Class("GSStyleManager",
     #'@description Get SLD body
     #'@param style style name
     #'@param ws workspace name
-    #'@return an object of class \link{xml_node-class}
+    #'@return an object of class \link[xml2]{xml_node-class}
     getSLDBody = function(style, ws = NULL){
       
       if(self$version$lowerThan("2.2")){

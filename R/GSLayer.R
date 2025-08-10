@@ -9,8 +9,8 @@
 #' @description This class models a GeoServer layer. This class is to be
 #' used for published resource (feature type or coverage).
 #' @keywords geoserver rest api resource featureType coverage layer
-#' @return Object of \code{\link{R6Class}} for modelling a GeoServer layer
-#' @format \code{\link{R6Class}} object.
+#' @return Object of \code{\link[R6]{R6Class}} for modelling a GeoServer layer
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @examples
 #'   lyr <- GSLayer$new()
@@ -39,7 +39,7 @@ GSLayer <- R6Class("GSLayer",
     advertised = TRUE,
     
     #'@description Initializes an object of class \link{GSLayer}
-    #'@param xml object of class \link{xml_node-class}
+    #'@param xml object of class \link[xml2]{xml_node-class}
     initialize = function(xml = NULL){
       super$initialize(rootName = "layer")
       if(!missing(xml) & !is.null(xml)){
@@ -48,7 +48,7 @@ GSLayer <- R6Class("GSLayer",
     },
    
     #'@description Decodes from XML
-    #'@param xml object of class \link{xml_node-class}
+    #'@param xml object of class \link[xml2]{xml_node-class}
     decode = function(xml){
       xml = xml2::as_xml_document(xml)
       names <- xml2::xml_find_first(xml, "//name")

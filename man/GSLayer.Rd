@@ -6,14 +6,14 @@
 \alias{GSStyle}
 \title{A GeoServer layer resource}
 \format{
-\code{\link{R6Class}} object.
+\code{\link[R6]{R6Class}} object.
 
-\code{\link{R6Class}} object.
+\code{\link[R6]{R6Class}} object.
 }
 \value{
-Object of \code{\link{R6Class}} for modelling a GeoServer layer
+Object of \code{\link[R6]{R6Class}} for modelling a GeoServer layer
 
-Object of \code{\link{R6Class}} for modelling a GeoServer style
+Object of \code{\link[R6]{R6Class}} for modelling a GeoServer style
 }
 \description{
 This class models a GeoServer layer. This class is to be
@@ -106,7 +106,7 @@ Initializes an object of class \link{GSLayer}
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{object of class \link{xml_node-class}}
+\item{\code{xml}}{object of class \link[xml2]{xml_node-class}}
 }
 \if{html}{\out{</div>}}
 }
@@ -123,7 +123,7 @@ Decodes from XML
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{object of class \link{xml_node-class}}
+\item{\code{xml}}{object of class \link[xml2]{xml_node-class}}
 }
 \if{html}{\out{</div>}}
 }
@@ -350,7 +350,7 @@ Initializes a \link{GSStyle}
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{an object of class \link{xml_node-class}}
+\item{\code{xml}}{an object of class \link[xml2]{xml_node-class}}
 
 \item{\code{name}}{name}
 
@@ -371,7 +371,7 @@ Decodes from XML
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{an object of class \link{xml_node-class}}
+\item{\code{xml}}{an object of class \link[xml2]{xml_node-class}}
 }
 \if{html}{\out{</div>}}
 }

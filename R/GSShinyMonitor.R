@@ -4,8 +4,8 @@
 #' @importFrom R6 R6Class
 #' @export
 #' @keywords geoserver monitoring
-#' @return Object of \code{\link{R6Class}} for setting a GS Shiny monitoring app
-#' @format \code{\link{R6Class}} object.
+#' @return Object of \code{\link[R6]{R6Class}} for setting a GS Shiny monitoring app
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @note Internal class used for \code{GSManager$monitor} method
 #' 

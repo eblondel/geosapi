@@ -4,8 +4,8 @@
 #' @importFrom R6 R6Class
 #' @export
 #' @keywords geoserver rest api store
-#' @return Object of \code{\link{R6Class}} for modelling a GeoServer store
-#' @format \code{\link{R6Class}} object.
+#' @return Object of \code{\link[R6]{R6Class}} for modelling a GeoServer store
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @author Emmanuel Blondel <emmanuel.blondel1@@gmail.com>
 #'
@@ -29,7 +29,7 @@ GSAbstractStore <- R6Class("GSAbstractStore",
    workspace = NULL,
 
    #'@description initializes an abstract store
-   #'@param xml an object of class \link{xml_node-class} to create object from XML
+   #'@param xml an object of class \link[xml2]{xml_node-class} to create object from XML
    #'@param storeType store type
    #'@param type the type of coverage store
    #'@param name coverage store name
@@ -55,7 +55,7 @@ GSAbstractStore <- R6Class("GSAbstractStore",
    },
    
    #'@description Decodes store from XML
-   #'@param xml object of class \link{xml_node-class}
+   #'@param xml object of class \link[xml2]{xml_node-class}
    decode = function(xml){
      xml = xml2::as_xml_document(xml)
      names <- xml2::xml_find_first(xml, sprintf("//%s/name", private$store_type))

@@ -5,10 +5,10 @@
 \alias{GSVirtualTableGeometry}
 \title{Geoserver REST API GSVirtualTableGeometry}
 \format{
-\code{\link{R6Class}} object.
+\code{\link[R6]{R6Class}} object.
 }
 \value{
-Object of \code{\link{R6Class}} for modelling a GeoServer virtual table geometry
+Object of \code{\link[R6]{R6Class}} for modelling a GeoServer virtual table geometry
 }
 \description{
 Geoserver REST API GSVirtualTableGeometry
@@ -69,7 +69,7 @@ Initializes an object of class \link{GSVirtualTableGeometry}
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{object of class \link{xml_node-class}}
+\item{\code{xml}}{object of class \link[xml2]{xml_node-class}}
 
 \item{\code{name}}{name}
 
@@ -92,7 +92,7 @@ Decodes from XML
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{object of class \link{xml_node-class}}
+\item{\code{xml}}{object of class \link[xml2]{xml_node-class}}
 }
 \if{html}{\out{</div>}}
 }

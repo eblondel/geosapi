@@ -4,8 +4,8 @@
 #' @importFrom R6 R6Class
 #' @export
 #' @keywords geoserver rest api coverageBand
-#' @return Object of \code{\link{R6Class}} for modelling a GeoServer coverage band
-#' @format \code{\link{R6Class}} object.
+#' @return Object of \code{\link[R6]{R6Class}} for modelling a GeoServer coverage band
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @examples
 #' GSCoverageBand$new()
@@ -56,7 +56,7 @@ GSCoverageBand <- R6Class("GSCoverageBand",
     compositionType = "BAND_SELECT",
     
     #'@description Initalizes a \link{GSCoverageBand}
-    #'@param xml object of class \link{xml_node-class}
+    #'@param xml object of class \link[xml2]{xml_node-class}
     initialize = function(xml = NULL){
       super$initialize(rootName = "coverageBand")
       if(!missing(xml) & !is.null(xml)){
@@ -65,7 +65,7 @@ GSCoverageBand <- R6Class("GSCoverageBand",
     },
     
     #'@description Decodes from XML
-    #'@param xml object of class \link{xml_node-class}
+    #'@param xml object of class \link[xml2]{xml_node-class}
     decode = function(xml){
       xml = xml2::as_xml_document(xml)
       def <- xml2::xml_find_first(xml, "//definition")

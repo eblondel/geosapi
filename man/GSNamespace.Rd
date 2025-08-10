@@ -5,10 +5,10 @@
 \alias{GSNamespace}
 \title{Geoserver REST API Namespace}
 \format{
-\code{\link{R6Class}} object.
+\code{\link[R6]{R6Class}} object.
 }
 \value{
-Object of \code{\link{R6Class}} for modelling a GeoServer namespace
+Object of \code{\link[R6]{R6Class}} for modelling a GeoServer namespace
 }
 \description{
 Geoserver REST API Namespace
@@ -71,7 +71,7 @@ Initializes an object of class \link{GSNamespace}
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{object of class \link{xml_node-class}}
+\item{\code{xml}}{object of class \link[xml2]{xml_node-class}}
 
 \item{\code{prefix}}{prefix}
 
@@ -92,7 +92,7 @@ Decodes from XML
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{object of class \link{xml_node-class}}
+\item{\code{xml}}{object of class \link[xml2]{xml_node-class}}
 }
 \if{html}{\out{</div>}}
 }

@@ -4,8 +4,8 @@
 #' @importFrom R6 R6Class
 #' @export
 #' @keywords geoserver rest api DataStore DB database
-#' @return Object of \code{\link{R6Class}} for modelling a GeoServer abstract DB dataStore
-#' @format \code{\link{R6Class}} object.
+#' @return Object of \code{\link[R6]{R6Class}} for modelling a GeoServer abstract DB dataStore
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @note Internal abstract class used for setting DB stores
 #' 
@@ -16,7 +16,7 @@ GSAbstractDBDataStore <- R6Class("GSAbstractDBDataStore",
     public = list(
       
       #'@description initializes an abstract DB data store
-      #'@param xml an object of class \link{xml_node-class} to create object from XML
+      #'@param xml an object of class \link[xml2]{xml_node-class} to create object from XML
       #'@param type the type of DB data store
       #'@param dbType DB type
       #'@param name coverage store name

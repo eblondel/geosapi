@@ -5,10 +5,10 @@
 \alias{GSWorkspaceSettings}
 \title{Geoserver REST API Workspace Setting}
 \format{
-\code{\link{R6Class}} object.
+\code{\link[R6]{R6Class}} object.
 }
 \value{
-Object of \code{\link{R6Class}} for modelling a GeoServer workspace settings
+Object of \code{\link[R6]{R6Class}} for modelling a GeoServer workspace settings
 }
 \description{
 Geoserver REST API Workspace Setting
@@ -88,7 +88,7 @@ This method is used to instantiate a \code{GSWorkspaceSettings}. This settings
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{object of class \link{xml_node-class}}
+\item{\code{xml}}{object of class \link[xml2]{xml_node-class}}
 }
 \if{html}{\out{</div>}}
 }
@@ -105,7 +105,7 @@ Decodes from XML
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{object of class \link{xml_node-class}}
+\item{\code{xml}}{object of class \link[xml2]{xml_node-class}}
 }
 \if{html}{\out{</div>}}
 }

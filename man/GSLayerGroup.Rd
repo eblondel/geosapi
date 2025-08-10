@@ -5,10 +5,10 @@
 \alias{GSLayerGroup}
 \title{A GeoServer layergroup resource}
 \format{
-\code{\link{R6Class}} object.
+\code{\link[R6]{R6Class}} object.
 }
 \value{
-Object of \code{\link{R6Class}} for modelling a GeoServer layergroup
+Object of \code{\link[R6]{R6Class}} for modelling a GeoServer layergroup
 }
 \description{
 This class models a GeoServer layer group. This class is to be
@@ -103,7 +103,7 @@ Initializes an object of class \link{GSLayerGroup}
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{object of class \link{xml_node-class}}
+\item{\code{xml}}{object of class \link[xml2]{xml_node-class}}
 }
 \if{html}{\out{</div>}}
 }
@@ -120,7 +120,7 @@ Decodes from XML
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{xml}}{object of class \link{xml_node-class}}
+\item{\code{xml}}{object of class \link[xml2]{xml_node-class}}
 }
 \if{html}{\out{</div>}}
 }

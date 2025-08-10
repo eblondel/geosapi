@@ -9,8 +9,8 @@
 #' @description This class models a GeoServer coverage. This class is to be
 #' used for manipulating representations of vector data with GeoServer.
 #' @keywords geoserver rest api resource coverageType
-#' @return Object of \code{\link{R6Class}} for modelling a GeoServer coverage
-#' @format \code{\link{R6Class}} object.
+#' @return Object of \code{\link[R6]{R6Class}} for modelling a GeoServer coverage
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @examples
 #' gt <- GSCoverage$new()
@@ -25,7 +25,7 @@ GSCoverage <- R6Class("GSCoverage",
      cqlFilter = NULL,
      
      #'@description Initializes a \link{GSCoverage} from XML
-     #'@param xml object of class \link{xml_node-class}
+     #'@param xml object of class \link[xml2]{xml_node-class}
      initialize = function(xml = NULL){
        super$initialize(rootName = "coverage")
        if(!missing(xml) & !is.null(xml)){
@@ -34,7 +34,7 @@ GSCoverage <- R6Class("GSCoverage",
      },
      
      #'@description Decodes coverage from XML
-     #'@param xml object of class \link{xml_node-class}
+     #'@param xml object of class \link[xml2]{xml_node-class}
      decode = function(xml){
        super$decode(xml)
      },

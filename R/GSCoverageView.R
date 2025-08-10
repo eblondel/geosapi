@@ -4,8 +4,8 @@
 #' @importFrom R6 R6Class
 #' @export
 #' @keywords geoserver rest api coverageView
-#' @return Object of \code{\link{R6Class}} for modelling a GeoServer coverage view
-#' @format \code{\link{R6Class}} object.
+#' @return Object of \code{\link[R6]{R6Class}} for modelling a GeoServer coverage view
+#' @format \code{\link[R6]{R6Class}} object.
 #' 
 #' @examples
 #'   GSCoverageView$new()
@@ -27,7 +27,7 @@ GSCoverageView <- R6Class("GSCoverageView",
     coverageBands = list(),
     
     #'@description Initializes an object of class \link{GSCoverageView}
-    #'@param xml object of class \link{xml_node-class}
+    #'@param xml object of class \link[xml2]{xml_node-class}
     initialize = function(xml = NULL){
       super$initialize(rootName = "coverageView")
       if(!missing(xml) & !is.null(xml)){
@@ -36,7 +36,7 @@ GSCoverageView <- R6Class("GSCoverageView",
     },
     
     #'@description Decodes from XML
-    #'@param xml object of class \link{xml_node-class}
+    #'@param xml object of class \link[xml2]{xml_node-class}
     decode = function(xml){
       xml = xml2::as_xml_document(xml)
       names <- xml2::xml_find_first(xml, "//name") 
