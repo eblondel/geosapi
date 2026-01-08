@@ -478,7 +478,51 @@ The objects of this class are cloneable with this method.
 ``` r
 # \dontrun{
    GSServiceManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
-#> Error in curl::curl_fetch_memory(url, handle = handle): Couldn't connect to server [localhost]:
-#> Failed to connect to localhost port 8080 after 0 ms: Couldn't connect to server
+#> <GSServiceManager>
+#>   Inherits from: <GSManager>
+#>   Public:
+#>     ERROR: function (text) 
+#>     INFO: function (text) 
+#>     WARN: function (text) 
+#>     clone: function (deep = FALSE) 
+#>     connect: function () 
+#>     deleteServiceSettings: function (service, ws = NULL) 
+#>     disableServiceSettings: function (service, ws = NULL) 
+#>     disableWCS: function (ws = NULL) 
+#>     disableWFS: function (ws = NULL) 
+#>     disableWMS: function (ws = NULL) 
+#>     enableWCS: function (ws = NULL) 
+#>     enableWFS: function (ws = NULL) 
+#>     enableWMS: function (ws = NULL) 
+#>     getClassName: function () 
+#>     getCoverageStoreManager: function () 
+#>     getDataStoreManager: function () 
+#>     getNamespaceManager: function () 
+#>     getServiceManager: function () 
+#>     getServiceSettings: function (service, ws = NULL) 
+#>     getStyleManager: function () 
+#>     getSystemStatus: function () 
+#>     getUrl: function () 
+#>     getWcsSettings: function (ws = NULL) 
+#>     getWfsSettings: function (ws = NULL) 
+#>     getWmsSettings: function (ws = NULL) 
+#>     getWorkspaceManager: function () 
+#>     initialize: function (url, user, pwd, logger = NULL, keyring_backend = "env") 
+#>     logger: function (type, text) 
+#>     loggerType: NULL
+#>     monitor: function (file = NULL, append = FALSE, sleep = 1) 
+#>     reload: function () 
+#>     updateServiceSettings: function (serviceSettings, service, ws = NULL) 
+#>     updateWcsSettings: function (serviceSettings, ws = NULL) 
+#>     updateWfsSettings: function (serviceSettings, ws = NULL) 
+#>     updateWmsSettings: function (serviceSettings, ws = NULL) 
+#>     url: http://localhost:8080/geoserver/rest
+#>     verbose.debug: FALSE
+#>     verbose.info: FALSE
+#>     version: NULL
+#>   Private:
+#>     keyring_backend: backend_env, backend, R6
+#>     keyring_service: geosapi@http://localhost:8080/geoserver
+#>     user: admin
  # }
 ```

@@ -938,7 +938,56 @@ The objects of this class are cloneable with this method.
 ``` r
 # \dontrun{
    GSDataStoreManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
-#> Error in curl::curl_fetch_memory(url, handle = handle): Couldn't connect to server [localhost]:
-#> Failed to connect to localhost port 8080 after 0 ms: Couldn't connect to server
+#> <GSDataStoreManager>
+#>   Inherits from: <GSManager>
+#>   Public:
+#>     ERROR: function (text) 
+#>     INFO: function (text) 
+#>     WARN: function (text) 
+#>     clone: function (deep = FALSE) 
+#>     connect: function () 
+#>     createDataStore: function (ws, dataStore) 
+#>     createFeatureType: function (ws, ds, featureType) 
+#>     deleteDataStore: function (ws, ds, recurse = FALSE) 
+#>     deleteFeatureType: function (ws, ds, ft, recurse = FALSE) 
+#>     getClassName: function () 
+#>     getCoverageStoreManager: function () 
+#>     getDataStore: function (ws, ds) 
+#>     getDataStoreManager: function () 
+#>     getDataStoreNames: function (ws) 
+#>     getDataStores: function (ws) 
+#>     getFeatureType: function (ws, ds, ft) 
+#>     getFeatureTypeNames: function (ws, ds) 
+#>     getFeatureTypes: function (ws, ds, list = "configured") 
+#>     getNamespaceManager: function () 
+#>     getServiceManager: function () 
+#>     getStyleManager: function () 
+#>     getSystemStatus: function () 
+#>     getUrl: function () 
+#>     getWorkspaceManager: function () 
+#>     initialize: function (url, user, pwd, logger = NULL, keyring_backend = "env") 
+#>     logger: function (type, text) 
+#>     loggerType: NULL
+#>     monitor: function (file = NULL, append = FALSE, sleep = 1) 
+#>     publishLayer: function (ws, ds, featureType, layer) 
+#>     reload: function () 
+#>     unpublishLayer: function (ws, ds, lyr) 
+#>     updateDataStore: function (ws, dataStore) 
+#>     updateFeatureType: function (ws, ds, featureType) 
+#>     uploadAppschema: function (ws, ds, endpoint = "file", configure = "first", update = "append", 
+#>     uploadData: function (ws, ds, endpoint = "file", extension, configure = "first", 
+#>     uploadGeoPackage: function (ws, ds, endpoint = "file", configure = "first", update = "append", 
+#>     uploadH2: function (ws, ds, endpoint = "file", configure = "first", update = "append", 
+#>     uploadProperties: function (ws, ds, endpoint = "file", configure = "first", update = "append", 
+#>     uploadShapefile: function (ws, ds, endpoint = "file", configure = "first", update = "append", 
+#>     uploadSpatialite: function (ws, ds, endpoint = "file", configure = "first", update = "append", 
+#>     url: http://localhost:8080/geoserver/rest
+#>     verbose.debug: FALSE
+#>     verbose.info: FALSE
+#>     version: NULL
+#>   Private:
+#>     keyring_backend: backend_env, backend, R6
+#>     keyring_service: geosapi@http://localhost:8080/geoserver
+#>     user: admin
  # }
 ```

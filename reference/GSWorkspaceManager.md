@@ -323,7 +323,45 @@ The objects of this class are cloneable with this method.
 ``` r
 # \dontrun{
    GSWorkspaceManager$new("http://localhost:8080/geoserver", "admin", "geoserver")
-#> Error in curl::curl_fetch_memory(url, handle = handle): Couldn't connect to server [localhost]:
-#> Failed to connect to localhost port 8080 after 0 ms: Couldn't connect to server
+#> <GSWorkspaceManager>
+#>   Inherits from: <GSManager>
+#>   Public:
+#>     ERROR: function (text) 
+#>     INFO: function (text) 
+#>     WARN: function (text) 
+#>     clone: function (deep = FALSE) 
+#>     connect: function () 
+#>     createWorkspace: function (name, uri) 
+#>     createWorkspaceSettings: function (ws, workspaceSettings) 
+#>     deleteWorkspace: function (name, recurse = FALSE) 
+#>     deleteWorkspaceSettings: function (ws) 
+#>     getClassName: function () 
+#>     getCoverageStoreManager: function () 
+#>     getDataStoreManager: function () 
+#>     getNamespaceManager: function () 
+#>     getServiceManager: function () 
+#>     getStyleManager: function () 
+#>     getSystemStatus: function () 
+#>     getUrl: function () 
+#>     getWorkspace: function (ws) 
+#>     getWorkspaceManager: function () 
+#>     getWorkspaceNames: function () 
+#>     getWorkspaceSettings: function (ws) 
+#>     getWorkspaces: function () 
+#>     initialize: function (url, user, pwd, logger = NULL, keyring_backend = "env") 
+#>     logger: function (type, text) 
+#>     loggerType: NULL
+#>     monitor: function (file = NULL, append = FALSE, sleep = 1) 
+#>     reload: function () 
+#>     updateWorkspace: function (name, uri) 
+#>     updateWorkspaceSettings: function (ws, workspaceSettings) 
+#>     url: http://localhost:8080/geoserver/rest
+#>     verbose.debug: FALSE
+#>     verbose.info: FALSE
+#>     version: NULL
+#>   Private:
+#>     keyring_backend: backend_env, backend, R6
+#>     keyring_service: geosapi@http://localhost:8080/geoserver
+#>     user: admin
 # }
 ```

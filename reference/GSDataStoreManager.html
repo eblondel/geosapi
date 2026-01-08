@@ -911,8 +911,57 @@ encompasses both <a href="GSFeatureType.html">GSFeatureType</a> and <a href="GSL
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span>   <span class="va">GSDataStoreManager</span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="st">"http://localhost:8080/geoserver"</span>, <span class="st">"admin"</span>, <span class="st">"geoserver"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in curl::curl_fetch_memory(url, handle = handle):</span> Couldn't connect to server [localhost]:</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> Failed to connect to localhost port 8080 after 0 ms: Couldn't connect to server</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;GSDataStoreManager&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Inherits from: &lt;GSManager&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Public:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ERROR: function (text) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     INFO: function (text) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     WARN: function (text) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     clone: function (deep = FALSE) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     connect: function () </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     createDataStore: function (ws, dataStore) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     createFeatureType: function (ws, ds, featureType) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     deleteDataStore: function (ws, ds, recurse = FALSE) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     deleteFeatureType: function (ws, ds, ft, recurse = FALSE) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     getClassName: function () </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     getCoverageStoreManager: function () </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     getDataStore: function (ws, ds) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     getDataStoreManager: function () </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     getDataStoreNames: function (ws) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     getDataStores: function (ws) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     getFeatureType: function (ws, ds, ft) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     getFeatureTypeNames: function (ws, ds) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     getFeatureTypes: function (ws, ds, list = "configured") </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     getNamespaceManager: function () </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     getServiceManager: function () </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     getStyleManager: function () </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     getSystemStatus: function () </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     getUrl: function () </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     getWorkspaceManager: function () </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     initialize: function (url, user, pwd, logger = NULL, keyring_backend = "env") </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     logger: function (type, text) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     loggerType: NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     monitor: function (file = NULL, append = FALSE, sleep = 1) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     publishLayer: function (ws, ds, featureType, layer) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     reload: function () </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     unpublishLayer: function (ws, ds, lyr) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     updateDataStore: function (ws, dataStore) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     updateFeatureType: function (ws, ds, featureType) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     uploadAppschema: function (ws, ds, endpoint = "file", configure = "first", update = "append", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     uploadData: function (ws, ds, endpoint = "file", extension, configure = "first", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     uploadGeoPackage: function (ws, ds, endpoint = "file", configure = "first", update = "append", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     uploadH2: function (ws, ds, endpoint = "file", configure = "first", update = "append", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     uploadProperties: function (ws, ds, endpoint = "file", configure = "first", update = "append", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     uploadShapefile: function (ws, ds, endpoint = "file", configure = "first", update = "append", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     uploadSpatialite: function (ws, ds, endpoint = "file", configure = "first", update = "append", </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     url: http://localhost:8080/geoserver/rest</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     verbose.debug: FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     verbose.info: FALSE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     version: NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Private:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     keyring_backend: backend_env, backend, R6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     keyring_service: geosapi@http://localhost:8080/geoserver</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     user: admin</span>
 <span class="r-in"><span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
