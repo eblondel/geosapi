@@ -25,6 +25,8 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
 \item{\code{rootName}}{root name}
+
+\item{\code{attrs}}{attrs}
 }
 \if{html}{\out{</div>}}
 }

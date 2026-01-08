@@ -15,6 +15,9 @@ GSRESTResource <- R6Class("GSRESTResource",
     #'@field rootName root name
     rootName = NA,
     
+    #'@field attrs attrs
+    attrs = list(),
+    
     #'@description Initializes an object of class \link{GSRESTResource}
     #'@param xml object of class \link[xml2]{xml_node-class}
     #'@param rootName root name
@@ -44,7 +47,7 @@ GSRESTResource <- R6Class("GSRESTResource",
       fields <- rev(names(self))
       fields <- fields[!sapply(fields, function(x){
         (class(self[[x]])[1] %in% c("environment", "function")) ||
-        (x %in% c("rootName", "full", "attr_type"))
+        (x %in% c("rootName", "full", "attr_type", "attrs"))
       })]
       
       if(is(self, "GSRESTEntrySet")){
@@ -118,6 +121,11 @@ GSRESTResource <- R6Class("GSRESTResource",
             }
           }
         }
+      }
+      
+      #XML attribute support
+      if(length(self$attrs)>0){
+        xml2::xml_attrs(rootXML) <- self$attrs
       }
       
       return(rootXML)

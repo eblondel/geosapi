@@ -1,6 +1,12 @@
 ## [geosapi 0.8](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
 
+**Enhancements**
+
 * [#77](https://github.com/eblondel/geosapi/issues/77) Fetch Geoserver version only once
+
+**New features**
+
+* [#76](https://github.com/eblondel/geosapi/issues/76) Implement Access Control List manager
 
 ## [geosapi 0.7-2](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
 

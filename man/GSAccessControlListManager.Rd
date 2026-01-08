@@ -40,6 +40,12 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \itemize{
 \item \href{#method-GSAccessControlListManager-setCatalogMode}{\code{GSAccessControlListManager$setCatalogMode()}}
 \item \href{#method-GSAccessControlListManager-getCatalogMode}{\code{GSAccessControlListManager$getCatalogMode()}}
+\item \href{#method-GSAccessControlListManager-getRules}{\code{GSAccessControlListManager$getRules()}}
+\item \href{#method-GSAccessControlListManager-addRule}{\code{GSAccessControlListManager$addRule()}}
+\item \href{#method-GSAccessControlListManager-addLayerRule}{\code{GSAccessControlListManager$addLayerRule()}}
+\item \href{#method-GSAccessControlListManager-addServiceRule}{\code{GSAccessControlListManager$addServiceRule()}}
+\item \href{#method-GSAccessControlListManager-addRestRule}{\code{GSAccessControlListManager$addRestRule()}}
+\item \href{#method-GSAccessControlListManager-deleteRule}{\code{GSAccessControlListManager$deleteRule()}}
 \item \href{#method-GSAccessControlListManager-clone}{\code{GSAccessControlListManager$clone()}}
 }
 }
@@ -99,6 +105,159 @@ Get the catalog mode
 
 \subsection{Returns}{
 the mode either \code{HIDE}, \code{MIXED} or \code{CHALLENGE}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GSAccessControlListManager-getRules"></a>}}
+\if{latex}{\out{\hypertarget{method-GSAccessControlListManager-getRules}{}}}
+\subsection{Method \code{getRules()}}{
+Get rules
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAccessControlListManager$getRules(domain = c("layers", "services", "rest"))}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{domain}}{the access control domain}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+the list of rules for a given domain
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GSAccessControlListManager-addRule"></a>}}
+\if{latex}{\out{\hypertarget{method-GSAccessControlListManager-addRule}{}}}
+\subsection{Method \code{addRule()}}{
+Generic method to add an access control rule
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAccessControlListManager$addRule(rule)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{rule}}{object of class \link{GSRule}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if added, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GSAccessControlListManager-addLayerRule"></a>}}
+\if{latex}{\out{\hypertarget{method-GSAccessControlListManager-addLayerRule}{}}}
+\subsection{Method \code{addLayerRule()}}{
+Adds an access control layer rule
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAccessControlListManager$addLayerRule(
+  ws = NULL,
+  lyr,
+  permission = c("r", "w", "a"),
+  roles
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{ws}}{the resource workspace. Default is \code{NULL}}
+
+\item{\code{lyr}}{the target layer to which the access control should be added}
+
+\item{\code{permission}}{the rule permission, either \code{r} (read), \code{w} (write) or \code{a} (administer)}
+
+\item{\code{roles}}{one or more roles to add for the rule}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if added, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GSAccessControlListManager-addServiceRule"></a>}}
+\if{latex}{\out{\hypertarget{method-GSAccessControlListManager-addServiceRule}{}}}
+\subsection{Method \code{addServiceRule()}}{
+Adds an access control service rule
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAccessControlListManager$addServiceRule(
+  service,
+  method,
+  permission = c("r", "w", "a"),
+  roles
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{service}}{service subject to the access control rule, eg. 'wfs'}
+
+\item{\code{method}}{service method subject to the access control rule, eg. 'GetFeature'}
+
+\item{\code{permission}}{the rule permission, either \code{r} (read), \code{w} (write) or \code{a} (administer)}
+
+\item{\code{roles}}{one or more roles to add for the rule}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if added, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GSAccessControlListManager-addRestRule"></a>}}
+\if{latex}{\out{\hypertarget{method-GSAccessControlListManager-addRestRule}{}}}
+\subsection{Method \code{addRestRule()}}{
+Adds an access control rest rule
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAccessControlListManager$addRestRule(
+  pattern,
+  methods,
+  permission = c("r", "w", "a"),
+  roles
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{pattern}}{a URL Ant pattern, only applicable for domain \code{rest}. Default is \code{/**}}
+
+\item{\code{methods}}{HTTP method(s)}
+
+\item{\code{permission}}{the rule permission, either \code{r} (read), \code{w} (write) or \code{a} (administer)}
+
+\item{\code{roles}}{one or more roles to add for the rule}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if added, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GSAccessControlListManager-deleteRule"></a>}}
+\if{latex}{\out{\hypertarget{method-GSAccessControlListManager-deleteRule}{}}}
+\subsection{Method \code{deleteRule()}}{
+Generic method to delete an access control rule
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAccessControlListManager$deleteRule(rule)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{rule}}{object of class \link{GSRule}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if deleted, \code{FALSE} otherwise
 }
 }
 \if{html}{\out{<hr>}}
