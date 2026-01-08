@@ -23,6 +23,10 @@ Emmanuel Blondel \<emmanuel.blondel1@gmail.com\>
 
   root name
 
+- `attrs`:
+
+  attrs
+
 ## Methods
 
 ### Public methods

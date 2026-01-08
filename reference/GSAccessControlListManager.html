@@ -67,6 +67,12 @@ Access Control List (ACL) operations.</p>
 
 <ul><li><p><a href="#method-GSAccessControlListManager-setCatalogMode"><code>GSAccessControlListManager$setCatalogMode()</code></a></p></li>
 <li><p><a href="#method-GSAccessControlListManager-getCatalogMode"><code>GSAccessControlListManager$getCatalogMode()</code></a></p></li>
+<li><p><a href="#method-GSAccessControlListManager-getRules"><code>GSAccessControlListManager$getRules()</code></a></p></li>
+<li><p><a href="#method-GSAccessControlListManager-addRule"><code>GSAccessControlListManager$addRule()</code></a></p></li>
+<li><p><a href="#method-GSAccessControlListManager-addLayerRule"><code>GSAccessControlListManager$addLayerRule()</code></a></p></li>
+<li><p><a href="#method-GSAccessControlListManager-addServiceRule"><code>GSAccessControlListManager$addServiceRule()</code></a></p></li>
+<li><p><a href="#method-GSAccessControlListManager-addRestRule"><code>GSAccessControlListManager$addRestRule()</code></a></p></li>
+<li><p><a href="#method-GSAccessControlListManager-deleteRule"><code>GSAccessControlListManager$deleteRule()</code></a></p></li>
 <li><p><a href="#method-GSAccessControlListManager-clone"><code>GSAccessControlListManager$clone()</code></a></p></li>
 </ul></div><p><details><summary>Inherited methods</summary><ul><li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="ERROR"><a href="GSManager.html#method-ERROR"><code>geosapi::GSManager$ERROR()</code></a></span></li>
 <li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="INFO"><a href="GSManager.html#method-INFO"><code>geosapi::GSManager$INFO()</code></a></span></li>
@@ -119,15 +125,186 @@ Access Control List (ACL) operations.</p>
 <p>the mode either <code>HIDE</code>, <code>MIXED</code> or <code>CHALLENGE</code></p>
 </div>
 
-</div><p></p><hr><a id="method-GSAccessControlListManager-clone"></a><div class="section">
-<h3 id="method-clone-">Method <code>clone()</code><a class="anchor" aria-label="anchor" href="#method-clone-"></a></h3>
-<p>The objects of this class are cloneable with this method.</p><div class="section">
+</div><p></p><hr><a id="method-GSAccessControlListManager-getRules"></a><div class="section">
+<h3 id="method-getrules-">Method <code>getRules()</code><a class="anchor" aria-label="anchor" href="#method-getrules-"></a></h3>
+<p>Get rules</p><div class="section">
 <h4 id="usage-2">Usage<a class="anchor" aria-label="anchor" href="#usage-2"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSAccessControlListManager</span><span class="op">$</span><span class="fu">clone</span><span class="op">(</span>deep <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSAccessControlListManager</span><span class="op">$</span><span class="fu">getRules</span><span class="op">(</span>domain <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"layers"</span>, <span class="st">"services"</span>, <span class="st">"rest"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
 <h4 id="arguments-1">Arguments<a class="anchor" aria-label="anchor" href="#arguments-1"></a></h4>
+<p></p><div class="arguments"><dl><dt><code>domain</code></dt>
+<dd><p>the access control domain</p></dd>
+
+
+</dl><p></p></div>
+</div>
+<div class="section">
+<h4 id="returns-2">Returns<a class="anchor" aria-label="anchor" href="#returns-2"></a></h4>
+<p>the list of rules for a given domain</p>
+</div>
+
+</div><p></p><hr><a id="method-GSAccessControlListManager-addRule"></a><div class="section">
+<h3 id="method-addrule-">Method <code>addRule()</code><a class="anchor" aria-label="anchor" href="#method-addrule-"></a></h3>
+<p>Generic method to add an access control rule</p><div class="section">
+<h4 id="usage-3">Usage<a class="anchor" aria-label="anchor" href="#usage-3"></a></h4>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSAccessControlListManager</span><span class="op">$</span><span class="fu">addRule</span><span class="op">(</span><span class="va">rule</span><span class="op">)</span></span></code></pre></div><p></p></div>
+</div>
+
+<div class="section">
+<h4 id="arguments-2">Arguments<a class="anchor" aria-label="anchor" href="#arguments-2"></a></h4>
+<p></p><div class="arguments"><dl><dt><code>rule</code></dt>
+<dd><p>object of class <a href="GSRule.html">GSRule</a></p></dd>
+
+
+</dl><p></p></div>
+</div>
+<div class="section">
+<h4 id="returns-3">Returns<a class="anchor" aria-label="anchor" href="#returns-3"></a></h4>
+<p><code>TRUE</code> if added, <code>FALSE</code> otherwise</p>
+</div>
+
+</div><p></p><hr><a id="method-GSAccessControlListManager-addLayerRule"></a><div class="section">
+<h3 id="method-addlayerrule-">Method <code>addLayerRule()</code><a class="anchor" aria-label="anchor" href="#method-addlayerrule-"></a></h3>
+<p>Adds an access control layer rule</p><div class="section">
+<h4 id="usage-4">Usage<a class="anchor" aria-label="anchor" href="#usage-4"></a></h4>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSAccessControlListManager</span><span class="op">$</span><span class="fu">addLayerRule</span><span class="op">(</span></span>
+<span>  ws <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  <span class="va">lyr</span>,</span>
+<span>  permission <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"r"</span>, <span class="st">"w"</span>, <span class="st">"a"</span><span class="op">)</span>,</span>
+<span>  <span class="va">roles</span></span>
+<span><span class="op">)</span></span></code></pre></div><p></p></div>
+</div>
+
+<div class="section">
+<h4 id="arguments-3">Arguments<a class="anchor" aria-label="anchor" href="#arguments-3"></a></h4>
+<p></p><div class="arguments"><dl><dt><code>ws</code></dt>
+<dd><p>the resource workspace. Default is <code>NULL</code></p></dd>
+
+
+<dt><code>lyr</code></dt>
+<dd><p>the target layer to which the access control should be added</p></dd>
+
+
+<dt><code>permission</code></dt>
+<dd><p>the rule permission, either <code>r</code> (read), <code>w</code> (write) or <code>a</code> (administer)</p></dd>
+
+
+<dt><code>roles</code></dt>
+<dd><p>one or more roles to add for the rule</p></dd>
+
+
+</dl><p></p></div>
+</div>
+<div class="section">
+<h4 id="returns-4">Returns<a class="anchor" aria-label="anchor" href="#returns-4"></a></h4>
+<p><code>TRUE</code> if added, <code>FALSE</code> otherwise</p>
+</div>
+
+</div><p></p><hr><a id="method-GSAccessControlListManager-addServiceRule"></a><div class="section">
+<h3 id="method-addservicerule-">Method <code>addServiceRule()</code><a class="anchor" aria-label="anchor" href="#method-addservicerule-"></a></h3>
+<p>Adds an access control service rule</p><div class="section">
+<h4 id="usage-5">Usage<a class="anchor" aria-label="anchor" href="#usage-5"></a></h4>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSAccessControlListManager</span><span class="op">$</span><span class="fu">addServiceRule</span><span class="op">(</span></span>
+<span>  <span class="va">service</span>,</span>
+<span>  <span class="va">method</span>,</span>
+<span>  permission <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"r"</span>, <span class="st">"w"</span>, <span class="st">"a"</span><span class="op">)</span>,</span>
+<span>  <span class="va">roles</span></span>
+<span><span class="op">)</span></span></code></pre></div><p></p></div>
+</div>
+
+<div class="section">
+<h4 id="arguments-4">Arguments<a class="anchor" aria-label="anchor" href="#arguments-4"></a></h4>
+<p></p><div class="arguments"><dl><dt><code>service</code></dt>
+<dd><p>service subject to the access control rule, eg. 'wfs'</p></dd>
+
+
+<dt><code>method</code></dt>
+<dd><p>service method subject to the access control rule, eg. 'GetFeature'</p></dd>
+
+
+<dt><code>permission</code></dt>
+<dd><p>the rule permission, either <code>r</code> (read), <code>w</code> (write) or <code>a</code> (administer)</p></dd>
+
+
+<dt><code>roles</code></dt>
+<dd><p>one or more roles to add for the rule</p></dd>
+
+
+</dl><p></p></div>
+</div>
+<div class="section">
+<h4 id="returns-5">Returns<a class="anchor" aria-label="anchor" href="#returns-5"></a></h4>
+<p><code>TRUE</code> if added, <code>FALSE</code> otherwise</p>
+</div>
+
+</div><p></p><hr><a id="method-GSAccessControlListManager-addRestRule"></a><div class="section">
+<h3 id="method-addrestrule-">Method <code>addRestRule()</code><a class="anchor" aria-label="anchor" href="#method-addrestrule-"></a></h3>
+<p>Adds an access control rest rule</p><div class="section">
+<h4 id="usage-6">Usage<a class="anchor" aria-label="anchor" href="#usage-6"></a></h4>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSAccessControlListManager</span><span class="op">$</span><span class="fu">addRestRule</span><span class="op">(</span></span>
+<span>  <span class="va">pattern</span>,</span>
+<span>  <span class="va">methods</span>,</span>
+<span>  permission <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"r"</span>, <span class="st">"w"</span>, <span class="st">"a"</span><span class="op">)</span>,</span>
+<span>  <span class="va">roles</span></span>
+<span><span class="op">)</span></span></code></pre></div><p></p></div>
+</div>
+
+<div class="section">
+<h4 id="arguments-5">Arguments<a class="anchor" aria-label="anchor" href="#arguments-5"></a></h4>
+<p></p><div class="arguments"><dl><dt><code>pattern</code></dt>
+<dd><p>a URL Ant pattern, only applicable for domain <code>rest</code>. Default is <code>/**</code></p></dd>
+
+
+<dt><code>methods</code></dt>
+<dd><p>HTTP method(s)</p></dd>
+
+
+<dt><code>permission</code></dt>
+<dd><p>the rule permission, either <code>r</code> (read), <code>w</code> (write) or <code>a</code> (administer)</p></dd>
+
+
+<dt><code>roles</code></dt>
+<dd><p>one or more roles to add for the rule</p></dd>
+
+
+</dl><p></p></div>
+</div>
+<div class="section">
+<h4 id="returns-6">Returns<a class="anchor" aria-label="anchor" href="#returns-6"></a></h4>
+<p><code>TRUE</code> if added, <code>FALSE</code> otherwise</p>
+</div>
+
+</div><p></p><hr><a id="method-GSAccessControlListManager-deleteRule"></a><div class="section">
+<h3 id="method-deleterule-">Method <code>deleteRule()</code><a class="anchor" aria-label="anchor" href="#method-deleterule-"></a></h3>
+<p>Generic method to delete an access control rule</p><div class="section">
+<h4 id="usage-7">Usage<a class="anchor" aria-label="anchor" href="#usage-7"></a></h4>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSAccessControlListManager</span><span class="op">$</span><span class="fu">deleteRule</span><span class="op">(</span><span class="va">rule</span><span class="op">)</span></span></code></pre></div><p></p></div>
+</div>
+
+<div class="section">
+<h4 id="arguments-6">Arguments<a class="anchor" aria-label="anchor" href="#arguments-6"></a></h4>
+<p></p><div class="arguments"><dl><dt><code>rule</code></dt>
+<dd><p>object of class <a href="GSRule.html">GSRule</a></p></dd>
+
+
+</dl><p></p></div>
+</div>
+<div class="section">
+<h4 id="returns-7">Returns<a class="anchor" aria-label="anchor" href="#returns-7"></a></h4>
+<p><code>TRUE</code> if deleted, <code>FALSE</code> otherwise</p>
+</div>
+
+</div><p></p><hr><a id="method-GSAccessControlListManager-clone"></a><div class="section">
+<h3 id="method-clone-">Method <code>clone()</code><a class="anchor" aria-label="anchor" href="#method-clone-"></a></h3>
+<p>The objects of this class are cloneable with this method.</p><div class="section">
+<h4 id="usage-8">Usage<a class="anchor" aria-label="anchor" href="#usage-8"></a></h4>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSAccessControlListManager</span><span class="op">$</span><span class="fu">clone</span><span class="op">(</span>deep <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><p></p></div>
+</div>
+
+<div class="section">
+<h4 id="arguments-7">Arguments<a class="anchor" aria-label="anchor" href="#arguments-7"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>deep</code></dt>
 <dd><p>Whether to make a deep clone.</p></dd>
 
@@ -149,13 +326,19 @@ Access Control List (ACL) operations.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     ERROR: function (text) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     INFO: function (text) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     WARN: function (text) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     addLayerRule: function (ws = NULL, lyr, permission = c("r", "w", "a"), roles) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     addRestRule: function (pattern, methods, permission = c("r", "w", "a"), roles) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     addRule: function (rule) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     addServiceRule: function (service, method, permission = c("r", "w", "a"), roles) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     clone: function (deep = FALSE) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     connect: function () </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     deleteRule: function (rule) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     getCatalogMode: function () </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     getClassName: function () </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     getCoverageStoreManager: function () </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     getDataStoreManager: function () </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     getNamespaceManager: function () </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     getRules: function (domain = c("layers", "services", "rest")) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     getServiceManager: function () </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     getStyleManager: function () </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     getSystemStatus: function () </span>

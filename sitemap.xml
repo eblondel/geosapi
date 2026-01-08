@@ -28,6 +28,7 @@
 <url><loc>https://eblondel.github.io/geosapi/reference/GSLayer.html</loc></url>
 <url><loc>https://eblondel.github.io/geosapi/reference/GSLayerGroup.html</loc></url>
 <url><loc>https://eblondel.github.io/geosapi/reference/GSLayerManager.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSLayerRule.html</loc></url>
 <url><loc>https://eblondel.github.io/geosapi/reference/GSManager.html</loc></url>
 <url><loc>https://eblondel.github.io/geosapi/reference/GSMetadataLink.html</loc></url>
 <url><loc>https://eblondel.github.io/geosapi/reference/GSMonitorManager.html</loc></url>
@@ -39,7 +40,10 @@
 <url><loc>https://eblondel.github.io/geosapi/reference/GSRESTEntrySet.html</loc></url>
 <url><loc>https://eblondel.github.io/geosapi/reference/GSRESTResource.html</loc></url>
 <url><loc>https://eblondel.github.io/geosapi/reference/GSResource.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSRestRule.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSRule.html</loc></url>
 <url><loc>https://eblondel.github.io/geosapi/reference/GSServiceManager.html</loc></url>
+<url><loc>https://eblondel.github.io/geosapi/reference/GSServiceRule.html</loc></url>
 <url><loc>https://eblondel.github.io/geosapi/reference/GSServiceSettings.html</loc></url>
 <url><loc>https://eblondel.github.io/geosapi/reference/GSShapefileDataStore.html</loc></url>
 <url><loc>https://eblondel.github.io/geosapi/reference/GSShapefileDirectoryDataStore.html</loc></url>

@@ -45,6 +45,8 @@
   : A GeoServer layergroup resource
 - [`GSLayerManager`](https://eblondel.github.io/geosapi/reference/GSLayerManager.md)
   : Geoserver REST API Layer Manager
+- [`GSLayerRule`](https://eblondel.github.io/geosapi/reference/GSLayerRule.md)
+  : A GeoServer access control list layer rule
 - [`GSManager`](https://eblondel.github.io/geosapi/reference/GSManager.md)
   : Geoserver REST API Manager
 - [`GSMetadataLink`](https://eblondel.github.io/geosapi/reference/GSMetadataLink.md)
@@ -67,8 +69,14 @@
   : Geoserver REST API REST Resource interface
 - [`GSResource`](https://eblondel.github.io/geosapi/reference/GSResource.md)
   : A GeoServer abstract resource
+- [`GSRestRule`](https://eblondel.github.io/geosapi/reference/GSRestRule.md)
+  : A GeoServer access control list service rule
+- [`GSRule`](https://eblondel.github.io/geosapi/reference/GSRule.md) : A
+  GeoServer access control list rule
 - [`GSServiceManager`](https://eblondel.github.io/geosapi/reference/GSServiceManager.md)
   : Geoserver REST API Service Manager
+- [`GSServiceRule`](https://eblondel.github.io/geosapi/reference/GSServiceRule.md)
+  : A GeoServer access control list service rule
 - [`GSServiceSettings`](https://eblondel.github.io/geosapi/reference/GSServiceSettings.md)
   : A GeoServer service settings resource
 - [`GSShapefileDataStore`](https://eblondel.github.io/geosapi/reference/GSShapefileDataStore.md)
