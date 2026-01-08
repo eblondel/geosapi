@@ -142,11 +142,11 @@ GSManager <- R6Class("GSManager",
             } 
           }
         }
+        
+        #inherit GeoServer version
+        self$version <- GSVersion$new(baseUrl, user, pwd)
       }
-      
-      #inherit GeoServer version
-      self$version <- GSVersion$new(baseUrl, user, pwd)
-      
+    
       invisible(self)
       
     },

@@ -1,3 +1,7 @@
+## [geosapi 0.8](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
+
+* [#77](https://github.com/eblondel/geosapi/issues/77) Fetch Geoserver version only once
+
 ## [geosapi 0.7-2](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
 
 Fix Rdoc requested by CRAN
