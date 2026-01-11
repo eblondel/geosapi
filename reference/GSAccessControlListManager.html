@@ -72,6 +72,7 @@ Access Control List (ACL) operations.</p>
 <li><p><a href="#method-GSAccessControlListManager-addLayerRule"><code>GSAccessControlListManager$addLayerRule()</code></a></p></li>
 <li><p><a href="#method-GSAccessControlListManager-addServiceRule"><code>GSAccessControlListManager$addServiceRule()</code></a></p></li>
 <li><p><a href="#method-GSAccessControlListManager-addRestRule"><code>GSAccessControlListManager$addRestRule()</code></a></p></li>
+<li><p><a href="#method-GSAccessControlListManager-modifyRule"><code>GSAccessControlListManager$modifyRule()</code></a></p></li>
 <li><p><a href="#method-GSAccessControlListManager-deleteRule"><code>GSAccessControlListManager$deleteRule()</code></a></p></li>
 <li><p><a href="#method-GSAccessControlListManager-clone"><code>GSAccessControlListManager$clone()</code></a></p></li>
 </ul></div><p><details><summary>Inherited methods</summary><ul><li><span class="pkg-link" data-pkg="geosapi" data-topic="GSManager" data-id="ERROR"><a href="GSManager.html#method-ERROR"><code>geosapi::GSManager$ERROR()</code></a></span></li>
@@ -276,11 +277,11 @@ Access Control List (ACL) operations.</p>
 <p><code>TRUE</code> if added, <code>FALSE</code> otherwise</p>
 </div>
 
-</div><p></p><hr><a id="method-GSAccessControlListManager-deleteRule"></a><div class="section">
-<h3 id="method-deleterule-">Method <code>deleteRule()</code><a class="anchor" aria-label="anchor" href="#method-deleterule-"></a></h3>
-<p>Generic method to delete an access control rule</p><div class="section">
+</div><p></p><hr><a id="method-GSAccessControlListManager-modifyRule"></a><div class="section">
+<h3 id="method-modifyrule-">Method <code>modifyRule()</code><a class="anchor" aria-label="anchor" href="#method-modifyrule-"></a></h3>
+<p>Generic method to modify an access control rule</p><div class="section">
 <h4 id="usage-7">Usage<a class="anchor" aria-label="anchor" href="#usage-7"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSAccessControlListManager</span><span class="op">$</span><span class="fu">deleteRule</span><span class="op">(</span><span class="va">rule</span><span class="op">)</span></span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSAccessControlListManager</span><span class="op">$</span><span class="fu">modifyRule</span><span class="op">(</span><span class="va">rule</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
@@ -293,18 +294,38 @@ Access Control List (ACL) operations.</p>
 </div>
 <div class="section">
 <h4 id="returns-7">Returns<a class="anchor" aria-label="anchor" href="#returns-7"></a></h4>
+<p><code>TRUE</code> if modified, <code>FALSE</code> otherwise</p>
+</div>
+
+</div><p></p><hr><a id="method-GSAccessControlListManager-deleteRule"></a><div class="section">
+<h3 id="method-deleterule-">Method <code>deleteRule()</code><a class="anchor" aria-label="anchor" href="#method-deleterule-"></a></h3>
+<p>Generic method to delete an access control rule</p><div class="section">
+<h4 id="usage-8">Usage<a class="anchor" aria-label="anchor" href="#usage-8"></a></h4>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSAccessControlListManager</span><span class="op">$</span><span class="fu">deleteRule</span><span class="op">(</span><span class="va">rule</span><span class="op">)</span></span></code></pre></div><p></p></div>
+</div>
+
+<div class="section">
+<h4 id="arguments-7">Arguments<a class="anchor" aria-label="anchor" href="#arguments-7"></a></h4>
+<p></p><div class="arguments"><dl><dt><code>rule</code></dt>
+<dd><p>object of class <a href="GSRule.html">GSRule</a></p></dd>
+
+
+</dl><p></p></div>
+</div>
+<div class="section">
+<h4 id="returns-8">Returns<a class="anchor" aria-label="anchor" href="#returns-8"></a></h4>
 <p><code>TRUE</code> if deleted, <code>FALSE</code> otherwise</p>
 </div>
 
 </div><p></p><hr><a id="method-GSAccessControlListManager-clone"></a><div class="section">
 <h3 id="method-clone-">Method <code>clone()</code><a class="anchor" aria-label="anchor" href="#method-clone-"></a></h3>
 <p>The objects of this class are cloneable with this method.</p><div class="section">
-<h4 id="usage-8">Usage<a class="anchor" aria-label="anchor" href="#usage-8"></a></h4>
+<h4 id="usage-9">Usage<a class="anchor" aria-label="anchor" href="#usage-9"></a></h4>
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">GSAccessControlListManager</span><span class="op">$</span><span class="fu">clone</span><span class="op">(</span>deep <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
-<h4 id="arguments-7">Arguments<a class="anchor" aria-label="anchor" href="#arguments-7"></a></h4>
+<h4 id="arguments-8">Arguments<a class="anchor" aria-label="anchor" href="#arguments-8"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>deep</code></dt>
 <dd><p>Whether to make a deep clone.</p></dd>
 
@@ -347,6 +368,7 @@ Access Control List (ACL) operations.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     initialize: function (url, user, pwd, logger = NULL, keyring_backend = "env") </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     logger: function (type, text) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     loggerType: NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     modifyRule: function (rule) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     monitor: function (file = NULL, append = FALSE, sleep = 1) </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     reload: function () </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     setCatalogMode: function (mode = c("HIDE", "MIXED", "CHALLENGE")) </span>

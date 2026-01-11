@@ -40,6 +40,8 @@ Emmanuel Blondel \<emmanuel.blondel1@gmail.com\>
 
 - [`GSAccessControlListManager$addRestRule()`](#method-GSAccessControlListManager-addRestRule)
 
+- [`GSAccessControlListManager$modifyRule()`](#method-GSAccessControlListManager-modifyRule)
+
 - [`GSAccessControlListManager$deleteRule()`](#method-GSAccessControlListManager-deleteRule)
 
 - [`GSAccessControlListManager$clone()`](#method-GSAccessControlListManager-clone)
@@ -257,6 +259,27 @@ Adds an access control rest rule
 
 ------------------------------------------------------------------------
 
+### Method `modifyRule()`
+
+Generic method to modify an access control rule
+
+#### Usage
+
+    GSAccessControlListManager$modifyRule(rule)
+
+#### Arguments
+
+- `rule`:
+
+  object of class
+  [GSRule](https://eblondel.github.io/geosapi/reference/GSRule.md)
+
+#### Returns
+
+`TRUE` if modified, `FALSE` otherwise
+
+------------------------------------------------------------------------
+
 ### Method `deleteRule()`
 
 Generic method to delete an access control rule
@@ -324,6 +347,7 @@ The objects of this class are cloneable with this method.
 #>     initialize: function (url, user, pwd, logger = NULL, keyring_backend = "env") 
 #>     logger: function (type, text) 
 #>     loggerType: NULL
+#>     modifyRule: function (rule) 
 #>     monitor: function (file = NULL, append = FALSE, sleep = 1) 
 #>     reload: function () 
 #>     setCatalogMode: function (mode = c("HIDE", "MIXED", "CHALLENGE")) 
