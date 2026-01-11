@@ -45,6 +45,7 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \item \href{#method-GSAccessControlListManager-addLayerRule}{\code{GSAccessControlListManager$addLayerRule()}}
 \item \href{#method-GSAccessControlListManager-addServiceRule}{\code{GSAccessControlListManager$addServiceRule()}}
 \item \href{#method-GSAccessControlListManager-addRestRule}{\code{GSAccessControlListManager$addRestRule()}}
+\item \href{#method-GSAccessControlListManager-modifyRule}{\code{GSAccessControlListManager$modifyRule()}}
 \item \href{#method-GSAccessControlListManager-deleteRule}{\code{GSAccessControlListManager$deleteRule()}}
 \item \href{#method-GSAccessControlListManager-clone}{\code{GSAccessControlListManager$clone()}}
 }
@@ -238,6 +239,26 @@ Adds an access control rest rule
 }
 \subsection{Returns}{
 \code{TRUE} if added, \code{FALSE} otherwise
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GSAccessControlListManager-modifyRule"></a>}}
+\if{latex}{\out{\hypertarget{method-GSAccessControlListManager-modifyRule}{}}}
+\subsection{Method \code{modifyRule()}}{
+Generic method to modify an access control rule
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAccessControlListManager$modifyRule(rule)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{rule}}{object of class \link{GSRule}}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Returns}{
+\code{TRUE} if modified, \code{FALSE} otherwise
 }
 }
 \if{html}{\out{<hr>}}

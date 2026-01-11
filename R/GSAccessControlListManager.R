@@ -255,6 +255,54 @@ GSAccessControlListManager <- R6Class("GSAccessControlListManager",
       
     },
     
+    #'@description Generic method to modify an access control rule
+    #'@param rule object of class \link{GSRule}
+    #'@return \code{TRUE} if modified, \code{FALSE} otherwise
+    modifyRule = function(rule){
+      
+      if(!is(rule, "GSRule")){
+        msg = "Argument 'rule' should be an object of class 'GSLayerRule', 'GSServiceRule', or 'GSRestRule'"
+        cli::cli_alert_danger(msg)
+        self$ERROR(msg)
+        stop(msg)
+      }
+      
+      domain <- switch(class(rule)[1],
+                       "GSLayerRule" = "layers",
+                       "GSServiceRule" = "services",
+                       "GSRestRule" = "rest"
+      )
+      
+      msg = sprintf("Modify %s rule for resource '%s'", domain, rule$attrs$resource)
+      cli::cli_alert_info(msg)
+      self$INFO(msg)
+      
+      modified <- FALSE
+      req <- GSUtils$PUT(
+        url = self$getUrl(), user = private$user,
+        pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
+        path = sprintf("/security/acl/%s.xml", domain),
+        content = {
+          xml = xml2::xml_new_root("rules")
+          xml2::xml_add_child(xml, rule$encode())
+          gsub("[\r\n ] ", "", as(xml, "character"))
+        },
+        contentType = "application/xml",
+        verbose = self$verbose.debug
+      )
+      if(status_code(req) == 200){
+        msg = "Successfuly modified access control rule!"
+        cli::cli_alert_success(msg)
+        self$INFO(msg)
+        modified = TRUE
+      }else{
+        err = "Error while modifying access control rule"
+        cli::cli_alert_danger(err)
+        self$ERROR(err)
+      }
+      return(modified)
+    },
+    
     #'@description Generic method to delete an access control rule
     #'@param rule object of class \link{GSRule}
     #'@return \code{TRUE} if deleted, \code{FALSE} otherwise
