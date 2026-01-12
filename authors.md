@@ -8,7 +8,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/eblondel/geosapi/blob/master/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/eblondel/geosapi/blob/v0.8/DESCRIPTION)
 
 Blondel E (2026). *geosapi: GeoServer REST API R Interface*. R package
 version 0.8, <https://github.com/eblondel/geosapi>.

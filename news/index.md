@@ -2,6 +2,8 @@
 
 ## [geosapi 0.8](https://cran.r-project.org/package=geosapi) \| [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
 
+CRAN release: 2026-01-12
+
 **Enhancements**
 
 - [\#77](https://github.com/eblondel/geosapi/issues/77) Fetch Geoserver
