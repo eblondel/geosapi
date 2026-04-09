@@ -322,13 +322,13 @@ GSAccessControlListManager <- R6Class("GSAccessControlListManager",
       
       resource = rule$attrs$resource
       
-      msg = sprintf("Deleting access control rule for '%s'", gsub(":",";",resource))
+      msg = sprintf("Deleting access control rule for '%s'", resource)
       cli::cli_alert_info(msg)
       self$INFO(msg)
      
       deleted <- FALSE
       if(domain == "rest"){
-        resource = gsub("/", URLencode("/",reserved = T), resource)
+        resource = gsub("/", URLencode("/",reserved = T), gsub(":",";",resource))
       }
       path <- sprintf("/security/acl/%s/%s", domain, resource)
       req <- GSUtils$DELETE(self$getUrl(), private$user, 
