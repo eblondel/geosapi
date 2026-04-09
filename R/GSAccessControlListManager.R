@@ -268,11 +268,15 @@ GSAccessControlListManager <- R6Class("GSAccessControlListManager",
                        "GSRestRule" = "rest"
       )
       
-      msg = sprintf("Modify %s rule for resource '%s'", domain, rule$attrs$resource)
+      resource = rule$attrs$resource
+      msg = sprintf("Modify %s rule for resource '%s'", domain, resource)
       cli::cli_alert_info(msg)
       self$INFO(msg)
       
       modified <- FALSE
+      if(domain == "rest"){
+        resource = gsub("/", URLencode("/",reserved = T), resource)
+      }
       req <- GSUtils$PUT(
         url = self$getUrl(), user = private$user,
         pwd = private$keyring_backend$get(service = private$keyring_service, username = private$user),
