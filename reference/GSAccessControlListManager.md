@@ -317,7 +317,7 @@ The objects of this class are cloneable with this method.
 #>     INFO: function (text) 
 #>     WARN: function (text) 
 #>     addLayerRule: function (ws = NULL, lyr, permission = c("r", "w", "a"), roles) 
-#>     addRestRule: function (pattern, methods, roles) 
+#>     addRestRule: function (pattern = "/**", methods, roles) 
 #>     addRule: function (rule) 
 #>     addServiceRule: function (service, method, permission = c("r", "w", "a"), roles) 
 #>     clone: function (deep = FALSE) 
