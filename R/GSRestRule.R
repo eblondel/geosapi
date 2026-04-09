@@ -34,7 +34,7 @@ GSRestRule <- R6Class("GSRestRule",
          self$decode(xml)
        }else{
          pat = pattern
-         res_str = sprintf("%s;%s", pat, paste0(methods, collapse = ","))
+         res_str = sprintf("%s:%s", pat, paste0(methods, collapse = ","))
          self$attrs$resource = res_str
          self$roles = roles
        }

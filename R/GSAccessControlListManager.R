@@ -275,7 +275,7 @@ GSAccessControlListManager <- R6Class("GSAccessControlListManager",
       
       modified <- FALSE
       if(domain == "rest"){
-        resource = gsub("/", URLencode("/",reserved = T), resource)
+        resource = gsub("/", URLencode("/",reserved = T), gsub(":",";",resource))
       }
       req <- GSUtils$PUT(
         url = self$getUrl(), user = private$user,
@@ -322,7 +322,7 @@ GSAccessControlListManager <- R6Class("GSAccessControlListManager",
       
       resource = rule$attrs$resource
       
-      msg = sprintf("Deleting access control rule for '%s'", resource)
+      msg = sprintf("Deleting access control rule for '%s'", gsub(":",";",resource))
       cli::cli_alert_info(msg)
       self$INFO(msg)
      
