@@ -56,13 +56,7 @@ Initializes a
 
 #### Usage
 
-    GSRestRule$new(
-      xml = NULL,
-      pattern,
-      methods,
-      permission = c("r", "w", "a"),
-      roles
-    )
+    GSRestRule$new(xml = NULL, pattern = "/**", methods, roles)
 
 #### Arguments
 
@@ -78,11 +72,6 @@ Initializes a
 - `methods`:
 
   HTTP method(s)
-
-- `permission`:
-
-  the rule permission, either `r` (read), `w` (write) or `a`
-  (administer)
 
 - `roles`:
 

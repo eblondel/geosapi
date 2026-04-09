@@ -227,12 +227,7 @@ Adds an access control rest rule
 
 #### Usage
 
-    GSAccessControlListManager$addRestRule(
-      pattern,
-      methods,
-      permission = c("r", "w", "a"),
-      roles
-    )
+    GSAccessControlListManager$addRestRule(pattern, methods, roles)
 
 #### Arguments
 
@@ -243,11 +238,6 @@ Adds an access control rest rule
 - `methods`:
 
   HTTP method(s)
-
-- `permission`:
-
-  the rule permission, either `r` (read), `w` (write) or `a`
-  (administer)
 
 - `roles`:
 
@@ -327,7 +317,7 @@ The objects of this class are cloneable with this method.
 #>     INFO: function (text) 
 #>     WARN: function (text) 
 #>     addLayerRule: function (ws = NULL, lyr, permission = c("r", "w", "a"), roles) 
-#>     addRestRule: function (pattern, methods, permission = c("r", "w", "a"), roles) 
+#>     addRestRule: function (pattern, methods, roles) 
 #>     addRule: function (rule) 
 #>     addServiceRule: function (service, method, permission = c("r", "w", "a"), roles) 
 #>     clone: function (deep = FALSE) 

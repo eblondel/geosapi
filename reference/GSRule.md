@@ -53,7 +53,7 @@ Initializes a GSRule
 
 #### Usage
 
-    GSRule$new(xml = NULL, domain = c("layers", "services", "rest"))
+    GSRule$new(xml = NULL)
 
 #### Arguments
 
@@ -61,10 +61,6 @@ Initializes a GSRule
 
   an object of class
   [xml_node-class](http://xml2.r-lib.org/reference/oldclass.md)
-
-- `domain`:
-
-  the access control domain
 
 ------------------------------------------------------------------------
 
