@@ -31,7 +31,7 @@ GSServiceRule <- R6Class("GSServiceRule",
                            service, method,
                            permission = c("r","w","a"),
                            roles){
-       super$initialize(xml = xml, domain = "layers")
+       super$initialize(xml = xml)
        permission = match.arg(permission)
        if(!missing(xml) & !is.null(xml)){
          self$decode(xml)

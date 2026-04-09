@@ -235,7 +235,6 @@ GSAccessControlListManager <- R6Class("GSAccessControlListManager",
     #'@description Adds an access control rest rule
     #'@param pattern a URL Ant pattern, only applicable for domain \code{rest}. Default is \code{/**}
     #'@param methods HTTP method(s)
-    #'@param permission the rule permission, either \code{r} (read), \code{w} (write) or \code{a} (administer)
     #'@param roles one or more roles to add for the rule
     #'@return \code{TRUE} if added, \code{FALSE} otherwise
     addRestRule = function(
@@ -243,11 +242,8 @@ GSAccessControlListManager <- R6Class("GSAccessControlListManager",
       permission = c("r","w","a"), 
       roles){
       
-      permission = match.arg(permission)
-      
       rule <- GSRestRule$new(
         pattern = pattern, methods = methods,
-        permission = permission,
         roles = roles
       )
       

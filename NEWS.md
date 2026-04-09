@@ -1,3 +1,9 @@
+## [geosapi 0.8-1](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
+
+**Enhancements**
+
+* [#78](https://github.com/eblondel/geosapi/issues/78) Consolidate ACL management methods 
+
 ## [geosapi 0.8](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
 
 **Enhancements**
@@ -8,17 +14,17 @@
 
 * [#76](https://github.com/eblondel/geosapi/issues/76) Implement Access Control List manager
 
-## [geosapi 0.7-2](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
+## [geosapi 0.7-2](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.7-2.tar.gz) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.7-2.tar.gz)
 
 Fix Rdoc requested by CRAN
 
-## [geosapi 0.7-1](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
+## [geosapi 0.7-1](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.7-1.tar.gz) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.7-1.tar.gz)
 
 **Corrections**
 
 * [#73](https://github.com/eblondel/geosapi/issues/73) Bad XML encoding for entryset
 
-## [geosapi 0.7](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
+## [geosapi 0.7](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.7.tar.gz) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.7.tar.gz)
 
 **Enhancements**
 
@@ -31,7 +37,7 @@ Fix Rdoc requested by CRAN
 * [#67](https://github.com/eblondel/geosapi/issues/67) Support filename arg for GET methods
 * [#68](https://github.com/eblondel/geosapi/issues/68) Support custom printer for `geosapi` objects
 
-## [geosapi 0.6-7](https://cran.r-project.org/package=geosapi) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
+## [geosapi 0.6-7](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.6-7.tar.gz) | [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/src/contrib/Archive/geosapi/geosapi_0.6-7.tar.gz)
 
 **Bug fixes**
 

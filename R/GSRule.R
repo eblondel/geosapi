@@ -22,9 +22,7 @@ GSRule <- R6Class("GSRule",
    
    #'@description Initializes a \link{GSRule}
    #'@param xml an object of class \link[xml2]{xml_node-class}
-   #'@param domain the access control domain
-   initialize = function(xml = NULL, domain = c("layers", "services", "rest")){
-     domain = match.arg(domain)
+   initialize = function(xml = NULL){
      super$initialize(rootName = "rule")
    },
    
