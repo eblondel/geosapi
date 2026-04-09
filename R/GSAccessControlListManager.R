@@ -238,7 +238,7 @@ GSAccessControlListManager <- R6Class("GSAccessControlListManager",
     #'@param roles one or more roles to add for the rule
     #'@return \code{TRUE} if added, \code{FALSE} otherwise
     addRestRule = function(
-      pattern, methods,
+      pattern = "/**", methods,
       roles){
       
       rule <- GSRestRule$new(
