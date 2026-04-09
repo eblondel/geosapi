@@ -54,15 +54,13 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \subsection{Method \code{new()}}{
 Initializes a \link{GSRule}
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GSRule$new(xml = NULL, domain = c("layers", "services", "rest"))}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GSRule$new(xml = NULL)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{xml}}{an object of class \link[xml2]{xml_node-class}}
-
-\item{\code{domain}}{the access control domain}
 }
 \if{html}{\out{</div>}}
 }

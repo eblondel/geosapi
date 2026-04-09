@@ -58,13 +58,7 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \subsection{Method \code{new()}}{
 Initializes a \link{GSLayerRule}
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GSRestRule$new(
-  xml = NULL,
-  pattern,
-  methods,
-  permission = c("r", "w", "a"),
-  roles
-)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GSRestRule$new(xml = NULL, pattern = "/**", methods, roles)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -75,8 +69,6 @@ Initializes a \link{GSLayerRule}
 \item{\code{pattern}}{a URL Ant pattern, only applicable for domain \code{rest}. Default is \code{/**}}
 
 \item{\code{methods}}{HTTP method(s)}
-
-\item{\code{permission}}{the rule permission, either \code{r} (read), \code{w} (write) or \code{a} (administer)}
 
 \item{\code{roles}}{one or more roles to add for the rule}
 }

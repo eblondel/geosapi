@@ -216,12 +216,7 @@ Adds an access control service rule
 \subsection{Method \code{addRestRule()}}{
 Adds an access control rest rule
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GSAccessControlListManager$addRestRule(
-  pattern,
-  methods,
-  permission = c("r", "w", "a"),
-  roles
-)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GSAccessControlListManager$addRestRule(pattern, methods, roles)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -230,8 +225,6 @@ Adds an access control rest rule
 \item{\code{pattern}}{a URL Ant pattern, only applicable for domain \code{rest}. Default is \code{/**}}
 
 \item{\code{methods}}{HTTP method(s)}
-
-\item{\code{permission}}{the rule permission, either \code{r} (read), \code{w} (write) or \code{a} (administer)}
 
 \item{\code{roles}}{one or more roles to add for the rule}
 }

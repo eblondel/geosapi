@@ -27,14 +27,13 @@ GSRestRule <- R6Class("GSRestRule",
      #'@param methods HTTP method(s)
      #'@param roles one or more roles to add for the rule
      initialize = function(xml = NULL,
-                           pattern, methods,
+                           pattern = "/**", methods,
                            roles){
        super$initialize(xml = xml)
        if(!missing(xml) & !is.null(xml)){
          self$decode(xml)
        }else{
          pat = pattern
-         if(is.null(pattern)) pat = "/**"
          res_str = sprintf("%s:%s", pat, paste0(methods, collapse = ","))
          self$attrs$resource = res_str
          self$roles = roles
