@@ -41,6 +41,9 @@ Emmanuel Blondel <emmanuel.blondel1@gmail.com>
 \item \href{#method-GSAccessControlListManager-setCatalogMode}{\code{GSAccessControlListManager$setCatalogMode()}}
 \item \href{#method-GSAccessControlListManager-getCatalogMode}{\code{GSAccessControlListManager$getCatalogMode()}}
 \item \href{#method-GSAccessControlListManager-getRules}{\code{GSAccessControlListManager$getRules()}}
+\item \href{#method-GSAccessControlListManager-getLayerRules}{\code{GSAccessControlListManager$getLayerRules()}}
+\item \href{#method-GSAccessControlListManager-getServiceRules}{\code{GSAccessControlListManager$getServiceRules()}}
+\item \href{#method-GSAccessControlListManager-getRestRules}{\code{GSAccessControlListManager$getRestRules()}}
 \item \href{#method-GSAccessControlListManager-addRule}{\code{GSAccessControlListManager$addRule()}}
 \item \href{#method-GSAccessControlListManager-addLayerRule}{\code{GSAccessControlListManager$addLayerRule()}}
 \item \href{#method-GSAccessControlListManager-addServiceRule}{\code{GSAccessControlListManager$addServiceRule()}}
@@ -126,6 +129,45 @@ Get rules
 }
 \subsection{Returns}{
 the list of rules for a given domain
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GSAccessControlListManager-getLayerRules"></a>}}
+\if{latex}{\out{\hypertarget{method-GSAccessControlListManager-getLayerRules}{}}}
+\subsection{Method \code{getLayerRules()}}{
+Method to get the list of 'layers' rules
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAccessControlListManager$getLayerRules()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+the list of 'layers' rules
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GSAccessControlListManager-getServiceRules"></a>}}
+\if{latex}{\out{\hypertarget{method-GSAccessControlListManager-getServiceRules}{}}}
+\subsection{Method \code{getServiceRules()}}{
+Method to get the list of 'services' rules
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAccessControlListManager$getServiceRules()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+the list of 'services' rules
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GSAccessControlListManager-getRestRules"></a>}}
+\if{latex}{\out{\hypertarget{method-GSAccessControlListManager-getRestRules}{}}}
+\subsection{Method \code{getRestRules()}}{
+Method to get the list of 'rest' rules
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GSAccessControlListManager$getRestRules()}\if{html}{\out{</div>}}
+}
+
+\subsection{Returns}{
+the list of 'rest' rules
 }
 }
 \if{html}{\out{<hr>}}
@@ -216,7 +258,7 @@ Adds an access control service rule
 \subsection{Method \code{addRestRule()}}{
 Adds an access control rest rule
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GSAccessControlListManager$addRestRule(pattern, methods, roles)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GSAccessControlListManager$addRestRule(pattern = "/**", methods, roles)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{

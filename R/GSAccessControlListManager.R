@@ -117,6 +117,24 @@ GSAccessControlListManager <- R6Class("GSAccessControlListManager",
       return(rules)
     },
     
+    #'@description Method to get the list of 'layers' rules
+    #'@return the list of 'layers' rules
+    getLayerRules = function(){
+      self$getRules(domain = 'layers')
+    },
+    
+    #'@description Method to get the list of 'services' rules
+    #'@return the list of 'services' rules
+    getServiceRules = function(){
+      self$getRules(domain = 'services')
+    },
+    
+    #'@description Method to get the list of 'rest' rules
+    #'@return the list of 'rest' rules
+    getRestRules = function(){
+      self$getRules(domain = 'rest')
+    },
+    
     #'@description Generic method to add an access control rule
     #'@param rule object of class \link{GSRule}
     #'@return \code{TRUE} if added, \code{FALSE} otherwise
