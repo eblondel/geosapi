@@ -135,6 +135,40 @@ GSAccessControlListManager <- R6Class("GSAccessControlListManager",
       self$getRules(domain = 'rest')
     },
     
+    #'@description Method to get a rule by resource
+    #'@param domain the access control domain
+    #'@param resource resource
+    #'@return an object of class \link{GSRule} or \code{NULL} if no rule is found
+    getRule = function(domain = c("layers", "services", "rest"), resource){
+      out = NULL
+      domain = match.arg(domain)
+      rules = self$getRules(domain = domain)
+      rules = rules[sapply(rules, function(x){x$attrs$resource == resource})]
+      if(length(rules)>0) out = rules[[1]]
+      return(out)
+    },
+    
+    #'@description Method to get a 'layers' rule
+    #'@param resource resource
+    #'@return an object of class \link{GSLayerRule} or \code{NULL} if no rule is found
+    getLayerRule = function(resource){
+      self$getRule(domain = 'layers', resource = resource)
+    },
+    
+    #'@description Method to get a 'services' rule
+    #'@param resource resource
+    #'@return an object of class \link{GSServiceRule} or \code{NULL} if no rule is found
+    getServiceRule = function(resource){
+      self$getRule(domain = 'services', resource = resource)
+    },
+    
+    #'@description Method to get a 'rest' rule
+    #'@param resource resource
+    #'@return an object of class \link{GSRestRule} or \code{NULL} if no rule is found
+    getRestRule = function(resource){
+      self$getRule(domain = 'rest', resource = resource)
+    },
+    
     #'@description Generic method to add an access control rule
     #'@param rule object of class \link{GSRule}
     #'@return \code{TRUE} if added, \code{FALSE} otherwise
