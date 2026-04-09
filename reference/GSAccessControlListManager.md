@@ -38,6 +38,14 @@ Emmanuel Blondel \<emmanuel.blondel1@gmail.com\>
 
 - [`GSAccessControlListManager$getRestRules()`](#method-GSAccessControlListManager-getRestRules)
 
+- [`GSAccessControlListManager$getRule()`](#method-GSAccessControlListManager-getRule)
+
+- [`GSAccessControlListManager$getLayerRule()`](#method-GSAccessControlListManager-getLayerRule)
+
+- [`GSAccessControlListManager$getServiceRule()`](#method-GSAccessControlListManager-getServiceRule)
+
+- [`GSAccessControlListManager$getRestRule()`](#method-GSAccessControlListManager-getRestRule)
+
 - [`GSAccessControlListManager$addRule()`](#method-GSAccessControlListManager-addRule)
 
 - [`GSAccessControlListManager$addLayerRule()`](#method-GSAccessControlListManager-addLayerRule)
@@ -169,6 +177,101 @@ Method to get the list of 'rest' rules
 #### Returns
 
 the list of 'rest' rules
+
+------------------------------------------------------------------------
+
+### Method `getRule()`
+
+Method to get a rule by resource
+
+#### Usage
+
+    GSAccessControlListManager$getRule(
+      domain = c("layers", "services", "rest"),
+      resource
+    )
+
+#### Arguments
+
+- `domain`:
+
+  the access control domain
+
+- `resource`:
+
+  resource
+
+#### Returns
+
+an object of class
+[GSRule](https://eblondel.github.io/geosapi/reference/GSRule.md) or
+`NULL` if no rule is found
+
+------------------------------------------------------------------------
+
+### Method `getLayerRule()`
+
+Method to get a 'layers' rule
+
+#### Usage
+
+    GSAccessControlListManager$getLayerRule(resource)
+
+#### Arguments
+
+- `resource`:
+
+  resource
+
+#### Returns
+
+an object of class
+[GSLayerRule](https://eblondel.github.io/geosapi/reference/GSLayerRule.md)
+or `NULL` if no rule is found
+
+------------------------------------------------------------------------
+
+### Method `getServiceRule()`
+
+Method to get a 'services' rule
+
+#### Usage
+
+    GSAccessControlListManager$getServiceRule(resource)
+
+#### Arguments
+
+- `resource`:
+
+  resource
+
+#### Returns
+
+an object of class
+[GSServiceRule](https://eblondel.github.io/geosapi/reference/GSServiceRule.md)
+or `NULL` if no rule is found
+
+------------------------------------------------------------------------
+
+### Method `getRestRule()`
+
+Method to get a 'rest' rule
+
+#### Usage
+
+    GSAccessControlListManager$getRestRule(resource)
+
+#### Arguments
+
+- `resource`:
+
+  resource
+
+#### Returns
+
+an object of class
+[GSRestRule](https://eblondel.github.io/geosapi/reference/GSRestRule.md)
+or `NULL` if no rule is found
 
 ------------------------------------------------------------------------
 
@@ -375,11 +478,15 @@ The objects of this class are cloneable with this method.
 #>     getClassName: function () 
 #>     getCoverageStoreManager: function () 
 #>     getDataStoreManager: function () 
+#>     getLayerRule: function (resource) 
 #>     getLayerRules: function () 
 #>     getNamespaceManager: function () 
+#>     getRestRule: function (resource) 
 #>     getRestRules: function () 
+#>     getRule: function (domain = c("layers", "services", "rest"), resource) 
 #>     getRules: function (domain = c("layers", "services", "rest")) 
 #>     getServiceManager: function () 
+#>     getServiceRule: function (resource) 
 #>     getServiceRules: function () 
 #>     getStyleManager: function () 
 #>     getSystemStatus: function () 
