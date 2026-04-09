@@ -32,6 +32,12 @@ Emmanuel Blondel \<emmanuel.blondel1@gmail.com\>
 
 - [`GSAccessControlListManager$getRules()`](#method-GSAccessControlListManager-getRules)
 
+- [`GSAccessControlListManager$getLayerRules()`](#method-GSAccessControlListManager-getLayerRules)
+
+- [`GSAccessControlListManager$getServiceRules()`](#method-GSAccessControlListManager-getServiceRules)
+
+- [`GSAccessControlListManager$getRestRules()`](#method-GSAccessControlListManager-getRestRules)
+
 - [`GSAccessControlListManager$addRule()`](#method-GSAccessControlListManager-addRule)
 
 - [`GSAccessControlListManager$addLayerRule()`](#method-GSAccessControlListManager-addLayerRule)
@@ -121,6 +127,48 @@ Get rules
 #### Returns
 
 the list of rules for a given domain
+
+------------------------------------------------------------------------
+
+### Method `getLayerRules()`
+
+Method to get the list of 'layers' rules
+
+#### Usage
+
+    GSAccessControlListManager$getLayerRules()
+
+#### Returns
+
+the list of 'layers' rules
+
+------------------------------------------------------------------------
+
+### Method `getServiceRules()`
+
+Method to get the list of 'services' rules
+
+#### Usage
+
+    GSAccessControlListManager$getServiceRules()
+
+#### Returns
+
+the list of 'services' rules
+
+------------------------------------------------------------------------
+
+### Method `getRestRules()`
+
+Method to get the list of 'rest' rules
+
+#### Usage
+
+    GSAccessControlListManager$getRestRules()
+
+#### Returns
+
+the list of 'rest' rules
 
 ------------------------------------------------------------------------
 
@@ -227,7 +275,7 @@ Adds an access control rest rule
 
 #### Usage
 
-    GSAccessControlListManager$addRestRule(pattern, methods, roles)
+    GSAccessControlListManager$addRestRule(pattern = "/**", methods, roles)
 
 #### Arguments
 
@@ -327,9 +375,12 @@ The objects of this class are cloneable with this method.
 #>     getClassName: function () 
 #>     getCoverageStoreManager: function () 
 #>     getDataStoreManager: function () 
+#>     getLayerRules: function () 
 #>     getNamespaceManager: function () 
+#>     getRestRules: function () 
 #>     getRules: function (domain = c("layers", "services", "rest")) 
 #>     getServiceManager: function () 
+#>     getServiceRules: function () 
 #>     getStyleManager: function () 
 #>     getSystemStatus: function () 
 #>     getUrl: function () 
