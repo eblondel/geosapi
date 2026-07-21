@@ -215,7 +215,7 @@ not removed. To remove all coverage store layers, set this option to
 TRUE. The `purge` parameter is used to customize the delete of files on
 disk (in case the underlying reader implements a delete method). It can
 take one of the three values: none, metadata, all. For more details see
-<https://docs.geoserver.org/stable/en/user/rest/api/coveragestores.html#purge>
+<https://docs.geoserver.org/main/en/user/rest/api/coveragestores/#rest_api_coveragestores_purge>
 
 #### Usage
 

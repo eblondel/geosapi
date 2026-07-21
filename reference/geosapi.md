@@ -7,7 +7,7 @@ Web-Services. The package currently supports all CRUD
 namespaces, datastores (stores of vector data), featuretypes, layers,
 styles, as well as vector data upload operations. For more information
 about the GeoServer REST API, see
-\<https://docs.geoserver.org/stable/en/user/rest/\> .
+\<https://docs.geoserver.org/main/en/user/rest/\> .
 
 ## See also
 

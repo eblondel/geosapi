@@ -213,7 +213,7 @@ Manage `dataStores`
 ##### 4.3 Manipulate GeoServer `workspaces`
 
 > **GeoServer API doc**:
-> <https://docs.geoserver.org/stable/en/user/rest/api/workspaces.html>
+> <https://docs.geoserver.org/main/en/user/rest/api/workspaces/>
 
 ###### 4.3.1 Get a (list of) `workspace(s)`
 
@@ -256,7 +256,7 @@ deleted workspace.
 ##### 4.4 Manipulate GeoServer `namespaces`
 
 > **GeoServer API doc**:
-> <https://docs.geoserver.org/stable/en/user/rest/api/namespaces.html>
+> <https://docs.geoserver.org/main/en/user/rest/api/namespaces/>
 
 ###### 4.4.1 Get a (list of) `namespace(s)`
 
@@ -301,7 +301,7 @@ deleted namespace.
 ###### 4.5.1 Manipulate GeoServer `dataStores`
 
 > **GeoServer API doc**:
-> <https://docs.geoserver.org/stable/en/user/rest/api/datastores.html>
+> <https://docs.geoserver.org/main/en/user/rest/api/datastores/>
 
 ###### 4.5.1.1 Get a (list of) `dataStore(s)`
 
@@ -416,7 +416,7 @@ Example with an OGC Geopackage upload
 ###### 4.5.3 Manipulate GeoServer `featureType`
 
 > **GeoServer API doc**:
-> <https://docs.geoserver.org/stable/en/user/rest/api/featuretypes.html>
+> <https://docs.geoserver.org/main/en/user/rest/api/featuretypes/>
 
 ###### 4.5.3.1 Get a (list of) `featureType(s)`
 
@@ -515,7 +515,7 @@ deleted featureType.
 ###### 4.5.4 Manipulate GeoServer `layers`
 
 > **GeoServer API doc**:
-> <https://docs.geoserver.org/stable/en/user/rest/api/layers.html>
+> <https://docs.geoserver.org/main/en/user/rest/api/layers/>
 
 ###### 4.5.4.1 Get a (list of) `layer(s)`
 
@@ -627,7 +627,7 @@ GeoServer:
 ###### 4.5.6 Manipulate GeoServer `layer groups`
 
 > **GeoServer API doc**:
-> <https://docs.geoserver.org/stable/en/user/rest/api/layergroups.html>
+> <https://docs.geoserver.org/main/en/user/rest/api/layergroups/>
 
 ###### 4.5.6.1 Get a (list of) `layer group(s)`
 
@@ -683,7 +683,7 @@ GeoServer:
 ###### 4.6.1 Manipulate GeoServer `coveragestores`
 
 > **GeoServer API doc**:
-> <https://docs.geoserver.org/stable/en/user/rest/api/coveragestores.html>
+> <https://docs.geoserver.org/main/en/user/rest/api/coveragestores/>
 
 ###### 4.6.1.1 Get a (list of) `coveragestore(s)`
 
@@ -796,7 +796,7 @@ Example with a GeoTIFF upload
 ###### 4.6.3 Manipulate GeoServer `coverages`
 
 > **GeoServer API doc**:
-> <https://docs.geoserver.org/stable/en/user/rest/api/coverages.html>
+> <https://docs.geoserver.org/main/en/user/rest/api/coverages/>
 
 ###### 4.6.3.1 Get a (list of) `coverage(s)`
 
