@@ -182,7 +182,7 @@ The ``GSManager`` inherits all methods of resource dependent managers, to provid
 
 #### 4.3 Manipulate GeoServer ``workspaces``
 
->**GeoServer API doc**: https://docs.geoserver.org/stable/en/user/rest/api/workspaces.html
+>**GeoServer API doc**: https://docs.geoserver.org/main/en/user/rest/api/workspaces/
 
 <a name="GSWorkspace-get"/>
 
@@ -229,7 +229,7 @@ The ``recurse`` parameter allows to delete all layers published under the delete
 
 #### 4.4 Manipulate GeoServer ``namespaces``
 
->**GeoServer API doc**: https://docs.geoserver.org/stable/en/user/rest/api/namespaces.html
+>**GeoServer API doc**: https://docs.geoserver.org/main/en/user/rest/api/namespaces/
 
 <a name="GSNamespace-get"/>
 
@@ -280,7 +280,7 @@ The ``recurse`` parameter allows to delete all layers published under the delete
 
 ##### 4.5.1 Manipulate GeoServer ``dataStores``
 
->**GeoServer API doc**: https://docs.geoserver.org/stable/en/user/rest/api/datastores.html
+>**GeoServer API doc**: https://docs.geoserver.org/main/en/user/rest/api/datastores/
 
 <a name="GSDataStore-get"/>
 
@@ -396,7 +396,7 @@ Example with an OGC Geopackage upload
 
 ##### 4.5.3 Manipulate GeoServer ``featureType``
 
->**GeoServer API doc**: https://docs.geoserver.org/stable/en/user/rest/api/featuretypes.html
+>**GeoServer API doc**: https://docs.geoserver.org/main/en/user/rest/api/featuretypes/
 
 <a name="GSFeatureType-get"/>
 
@@ -495,7 +495,7 @@ The ``recurse`` parameter allows to delete the layer published for the deleted f
 
 ##### 4.5.4 Manipulate GeoServer ``layers``
 
->**GeoServer API doc**: https://docs.geoserver.org/stable/en/user/rest/api/layers.html
+>**GeoServer API doc**: https://docs.geoserver.org/main/en/user/rest/api/layers/
 
 <a name="GSLayer-get"/>
 
@@ -606,7 +606,7 @@ The method ``publishLayer`` will sequentially do two requests to GeoServer:
 
 ##### 4.5.6 Manipulate GeoServer ``layer groups``
 
->**GeoServer API doc**: https://docs.geoserver.org/stable/en/user/rest/api/layergroups.html
+>**GeoServer API doc**: https://docs.geoserver.org/main/en/user/rest/api/layergroups/
 
 <a name="GSLayerGroup-get"/>
 
@@ -669,7 +669,7 @@ The method ``publishLayer`` will sequentially do two requests to GeoServer:
 
 ##### 4.6.1 Manipulate GeoServer ``coveragestores``
 
->**GeoServer API doc**: https://docs.geoserver.org/stable/en/user/rest/api/coveragestores.html
+>**GeoServer API doc**: https://docs.geoserver.org/main/en/user/rest/api/coveragestores/
 
 <a name="GSCoverageStore-get"/>
 
@@ -784,7 +784,7 @@ Example with a GeoTIFF upload
 
 ##### 4.6.3 Manipulate GeoServer ``coverages``
 
->**GeoServer API doc**: https://docs.geoserver.org/stable/en/user/rest/api/coverages.html
+>**GeoServer API doc**: https://docs.geoserver.org/main/en/user/rest/api/coverages/
 
 <a name="GSCoverage-get"/>
 

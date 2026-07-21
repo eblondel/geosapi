@@ -170,7 +170,7 @@ GSCoverageStoreManager <- R6Class("GSCoverageStoreManager",
     #'    By defaut, the option \code{recurse} is set to FALSE, ie datastore layers are not removed.
     #'    To remove all coverage store layers, set this option to TRUE. The \code{purge} parameter is used 
     #'    to customize the delete of files on disk (in case the underlying reader implements a delete method). 
-    #'    It can take one of the three values: none, metadata, all. For more details see \url{https://docs.geoserver.org/stable/en/user/rest/api/coveragestores.html#purge}
+    #'    It can take one of the three values: none, metadata, all. For more details see \url{https://docs.geoserver.org/main/en/user/rest/api/coveragestores/#rest_api_coveragestores_purge}
     #'@param ws workspace name
     #'@param cs coverage store name
     #'@param recurse recurse
