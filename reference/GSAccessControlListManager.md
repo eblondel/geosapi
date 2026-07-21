@@ -281,7 +281,7 @@ Generic method to add an access control rule
 
 #### Usage
 
-    GSAccessControlListManager$addRule(rule)
+    GSAccessControlListManager$addRule(rule, position = c("first", "last"))
 
 #### Arguments
 
@@ -289,6 +289,12 @@ Generic method to add an access control rule
 
   object of class
   [GSRule](https://eblondel.github.io/geosapi/reference/GSRule.md)
+
+- `position`:
+
+  position with the list of rules, either "first" or "last". The
+  position is especially true to capture to the order of priority. For
+  priority, put 'first'.
 
 #### Returns
 
@@ -304,7 +310,7 @@ Adds an access control layer rule
 
     GSAccessControlListManager$addLayerRule(
       ws = NULL,
-      lyr,
+      lyr = "*",
       permission = c("r", "w", "a"),
       roles
     )
@@ -406,7 +412,7 @@ Generic method to modify an access control rule
 
 #### Usage
 
-    GSAccessControlListManager$modifyRule(rule)
+    GSAccessControlListManager$modifyRule(rule, position = c("first", "last"))
 
 #### Arguments
 
@@ -414,6 +420,12 @@ Generic method to modify an access control rule
 
   object of class
   [GSRule](https://eblondel.github.io/geosapi/reference/GSRule.md)
+
+- `position`:
+
+  position with the list of rules, either "first" or "last". The
+  position is especially true to capture to the order of priority. For
+  priority, put 'first'.
 
 #### Returns
 
@@ -467,9 +479,9 @@ The objects of this class are cloneable with this method.
 #>     ERROR: function (text) 
 #>     INFO: function (text) 
 #>     WARN: function (text) 
-#>     addLayerRule: function (ws = NULL, lyr, permission = c("r", "w", "a"), roles) 
+#>     addLayerRule: function (ws = NULL, lyr = "*", permission = c("r", "w", "a"), 
 #>     addRestRule: function (pattern = "/**", methods, roles) 
-#>     addRule: function (rule) 
+#>     addRule: function (rule, position = c("first", "last")) 
 #>     addServiceRule: function (service, method, permission = c("r", "w", "a"), roles) 
 #>     clone: function (deep = FALSE) 
 #>     connect: function () 
@@ -495,7 +507,7 @@ The objects of this class are cloneable with this method.
 #>     initialize: function (url, user, pwd, logger = NULL, keyring_backend = "env") 
 #>     logger: function (type, text) 
 #>     loggerType: NULL
-#>     modifyRule: function (rule) 
+#>     modifyRule: function (rule, position = c("first", "last")) 
 #>     monitor: function (file = NULL, append = FALSE, sleep = 1) 
 #>     reload: function () 
 #>     setCatalogMode: function (mode = c("HIDE", "MIXED", "CHALLENGE")) 

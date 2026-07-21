@@ -163,6 +163,7 @@ You can reference `geosapi` through its DOI:
 For now, the package can be installed from Github
 
 ``` r
+
 install.packages("remotes")
 ```
 
@@ -171,6 +172,7 @@ install `geosapi. By default, package will be installed from`master\`\`
 which is the current version in development (likely to be unstable).
 
 ``` r
+
 remotes::install_github("eblondel/geosapi")
 ```
 
@@ -181,6 +183,7 @@ enter the following line, specifying the base `URL` of your GeoServer,
 and your credentials:
 
 ``` r
+
 gsman <- GSManager$new(
     url = "http://localhost:8080/geoserver", #baseUrl of the Geoserver
     user = "admin", pwd = "geoserver", #credentials
@@ -215,6 +218,7 @@ Manage `dataStores`
 ###### 4.3.1 Get a (list of) `workspace(s)`
 
 ``` r
+
   #get workspace objects
   wslist <- gsman$getWorkspaces()
 
@@ -228,18 +232,21 @@ Manage `dataStores`
 ###### 4.3.2 Create a new `workspace`
 
 ``` r
+
   created <- gsman$createWorkspace("geosapi", "http://geoapi")
 ```
 
 ###### 4.3.3 Update an existing `workspace`
 
 ``` r
+
   updated <- gsman$updateWorkspace("geosapi", "http://newgeoapi")
 ```
 
 ###### 4.3.4 Delete an existing `workspace`
 
 ``` r
+
   deleted <- gsman$deleteWorkspace("geosapi", recurse = TRUE)
 ```
 
@@ -254,6 +261,7 @@ deleted workspace.
 ###### 4.4.1 Get a (list of) `namespace(s)`
 
 ``` r
+
   #get namespace objects
   nslist <- gsman$getNamespaces()
 
@@ -267,18 +275,21 @@ deleted workspace.
 ###### 4.4.2 Create a new `namespace`
 
 ``` r
+
   created <- gsman$createNamespace("geosapi", "http://geoapi")
 ```
 
 ###### 4.4.3 Update an existing `namespace`
 
 ``` r
+
   updated <- gsman$updateNamespace("geosapi", "http://newgeoapi")
 ```
 
 ###### 4.4.4 Delete an existing `namespace`
 
 ``` r
+
   deleted <- gsman$deleteNamespace("geosapi", recurse = TRUE)
 ```
 
@@ -295,6 +306,7 @@ deleted namespace.
 ###### 4.5.1.1 Get a (list of) `dataStore(s)`
 
 ``` r
+
   #get datastore objects
   dslist <- gsman$getDataStores("topp")
 
@@ -310,6 +322,7 @@ deleted namespace.
 - 4.5.1.2.1 Create a **Shapefile** `dataStore`
 
 ``` r
+
   ds = GSShapefileDataStore$new(dataStore="topp_datastore",
                                 description = "topp_datastore description",
                                 enabled = TRUE,
@@ -320,6 +333,7 @@ deleted namespace.
 - 4.5.1.2.2 Create a **Shapefiles Directory** `dataStore`
 
 ``` r
+
   ds = GSShapefileDirectoryDataStore$new(dataStore="topp_datastore",
                                 description = "topp_datastore description",
                                 enabled = TRUE,
@@ -330,6 +344,7 @@ deleted namespace.
 - 4.5.1.2.3 Create a **GeoPackage** `dataStore`
 
 ``` r
+
   ds = GSGeoPackageDataStore$new(dataStore="topp_datastore",
                                 description = "topp_datastore description",
                                 enabled = TRUE,
@@ -340,6 +355,7 @@ deleted namespace.
 ###### 4.5.1.3 Update an existing `dataStore`
 
 ``` r
+
   dataStore <- gsman$getDataStore("topp", "topp_datastore")
   dataStore$setDescription("topp_datastore updated description")
   dataStore$setEnabled(FALSE)
@@ -350,6 +366,7 @@ deleted namespace.
 ###### 4.5.1.4 Delete an existing `dataStore`
 
 ``` r
+
   deleted <- gsman$deleteDataStore("topp", "topp_datastore", recurse = TRUE)
 ```
 
@@ -388,6 +405,7 @@ spatialite file \* `uploadAppSchema`: upload an app schema \*
 Example with an OGC Geopackage upload
 
 ``` r
+
   uploaded <- gsman$uploadGeoPackage(
     ws = "my_workspace", ds = "my_gpkg_datastore",
     endpoint = "file", configure = "first", update = "overwrite",
@@ -403,6 +421,7 @@ Example with an OGC Geopackage upload
 ###### 4.5.3.1 Get a (list of) `featureType(s)`
 
 ``` r
+
   #get featureType objects
   ftlist <- gsman$getFeatureTypes("topp", "taz_shapes")
 
@@ -416,6 +435,7 @@ Example with an OGC Geopackage upload
 ###### 4.5.3.2 Create a new `featureType`
 
 ``` r
+
   #create featuretype object
   featureType <- GSFeatureType$new()
   featureType$setName("tasmania_cities2")
@@ -447,6 +467,7 @@ table with `geosapi`:
 
 ``` r
 
+
 ##virtual table
 vt <- GSVirtualTable$new()
 vt$setName("view name")
@@ -471,6 +492,7 @@ featureType$setVirtualTable(vt)
 ###### 4.5.3.3 Update an existing `featureType`
 
 ``` r
+
   #fetch featureType and update some properties
   featureType <- gsman$getFeatureType("topp", "taz_shapes", "tasmania_cities2")
   featureType$setAbstract("abstract updated")
@@ -483,6 +505,7 @@ featureType$setVirtualTable(vt)
 ###### 4.5.3.4 Delete an existing `featureType`
 
 ``` r
+
   deleted <- gsman$deleteFeatureType("topp", "taz_shapes", "tasmania_cities2", recurse = TRUE)
 ```
 
@@ -497,6 +520,7 @@ deleted featureType.
 ###### 4.5.4.1 Get a (list of) `layer(s)`
 
 ``` r
+
   #get layer objects
   layers <- gsman$getLayers()
 
@@ -514,6 +538,7 @@ in [4.5.3 Create a new
 `FeatureType`](https://github.com/eblondel/geosapi/wiki#GSFeatureType-create))
 
 ``` r
+
   layer <- GSLayer$new()
   layer$setName("tasmania_cities2")
   layer$setDefaultStyle("capitals")
@@ -524,6 +549,7 @@ in [4.5.3 Create a new
 ###### 4.5.4.3 Update an existing `layer`
 
 ``` r
+
   lyr <- gsman$getLayer("tasmania_cities")
   lyr$setDefaultStyle("generic")
   updated <- gsman$updateLayer(lyr)
@@ -532,6 +558,7 @@ in [4.5.3 Create a new
 ###### 4.5.4.4 Delete an existing `layer`
 
 ``` r
+
   deleted <- gsman$deleteLayer("tasmania_cities2")
 ```
 
@@ -555,6 +582,7 @@ GeoServer:
 - Create `layer`
 
 ``` r
+
   #create featuretype
   featureType <- GSFeatureType$new()
   featureType$setName("tasmania_cities2")
@@ -591,6 +619,7 @@ GeoServer:
 - Delete `featureType`
 
 ``` r
+
   #try to unpublish the complete layer (featuretype + layer)
   published <- gsman$unpublishLayer("topp", "taz_shapes", "tasmania_cities2")
 ```
@@ -603,6 +632,7 @@ GeoServer:
 ###### 4.5.6.1 Get a (list of) `layer group(s)`
 
 ``` r
+
   #get layer groups objects
   layerGroups <- gsman$getLayerGroups()
 
@@ -616,6 +646,7 @@ GeoServer:
 ###### 4.5.6.2 Create a new `layer group`
 
 ``` r
+
   lyr <- GSLayerGroup$new()
   lyr$setName("test_layergroup")
   lyr$setTitle("title")
@@ -629,6 +660,7 @@ GeoServer:
 ###### 4.5.6.3 Update an existing `layer group`
 
 ``` r
+
   lyr <- GSLayerGroup$new()
   lyr$setName("test_layergroup")
   lyr$setTitle("title")
@@ -642,6 +674,7 @@ GeoServer:
 ###### 4.5.6.4 Delete an existing `layer group`
 
 ``` r
+
   deleted <- gsman$deleteLayerGroup("test_layergroup")
 ```
 
@@ -655,6 +688,7 @@ GeoServer:
 ###### 4.6.1.1 Get a (list of) `coveragestore(s)`
 
 ``` r
+
   #get coveragestore objects
   cslist <- gsman$getCoverageStores("nurc")
 
@@ -670,6 +704,7 @@ GeoServer:
 - 4.6.1.2.1 Create a **GeoTIFF** `coveragestore`
 
 ``` r
+
   cs = GSGeoTIFFCoverageStore$new(name="sfdem_new", description = "sfdem_new description", enabled = TRUE)
   created <- gsman$createCoverageStore("sf", cs)
 ```
@@ -677,6 +712,7 @@ GeoServer:
 - 4.6.1.2.2 Create a **WorldImage** `coveragestore`
 
 ``` r
+
   cs = GSWorldImageCoverageStore$new(name="sfdem_new", description = "sfdem_new description", enabled = TRUE)
   created <- gsman$createCoverageStore("sf", cs)
 ```
@@ -684,6 +720,7 @@ GeoServer:
 - 4.6.1.2.3 Create a **ArcGrid** `coveragestore`
 
 ``` r
+
   cs = GSArcGridCoverageStore$new(name="sfdem_new", description = "sfdem_new description", enabled = TRUE)
   created <- gsman$createCoverageStore("sf", cs)
 ```
@@ -691,6 +728,7 @@ GeoServer:
 - 4.6.1.2.4 Create a **ImageMosaic** `coveragestore`
 
 ``` r
+
   cs = GSImageMosaicCoverageStore$new(name="sfdem_new", description = "sfdem_new description", enabled = TRUE)
   created <- gsman$createCoverageStore("sf", cs)
 ```
@@ -698,6 +736,7 @@ GeoServer:
 ###### 4.6.1.3 Update an existing `coveragestore`
 
 ``` r
+
   cs <- gsman$getCoverageStore("sf", "sfdem")
   cs$setDescription("sfdem updated description")
   cs$setEnabled(FALSE)
@@ -708,6 +747,7 @@ GeoServer:
 ###### 4.6.1.4 Delete an existing `coveragestore`
 
 ``` r
+
   deleted <- gsman$deleteCoverageStore("sf", "sfdem", recurse = TRUE)
 ```
 
@@ -745,6 +785,7 @@ an ImageMosaic
 Example with a GeoTIFF upload
 
 ``` r
+
   uploaded <- gsman$uploadGeoTIFF(
     ws = "sf", cs = "sfdem_new",
     endpoint = "file", configure = "none", update = "overwrite",
@@ -760,6 +801,7 @@ Example with a GeoTIFF upload
 ###### 4.6.3.1 Get a (list of) `coverage(s)`
 
 ``` r
+
   #get coverage objects
   covlist <- gsman$getCoverages("sf", "sfdem")
 
@@ -773,6 +815,7 @@ Example with a GeoTIFF upload
 ###### 4.6.3.2 Create a new `coverage`
 
 ``` r
+
   #create coverage object
   cov <- GSCoverage$new()
   cov$setName("sfdem_new")
@@ -812,6 +855,7 @@ below explains how to configure such coverage view with `geosapi`:
 
 ``` r
 
+
   ##coverage view
   coview <- GSCoverageView$new()
   coview$setName("sfdem_new")
@@ -831,6 +875,7 @@ below explains how to configure such coverage view with `geosapi`:
 ###### 4.6.3.3 Update an existing `coverage`
 
 ``` r
+
   #fetch coverage and update some properties
   cov <- gsman$getCoverage("sf", "sfdem", "sfdem")
   cov$setAbstract("abstract updated")
@@ -843,6 +888,7 @@ below explains how to configure such coverage view with `geosapi`:
 ###### 4.6.3.4 Delete an existing `coverage`
 
 ``` r
+
   deleted <- gsman$deleteCoverage("sf", "sfdem", "sfdem", recurse = TRUE)
 ```
 
@@ -854,6 +900,7 @@ deleted featureType.
 ###### 4.7.1 Get a (list of) `style`(s)
 
 ``` r
+
   styles <- gsman$getStyles()
   stylenames <- gsman$getStyleNames()
   style <- gsman$getStyle("capitals")
@@ -863,12 +910,14 @@ From GeoServer 2.2, it is also possible to get the content of a style,
 ie the SLD body:
 
 ``` r
+
   sld <- gsman$getSLDBody("capitals")
 ```
 
 ###### 4.7.2 Create a new `style`
 
 ``` r
+
   sldFile <- system.file("extdata", "mystyle.sld", package = "geosapi") #to use 'file' argument of gsman$createStyle
   sldStyle <- xmlParse(sldFile) #to use 'sldBody' argument of gsman$createStyle
   created <- gsman$createStyle(file = sldFile, name = "mystyle")
@@ -877,6 +926,7 @@ ie the SLD body:
 ###### 4.7.3 Update a new `style`
 
 ``` r
+
   sldFile2 <- system.file("extdata", "mystyle2.sld", package = "geosapi") #to use 'file' argument of gsman$updateStyle
   sldStyle2 <- xmlParse(sldFile2) #to use 'sldBody' argument of gsman$updateStyle
   updated <- gsman$updateStyle(sldBody = sldStyle2, name = "mystyle")
@@ -885,6 +935,7 @@ ie the SLD body:
 ###### 4.7.4 Delete an existing `style`
 
 ``` r
+
   deleted <- gsman$deleteStyle("mystyle", recurse = TRUE, purge = TRUE)
 ```
 
@@ -906,6 +957,7 @@ GeoServer UI. To create it (assuming a workspace named `geosapi`), run
 the following code:
 
 ``` r
+
 settings <- GSWorkspaceSettings$new()
 settings$setNumDecimals(5) #custom number of decimals for data published in this workspace
 created <- gsman$createWorkspaceSettings("geosapi", settings)
@@ -916,6 +968,7 @@ created <- gsman$createWorkspaceSettings("geosapi", settings)
 To get a workspace settings, use the following code:
 
 ``` r
+
 geosapi_settings <- gsman$getWorkspaceSettings("geosapi")
 ```
 
@@ -926,6 +979,7 @@ This method can be used in view of updating a workspace settings.
 Similar method can be used for updating the workspace configuration:
 
 ``` r
+
 settings <- gsman$getWorkspaceSettings("geosapi")
 settings$setNumDecimals(9) #change number of decimals
 created <- gsman$updateWorkspaceSettings("geosapi", settings)
@@ -937,6 +991,7 @@ The settings can be deleted (equivalent of unchecking the “Enabled”
 checkbox in a workspace settings section):
 
 ``` r
+
 deleted <- gsman$deleteWorkspaceSettings("geosapi")
 ```
 
@@ -948,6 +1003,7 @@ To get an OGC service settings (global, or workspace specific), geosapi
 offers a generic method that can be used as follows:
 
 ``` r
+
 #get WMS global settings
 wms_global_settings <- gsman$getServiceSettings(service = "WMS")
 
@@ -958,6 +1014,7 @@ wms_geosapi_settings <- gsman$getServiceSettings(service = "WMS", ws = "geosapi"
 Shortcut methods can also be used as follow:
 
 ``` r
+
 #get WMS global settings
 wms_global_settings <- gsman$getWmsSettings()
 
@@ -977,6 +1034,7 @@ by workspace:
 - Update the WMS global configuration:
 
 ``` r
+
 wmsSettings <- gsman$getWmsSettings()
 wmsSettings$setTitle("Tile for my global WMS")
 updated <- gsman$updateServiceSettings(wmsSettings, service = "WMS")
@@ -986,12 +1044,14 @@ Shortcut update methods are also available. The last code line above can
 be replaced by:
 
 ``` r
+
 updated <- gsman$updateWmsSettings(wmsSettings)
 ```
 
 - Update WMS workspace configuration
 
 ``` r
+
 wmsSettings <- GSServiceSettings$new(service = "WMS")
 wmsSettings$setTitle("Tile for my workspace WMS")
 wmsSettings$setAbstract("This WMS is set-up specifically for the workspace geosapi")
@@ -1021,6 +1081,7 @@ show you how to enable/disable WMS/WFS/WCS
 - Enable/Disable OGC services at workspace level
 
 ``` r
+
 #activates WMS for workspace 'geosapi'
 enabled <- gsman$enableWMS("geosapi")
 
