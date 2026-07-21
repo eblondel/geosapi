@@ -171,8 +171,12 @@ GSAccessControlListManager <- R6Class("GSAccessControlListManager",
     
     #'@description Generic method to add an access control rule
     #'@param rule object of class \link{GSRule}
+    #'@param position position with the list of rules, either "first" or "last". The position
+    #'is especially true to capture to the order of priority. For priority, put 'first'.
     #'@return \code{TRUE} if added, \code{FALSE} otherwise
-    addRule = function(rule){
+    addRule = function(rule, position = c("first", "last")){
+      
+      position = match.arg(position)
 
       if(!is(rule, "GSRule")){
         msg = "Argument 'rule' should be an object of class 'GSLayerRule', 'GSServiceRule', or 'GSRestRule'"
@@ -214,6 +218,11 @@ GSAccessControlListManager <- R6Class("GSAccessControlListManager",
         cli::cli_alert_danger(err)
         self$ERROR(err)
       }
+      
+      if(position == "first"){
+        self$modifyRule(rule, position = position)
+      }
+      
       return(created)
     },
     
@@ -224,7 +233,7 @@ GSAccessControlListManager <- R6Class("GSAccessControlListManager",
     #'@param roles one or more roles to add for the rule
     #'@return \code{TRUE} if added, \code{FALSE} otherwise
     addLayerRule = function(
-      ws = NULL, lyr,
+      ws = NULL, lyr = "*",
       permission = c("r","w","a"), 
       roles){
       
@@ -232,7 +241,7 @@ GSAccessControlListManager <- R6Class("GSAccessControlListManager",
       
       #checks on workspace (if any) and layer
       if(!is.null(self$getWorkspace)){ #assumes parent GSManager is used
-        if(!is.null(ws)){
+        if(!is.null(ws)) if(ws != "*"){
           ws_obj = self$getWorkspace(ws)
           if(is.null(ws_obj)){
             err = sprintf("No workspace '%s'", ws)
@@ -242,17 +251,19 @@ GSAccessControlListManager <- R6Class("GSAccessControlListManager",
           }
         }
         
-        lyr_obj = self$getLayer(lyr = lyr)
-        if(is.null(lyr_obj)){
-          err = sprintf("No layer '%s.'", lyr)
-          cli::cli_alert_danger(err)
-          self$ERROR(err)
-          return(FALSE)
+        if(lyr != "*"){
+          lyr_obj = self$getLayer(lyr = lyr)
+          if(is.null(lyr_obj)){
+            err = sprintf("No layer '%s.'", lyr)
+            cli::cli_alert_danger(err)
+            self$ERROR(err)
+            return(FALSE)
+          }
         }
       }
       
       rule <- GSLayerRule$new(
-        ws = ws, target = lyr,
+        ws = ws, lyr = lyr,
         permission = permission,
         roles = roles
       )
@@ -304,8 +315,10 @@ GSAccessControlListManager <- R6Class("GSAccessControlListManager",
     
     #'@description Generic method to modify an access control rule
     #'@param rule object of class \link{GSRule}
+    #'@param position position with the list of rules, either "first" or "last". The position
+    #'is especially true to capture to the order of priority. For priority, put 'first'.
     #'@return \code{TRUE} if modified, \code{FALSE} otherwise
-    modifyRule = function(rule){
+    modifyRule = function(rule, position = c("first", "last")){
       
       if(!is(rule, "GSRule")){
         msg = "Argument 'rule' should be an object of class 'GSLayerRule', 'GSServiceRule', or 'GSRestRule'"
@@ -335,7 +348,19 @@ GSAccessControlListManager <- R6Class("GSAccessControlListManager",
         path = sprintf("/security/acl/%s.xml", domain),
         content = {
           xml = xml2::xml_new_root("rules")
-          xml2::xml_add_child(xml, rule$encode())
+          rules = self$getRules(domain = domain)
+          rules = rules[sapply(rules, function(x){x$attrs$resource != rule$attrs$resource})]
+          switch(position,
+            "first" = {
+              rules = c(rule, rules)
+            },
+            "last" = {
+              rules = c(rules, rule)
+            }
+          )
+          for(arule in rules){
+            xml2::xml_add_child(xml, arule$encode())
+          }
           gsub("[\r\n ] ", "", as(xml, "character"))
         },
         contentType = "application/xml",

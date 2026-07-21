@@ -265,13 +265,16 @@ an object of class \link{GSRestRule} or \code{NULL} if no rule is found
 \subsection{Method \code{addRule()}}{
 Generic method to add an access control rule
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GSAccessControlListManager$addRule(rule)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GSAccessControlListManager$addRule(rule, position = c("first", "last"))}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{rule}}{object of class \link{GSRule}}
+
+\item{\code{position}}{position with the list of rules, either "first" or "last". The position
+is especially true to capture to the order of priority. For priority, put 'first'.}
 }
 \if{html}{\out{</div>}}
 }
@@ -287,7 +290,7 @@ Adds an access control layer rule
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GSAccessControlListManager$addLayerRule(
   ws = NULL,
-  lyr,
+  lyr = "*",
   permission = c("r", "w", "a"),
   roles
 )}\if{html}{\out{</div>}}
@@ -371,13 +374,16 @@ Adds an access control rest rule
 \subsection{Method \code{modifyRule()}}{
 Generic method to modify an access control rule
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GSAccessControlListManager$modifyRule(rule)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GSAccessControlListManager$modifyRule(rule, position = c("first", "last"))}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{rule}}{object of class \link{GSRule}}
+
+\item{\code{position}}{position with the list of rules, either "first" or "last". The position
+is especially true to capture to the order of priority. For priority, put 'first'.}
 }
 \if{html}{\out{</div>}}
 }

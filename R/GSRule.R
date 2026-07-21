@@ -40,7 +40,7 @@ GSRule <- R6Class("GSRule",
    decode = function(xml){
      xml = xml2::as_xml_document(xml)
      self$attrs$resource = xml2::xml_attr(xml, "resource")
-     self$roles = strsplit(xml2::xml_contents(xml) %>% as.character(), ",")
+     self$roles = unlist(strsplit(xml2::xml_contents(xml) %>% as.character(), ","))
    }
  )                       
 )
