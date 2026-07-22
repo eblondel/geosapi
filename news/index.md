@@ -2,6 +2,8 @@
 
 ## [geosapi 0.8-1](https://cran.r-project.org/package=geosapi) \| [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-published-blue.svg)](https://cran.r-project.org/package=geosapi)
 
+CRAN release: 2026-07-22
+
 **Enhancements**
 
 - [\#78](https://github.com/eblondel/geosapi/issues/78) Consolidate ACL
